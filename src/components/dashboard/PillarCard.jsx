@@ -16,19 +16,6 @@ const RELATIONSHIP_LABELS = {
   'reserved-active':    { text: 'Practice',    color: '#999' },
 };
 
-const MODULE_ROUTES = {
-  work: '/app/work',
-  money: '/app/money',
-  people: '/app/people',
-  office: '/app/office',
-  tech: '/app/tech',
-  family: '/app/family',
-  neighbors: '/app/neighbors',
-  community: '/app/community',
-  hadith: '/app/hadith',
-  quran: '/app/quran',
-};
-
 export default function PillarCard({ pillar, subModules, valuesLayer, completedOpening, deferred }) {
   const Icon = PILLAR_ICON_MAP[pillar.icon];
   const label = getPillarLabel(pillar, valuesLayer);

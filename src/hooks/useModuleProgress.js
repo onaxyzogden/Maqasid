@@ -1,48 +1,7 @@
 import { useMemo } from 'react';
 import { useProjectStore } from '../store/project-store';
 import { useTaskStore } from '../store/task-store';
-
-/**
- * Dev-only simulation override. When `VITE_SIMULATE_PROGRESS` is set to a
- * number 0–100 in `.env.local`, both hooks below short-circuit and report
- * that value for every pillar — useful for eyeballing dashboards with
- * non-zero progress without seeding fake tasks. Inert when unset.
- */
-const SIMULATED_PCT = (() => {
-  const raw = import.meta.env.VITE_SIMULATE_PROGRESS;
-  if (raw == null || raw === '') return null;
-  const n = Number(raw);
-  return Number.isFinite(n) ? Math.max(0, Math.min(100, Math.round(n))) : null;
-})();
-
-function isDoneColumn(columnId) {
-  return columnId?.endsWith('_done');
-}
-
-function isTodoColumn(columnId) {
-  return columnId?.endsWith('_to_do') || columnId?.endsWith('_todo');
-}
-
-function isTaskDone(task) {
-  return task.completedAt || isDoneColumn(task.columnId);
-}
-
-function isTaskStarted(task) {
-  return !isTodoColumn(task.columnId);
-}
-
-/**
- * Weighted completion for a single task.
- * Done tasks = 1. Tasks with subtasks = doneSubtasks / totalSubtasks.
- * Tasks with no subtasks that aren't done = 0.
- */
-function taskWeight(task) {
-  if (isTaskDone(task)) return 1;
-  const subs = task.subtasks;
-  if (!subs || subs.length === 0) return 0;
-  const done = subs.filter((s) => s.done).length;
-  return done / subs.length;
-}
+import { SIMULATED_PCT, isTaskStarted, taskWeight } from '../data/task-progress';
 
 /**
  * Calculate progress for a single module by aggregating tasks

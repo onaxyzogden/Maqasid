@@ -47,8 +47,8 @@ const SEGMENT_DESCRIPTION = {
     text: 'Land intelligence — know the land before asking anything of it.',
   },
   milos: {
-    label: 'MILOS',
-    text: 'Life Operating System — your whole life as one coherent trust.',
+    label: 'MIOS',
+    text: 'Islam Orienting System — your whole life as one coherent trust.',
   },
 };
 
@@ -106,7 +106,7 @@ export default function EcosystemPresentationFrame() {
   const forceHover = beat >= 1 && beat <= 3 ? KEY_TO_ID[beat] : null;
   const forceConverged = beat === 4;
 
-  const beatLabels = ['Calm', 'BBOS', 'OLOS (Atlas)', 'MILOS', 'Convergence'];
+  const beatLabels = ['Calm', 'BBOS', 'OLOS (Atlas)', 'MIOS', 'Convergence'];
 
   return (
     <div className="ogp-frame">

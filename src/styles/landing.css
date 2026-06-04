@@ -98,7 +98,39 @@
 .hero-section > .hero-cta,
 .hero-section > .hero-marquee,
 .hero-section > .hero-bento,
+.hero-section > .hero-grid,
 .hero-section > .hero-wheel { position: relative; z-index: 1; }
+
+.hero-grid {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-10);
+}
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+.hero-text .hero-title,
+.hero-text .hero-subtitle { margin-left: 0; margin-right: 0; }
+.hero-text .hero-cta { justify-content: flex-start; }
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-8);
+  }
+  .hero-text {
+    align-items: center;
+    text-align: center;
+  }
+  .hero-text .hero-cta { justify-content: center; }
+}
+
+.hero-grid .hero-wheel { margin-top: 0; justify-self: center; }
 
 .hero-wheel {
   width: 100%;

@@ -3,6 +3,1360 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-05-15] session | MILOS — Faith SALAH: 3 Cat-3 mismatched-hadith subtasks corrected
+
+**Objective:** Fix three Faith SALAH subtasks whose cited hadith were
+duplicated and topic-mismatched artifacts of the 2026-04-25 parser-first
+migration: Tahajjud (Bukhari 1109/1091/1092, travel-jam'), khushuʿ
+(Bukhari 958/959/621, ʿId-prayer / night adhan), Duha (Bukhari
+1775/1776, Duha-as-bidʿah — evidence that contradicts the subtask).
+
+**Approach:** Amanah Gate honored — zero memory-asserted hadith. All
+replacement evidence retrieved from the authorized NotebookLM Muslim
+Scholar corpus `be921648`; refs preserve the corpus's USC-MSA
+Volume/Book/Hadith form verbatim (not re-numbered from memory).
+Tahajjud → Muslim Bk6 H2611 + Bukhari V2/Bk21/H246 (tier kept T2).
+Khushuʿ → Bukhari V1/Bk12/H718 + Muslim Bk2/H451 + Bukhari V1/Bk2/H47
+(Jibril/ihsan, contextual; tier kept T2). Duha → Bukhari V3/Bk31/H202
++ Muslim Bk4/H1557 (tier upgraded T3→T2, old rationale literally
+recorded the heresy mismatch). Quran entries left untouched. Each new
+entry carries a specific non-boilerplate rationale.
+
+**Deviations:** `scripts/audit-grounding-quality.mjs` and the referenced
+istiftah ADR do not exist; substituted real gates and created a fresh
+ADR on the established grounding-ADR structure. No backlog generator
+exists — defects verified independently in source.
+
+**Verification:** `npm test` 56/56; `lint-grounding.mjs` 0 errors / 0
+legacy; `audit-inline-refs --strict` OK ≤ 0; faith file ESLint exit 0
+(2 self-introduced `rak\'at` escape errors fixed). `npm run lint` full
+chain's only failures are 3 pre-existing unrelated Sidebar/Dashboard
+errors (proven via git stash) — out of scope.
+
+- Pages touched:
+  wiki/decisions/2026-05-15-milos-faith-salah-cat3-hadith-fix.md
+  (created), wiki/log.md, wiki/index.md; src:
+  data/seed-tasks/faith-seed-tasks.js (3 subtasks, 26+/35-)
+
+## [2026-05-14] session | Atlas — Goal Compass: project-type templates + Act calendar auto-schedule
+
+**Objective:** Two same-day follow-ups to the shipped 4-tab Goal
+Compass: (1) replace the blank-slate goal-tree editor with project-type
+templates to cut decision fatigue, and (2) auto-schedule generated
+tasks onto the Act calendar with role-based access tags so stewards
+see "this week's work" the moment a proposal is generated.
+
+**Approach:**
+(1) `goalTreeTemplates.ts` — one `GoalTree` per `PlanProjectTypeKey`
+(6 archetypes). Homestead reuses existing seed; the other five
+hand-authored against Mollison/Yeomans canon.
+`goalTreeStore.ensureDefault` now takes `projectType`; new
+`switchTemplate` action swaps the tree after a UI confirm.
+`GoalTreeTab` default UI exposes only `target` / `deadlineYear`
+edits; description, add/remove, and sub-goal-title edits live behind
+an Advanced `<details>` collapse.
+(2) `PhaseTask` extended with `scheduledStart` / `scheduledEnd` /
+`roleAccess`; `LocalProject` gains `startDate`. New
+`scheduleTasksToCalendar(phases, tasks, projectStartDate)` distributes
+tasks across 90-day season windows (year offset = `phase.order - 1`,
+even spread within each (phase, season) bucket, duration =
+`ceil(laborHrs / 8)` days). Every task tagged with all four
+`ProjectRole` values for forward-compat. New 5th tab `DevelopPlanTab`
+carries the start-date input and a `Re-schedule tasks` button.
+`useEventAggregator` adds a 6th source `'phaseTask'` (label "Plan
+tasks") so Act → Schedule → Event calendar surfaces the proposal.
+
+**Verification:** `tsc --noEmit` exits 0. On the Moontrance Creek
+fixture, Generate proposal populates 13 tasks across 6 phases; every
+task has `scheduledStart`, `scheduledEnd`, and
+`roleAccess: ['owner','designer','reviewer','viewer']`. Tasks
+distribute across each season window (Mar 1 / Mar 23 / Apr 15 /
+May 8 within spring Year 4). Act → Schedule → Event calendar's Mar
+1, 2026 cell renders `Parcel assessment & base map · Climate &
+assessment · 60h · owner/designer/reviewer/viewer · 9:00 AM`.
+
+**Decision:** [2026-05-14 — Goal Compass templates + scheduling](decisions/2026-05-14-atlas-goal-compass-templates-and-scheduling.md)
+
+---
+
+## [2026-05-14] session | Atlas — Goal Compass: goal-driven plan generation (12th Plan module)
+
+**Objective:** Stewards type phasing rows, labor hours, and dollar
+costs by hand for canonical interventions (swales, ponds, food
+forests, paddock rotation). The knowledge already lives in
+Mollison/Yeomans/Crawford/Holzer. Let stewards declare measurable
+success criteria for a parcel and have Atlas propose a phased,
+costed, sequenced plan.
+
+**Approach:** New `'goal-compass'` PlanModule (4 tabs: Goal tree /
+Site profile / Generated plan / Criteria forecast) backed by:
+(1) a curated typed `interventionCatalog.ts` with MILOS-grade
+`sources[]` per entry, (2) a deterministic greedy-topological
+sequencing engine respecting Yeomans phase order + acreage budget +
+household labor budget, (3) a forecast roll-up at year buckets
+{1,3,5,7,10,20} with confidence attenuator driven by manual-facet
+density, (4) an Impact Preview that re-runs the engine with a
+candidate edit and shows forecast deltas + cascading removals
+before commit. Engine output materialises through
+`replaceGoalCompassRows()` into the existing `phaseStore` (extended
+with optional `generatedFromIntervention` / `catalogVersion` /
+`status` provenance fields, backward-compatible — user-authored
+rows have `status === undefined` and are never touched).
+
+**Verification:** Live in-app pass on 10ac/slope-4%/rainfed fixture
+with 2-adult household: 13 generated rows across 6 Yeomans phases
+(Climate / Water / Access / Trees / Buildings / Soil) — exceeds
+plan target of ≥12 rows across ≥5 phases. Same rows visible in
+Phasing & Budgeting matrix (Climate 60 h, Water 126 h = swale 6 +
+pond 80 + catchment 40, Access 8 h). Impact Preview on swale
+removal: ↓ 2 pct water capture, ↑ 18 pct protein at Y10. Criteria
+forecast: 11 criteria × 6 buckets with by-deadline ✓/✗ pills, "low"
+confidence at 100% manual facets. Fixed `SiteProfileTab` infinite
+render mid-verification (counts selector returned fresh object →
+inlined). `tsc --noEmit` clean; 47 vitest files / 710 tests pass.
+
+**Files touched:** `apps/web/src/v3/plan/types.ts` +
+`PlanModuleSlideUp.tsx` + `PlanViewContext.tsx` +
+`PlanChecklistAside.tsx` + `data/planModulePalette.ts` +
+`data/planModuleArtifactPresence.ts` (module registration). New:
+`data/goalCompassTypes.ts`, `data/interventionCatalog.ts`,
+`data/homesteadGoalTree.ts`,
+`goal-compass/engine/{siteRequirementPredicates,sequencingEngine,criteriaForecast,impactPreview}.ts`,
+`cards/goal-compass/{GoalTreeTab,SiteProfileTab,GeneratedPlanTab,CriteriaForecastTab}.tsx`,
+`store/{goalTreeStore,siteProfileStore}.ts`. Modified:
+`cards/phasing-budgeting/phaseStore.ts` (provenance fields +
+`replaceGoalCompassRows` / `overrideGoalCompassTask`).
+
+**Deferred:** Auto-placed geometry on canvas, right-rail progress
+wheel, non-homestead archetypes (regen farm / retreat / education
+/ conservation / multi-enterprise), backend catalog + scholar
+council workflow, LLM goal-tree extraction, constraint-satisfaction
+solver, override confirm path (panel exists; Confirm button is a
+placeholder pending phaseStore wire-up — `overrideGoalCompassTask`
+already exists).
+
+**Decision:** [[2026-05-14-atlas-goal-compass]]
+**Entity:** [[goal-compass]]
+
+---
+
+## [2026-05-14] session | Atlas — Live area / length readout while drawing polygons + polylines
+
+**Objective:** Steward draws an orchard or paddock and sees no
+spatial feedback until the polygon closes; same for swales, fences,
+contour lines. Wire a live readout that updates with every vertex
+click and every mouse-move rubber-band tick across every polygon /
+line annotation tool in Observe + Plan.
+
+**Approach:** Centralised the geometry pump in
+`useMapboxDrawTool` — subscribed to MapboxDraw's `draw.render`
+event (fires after every click and every cursor move), scanned the
+in-progress feature, computed `turf.area` or `turf.length`, and
+coalesced setState through `requestAnimationFrame` so the ~60 Hz
+firehose during mouse-move doesn't thrash React. Hook now returns
+`{ geometry, liveArea, liveLength }`. Two new shared
+presentational components (`DrawAreaReadout`, `DrawLengthReadout`)
+accept caller-supplied CSS-module classnames so they slot into any
+tool's popover without owning their own styles. Formatting mirrors
+the existing `AreaTool` / `DistanceTool` rules: `> 10 000 m²` shows
+`X.XX ha (Y.YY ac)`, else `N m²`; `> 1000 m` shows `X.XX km`, else
+`N.N m`.
+
+Wired into 11 polygon tools (Pasture, ConventionalCrop, EcologyZone,
+HazardZone, FrostPocket, Septic, Building, BeV2ExistingTool polygon
+kinds, WaterCatchment, Paddock, CropArea, ZonePolygon) and 16
+polyline tools (AccessRoad, BuriedUtility, ContourLine,
+DrainageLine, ExistingDriveway, Fence, PowerLine, Watercourse,
+BeV2ExistingTool line kinds, FenceLine, FlowConnector,
+MonitoringTransect, PathLine, UtilityRun, WaterSwale). Also
+threaded through `useDesignElementDrawTool` so the
+PlanDesignElementHost / PlantSystemsDesignElementHost popovers
+surface the right chip for orchards / silvopasture / pasture-mix
+(area) and hedgerows / paths / roads / swales (length).
+
+`BoundaryTool` kept its own MapboxDraw instance (seeded
+`direct_select` edit path was too risky to refactor) and got the
+same `draw.render` + rAF + `turf.area` pump inlined; the
+post-completion display also adopted the new m² / ha / ac unit
+rule.
+
+**Verification:** `npx tsc --noEmit` clean (`NODE_OPTIONS=--max-old-space-size=8192`).
+No new runtime errors in preview console. Pre-existing
+DOM-nesting warnings in `ObserveModuleBar` unaffected. Screenshot
+verification skipped — preview screenshot tool timed out on the
+`/observe` route; flagged rather than assumed.
+
+**ADR:** [2026-05-14-atlas-draw-live-area-length-readout](decisions/2026-05-14-atlas-draw-live-area-length-readout.md)
+
+---
+
+## [2026-05-13] session | Atlas — DiagnoseMap toolbar overlap fix + Steward/Household unification ADR addendum
+
+**Objective:** Resolve the overlap between the standalone "Place / Move
+homestead" toolbar (DiagnoseMap, `_toolbar_1fqi3_33`) and the
+`DesignToolRail` (`_rail_1d95c_1`) on the Observe canvas. The steward
+also noticed the Steward/household tool in `ObserveTools` was
+conceptually redundant with the toolbar.
+
+**Approach:** A parallel session had already retired the toolbar in
+atlas commits `469b8865` (unify Steward / household pin as Zone 0
+anchor surface) + `c4697d54` (household-pin fallback + derived-anchor
+hint + sync homestead on pin delete) — collapsing the two surfaces
+into one and routing household pin save through to `homesteadStore`.
+This session's contribution is the ADR addendum on
+`wiki/decisions/2026-05-13-atlas-residence-zone0-derivation.md`
+documenting the new precedence chain (explicit homesteadStore → single
+household annotation → single residence BE entity → none) so the
+canonical decision file reflects the as-shipped behavior.
+
+**Completed:**
+
+- atlas `7366a848` (push: `c4697d54..7366a848`): wiki ADR addendum on
+  the residence Zone-0 derivation file describing the
+  Steward/Household unification, the new precedence chain, and the
+  retired toolbar.
+- Parent submodule bumped to `7366a848`.
+
+**Deferred:**
+
+- Scholar re-evaluation Round 1 Phases 3–6 — still blocked on
+  `notebooklm login` re-auth on the Scholar-owning Google account
+  (see `atlas/tasks/scholar-reevaluation/HANDOFF.md`). Once auth
+  lands, the 6-call dialogue + digest + ADR + conditional backlog-v2
+  resume from offline scaffolding.
+- Scholar re-evaluation Round 2 — gated on Rec #2 (Temporal slider)
+  ship.
+- Rec #2 ship (Temporal slider) — work-in-progress in a separate
+  session (`TemporalScrubSlider.tsx`, `temporalScrubStore.ts`,
+  `TemporalCoherenceCard.tsx`, `packages/shared/src/succession/`).
+
+**Recommended Next Session:** Either re-attempt `notebooklm login`
+to unblock the Scholar re-eval pipeline, or pick up the Rec #2
+Temporal slider ship from its current in-flight state.
+
+---
+
+## [2026-05-13] session | Atlas — MTC fallback persistence gap closed
+
+**Objective:** Close the `'mtc'` fallback persistence gap surfaced by
+the earlier DesignStatusChip spot-check. The Plan and Act routes
+`/v3/project/mtc/...` use a hardcoded slug `'mtc'` as `projectId`,
+but no project with that id existed in the persisted store —
+`updateProject('mtc', …)` was silently a no-op, so every write to
+the MTC demo (parcel boundary, audit-state metadata, sector radii,
+zone thresholds) was lost on reload.
+
+**Approach:** Seed MTC as an `isBuiltin` row keyed by `id: 'mtc'`
+at store-hydrate time, *before* `hydrateBuiltins()`. The builtin
+write allowlist landed in commit `67176654` (metadata) already
+routes the audit-state writes correctly. Duplicated `MTC_FALLBACK`
+definitions in `PlanLayout.tsx` and `ActLayout.tsx` deleted; both
+now import the exported `MTC_SEED` as their pre-hydration
+fallback.
+
+**Commits (already on `feat/atlas-permaculture`, pushed):**
+
+| Commit | Files | Description |
+|---|---|---|
+| `8f585e4f` | 3 | Seed MTC demo + preserve metadata across builtin re-seed. |
+| `e9a7db71` | — | Follow-up: stable selector for `OrphanCountProbe` edges. |
+
+**Verification result:** Toggle "Allow orphan outputs" on
+`/v3/project/mtc/plan/principle-verification` now persists through a
+full page reload — confirmed in preview MCP. `⚠ Orphans allowed`
+chip mounts; `metadata.allowOrphanOutputs` round-trips through
+localStorage. Real project `ec5ed028-…` unaffected.
+
+**Deferred follow-ups:**
+- Unit test on `updateProject`'s builtin allowlist
+  (`parcelBoundaryGeojson`, `hasParcelBoundary`, `metadata`).
+- `pnpm typecheck` / `pnpm lint` blocked by local pnpm binary
+  outage (`spawnSync … ENOENT pnpm v10.32.1`) — runtime smoke was
+  clean (Vite HMR + console). Re-run statically when pnpm is fixed.
+
+## [2026-05-13] session | Atlas — DesignStatusChip / allowOrphanOutputs spot-check
+
+**Objective:** Verify the Rec #1 DesignStatusChip + `allowOrphanOutputs`
+toggle behaviour in the running Plan canvas per
+`plans/cursor-needs-to-change-mossy-willow.md`.
+
+**Result:** All four plan steps pass — chip mounts on `/plan` showing
+`Status · Draft`; chip click opens the Needs & Yields slide-up; toggling
+"Allow orphan outputs" ON surfaces the `⚠ Orphans allowed` warning
+sibling; toggling OFF removes it.
+
+**Inline fixes (not in original plan, made under work-without-stopping
+override):**
+
+| Commit | File | Description |
+|---|---|---|
+| `428048e6` | `apps/web/src/lib/relationships/useAllPlacedEntities.ts` | Null-safe `paddock.species` / `geometry` — previously crashed Needs & Yields module at mount. Probe also extracted into a child component behind a local error boundary so future upstream crashes are contained to the audit card. |
+| `67176654` | `apps/web/src/store/projectStore.ts` | Added `'metadata'` to the builtin-project `updateProject` allowlist. Every Rec #1 metadata write (`designStatus`, `allowOrphanOutputs`, `designHorizonYears`, zone thresholds) was being silently dropped on builtin sample projects (e.g. "351 House — Atlas Sample"). |
+
+**Deferred follow-ups:**
+- The `'mtc'` fallback project route can never persist `updateProject`
+  writes since no project with id `'mtc'` exists in the store. Out of
+  scope for this audit; needs its own ticket.
+- Worth a unit test on `updateProject`'s builtin allowlist (regression
+  guard for the metadata path).
+
+## [2026-05-12] session | Atlas — useStructureStore facade retired (Phases 4–5)
+
+**Objective:** Complete the BE V2 unification per the 2026-05-10 ADR
+by retiring the V1 `useStructureStore` facade. Phases 1–3 (narrow
+`ProjectedStructure.type` to `StructureType`, collapse `Structure` to
+a `ProjectedStructure` alias, add Structure selector-library helpers)
+landed earlier in commit `51df97b0`. This session covered the
+148-file consumer sweep + facade body deletion.
+
+**Scope discovery:** initial estimate was ~70 consumer sites; actual
+was 148 files (483 occurrences across `useStructureStore` +
+`StructureType`). Sites fell into three patterns: ~125 read-only
+subscribers, ~15 writer calls, ~5 `placementMode` UI-state readers,
+plus a `useStructureStore.subscribe` in `syncService.ts`.
+
+**Commits (all on `feat/atlas-permaculture`):**
+
+| Phase | Commit | Files | Description |
+|---|---|---|---|
+| 4-A | `084afa89` | 138 | Pattern A — read-only subscribers → `useAllStructures()` / `getAllStructures()`. syncService subscribe path migrated to `useBuiltEnvironmentStoreV2.subscribe`. |
+| 4-B | `147948a2` | 19  | Pattern B — writers (`addStructure`/`updateStructure`/`removeStructure`) migrated. Hook-bound action subscribers folded into module-level imports. `cascadeClone` / `cascadeDelete` `setState` pokes replaced with action calls. |
+| 4-C | `5629c722` | 3   | Extracted `placementMode` UI state into a new `structurePlacementStore.ts` (Zustand, no persist). Migrated DesignToolsPanel + MapCanvas. |
+| 5   | `b57c33ed` | 3   | Facade body deleted: `structureStore.ts` slimmed to a type-only re-export of `Structure` + `StructureType` from `@ogden/shared`. Adapter test's facade describe block removed; syncService.test.ts mock retargeted at the V2 store. |
+
+**Long-term decisions made under autonomy:**
+
+1. Added `useAllStructures()` / `getAllStructures()` helpers (sibling to
+   `*ForProject`) rather than collapsing every call site to the
+   project-filtered form. Preserved compound predicates
+   (`GUEST_FACING.has(s.type)`, …) without per-site analysis.
+2. Migrated `syncService.subscribe` directly to
+   `useBuiltEnvironmentStoreV2` rather than deferring — Phase 5 was
+   going to delete the facade either way.
+3. Slimmed `structureStore.ts` to a type-only module (~65 type
+   imports still point at it) instead of retargeting all consumers at
+   `@ogden/shared` in this session — same pattern used for
+   `designElementsStore.ts` on the same day; cheap follow-up later.
+
+**Verification per phase:**
+- `tsc --noEmit` (apps/web): clean after every phase.
+- `vitest run builtEnvironmentAdapters.test.ts`: 13 selector + 9
+  observe-facade tests = 22/22 passing (down from 18+ after Phase 5
+  retired the V1 facade describe block).
+- `vitest run syncService.test.ts`: 9/9 passing after mock retarget.
+
+**Follow-up (same day, commit `eeb76133`):** carry-over closed. 68 files
+retargeted from `'.../structureStore.js'` → `'@ogden/shared'` (using
+`type { ProjectedStructure as Structure, StructureType }`), and
+`apps/web/src/store/structureStore.ts` deleted outright. The
+`useStructureStore` retirement is now complete end-to-end — zero
+production references remain (one docstring comment in
+`harvestLogStore.ts:35` left intact). Verified `tsc --noEmit` clean,
+adapter tests 13/13.
+
+**Carry-over (still out of scope):**
+- Renaming the snake_case `StructureType` members to kebab-case kinds
+  (separate domain decision).
+- Dev-preview smoke-test of Plan canvas (draw cabin, drag vertex,
+  edit via floater).
+
+## [2026-05-12] session | Atlas — ContemplationZonesCard joins the zoneThresholds family
+
+**Objective:** Migrate the fourth Plan-stage card with a hard-coded
+adjacency constant — `ContemplationZonesCard.NEARBY_RADIUS_M = 100` —
+to consume `getZoneThresholds(project)` so the steward's tune-zones
+choice cascades to §8 Quiet Contemplation Zone Planning alongside the
+three already-migrated readouts.
+
+**Change** (`apps/web/src/features/zones/ContemplationZonesCard.tsx`):
+- Imported `useProjectStore`, `getZoneThresholds`, `DEFAULT_ZONE_THRESHOLDS` from `projectStore.js`.
+- Inline project fetch via `useProjectStore((s) => s.projects.find((p) => p.id === projectId))` (same pattern as ArrivalSequenceDesignCard's prior migration — preserves the card's `projectId: string` prop signature, no caller ripple).
+- `const NEARBY_RADIUS_M = 100` → `const NEARBY_RADIUS_M = (project ? getZoneThresholds(project).mediumM : DEFAULT_ZONE_THRESHOLDS.mediumM) * 2;`
+- Updated the inline comment to document the cascade. JSX templates (`{NEARBY_RADIUS_M}` in hint copy, tile blurbs, and footnote) re-evaluate per render, so they automatically reflect the dynamic value.
+
+**Honest behaviour change:** default radius shifts 100 m → 150 m
+(2 × mediumM=75). The original comment said "doubled SpiritualCommunal
+adjacency" — when that adjacency moved from 50 → 75 in the prior
+session, the doubled value should move 100 → 150 to preserve the
+relationship. More contemplation zones may register as "noise nearby"
+at defaults; stewards who preferred the tighter 100 m bound can set
+`mediumM` to 50 via the disclosure and round-trip back.
+
+**Verification:** `tsc --noEmit` clean.
+
+**Cascade family now covers four cards:**
+| Card | Threshold consumed |
+|---|---|
+| FertilityColocationCard | closeM + mediumM (bucket bounds) |
+| SpiritualCommunalCard | mediumM (adjacency advisory) |
+| ArrivalSequenceDesignCard | closeM (milestone radius) |
+| ContemplationZonesCard | 2 × mediumM (nearby radius) |
+
+**Commit:** `ebe16a0a` on `feat/atlas-permaculture` — pushed.
+
+**Deferred:** preview smoke-test of the contemplation cascade against
+the seeded sample project. The seed currently produces 0 contemplation
+zones (no `category === 'spiritual'` zones, no keyword-tagged zones),
+so the card renders the empty state. A follow-up could extend
+`seedFertilitySample.ts` with a spiritual zone or two to exercise the
+new tile counts and per-zone analysis rows.
+
+---
+
+## [2026-05-12] session | Atlas — preview smoke-test of the zoneThresholds cascade
+
+**Objective:** Exercise the FertilityColocation Tune-zones disclosure end
+to end against the seeded sample project, then verify the cascade
+propagates to SpiritualCommunal and ArrivalSequence via
+`getZoneThresholds(project)`. No code changes — observation + tightening
+backlog only.
+
+**Tooling:** `mcp__Claude_Preview__*` MCP toolchain against `:5200`.
+`preview_screenshot` consistently timed out at 30 s on the Plan canvas
+(MapboxGL/3D rasterisation hang), so evidence is DOM/store-level reads
+via `preview_eval` and `preview_inspect` — the more accurate path per the
+tool docs anyway.
+
+**Run notes (chronological):**
+- Seeded with `window.__ogdenSeedFertilitySample()` → `{ ok: true, inserted: { structures: 4, paths: 2, guilds: 3, fertility: 3 } }`. Hard-refresh; rehydration confirmed in `useBuiltEnvironmentStoreV2` (5 entities including the pre-existing builtin "building"), `useStructureStore` (4 proposed), `usePathStore` (2), `usePolycultureStore` (3), `useClosedLoopStore` (3).
+- Defaults: disclosure summary `Tune zones (advanced) — currently Zone-1 ≤ 25 m, Zone-2 25–75 m · defaults`; buckets `Close 3 / Medium 0 / Far 0 / Unplaced 0`; Resilience `100% redundant`; Reset disabled. ✅
+- Set closeM=18: summary `· custom`; buckets reflow to `Close 2 / Medium 1`; store persists; Reset enabled. ✅
+- Invalid pair (closeM=80, mediumM=60): inline error `Zone-2 max must be greater than Zone-1 max. The bucketing below still uses the last valid pair.`; store unchanged at last valid; summary unchanged. ✅
+- Reset to defaults: store clears immediately; inputs/summary catch up after ~one React tick (500 ms read shows full restore). **Minor optical lag** — not a correctness bug, filed as polish.
+- SpiritualCommunal cascade at mediumM=50: nearest bathhouse computed at 59.9 m from prayer_space → advisory fires (`59.9 > 50`). ✅ Verified by computation rather than navigating to the mount surface (Educational Atlas / StructuresBuildingsPage not reachable from current Plan route).
+- ArrivalSequence cascade at closeM=50: tier shifts `single-reveal` (2 milestones at default) → `curated` (3 milestones: prayer_space@10m, pavilion@10m, lookout@50m). ✅
+- Idempotency: re-running the seed returns `{ ok: false, reason: 'project … already has placed entities (4 structures / 2 paths / 3 guilds / 3 fertility) — refusing to seed; clear them first or pass a different projectId' }`. ✅
+
+**Findings + tightening decisions:** see
+`notes/scratch/2026-05-12-zonethresholds-smoke-test.md` for the full
+table. Disclosure + cascade ship as-is. Two non-blocking polish items
+filed in `tasks/zonethresholds-tightening-2026-05-12.md`:
+
+1. **Reset optical lag** — store clears synchronously but the controlled
+   inputs + summary update one tick later; consider `flushSync` or input
+   re-key on Reset.
+2. **Soil module default sub-card** — opens to the designer, not the
+   colocation readout; reaching the disclosure costs an extra click and a
+   slide-up close/reopen.
+
+**Verdict:** zoneThresholds cascade is correct and stable. The two polish
+items are deferred; next session moves on to the next Plan-stage readout
+(candidates: ContemplationZonesCard — also reads adjacency thresholds —
+or one of the unmigrated `v3/plan/cards/` cards with hard-coded
+constants).
+
+**Commit:** documentation-only — no app code changed; `apps/web` is at
+`b3baddb0` from the prior session.
+
+---
+
+## [2026-05-12] session | Atlas — seedFertilitySample dev helper for zoneThresholds smoke-test
+
+**Objective:** Unblock manual smoke-testing of the FertilityColocation
+Tune-zones disclosure + cascading SpiritualCommunal / ArrivalSequence
+behaviour. The builtin "351 House — Atlas Sample" ships with the PLAN
+stage empty by design (per `builtinSampleObserveData.ts:4-9`), and the
+`<details>` disclosure is gated behind `!emptyAll` — so without seeded
+data the cascade UX can't be exercised.
+
+**Approach:** dev-only console helper, no UI surface. Matches the
+existing `__ogden*` debug-handle pattern from `projectStore.ts:706` and
+`zoneStore.ts:235`.
+
+**Files:**
+- Added `apps/web/src/dev/seedFertilitySample.ts` (~310 lines). Exports
+  `seedFertilitySample(projectId?)` and attaches
+  `window.__ogdenSeedFertilitySample` on module load. Drops a
+  deterministic 12-entity payload (4 structures, 3 fertility units,
+  3 guilds, 2 paths) anchored at the parcel centroid via
+  `turf.centroid` with cosine-corrected metre offsets (matches the
+  inline helper in `SpiritualCommunalCard.tsx:90-98`). Idempotent —
+  refuses with `{ ok: false, reason: 'project already populated...' }`
+  if any entity exists in any of the four stores for the target id.
+- Edited `apps/web/src/main.tsx` — one side-effect import line.
+
+**Entity layout (relative to parcel centroid, metres N/E):**
+- Structures: prayer_space (0,0); bathhouse (0,+60); pavilion (-50,0);
+  lookout (-80,+30).
+- Fertility: composter (+15,0); worm_bin (+40,+30); hugelkultur (+90,0).
+- Guilds: tomato-basil (+10,0); stone-fruit (+20,-20); berry-hedgerow
+  (+100,0).
+- Paths: arrival_sequence "Main approach" (-100,-30 → -40,0 → -10,0);
+  pedestrian_path "Kitchen-garden loop" (+5,+5 → +20,+20).
+
+**Cascade the seed enables:**
+- Drop `mediumM` 75→50: bathhouse (60 m from prayer_space) falls
+  beyond Zone-2 reach → SpiritualCommunal wudu-walk advisory fires.
+- Raise `closeM` 25→50: pavilion + lookout both come into arrival
+  milestone range → tier shifts toward curated.
+- Reset round-trip restores defaults.
+
+**Verification:** `tsc --noEmit` clean. Preview smoke-test deferred to
+the next session — the helper is a function reference, no auto-run.
+
+**Commit:** `b3baddb0` on `feat/atlas-permaculture` — pushed.
+
+**Deferred:**
+- URL-param trigger (`?seedSample=fertility`) — console handle suffices.
+- `clearFertilitySample` complement — entity stores already have
+  remove* actions; a console one-liner suffices.
+- Wiring into automated tests — manual smoke-test aid, not a fixture.
+
+---
+
+## [2026-05-12] session | Atlas — narrowed ProjectedStructure.type and added structure selectors
+
+**Objective:** Begin retiring the V1 `useStructureStore` facade (the last
+of three V1 stores in the BE V2 unification ADR 2026-05-10). The facade's
+only structural reason to exist was a single `as StructureType` cast in
+`projectV2ToStructures` — `Structure` and `ProjectedStructure` were
+otherwise byte-identical except for `Structure.type: StructureType`
+narrowing `ProjectedStructure.type: string`.
+
+**Decision:** chose option (b) — narrow `ProjectedStructure.type` to
+`StructureType` in shared rather than widening the 6 production
+narrowing sites. The narrow union already lived at
+`packages/shared/src/demand/structureDemand.ts:13` (driving the
+`STRUCTURE_WATER_GAL_PER_DAY` + `STRUCTURE_KWH_PER_DAY` Record tables),
+so the "move" was structurally a no-op — just two type-tightening edits.
+
+**Phase 1 — Narrow ProjectedStructure.type (shared):**
+- Imported `StructureType` from `./demand/structureDemand.js` into
+  `builtEnvironmentProjection.ts`.
+- `ProjectedStructure.type: string` → `type: StructureType`.
+- `KIND_TO_LEGACY_STRUCTURE_TYPE: Readonly<Record<string, string>>` →
+  `Readonly<Record<string, StructureType>>`.
+- Added `structureDemand` exports to `packages/shared/src/index.ts` so
+  apps can import `StructureType` from the shared root (required by
+  Phase 2's re-export from `structureStore.ts`).
+
+**Phase 2 — Collapse `Structure` to `ProjectedStructure` alias:**
+- Replaced the 20-line `StructureType` duplicate in `structureStore.ts`
+  with `export type { StructureType } from '@ogden/shared'`.
+- Replaced the `Structure` interface body with
+  `export type Structure = ProjectedStructure`.
+- Deleted `projectV2ToStructures` cast helper (no longer needed —
+  `projectToStructures` now returns the narrow type directly). Facade
+  subscription + rehydrate dance now calls `projectToStructures`
+  directly.
+- Facade writers + `placementMode` slice untouched — consumer call
+  sites continue to work unchanged through the upcoming Phase 4 sweep.
+
+**Phase 3 — Structure selector helpers (Phase 6.C of the ADR):**
+- `builtEnvironmentSelectors.ts` gains the matching helpers for the
+  DesignElement pattern: `useStructuresForProject`,
+  `getStructuresForProject`, `findStructureGlobal`, `addStructure`,
+  `updateStructure`, `removeStructure`.
+- Reads bypass the V1 facade entirely (direct `projectToStructures`
+  call on the V2 entities slice + project filter + stable empty-array
+  for the no-hit case).
+- Writers replicate the facade's V1 → V2 kind translation logic
+  (`canonicalizeKind` + snake-to-kebab fallback) and `ProposedMetadata`
+  builder. Single source-of-truth pattern matches the DesignElement
+  writers added on 2026-05-12.
+- 7 new adapter tests (add/update/remove/find round-trip, empty-state
+  stability, cross-project isolation, unknown-id null). 18/18 passing.
+
+**Verification:** `tsc --noEmit` clean across both `@ogden/shared` and
+`apps/web` (zero new errors; baseline 2 unrelated errors in
+ObserveLayout / PlanLayout pre-existed). `vitest run
+builtEnvironmentAdapters.test.ts` — 18/18.
+
+**Commit:** `51df97b0` —
+*refactor(atlas): narrow ProjectedStructure.type and add structure selectors*
+
+**Scope discovery:** the planned 144-site consumer sweep (Phase 4) was
+estimated by the user at "~70 sites." Actual count from
+`grep -l useStructureStore`: 144 files. 47 reference `StructureType`
+(mostly as type annotations); only 6 files perform literal-string
+narrowing. Phase 4 (Pattern A read-only subscriptions, Pattern B
+writer calls, Pattern C `placementMode` extraction) plus Phase 5
+(facade deletion) deferred to a follow-up slice.
+
+**Plan record:**
+`C:\Users\MY OWN AXIS\.claude\plans\revert-observe-stage-module-squishy-hippo.md`
+(approved 2026-05-12).
+
+---
+
+## [2026-05-12] session | Atlas — smoke-tested zoneThresholds wiring in preview
+
+**Objective:** Confirm the per-project zoneThresholds plumbing (field + selector + store actions + persist v4 + card wiring across FertilityColocation / SpiritualCommunal / ArrivalSequence) actually behaves correctly at runtime, not just at compile-time.
+
+**Action:** Ran the dev server (already up at localhost:5200), navigated `/v3/project/mtc/plan/soil`, clicked the active Soil tile to open the slide-up, switched to the Fertility colocation tab. Then drove the project store directly via the exposed `window.__ogdenProjectStore` handle.
+
+**Verified end-to-end:**
+- Existing project loads with `zoneThresholds === undefined` — selector path resolves to defaults.
+- `setZoneThresholds(pid, { closeM: 18, mediumM: 60 })` writes the field as expected.
+- `clearZoneThresholds(pid)` removes the key cleanly (not just sets to undefined — confirmed by JSON-stringifying the persisted state and checking `'zoneThresholds' in p` is false).
+- `localStorage['ogden-projects'].version === 4` — the v3 → v4 persist bump landed.
+- Zero console errors mentioning `zoneThresholds`, `FertilityColocation`, `SpiritualCommunal`, `ArrivalSequence`, or `getZoneThresholds`.
+
+**Card UX observation:** FertilityColocationCard renders its header + lede correctly (the lede references the disclosure: "tunable per project via *Tune zones* below"), but on this project the `<details>` Tune-zones disclosure is gated behind `!emptyAll` and the project has no placed guilds or fertility infrastructure, so the card falls through to its empty-state copy. That's the right call — no tuning knob until there's data to tune against. SpiritualCommunal + ArrivalSequence cards similarly require their own placed structures/paths to render their advisory copy. End-user interaction with the disclosure inputs (validation errors, Reset enable/disable) needs a project with real fertility data to exercise; deferred to a future session when that data exists.
+
+**No code changes.** Wiki entry only.
+
+---
+
+## [2026-05-12] session | Atlas — verified principle-cap todo already shipped
+
+**Objective:** Carry-over todo from a pre-compaction list (create `usePrincipleEvidenceVisibleIds` helper; cap `PrincipleCoverageMatrixCard` + `ThreeEthicsRollupCard` via it). Verify still relevant before doing the work.
+
+**Finding:** Already shipped in commit `6338ab45` (merged 2026-05-12 00:31, before this session began). Helper exists at `apps/web/src/v3/plan/cards/principle-verification/usePrincipleEvidenceVisibleIds.ts` — reads nine spatial stores (zones, paths, structures, transects, guilds, earthworks, crops, fertility, ecology), runs each project-scoped slice through `usePhaseStoreCappedEntities`, returns `{ visibleIds: Set, idToKind: Map }`. Both readouts consume it: `PrincipleCoverageMatrixCard` (line 70, via `idToKind`); `ThreeEthicsRollupCard` (line 73, via `visibleIds`). The asymmetric rule is preserved — `HolmgrenChecklistCard` (registration) intentionally does not cap.
+
+**Action:** No code changes. Stale todo list cleared. Logging the verification so future sessions don't re-tread.
+
+---
+
+## [2026-05-12] session | Atlas — opt SpiritualCommunal + ArrivalSequence cards into `zoneThresholds`
+
+**Objective:** Per the prior session's deferred sweep, survey other readouts hardcoding reach distances and migrate the qualifying ones to the canonical `getZoneThresholds(project)` selector — so the new project-level field earns its keep beyond a single reader and future cards have precedent for both `closeM` (Zone-1) and `mediumM` (Zone-2) opt-ins.
+
+**Commits (feat/atlas-permaculture):**
+- `eaf240d1` atlas(plan): opt SpiritualCommunal + ArrivalSequence cards into zoneThresholds.
+
+**SpiritualCommunalCard** (`features/structures/SpiritualCommunalCard.tsx`): `ADJACENCY_THRESHOLD_M = 50` (bathhouse-to-prayer-space "comfortable wudu-walk" advisory) now binds to `getZoneThresholds(project).mediumM`. Direct Zone-2 framing — the inline comment is updated to name the connection explicitly. Card already took `project: LocalProject`, so the migration was a one-line constant rewrite plus the import.
+
+**ArrivalSequenceDesignCard** (`features/access/ArrivalSequenceDesignCard.tsx`): `MILESTONE_RADIUS_M = 30` (guest-facing structures counted as reveal milestones along arrival paths) now binds to `getZoneThresholds(project).closeM` — Zone-1 framing. The card takes `projectId: string`, so the project gets resolved inside the component via `useProjectStore((s) => s.projects.find((p) => p.id === projectId))`; if the project is somehow missing the readout falls back to `DEFAULT_ZONE_THRESHOLDS.closeM` rather than crashing. `milestoneRadiusM` is added to the `rows` useMemo dep list and substituted into the lede, the linear-march caution copy, and the assumption footnote (which now names the framing: "project Zone-1 reach").
+
+**Survey verdict:** Of the candidates grepped for `< 25` / `<= 75` / similar near `haversine` callsites, only these two had genuine Zone-1 / Zone-2 semantics. ArrivalSequenceDesignCard's tier rule `lengthM > 100 && straightness > 0.85` stays hardcoded (those are march-detection thresholds, not zone reach). Other distance constants in the codebase (e.g., noise sector radii, sun-shadow ray lengths) are physical-process boundaries, not steward-walking-radius boundaries — out of scope.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` from `apps/web` clean (exit 0).
+
+---
+
+## [2026-05-12] session | Atlas — per-project zone thresholds + FertilityColocation tune-zones UI
+
+**Objective:** Make the FertilityColocationCard's Zone-1 / Zone-2 bucket boundaries tunable per project (deferred twice in prior debriefs), framed as project-level design metadata rather than a card-level UI preference. Zone reach is a property of the land + the steward's body + the cart they actually use — a steep hillside has a different Zone-1 than flat ground.
+
+**Commits (feat/atlas-permaculture):**
+- `3d76a7fd` atlas(plan): per-project zone thresholds + FertilityColocation tune-zones UI. New optional field `LocalProject.zoneThresholds?: { closeM, mediumM }` plus `DEFAULT_ZONE_THRESHOLDS = { closeM: 25, mediumM: 75 }` and canonical accessor `getZoneThresholds(project)`. New store actions `setZoneThresholds` / `clearZoneThresholds`. Persist version bumped v3 → v4 with a deliberate no-op migration block: existing projects stay `undefined` and read defaults via the selector, so future default changes propagate to unmigrated projects rather than freezing them. `createProject` defaults intentionally do not set the field.
+- FertilityColocationCard rewired: module-level `BUCKET_CLOSE_M` / `BUCKET_MEDIUM_M` constants and the static `BUCKET_LABEL` record removed. `bucketFor` now takes `closeM` / `mediumM` as arguments. `rows`, `byFertility`, and `resilience` useMemos read live values and include them in dep arrays. Bucket labels render via a new `bucketLabelFor(key, closeM, mediumM)` helper. Lede, Overall stat-row labels (Zone-1 walking radius, Redundantly served), Resilience-section paragraph, and By-fertility-unit paragraph all use template-literal interpolation of the live thresholds.
+
+**Tune-zones disclosure:** New `<details>` block at the top of the card body. Summary line shows the effective Zone-1 / Zone-2 limits plus a "custom" / "defaults" marker. Body has two number inputs (Zone-1 max, Zone-2 max) bound to local draft state synced to the persisted values via `useEffect`. Live validation: `closeM ∈ (1, 500]`, `mediumM > closeM`, `mediumM ≤ 500`; invalid drafts show inline red error copy and the store is not written (bucketing stays on the last valid pair). "Reset to defaults" button calls `clearZoneThresholds` and is disabled when already at defaults. Hint copy explains the framing — steep terrain favours smaller zones, flat ground favours larger.
+
+**Why project-level not card-level:** Three options were considered (new micro-store / slice on closedLoopStore / field on LocalProject). Landed on LocalProject because zones aren't a fertility-card concept — water reach, guest-path Zone-1, paddock walking radius all share the same framing. Putting the canonical answer on the project means future readouts opt in to one truth via `getZoneThresholds` instead of growing parallel knobs that drift. `LocalProject` already carries design metadata (visionStatement, metadata, build phases) so the addition fits the shape.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` from `apps/web` clean. Grep `BUCKET_CLOSE_M\|BUCKET_MEDIUM_M` in the colocation card → zero matches. Unrelated `BUCKET_LABEL` consts in SwotJournal / SwotDashboard / SiteNarrativeSummaryCard / CommentsByFeatureCard are different domains, untouched.
+
+---
+
+## [2026-05-12] session | Atlas BE V2 unification — V1 design-elements facade deleted (Phase 6 complete)
+
+**Objective:** Final deletion sweep. Slim `designElementsStore.ts` to a type-only module exporting `DesignElement`; remove the adapter test cases that exercised the facade; audit for any straggling imports the prior production-grep didn't catch.
+
+**Commits (feat/atlas-permaculture):**
+- `e00f497a` refactor(atlas): delete `useDesignElementsStore` V1 facade. `designElementsStore.ts` shrinks from ~300 lines to a 65-line type module. Deletions: the `useDesignElementsStore` `create<>()` definition + `DesignElementsState` interface; the local `STRUCTURE_CLASS_KINDS` set + `isStructureClass` helper (duplicate now lives only in `builtEnvironmentSelectors.ts`); `projectV2StructureElements` + `mergeByProject` helpers (the selector library's `projectV2StructureDesignElements` is the replacement); `initialMerged` constant; `recomputeMerged` + both V2 / landDesign subscribe handlers + the `useBuiltEnvironmentStoreV2.persist.rehydrate()` re-merge dance. Adapter test (`builtEnvironmentAdapters.test.ts`) drops the entire `describe('useDesignElementsStore facade', …)` block (78 lines, 5 tests + the `makeEl` helper + the `DesignElement` type import that block held), the facade-side calls in `resetAll()` (replaced with `useLandDesignStore.setState({ byProject: {} })`), and section #3 of the top-of-file JSDoc.
+
+**Audit:** `rg "useDesignElementsStore" apps/web/src --type ts` returns only doc-comment prose in `builtEnvironmentSelectors.ts`, `designElementsStore.ts`, and `landDesignStore.ts` — all narrating the historical migration, no code dependency. `rg "DesignElementsState"` returns zero matches. The 5 type-only `DesignElement` importers (`noiseSectorOverlap.ts`, `DesignElementLayers.tsx`, `DesignToolRail.tsx`, `landDesignStore.ts`, `builtEnvironmentSelectors.ts`) continue to resolve to the slimmed module.
+
+**State of BE V2 unification:** Phase 6 closes. Public surface is now:
+- `builtEnvironmentStoreV2` — the V2 entity store (writes + persist + zundo temporal).
+- `builtEnvironmentSelectors.ts` — readers (`use{Buildings,Wells,…,DesignElements}ForProject` + matching `get*` non-React variants) and DesignElement writers (`addDesignElement`, `removeDesignElement`, `updateDesignElement`, `findDesignElementGlobal`).
+- `landDesignStore` — non-structure design elements (paddock / pond / swale / orchard / path / road / gate / bridge / turnaround) on persist key `ogden-atlas-design-elements`.
+- `designElementsStore.ts` — type-only module exporting `DesignElement`.
+
+Remaining V1 facade in the BE family: `useStructureStore` (~70 consumer sites). Gated by `Structure → ProjectedStructure` narrowing collapse; tracked separately, independent of the design-elements arc.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` clean; `vitest run builtEnvironmentAdapters` 11/11 passing (was 16; the 5 facade tests went with the facade).
+
+ADR: `wiki/decisions/2026-05-10-atlas-built-environment-unification.md`.
+
+---
+
+## [2026-05-12] session | Atlas BE V2 unification — writer call sites off V1 facade
+
+**Objective:** Wire V2 + `useLandDesignStore` writers through the selector library so the remaining `useDesignElementsStore` writer call sites can migrate. After this slice no production code imports the V1 facade.
+
+**Commits (feat/atlas-permaculture):**
+- `1ce0ce9c` refactor(atlas): writer call sites off `useDesignElementsStore` facade. Four new helpers in `builtEnvironmentSelectors.ts`:
+  - `addDesignElement(projectId, el)` — replicates the V1 facade's routing: structure-class kinds call `useBuiltEnvironmentStoreV2.create({ state: 'proposed', ... })` with `proposed.phase` carried through; everything else goes to `useLandDesignStore.add`.
+  - `removeDesignElement(projectId, id)` — V2 entity check first; falls through to `useLandDesignStore.remove`.
+  - `updateDesignElement(projectId, id, patch)` — `useLandDesignStore.update` only. V2 structure-class kinds are owned by V2 and edited through it directly. Matches the V1 facade's behavior (the facade's `update` was non-structure-only too).
+  - `findDesignElementGlobal(id)` — searches V2 (via the projection helper) then `useLandDesignStore.byProject` for a globally-unique id. Replaces the per-file `useDesignElementsStore.getState().byProject` scan in `PlanVertexEditHandler`.
+  
+  Migrated 4 production writer call sites:
+  - `PlanSelectionFloater.tsx` — `.remove` → `removeDesignElement`. Dropped the `useDesignElementsStore` import.
+  - `useDesignElementDrawTool.ts` — `useDesignElementsStore((s) => s.add)` subscription → top-level `addDesignElement` call. Dropped the `add` dep from the `useCallback` deps array.
+  - `DesignToolRail.tsx` — same `.add` swap.
+  - `PlanVertexEditHandler.tsx` — `findDesignElement` helper now delegates to `findDesignElementGlobal`; the `useDesignElementsStore.update` write site swaps to `updateDesignElement`. Drops the `useDesignElementsStore` import.
+
+**Status of the V1 facade:** `useDesignElementsStore` is now referenced only by (a) its own definition in `designElementsStore.ts`, (b) the `landDesignStore.ts` doc-comment narrating its history, and (c) the adapter tests in `builtEnvironmentAdapters.test.ts`. Production code is fully migrated. The facade body and its adapter tests can be deleted in the next sweep — that final sweep also collapses the merge subscriptions and removes the `useBuiltEnvironmentStoreV2.persist.rehydrate()` re-merge dance that exists only to keep the facade's `byProject` up to date.
+
+**Strategic check:** A direct facade deletion now would only need to (1) drop ~150 lines from `designElementsStore.ts` leaving the `DesignElement` type export, (2) drop 4 test cases in `builtEnvironmentAdapters.test.ts`. The `Structure` narrowing question (which gates the ~70-site `useStructureStore` migration) is independent and unchanged by this slice.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` clean. `vitest run builtEnvironmentAdapters` 16/16 passing (facade still in place, all tests green).
+
+ADR: `wiki/decisions/2026-05-10-atlas-built-environment-unification.md`.
+
+---
+
+## [2026-05-12] session | Atlas BE V2 unification — selector library bypasses V1 facade for reads
+
+**Objective:** Close the read-side path to V1 facade deletion. `useDesignElementsForProject` / `getDesignElementsForProject` now bypass `useDesignElementsStore` entirely, merging V2 structure-class projections with non-structure entries direct from `useLandDesignStore`.
+
+**Commits (feat/atlas-permaculture):**
+- `dfb20b85` refactor(atlas): selector library reads non-structure kinds direct from `landDesignStore`. Added local `projectV2StructureDesignElements` helper (mirrors the projection the V1 facade does internally) and reworked both `getDesignElementsForProject` and `useDesignElementsForProject` to merge `projectToDesignElementsByProject(v2Entities)` with `useLandDesignStore.byProject[projectId]`. Same merge order as the V1 facade (non-structure first, V2 appended). The React hook subscribes to both `useBuiltEnvironmentStoreV2.entities` and `useLandDesignStore.byProject[projectId]` so updates from either side flow through; the `useMemo` keyed on both refs keeps result identity stable when nothing changed. Removed the `useDesignElementsStore` import.
+
+**State of V1 facades:**
+- Reader path: every reader call site that uses `useDesignElementsForProject` / `getDesignElementsForProject` (machinery cards, DesignToolRail, useDesignElementDrawTool, DesignElementLayers, PlanSelectionFloater) is now fully off the V1 facade for reads.
+- Writer path: `useDesignElementsStore` is still imported by writer call sites — `AnnotationRegistry.ts`, `annotationGeometryRegistry.ts`, `annotationFieldSchemas.ts`, plus writers each reader file still imports for `add`/`remove`/`update`. The facade body itself can be slimmed (it has no pure-read consumers via the selector library now) but cannot be deleted until those writers route through V2 + `useLandDesignStore` directly.
+
+**Next:** Wire equivalent writers through `builtEnvironmentSelectors.ts` (or a sibling writer module) so writer call sites can migrate off `useDesignElementsStore.getState().{add,remove,update,clear,setHiddenInView}`. Structure narrowing (Structure → ProjectedStructure) remains the gating piece for the parallel ~70-site `useStructureStore` consumer migration.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` from `apps/web` clean.
+
+ADR: `wiki/decisions/2026-05-10-atlas-built-environment-unification.md`.
+
+---
+
+## [2026-05-12] session | Atlas — FertilityColocationCard resilience signal
+
+**Objective:** Add a closed-loop resilience read on the FertilityColocationCard so the steward sees fragility the forward (nearest-unit) view can't surface — a guild served by a single composter looks tight in the bucket view, but the loop collapses the moment that one unit fails.
+
+**Commits (feat/atlas-permaculture):**
+- `0314b250` atlas(plan): FertilityColocationCard — resilience signal. Per placed guild (any guild with a centroid), count fertility units within ≤ 75 m and split into redundant (≥ 2 units), single-served (1 unit — at risk), and placed-but-no-fertility (0 units). Surfaced two ways: (a) new "Redundantly served (≥ 2 units, ≤ 75 m): X / Y" stat row in the existing Overall section, (b) new "Resilience" section between the bucket sections and By-fertility-unit, with % redundant pill, three count rows, and an at-risk list naming each single-served guild plus its only-unit-in-reach type. Empty-state copy when no guilds are single-served. Unplaced guilds excluded — they're handled by the bucket sections above.
+
+**Shape:** `GuildRow` extended with `servingUnitCount: number` and `servingUnitTypes: FertilityInfraType[]`; the `rows` useMemo now tallies units within `BUCKET_MEDIUM_M` (≤ 75 m) in the same pass as the nearest-unit search — no second iteration over `placedFertility`. New `resilience` useMemo derives `{ placedTotal, redundantCount, singleServed, unservedCount, placedPct }` from `rows` and feeds both surface points. Lede updated to document the new section.
+
+**Why ≤ 75 m and binary ≥ 2:** Matches the existing bucket framing (Zone-2 reach = "weekly hauls feasible") so the resilience read uses the same proximity discipline as everything else on the card. Binary (redundant / single / unserved) keeps the cognitive load low; tunable thresholds for "well-buffered ≥ 3" deferred until the steward asks.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` from `apps/web` clean.
+
+---
+
+## [2026-05-12] session | Atlas — layerFetcher.ts haversine tuple migration (geo extraction arc closed)
+
+**Objective:** Finish the `lib/geo.ts` extraction arc started in the prior session by migrating the last caller, `apps/web/src/lib/layerFetcher.ts`, off its local scalar `haversineKm(lat1, lng1, lat2, lng2)` adapter and onto the shared tuple API directly. After this commit `lib/geo.ts` is the single source of truth for haversine math with one canonical signature.
+
+**Commits (feat/atlas-permaculture):**
+- `9c274668` atlas: complete layerFetcher.ts haversine tuple migration. Dropped the local scalar adapter (`haversineKm(lat1, lng1, lat2, lng2) → haversineKmTuple([lng1, lat1], [lng2, lat2])`) and the aliased import (`haversineKm as haversineKmTuple`), replaced with a direct `import { haversineKm } from './geo.js'`. Rewrote all 22 callsites from scalar `(lat, lng, lat2, lng2)` to tuple `([lng, lat], [lng2, lat2])` form. Every callsite is a remote-data integration point (USGS wells, EPA UST, FCSI/LIO brownfields, NWIS climate stations, Overpass POIs, hardcoded city centroids for Toronto/Hamilton/Ottawa, ArcGIS feature services); per-callsite audit table preserved in the plan file so the lat↔lng transpose risk was diff-checked rather than blind. tsc clean. Math identical (already delegating to shared `haversineM`); commit is argument-shape only.
+
+**Why now:** The previous session left this file with a thin shim because transposing 24 callsites silently is the kind of mistake that ships into production. With a full per-callsite audit in hand the migration is no longer blind, and finishing it lets `lib/geo.ts` stand alone — every haversine call in the codebase now uses the same `[lng, lat]` Mapbox/GeoJSON tuple convention.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` from `apps/web` clean. Post-migration grep `haversineKm(lat,` → zero matches; `function haversineKm` in `layerFetcher.ts` → zero matches; `haversineKm(` count → 22 (all tuple form).
+
+---
+
+## [2026-05-12] session | Atlas BE V2 unification — landDesignStore extracted
+
+**Objective:** Move the module-private `useNonStructureStore` out of `designElementsStore.ts` into a dedicated top-level `landDesignStore.ts` — the first of the two preconditions for deleting the `useDesignElementsStore` V1 facade noted in the previous entry's "Next" item.
+
+**Commits (feat/atlas-permaculture):**
+- `294c001c` refactor(atlas): extract non-structure design elements into `landDesignStore`. New file `apps/web/src/store/landDesignStore.ts` exports `useLandDesignStore` with the identical shape (byProject + add/remove/clear/update) the V1 facade was already delegating to. Persist key (`ogden-atlas-design-elements`) and version (2, with the v1→v2 `view: 'current'` backfill migration) preserved verbatim so existing project data rehydrates unchanged. `designElementsStore.ts` updated: dropped the `persist` import + the 72-line module-private store definition, added `import { useLandDesignStore } from './landDesignStore.js'`, renamed all 8 in-body references to the new symbol. Facade behavior identical; consumer call sites untouched.
+
+**Why now:** Consumers that already migrated to `useDesignElementsForProject` (selector library) keep working. New consumers that only need non-structure kinds (paddock/pond/swale/orchard/path/road/gate/bridge/turnaround) can now import `useLandDesignStore` directly without routing through the merge-aware facade. Selector library can also be updated in a later slice to merge V2 structure-class + `useLandDesignStore` directly, bypassing the facade — unblocking facade deletion.
+
+**Next:** Either (a) update `useDesignElementsForProject` / `getDesignElementsForProject` in `builtEnvironmentSelectors.ts` to source non-structure kinds directly from `useLandDesignStore` (closing the path to V1 facade deletion for reads), or (b) tackle V1 writer call sites by wiring equivalent V2 writers through the selector library. Structure narrowing (Structure → ProjectedStructure) remains the other gating piece for the ~70-site `useStructureStore` migration.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` from `apps/web` clean.
+
+ADR: `wiki/decisions/2026-05-10-atlas-built-environment-unification.md`.
+
+---
+
+## [2026-05-12] session | Atlas BE V2 unification — Phase 6.B continued (DesignElement readers onto selector name)
+
+**Objective:** Stabilize the import surface for Plan-stage DesignElement reads so consumer call sites don't need a second migration when the V1 facade eventually retires.
+
+**Commits (feat/atlas-permaculture):**
+- `bf2c4e21` atlas(plan): Phase 6.B — Structure + DesignElement selectors + machinery cards. Added `useStructuresForProject` / `getStructuresForProject` and `useDesignElementsForProject` / `getDesignElementsForProject` to `builtEnvironmentSelectors.ts`. Both wrap the V1 facades for now — not because the wrap reduces surface area, but because (a) `useStructureStore` returns narrowed `Structure[]` with `type: StructureType` (the projection returns `type: string`; un-wrapping forces every consumer to widen narrowing) and (b) `useDesignElementsStore` merges V2 structure-class entities with a module-private `useNonStructureStore` for paddock / pond / swale / road kinds that haven't migrated into V2's registry. Reading direct from V2 would silently drop the non-structure half. The facades retire when (i) Structure narrowing collapses into a shared `ProjectedStructure` and (ii) non-structure kinds extract into a dedicated `landDesignStore` (per the ADR doc-comment on `designElementsStore.ts`). Proof-of-shape migration: `MachineryAccessFitCard.tsx` + `MachineryHousingFuelCard.tsx` — both read non-structure kinds (`turnaround`, `path`, `road`, `gate`, `fuel-station`, `machinery-shed`), so a V2-direct selector would have lost half their data.
+- `0bfc120a` atlas(plan): Phase 6.B — DesignElement readers off V1 facade name. Swapped 4 more call sites onto `useDesignElementsForProject` / `getDesignElementsForProject`: `DesignToolRail.tsx`, `useDesignElementDrawTool.ts`, `DesignElementLayers.tsx`, `PlanSelectionFloater.tsx::designElementGeometryType`. Each consumer keeps the V1 facade import for writers (add / remove / update) where applicable; only read paths shift to the new selector name. Existing per-file `EMPTY_ELEMENTS` module constants dropped — the selector manages the stable empty-array reference internally.
+
+**Strategic note:** The remaining `useStructureStore` consumer migration (~70 call sites) is mechanical and was considered, but `useStructureStore` is already a thin V2 facade with no semantic merge — migrating 70 sites doesn't shrink V1 surface area meaningfully because the facade is ~80 lines that retire trivially with the V1 store. The real wins are in readers that do meaningful aggregation (which Observe completed earlier today, and DesignElement closed in this slice). Defer Structure consumer migration until the V1 store deletion sweep.
+
+**Remaining V1 facade readers:** `PlanVertexEditHandler.findDesignElement` scans all projects for a global id lookup (not project-filtered, stays on V1 facade until selector library grows a global-find helper). All writer call sites in `AnnotationRegistry.ts`, `annotationGeometryRegistry.ts`, `annotationFieldSchemas.ts` stay on V1 facades — they migrate when V2 grows equivalent writers.
+
+**Next:** Either (a) migrate non-structure design-element kinds (paddock / pond / swale / road) into a dedicated `landDesignStore` to unblock `useDesignElementsStore` deletion, or (b) tackle the V1 writer call sites by wiring equivalent V2 writers through `builtEnvironmentSelectors.ts`. Both are scoped phase-6 architectural pieces.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` from `apps/web` clean after each commit.
+
+ADR: `wiki/decisions/2026-05-10-atlas-built-environment-unification.md`.
+
+---
+
+## [2026-05-12] session | Atlas BE V2 unification — Phase 6.B continued (Observe readers off V1 facade)
+
+**Objective:** Close the Observe-side reader migration off the V1 BuiltEnvironment facade by swapping the three remaining pure-read consumers — `BuiltEnvironmentDashboard.tsx`, `ObserveAnnotationLayers.tsx`, `AnnotationRegistry.ts` — onto the V2 selector library introduced in Phase 6.B proof-of-shape.
+
+**Commits (feat/atlas-permaculture):**
+- `5caab65` atlas(observe): Phase 6.B — derivations.ts onto Projected* types. Swapped `BuiltKpiArgs` field types from V1 narrow unions (`Building` / `Well` / `Septic` / etc. from `builtEnvironmentStore.ts`) onto the `Projected*` shapes from `@ogden/shared`. The helper bodies (`featureCounts`, `builtEnvironmentKpis`, `dominantKind`, `totalLengthM`, `totalAreaM2`) only read fields that exist on both V1 and Projected shapes; the only difference is subtype/kind narrowing, which the helpers don't depend on. This closed the `BuiltEnvironmentDashboard.tsx` hook-swap landed in the prior commit (the dashboard's 8 `useXxxForProject` reads were blocked on this type compat).
+- `6708cccc` atlas(observe): Phase 6.B — ObserveAnnotationLayers off V1 BE facade. Swapped 8 BE subscriptions onto project-filtered hooks; the existing `inProject(...)` filter in the layerSpecs `useMemo` becomes a no-op for those 8 arrays but stays in place (helper is shared with ~10 other store reads).
+- `81a53b30` atlas(observe): Phase 6.B — AnnotationRegistry readers off V1 BE facade. Swapped 8 `rowsForKind` cases onto `get*ForProject()` non-React selectors and 8 re-render subscriptions onto `useXxxForProject` hooks. Writers (`removeBuilding` etc.) and single-record `getRow .find()` lookups remain on V1 facade — they migrate at the end of Phase 6 once the V1 store is the final reader.
+
+**Outcome:** Observe-side V1 BE facade now has zero pure-read consumers for the 8 legacy slices. Only writer and single-record lookup call sites remain on the V1 facade in `AnnotationRegistry.ts`, `annotationGeometryRegistry.ts`, and `annotationFieldSchemas.ts` — those are the final-mile call sites that migrate when the V2 store grows equivalent writers and the V1 facade can be deleted.
+
+**Next:** pivot to V1 readers in the Plan stage — `useDesignElementsStore` (6 sites), then `useStructureStore` (40+ sites). Finale: delete `structureStore.ts`, `designElementsStore.ts`, V1 `builtEnvironmentStore.ts`; retire `builtEnvironmentAdapters.test.ts`.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` from `apps/web` clean after each commit (only unrelated `FertilityColocationCard` errors from parallel-agent WIP remain).
+
+ADR: `wiki/decisions/2026-05-10-atlas-built-environment-unification.md`.
+
+---
+
+## [2026-05-12] session | Atlas plan — guild establishment costs wired into Labor & Budget rollup
+
+**Objective:** Close the last unfinished thread from the Plants module phase-axis design conversation. The Plant Establishment Sequence card surfaces *what* is sequenced and the cap shows what's in scope at the active view, but the Phasing/Budgeting module (`LaborBudgetSummaryCard`) was task-only and didn't see plant costs.
+
+**Schema (polycultureStore.ts):**
+- `Guild.establishmentCostUSD?: number` — one-time cash for nursery stock, mulch, irrigation tie-ins, initial labour cash-cost. Optional.
+- `Guild.establishmentLaborHrs?: number` — one-time labour hours for site prep, planting, mulching, staking, initial watering. Optional.
+
+**Deliberately not derived from the plant database.** Atlas does not assert species-level horticulture costs because regional price variance (nursery stock $8 vs $80 for the same Latin name, hourly labour $20–$80) makes any default a lie. The steward sets per-guild figures from local quotes. Same posture as `FertilityInfra.scaleNote`; documented in the schema doc-comment.
+
+**UI (GuildSpatialBuilderCard.tsx):** two number inputs in the existing guild-header grid (alongside name / switch / template), persisting via `updateGuild` — consistent with the card's no-save-gate pattern.
+
+**Aggregation (LaborBudgetSummaryCard.tsx):**
+- New "Plant establishment (guilds)" section: per-phase guild cost + labour bucketed by `Guild.phase`. Surfaces "unestimated" count per phase and an Unassigned row for guilds without a phase.
+- Totals row sums tasks + guilds; flags unestimated guild count.
+- By-phase rows collapse task + guild totals per phase with both counts in the meta.
+- Yeomans Vegetation tier absorbs guild costs + labour (canonical vegetation cost source; vegetation-tagged PhaseTasks typically cover follow-on maintenance, so both stay visible in the row).
+- 5-year horizon adds guild costs into each phase's contribution before cumulating.
+- Empty-state condition widened: card no longer empty if guilds exist without tasks.
+
+**Files (atlas `b46990be atlas(plan): wire guild establishment costs into Labor & Budget rollup`):**
+- `store/polycultureStore.ts`
+- `v3/plan/cards/plant-systems/GuildSpatialBuilderCard.tsx`
+- `features/plan/LaborBudgetSummaryCard.tsx`
+
+**Verification:** `npx tsc --noEmit` clean.
+
+**Deferred:** `CumulativeInvestmentCard.tsx` left untouched — the stacked-bar visualisation needs more careful treatment of the additional cost source and is a natural follow-up. The new aggregation pattern (`guildRollup.perPhase` map + `combinedPerPhase`) is reusable when that card's wired.
+
+**Recommended next session:** Either (a) extend the same aggregation pattern through `CumulativeInvestmentCard` so the stacked phase bars include guild costs, or (b) pivot to a fresh Plan-module backlog item — Plants is now structurally complete: registration → sequencing → cost rollup → cap discipline are all in place.
+
+---
+
+## [2026-05-12] session | Atlas plan — CanopySuccessionCard contributing-pick cap
+
+**Objective:** Resolve the picker-list-vs-scrubber asymmetry surfaced in the Plants module design conversation. CanopySuccessionCard is picks-driven, not guild-driven on its face — but a steward's palette includes species *intended for* phased guilds (Year-5 windbreaks, Year-3 fertility layer, etc.), so showing all picks on a Year-1 view misleads about what will actually be growing at the active build phase.
+
+**Cap discipline (two-axis rule, formalised in the card doc-comment):**
+- **Succession scrubber** (Year 1 / 5 / 10 / 20 / 30+) — **uncapped.** Once a species set is fixed, its maturation arc is its own. The scrubber answers "what does this set look like at age X," which is orthogonal to "which set is in scope today."
+- **Contributing species set** — **capped via visible-guild membership.** A pick contributes iff (a) it appears as anchor or member of a guild visible at the active Plan view (`usePhaseStoreCappedEntities` on project guilds), OR (b) it is an *orphan* pick (not used in any project guild yet). Orphan picks pass through uncapped — same precedent as the Unassigned bucket in `PlantEstablishmentSequenceCard`.
+
+**Files (atlas `287e64ac atlas(plan): cap CanopySuccessionCard contributing-picks via visible-guild membership`):**
+- `v3/plan/cards/plant-systems/CanopySuccessionCard.tsx` — added adapter import; derived `visibleGuilds`, `visibleSpeciesIds`, `guildedSpeciesIds`, and `contributingPicks`; rewired `layerCounts`, the empty-state guard, and the root-zone schematic to consume `contributingPicks`. Stat row "Picked species across layers" → "Contributing picks at this view (X / Y)" so the cap is legible. Lede + empty-state copy refreshed.
+
+**Verification:** `npx tsc --noEmit` clean.
+
+**Phase B postscript.** Plants module phase-axis is now fully wired: the readout layer (`PlantEstablishmentSequenceCard`, `858441ec`) and the succession card both honour the active view. Registration cards (`PlantDatabaseSiteMatchCard`, `GuildSpatialBuilderCard`) remain uncapped. No new ADR.
+
+**Recommended next session:** (a) wire guild establishment costs into the Phasing/Budgeting module (the only remaining unfinished thread from the original Plants design conversation), or (b) pivot to a fresh Plan-module backlog item.
+
+---
+
+## [2026-05-12] session | Atlas plan — PlantEstablishmentSequenceCard closes Phase B cross-module sweep
+
+**Objective:** Give the Yeomans cap something to bite on in Plan Module 4 (Plant Systems). `polycultureStore.Guild.phase?: string` already existed (line 60, with a docstring naming PLAN-stage Module 9 / phaseStore as the intended consumer), but no card surfaced that axis as a readout, so Year 1 / Year 5 chips were invisible in this module.
+
+**Files (atlas `858441ec atlas(plan): add PlantEstablishmentSequenceCard -- phase-capped readout for guild sequencing`):**
+- **New** `v3/plan/cards/plant-systems/PlantEstablishmentSequenceCard.tsx` — readout. Groups project guilds by their `BuildPhase` (phaseStore `order`-sorted) and surfaces per-phase placed/unplaced counts plus per-guild anchor / member count / layer-coverage (n/7). Includes an "Unassigned" bucket for guilds with no `phase` yet, distinct from the cap-removed set.
+- `v3/plan/types.ts` — manifest entry under `'plant-systems'` (`label: 'Establishment sequence'`, `sectionId: 'plan-plant-establishment-sequence'`).
+- `v3/plan/PlanModuleSlideUp.tsx` — lazy import + switch case.
+
+**Asymmetric cap discipline (consistent with the rule formalised for Principles):** the new card's guild slice flows through `usePhaseStoreCappedEntities`. On `phase-1` / `phase-2` views, guilds whose BuildPhase's `yeomansCap` exceeds the active view cap drop out entirely (not re-bucketed into Unassigned — that distinction is documented in the card's doc-comment). The three pre-existing plant cards (`PlantDatabaseSiteMatchCard`, `GuildSpatialBuilderCard`, `CanopySuccessionCard`) stay **uncapped** as registration / picker surfaces.
+
+**Verification:** `npx tsc --noEmit` clean.
+
+**Phase B status — closed.** The adapter is now operational in every Plan module that needs it:
+- Water — `ccfac9cf`
+- Livestock — `9fe28c2b`
+- Soil-Fertility — `dc3e4f7a`
+- Principles (cross-cutting readout layer) — `6338ab45`
+- Plants — `858441ec`
+
+No new ADR. Mechanical extension of `2026-05-12-plan-phasestore-yeomans-adapter.md`.
+
+**Recommended next session:** Either (a) `CanopySuccessionCard` filtering its guild *list* (not scrubber) by the active phase view — natural follow-up that uses the same hook; (b) wire guild establishment costs from the new sequence card into the Phasing/Budgeting module; or (c) move on to a different Plan-module backlog item.
+
+---
+
+## [2026-05-12] session | Atlas plan — Principles readout cards capped via shared evidence-visibility hook
+
+**Objective:** With the phaseStore→Yeomans adapter operational across Water (`ccfac9cf`), Livestock (`9fe28c2b`), and Soil-Fertility (`dc3e4f7a`), retrofit Plan Module 8 (Principle Verification) readout cards so principle "evidence depth" honestly reflects features visible at the active Plan view — without disturbing the registration path.
+
+**Asymmetric cap rule established for Principles Module 8** (consistent with the `WaterStorageCard` overflow-target precedent): the **registration** card (`HolmgrenChecklistCard`'s feature picker) stays **uncapped** — a steward must be able to link a Year-5 paddock as P11 "edges" evidence even from a Year-1 view; that's a planning act, not a readout. The **readout** cards (`ThreeEthicsRollupCard`, `PrincipleCoverageMatrixCard`) **cap** — evidence depth, coverage counts, and the radar polygon all reflect evidence visible at the active view.
+
+**Files (atlas `6338ab45 atlas(plan): cap Principles readout cards via usePrincipleEvidenceVisibleIds`):**
+- **New** `v3/plan/cards/principle-verification/usePrincipleEvidenceVisibleIds.ts` — shared hook that reads the nine spatial stores referenced by the principle-check feature picker (zones, paths, structures, transects, guilds, earthworks, crops, fertility, ecology), scopes each to the active project, and runs each slice through `usePhaseStoreCappedEntities`. Returns `{ visibleIds: Set<string>, idToKind: Map<string, FeatureKind> }`. Stores whose entities lack a `phase?` field pass through unchanged (zones / paths / structures / transects / guilds / crops / ecology); the cap bites only on phase-tagged entities (water nodes/earthworks, paddocks, fertility infra).
+- `PrincipleCoverageMatrixCard.tsx` — collapsed 9 store reads + the local `idToKind` useMemo into a single `usePrincipleEvidenceVisibleIds(project.id)` call; refreshed the lede.
+- `ThreeEthicsRollupCard.tsx` — filtered each row's `linkCount` through `visibleIds.has(id)` so per-principle "linked" counters and per-ethic "evidence depth" lines collapse honestly on Year 1 / Year 5; refreshed the lede.
+
+`HolmgrenChecklistCard` intentionally left untouched (it is the registration/picker card).
+
+**Verification:** `npx tsc --noEmit` clean.
+
+**Phase B status:** Adapter is now operational across all four Plan modules that need it — three with phase-tagged entities (Water / Livestock / Soil-Fertility) plus the cross-cutting Principles readout layer. No new ADR; mechanical extension of `2026-05-12-plan-phasestore-yeomans-adapter.md`.
+
+**Recommended next session:** Either (a) extend the same evidence-visibility hook into a Principles "radar" card if one is added, or (b) move to the next Plan module backlog item — plants / polyculture phase-axis design needs a product-design discussion before code.
+
+---
+
+## [2026-05-12] session | Atlas plan — Soil-Fertility retrofit closes Phase B for phase-tagged modules
+
+**Objective:** Mirror the Water (`ccfac9cf`) and Livestock (`9fe28c2b`) wiring through the Soil Fertility module so its Year 1 / Year 5 chips become honest filters rather than decorative labels.
+
+**Audit:** Of the four cards under `v3/plan/cards/soil-fertility/`, only **one** entity in the whole module carries a `phase: string` field — `FertilityInfra` in `closedLoopStore.ts` (line 81). Consumed by exactly one card: `ClosedLoopGraphCard.tsx`. The other three (`SoilBuildingPlanCard`, `SoilBaselineCard`, `SoilResourcesCard`) operate on `SoilTest`, `SoilSample`, `WasteVector`, and a compost-inventory K/V map — no phase fields, correctly skipped.
+
+**Files (atlas `dc3e4f7a atlas(plan): wire phaseStore->Yeomans adapter through Soil-Fertility card`):**
+- `v3/plan/cards/soil-fertility/ClosedLoopGraphCard.tsx` — same-shape hoist as `AnimalTractorZonesCard`. Hoisted `fertilityRaw` out of the inner `nodes/vectors` useMemo, wrapped with `usePhaseStoreCappedEntities` → `fertility`, and consumed the capped array inside the inner useMemo.
+
+Zones, structures, crops, and vectors stay uncapped — caps are presentational, dangling edges from capped-out fertility nodes are accepted (matches the principle established for `WaterStorageCard` overflow targets).
+
+**Verification:** `npx tsc --noEmit` clean.
+
+**Phase B status:** Closes Phase B for the three Plan modules that currently have phase-tagged entities — Water (`ccfac9cf`), Livestock (`9fe28c2b`), Soil (`dc3e4f7a`). No new ADR; mechanical follow-up to `2026-05-12-plan-phasestore-yeomans-adapter.md`.
+
+**Recommended next session:** Either (a) audit `SoilTest` / `SoilSample` for whether stewards want phased soil testing schedules (would require adding a `phase` field to the relevant store), or (b) re-design the Principles rollup card now that the adapter is in place across three modules.
+
+---
+
+## [2026-05-11] session | Atlas plan — Livestock retrofit on phaseStore→Yeomans adapter
+
+**Objective:** Follow-up to ccfac9cf (Water cards + Phasing UI). Wire `usePhaseStoreCappedEntities` through the Livestock module cards so Year 1 / Year 5 Plan views honestly drop/show paddocks based on each Paddock's assigned BuildPhase + that phase's `yeomansCap`.
+
+**Audit:** `livestockStore.ts` carries `Paddock.phase: string` (line 54) and `FenceLine.phase: string` (line 83), both phaseStore BuildPhase ids — compatible with the adapter's `PhaseStoreCappable` contract. No store changes required.
+
+**Files (atlas `9fe28c2b atlas(plan): wire phaseStore->Yeomans adapter through Livestock cards`):**
+- `features/livestock/MultiSpeciesPlannerCard.tsx`
+- `features/livestock/PaddockCellDesignCard.tsx`
+- `features/livestock/FencingLayoutCard.tsx`
+- `features/livestock/LivestockWelfarePhasingCard.tsx`
+- `features/livestock/AnimalTractorZonesCard.tsx` (hoisted paddock filter out of the inner `groups` useMemo so the hook could wrap it — rules-of-hooks compliance)
+
+Standard pattern across all five:
+
+```ts
+const paddocksRaw = useMemo(
+  () => allPaddocks.filter((p) => p.projectId === projectId),
+  [allPaddocks, projectId],
+);
+const paddocks = usePhaseStoreCappedEntities(paddocksRaw);
+```
+
+Skipped (don't read paddocks/fences): `LivestockLandFitCard`, `BiosecurityBufferCard`.
+
+**Verification:** `npx tsc --noEmit` clean (the two pre-existing `Plan3DSelectionHandler` TS18048 errors are unrelated and present in HEAD). Commit pushed to `feat/atlas-permaculture`.
+
+**Recommended next session:** Soil-Building plan retrofit — audit soil stores for a phase field, then mirror this pattern. Principles rollup re-design also still pending now that the adapter is in place across two modules.
+
+---
+
+## [2026-05-10] session | Atlas dashboard — site-intelligence section retired per ADR
+
+**Objective:** Close out the deferred dashboard retirement from the prior session's recommended-next-session list. The ADR `2026-05-10-atlas-retire-site-intel-dashboard.md` had been on disk since the BE-unification close-out but the implementation never landed. The page file itself (`SiteIntelligenceDashboard.tsx`) was incidentally removed by a parallel agent in `b06ee21 atlas(agribusiness): unit-lock the Module 7 peak-week formula` earlier today; this commit removes the surrounding route, sidebar entry, taxonomy nav item, and the verdict-hero / next-actions hosts that only fired for `section === 'site-intelligence'`.
+
+**Approach:** Clean reimplementation against current HEAD (preferred over cherry-picking the stale `phase5-2b-unrelated-wip-2` stash, which held an abandoned implementation against an older base). Stash-isolated unrelated WIP (agribusiness cards, livestock rotation card, v3/act + v3/observe + v3/plan layouts) before committing, then popped to restore.
+
+**Files (atlas `2086855 atlas(dashboard): retire site-intelligence section per ADR`):**
+- `features/navigation/taxonomy.ts` — drop the `'site-intelligence'` NAV_ITEMS entry (the only S1/P1 item that pointed to a dashboard rather than a map view)
+- `features/dashboard/DashboardRouter.tsx` — drop the lazy import + `case 'site-intelligence'` branch
+- `features/dashboard/DashboardSidebar.tsx` — drop the concentric-circles SVG icon branch
+- `features/dashboard/DashboardView.tsx` — drop the verdict-hero block (`LandVerdictCard` / `CriticalConstraintAlert` / `DecisionTriad`) + the `showVerdictHero` derivation; `onGenerateBrief` retained on the props interface for caller compatibility
+- `features/dashboard/DashboardMetrics.tsx` — drop `NextBestActionsPanel` import + the `showNextActions` branch; `onGenerateBrief` / `onSwitchToMap` retained on the props interface
+- `features/land-os/AdaptiveDecisionRail.tsx` + `features/land-os/lifecycle.ts` — `openCompare` and `LIFECYCLE_STAGES[discover].section` now point to `'map-layers'` (closest valid Observe-stage section after the removal)
+- `store/uiStore.ts` — default `activeDashboardSection` → `'map-layers'`; persist version `2 → 3` with a migration that rewrites stored `'site-intelligence'` → `'map-layers'` for returning users; also fixes the prior `fromVersion < 2` branch to rebind `persistedState` so cumulative migrations stack
+
+The `SiteIntelligencePanel` component (separate from the dashboard page) is kept on disk — it still has consumers in `MapView` / `DecisionRail`.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` in `atlas/apps/web` → exit 0, empty output. Atlas pushed: `2086855` (parent submodule pointer bumped this commit; parallel agent's `88ded4c atlas(livestock): plan-editing parity for structure-destination plans` pushed alongside).
+
+**Deferred:**
+- Two stale `phase5-2b-*` atlas stashes (stash@{0} + stash@{1}) remain on the stack — both confirmed superseded on every file. Drop denied by sandbox this session; user can `git stash drop` directly when convenient.
+- Parallel agent's in-flight livestock follow-up still in working tree (`ColdChainCoverageCard.tsx`, `MarketDistributionCard.tsx`, `agribusinessStore.ts` — restored on stash pop) — not ours to commit.
+
+**Recommended next session:** Either drop the two stale atlas stashes, or pick up whatever the parallel agent's in-flight livestock work resolves to.
+
+---
+
+## [2026-05-10] session | Atlas plan — Module 7 folded into Livestock Product Chain + planned-move chips + gold accent
+
+**Objective:** Land the queued plan-stage work that was sitting as parallel WIP — fold the broiler "Plan Module 7" into Livestock as the Product Chain sub-section, add Edit/dismiss chips to planned-move rows on the rotation card, and apply a gold accent ribbon to Product Chain tabs.
+
+**Files (atlas commits, all pushed, head now `f7e8462`):**
+- `e1ebb38 atlas(plan): fold broiler module into Livestock as Product Chain` — Module 7's three tools (`SlaughterPointTool` / `ColdChainUnitTool` / `MarketNodeTool`) and three diagnostic cards (`SlaughterThroughputCard` / `ColdChainCoverageCard` / `MarketDistributionCard`) now hang under the Livestock module's Product Chain sub-section. Wiped the standalone `broiler-product-map` plan-module entry from `planModuleArtifactPresence.ts`, `planModulePalette.ts`, `types.ts`, `PlanChecklistAside.tsx`, `PlanModuleSlideUp.{tsx,module.css}`, `PlanTools.tsx`, `PlanDrawHost.tsx`, `useMapToolStore.ts`. Atlas-side wiki ADR `wiki/decisions/2026-05-10-atlas-plan-module7-broiler-product-map.md` records the fold.
+- `a2725c3 atlas(livestock): plan editing — Edit + dismiss chips on Planned line` — the "Planned: <date>" line on `RotationScheduleCard` rows now exposes inline **Edit** and **×** chips. Edit rehydrates the same compact in-row form against the existing plan; × deletes the plan via `scheduledLivestockMoveStore.deletePlan(id)`.
+- `6034f42 wiki: plan editing closed (a2725c3) — Edit + x chips on Planned line` — atlas-side wiki log + ADR addendum for `2026-05-10-atlas-livestock-move-event-v3.md`.
+- `f7e8462 atlas(plan): gold accent ribbon on Product Chain tabs` — the Product Chain sub-section tabs now carry a thin gold accent ribbon to distinguish them visually from the Livestock parent tabs.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` (apps/web) → exit 0 on each of the four commits. All pushed; parent submodule pointer bumped `364b70a → f7e8462`.
+
+**Stash hygiene (carried from prior session):** The two `phase5-2b-*` atlas stashes were investigated in detail this turn — confirmed stale on every file. Stash@{0} holds the pre-rename Module 7 design (now superseded by `e1ebb38`) plus an early Phase 5.3 BeV2ExistingTool refactor (now superseded on disk). Stash@{1} holds the same pre-rename churn plus an abandoned dashboard-retirement implementation (the ADR `2026-05-10-atlas-retire-site-intel-dashboard.md` is on disk; the patch never landed). Both can be `git stash drop`-ed safely; left in place this session pending explicit go-ahead.
+
+**Deferred:**
+- Drop `stash@{0}` + `stash@{1}` after a final visual diff.
+- **Dashboard retirement — clean reimplementation** against current HEAD per the on-disk ADR: 9 files (taxonomy, DashboardRouter/Sidebar/View/Metrics, AdaptiveDecisionRail, lifecycle, uiStore v2→v3 migration, delete SiteIntelligenceDashboard.tsx). Plan-mode scoping done this session; implementation deferred to a focused next session.
+- Working-tree uncommitted files (`RotationScheduleCard.tsx` + `scheduledLivestockMoveStore.ts`) — parallel agent's in-progress livestock plan-editing follow-up; not ours to commit.
+
+**Recommended next session:** Reimplement dashboard retirement clean against HEAD (the ADR is concrete; ~9 file edits + 1 delete + persist-version bump). Drop the two stale stashes alongside.
+
+---
+
+## [2026-05-10] session | Atlas livestock — S2 OPTIONS dedup + forward-looking variance on rotation card
+
+**Objective:** Close the two deferred follow-ups from `2026-05-10-atlas-livestock-move-event-v3.md` — (1) the last duplicated `DIRECTION_OPTIONS` / `SPECIES_OPTIONS` site (`LivestockMoveTool`), and (2) the "forward-looking variance" feature on the rotation card.
+
+**Files (atlas commits, both already pushed):**
+- `e248105 atlas(livestock): S2 third-site cleanup — LivestockMoveTool imports canonical OPTIONS` — `LivestockMoveTool.tsx` now imports `DIRECTION_OPTIONS` / `SPECIES_OPTIONS` from `livestockMoveLogStore` in line with the other three call-sites. Local `SPECIES_VALUES` / `DIRECTION_VALUES` / `isDirection` / `isSpecies` guards retained as tool-local utilities.
+- `12d72b6 atlas(livestock): forward-looking variance on rotation card` — new `scheduledLivestockMoveStore.ts` (Zustand, persist key `ogden-scheduled-livestock-moves`, version 1) holds `ScheduledLivestockMove` objects (`toPaddockId`, `plannedDate`, `species`, `direction`, `headCount`, optional `fromPaddockId` / `notes` / `who`, `fulfilledByEventId`, `createdAt`); exports `plansByPaddock()` and `nextUnfulfilledPlan()`. Kept separate from `livestockMoveLogStore` so existing read helpers stay plan-agnostic. `RotationScheduleCard` refactored: `openFormFor: string | null` → `openForm: { paddockId, mode: 'actual' | 'planned' } | null`; new "Schedule…" per-row button alongside "+ Log move"; new "Planned: <date>" line under `.rowFoot` when an unfulfilled plan exists, with a variance pill comparing `plannedDate` against `today + daysUntilReady` (reuses Gap C's `.variancePositive` / `.varianceTolerant` / `.varianceNegative` classes); auto-fulfilment `useEffect` clears the plan when an actual event lands within ±7 days of `plannedDate` (same projectId + toPaddockId + species).
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` (apps/web) → exit 0. Atlas head: `12d72b6` (pushed); parent submodule pointer bumped to match.
+
+**Deferred:**
+- Two `phase5-2b-*` atlas stashes still on the stack — diff inspection confirms they hold content that has since diverged from disk (parallel agent rewrote the same files). Reconciliation deferred to next session.
+- Plan Module 7 → Livestock Product Chain collapse — still in working tree (~15 files `M`)
+- Dashboard refactor + Site Intelligence retirement — ADR `2026-05-10-atlas-retire-site-intel-dashboard.md` is on disk but the implementation files are still uncommitted
+
+**Recommended next session:** Reconcile the two `phase5-2b-*` stashes (likely `git stash drop` after final diff). Then land either the Plan Module 7 collapse or the dashboard retirement, depending on whichever is closest to tsc-clean.
+
+---
+
+## [2026-05-10] session | Atlas BE — Phase 5.2.B landed (BeV2GenericLayer + generic edit fallback)
+
+**Objective:** Close the BE-unification end-state by making every BE registry kind (31 total) clickable on the Observe map and editable via the floating popover. The code for this was already written on the atlas working tree (generic builder previously committed at `inlineEditSchemas.ts:1498`; the layer + dispatch wiring sat uncommitted mixed with several parallel WIPs).
+
+**Approach:** Pure packaging exercise — stash-isolate the 4 Phase 5.2.B files (1 new + 3 modified) from a much larger working-tree set, re-verify tsc against the isolated set, commit + push. Two named stashes (`phase5-2b-unrelated-wip` and `phase5-2b-unrelated-wip-2`) held the unrelated parallel WIPs during the commit.
+
+**Files (atlas `c1360fd feat(be): Phase 5.2.B — BeV2GenericLayer + generic edit fallback`):**
+- New: `v3/builtEnvironment/layers/BeV2GenericLayer.tsx` — 2D top-down fallback layer subscribed to `useBuiltEnvironmentStoreV2`; filters out `LEGACY_OBSERVE_BE_KINDS`; paints polygon/line/circle from `getBuiltEnvironmentKind(kind).color`; click → `openBeInlineEditById(id, [lng, lat])`
+- `v3/builtEnvironment/inline/openBeInlineEdit.ts` — adds `pickBuilder(kind)` fallback resolver (`SCHEMA_BUILDERS[kind] ?? buildGenericBeEditSchema`); new `openBeInlineEditById(id, fallbackAnchor?)` entrypoint for V2-id-keyed callers; existing `openBeInlineEditByObserveKind` also switched to `pickBuilder` so legacy callers benefit too
+- `v3/builtEnvironment/layers/index.ts` — adds `BeV2GenericLayer` to the barrel
+- `v3/observe/ObserveLayout.tsx` — mounts `<BeV2GenericLayer map projectId stateFilter="existing"/>` alongside the existing 3D `DesignElement{Glb,Extrusion}Layer` block
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` in `atlas/apps/web` → exit 0, empty output. Atlas pushed: `c1360fd`.
+
+**Deferred:**
+- Two named stashes (`phase5-2b-unrelated-wip` and `phase5-2b-unrelated-wip-2`) remain on the atlas stash stack. The parallel agent has since written new content to `PlanLayout.tsx` / `BaseMapCard.module.css` / `VisionLayoutCanvas.tsx` that conflicts with the stashed copies — left for the next session to reconcile, since the parallel agent's most-recent content is likely the correct base.
+- Per-kind subtype enrichment for any of the 23 generic kinds (additive)
+- Plan Module 7 → Livestock Product Chain collapse (parallel WIP)
+- Dashboard refactor + Site Intelligence retirement (parallel WIP, includes a new ADR)
+- Phase 5.3 — BeV2ExistingTool `state` prop for Plan-side composers (already started by parallel agent)
+- V1 `builtEnvironmentStore` shim deletion (gated on a clean release)
+
+**Recommended next session:** Reconcile the two atlas stashes against current HEAD — likely `git stash drop` after confirming the parallel agent's commits already cover the same ground. Then either land the Plan Module 7 collapse (largest pending WIP, ~14 files touched) or the dashboard retirement (smaller, has an ADR ready).
+
+---
+
+## [2026-05-10] session | Atlas BE — Phase 4.3 + 4.4 landed (shared vertex handler + Observe floating popover)
+
+**Objective:** Land the pending BE-unification consolidation that was sitting uncommitted on the atlas working tree (mis-labeled as "utility-conflict" in the prior debrief — utility-conflict had already shipped as atlas `76341d4`).
+
+**Approach:** Reviewed the parallel WIP, ran a full tsc against it (exit 0), and committed it as one cohesive Phase 4.3 + 4.4 ship since the three parts (shared vertex handler, Observe floating popover for BE, existing-state BE drawing tool) interlock. Stashed two unrelated parallel WIPs (RotationScheduleCard, dashboard/land-os/taxonomy) before committing — RotationScheduleCard was committed by a parallel agent during the session as atlas `306e182`+`0f34a35`; dashboard WIP restored on stash-pop and left for its own session.
+
+**Files (atlas `d364b23 feat(be): Phase 4.3 + 4.4 — shared vertex handler + Observe BE floating popover`):**
+- New: `v3/builtEnvironment/handlers/SharedVertexEditHandler.tsx` — owns the MapboxDraw direct_select lifecycle for both Plan and Observe; consumers supply a `VertexEditDispatch` table
+- New: `v3/builtEnvironment/inline/openBeInlineEdit.ts` — single helper that maps Observe's legacy `AnnotationKind` to V2 kind and opens the floating popover
+- New: `v3/observe/components/draw/BeV2ExistingTool.tsx` — tool for placing existing-state BE entities (paired with `defaultStates: ['existing', 'proposed']` on 8 polygon-footprint kinds)
+- Rewrites: `PlanVertexEditHandler.tsx` (177→120 LOC) and `AnnotationVertexEditHandler.tsx` (142→75 LOC) as thin compositions delegating to `SharedVertexEditHandler`
+- Wiring: `SelectionFloater.onEdit` intercepts BE kinds via `openBeInlineEditByObserveKind`; `ObserveLayout` mounts `<InlineFeaturePopover>`; `annotationFieldSchemas` marks the 8 BE entries as create-mode-only
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` in `atlas/apps/web` → exit 0, empty output. Atlas pushed: `d364b23`.
+
+**Deferred:**
+- Phase 5.2.B (generic BE edit schema fallback for the 23 registry kinds without bespoke forms) — partial WIP visible on `openBeInlineEdit.ts` post-commit (`buildGenericBeEditSchema` import + `pickBuilder` fallback) but `buildGenericBeEditSchema` not yet exported by `inlineEditSchemas.ts`; left for the next session
+- Dashboard / land-os / taxonomy WIP — uncommitted on atlas working tree, scope unclear from diff stat, left for its own session
+- V1 `builtEnvironmentStore` shim deletion still pending one clean release
+
+**Recommended next session:** Either finish Phase 5.2.B (write `buildGenericBeEditSchema`, wire `pickBuilder` into `openBeInlineEditByObserveKind`, expand `OBSERVE_KIND_TO_V2`) or land the dashboard WIP after reading its diff for intent.
+
+---
+
+## [2026-05-10] session | Atlas Plan — Phase 2 BE V2 inline-edit closeout (6 kinds + dispatch dedup)
+
+**Objective:** Ship inline-edit popovers for the remaining 6 Built-Environment kinds (Septics, Power lines, Buried utilities, Fences, Gates, Driveways) on the Plan stage, following the Buildings+Wells template, and confirm a clean tsc on the unified branch.
+
+**Approach:** Added six `buildXEditSchema(entity)` builders in `inlineEditSchemas.ts` mirroring each kind's V2 metadata slot — Septics/BuriedUtilities/Fences use `existing.subtype`; Power lines use the typed `existing.placement` enum; Driveways use the typed `existing.surface` enum; Gates carry only label+notes. Initially seven router branches were added parallel to Buildings/Wells in `PlanObserveSelectionHandler.tsx`. A parallel agent then refactored all eight if-blocks into a single `BE_INLINE_EDIT_DISPATCH: readonly { prefix, kind, build }[]` table (atlas `36f5ab3 feat(plan): Module 7 Broiler Product Map + BE V2 inline-edit dedup`), keeping all 8 kinds wired with one loop. My edits were preserved through the refactor.
+
+**Files touched (atlas commits `411d88d` Septics+PowerLines, then folded into `36f5ab3` dispatch table, plus `fd275c3` tsc fix):**
+- `apps/web/src/v3/plan/layers/inlineEditSchemas.ts` — `buildSepticEditSchema`, `buildPowerLineEditSchema`, `buildBuriedUtilityEditSchema`, `buildFenceEditSchema`, `buildGateEditSchema`, `buildDrivewayEditSchema`
+- `apps/web/src/v3/plan/draw/PlanObserveSelectionHandler.tsx` — `BE_INLINE_EDIT_DISPATCH` table dispatches all 8 BE kinds; replaces eight near-identical if-blocks (Phase 4.3 dedup)
+- `apps/web/src/features/agribusiness/MarketDistributionCard.tsx` — narrow slaughter-point coordinate tuple to `[number, number]` to satisfy `noUncheckedIndexedAccess`
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` in `atlas/apps/web` → exit 0, empty output. Atlas pushed: `fd275c3 fix(plan): narrow slaughter point coords for tsc strict mode`.
+
+**Deferred:**
+- V1 `builtEnvironmentStore` shim deletion once a release ships clean V2-only operation
+- Promote 8GB heap `typecheck` script into `apps/web/package.json`
+- Parallel utility-conflict WIP (observe ObserveLayout / SelectionFloater / AnnotationVertexEditHandler / annotationFieldSchemas / PlanVertexEditHandler / builtEnvironmentKinds, plus untracked `v3/builtEnvironment/handlers` and `v3/builtEnvironment/inline` trees) still uncommitted on atlas — not this session's scope
+
+**Recommended next session:** Land the parallel utility-conflict feature + V1 shim deletion as a single Phase 6 close commit; or extend inline-edit to the remaining six Observe modules (human-context, macroclimate-hazards, topography, earth-water-ecology, sectors-zones, swot-synthesis) using the dispatch-table pattern now in place.
+
+---
+
+## [2026-05-10] session | Atlas Plan — Wells inline-edit (Phase 2 templating begins)
+
+**Objective:** Ship the Wells inline-edit popover using `buildBuildingEditSchema` as the template, proving the pattern generalises to point-geometry built-environment kinds.
+
+**Approach:** Wells are Point geometries — no footprint regeneration needed, just metadata. Added `buildWellEditSchema(w: BuiltEnvironmentEntity)` in `inlineEditSchemas.ts` with 5 fields (label, kind, depthM, flowLpm, notes) mirroring the legacy Observe slide-up's `well` field-schema so Plan and Observe forms stay 1:1. Routing branch added in `PlanObserveSelectionHandler.tsx` keyed on `observe-anno-be-wells-*` → resolve V2 entity by `featureId` + `kind === 'well'` → `openInline({ ...schema, anchor })`.
+
+**Files touched (atlas commit `ff57f9a`):**
+- `apps/web/src/v3/plan/layers/inlineEditSchemas.ts` — `buildWellEditSchema` + `WELL_KIND_OPTIONS` (drinking / irrigation / unknown, matching V1 `WellKind`)
+- `apps/web/src/v3/plan/draw/PlanObserveSelectionHandler.tsx` — import update + Wells routing branch parallel to Buildings
+
+**Verification:** `tsc --noEmit` exit 0.
+
+**Pattern observations for the remaining 6 kinds:**
+- Wells confirm the Buildings template generalises cleanly. Point kinds are simpler (no `createFootprintPolygon`); LineString kinds (PowerLines, BuriedUtilities, Fences, Driveways) will likewise skip footprint regen but may want `lengthM` re-derivation; the only kind needing footprint logic is Buildings (Polygon with rotation/dims).
+- The kind-to-V2-subtype mapping is the per-kind subtlety: Wells use `existing.subtype` for kind enum; Septics will do the same; Power-lines use `existing.placement`; Buried-utilities use `existing.subtype`; Fences use `existing.subtype`; Driveways use `existing.surface`.
+
+**Deferred:** Septics next (same Point/`subtype` pattern), then PowerLines / BuriedUtilities / Fences / Gates / Driveways. V1 store shim deletion still pending. 8GB heap typecheck script flag still pending.
+
+**Recommended next session:** Ship Septics inline-edit + at least one LineString kind (PowerLines is highest steward value) to validate the LineString path.
+
+---
+
+## [2026-05-10] session | Atlas Plan — Phase 2 tsc cleanup (structure-drag undo + V2 facade follow-ups)
+
+**Objective:** Close the three residual tsc errors left over from the Phase 2 V1→V2 facade work — `PhaseKey` typo in `builtEnvironmentAdapters.test.ts`, `serverId` rejection on `CreateBuiltEnvironmentInput` in `structureStore.ts`, and `TemporalAccess` mismatch in `PlanDataLayers.tsx` where `useStructureStore` no longer carries zundo middleware.
+
+**Resolution:**
+- Two of the three errors were already fixed in parallel commit `cfd97dd` (refactor(stores): Phase 3 — V2 facades for Built Environment unification): the test now uses `'buildings'` and `structureStore.addStructure` patches `serverId` via a follow-up `updateMetadata` after V2 mints the canonical id.
+- `PlanDataLayers.tsx` drag undo for structures now routes through `useBuiltEnvironmentStoreV2` (which still owns the zundo `temporal` middleware) rather than the V2-derived `useStructureStore` facade. Atlas commit `caba624 fix(plan): route structure drag undo through V2 store`. Parent submodule bump `41a18b4`.
+- Parallel utility-conflict WIP in the atlas working tree (waterSystemsStore, PlanLayout, VisionLayoutCanvas, elementCatalog, WaterSinkTool, WaterSwaleTool, untracked UtilityConflictDialog/Store + ADR draft) was stashed during the fix and restored cleanly — uncommitted, untouched.
+
+**Verification:** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` in `atlas/apps/web` → exit 0, empty output.
+
+**Deferred:**
+- Wells + Septics inline-edit pipelines (next-highest-value built-env kinds, pattern set by Buildings)
+- V1 `builtEnvironmentStore` shim deletion once a release ships clean V2-only operation
+- Promote 8GB heap `typecheck` script into `apps/web/package.json`
+- Parallel agent's utility-conflict feature (UtilityConflictDialog + ADR `2026-05-10-plan-earthwork-utility-veto.md`) still uncommitted on the atlas working tree — not this session's scope to land
+
+**Recommended next session:** Ship Wells inline-edit using `buildBuildingEditSchema` as the template; same router branch in `PlanObserveSelectionHandler` keyed on `observe-anno-be-wells-*`.
+
+---
+
+## [2026-05-10] session | Atlas Plan — Observe→Plan integration Phase 2 (Buildings inline-edit + V1→V2 facade)
+
+**Objective:** Build the end-to-end inline-edit pattern for Observe Buildings — click a Building footprint on any Plan view, open an anchored popover, edit all 8 fields, persist to the canonical store, regenerate the footprint polygon on rotation/dim changes. Scope-expanded mid-session: flip the V1 `builtEnvironmentStore` to be a V2-derived facade so the V1/V2 split tracked by ADR `2026-05-10-atlas-built-environment-unification.md` ends in the same PR.
+
+**Approach (Part A — inline-edit pipeline):**
+
+- Extend the inline-form DSL with `'textarea'` (`FieldKind` union in `inlineFormStore.ts`; matching render branch in `InlineFeaturePopover.tsx`). Backwards-compatible.
+- New `buildBuildingEditSchema(b: BuiltEnvironmentEntity)` in `inlineEditSchemas.ts` — 8 fields (label/subtype/phase/rotationDeg/widthM/depthM/heightM/notes). `onSave` calls V2's `updateMetadata` (label, notes, existing.subtype, proposed.{phase, rotationDeg, widthM, depthM, heightM}) and, when rotation or dims change, `updateGeometry` with a fresh `createFootprintPolygon` around the existing centroid.
+- `PlanObserveSelectionHandler` branches: clicks on `observe-anno-be-buildings-*` resolve the V2 entity by `featureId` and open `useInlineFormStore` with the building schema. All other Observe kinds keep going through `ObserveLinkPopover` until their Phase 2 PRs.
+- `VisionLayoutCanvas` mounts the full Observe interaction stack (`ObserveAnnotationLayers`, `PlanObserveSelectionHandler`, `InlineFeaturePopover`, `ObserveLinkPopover`) so vision / phase-1 / phase-2 / terrain3d views all get the inline editor — not just Current Land.
+
+**Approach (Part B — V1→V2 bridge, pivoted from hard cutover):**
+
+Plan started as a hard cutover (rewrite all V1 reader/writer sites to V2). After grepping the surface (~1500 lines across 5 files) I pivoted to a **bridge facade**: rewrite `builtEnvironmentStore.ts` so it has zero persistence + zero zundo (V2 owns those) and its 8 slice arrays are projected from V2's `entities[]` on every V2 mutation. All `add*/update*/remove*` triples delegate to V2's `create / updateMetadata / updateGeometry / delete` via kind-specific V1→V2 shape mappers (building, well, septic, power-line, buried-utility, fence, gate, driveway). Existing call-sites compile and behave unchanged. The V2 migration shim already reads the legacy `ogden-built-environment` localStorage key, so no data is lost on the cutover.
+
+This achieves the ADR's end-state (V2 is the sole source of truth) with one file changed instead of five — at the cost of keeping `builtEnvironmentStore.ts` on disk for one release as a deprecation shim. Follow-up commit deletes it.
+
+**Verification:**
+
+- `cd apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` → exit 0
+- `npx vitest --run` (apps/web) → **41 files / 641 tests passing**
+
+**Deferred:**
+
+- Delete `builtEnvironmentStore.ts` outright after one release on the facade. Drop the `BUILT_ENV_V2` flag in `packages/shared/src/constants/flags.ts` at the same time.
+- Inline-edit pipelines for the other 7 built-env kinds (Wells, Septics, Power lines, Buried utilities, Fences, Gates, Driveways). Each is one `buildXEditSchema` + one handler-routing line away — Buildings is the template.
+- Inline-edit pipelines for the other 6 Observe modules (human-context, macroclimate-hazards, topography, earth-water-ecology, sectors-zones, swot-synthesis).
+- "Observed" subsections in `PlanModuleSlideUp` (Phase 3 of the broader Observe→Plan integration).
+- Selection-floater integration for Observe features (extends `PlanSelectionKind`).
+- Promote `typecheck` script with 8GB heap flag to `apps/web/package.json` (carried from Phase 1).
+
+**Files touched (atlas commit `ac3804f`):**
+
+- `apps/web/src/store/builtEnvironmentStore.ts` (rewritten as V2-derived facade)
+- `apps/web/src/v3/plan/draw/inlineFormStore.ts` (FieldKind +textarea)
+- `apps/web/src/v3/plan/draw/InlineFeaturePopover.tsx` (textarea render branch)
+- `apps/web/src/v3/plan/layers/inlineEditSchemas.ts` (+buildBuildingEditSchema)
+- `apps/web/src/v3/plan/draw/PlanObserveSelectionHandler.tsx` (building→inline routing)
+- `apps/web/src/v3/plan/canvas/VisionLayoutCanvas.tsx` (mount Observe stack across non-Current views)
+
+**Recommended next session:** Template the remaining seven built-env kinds (each ~30 lines: `buildWellEditSchema`, `buildSepticEditSchema`, …) then start a new Observe module (likely `topography` since contour clicks are common). Alternatively, ship the V1 deletion follow-up after one release of the bridge.
+
+---
+
+## [2026-05-10] session | Atlas Plan — Observe→Plan integration Phase 1 (link popover)
+
+**Objective:** Make Observe-stage features (buildings, sectors, soil samples, hazards, contours, etc.) clickable on the Plan Current-Land map so a steward can deep-link back to the Observe module that owns them. Editing remains in Observe (single source of truth).
+
+**Approach (Phase 1, link-only Current Land):**
+
+- New zustand singleton `observeLinkPopoverStore.ts` typed by canonical `ObserveModule`.
+- New `ObserveLinkPopover.tsx` — anchor-tracking + auto-flip popover (mirrors `InlineFeaturePopover`); single button "Edit in Observe →" using TanStack `useNavigate` to `/v3/project/$projectId/observe/$module`. ESC + click-outside dismiss with `[role=toolbar][aria-label="Plan selection actions"]` allow-list.
+- New `PlanObserveSelectionHandler.tsx` — headless `mousedown` handler. Walks `map.getStyle().layers` for live `observe-anno-*` layers, calls `queryRenderedFeatures`, resolves topmost feature's `layer.id` against a prefix→module routing table (sorted by prefix length desc). Calls `e.preventDefault()` + `stopPropagation()` to keep Plan-stage handlers from firing on the same click.
+- `PlanLayout.tsx` — mounts both new components inside the non-vision DiagnoseMap branch beside `ObserveAnnotationLayers` and `InlineFeaturePopover`. Phase 1 is naturally scoped to Current-Land because Vision/phase/3D render `VisionLayoutCanvas`.
+
+**Routing table (prefix → ObserveModule):** `be-*` → `built-environment`; `human-*` → `human-context`; `hazards` → `macroclimate-hazards`; `topography-*` → `topography`; `water` / `soil` / `ecology` → `earth-water-ecology`; `sectors` → `sectors-zones`; `swot` → `swot-synthesis`.
+
+**Verification:** `cd apps/web && NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` → clean (after fixing two `noUncheckedIndexedAccess` guards and a `satisfies LayerPrefixEntry[]` annotation to preserve module literal types through `.sort()`). ESLint clean (no new errors).
+
+**Process note — tsc OOM recurrence:** `npx tsc --noEmit` in `apps/web` consistently hits the V8 4GB heap limit ("Ineffective mark-compacts near heap limit"). Workaround: prefix with `NODE_OPTIONS=--max-old-space-size=8192`. Worth promoting to a documented script in `apps/web/package.json` (e.g. `typecheck` script) so future sessions skip the diagnosis loop. Adding to deferred ideas.
+
+**Deferred:**
+
+- **Phase 2** — inline-edit popovers for Observe features in Vision/phase-1/phase-2/terrain3d views. Requires ~30 schema builders extending `inlineEditSchemas.ts` plus per-layer click handlers writing back to the canonical Observe stores (`builtEnvironmentStore`, `topographyStore`, etc.). Tagged "edit anywhere, write to Observe."
+- **Phase 3** — "Observed" subsections in `PlanModuleSlideUp` for each module that surfaces Observe data. Lets stewards bulk-edit observed inventory from the Plan stage without leaving the slide-up.
+- **Phase 1 tail** — extend `PlanSelectionKind` in `planSelectionStore.ts` with `observe-*` kinds when selection-floater integration begins. Skipped here because the link-only popover doesn't go through `planSelectionStore`.
+- Promote a `typecheck` script to `apps/web/package.json` with the 8GB heap flag baked in.
+
+**Files touched (atlas commit `5877643`):**
+
+- `apps/web/src/v3/plan/PlanLayout.tsx` (modified, +4 lines)
+- `apps/web/src/v3/plan/draw/observeLinkPopoverStore.ts` (new)
+- `apps/web/src/v3/plan/draw/ObserveLinkPopover.tsx` (new)
+- `apps/web/src/v3/plan/draw/PlanObserveSelectionHandler.tsx` (new)
+
+**Recommended next session:** Phase 2 — pick the highest-value module (likely `built-environment`, since Buildings have the richest schema and most steward interaction) and ship one end-to-end inline-edit popover that writes to `builtEnvironmentStore`. Use it as the template for the remaining six modules.
+
+---
+
+## [2026-05-10] session | Atlas Plan — deferred-items triage (no-op confirmation)
+
+**Objective:** Resolve three deferred items carried into plan mode: (1) Esc-to-clear plan selection, (2) selected-guild inspector chip near the highlighted point, (3) `/plan` route crash from missing `livestock` module guidance in `PlanChecklistAside.tsx`.
+
+**Outcome — all three already shipped by sibling sessions:**
+
+- **Esc-to-clear:** Confirmed installed in `PlanSelectionFloater.tsx` lines 109–120 (keydown listener with input/textarea/select guard).
+- **Livestock crash:** `PlanChecklistAside.tsx` lines 69–76 carry the full `livestock` entry in `PLAN_MODULE_GUIDANCE`; livestock card suite (LandFit, MultiSpeciesPlanner, PaddockCellDesign, Fencing, AnimalTractorZones, Welfare, Biosecurity) is wired through `PlanModuleSlideUp`.
+- **Guild floater enrichment:** Sibling commit `95029f8 atlas/web: Plan selection — open Guild Builder for guild items` already added `onOpenGuildBuilder` prop, `usePolycultureStore` lookup for `{name} · N member(s)` label, and Trees-icon "Open Guild Builder" button between Edit-vertices and Delete in `PlanSelectionFloater.tsx`. `PlanLayout.tsx` line 184 wires the callback to `handleSelectModule('plant-systems')` + `setSlideUpOpen(true)`. My in-session edits produced an empty diff against HEAD — feature was already on disk.
+
+**Verification:** `cd apps/web && npx tsc --noEmit` → clean.
+
+**Deferred:**
+
+- Auto-scroll the slide-up to the `plan-guild-builder` section anchor when the user clicks "Open Guild Builder" — currently lands at the top of the plant-systems module and the steward must scroll. Needs a target-section-id store or a `scrollIntoView` ref handoff.
+
+**Process note:** Pre-flight gap — when entering plan mode for "carried deferred items," the orientation step should `git log --oneline` for sibling commits whose subjects mention the same surface area before launching Explore agents. This session ran the discovery via Explore + Read instead, costing ~5 minutes of tool calls before realising the work was committed. Adding to feedback log.
+
+**Files touched:** none (zero diff vs. HEAD).
+
+---
+
+## [2026-05-08] session | Atlas — BuiltEnvironment dashboard population (ADDENDUM 10)
+
+**Objective:** Replace the 12-line placeholder `BuiltEnvironmentPanel` with a real Dashboard mirroring the Topography gold-standard — KPI grid + synthesis + annotation list + sidebar — driven entirely by `builtEnvironmentStore`.
+
+**Outcome:**
+
+- **`modules/built-environment/derivations.ts` (new, ~325 LOC).** Pure helpers: `featureCounts`, `dominantKind<T>`, `totalLengthM`, `totalAreaM2`, `formatLength` (m vs km switch at 1000 m), `formatArea` (m² vs ha switch at 10,000 m²), `builtEnvironmentKpis` (returns 8 `BuiltKpiItem` tiles — one per entity type, tone rotates green/gold/blue/dim, pill shows dominant kind/subtype/placement/surface, note carries breakdown summary), `moduleHealthPct` (fraction of populated entity types out of 8), `healthLabel` (Empty / Forming / Good at 70%).
+- **`modules/built-environment/BuiltEnvironmentDashboard.tsx` (new, ~332 LOC).** Mirrors `TopographyDashboard` structure: Header (module-number badge "2", title, subtitle), 8-tile metric grid via `SurfaceCard` + lucide ICON_MAP (Home/Droplet/Recycle/Zap/Cable/Fence/DoorOpen/Route), Synthesis card with 3 articles (Water & utilities, Access & circulation, Hazards & easements — each conditioned on what's drawn), `AnnotationListCard` for the 8 BE kinds, Sidebar (4 SurfaceCards: Design implications, Detected built features, Recommended next actions, Module health with `ProgressRing`).
+- **`modules/BuiltEnvironmentPanel.tsx`.** Rewritten — imports the new Dashboard, drops the placeholder paragraph copy.
+- **`styles/observe-port.css`.** Appended `.built-environment-*` block (~245 LOC) mirroring `.topography-*` patterns: page/layout/metric-grid/metric-card/synthesis/sidebar/side-card classes. 4-col grid at full width, collapses to 2-col at 1100 px.
+- **Typecheck.** `corepack pnpm --filter "@ogden/web" typecheck` exits 0.
+
+**Debrief:**
+
+- **Completed:** Dashboard populated end-to-end; counts/lengths/areas/dominant-kind pills update live; module-health ring derives from populated-entity-type fraction.
+- **Deferred:** Per-entity detail pages (Building detail, Well detail, etc.) — `details: {}` stays empty; sidebar actions are advisory text only. Hero-illustration asset for the module header. Wiring buried-utility lines as a hard veto on Plan-stage earthworks (separate change).
+- **Recommended next:** Hard-wire buried-utility veto into Plan-stage earthworks tool, OR ship per-entity detail pages on demand.
+
+---
+
+## [2026-05-08] session | Atlas — Maintain pilot (map-first maintenance event log)
+
+**Objective:** Convert the Act > Maintain module from "Open module" fallback to a map-first tool, mirroring the Harvest pilot pattern. Click an existing irrigation feature → log a maintenance event with date / action / minutes / notes.
+
+**Outcome:**
+
+- **Tool ID + framework slot.** Added `act.maintain.log-event` to `MapToolId` (apps/web/src/v3/observe/components/measure/useMapToolStore.ts). New case in `ActDrawHost` mounts `MaintenanceLogTool` for that ID.
+- **MaintenanceLogTool (apps/web/src/v3/act/draw/tools/MaintenanceLogTool.tsx).** Imperative `map.on('click')` handler. Two source kinds, hit-tested in priority order: (1) earthworks (lines: swale / diversion / french_drain) via `turf.nearestPointOnLine` with a 12 m tolerance; (2) storage infra (cisterns / ponds / rain gardens) via `turf.distance` with a 15 m radius. Earthwork wins on overlap because line-features are the most common maintenance target. Persist-first pattern: skeleton `MaintenanceEvent` created on click; popover patches fields (date / action / minutes / who / notes); ESC/Cancel calls `removeEvent(id)` for true rollback. Reuses `useInlineFormStore` from Plan.
+- **maintenanceLogStore (apps/web/src/store/maintenanceLogStore.ts).** New store distinct from the existing `maintenanceStore` (which is the *schedule* of recurring tasks). Schema: `{ id, projectId, sourceKind: 'earthwork' | 'storage', sourceId, date, action, durationMin?, who?, notes? }`. Action enum: `inspect | clear | repair | replace | flush`. Persist v1 with rehydrate. Keeps the schedule/log split clean — schedule says what should happen; log records what was done.
+- **ActDataLayers extension.** New `act-data-maintenance` source + circle layer at 5 px (visually smaller than 6 px harvest circles to differentiate). Earthwork events anchor at the line's midpoint coordinate; storage events at the source `center`. Recency-shaded: estate gold `#c4a265` ≤30 days, muted clay `#8a6a4a` otherwise (same scheme as harvest). Symbol label shows the action name at minzoom 16. Lifecycle prefix-cleanup already covers the new source/layers.
+- **MaintenanceLogCard slide-up (apps/web/src/features/act/MaintenanceLogCard.tsx).** Mirrors HarvestLogCard structure but anchored on irrigation features. Form: feature kind (earthwork / storage) → feature select → date / action / minutes / who / notes. Grouped table by source key (`${sourceKind}::${sourceId}`); per-group "Total time" row sums `durationMin`. Reuses `./actCard.module.css` — no new styles.
+- **types.ts wiring.** Added `{ label: 'Event log', sectionId: 'act-maintenance-events' }` at the front of `MODULE_CARDS.maintain` so it's the default tab when the Maintain module opens. Existing 3 cards (schedule / irrigation / waste-routing) stay.
+- **ActModuleSlideUp.** Lazy import `MaintenanceLogCard` + render case for `act-maintenance-events`.
+- **ActLayout fix.** ActTools was mounted without `onOpenSlideUp`, so QuickLog clicks selected the module but never opened the slide-up. Added the prop. Verified via preview that `Log water check` now both activates the tool and opens the Maintain slide-up.
+- **Verification.** `tsc --noEmit` clean. Preview a11y check at `/v3/project/mtc/act/maintain`: clicking the "Log water check" QuickLog button mounts the tool dock (cursor=crosshair) AND opens the Maintain slide-up with tabs `Event log · Maintenance schedule · Irrigation manager · Waste routing`, "Event log" active by default. Form renders all 7 fields with an "Add event" submit. Pre-existing console errors (`plan-data-point` missing layer in PlanDataLayers; button-in-button DOM warning in ObserveModuleBar) are unrelated to this change.
+
+**Commits:**
+- atlas `2ac25ad` — `atlas/act: map-first Maintenance log tool (Maintain pilot)` (10 files, +598/-3; pushed to `feat/atlas-permaculture`).
+
+### Session Debrief
+- **Completed:** Maintain pilot fully tooled following the Harvest pattern. Three Act modules now have map-first event logging (Harvest, Livestock-yield via Harvest tool, Maintain).
+- **Deferred:** Build / Review / Network module-specific map-first tools (Build = click a structure-under-construction; Review = click a hazard zone; Network = no map gesture planned). Visual differentiation between harvest and maintenance markers is currently size-only — could move to icon-based symbol layers if marker overlap becomes an issue. The wider unrelated working-tree drift (V3LifecycleSidebar, ActChecklistAside, GuildRingsCanvas, observe-port.css, planSelectionStore, act/ops/, observe/modules/built-environment/) was again intentionally left unstaged — it belongs to other threads.
+- **Recommended next:** Review pilot — click a hazard zone or sector → log an incident (e.g., wildlife encroachment, frost damage). Reuses the same persist-first popover pattern; new `incidentLogStore` keyed off either `useHazardZoneStore` or the SWOT artefact store.
+
+## [2026-05-08] session | Atlas — Act stage tools rail (Harvest pilot) + LivestockYieldCard
+
+**Objective:** Replace the "Tools coming soon" placeholder on the Act-stage left rail. Establish the Act-tool framework (map-first gesture against existing Plan/Observe features, no new geometry — Act is execution, not authoring), ship the Harvest module fully as the pilot, and surface livestock yields in a dedicated slide-up.
+
+**Outcome:**
+
+- **Tool framework + ID enum.** Added `act.harvest.log-entry` to `MapToolId` (apps/web/src/v3/observe/components/measure/useMapToolStore.ts). New `ActDrawHost` switchboard mirrors `PlanDrawHost`; mounted inside `ActLayout` alongside `<InlineFeaturePopover>`. Reuses the shared `ObserveDrawHost.module.css` dock styling.
+- **HarvestLogTool (apps/web/src/v3/act/draw/tools/HarvestLogTool.tsx).** Imperative `map.on('click')` handler — *not* a geometry draw tool. Hit-tests via `turf.booleanPointInPolygon` against `useCropStore.cropAreas` first, falls through to `useLivestockStore.paddocks`. Crop hit wins on overlap (dedicated crop yields are usually the steward's intent). Persist-first pattern: skeleton `HarvestEntry` created on click with the matched `cropAreaId` or `paddockId`; popover patches fields; ESC/Cancel calls `removeEntry(id)` for true rollback. Reuses `useInlineFormStore` from Plan.
+- **harvestLogStore v2 (apps/web/src/store/harvestLogStore.ts).** Schema bumped: `sourceKind: 'crop' | 'livestock'` discriminator + optional `paddockId`. v1→v2 `migrate()` stamps legacy entries as `'crop'` so persisted data survives. `cropAreaId` kept as a non-optional string (empty when livestock) so HarvestLogCard's existing per-cropArea grouping keeps working.
+- **ActDataLayers (apps/web/src/v3/act/layers/ActDataLayers.tsx).** Renders harvest markers at the source feature's centroid. Joins by `sourceKind` — crop entries to `cropStore.cropAreas`, livestock entries to `livestockStore.paddocks`. Recency: estate gold `#c4a265` if ≤30 days, muted clay `#8a6a4a` otherwise. Single source `act-data-harvest`; circle layer + symbol label at minzoom 16. Lifecycle prefix-cleanup on unmount.
+- **ActTools rewrite (apps/web/src/v3/act/ActTools.tsx + ActTools.module.css).** Replaces the placeholder with PlanTools-shape: section per `ACT_MODULE` with clickable header → `onSelectModule`. Harvest section renders the "Log harvest" tool button bound to `act.harvest.log-entry`. Other 5 modules render an honest "Open module" fallback (FolderOpen icon) — replaces "Tools coming soon" until their tooling lands. CSS module copied from PlanTools.module.css with the act module dot palette.
+- **HarvestLogCard scoped to crop (apps/web/src/features/act/HarvestLogCard.tsx).** Now filters to `(e.sourceKind ?? 'crop') === 'crop'` (undefined treated as crop for v1-loaded entries) so livestock entries don't double-list once their card ships. `commit()` stamps `sourceKind: 'crop'` on new entries.
+- **LivestockYieldCard slide-up (apps/web/src/features/act/LivestockYieldCard.tsx).** Mirrors HarvestLogCard structure but anchored on paddocks: filters to `sourceKind === 'livestock'`, groups by `paddockId`, joins names from `useLivestockStore`, defaults the form unit to `count` (eggs/head/fleece). Wired into `MODULE_CARDS.livestock` in apps/web/src/v3/act/types.ts as `{ label: 'Yield log', sectionId: 'act-livestock-yield' }` at the front so it's the default tab; lazy-imported and switched in `ActModuleSlideUp`.
+- **Verification.** `NODE_OPTIONS=--max-old-space-size=8192 npx tsc --noEmit` clean from apps/web. Preview a11y snapshot at `/v3/project/mtc/act/livestock` confirms the Livestock slide-up tab row leads with "Yield log" and the form ("Add yield" button) renders without console errors. Screenshot tool unresponsive on the verification pass — flagged rather than asserted.
+
+**Commits:**
+- atlas `61c62ed` — `atlas/act: map-first Harvest tool + LivestockYieldCard slide-up` (11 files, +850/-109; pushed to `feat/atlas-permaculture`).
+- Note: prior portion of session (tool ID enum addition, ActLayout mount, ActTools shell) was already in HEAD via earlier mid-session commits before the context compaction.
+
+### Session Debrief
+- **Completed:** Act-stage tool framework live; Harvest module fully tooled (map gesture + persist-first popover + centroid markers); livestock yields no longer map-only — they have their own paddock-grouped table as the default Livestock module tab.
+- **Deferred:** Build / Maintain / Review / Network map-first tools — Open-module fallback only this pass. Card de-dup between HarvestLogCard and LivestockYieldCard (small enough that abstraction would be premature). Cross-link from a harvest map marker back to its row (wait until ≥2 modules need a selection bridge). Livestock-specific quality grades. Pre-existing dirty files in the working tree (V3LifecycleSidebar, ActChecklistAside, GuildRingsCanvas, observe-port.css, planSelectionStore, act/ops, observe/modules/built-environment) belong to other threads and were intentionally not staged.
+- **Recommended next:** Pick the next Act module to convert from "Open module" fallback to a map-first tool — Maintain (click an irrigation feature → log a maintenance event) or Review (click a hazard → log an incident) are the cleanest next pilots, both reusing the persist-first popover pattern that's now proven.
+
+## [2026-05-08] session | Atlas — Built Environment OBSERVE module + Option B wind sectors
+
+**Objective:** (a) Resolve the duplicated wind-rose visual on Observe by making steward-drawn wind sectors render with proportional intensity wedges + per-sector compass/intensity labels (Option B), then remove the climatology-driven `WindSectorsOverlay` from Observe; (b) add a new OBSERVE module "Built Environment" with 8 tools for existing on-site infrastructure (buildings, wells, septic, power lines, buried utilities, fences, gates, driveways).
+
+**Outcome:**
+
+- **Option B — wind sector visual parity.** `ObserveAnnotationLayers.tsx` wind sector spec now scales radius by `SectorIntensity` (`low: 0.4`, `med: 0.7`, `high: 1.0`) and emits a sibling Point feature mid-arc carrying `label: "${compass} · ${intensity}"`. New symbol layer `${LAYER_PREFIX}sectors-wind-label` filtered on `['==', ['geometry-type'], 'Point']`; fill+line layers filtered to `Polygon` so the symbol doesn't paint on the polygon. Halo `#f2ede3` width 1.2 / text-color `#1f3340` matches the prior climatology rose styling. `WindSectorsOverlay` and `ZonesOverlay` removed from `ObserveLayout.tsx` (they live in Plan/Act only now). On-map drag handles via `AnnotationSectorHandles` keep wind sectors editable.
+- **Built Environment module — full registration.** New module slotted between `human-context` and `macroclimate-hazards` in `OBSERVE_MODULES`. 8 new `AnnotationKind` entries (`building`, `well`, `septic`, `powerLine`, `buriedUtility`, `fence`, `gate`, `existingDriveway`). New namespace store `builtEnvironmentStore.ts` mirrors `humanContextStore` exactly — `persist(temporal((set) => ({...}), { limit: 200 }), { name: 'ogden-built-environment', version: 1 })` with 8 entity types and add/update/remove actions. New toggle key `builtEnvironment` (default off) on `matrixTogglesStore` (persist v8 → v9 with migrate seeding `prev.builtEnvironment ?? false`). 8 new `MapToolId` variants under `'observe.built-environment.*'`. 8 tool components in `apps/web/src/v3/observe/components/draw/` modeled on `NeighbourPinTool`/`AccessRoadTool` (persist-first via `createWithDefaults` then `open({ mode: 'edit', existingId })` — PLAN-stage parity from ADDENDUM 6). New ToolGroup in `ObserveTools.TOOL_GROUPS`. New `BuiltEnvironmentPanel.tsx` placeholder mirrors `HumanContextPanel`. Render layers in `ObserveAnnotationLayers.tsx` emit per-entity LayerSpecs all gated `toggleKey: 'builtEnvironment'` ANDed with master `observeAnnotations`; palette: building `#6a6a6a`, well `#3a8aa8`, septic `#7a6a3f`, power-line `#c87a3f`, buried-utility `#7a7a7a` dashed `[2,2]`, fence `#5a4a3a`, gate `#c4a265`, driveway `#8a6a3f`. New row in `MapOverlaysLegend.DEFAULT_OVERLAYS` (swatch `#8a8e94`). Module dot `#8a8e94`. MODULE_GUIDANCE entry frames existing infrastructure as constraint surface for design moves ("buried lines bind the design more than visible structures"). Typecheck `corepack pnpm --filter "@ogden/web" typecheck` exits 0.
+- **Module bar single-row layout.** `ObserveModuleBar.module.css` `.tiles` grid expanded `repeat(6, 1fr)` → `repeat(7, 1fr)` so all seven Observe modules fit on one row at full width; breakpoints retuned to `repeat(4, 1fr)` under 1100px and `repeat(2, 1fr)` under 700px.
+
+Files (Atlas web): `store/builtEnvironmentStore.ts` (new), `store/matrixTogglesStore.ts`, `v3/observe/types.ts`, `components/draw/{Building,Well,Septic,PowerLine,BuriedUtility,Fence,Gate,ExistingDriveway}Tool.tsx` (8 new), `components/draw/annotationFieldSchemas.ts`, `components/draw/ObserveDrawHost.tsx`, `components/measure/useMapToolStore.ts`, `components/AnnotationRegistry.ts`, `components/ObserveBottomRail.tsx`, `components/ObserveChecklistAside.tsx`, `components/ObserveModuleBar.module.css`, `components/ModuleSlideUp.tsx`, `components/layers/ObserveAnnotationLayers.tsx`, `modules/BuiltEnvironmentPanel.tsx` (new), `tools/ObserveTools.tsx`, `rails/ObserveRail.tsx`, `v3/_shared/components/MapOverlaysLegend.tsx`, `v3/observe/ObserveLayout.tsx`.
+
+### Session Debrief
+- **Completed:** Option B wind-sector visual + Built Environment module end-to-end (store → schemas → registry → tools → palette → render layers → legend → guidance → panel → toggle → 7-tile single-row grid). Typecheck clean.
+- **Deferred:** `BuiltEnvironmentPanel` is a placeholder Dashboard — no per-entity dashboard rows yet; module-level summary cards (building count, total fence length, kind distributions) TBD. Pre-existing TS errors in `ZoneCirculationOverviewCard.tsx` and `elementCatalog.ts:32` not addressed (out of scope).
+- **Recommended next:** Populate the BuiltEnvironment dashboard with counts/totals, OR wire buried-utility lines as a hard veto on Plan-stage earthworks (per the MODULE_GUIDANCE framing).
+
+## [2026-05-07] session | Atlas — Right-rail GuidanceCard parity, full-screen slide-up, themed scrollbars, typecheck baseline
+
+**Objective:** Bring the OBSERVE right-rail checklist into parity with the bottom `ObserveModuleBar` and left `ObserveTools` rails — same click semantics, same active-section auto-scroll, same colour-drain treatment for inactive cards. Along the way: lift `ModuleSlideUp` to fill from below the AppShell header to the viewport bottom, paint scrollbars in the brand theme so default light-grey OS bars stop punching through dark surfaces, and restore the `@ogden/web` typecheck baseline (the four `annotationExport.test.ts` errors blocking it).
+
+**Outcome:**
+
+- **`ObserveChecklistAside.tsx` — clickable cards, parity with bottom rail, auto-scroll.** Replaced the single-active-card render branch with always-render-all-six. `GuidanceCard` is now a `<section role="button" tabIndex={0} aria-pressed onClick onKeyDown>` (Enter/Space) — section-as-button, not a real `<button>`, so the inner HOW `<input type="checkbox">` controls remain legal nested HTML. `handleCardClick` mirrors `ObserveModuleBar.handleCardClick`: inactive → `onSelectModule(mod)`; active + closed slide-up → `onOpenSlideUp()`; active + open → `onCloseSlideUp()`. HOW `<label>` gets `onClick` + `onKeyDown` `stopPropagation` so a checkbox toggle doesn't bubble up to the section handler. `useRef<HTMLElement>` on the wrapper `<aside>` + `useEffect` keyed on `activeModule` auto-scrolls the matching `[data-module]` section into view via `scrollIntoView({ block: 'nearest', inline: 'nearest', behavior })` — same exact pattern shipped on the left rail in commit `2e19f66`. Five new props (`onSelectModule`, `slideUpOpen`, `onOpenSlideUp`, `onCloseSlideUp`) wired through from `ObserveLayout` (same five values already given to `ObserveModuleBar`, no new layout state).
+- **`ObserveChecklistAside.module.css` — interactive affordances.** `.group[role="button"]` gets `cursor: pointer`, hover (full opacity + tinted border keyed to per-module `--group-dot`), `:focus-visible` outline, and a 1px active-press translate. Greying for inactive sections is the existing `.group { opacity: 0.7 }` / `.groupActive { opacity: 1 }`; no behaviour change there.
+- **`ModuleSlideUp.module.css` — header-clamped full-height panel.** Scrim now starts at `top: 48px` (the AppShell header height) so the top bar stays visible above the panel; sheet stretches via `height: 100%` + `align-items: stretch`. Replaced the old `max-height: 78vh` cap. `border-radius: 0` since flush-against-the-header reads cleaner than rounded corners floating mid-screen. Animation, scrim fade, header, and inner scrollable `.body` (`flex: 1; overflow-y: auto`) unchanged.
+- **`apps/web/src/app/index.css` — global theme-aware scrollbars.** Added `* { scrollbar-color: var(--color-border) transparent; scrollbar-width: thin }` for Firefox + the full `*::-webkit-scrollbar*` set for WebKit/Blink: 10px gutter, transparent track, thumb tinted with `--color-border` (muted gold in dark via `rgba(212, 175, 95, 0.18)`, warm taupe in light via `rgba(82, 72, 52, 0.14)`), `--color-gold-brand` on hover, 2px transparent inset border so the thumb reads as a slim pill rather than filling the gutter. Existing `.left-toolbar::-webkit-scrollbar { display: none }` override still wins for components that intentionally hide their scrollbar. The right-rail checklist scrollbar that prompted the audit is now a slim gold pill on the dark surface instead of the default light-grey OS bar.
+- **`annotationExport.test.ts` — typecheck baseline restored.** Two `// @ts-expect-error` directives were sitting one line above `projects: [` in `useProjectStore.setState({ ... })` calls — TypeScript's `@ts-expect-error` only suppresses errors on the immediately following non-comment line, so the directive flagged "unused" while the real `LocalProject` shape mismatch on the array element surfaced unsuppressed. Moved both directives inside the array, directly above the offending object literal. `corepack pnpm --filter "@ogden/web" typecheck` exits 0 — full `@ogden/web` typecheck baseline clean.
+- **Auto-scroll plan reuse.** This is the third surface in seven days to ship the `useRef + useEffect + scrollIntoView({ block: 'nearest' })` pattern (left rail `2e19f66`, then right rail this session). Native scroll-anchor walks the ancestor chain so the effect doesn't need to know whether the scroll container is the `<aside>` itself or a parent grid cell.
+
+Files: `apps/web/src/v3/observe/components/ObserveChecklistAside.tsx`, `apps/web/src/v3/observe/components/ObserveChecklistAside.module.css`, `apps/web/src/v3/observe/ObserveLayout.tsx`, `apps/web/src/v3/observe/components/ModuleSlideUp.module.css`, `apps/web/src/app/index.css`, `apps/web/src/v3/observe/lib/__tests__/annotationExport.test.ts`.
+
+## [2026-05-07] session | Atlas — Auto-scroll Observe left rail to active module
+
+**Objective:** Close the deferred UX gap left by the viewport-cap fix. After the rail-as-module-selector change, switching modules from the bottom `ObserveModuleBar` while the left rail was scrolled away from the new active section meant the steward had to hunt for the matching tool group manually. Conversely, deep-linking to `/observe/swot-synthesis` landed with SWOT off-screen at the bottom of the rail.
+
+**Outcome:**
+
+- 28-line edit to `apps/web/src/v3/observe/tools/ObserveTools.tsx`: `useRef<HTMLElement>` on the toolbox `<aside>`, `useEffect` keyed on `activeModule` that runs `root.querySelector('[data-module="${activeModule}"]').scrollIntoView({ block: 'nearest', inline: 'nearest', behavior })` where `behavior` is `'auto'` when `prefers-reduced-motion: reduce` is matched, `'smooth'` otherwise.
+- `block: 'nearest'` is the key — no-ops when the section is already in view (no jitter on already-visible picks); minimal-distance scroll otherwise (top-edge if section is above the viewport, bottom-edge if below). Native scroll-anchor walks the ancestor chain, so it scrolls whichever of `.left` / `.toolbox` is the actual scroll container without code knowing.
+- Single ref on the toolbox aside instead of per-section refs — `OBSERVE_MODULES` already renders unconditionally with `data-module={mod}`, so `querySelector` is enough.
+- Deselect path (`activeModule === null`) early-returns; scroll position is preserved when stewards click the active section to clear it.
+- Verified live at 1280×800: rail at scrollTop=375, click human-context → smoothly scrolls to 0; rail at scrollTop=0, click swot-synthesis → scrolls to 375 (bottom-aligned, sub-pixel exact); already-visible topography click → scrollTop stays 0; deselect leaves scroll unchanged. typecheck clean (no new errors); console clean apart from the pre-existing `validateDOMNesting` warning in `ObserveModuleBar`.
+
+Files: `apps/web/src/v3/observe/tools/ObserveTools.tsx`. Atlas commit `2e19f66`; parent submodule bump `98e0a6f`.
+
+## [2026-05-07] session | Atlas — Observe toolbar viewport fix + module selection + color drain
+
+**Objective:** After splitting the Sun/wind wedge tool into 8 type-specific buttons (sectors-zones now has 9 buttons in a 3-col grid), the left tool rail outgrew mid-height viewports and the document started scrolling — pushing the bottom module rail and part of the map below the fold. Fix the viewport cap so only the toolbar scrolls internally, and while in there, make the toolbar do double duty as a module selector.
+
+**Outcome:**
+
+- Root cause: `V3ProjectLayout .frame { min-height: 100% }` allowed the column to grow past `.main`'s `overflow: hidden` cap; the AppShell `100vh + overflow:hidden` cap stopped propagating at the frame. Switched to `height: 100%; min-height: 0` — one-property fix unlocked all the pre-existing `min-height: 0` + `overflow: auto` declarations down the chain.
+- Themed scrollbar (`scrollbar-width: thin`, `scrollbar-color: var(--color-border) transparent`, 6px webkit thumb) applied to `.left` (the actual scrolling element — `.toolbox` filled to its full intrinsic height inside `.left`) and to `.toolbox` as defensive.
+- Whole-box module selection: each `<section>` in `ObserveTools` is now a `role="button"` with `tabIndex=0`, keyboard handler (Enter/Space), and `aria-pressed`. Clicking an inactive section navigates to that OBSERVE module via the same `handleSelectModule` the bottom `ObserveModuleBar` uses; clicking the active section deselects (URL → `/observe`). Tool buttons inside `stopPropagation` so picking a draw tool stays scoped to the tool.
+- Color drain on inactive sections (`filter: saturate(0.18); opacity: 0.62`) with hover restoring partial color (`saturate(0.85); opacity: 0.92`) as an affordance; active section opts out via `.groupActive { filter: none; opacity: 1 }` and gets a tinted border + 1px ring keyed to its `--group-dot`. Active+hover deepens the ring as the deselect affordance.
+- TypeScript prop widened from `(module: ObserveModule) => void` to `(module: ObserveModule | null) => void` to allow the deselect path. `corepack pnpm --filter "@ogden/web" typecheck` clean.
+- Verified live at `/v3/project/<id>/observe/sectors-zones` at 1280×800 and 1024×768: header + map + right checklist + bottom module rail all viewport-pinned; left rail shows themed scrollbar and reveals all 9 sector buttons + SWOT. Module switching from the toolbar mirrors the bottom rail. Inactive sections drained, active section pops.
+
+Files: `apps/web/src/v3/V3ProjectLayout.module.css`, `apps/web/src/v3/observe/ObserveLayout.{tsx,module.css}`, `apps/web/src/v3/observe/tools/ObserveTools.{tsx,module.css}` (+ pre-compaction Sun/wind 8-button split touching `ObserveDrawHost.tsx` / `SunWindWedgeTool.tsx` / `useMapToolStore.ts` / `annotationExport.ts`).
+
 ## [2026-05-04] session | MTC — CSRA model erased; founding-member covenant drafted
 
 **Objective:** Two-part work: (a) draft the founding-member covenant
@@ -8226,3 +9580,1283 @@ Three recurring Windows / preview / layout root-causes that the operator had hit
 - **Completed:** Three Windows/preview/layout root-causes the operator had hit repeatedly across past sessions, all resolved in one pass. Wiki + ADR landed.
 - **Deferred:** None directly tied to this session. The hard-coded UA sniff for `Claude/` should ideally be replaced by an `automation`-detection signal if the Claude Code team ever surfaces one.
 - **Recommended next:** Resume the deferred grounding work (Intellect/Family/Wealth/Environment migrations, ~931 entries) — the parser is now copy-paste-per-pillar and tooling is fully in place. Pre-existing dirty files in the working tree (`scripts/rationale-enrich.mjs`, `scripts/.rationale-work/`, `intellect-seed-tasks.js`, `atlas` submodule pointer) belong to that thread and were intentionally not commit-staged this session.
+
+## 2026-05-08 — MIOS — Onboarding trim, dashboard cleanup, MILOS→MIOS rename
+
+User-driven UX session reshaping new-user flow and rebranding.
+
+- **Landing hero recomposed.** Decorative `.hero-ring` SVG removed; HeroWheel relocated next to hero text via new `.hero-grid` (1fr 1fr, gap `--space-10`, max-width 1200px) in [src/styles/landing.css](src/styles/landing.css), stacking single-column under @media (max-width: 900px). Duplicate `<HeroWheel />` below the marquee deleted.
+- **Onboarding wizard trimmed Welcome → Profile → Values → Launch.** Step 2 (Higher Objectives picker) and Step 3 (First Action submodule picker) removed from [src/pages/Onboarding.jsx](src/pages/Onboarding.jsx). `STEPS` shrunk to 3, progress bar to 2 segments. `MODULES` import, `setFirstSubmodule` store hook, `selectedPillars`/`togglePillar`/`selectedSubmodule` state, and `firstPillar`/`pillarSubmodules` derived data all removed. `finish()` now seeds `modules: []` and unconditionally calls `skipNiyyah()` so first dashboard visit is unblocked. Single navigation footer; "Continue" / "Launch MAQASID" toggled by `step === STEPS.length - 1`.
+- **Dashboard onboarding scaffolding removed.** [src/pages/Dashboard.jsx](src/pages/Dashboard.jsx) lost `OnboardingChecklist`, `SpotlightTour`, `useOnboardingStore`, `TOUR_STEPS`, `tourCompleted`/`completeTourStep`/`firstLoginAt`/`handleTourComplete`. The `.insight-empty` "Welcome, Test! Let's get started." block (with "+ Create Project" link and pillar quick-links) deleted entirely along with the `firstName` derivation. All three `.dash-tier__eyebrow` blocks (`Intent · نية`, `Action · عمل`, `Impact · بركة`) and their `aria-labelledby` references stripped — tier identity is now structural only.
+- **Tier spacing tightened.** [src/pages/Dashboard.css:5,16](src/pages/Dashboard.css:5) — `.insight` gap `--space-6` → `--space-3`, `.dash-tier` padding `var(--space-4) var(--space-4) var(--space-5)` → `var(--space-2) var(--space-4)`. Measured Niyyah-card-bottom → LevelNavigator-top gap is 52 px (post-eyebrow-removal, was much larger with the 24+20+16 padding stack).
+- **Brand renamed MILOS → MIOS (Maqasid Islam Orienting System).** User-visible strings only; internal IDs (`'milos'`, `'ogden_milos_*'`, `glossaryId: 'ogden-milos'`, route `/app/ogden-milos`) preserved to avoid breaking persisted state, glossary lookups, and routes. Touched: [index.html:7](index.html:7) page title, [src/components/layout/Sidebar.jsx](src/components/layout/Sidebar.jsx) (sidebar logo span + OGDEN children), [src/pages/Landing.jsx](src/pages/Landing.jsx) (FAQ Q/A, hero badge "Islam Orienting System", footer), [src/data/modules.js](src/data/modules.js) (module name + description + feature bullet), [src/data/ogden-ecosystem.js](src/data/ogden-ecosystem.js) (sub-pillar label + Foundation desc), [src/store/project-store.js](src/store/project-store.js) (3 ogden_milos_* project names), [src/components/ogden/EcosystemPresentationFrame.jsx](src/components/ogden/EcosystemPresentationFrame.jsx) (KEY_TO_LABEL + beatLabels), [src/services/ai/ai-client.js](src/services/ai/ai-client.js) (`X-Title` OpenRouter header), [src/services/bbos-template.js](src/services/bbos-template.js) (export instructions), [src/data/pillar-wisdom.js](src/data/pillar-wisdom.js) + [src/data/pillar-next-actions.js](src/data/pillar-next-actions.js) (ogden stub labels). Verified live: sidebar logo renders "MIOS", `document.title` = "MAQASID — Islam Orienting System".
+
+### Session Debrief
+- **Completed:** Landing hero side-by-side, onboarding trimmed to 2 active steps, dashboard onboarding scaffolding + new-user empty state + tier eyebrows removed, tier spacing tightened, MILOS→MIOS rebrand on user-visible strings.
+- **Deferred:** Doc/wiki/comment references to "MILOS" left as-is (CLAUDE.md, docs/, graphify-out/, wiki entity titles, code comments) — historical accuracy + low ROI churn. Atlas wiki untouched. Wiki entity `wiki/entities/milos.md` not renamed (would break `[[milos]]` backlinks across many ADRs).
+- **Recommended next:** If full rebrand is desired, plan a sweep that (a) adds an `mios.md` entity file with `aliases: [MILOS]`, (b) updates user-facing docs (README, principles.md), and (c) decides whether to rename `'milos'` ID + route with a one-shot localStorage migration. Or pivot back to the deferred grounding work (Intellect/Family/Wealth/Environment migrations, ~931 entries).
+
+## 2026-05-08 — MIOS — IslamicPanel module sync from URL (single authoritative writer)
+
+The right-rail IslamicPanel (`aside.il`) only displayed correct pillar / module content when the user clicked into a module via the **left Sidebar**. From dashboard cards, project boards, deep links, breadcrumbs, or back/forward, the panel rendered stale or empty content (often persisted "sources" from the prior session).
+
+- **Root cause.** Sidebar submodule `Link`s ([src/components/layout/Sidebar.jsx:165,301](src/components/layout/Sidebar.jsx:165)) called `setActiveModule(mod.id)` synchronously inside `onClick`, writing to the store *before* navigation. [AppShell.jsx:102-122](src/components/layout/AppShell.jsx:102) also had a URL-sync `useEffect` that called `setActiveModule(segment)` on every `location.pathname` change — but unvalidated. Any segment that wasn't a known module id (`sources`, `settings`, future routes, sub-routes like `/app/work/:projectId/...`) wrote a bogus value, and `MODULES.find(m => m.id === bogusValue)` returned `undefined`, blanking the panel. The Sidebar's eager pre-navigation write masked the bug on that one entry path.
+- **Fix.** Made the URL-sync effect the single authoritative writer with strict validation. Built `MODULE_IDS = new Set(MODULES.map(m => m.id))` and `PREFIX_ROUTES = Object.entries(MODULE_ROUTES)` at module scope in [AppShell.jsx](src/components/layout/AppShell.jsx). The effect now: (1) sets `activeModule` to `segment` only if `MODULE_IDS.has(segment)`, (2) handles the `pillar/{id}` special case unchanged, (3) prefix-matches `MODULE_ROUTES` to resolve `/app/work/:projectId[/...]` → parent `work` module, (4) leaves `activeModule` alone for unknown / non-module segments so the panel keeps the last valid module instead of blanking. `MODULE_ROUTES` was exported from [Sidebar.jsx:20](src/components/layout/Sidebar.jsx:20) and imported into AppShell; the redundant `setActiveModule(...)` writes were dropped from both submodule `Link` onClick handlers (mobile drawer's `handleNavClick` retained). `useAppStore` destructure in Sidebar pruned to drop the now-unused setter.
+- **Verification (`bbiz_module` localStorage + `.il-module-name` / `.il-module-attrs` / `.il-pillar-label`):**
+  - `/app/faith-zakah` (deep link): Faith / Zakah / Ar-Razzaq · Al-Karim ✓
+  - `/app/wealth-earning` (deep link): Wealth / Earning & Provision / Ar-Razzaq · Al-Fattah ✓
+  - `/app/work/wealth_earning_core/tasks` (sub-route): preserves parent `work` → Wealth / Projects / Al-Muhsin · Al-Wakil ✓
+  - `/app/settings` (non-module): retains prior module (Wealth / Projects) instead of blanking ✓
+  - Console clean (no errors).
+- **Edge case found during implementation.** Only the Faith pillar has `-core` / `-growth` / `-excellence` entries in [src/data/modules.js](src/data/modules.js) — the other pillars have routes at `/app/{pillar}-core` etc. in App.jsx but no corresponding `MODULES[]` entry and no `MODULE_ROUTES` mapping. Initial draft used `MODULE_ROUTES` as the validation source, which missed these. Switching the primary validator to `MODULE_IDS` derived from `MODULES` itself is correct because every module page follows the `/app/{moduleId}` convention.
+
+### Session Debrief
+- **Completed:** IslamicPanel module-sync bug fixed. All four navigation entry paths (sidebar, dashboard card / deep link, project sub-route, non-module page) now render the panel consistently. AppShell's URL-sync effect is now the single authoritative writer; Sidebar no longer races it.
+- **Deferred:** Consolidating the duplicate `MODULE_ROUTES` table in [src/components/dashboard/PillarCard.jsx:19](src/components/dashboard/PillarCard.jsx:19) (still a local copy). Backfilling `MODULES[]` entries for the missing `*-core` / `*-growth` / `*-excellence` ids on non-Faith pillars (would let the panel show structured Hifz-an-Nafs / Hifz-al-Mal / etc. badges on those level pages instead of falling through to "leave alone").
+- **Recommended next:** Either the MODULE_ROUTES consolidation pass, or pivot back to the deferred grounding work (Intellect/Family/Wealth/Environment migrations, ~931 entries).
+
+## 2026-05-12 — Atlas — Plan: FertilityColocationCard reverse view (`19cb8e5`)
+
+Added a "By fertility unit" section to `FertilityColocationCard`. The forward view (guild → nearest fertility) catches gaps; the reverse view (fertility → guilds in Zone-2 reach, ≤ 75 m) catches over-resourced units (zero guilds in range) and single-point-of-failure units (serving every guild). Each unit shows a tone-pilled count and its served guilds with distance pills, sorted nearest first. Uses the same `haversineM` over `[lng, lat]` tuples; both stores still capped via `usePhaseStoreCappedEntities`. tsc clean.
+
+## 2026-05-12 — Atlas — `lib/geo.ts` extraction (haversine, 4 duplicates → 1) (`af0790a`)
+
+Centralised haversine math previously inlined four places:
+`layerFetcher.ts` (km, scalar), `GPSFieldStatusCard.tsx` (m, scalar),
+`ArrivalSequenceDesignCard.tsx` + `FertilityColocationCard.tsx` (m,
+tuple). New `apps/web/src/lib/geo.ts` exports `haversineM(a, b)` and
+`haversineKm(a, b)`, both `[lng, lat]` tuples (Mapbox / GeoJSON
+convention — matches every spatial store).
+
+Two of the four callers adopt the tuple API outright (zero callsite
+changes; same shape). `GPSFieldStatusCard` rewrites 3 scalar
+callsites to tuples with care for `[lng, lat]` order. `layerFetcher.ts`
+keeps a thin local scalar adapter that delegates to the tuple form —
+math centralised, but transposing 24 remote-data integration points
+silently is the kind of mistake that ships into production, so we
+don't. tsc clean.
+
+## 2026-05-12 — Atlas — Plan: FertilityColocationCard + guild-cost totals chip (`895a61f`, `7c8a1dc`)
+
+Two follow-ups from the prior debrief.
+
+**`FertilityColocationCard`** (new readout under soil-fertility, 7th section). Pairs `polycultureStore.guilds` with `closedLoopStore.fertilityInfra` by haversine distance, buckets into Close (≤ 25 m, Zone 1) / Medium (25–75 m, Zone 2) / Far (> 75 m) / Unplaced-or-unpaired. Per-guild row shows the type of the nearest fertility unit; overall section surfaces Zone-1 placement %, fertility-unit count at this view, median nearest-distance, unpaired count. Both stores routed through `usePhaseStoreCappedEntities` so Year 1 / Year 5 views reflect only Scale-of-Permanence-in-scope entities. Inline `haversineM` (4th duplicate in the codebase — a shared `lib/geo.ts` extraction is now overdue).
+
+**Guild-cost totals chip on `GuildSpatialBuilderCard`** — inline "Project guild totals" section between hero and Active Guild, with guild count, summed `establishmentCostUSD` / `establishmentLaborHrs`, and count of guilds without estimates. Closes the loop on `b46990b` — steward no longer has to leave the builder to see roll-ups. Inline `fmtUSD` mirrors `CumulativeInvestmentCard`.
+
+tsc clean. Both pushed.
+
+## 2026-05-12 — Atlas — Plan: fold guild establishment into CumulativeInvestmentCard (`91615a6`)
+
+Closes the deferral from `b46990b`. `CumulativeInvestmentCard` now reads `polycultureStore.guilds`, buckets `establishmentCostUSD`/`establishmentLaborHrs` by `guild.phase`, and adds the per-phase contribution to both the phase's `incHrs`/`incUSD` totals and specifically to the Vegetation slice of the Yeomans `byTier` strip (Keyline order preserved). Phase share bars, cumulative running totals, and the stacked tier strip all reflect guild contribution automatically. Unassigned guilds (no phase) and unestimated guilds surface in the Project total section as separate stat rows — they can't be placed on the curve without a phase anchor, but the steward needs to see the count to act.
+
+Both Phasing/Budgeting cards (`LaborBudgetSummaryCard`, `CumulativeInvestmentCard`) now share one aggregation pattern: task totals from `phaseStore` ∪ guild totals from `polycultureStore`, bucketed by `BuildPhase.id`. No schema changes — the `establishmentCostUSD`/`establishmentLaborHrs` fields landed in `b46990b`.
+
+tsc clean. Pushed.
+
+## 2026-05-12 — Atlas — Phase 6.B (proof-of-shape): V2 selector library + utilityConflicts migration (`3ad7d89`)
+
+Introduced `apps/web/src/store/builtEnvironmentSelectors.ts` — the React+Zustand surface that lets consumers migrate off the V1 `useBuiltEnvironmentStore` facade one file at a time. Two parallel flavours per Observe slice (Building / Well / Septic / PowerLine / BuriedUtility / Fence / Gate / ExistingDriveway):
+
+- `getXxxForProject(projectId)` — non-React one-shot read via `useBuiltEnvironmentStoreV2.getState()`. Use inside pure helpers, event handlers.
+- `useXxxForProject(projectId)` — React hook subscribing to `entities` and memoizing the projection + projectId filter.
+
+The projection functions themselves already live in `@ogden/shared`'s `builtEnvironmentProjection.ts` (`projectToBuildings`, `projectToBuriedUtilities`, etc.); this file is just the app-side wrapper.
+
+Proof-of-shape migration: `apps/web/src/v3/plan/utils/utilityConflicts.ts` (the one-shot pure helper that runs the soft-veto check against buried-utility lines per ADR `2026-05-10-plan-earthwork-utility-veto.md`) now reads via `getBuriedUtilitiesForProject()`. Local copy of the V1 `BuriedUtilityKind` enum (`water_main | gas | fibre | sewer | other`) + narrowing helper preserved so `UtilityConflictDialog`'s `KIND_LABEL` map keeps compiling once the V1 facade is deleted.
+
+`tsc --noEmit` clean.
+
+Next call-site migrations (Phase 6.B continued):
+- `BuiltEnvironmentDashboard.tsx` — drops 8 V1 facade reads.
+- `ObserveAnnotationLayers.tsx` — drops 8 V1 facade reads.
+- `AnnotationRegistry.ts` — replaces the 8-case `useAnnotationsForKinds` switch's V1 reads.
+- `annotationGeometryRegistry.ts` — drops V1 read.
+
+Once those four land, the V1 Observe facade has zero read callers; pivot to `useDesignElementsStore` (6 sites) then `useStructureStore` (40+).
+
+---
+
+## 2026-05-12 — Atlas — Phase 6.A: retire dead BUILT_ENV_V2 feature flag (`ca03d1d`)
+
+Audit on 2026-05-12 confirmed `FLAGS.BUILT_ENV_V2` (env: `ATLAS_BUILT_ENV_V2`) was never wired into branching logic — only referenced in JSDoc. The V1 facades (`useBuiltEnvironmentStore`, `useStructureStore`, `useDesignElementsStore`) unconditionally project from V2 regardless of flag state. Removed the flag from `packages/shared/src/constants/flags.ts`; updated stale JSDoc in `builtEnvironmentProjection.ts` and `apps/web/src/store/builtEnvironmentStoreV2.ts` with the retirement date.
+
+Phase 5.5 (AnnotationRegistry KIND_LABELS + switch widening to V2 kinds) was considered and **deferred**: expanding `AnnotationKind` discriminator with 23 new variants plus per-kind field schemas duplicates the registry-as-schema thrust and gets thrown away by Phase 6's eventual switch-statement deletion. Better to skip the bridge and tackle the call sites holistically.
+
+Phase 6 readiness audit (Explore agent, this session) sized the legacy-store deletion at ~50 reader/writer sites:
+- `useStructureStore` — 40+ Plan/Act/Features call sites
+- `useDesignElementsStore` — 6 Plan call sites
+- `useBuiltEnvironmentStore` (V1) — 4 Observe call sites including the `AnnotationRegistry` 8-case switch
+- 2 store-adapter test files (`builtEnvironmentAdapters.test.ts`, `builtEnvironmentStoreV2.test.ts`) — currently green; will need post-deletion replacement
+
+Next BE V2 phases (Phase 6.B+ — separate session(s)):
+- Migrate reader sites to direct `useBuiltEnvironmentStoreV2` selectors via a small set of projection helpers.
+- Migrate mutator sites (`ActStructurePopover`, `cascadeDelete`, `cascadeClone`, `PlanVertexEditHandler`) to V2 `create / updateMetadata / updateGeometry / delete` directly.
+- Delete `structureStore.ts`, `designElementsStore.ts`, `builtEnvironmentStore.ts` (V1).
+- Retire `builtEnvironmentAdapters.test.ts` once no consumers remain.
+
+---
+
+## 2026-05-12 — Atlas — Phase 5.4: feed V2 BE entities into module health bar (`ca67843`)
+
+Widened `moduleHealthPct()` in `apps/web/src/v3/observe/modules/built-environment/derivations.ts` so projects that placed only V2-class entities (cabin, greenhouse, water-tank, machinery-shed, fire-circle, etc.) no longer read as 0% health. Added an optional second arg `v2: { entityCount, kindsPresent }`; legacy contribution unchanged, V2 contribution mirrors the same per-entity (×8) + per-slot-present (×4) weighting where each occupied registry category counts as one slot. `BuiltEnvironmentDashboard.tsx` derives the V2 inputs from the already-exported `builtV2Counts()` helper.
+
+Scope kept tight: did **not** touch `AnnotationRegistry.ts`'s `KIND_LABELS` / dispatch switches (Phase 5.5 candidate — would unblock the right-rail annotation list for V2 kinds) or `AnnotationListCard.tsx`'s hard-coded 8-kind array. Per the Phase-5.4 map: the V2 KPI strip and the V2 generic layer were already in place from prior phases; the health bar was the lone aggregator still capped at the legacy-8 set.
+
+Next BE V2 phases:
+- Phase 5.5 (optional bridge) — extend `AnnotationRegistry.KIND_LABELS` + `useAnnotationsForKinds` / `getAnnotationById` / `removeAnnotation` switches to dispatch V2 kinds through `builtEnvironmentStoreV2`.
+- Phase 6 — flip `ATLAS_BUILT_ENV_V2` flag default-on; delete `structureStore.ts`, `designElementsStore.ts`, and V1 `builtEnvironmentStore.ts`; tsc/test/lint sweep.
+
+---
+
+## 2026-05-12 — Atlas — Phase 5.3: StructureTool labels via BE V2 registry (`4c9ef30`)
+
+Migrated `StructureTool.tsx` (apps/web) to derive its 20-entry `TYPE_OPTIONS` label list from `BUILT_ENVIRONMENT_KINDS` via `getBuiltEnvironmentKind`. The registry's alias map (`prayer_space → prayer-pavilion`, `storage → shed`, `compost_station → compost`, `water_pump_house → water-pump-house`, `tent_glamping → tent-glamping`, `animal_shelter → animal-shelter`, `solar_array → solar-array`, `water_tank → water-tank`, `fire_circle → fire-circle`) is now the single source of truth for human-facing labels on the Plan structure popover.
+
+Scope kept tight: `STRUCTURE_TEMPLATES` continues to own dimensions (widthM/depthM), `costRange`, and `infrastructureReqs` — these are app-specific and not yet promoted into the shared registry spec. `StructureType` (snake_case union) stays as-is so the `structureStore` V2 facade keeps its V1-shape public API. Falls back to `STRUCTURE_TEMPLATES[type].label` if a kind ever lands in the local table without a registry counterpart.
+
+Next BE V2 phases:
+- Phase 5.4 — widen dashboard derivations from the 8 legacy kinds to all 31.
+- Phase 6 — flip `ATLAS_BUILT_ENV_V2` flag default-on; delete `structureStore.ts`, `designElementsStore.ts`, and V1 `builtEnvironmentStore.ts`; tsc/test/lint sweep.
+
+---
+
+## 2026-05-11 — MIOS — MODULE_ROUTES consolidation + non-Faith pillar level backfill
+
+Two related cleanups from prior session's deferred list.
+
+### MODULE_ROUTES consolidation (`a9d8bb5`)
+- Removed dead `MODULE_ROUTES` constant (10 entries, lines 19-30) from [src/components/dashboard/PillarCard.jsx](src/components/dashboard/PillarCard.jsx). Grep-verified it was declaration-only — never referenced. PillarCard navigates via `/app/pillar/${pillar.id}` and does not consume the table.
+- [src/components/layout/Sidebar.jsx:20](src/components/layout/Sidebar.jsx:20) `export const MODULE_ROUTES` is now the single source of truth, consumed by [AppShell.jsx](src/components/layout/AppShell.jsx) for URL-sync. Pillar dashboards (`HealthDashboard`, `IntellectDashboard`, etc.) retain their own `SUBMODULE_ROUTES` constants — different concept (pillar-internal submodule paths), no overlap.
+
+### Non-Faith pillar level backfill (`fcc41b8`)
+- Added 15 new `MODULES[]` entries to [src/data/modules.js](src/data/modules.js): 5 pillars (health, intellect, family, wealth, environment) × 3 levels (core / growth / excellence). Each mirrors the Faith pattern: `Shield` / `TrendingUp` / `Star` icons by level, level-paired Asma (`Al-Muhyi · Al-Qayyum` / `Al-Rafi · Al-Fattah` / `Al-Muhsin · Al-Jamil`), same three Path-to-Excellence colors (`#C8A96E` / `#4ab8a8` / `#8b5cf6`). Descriptions follow the form `"{Universal label} {Level} — Level N: {Tier} ({Arabic})"`.
+- **Effect.** AppShell's URL-sync already validates against `MODULE_IDS = new Set(MODULES.map(m => m.id))`, so URLs like `/app/health-core` / `/app/wealth-growth` / `/app/environment-excellence` previously fell through to subModuleIds[0] (or were "leave alone". They now resolve directly, and the Islamic right-rail panel renders the structured module badge (name, attrs, icon) on those level pages.
+- **Ummah skipped.** No `ummah-core/growth/excellence` routes exist in App.jsx — UmmahDashboard renders Collective / Neighbors / Community directly.
+- **Tests:** 62/62 pass. ESLint clean.
+
+### Session Debrief
+- **Completed:** PillarCard's dead `MODULE_ROUTES` removed (Sidebar's export is sole authority). 15 level-submodule entries added for health/intellect/family/wealth/environment so the Islamic panel renders structured badges on `/app/{pillar}-{level}` URLs.
+- **Deferred:** Optionally hand-curate per-pillar Asma for the level entries (currently use Faith's level-paired Asma as a sensible default); add `*-core/-growth/-excellence` ids to each pillar's `subModuleIds[]` in [src/data/maqasid.js](src/data/maqasid.js) so `getPillarForModule()` resolves them (currently null for level ids, mirroring Faith's existing behavior). Other modified files in working tree (PropheticPath, prophetic-path-submodules, atlas submodule pointer) — provenance unclear, intentionally left untouched.
+- **Recommended next:** Either the deferred grounding work (Intellect/Family/Wealth/Environment migrations, ~931 entries) or per-pillar Asma curation for the new level entries.
+
+---
+
+## [2026-05-12] session | Atlas — fix "previously drawn features don't appear until I draw a new one"
+
+**Objective:** Persisted design elements (paddocks, ponds, swales, structures,
+etc.) were absent from the Plan map on initial load; the moment the steward
+drew any new design element, all previously persisted ones snapped into view
+alongside it.
+
+**Root cause.** A startup race in `DesignElementLayers.tsx`:
+
+- `DiagnoseMap` renders children as soon as it calls `setMap(m)` — before
+  the initial MapLibre style has finished loading.
+- The original `apply()` bailed when the style's `layers.length === 0` and
+  relied on `map.on('style.load', …)` to retry — known unreliable in some
+  F5/setStyle interleavings (see ADDENDUM 7 in DiagnoseMap).
+- `map.isStyleLoaded()` (the obvious replacement) flips back to `false`
+  during tile loads and basemap initial paints, so a `styledata` listener
+  alone wasn't enough either — a single bail window with no follow-up
+  retry would leave `design-el-*` sources/layers permanently missing.
+- The bug became visible after commit `e00f497a` deleted the V1
+  `useDesignElementsStore` facade — its rehydrate re-merge had been
+  fortuitously triggering a redundant layer-effect re-run that masked
+  the race.
+
+**Fix** (committed in `147948a2` alongside Phase 4-B writer migration —
+the DesignElementLayers diff is bundled but logically independent):
+
+1. Drop the `isStyleLoaded()` gate. Gate only on `map.getStyle()` being
+   truthy (style initialised at all).
+2. Wrap `addSource` / `addLayer` calls in `try/catch`. If MapLibre throws
+   mid-style-transition, the failure re-arms a one-shot `idle` retry
+   instead of crashing the component.
+3. Provide an `armIdleRetry()` helper, deduped via `idleRetryArmed`,
+   called on every bail path. Guarantees a follow-up apply once the
+   map quiets down — not just at mount.
+4. Keep the existing `style.load` / `load` / `styledata` listeners; they
+   remain idempotent because `ensureSource` / `ensureLayer` short-circuit
+   on existing ids.
+
+**Verification.**
+
+- Probed the live preview on project `ec5ed028-…` (which has persisted
+  design elements): 7 `design-el-*` layers mount, `design-el-poly` source
+  contains the persisted paddock on first paint without any draw action.
+  `isStyleLoaded()` reported `false` mid-paint — confirming the bug
+  the original gate would have hit; the new logic handled it cleanly.
+- Probed project `00000000-…` (which the user was testing on): same 7
+  layers mount, but feature counts are 0. localStorage inspection
+  confirmed `ogden-atlas-design-elements` and `ogden-built-environment-v2`
+  contain entries only under `mtc` and `ec5ed028-…` — that project ID
+  genuinely has no persisted state. Layer pipeline is correct;
+  user was testing on an empty project.
+
+### Session Debrief
+
+- **Completed.** Style-load race in `DesignElementLayers` fixed; verified
+  the persistent layer renders on first paint for projects with data.
+  Diagnostic console.debug from previous session cleaned up.
+- **Deferred.**
+  - User reported "draw works but disappears after double-click" on
+    project `00000000-…`. Distinct from the load race — likely the
+    draw-complete handler writing under the wrong `projectId` or the
+    BE-V2 vs land-design routing fork dropping the new entity. Worth
+    re-testing on `ec5ed028-…` (known-good render) before chasing.
+  - Other map layers using the same fragile `style.load` pattern
+    (ObserveAnnotationLayers, BeV2GenericLayer, DesignElementExtrusionLayer,
+    Terrain3DController, ActDataLayers) are scoped out per the original
+    plan — apply the same `armIdleRetry` pattern if the symptom recurs.
+  - Working tree has unstaged Phase 4-C changes (DesignToolsPanel,
+    LandOsShell, MapCanvas, structurePlacementStore) — unrelated to this
+    session, left untouched.
+- **Recommended next.** Verify draw-commit persistence on a populated
+  v3 project, then sweep the remaining `style.load`-only layers if the
+  pattern proves out.
+
+## 2026-05-12 — Atlas — PrayerZoneReadinessCard joins the zoneThresholds family (`eeb76133`)
+
+- **Goal.** Pick the next zoneThresholds migration target after
+  ContemplationZonesCard, then make the edit.
+- **Survey.** Grepped `apps/web/src/v3/plan/cards/` (27 .tsx files) for
+  hard-coded `_M = \d+` constants. Honest finding: none of them are
+  natural zone-walk candidates — most are SVG layout numbers (`VB_W`,
+  `RING_SPACING`), sub-domain physics (acoustic `REACH_M=200`, density
+  `DENSITY_KG_PER_M3=200`), sector half-widths in **degrees**, or
+  machinery clearance widths. The "walking-distance / steward-reach"
+  semantic lives in `features/`, not `v3/plan/cards/`. Extended the
+  grep to `features/` — rich harvest including `PrayerZoneReadinessCard`
+  (`NEARBY_M=60`, `WUDU_WALK_M=35`), `QuietCirculationRouteCard`
+  (tiered `NOISY_NEAR_M / COMPROMISED_M / QUIET_M`), and
+  `PlantingToolDashboard` (8 tiered good/caution constants).
+- **Pick.** `PrayerZoneReadinessCard.tsx`. Three reasons: (1) it is a
+  spiritual-readiness sibling of the already-migrated
+  `SpiritualCommunalCard` — `WUDU_WALK_M=35` and
+  `ADJACENCY_THRESHOLD_M = getZoneThresholds(project).mediumM` encode
+  the same intuition with different magnitudes, so two cards in the
+  same family currently disagree; (2) scoped — three constants in one
+  file, one mount surface; (3) the card already encodes a 2-tier walk
+  hierarchy (`WUDU_WALK < NEARBY`) that mirrors `closeM < mediumM`
+  exactly.
+- **Mapping.** `WUDU_WALK_M` (was 35) → `closeM` (default 25, tighter
+  by 10 m — comment said "tighter (ablution before prayer)" and Zone-1
+  is the daily-repetition reach). `NEARBY_M` (was 60) → `mediumM`
+  (default 75, looser by 15 m — comment said "comfortable indoor-shoes
+  walk" and SpiritualCommunalCard already uses `mediumM` for the
+  bathhouse→prayer adjacency). `LOUD_BUFFER_M=30` and
+  `LIVESTOCK_BUFFER_M` left literal — different domains (acoustic
+  setback / regulatory purity buffer, not steward-walk).
+- **Edit.** Added `getZoneThresholds` import; replaced the two module
+  constants with an explanatory block comment; added a single
+  destructuring line at the top of the component body
+  (`const { closeM: WUDU_WALK_M, mediumM: NEARBY_M } = getZoneThresholds(project);`)
+  so all 8 downstream usages stay untouched; added the two values to
+  the `readiness` useMemo dep array; updated the file's top docstring
+  to point at `project.zoneThresholds.{closeM,mediumM}`. Since the
+  component already receives `project: LocalProject` as a prop, no
+  store lookup or detached-preview fallback was needed — cleaner than
+  the ContemplationZonesCard migration.
+- **Honest behavior change.** At defaults: wudu check tightens (35→25
+  m); prayer-space check loosens (60→75 m). Both now tunable via the
+  `FertilityColocationCard` "Tune zones (advanced)" disclosure, in
+  lockstep with the rest of the family.
+- **Verification.** `npx tsc --noEmit` on `apps/web` → exit 0.
+- **Bonus correction.** While scoping a "fix" for item #1 of
+  `tasks/zonethresholds-tightening-2026-05-12.md` (the "Reset click →
+  optical lag" smoke-test finding), I re-read the FertilityColocation
+  Reset handler (lines 195–199) and found it already does the right
+  thing — it clears the store *and* resets both local draft states in
+  the same synchronous handler. The "~1-tick lag" was a measurement
+  artifact of reading the DOM immediately after `preview_click` fires,
+  before React commits state. Retracted item #1 in the backlog rather
+  than fixing working code.
+- **zoneThresholds family roster (5 cards).** FertilityColocationCard
+  (controller), SpiritualCommunalCard, ArrivalSequenceDesignCard,
+  ContemplationZonesCard, **PrayerZoneReadinessCard** (new). Five
+  cards, one tunable.
+- **Commit shape.** Atlas migration landed on `feat/atlas-permaculture`
+  bundled into commit `eeb76133` alongside an unrelated 68-file
+  `@ogden/shared` Structure-type retarget refactor.
+- **Recommended next.** Either (a) keep migrating the spiritual-walk
+  family — `QuietCirculationRouteCard` (`NOISY_NEAR_M=10`,
+  `COMPROMISED_M=25`, `QUIET_M=50`) is a tidy 3-bucket fit, or (b)
+  take on the bigger `PlantingToolDashboard` migration (8 tiered
+  good/caution constants — closeM/mediumM × 4 supply types: nursery,
+  compost, irrigation, harvest).
+
+## 2026-05-12 — Atlas — QuietCirculationRouteCard joins the zoneThresholds family
+
+- **Goal.** Migrate the 6th zoneThresholds card. Constants today:
+  `NOISY_NEAR_M=10`, `COMPROMISED_M=25`, `QUIET_M=50`.
+- **Mapping.** `COMPROMISED_M` → `closeM` (default 25 — exact match;
+  "audible road noise" = Zone-1 reach). `QUIET_M` → `mediumM`
+  (default 75, looser by 25 m; "quiet enough for retreat circulation"
+  = Zone-2 reach). `NOISY_NEAR_M=10` stays literal — acoustic-presence
+  constant, not a steward-walk band (same treatment as `LOUD_BUFFER_M`
+  in PrayerZoneReadinessCard).
+- **Honest default change.** The `excellent` / `good` tier boundary
+  shifts 50→75 m. At defaults, fewer routes earn `excellent` without
+  tuning, but the `good` band absorbs them. Stewards who want the old
+  behavior tune `mediumM` to 50 via the FertilityColocationCard
+  disclosure.
+- **Edit shape.** `rowFor` was a module-level function referencing the
+  two old constants, so it now takes `compromisedM, quietM` as
+  parameters. The component body does the per-project lookup (same
+  pattern as ContemplationZonesCard since the component receives
+  `projectId: string`, not the full project), passes the two values
+  into `rowFor`, and renames them to `COMPROMISED_M` / `QUIET_M` via
+  destructuring so all 9 downstream usages stay untouched. Dep array
+  for the `data` useMemo gained both values.
+- **Verification.** `npx tsc --noEmit` on `apps/web` → exit 0.
+- **zoneThresholds family roster (6 cards).** FertilityColocationCard
+  (controller), SpiritualCommunalCard, ArrivalSequenceDesignCard,
+  ContemplationZonesCard, PrayerZoneReadinessCard,
+  **QuietCirculationRouteCard** (new). Six cards, one tunable.
+- **Recommended next.** `PlantingToolDashboard.tsx` (8 tiered
+  good/caution constants across 4 supply types — nursery, compost,
+  irrigation, harvest). 2-axis migration that needs design thought
+  before edits: are `_GOOD_M` and `_CAUTION_M` the same closeM/mediumM
+  bands the family uses, or is each supply type its own bespoke
+  reach? Likely the former, but worth confirming before the edit.
+
+## 2026-05-12 — Atlas — zoneThresholds family declared complete; Soil module default sub-card flipped
+
+- **Family declared complete at 6 cards.** Surveyed
+  `PlantingToolDashboard.tsx` in plan mode: its 8 tiered
+  `_GOOD_M` / `_CAUTION_M` constants are tiered by **load class**
+  (nursery tray-carry 150/400, compost wheelbarrow 100/300,
+  irrigation pipe-run 80/250, harvest truck/wagon 50/150), not by
+  steward walk. None align to closeM=25/mediumM=75 even at the order
+  of magnitude; the author's own comments document the load-class
+  rationale. Domain mismatch — same reason `NOISY_NEAR_M`,
+  `LOUD_BUFFER_M`, and `LIVESTOCK_BUFFER_M` stay literal. Skipped.
+  Family roster: FertilityColocationCard (controller),
+  SpiritualCommunalCard, ArrivalSequenceDesignCard,
+  ContemplationZonesCard, PrayerZoneReadinessCard,
+  QuietCirculationRouteCard. **Done.**
+- **Pivot.** Item #2 from
+  `tasks/zonethresholds-tightening-2026-05-12.md` — Soil tile
+  cold-opens onto **Soil fertility designer** (a placement surface)
+  instead of **Fertility colocation** (the readout that hosts the
+  Tune-zones disclosure now governing the whole family). Every
+  consumer card points stewards back to FertilityColocation, but the
+  fastest path to reach it required tabbing through 6 other sub-cards.
+- **Investigation.** The shared `ModuleSlideUp.tsx` (lines 57–69)
+  hard-resets `activeSectionId` to `cards[0]?.sectionId` on every
+  reopen and cards-identity change — there's no per-module override
+  hook. `handleSelectModule` in PlanLayout always closes the
+  slide-up on navigation, so re-opens always re-enter the
+  reset-to-cards[0] path. PlanChecklistAside guidance cards select
+  *modules*, not sub-cards. The fix surface is just `cards[0]`.
+- **Fix.** Reordered `MODULE_CARDS['soil-fertility']` in
+  `apps/web/src/v3/plan/types.ts` so `'Fertility colocation'` is
+  index 0; designer drops to index 1. Tab strip visible order
+  becomes colocation → designer → vectors → closed-loop → baseline
+  → greens & browns → soil-building. Designer is one click away;
+  the Tune-zones disclosure now opens by default.
+- **Why option C over (a) per-module last-viewed memory or (b)
+  rewrite `handleSelectModule`.** (a) touches a 3-stage shared
+  component (Plan/Act/Observe) for a small UX nudge —
+  over-engineered. (b) doesn't change the cold-open default that the
+  smoke-test actually flagged. (c) is one entry-move in one file,
+  surgical, no API surface changes.
+- **Verification.** `npx tsc --noEmit` on `apps/web` → exit 0.
+- **Closes.** Item #2 in
+  `tasks/zonethresholds-tightening-2026-05-12.md`. Both backlog
+  items now resolved (item #1 retracted earlier as a measurement
+  artifact).
+- **Recommended next.** Open. The Plan-stage zoneThresholds arc and
+  its polish backlog are both closed. Pick from the broader
+  permaculture roadmap.
+
+## 2026-05-12 — Atlas — Rec #4 Edge & Connectivity Evaluator v1 ships
+
+- **Goal.** First pick off the permaculture-alignment backlog
+  (`atlas/tasks/permaculture-alignment-backlog.md`). Rec #4 was the
+  simplest P1 — pure geometry on existing polygons, no new data, no
+  new dependency. The Scholar's framing: "Homogenized layers lack the
+  edge necessary to create niches for diverse species and predator/prey
+  relationships that keep pests in check."
+- **Metric.** Polsby-Popper compactness (PP = 4π·area ÷ perimeter²) per
+  polygon. Dimensionless 0..1; 1.0 = perfect circle (maximally
+  homogenized), values near 0 = highly indented / edge-rich. Picked over
+  raw P/A ratio because PP is scale-invariant — a 1-ha and a 4-ha
+  square score identically. Standard compactness metric in landscape
+  ecology. One-line formula, no new dependency.
+- **Tier thresholds.** `excellent` PP < 0.4 (green pillMet);
+  `adequate` 0.4–0.7 (neutral pillIncon); `homogenized` ≥ 0.7 (red
+  pillUnmet, textual prompt rendered). Polygons under 2 000 m² skip
+  the audit — diversity-penalty framing doesn't apply to small
+  feature plantings.
+- **Polygon source.** `landDesignStore.byProject[projectId]` filtered
+  to planting-class `kind` ∈ {orchard, silvopasture, pasture-mix,
+  paddock}. Guilds (polycultureStore) are points, not polygons —
+  out of scope for an edge-to-area metric.
+- **UI surface.** New 5th sub-card under Plan plant-systems module
+  (`Edge & connectivity`, sectionId `plan-edge-connectivity`). Slots
+  after Establishment sequence as a readout. Same shape as the other
+  4 sibling cards; reuses `_shared/stageCard/stageCard.module.css`
+  primitives (hero, section, list, pillMet/Partial/Unmet). Zero new
+  CSS modules.
+- **v1 scope.** Textual prompt only ("Carve out edges, peninsulas, or
+  marginal borders for companion plants…"). Shape-variant generators
+  (peninsula / scalloped / keyhole) deferred — backlog flagged them
+  as the "biggest unknown"; isolating them kept v1 inside the 0.5-
+  sprint estimate. Holmgren P10 wiring into `principleCheckStore`
+  also deferred — depends on broader scoring-pipeline work.
+- **Files.** Created `apps/web/src/v3/plan/cards/plant-systems/EdgeConnectivityCard.tsx`;
+  edited `apps/web/src/v3/plan/types.ts` (add card to MODULE_CARDS)
+  and `apps/web/src/v3/plan/PlanModuleSlideUp.tsx` (lazy import +
+  renderPlanCard case).
+- **Pattern note.** Card holds its own copies of `polygonAreaM2` /
+  `polygonPerimeterM` (also present in `v3/data/useDesignMetrics.ts`
+  as file-private helpers). Per-card geometry math is the codebase's
+  established pattern (cf. QuietCirculationRouteCard, FertilityColocationCard);
+  a shared `polygonGeometry.ts` util can come later as a refactor if a
+  4th copy appears.
+- **Recommended next.** Continue down the permaculture-alignment
+  backlog: Rec #3 (Highest-potential water router, P1, ~1 sprint),
+  Rec #6 (Nets in the flow social nodes, P2, ~0.5 sprint), or
+  Rec #5 (Substitution calculator, P2, ~1 sprint with the catalog
+  unknown). Or: ship v2 of Rec #4 — the three shape-variant
+  generators and Holmgren P10 wiring.
+
+## 2026-05-12 — Atlas — Adopt basemap 3D buildings as Built Environment features (`25ef7dd4`)
+
+- **Goal.** Stewards working in built-up areas wanted to capture
+  pre-rendered 3D building extrusions (OpenMapTiles `building`
+  source-layer in MapTiler Street/Topo/Hybrid styles) as real
+  project entities instead of redrawing footprints by hand.
+- **UX.** New "Adopt from map" button in a dedicated "From map"
+  sub-group at the top of the Observe → Built Environment rail
+  (peer of the BUILDINGS / WATER & UTILITIES / etc. groups).
+  Clicking activates a one-shot click tool: cursor → crosshair,
+  popover hint shown. Next map click runs `queryRenderedFeatures`
+  against any style layer whose `source-layer === 'building'`,
+  copies the hit's Polygon geometry + `render_height` / `height`
+  property into a fresh V2 entity, opens the inline edit form
+  anchored at the click point, and auto-clears the active tool.
+- **Schema fit.** Adopted entities are `state: 'existing'`,
+  `kind: 'building'`. Footprint geometry → `geometry`;
+  `turf.area(polygon)` → `existing.areaM2`; basemap height →
+  `proposed.heightM` (the `existing` metadata block has no height
+  slot in the V2 schema, but `DesignElementExtrusionLayer` reads
+  `heightM` from `proposed`, so the adopted footprint extrudes
+  correctly). Both metadata blocks are independently optional in
+  the schema, so this is well-formed.
+- **Failure modes handled.** Satellite/no-building-layer style →
+  toast warns to switch basemaps, tool stays armed. Click misses
+  any building → toast prompts to click on a footprint, tool stays
+  armed. MultiPolygon footprints → first ring kept (best-effort
+  v1). Geometry types we can't coerce → error toast.
+- **Files.** New `apps/web/src/v3/observe/components/draw/AdoptBasemapBuildingTool.tsx`.
+  Edited `useMapToolStore.ts` (add `'observe.built-environment.adopt-basemap'`
+  tool id), `ObserveDrawHost.tsx` (dispatch case → mount the tool),
+  `ObserveTools.tsx` (new "From map" sub-group with `MousePointer`
+  icon, rendered above the existing BE_TOOL_GROUPS inside a
+  fragment).
+- **Out of scope.** Hiding the underlying basemap extrusion after
+  adoption (slight z-fight remains — both extrusions paint, but the
+  project's fill colour distinguishes the adopted entity). Bulk
+  adopt (drag-select multiple). Adopting non-building features
+  (POIs, roads).
+- **Recommended next.** v2 polish — filter the basemap building
+  layer by `feature-state` to hide adopted footprints from the
+  basemap render (eliminates z-fight). Or extend to non-building
+  basemap features (e.g. adopt rendered roads as access-road
+  LineString entities).
+
+## 2026-05-13 — Rec #3 Highest-potential water router v1 ships
+**Project:** OGDEN Atlas · Plan stage · Module 2 (Water)
+**Branch:** `feat/atlas-permaculture`
+
+Pivoted off Rec #4 (Edge & Connectivity, shipped 2026-05-12) into Rec #3
+from the permaculture-alignment backlog. P1, ~1-sprint scope. Atlas
+surface: scoring engine. Holmgren P2 — Catch & store energy.
+
+**Scholar framing (2026-04-28):** "Water represents potential energy, and
+the primary rule of permaculture water design is to keep water in its
+place of highest potential (up high) so gravity can do the work."
+
+**v1 elevation model — aspect-projected heuristic.** Atlas does not expose
+a per-point DEM sampler today; what exists is `siteDataStore`'s elevation
+summary (`min_elevation_m`, `max_elevation_m`, `predominant_aspect`,
+`mean_slope_deg`) plus per-transect profiles in `topographyStore`. The
+v1 util (`waterRouterMath.ts`) projects each candidate centroid onto the
+uphill axis (`aspect + 180°`) within the parcel bbox, normalises the
+projection to `t ∈ [0,1]`, and estimates elevation as `min + t·(max−min)`.
+Same granularity as MicroclimatePocketCard's archetype placement; the
+`estimateElevationM` signature is the v2 swap point when a real DEM
+sampler (Mapbox `queryTerrainElevation` or a server raster route) lands.
+
+**Tier thresholds:** `excellent` head lost < 0.5 m, `adequate` 0.5–2 m,
+`low-potential` ≥ 2 m. "Head lost" is metres of gravity head the steward
+would gain by moving the element to the centroid of the parcel's upper
+third (`t = 5/6`). Suggested coordinate is the same upper-third centroid
+projected back into lat/lng — v1 is bbox-aligned, not polygon-clipped.
+
+**Element scope:** `water-tank` (point), `pond` (polygon centroid), and
+`swale` (line midpoint), sourced from `landDesignStore.byProject` filtered
+to `category === 'water'`. `cistern` is in the backlog rec but not in
+`elementCatalog.ts` today — ship without; v2 catalog work picks it up.
+
+**UI surface:** New 4th tab "Highest-potential router" in the Plan →
+Water module slide-up (`section_id = 'plan-water-router'`). Standard
+hero/lede/per-row pattern; site rollup section surfaces elevation range,
+aspect, scored count, flagged count, mean head lost, and per-tier
+distribution. Flagged rows render the Scholar's directional prompt with
+the suggested coordinate inline. Three distinct gated states: missing
+parcel boundary, missing elevation summary, missing predominant aspect —
+each names the specific input rather than a generic empty state.
+
+**Files:**
+- created `atlas/apps/web/src/v3/plan/cards/water-management/waterRouterMath.ts`
+- created `atlas/apps/web/src/v3/plan/cards/water-management/WaterRouterCard.tsx`
+- edited  `atlas/apps/web/src/v3/plan/types.ts` (4th entry under water-management)
+- edited  `atlas/apps/web/src/v3/plan/PlanModuleSlideUp.tsx` (lazy import + case)
+- annotated `atlas/tasks/permaculture-alignment-backlog.md` (Rec #3 v1 SHIPPED)
+
+**tsc:** clean — no new errors introduced. The pre-existing
+`DesignElementLayers.tsx(433,51)` MultiPoint error persists (out of
+scope; tracked separately).
+
+**v1 deferred (v2 candidates):**
+- Map-canvas overlay (uphill arrow + suggested-coord pin) — text-only v1.
+- True DEM sample (Mapbox terrain or server raster) — math util's swap point.
+- Flow-path vector drawing from highest points (rec's first bullet — v1
+  ships the scoring half only).
+- One-click "move to suggested coord" action.
+- Wiring head-lost into a principle score store (Holmgren P2).
+
+**Permaculture-alignment backlog status after this session:**
+- Rec #1 (Needs & Yields) — open (P0, ADR exists)
+- Rec #2 (Temporal slider) — open (P0, ADR exists)
+- Rec #3 (Water router) — v1 shipped 2026-05-13 ← this entry
+- Rec #4 (Edge & connectivity) — v1 shipped 2026-05-12
+- Rec #5 (Substitution calculator) — open (P2)
+- Rec #6 (Social nodes) — open (P2)
+
+**Recommended next:** Rec #6 (Social nodes, ~0.5 sprint, simplest of the
+remainder) for a quick win, or Rec #5 (Substitution calculator, gated on
+catalog research). Re-evaluation cadence note: after Rec #1 + #2 land,
+re-run the Permaculture Scholar dialogue — verdict gates may shift.
+
+## 2026-05-13 — Rec #6 Social node generator v1 ships
+**Project:** OGDEN Atlas · Plan stage · Module 3 (Zone & Circulation)
+**Branch:** `feat/atlas-permaculture`
+
+Third permaculture-alignment rec to land in two days. P2, ~0.5-sprint
+scope (matches the backlog estimate). Atlas surface: design canvas
+(scoring half — canvas-pin overlay deferred to v2).
+
+**Scholar framing (2026-04-28):** "Human movement flows like water, and
+placing 'nets in the flow' (like benches or public spaces) slows people
+down to foster necessary community relationships." Holmgren P8 —
+Integrate rather than segregate; People Care ethic.
+
+**Algorithm.** Pull every `path` LineString from `landDesignStore`
+(category `access`, kind `path`). Compute all pairwise segment
+intersections in planar lat/lng (standard 2D parametric form, endpoint-
+touching counted). Filter intersections to those inside a `zoneStore`
+polygon with `permacultureZone ∈ {1, 2}` (ray-casting point-in-polygon).
+For each survivor, scan all amenity points and report the nearest within
+`COVERED_RADIUS_M = 12 m` as the "cover" — present ⇒ tier `served`,
+absent ⇒ tier `opportunity` with the Scholar prompt.
+
+**Catalog scope (v1).** Coverage counts existing amenity kinds
+`prayer-pavilion` and `fire-circle` — the two amenity points in
+`elementCatalog.ts` today. Bench, picnic table, shaded seat, signage
+post, gathering pavilion are flagged in the backlog as a v2 catalog
+dependency; the card's lede points stewards at the v2 promise. Adding
+those new kinds touches `elementCatalog.ts`, COLORS, icon imports, and
+the BE V2 store extraction — a separate session.
+
+**Density metric.** `socialNodeDensity = covered / total`. Tier cuts:
+`served` ≥ 0.66, `partial` 0.33–0.66, `unserved` < 0.33. Single-line
+constants alongside `COVERED_RADIUS_M` in the math util.
+
+**UI surface.** 5th sub-card in the Plan → Zone & Circulation module
+slide-up (`sectionId = 'plan-social-nodes'`). Same hero/lede/site-rollup
+/per-row pattern as Rec #3/#4. Empty states for (a) fewer than two paths
+and (b) no Z1/Z2 zones, each naming the missing input.
+
+**Files:**
+- created `atlas/apps/web/src/v3/plan/cards/zone-circulation/socialNodesMath.ts`
+- created `atlas/apps/web/src/v3/plan/cards/zone-circulation/SocialNodesCard.tsx`
+- edited  `atlas/apps/web/src/v3/plan/types.ts` (5th entry under zone-circulation)
+- edited  `atlas/apps/web/src/v3/plan/PlanModuleSlideUp.tsx` (lazy import + case)
+- annotated `atlas/tasks/permaculture-alignment-backlog.md` (Rec #6 v1 SHIPPED)
+
+**tsc:** clean — no new errors. Pre-existing `DesignElementLayers.tsx(433,51)`
+MultiPoint error persists (out of scope; tracked separately).
+
+**v1 deferred (v2 candidates):**
+- Map-canvas pin at each opportunity intersection.
+- Bench / picnic table / shaded seat / signage post / gathering pavilion
+  kinds in `elementCatalog.ts` (with COLORS + icons + BE V2 store work).
+- One-click "place bench / place gathering area / dismiss" interaction.
+- Wiring `socialNodeDensity` into People-Care principle score.
+
+**Permaculture-alignment backlog status after this session:**
+- Rec #1 (Needs & Yields) — open (P0, ADR exists)
+- Rec #2 (Temporal slider) — open (P0, ADR exists)
+- Rec #3 (Water router) — v1 shipped 2026-05-13
+- Rec #4 (Edge & connectivity) — v1 shipped 2026-05-12
+- Rec #5 (Substitution calculator) — open (P2)
+- Rec #6 (Social nodes) — v1 shipped 2026-05-13 ← this entry
+
+**Pattern note.** All three v1 shipments (#3, #4, #6) follow the same
+shape: a `*Math.ts` pure-helper sibling next to a `*Card.tsx` readout in
+the right module folder, lazy-mounted from `PlanModuleSlideUp.tsx`, with
+a backlog file annotation and a "v2 deferred" list. The readout-only
+discipline kept all three inside their estimated 0.5–1-sprint envelope.
+
+**Recommended next:** Rec #5 (Substitution calculator) is the last P2 on
+the backlog; gated on building a 10-15 item substitution catalog
+(metal-fence → living willow, plastic pipe → bamboo conduit, gravel path
+→ living mulch). Catalog research dominates the timeline. After Rec #5
+ships, re-run the Permaculture Scholar dialogue per the backlog's
+re-evaluation cadence — with #3/#4/#6 in place, verdict gates may shift
+and surface new gaps. The P0 recs (#1 Needs & Yields, #2 Temporal slider)
+remain the largest open items.
+
+## 2026-05-13 — Atlas — Plan polygon-fill (hex) tree stamping v1 ships
+
+Built on top of the spacing-snap shipped 2026-05-12 / 2026-05-13.
+Stewards can now arm Oak / Pine / Apple / Shrub, switch the floating
+mode picker from `•` to `▦`, draw a polygon over the orchard plot, and
+have the system stamp trees on a quincunx grid at `defaultSpacingM`,
+clipping to the parcel and skipping any cell within an existing
+same-category tree's drip line. A toast reports
+"Stamped N, skipped M".
+
+**Files:**
+- new `v3/plan/canvas/stampModeStore.ts` — `'free' | 'fill'` atom.
+- new `v3/plan/canvas/StampModePicker.tsx` — bottom-centre two-chip
+  strip; gated on `spec.drawMode === 'draw_point'` && `defaultSpacingM`.
+- modified `v3/plan/canvas/draw/useDesignElementDrawTool.ts` —
+  exported `validatePlacement`; added `stampHexFill` helper
+  (`cellSide = defaultSpacingM / sqrt(3)` → centroid spacing ≈ user
+  spacing); branched hook body on `useStampModeStore.mode`.
+- new bulk insert path: `landDesignStore.addMany`,
+  `builtEnvironmentStoreV2.createMany`,
+  `builtEnvironmentSelectors.addDesignElements` — single `set()` per
+  category vs N single inserts.
+- renamed `TreeRejectionToast` → `PlanStampToast` — handles both
+  `plan:tree-rejected` (fired-clay) and `plan:tree-stamp-summary`
+  (estate-gold) events.
+- `PlanLayout.tsx` — mounts `<PlanStampToast />` + `<StampModePicker />`
+  in the canvas overlay.
+
+**ADR:** [2026-05-13-atlas-plan-polygon-fill-stamp.md](decisions/2026-05-13-atlas-plan-polygon-fill-stamp.md)
+
+**Verification:**
+- `tsc --noEmit` clean modulo the pre-existing
+  `DesignElementLayers.tsx:433` `Geometry` width error.
+- Browser pre-flight: picker mounts when Oak is armed; chip toggle
+  flips `useStampModeStore.mode` and `aria-pressed`. Picker hides for
+  non-eligible kinds (paddock, swale, road).
+- Manual polygon-draw end-to-end is a steward task — synthetic pointer
+  events don't reach MapLibre's draw lifecycle in the preview
+  environment.
+
+**v1 deferred (v2 candidates):**
+- Row stamp (line input → `turf.lineChunk`).
+- Square grid as alternative pattern.
+- Soft-snap to neighbour boundaries.
+- Per-stamp spacing override UI.
+- Cross-kind asymmetric spacing.
+- Stamp ghost preview before commit (polygon-finish IS the commit for v1).
+
+**Recommended next:** manual polygon-fill draw smoke test in the
+steward's hand, then either (a) Rec #5 Substitution calculator (last P2
+on the Permaculture-alignment backlog) or (b) Rec #1 Needs & Yields /
+Rec #2 Temporal slider (the two open P0s).
+
+---
+
+## 2026-05-13 — Atlas Plan Rec #5 v1 (Material substitution calculator)
+
+**Objective:** Ship Rec #5 of the Permaculture Scholar review
+2026-04-28 (the last P2 in `tasks/permaculture-alignment-backlog.md`).
+Surface biological alternatives for each conventional infrastructure
+cost line item; let the steward toggle the substitution write-through
+to the financial model so total investment / cashflow / break-even /
+mission score recompute live.
+
+**Scholar's framing (2026-04-28):** "Permaculture prioritizes using
+local, natural materials and replacing imported hardware with living
+systems, such as growing trees specifically to serve as living fence
+posts." Holmgren P5 — Use & value renewable resources & services;
+P9 — Use small & slow solutions.
+
+**Architecture — write-through, zero engine changes.** The financial
+engine already exposes the exact primitive needed: `setCostOverride`
+on `financialStore` plus `applyOverrides` inside `costEngine.ts`
+(`useFinancialModel.ts` calls it at line 131). So applying a
+substitution is *writing a scaled `CostRange` into
+`costOverrides[itemId]`*; the recompute orchestration takes care of
+itself. The one tiny addition: a `clearCostOverride(itemId)` action
+(per-item clear vs. the existing bulk `clearOverrides()`).
+
+**Catalog discipline.** 8 cited pairs, each anchored to a real
+bibliographic source — no placeholder rows:
+
+| # | Original | Alternative | Source |
+|---|---|---|---|
+| 1 | Woven-wire fence | Hawthorn/blackthorn hedge | Mollison Designer's Manual pp. 84–86; Crawford 2010 p. 132 |
+| 2 | Post-wire perimeter | Multi-row shelterbelt | Mollison p. 86; Woodland Trust 2019 |
+| 3 | Pedestrian / service walkway | Wood-chip path + groundcover | Holzer 2011 p. 102; Stamets 2005 pp. 195–198 |
+| 4 | Farm lane (compacted) | Keyline native-grass track | Yeomans 1981; Mollison ch. 7 |
+| 5 | Garden bed (plastic mulch) | Comfrey chop-and-drop | Coleman 2018 pp. 142–146; Bowles et al. *Agronomy Journal* 109(4) 2017 |
+| 6 | Row crop (synthetic N) | N-fixing cover crop rotation | Drinkwater et al. *Nature* 396 (1998); Coleman ch. 8 |
+| 7 | Manufactured windbreak | NRCS-380 living shelterbelt | USDA NRCS CPS-380 (2010 baseline) |
+| 8 | Concrete water tank | Earthen pond + roof catchment | Mollison ch. 7; Lancaster vol. 2 (2008) ch. 4 |
+
+**Files (created):**
+- `apps/web/src/v3/plan/cards/phasing-budgeting/substitutionCatalog.ts` —
+  the 8 cited entries, `Citation`/`Substitution` types, matcher
+  helpers (`matchSubstitution`, `appliedCostRange`). `costMultiplier`
+  is fractional `CostRange` so the alternative scales with whatever
+  the steward draws.
+- `apps/web/src/v3/plan/cards/phasing-budgeting/MaterialSubstitutionsCard.tsx`
+  — readout. Pulls `useFinancialModel(projectId).costLineItems`,
+  builds a `sourceId → primitive` map across paddocks / paths /
+  utilities / crops, resolves the catalog match, renders one row per
+  substitutable item with toggle, citation tags, principle tags, and
+  applied-savings chip. Site rollup carries substitutable / applied
+  counts plus cost savings, pending establishment-months, and
+  pending mission-uplift.
+
+**Files (edited):**
+- `apps/web/src/store/financialStore.ts` — added `clearCostOverride(itemId)`
+  action + type entry; keeps bulk `clearOverrides()` intact.
+- `apps/web/src/v3/plan/types.ts` — appended `Material substitutions`
+  (sectionId `plan-material-substitutions`) to `MODULE_CARDS['phasing-budgeting']`.
+- `apps/web/src/v3/plan/PlanModuleSlideUp.tsx` — lazy import +
+  switch case.
+
+**v1 informational-only axes:** establishment-months (years-to-function
+delta) and mission-uplift are displayed per-row and summed in the
+rollup but do not yet feed into `cashflowEngine.ts` phase scheduling
+or `missionScoring.ts`. Lede explicitly flags this as v2.
+
+**Verification:**
+- `npx tsc --noEmit` (with `--max-old-space-size=8192`) clean modulo
+  the pre-existing `DesignElementLayers.tsx:433` MultiPoint width
+  error.
+- Card renders the empty-state when the project has no cost line
+  items; switches to the per-item audit once paddocks / paths /
+  utilities / crops are drawn.
+- Toggle wiring: `setCostOverride(itemId, appliedCostRange)` ON;
+  `clearCostOverride(itemId)` OFF. The `applyOverrides` call inside
+  `useFinancialModel` re-merges on the next render so total
+  investment shifts immediately.
+
+**Deferred to v2 (in card lede + backlog file):**
+- Establishment-time → cashflow phase-shift wiring.
+- Mission-uplift → `missionScoring.ts` wiring (decision on which
+  mission component receives the bump is v2).
+- Catalog expansion past 8 pairs to the rec's 10–15 target.
+- Per-region cost-multiplier split by `CostRegion`.
+- Map-canvas affordance (green tint on substituted elements).
+
+**Branch:** `feat/atlas-permaculture` (cut from `feat/atlas-3.0`,
+2026-05-12). This closes the P2 tier of the Permaculture-alignment
+backlog. Remaining work: the two open P0s — Rec #1 (Needs & Yields
+dependency graph) and Rec #2 (Temporal slider) — and the Scholar
+re-evaluation cadence once #1 + #2 ship.
+
+**Recommended next:** either (a) Rec #1 / Rec #2 (the two open P0s)
+or (b) the Scholar re-evaluation pass against the updated Atlas
+description once P0s land.
+
+## 2026-05-13 — Atlas Plan Rec #1 v3 Plan-stage surface (Needs & Yields audit)
+
+**Objective:** Promote the existing Needs & Yields dependency-graph
+audit (Rec #1, ADR `2026-04-28-needs-yields-dependency-graph.md`)
+from the legacy MapView floating `RelationshipsRail` (gated by
+`FEATURE_RELATIONSHIPS`) into the v3 Plan-stage slide-up idiom used
+by Recs #3 / #4 / #5 / #6. The math, catalog, edge store, and
+integration-score weight (0.10 of overall score) have been live
+since the ADR shipped 2026-04-28; what was missing was a Plan-stage
+card surfacing the same audit next to the Holmgren checklist + Three
+Ethics + Coverage matrix.
+
+**Card:** `NeedsYieldsAuditCard` under
+`apps/web/src/v3/plan/cards/principle-verification/`, sectionId
+`plan-needs-yields`, mounted as the 4th tab of the
+`principle-verification` module. Renders unconditionally — the
+underlying data has been stable for two weeks of branch work without
+regressions, and the legacy rail's `FEATURE_RELATIONSHIPS` flag is
+purely a canvas-UX gate, not a math-stability gate.
+
+**Implementation.**
+- Reads `useAllPlacedEntities` (structures + utilities + crop areas
+  + paddocks expanded per species) and
+  `useRelationshipsStore.edgesByProject[projectId]`.
+- Calls the existing `@ogden/shared/relationships` algorithms
+  directly: `integrationScoreFromEdges`, `orphanOutputs`,
+  `unmetInputs`, `closedLoops`. Zero math added on the Plan side.
+- Site rollup: entity count, declared outputs / inputs, edges
+  routed, integration percentage with tier pill (WEB INTEGRATED
+  ≥ 0.66 / PARTIAL ≥ 0.33 / LINEAR < 0.33), orphan + unmet counts,
+  closed-loop count with CYCLING badge, integrated vs. flagged.
+- Per-entity audit list sorts flagged-first then by name; renders
+  orphan outputs and unmet inputs as italic resource chips with
+  colour swatches (browns/ambers for animal+fire flows, greens for
+  soil+plant, blues for water, violet for pollination — picked to
+  read on the Atlas dark panel).
+- Closed-loop section renders the cycle as `A → B → C → A` using
+  the resolved entity names from `placedById`.
+- Skips entities with zero declared outputs and zero declared
+  inputs (passive shelter / storage) so the audit doesn't drown in
+  yurts and tool storage rows.
+
+**Scholar framing (2026-04-28):** "A permaculture system's strength
+is defined by the web of connections between its elements, where
+waste must become food and nutrients must be cycled rather than
+mined." Holmgren P6 — Produce no waste; P8 — Integrate rather than
+segregate.
+
+**Files.**
+- `apps/web/src/v3/plan/cards/principle-verification/NeedsYieldsAuditCard.tsx` (new)
+- `apps/web/src/v3/plan/types.ts` — appended `plan-needs-yields` to
+  `MODULE_CARDS['principle-verification']`.
+- `apps/web/src/v3/plan/PlanModuleSlideUp.tsx` — lazy import + case.
+- `wiki/decisions/2026-04-28-needs-yields-dependency-graph.md` —
+  status line annotated with "v3 Plan-stage surface added 2026-05-13".
+
+**Verification.** `NODE_OPTIONS="--max-old-space-size=8192"
+npx tsc --noEmit` returns only the pre-existing
+`DesignElementLayers.tsx(433,51)` MultiPoint error (out of scope,
+confirmed across every prior session on this branch). Atlas commit
+`b2dc9411` pushed to `feat/atlas-permaculture`.
+
+**v2 deferrals.** Inline edge-editing UX inside the Plan slide-up
+(currently authored on the legacy canvas socket flow). Decision
+whether to retire the floating `RelationshipsRail` on MapView once
+Plan-stage editing is wired. Expanded resource catalog beyond the
+v1 13-resource set.
+
+**Branch:** `feat/atlas-permaculture`. This closes Rec #1 in the v3
+Plan idiom. Remaining permaculture-alignment work: Rec #2 (Temporal
+slider, the second open P0) and the Scholar re-evaluation cadence
+once both P0 surfaces are in place.
+
+**Recommended next:** Rec #2 (Temporal slider) — the last open P0
+of the permaculture-alignment review.
+
+## 2026-05-13 — Atlas Permaculture Scholar re-evaluation Round 1 (scaffolding)
+
+**Objective:** Per `atlas/tasks/permaculture-alignment-backlog.md`
+line 301 ("Re-evaluation cadence — after Rec #1 + #2 ship, re-run
+the Permaculture Scholar dialogue"), the user elected to re-run
+**twice** — once now (Round 1, post Rec #1/#3/#4/#5/#6 sweep) and
+again after Rec #2 ships (Round 2 — deferred). Round 1 also runs
+**both threading modes**: a continued conversation against the
+original 2026-04-28 thread (`-c 48a34396-…`) for delta-from-prior
+framing, and a fresh thread for cold-read baseline. Three rounds
+(R1.A re-audit / R1.B gap-verification / R1.C fresh-recs) × two
+threads = 6 dialogue turns to fire.
+
+**Phases 1-2 shipped offline.** Under
+`atlas/tasks/scholar-reevaluation/`:
+- `2026-05-13-round1-description.md` — canonical ~1100-word
+  updated Atlas description (5 shipped recs each with surface
+  name, gap addressed, v2 deferrals; Rec #2 open-P0 caveat;
+  structural-ceiling acknowledgement preserved from 2026-04-28).
+- `2026-05-13-round1A-reaudit.md` — ethics + 12-principle re-audit
+  with delta markers (`↑` / `↓` / `=` / `—`).
+- `2026-05-13-round1B-gap-verification.md` — per-rec closed /
+  partial / open verdict with explicit false-closure-risk column.
+- `2026-05-13-round1C-fresh-recs.md` — ranked 3-5 fresh recs with
+  PDC source citation per rec; explicitly excludes re-proposing
+  Rec #2.
+- `run-round.sh` — wrapper concatenating description + round
+  prompt; supports `fresh` / `continued` / `<conv-id>` modes.
+- `HANDOFF.md` — exact unblock recipe + 6-call firing sequence
+  chaining R1.A-continued's `conversation_id` into B/C-continued.
+
+**Phase 3 blocked on auth.** First call to `python C:/Temp/ask.py`
+returned `ValueError: Authentication expired` — Scholar-account
+NotebookLM session (`~/.notebooklm/storage_state.json`) was last
+refreshed 2026-04-28 on the original dialogue day. Per the global
+CLAUDE.md note, the Scholar notebook lives on a separate Google
+account; re-auth requires interactive `notebooklm login` that
+cannot be driven from this context. HANDOFF.md names the one
+command needed to unblock and the exact 6-call sequence to fire
+afterward.
+
+**Phases 4-6 deferred** until the 6 JSON outputs exist. The
+digest's verdict-diff table, the new
+`2026-05-13-scholar-reevaluation-round1.md` ADR, the conditional
+`permaculture-alignment-backlog-v2.md`, the
+`wiki/concepts/permaculture-alignment.md` append, and the parent
+submodule bump for the dialogue artifacts are all gated on the
+Scholar's actual answers — pre-writing them with placeholders
+would be misleading.
+
+**Commits.**
+- Atlas: `777dfe99` on `feat/atlas-permaculture` (scaffolding only).
+- Parent: this submodule bump + log entry.
+
+**Recommended next session:** Run `notebooklm login` against the
+Scholar Google account (or set `NOTEBOOKLM_HOME` to a Scholar-
+account profile and login there), then `bash
+atlas/tasks/scholar-reevaluation/run-round.sh 1A fresh` to
+smoke-test the pipeline; follow HANDOFF.md for the remaining
+five calls; resume the plan at Phase 4 (digest).
+
+## 2026-05-14 — Atlas — Annual Planting Calendar ships
+
+**Branch:** `feat/atlas-permaculture` — commit `357ea51f` (bundled
+with the water-source rule + livestock Goal Compass extension on
+the same branch tip).
+
+Closed the loop from annual crop areas drawn in Plan to the Act
+calendar: phenology block on the catalog, frost-date facets on
+`SiteProfile`, a deterministic scheduler, a Plant Systems module
+card, and a seventh `CalendarSource` (`plantingCalendar`) so the
+filter chip + purple dot land for free.
+
+**Files of note.**
+- New: `plantPhenologyData.ts`,
+  `schedulePlantingFromAreas.ts`,
+  `AnnualPlantingCalendarCard.tsx`.
+- Touched: `goalCompassTypes.ts`, `siteProfileStore.ts`,
+  `observePrefill.ts`, `SiteProfileTab.tsx`, `phaseStore.ts`,
+  `nurseryStore.ts`, `types.ts`, `PlanModuleSlideUp.tsx`,
+  `useEventAggregator.ts`, `EventCalendarCard.tsx` +
+  `.module.css`, `UpcomingEvents.tsx`.
+
+**Verification.** `npx tsc --noEmit` exit 0 (with
+`NODE_OPTIONS="--max-old-space-size=8192"` to clear prior heap
+OOM); `npm run build` clean in ~42s with PWA precaching 692
+entries.
+
+**Deferred.**
+- Phase 4 catalog consolidation (`pl-XXX` ↔ snake_case alias map
+  + localStorage migration script) — own session.
+- Open-Meteo Archive fallback for sites without ACIS/ECCC station
+  coverage.
+- Preview e2e walk-through on the Moontrance Creek fixture.
+
+ADR: [`wiki/decisions/2026-05-14-atlas-annual-planting-calendar.md`](decisions/2026-05-14-atlas-annual-planting-calendar.md).
+
+## 2026-05-14 — Atlas — Annual Planting Calendar: preview e2e + persist migration
+
+Followed up the Annual Planting Calendar ship with a preview-driven
+end-to-end walk on the Moontrance Creek fixture. Surfaced one real
+bug: the persisted `ogden-site-profiles` localStorage entry on MTC
+pre-dated the frost-date facet bump, so `AnnualPlantingCalendarCard`
+crashed on `profile.lastFrostDate.value` (undefined) and tripped
+`GlobalErrorBoundary`.
+
+**Fix.** Bumped the `siteProfileStore` persist schema to `version: 2`
+with a `migrate(persistedState, fromVersion)` that walks
+`profilesByProject` and backfills every facet key (incl.
+`lastFrostDate`, `firstFrostDate`) to `{ value: null, provenance:
+null }` when missing. Existing values pass through untouched. Atlas
+HEAD: `feat/atlas-permaculture`.
+
+**Verification.** Preview reload: persisted store reads `version: 2`
+with all 11 facets present on both projects; card mounts cleanly
+under Plan → Plant Systems with year 2026 and Generate plan correctly
+disabled until frost facets are filled. Scheduler / store-writes /
+aggregator routing remain verified from the earlier pass.
+
+**Files.** `apps/web/src/store/siteProfileStore.ts`.
+
+**Deferred (still).** Phase 4 catalog consolidation; Open-Meteo
+Archive fallback. Preview e2e on MTC now ✓.
+
+
+## 2026-05-14 — Atlas — Plant catalog consolidation (Phases A–F + partial D)
+
+**Context.** Three parallel plant catalogs: `plantDatabase.ts`
+(pl-XXX, layering axis), `plantSpeciesData.ts` (snake_case, site-match
+axis), `plantPhenologyData.ts` (snake_case, frost-anchored annual
+phenology — shipped earlier today). 17 confirmed overlap pairs between
+the first two. Persisted ids in `polycultureStore` + `cropStore`. Phase
+4 of the planting arc.
+
+**Decision.** snake_case canonical. Union `plantCatalog.ts` with flat
+optional shape carrying both axes. Frozen alias map
+`plantCatalogAliases.ts` for `pl-XXX → snake_case` lookup. Legacy
+files become axis-narrowed re-export shims so consumers compile
+unchanged.
+
+**Phases shipped.**
+- A — `plantCatalog.ts` (40 entries) + aliases + 10-test suite.
+- B — `polycultureStore` v2→v3, `cropStore` v1→v2; both migrations
+  walk persisted ids through `resolveSpeciesId`. Idempotent.
+- C — `plantDatabase.ts` and `plantSpeciesData.ts` are now thin shims
+  re-exporting axis-narrowed views (`hasLayering`, `hasGrowing`
+  predicates). `PlantSpecies` and `PlantSpeciesInfo` are
+  `Required<Pick<…>>` views of `PlantCatalogEntry` so legacy
+  consumers keep their strong typing.
+- D (partial) — `guildPresets.ts` literals rewritten to canonical
+  snake_case; resolver also runs through `resolveSpeciesId` so any
+  stale persisted pl-XXX still survives. Test fixture updated.
+- F — `scripts/migrate-plant-ids.mjs` + `scripts/lib/load-aliases.mjs`
+  for offline JSON-dump rewrites; alias map regex-extracted from the
+  TS source at run time (single source of truth).
+
+**Verification.** `npx tsc --noEmit` exit 0
+(`NODE_OPTIONS="--max-old-space-size=8192"`); `npm test` 756/756
+including 10 new in `plantCatalog.test.ts`; `npm run build` clean.
+Offline script smoke-test rewrote 4 ids on a 7-id fixture, preserved
+snake_case, flagged 1 unknown pl-XXX.
+
+**Files.** Created `apps/web/src/data/plantCatalog.ts`,
+`apps/web/src/data/plantCatalogAliases.ts`,
+`apps/web/src/data/__tests__/plantCatalog.test.ts`,
+`scripts/migrate-plant-ids.mjs`, `scripts/lib/load-aliases.mjs`.
+Rewrote `apps/web/src/data/plantDatabase.ts` and
+`apps/web/src/features/planting/plantSpeciesData.ts` as re-export
+shims. Modified `apps/web/src/data/guildPresets.ts` +
+`__tests__/guildPresets.test.ts`, `apps/web/src/store/polycultureStore.ts`,
+`apps/web/src/store/cropStore.ts`.
+
+**Deferred.** Phase D for the remaining ~14 consumer files and Phase E
+(shim deletion) — both safe to land incrementally without blocking.
+ADR: [wiki/decisions/2026-05-14-atlas-plant-catalog-consolidation.md].
+
+## [2026-05-15] session | Atlas Plan: enable silvopasture to host orchards/guilds/livestock
+
+- Completed: Silvopasture made a first-class host. New pure resolver
+  `apps/web/src/features/agroforestry/silvopastureHosts.ts`
+  (namespaced `<source>:<rawId>` host IDs, hybrid spatial+pin
+  membership, `sharedWith` for multi-host overlap). Added optional
+  `silvopastureId` to Paddock/Guild/CropArea/DesignElement (no
+  migration). Built `SilvopastureHostsCard` (+CSS, mounted in
+  `PlantingToolDashboard`), read-only `SilvopasturePopover` (+CSS,
+  mounted in `VisionLayoutCanvas`; paddock list `Intl.Collator`
+  numeric-sorted), and `autoLinkSilvopasture.ts` wired into
+  `PaddockTool`/`GuildTool`/`CropAreaTool`(orchard-only, pin cleared
+  on type switch)/`useDesignElementDrawTool`(orchard-only). 10 new
+  vitest cases in `silvopastureHosts.test.ts`.
+- Verification: `tsc --noEmit` exit 0
+  (`NODE_OPTIONS=--max-old-space-size=8192`); vitest 766/766.
+  Confirmed no backend/scheduling dependency on draw order —
+  `computeRotationSchedule` re-sorts by recovery status; array order
+  is only a stable-sort tiebreaker within identical status.
+- Decisions: [[2026-05-15-atlas-silvopasture-host]]
+- Deferred: cropStore-typed silvopasture popover symmetry; map member
+  outline indicators; re-pin affordance in the inspector; multi-host
+  pin selector beyond first-match.
+- Pages touched: wiki/decisions/2026-05-15-atlas-silvopasture-host.md
+  (new), wiki/entities/olos.md, wiki/index.md, wiki/log.md
+
+## [2026-05-15] session | Atlas — Phase 5: delete plantDatabase / plantSpeciesData shims
+
+**Objective:** Close the Phase 4 ADR Phase-E follow-up — port all
+consumers off the deprecated `plantDatabase.ts` / `plantSpeciesData.ts`
+re-export shims and delete both files.
+
+**Done:** Promoted the 4 derived symbols (`PLANT_DATABASE`, `findSpecies`,
+`PLANT_SPECIES`, `SPECIES_BY_ID`) into `plantCatalog.ts` under their
+existing names. Repointed 20 consumers (16 layering-axis + 4
+site-match-axis) by import path only — no call-site rewrites, since the
+narrowed types/predicates/helpers already lived in `plantCatalog.ts`.
+Deleted both shim files. tsc exit 0, vitest 802/802, vite build clean.
+Straggler grep: zero remaining shim imports.
+
+**Note:** A concurrent session bundled this work into atlas commit
+`abe6d884` (silvopasture host arc) and pushed it; not a standalone
+commit.
+
+- Decisions: updated [[2026-05-14-atlas-plant-catalog-consolidation]]
+  (Phase-E follow-up marked done).
+- Pages touched: wiki/decisions/2026-05-14-atlas-plant-catalog-consolidation.md, wiki/log.md
+
+## [2026-05-15] session | Atlas — Observe-driven Auto-Design (Phases 3–6)
+
+**Objective:** Finish the whole-site generator: paint Observe land
+conditions → deterministically auto-draw goal-satisfying design
+features into matching zones → schedule the Act calendar from a chosen
+start date.
+
+**Done:** Phases 3–6 of the approved plan (1–2 landed prior session).
+- Phase 3: optional `draft?/generationId?/draftClass?` on
+  `DesignElement`, `draft?/generationId?` on Paddock/FenceLine;
+  `generatorDraftStore` (commit/discard/discardClass); selectors
+  exclude drafts by default; `DesignElementLayers` dashed/translucent
+  draft styling + static-dashed `poly-line-draft` layer.
+- Phase 4: `GroundCoverPaintTool` wired into Observe Earth/Water rail
+  (`MapToolId` union + `ObserveDrawHost` dispatch).
+- Phase 5: `commitDrafts.ts` (per-intervention routing table →
+  Paddock/FenceLine/DesignElement), `GenerateSiteDesignBar` (start-date
+  + Generate), `DraftReviewBar` (Accept/Discard/Regenerate/per-class
+  chips), mounted in `GeneratedPlanTab`.
+- Phase 6: stocking-rate + water-band advisories on `DraftReviewBar`
+  (reuses `waterSource.ts` `bandForWater`); empty-state copy when the
+  sequencer selects 0 interventions or no zone matches.
+- Gates: tsc exit 0; vitest 802/802 (Phase 5 and Phase 6 runs).
+
+**Deviations (recorded in ADR):** (1) no `generated-draft` phase enum —
+generalised the `draft` boolean instead, to avoid breaking strict
+Yeomans `PhaseKey` year-gating + a persistence migration; (2)
+structure-class drafts written to `landDesignStore` for the review MVP,
+re-homing into V2 deferred to Phase 2.
+
+**Deferred:** interactive browser verification of the paint→generate→
+accept flow; Phase-2 items (V2 structure re-home, free-text intent,
+per-zone override, live regen, DB persistence, Voronoi subdivision).
+
+- Decisions: new [[2026-05-14-auto-design-pipeline]]
+- Pages touched: wiki/decisions/2026-05-14-auto-design-pipeline.md
+  (new), wiki/index.md, wiki/log.md; atlas: designElementsStore.ts,
+  livestockStore.ts, generatorDraftStore.ts (new), landDesignStore.ts,
+  builtEnvironmentSelectors.ts, DesignElementLayers.tsx,
+  GroundCoverPaintTool.tsx (new), useMapToolStore.ts, ObserveTools.tsx,
+  ObserveDrawHost.tsx, commitDrafts.ts (new), GenerateSiteDesignBar.tsx
+  (new), DraftReviewBar.tsx (new), GeneratedPlanTab.tsx
+
+## [2026-05-15] session | Atlas Plan: Silvopasture host arc follow-ups (A1/A2/A3)
+
+- Completed: closed the three named follow-ups from the silvopasture-host
+  parent ADR. **A1** — generalised `SilvopasturePopover` guard to resolve
+  both `design-element` and `cropStore` `type==='silvopasture'` hosts via
+  `encodeHostId`. **A2** — new self-contained `SilvopastureMemberOutline`
+  overlay (own `silvo-member-*` source + dashed line / transparent-circle
+  layers, idle-retry + dispose cleanup), mounted in `VisionLayoutCanvas`;
+  draws a non-interactive outline around resolved members of the selected
+  host. **A3** — optional `silvopastureId` re-pin select on paddock /
+  crop-area / guild inline edit schemas ("Auto (spatial)" → undefined),
+  fed by new pure helper `listHostsForSelection`; `silvopastureField()` /
+  `silvopastureSavePatch()` keep schema builders store-free (callers pass
+  precomputed options). `collectMemberIds` exported as a documented
+  deliverable (unused — overlay used geometry projection instead).
+- Fix: `silvopastureField()` returns explicit `FieldSpec[]`, not an
+  `as const` tuple (readonly not assignable to `InlineFormPayload.fields`;
+  caught by tsc, fixed pre-commit).
+- Gates: tsc --noEmit clean; vitest 802/802 (baseline held); vite build
+  clean; Plan stage mounts on MTC, console silent.
+- Decisions: new [[2026-05-15-atlas-silvopasture-host-followups]]
+- Deferred: true multi-host pin selector (current is single-host);
+  interactive click-through e2e (MapLibre canvas not scriptable via
+  preview selectors, stores not on window); Part B phenology fold-in
+  (gated — conditional spec only, no code).
+- Pages touched: wiki/decisions/2026-05-15-atlas-silvopasture-host-followups.md
+  (new), wiki/index.md, wiki/log.md; atlas: SilvopasturePopover.tsx,
+  silvopastureHosts.ts, SilvopastureMemberOutline.tsx (new),
+  VisionLayoutCanvas.tsx, inlineEditSchemas.ts, PlanDataLayers.tsx,
+  PlanSelectionFloater.tsx
+
+## [2026-05-15] session | Atlas Observe: explicit Move mode + click-to-select-only
+
+- Completed: two-part fix to the "any feature drags anytime / first click
+  pops the editor" complaint. (1) **Explicit Move mode** — new ephemeral
+  `moveMode` on `observeSelectionStore` (+ `toggleMoveMode`/`setMoveMode`);
+  every selection mutator (`set`/`add`/`remove`/`toggle`/`clear`) resets
+  `moveMode:false`, so any selection change auto-disarms. A **Move** toggle
+  on `SelectionFloater` (single selection + editable-geometry kinds only,
+  `aria-pressed`, `btnActive` styling) is the only arm path.
+  `AnnotationDragHandler` bails unless `moveMode`;
+  `AnnotationVertexEditHandler` keeps `target` null unless `moveMode` so
+  MapboxDraw never mounts until armed. (2) **Click-to-select-only** — the
+  `ObserveAnnotationLayers` plain-click handler opens the editor only on a
+  *second* click of the already-sole-selected feature; shift-click multi-
+  toggle and dbl-click read-only panel unchanged. Reset-in-store-action is
+  the load-bearing choice — no click-handler caller changed and Move can't
+  persist across a selection change.
+- Gates: full-project `tsc --noEmit` at 8 GB heap (4 GB OOMs — env limit)
+  — zero errors in all five touched files; one iteration fixed a real
+  `noUncheckedIndexedAccess` miss (`!!single` guard). Pre-existing branch
+  errors (`ecologyZones`/`EcologyState`, `SuccessionStage`,
+  `dominantStage`, missing `EcologyZone` export) are unrelated
+  feat/atlas-permaculture WIP — out of scope, not committed.
+- Caveat: interactive click→select→Move→drag NOT verified — MapLibre
+  canvas not scriptable via preview a11y tools and `preview_screenshot`
+  unresponsive (30 s timeout). Flagged for manual confirmation rather
+  than claimed (per CLAUDE.md preview-verification rule).
+- Decisions: new [[2026-05-15-atlas-observe-explicit-move-mode]]
+- Deferred: manual in-browser confirmation (click selects, no popup;
+  re-click opens editor; Move arms drag; selecting another disarms);
+  "vertices-only" variant for lines/polygons (whole-body drag still
+  allowed when armed); the unrelated feat/atlas-permaculture
+  ecology/vegetation WIP in the same tree was deliberately NOT committed.
+- Pages touched: wiki/decisions/2026-05-15-atlas-observe-explicit-move-mode.md
+  (new), wiki/index.md, wiki/log.md; atlas (6 files):
+  store/observeSelectionStore.ts, SelectionFloater.tsx,
+  SelectionFloater.module.css, draw/AnnotationDragHandler.tsx,
+  draw/AnnotationVertexEditHandler.tsx, layers/ObserveAnnotationLayers.tsx
+
+## [2026-05-15] session | MILOS — Fix dashboard MAQASID overview wheel showing 0%
+
+**Objective:** The dashboard MAQASID overview wheel did not reflect real
+user progress (showed 0% while FAITH pillar page showed real %).
+
+**Approach:** Three root causes. (1) `VITE_SIMULATE_PROGRESS=50` dev
+override masked everything — commented out. (2) Overview queried 7 pillar
+ids but no project has `moduleId === pillarId`. (3) Architectural: lazy
+`task-store.tasksByProject` only filled by per-board `loadTasks`; dashboard
+never mounts boards. Chosen fix (user: "best long-term option"): decouple
+overview from per-board mounting via a shared scoring module + a
+persisted-source hook.
+
+**Outcome:** New `src/data/task-progress.js` (single scoring source),
+`src/hooks/usePillarOverviewProgress.js` (reads in-memory else persisted
+`tasks_<boardId>`, avg of board pcts), `getPillarBoardIds` in
+submodule-registry, `useModuleProgress` refactored to import shared scorers
+(API unchanged). Verified: 62/62 tests, grounding gates pass, DOM check
+FAITH page 20% == dashboard center round(20/7)=3%.
+
+- Pages touched: wiki/decisions/2026-05-15-milos-dashboard-overview-progress-decoupling.md
+  (new), wiki/log.md; src: data/task-progress.js (new),
+  hooks/usePillarOverviewProgress.js (new), hooks/useModuleProgress.js,
+  data/submodule-registry.js, components/dashboard/MaqasidLevelOverview.jsx,
+  .env.local
+- Follow-up (not in scope): dashboard LevelNavigator pillar bars may share
+  the lazy-store root cause — verify separately.
+
+## [2026-05-15] follow-up | MILOS — Dashboard LevelNavigator bars → per-submodule progress color
+
+**Objective:** Verify whether the dashboard LevelNavigator pillar bars
+shared the wheel's lazy-store root cause; if so, route them through the
+decoupled progress source.
+
+**Outcome:** They did NOT share the cause — the dashboard passes a static
+synthetic `SUBMODULE_TASKS` as `pillarTasks`, short-circuiting the wrapper's
+task loading; bars were by-design pillar-accent navigation chips. Per user
+decision, made each submodule chip color reflect that submodule's
+completion via a decoupled read (no lazy-store re-coupling). New
+`boardStatusColor` (task-progress.js), `getSubmoduleBoardId`
+(submodule-registry.js), shared `readBoardPct` + `useSubmoduleProgress`
+(usePillarOverviewProgress.js), memoized `taskColorFn`
+(MaqasidLevelOverview.jsx). Submodule-nav clicks unchanged. Verified live:
+Shahada subseg green (#22c55e) when complete, siblings faint; level switch
+recomputes; faith-core regression clean; 62/62 tests, grounding gates pass.
+
+- Pages touched: wiki/decisions/2026-05-15-milos-dashboard-overview-progress-decoupling.md
+  (updated), wiki/log.md; src: data/task-progress.js,
+  data/submodule-registry.js, hooks/usePillarOverviewProgress.js,
+  components/dashboard/MaqasidLevelOverview.jsx
+
+## [2026-05-15] session | MILOS — ESLint worktree-artifact ignore: verified already fixed
+
+**Objective:** Add `.claude/worktrees/**` (and confirm `**/dist/**`) to
+`eslint.config.js` ignores so `npm run lint` stops linting other agents'
+minified build artifacts under `.claude/worktrees/*/dist/`.
+
+**Outcome:** No change required — premise was stale. On the active
+working tree (`eslint.config.js:8`) `globalIgnores` already contains
+`'dist'`, `'**/dist/**'`, and `'.claude/**'`. `.claude/**` already
+subsumes `.claude/worktrees/**`, so a dedicated pattern would be a
+redundant no-op. Verified `npx eslint .` exits 0 (only Babel >500KB
+notes on large seed-task files; zero errors/warnings — the Sidebar.jsx
+/ Dashboard.jsx nits do not fire). Full gate `npm run lint` exits 0:
+lint:eslint clean, lint:grounding-strict pass (0 empty-array, ratchet
+0), audit:inline-refs pass (0 missing refs across 2072 subtasks /
+8 pillars, ratchet 0).
+
+**Note for future agents:** if `npm run lint` is red with ~297 errors
+in `.claude/worktrees/*/dist/*.js`, the cause is a stale
+`eslint.config.js` on *that* branch/worktree predating the
+`globalIgnores` line — port this config rather than re-investigating.
+
+- Pages touched: wiki/log.md (this entry). No source files modified.

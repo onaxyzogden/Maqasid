@@ -5,7 +5,7 @@
 .insight {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-3);
   width: 100%;
   max-width: 1200px;
   margin-inline: auto;
@@ -18,7 +18,7 @@
   flex-direction: column;
   gap: var(--space-6);
   position: relative;
-  padding: var(--space-4) var(--space-4) var(--space-5);
+  padding: var(--space-2) var(--space-4);
   margin-inline: calc(-1 * var(--space-4));
   border-radius: var(--radius-xl, 16px);
   isolation: isolate;

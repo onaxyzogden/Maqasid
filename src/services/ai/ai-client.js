@@ -46,7 +46,7 @@ async function* streamOpenAI(config, system, messages, signal) {
   // OpenRouter-specific headers
   if (config.provider === 'openrouter') {
     headers['HTTP-Referer'] = window.location.origin;
-    headers['X-Title'] = 'MILOS';
+    headers['X-Title'] = 'MIOS';
   }
 
   const body = {

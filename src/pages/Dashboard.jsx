@@ -22,17 +22,8 @@ import { BCG_RANGES } from '../hooks/useDashboard';
 import { BBOS_STAGES, BBOS_LAYERS } from '../data/bbos/bbos-pipeline';
 import { getBbosTaskDefsByStage } from '../data/bbos/bbos-task-definitions';
 import ChartTooltip from '../components/shared/ChartTooltip';
-import OnboardingChecklist from '../components/onboarding/OnboardingChecklist';
-import SpotlightTour from '../components/onboarding/SpotlightTour';
-import { useOnboardingStore } from '../store/onboarding-store';
 import './Dashboard.css';
 import '../components/bbos/BbosFullDashboard.css';
-
-const TOUR_STEPS = [
-  { target: 'sidebar-nav', title: 'Your seven domains', description: 'Each higher objective of the Maqasid — Faith, Life, Intellect, and more — lives here. Click any to explore.' },
-  { target: 'dashboard-main', title: 'Your command center', description: 'Tasks, priorities, and your Barakah score — everything you need at a glance.' },
-  { target: 'onboarding-checklist', title: 'Your getting started guide', description: 'Complete these five steps to unlock the full power of MILOS.' },
-];
 
 function BCGChart({ data }) {
   const svgRef = useRef(null);
@@ -344,14 +335,6 @@ export default function Dashboard() {
     }
     completedFocusRef.current = current;
   }, [tasksByProject, niyyahSubmodule, primaryPillar, addToast, isIslamic]);
-  const tourCompleted = useOnboardingStore((s) => s.tourCompleted);
-  const completeTourStep = useOnboardingStore((s) => s.completeTourStep);
-  const firstLoginAt = useOnboardingStore((s) => s.firstLoginAt);
-
-  const handleTourComplete = useCallback(() => {
-    completeTourStep();
-  }, [completeTourStep]);
-
   // One-shot migration: tag tasks with pillarId/submoduleId derived from
   // their project's moduleId. Runs once per browser via a sentinel key.
   useEffect(() => {
@@ -480,8 +463,6 @@ export default function Dashboard() {
       .filter(Boolean);
   }, [niyyahFocus, projects, tasksByProject]);
 
-  const firstName = user?.name ? user.name.split(' ')[0] : 'there';
-
   const SNAPSHOT_METRICS = [
     {
       key: 'today',
@@ -514,20 +495,8 @@ export default function Dashboard() {
       data-tour="dashboard-main"
       style={primaryPillar ? { '--dashboard-accent': primaryPillar.accentColor } : undefined}
     >
-      {/* ── Spotlight Tour ── */}
-      {!tourCompleted && firstLoginAt !== null && (
-        <SpotlightTour steps={TOUR_STEPS} onComplete={handleTourComplete} />
-      )}
-      {/* ═══ QALB · Intent — the day begins here ═══ */}
-      <section className="dash-tier dash-tier--qalb" aria-labelledby="tier-qalb">
-        {isIslamic && (
-          <div className="dash-tier__eyebrow" id="tier-qalb">
-            <span className="dash-tier__eyebrow-en">Intent</span>
-            <span className="dash-tier__eyebrow-sep" aria-hidden="true">·</span>
-            <span className="dash-tier__eyebrow-ar">نية</span>
-          </div>
-        )}
-
+{/* ═══ QALB · Intent — the day begins here ═══ */}
+      <section className="dash-tier dash-tier--qalb">
         <TodayFocusSection
           pillarSummary={focusSummary}
           primaryPillarId={primaryPillar?.id ?? null}
@@ -540,46 +509,10 @@ export default function Dashboard() {
       </section>
 
       {/* ═══ AMAL · Action — the day unfolds ═══ */}
-      <section className="dash-tier dash-tier--amal" aria-labelledby="tier-amal">
-        {isIslamic && (
-          <div className="dash-tier__eyebrow" id="tier-amal">
-            <span className="dash-tier__eyebrow-en">Action</span>
-            <span className="dash-tier__eyebrow-sep" aria-hidden="true">·</span>
-            <span className="dash-tier__eyebrow-ar">عمل</span>
-          </div>
-        )}
-
-        <div data-tour="onboarding-checklist">
-          <OnboardingChecklist />
-        </div>
-
+      <section className="dash-tier dash-tier--amal">
         <FocusTaskList />
 
-      {/* ── Empty state for new users ── */}
-      {projects.length === 0 && allTasks.length === 0 && (
-        <div className="insight-empty">
-          <h2 className="insight-empty__title">
-            Welcome{firstName !== 'there' ? `, ${firstName}` : ''}! Let&apos;s get started.
-          </h2>
-          <p className="insight-empty__text">
-            {isIslamic
-              ? 'Set your daily Niyyah or create your first project to begin your Maqasid journey.'
-              : 'Create your first project or explore the higher objectives below to organise your work.'}
-          </p>
-          <div className="insight-empty__actions">
-            <Link to="/app/work" className="insight-action-btn">+ Create Project</Link>
-          </div>
-          <div className="insight-empty__pillars">
-            {MAQASID_PILLARS.map((pillar) => (
-              <Link key={pillar.id} to={`/app/pillar/${pillar.id}`} className="insight-empty__pillar" style={{ borderColor: pillar.accentColor + '40', background: pillar.accentColor + '0a' }}>
-                <span style={{ color: pillar.accentColor, fontWeight: 600 }}>{pillar.sidebarLabel}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* ── Maqasid Level Overview (LevelNav + Wheel) ── */}
+{/* ── Maqasid Level Overview (LevelNav + Wheel) ── */}
       <MaqasidLevelOverview />
 
       {/* ── BBOS Pipeline · Now + Next ── */}
@@ -723,15 +656,7 @@ export default function Dashboard() {
       </section>
 
       {/* ═══ BARAKAH · Impact — the day bears fruit ═══ */}
-      <section className="dash-tier dash-tier--barakah" aria-labelledby="tier-barakah">
-        {isIslamic && (
-          <div className="dash-tier__eyebrow" id="tier-barakah">
-            <span className="dash-tier__eyebrow-en">Impact</span>
-            <span className="dash-tier__eyebrow-sep" aria-hidden="true">·</span>
-            <span className="dash-tier__eyebrow-ar">بركة</span>
-          </div>
-        )}
-
+      <section className="dash-tier dash-tier--barakah">
         {/* Istiqamah — steadfastness across 30 days */}
         <BCGChart data={bcgData} />
 

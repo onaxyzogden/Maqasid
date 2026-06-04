@@ -17,7 +17,7 @@ import './Sidebar.css';
 const ICON_MAP = ICON_REGISTRY;
 const PILLAR_ICON_MAP = ICON_REGISTRY;
 
-const MODULE_ROUTES = {
+export const MODULE_ROUTES = {
   work: '/app/work',
   money: '/app/money',
   people: '/app/people',
@@ -76,7 +76,7 @@ const MODULE_ROUTES = {
 
 const OGDEN_SIDEBAR_CHILDREN = [
   { id: 'ogden-bbos',    name: 'BBOS',    icon: 'Briefcase' },
-  { id: 'ogden-milos',   name: 'MILOS',   icon: 'Compass' },
+  { id: 'ogden-milos',   name: 'MIOS',    icon: 'Compass' },
   { id: 'ogden-atlas',   name: 'Atlas',   icon: 'Globe2' },
 ];
 const OGDEN_ACCENT = '#7E6EAD';
@@ -87,7 +87,7 @@ export default function Sidebar() {
   const location = useLocation();
   const navigate = useNavigate();
   const mobile = useMobile();
-  const { sidebarOpen, toggleSidebar, setActiveModule, expandedPillars, togglePillar, collapseAllPillars, setSearchOpen } = useAppStore();
+  const { sidebarOpen, toggleSidebar, expandedPillars, togglePillar, collapseAllPillars, setSearchOpen } = useAppStore();
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const [notifOpen, setNotifOpen] = useState(false);
 
@@ -162,7 +162,7 @@ export default function Sidebar() {
                     key={mod.id}
                     to={route}
                     className={`sidebar-item pillar-submodule ${isActive ? 'active' : ''}`}
-                    onClick={() => { setActiveModule(mod.id); handleNavClick(); }}
+                    onClick={handleNavClick}
                     title={mod.name}
                   >
                     {Icon && <Icon size={16} style={isActive ? { color: mod.color } : undefined} />}
@@ -186,7 +186,7 @@ export default function Sidebar() {
         {!collapsed && (
           <Link to="/app" className="sidebar-logo">
             <div className="logo-icon"><Moon size={14} /></div>
-            <span>MILOS</span>
+            <span>MIOS</span>
           </Link>
         )}
         <button className="sidebar-toggle" onClick={toggleSidebar} title={collapsed ? 'Expand' : 'Collapse'} aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}>
@@ -298,7 +298,7 @@ export default function Sidebar() {
                         key={child.id}
                         to={route}
                         className={`sidebar-item pillar-submodule ${isActive ? 'active' : ''}`}
-                        onClick={() => { setActiveModule(child.id); handleNavClick(); }}
+                        onClick={handleNavClick}
                         title={child.name}
                       >
                         {Icon && <Icon size={16} style={isActive ? { color: OGDEN_ACCENT } : undefined} />}

@@ -2,12 +2,16 @@ import { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LevelNavigator from '@components/shared/LevelNavigator';
 import MaqasidComparisonWheel from '@components/faith/MaqasidComparisonWheel';
-import { useModulesProgress } from '@hooks/useModuleProgress';
+import {
+  usePillarOverviewProgress,
+  useSubmoduleProgress,
+} from '@hooks/usePillarOverviewProgress';
 import { MAQASID_CORE_PILLARS } from '@data/maqasid';
 import {
   getPillarSubmoduleIds,
   getSubmoduleDisplayLabel,
 } from '@data/submodule-registry';
+import { boardStatusColor } from '@data/task-progress';
 import { useToastStore } from '@store/toastStore';
 import { getIcon } from '@data/icon-registry';
 import '@pages/shared/LevelOverviewPage.css';
@@ -25,6 +29,7 @@ const PILLAR_NAV = MAQASID_CORE_PILLARS.map((p) => ({
   route: `/app/pillar/${p.id}`,
   accentColor: p.accentColor,
 }));
+// Stable module-scope ref so usePillarOverviewProgress's useMemo dep is stable.
 const PILLAR_IDS = PILLAR_NAV.map((p) => p.id);
 
 // One synthetic "task" per submodule, fed to LevelNavigator via pillarTasks so
@@ -35,14 +40,13 @@ const SUBMODULE_TASKS = Object.fromEntries(
     getPillarSubmoduleIds(p.id).map((sid) => ({
       id: sid,
       title: getSubmoduleDisplayLabel(sid, sid),
-      _pillarAccent: p.accentColor,
     })),
   ]),
 );
-
-function submoduleColor(task) {
-  return task._pillarAccent || 'var(--border2)';
-}
+// Stable flat list of every canonical submoduleId for useSubmoduleProgress.
+const ALL_SUBMODULE_IDS = [
+  ...new Set(Object.values(SUBMODULE_TASKS).flat().map((t) => t.id)),
+];
 
 export default function MaqasidLevelOverview() {
   const navigate = useNavigate();
@@ -50,7 +54,13 @@ export default function MaqasidLevelOverview() {
   const pushToast = useToastStore((s) => s.push);
 
   const meta = LEVEL_META[level] || LEVEL_META.core;
-  const { progressMap } = useModulesProgress(PILLAR_IDS, level);
+  const { progressMap } = usePillarOverviewProgress(PILLAR_IDS, level);
+  const submoduleProgress = useSubmoduleProgress(ALL_SUBMODULE_IDS, level);
+
+  const taskColorFn = useCallback(
+    (task) => boardStatusColor(submoduleProgress[task.id] ?? 0),
+    [submoduleProgress],
+  );
 
   const onReach100 = useCallback(
     (seg) => {
@@ -65,7 +75,7 @@ export default function MaqasidLevelOverview() {
 
   const segments = PILLAR_NAV.map((p) => ({
     ...p,
-    current: progressMap[p.id]?.pct ?? 0,
+    current: progressMap[p.id] ?? 0,
   }));
 
   return (
@@ -80,7 +90,7 @@ export default function MaqasidLevelOverview() {
         pillars={PILLAR_NAV}
         storageKey="dashboard_maqasid_level"
         pillarTasks={SUBMODULE_TASKS}
-        taskColorFn={submoduleColor}
+        taskColorFn={taskColorFn}
         onSegmentClick={(pillarId) => {
           const seg = PILLAR_NAV.find((p) => p.id === pillarId);
           if (seg?.route) navigate(seg.route, { viewTransition: true });
