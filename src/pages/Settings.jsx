@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Moon, Sun, Download, Upload, Trash2, LogOut, Eye, EyeOff, Sparkles, RotateCcw, Plane, MapPin, Utensils } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useSettingsStore } from '../store/settings-store';
+import { useAppStore } from '../store/app-store';
 import { useAuthStore } from '../store/auth-store';
 import { useOnboardingStore } from '../store/onboarding-store';
 import { useFastingStore } from '../store/fasting-store';
@@ -22,6 +23,8 @@ export default function Settings() {
     disableL23ThresholdGate, setDisableL23ThresholdGate,
   } = useSettingsStore();
   const { user, logout } = useAuthStore();
+  const bbosNewDashboard = useAppStore((s) => s.bbosNewDashboard);
+  const toggleBbosNewDashboard = useAppStore((s) => s.toggleBbosNewDashboard);
   const {
     tourCompleted, checklistDismissed, seenPillars,
     disableOnboarding, resetOnboarding,
@@ -389,6 +392,27 @@ export default function Settings() {
           </label>
           <div style={{ fontSize: '0.8rem', color: 'var(--text3)', marginTop: 'var(--space-2)' }}>
             When enabled, Level 2 (<code>*-growth</code>) and Level 3 (<code>*-excellence</code>) pages open without the ritual.
+          </div>
+        </div>
+      </section>
+
+      {/* Labs — experimental UI behind flags */}
+      <section style={{ marginBottom: 'var(--space-8)' }}>
+        <h4 style={{ marginBottom: 'var(--space-3)', color: 'var(--text2)' }}>Labs</h4>
+        <div style={{
+          background: 'var(--surface)', border: '1px solid var(--border)',
+          borderRadius: 'var(--radius-lg)', padding: 'var(--space-5)',
+        }}>
+          <label style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', cursor: 'pointer' }}>
+            <input
+              type="checkbox"
+              checked={bbosNewDashboard}
+              onChange={toggleBbosNewDashboard}
+            />
+            <span>Use redesigned BBOS pipeline dashboard</span>
+          </label>
+          <div style={{ fontSize: '0.8rem', color: 'var(--text3)', marginTop: 'var(--space-2)' }}>
+            Replaces the BBOS pipeline view with the new stage-rail dashboard (preview build). This setting is per-device.
           </div>
         </div>
       </section>

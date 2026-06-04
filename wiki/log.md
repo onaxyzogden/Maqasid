@@ -13740,3 +13740,10 @@ but in the dev-server launchers rather than the test config.
   mirrors the derived-flag/persisted-run pattern of [[2026-05-25-atlas-observe-needs-auto]]).
 - Pages touched: wiki/decisions/2026-05-25-atlas-plan-impact-flags.md (new),
   wiki/entities/olos.md, wiki/index.md, wiki/log.md.
+
+## [2026-06-04] session | Redesigned BBOS pipeline dashboard as adapter-driven shell behind a toggle
+- Completed: Built the supplied BBOS dashboard redesign as a self-contained visual shell driven by a single adapter seam (buildPipelineViewModel), pixel-faithful with scoped `.bpd` CSS, coexisting with BbosFullDashboard behind an OFF-by-default per-device flag (bbosNewDashboard / bbiz_bbos_new_dash). New folder src/components/bbos/pipeline-dashboard/ (10 files: adapter + OLOS mock, scoped CSS palette, palette.js helpers, primitives.jsx, rail, overview, ExecView + ApprovalBrief portals, root). Wired DashboardView branch, Settings "Labs" toggle row, added flag to SYNC_EXCLUDED_KEYS, updated bbos/CONTEXT.md inventory.
+- Verified: npm run lint + npm run build pass (only pre-existing chunk-size warnings). Preview screenshots confirm scoped dark theme (app chrome stays light), rail + overview, Execution View (Research Factory, Gate Check tri-state, retrospective OPT Metrics/BHI/Restoration), Approval Brief (7 sections incl. Stage Decision gate radios), body scroll-lock engage/release, Settings toggle persists, and flag-OFF legacy BbosFullDashboard unchanged. Zero console errors.
+- Decisions: ADR [[2026-06-04-bbos-redesigned-dashboard-adapter-shell]].
+- Deferred: swap adapter mock->live stores; resolve no-live-equivalent concepts (typed exec forms, JSON stage-pack import, cycle-completion/close-cycle, "proceed with conditions", BHI/restoration scoring); decide whether to retire BbosFullDashboard at parity.
+- Pages touched: wiki/decisions/2026-06-04-bbos-redesigned-dashboard-adapter-shell.md (new), wiki/entities/bbos-pipeline.md, wiki/index.md, wiki/log.md.

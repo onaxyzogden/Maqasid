@@ -2,7 +2,7 @@
 title: "BBOS Pipeline"
 type: entity
 created: 2026-04-09
-updated: 2026-04-25
+updated: 2026-06-04
 tags: [bbos, pipeline, islamic-business, covenant, stages, barakah, truth-safe, two-factory]
 sources: 4
 ---
@@ -78,6 +78,8 @@ Pipeline UI fully aligned with v2.4 protocol as of Sprint 7 (2026-04-11), with f
 
 **IDY stage IFB tasks removed:** IDY-IFB-S1 through IDY-IFB-S5 ("IFB Forms" group) removed from `bbos-task-definitions.js` and `bbos-role-access.js` — backend admin tasks not relevant to operators.
 
+**Redesigned dashboard (preview, 2026-06-04):** A second, visually redesigned pipeline dashboard now coexists with `BbosFullDashboard` behind an OFF-by-default per-device flag (`bbosNewDashboard` / `bbiz_bbos_new_dash`). It lives in `src/components/bbos/pipeline-dashboard/` (10 files) and renders entirely from a **single adapter seam** — `buildPipelineViewModel({project, bbosFilter})` — which this pass returns a throwaway OLOS mock; a follow-up pass swaps the source mock→live with the same signature. Dark "cosmic" palette is **scoped to `.bpd`** (does not leak globally). Surfaces: 240px stage rail, Stage Overview (attributes/duʿāʾ/gate), Execution View modal (Research/Asset/Execution/Gate-Check; retrospective OPT shows Metrics/Barakah-Health-Index/Restoration-Mandate), Approval Brief modal (7 sections incl. gate radios). `DashboardView.jsx` branches on the flag; Settings exposes it as a "Labs" row. See [decision: bbos-redesigned-dashboard-adapter-shell](../decisions/2026-06-04-bbos-redesigned-dashboard-adapter-shell.md). Concepts with no live equivalent (typed exec forms, JSON stage-pack import, cycle-completion/close-cycle, "proceed with conditions", BHI/restoration scoring) render inert from mock, deferred to the follow-up.
+
 ## Connections
 
 - [[milos]] — Host application; BBOS is a module at `src/components/bbos/`
@@ -112,6 +114,7 @@ Pipeline UI fully aligned with v2.4 protocol as of Sprint 7 (2026-04-11), with f
 
 | Date | Event |
 |---|---|
+| 2026-06-04 | Redesigned pipeline dashboard built as an adapter-driven visual shell behind an OFF-by-default per-device toggle (`bbosNewDashboard` / `bbiz_bbos_new_dash`). New feature folder `src/components/bbos/pipeline-dashboard/` (10 files): adapter seam `buildPipelineViewModel` + throwaway OLOS mock, scoped `.bpd` CSS palette, `palette.js` helpers, `primitives.jsx`, rail, overview, ExecView + ApprovalBrief portals, root. Wired `DashboardView` branch, Settings "Labs" row, added flag to `SYNC_EXCLUDED_KEYS`, updated `bbos/CONTEXT.md`. Verified: lint + build pass, preview screenshots confirm scoped dark theme, both modals, retrospective OPT (Metrics/BHI/Restoration), 7 brief sections, scroll-lock, and flag-OFF legacy regression. Mock→live adapter swap deferred to follow-up. See [decision](../decisions/2026-06-04-bbos-redesigned-dashboard-adapter-shell.md). |
 | 2026-04-25 | Pre-live-test hardening Phase 5 — Amanah rejection flow + Patch sub-stage tasks. Added `BBOS_REJECTION_REASONS` constant + `rejectBbosPipeline` / `unrejectBbosPipeline` store actions; `BbosFullDashboard` shows reject button at CRD, rejection banner across all stages, and blocks `advanceBbosStage` when rejected. Added `IDY-PATCH-V1` and `STR-PATCH-V1` task definitions (role-gated to OW/ST), wired `PATCH` into `RESEARCH_PREFIXES` so they participate in the Assembly Gate. Multi-pipeline support (Q2) deferred — see decision record. |
 | 2026-04-25 | Pre-live-test hardening pass. Renamed legacy stage codes to canonical v2.4 codes across code, marketing, and wiki: FND→IDY, TRU→CRD, SAL→SLS, DLR→DEL. Resolves the three-way canonicality drift between code (FND/TRU/SAL/DLR), marketing (INT/QAL/SAL/DLR), and the prior wiki claim (PRE/STR/OFR/OUT/SAL/FUL/RET/OPT — 8-stage). The 9-stage model in code is the single source of truth. Fixed stale `BbosPipelineHeader` reference in key UI components list. |
 | 2026-04-15 | Closed 3 remaining UI/Protocol gaps from system report §11.4: (1) Assembly Gate CLEARED state rendering, (2) GLabelBadge on BbosFullDashboard task cards, (3) 00A/01B patch stage inline diamond indicators in LevelNavigator via `gateIndicators` prop and `BBOS_PATCH_STAGES` data. Fixed stale CONTEXT.md reference to non-existent BbosPipelineHeader.jsx. |

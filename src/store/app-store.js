@@ -21,6 +21,7 @@ export const useAppStore = create((set, get) => ({
   filters: {}, // { [projectId]: { priorities: [], dueDate: null, tags: [] } }
   activeBbosStage: null, // string | null — BBOS stage ID currently selected in the pipeline header
   activeBbosTaskType: null, // string | null — BBOS task type currently open in BbosTaskPanel
+  bbosNewDashboard: safeGet('bbos_new_dash', 'false') === 'true', // per-device: render redesigned pipeline dashboard
   citationsVisible: false,
   niyyahOverrideOpen: false,
 
@@ -50,6 +51,12 @@ export const useAppStore = create((set, get) => ({
     const v = !s.islamicPanelOpen;
     safeSet('il_open', String(v));
     return { islamicPanelOpen: v };
+  }),
+
+  toggleBbosNewDashboard: () => set((s) => {
+    const v = !s.bbosNewDashboard;
+    safeSet('bbos_new_dash', String(v));
+    return { bbosNewDashboard: v };
   }),
 
   setSearchOpen: (open) => set({ searchOpen: open }),

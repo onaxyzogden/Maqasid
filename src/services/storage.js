@@ -200,6 +200,7 @@ export const SYNC_EXCLUDED_KEYS = [
   'ip_width_px',
   'ayah_collapsed',
   'module',
+  'bbos_new_dash',
   // Sync bookkeeping — device-specific timestamps
   'sync_device_id',
   'sync_last_push_at',

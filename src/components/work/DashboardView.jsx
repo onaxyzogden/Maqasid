@@ -1,13 +1,16 @@
 import { useMemo } from 'react';
 import { CheckCircle, AlertTriangle, Star, LayoutDashboard } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
+import { useAppStore } from '../../store/app-store';
 import { BBOS_STAGES } from '../../data/bbos/bbos-pipeline';
 import BbosFullDashboard from '../bbos/BbosFullDashboard';
+import BbosPipelineDashboard from '../bbos/pipeline-dashboard/BbosPipelineDashboard';
 import PillarLevelDashboard from './PillarLevelDashboard';
 import './DashboardView.css';
 
 export default function DashboardView({ project, bbosFilter, onSelectTask, selectedTaskId, onStageAdvance, onStageSelect }) {
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
+  const bbosNewDashboard = useAppStore((s) => s.bbosNewDashboard);
 
   const metrics = useMemo(() => {
     const tasks = tasksByProject[project.id] || [];
@@ -86,7 +89,9 @@ export default function DashboardView({ project, bbosFilter, onSelectTask, selec
 
   // Delegate to specialized dashboards (after hooks, per Rules of Hooks)
   if (project.bbosEnabled && bbosFilter) {
-    return <BbosFullDashboard project={project} bbosFilter={bbosFilter} onSelectTask={onSelectTask} onStageAdvance={onStageAdvance} onStageSelect={onStageSelect} />;
+    return bbosNewDashboard
+      ? <BbosPipelineDashboard project={project} bbosFilter={bbosFilter} />
+      : <BbosFullDashboard project={project} bbosFilter={bbosFilter} onSelectTask={onSelectTask} onStageAdvance={onStageAdvance} onStageSelect={onStageSelect} />;
   }
   if (/_(core|growth|excellence|before|during|after)$/.test(project.id)) {
     return <PillarLevelDashboard project={project} onSelectTask={onSelectTask} selectedTaskId={selectedTaskId} />;
