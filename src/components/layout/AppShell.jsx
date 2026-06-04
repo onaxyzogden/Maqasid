@@ -28,6 +28,8 @@ import JournalPanel from '../journal/JournalPanel';
 import DiscussionPanel from '../discussion/DiscussionPanel';
 import Toast from '../shared/Toast';
 import PillarFirstEntry from '../onboarding/PillarFirstEntry';
+import FirstLoginModal from '../shared/FirstLoginModal';
+import { useSyncObserver } from '../../hooks/useSyncObserver';
 import './AppShell.css';
 
 // Set of every known module id — '/app/{id}' is the route convention for
@@ -42,6 +44,8 @@ const MODULE_IDS = new Set(MODULES.map((m) => m.id));
 const PREFIX_ROUTES = Object.entries(MODULE_ROUTES);
 
 export default function AppShell() {
+  useSyncObserver();
+
   const sidebarOpen = useAppStore((s) => s.sidebarOpen);
   const setSearchOpen = useAppStore((s) => s.setSearchOpen);
   const islamicPanelOpen = useAppStore((s) => s.islamicPanelOpen);
@@ -436,6 +440,7 @@ export default function AppShell() {
       <JournalPanel />
       <DiscussionPanel />
       <PillarFirstEntry />
+      <FirstLoginModal />
       <Toast />
     </>
   );

@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard, Settings, Plus, ChevronLeft, ChevronRight,
-  ChevronDown, Bell, Moon, Search, SquareChevronRight,
+  ChevronDown, Bell, Moon, Search, SquareChevronRight, UserCircle,
 } from 'lucide-react';
+import SyncStatusChip from '../shared/SyncStatusChip';
+import { useAuthStore } from '../../store/auth-store';
 import { useAppStore } from '../../store/app-store';
 import { useSettingsStore } from '../../store/settings-store';
 import { useMobile } from '../../hooks/useMobile';
@@ -35,6 +37,7 @@ export default function Sidebar() {
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const [notifOpen, setNotifOpen] = useState(false);
 
+  const authStatus = useAuthStore((s) => s.authStatus);
   const collapsed = mobile ? false : !sidebarOpen;
 
   const handleNavClick = () => {
@@ -271,6 +274,16 @@ export default function Sidebar() {
           <Bell size={18} />
           {!collapsed && <span>Notifications</span>}
         </button>
+        {authStatus === 'authenticated' && (
+          <Link
+            to="/app/account"
+            className={`sidebar-item ${location.pathname === '/app/account' ? 'active' : ''}`}
+            title="Account"
+          >
+            <UserCircle size={18} />
+            {!collapsed && <span>Account</span>}
+          </Link>
+        )}
         <Link
           to="/app/settings"
           className={`sidebar-item ${location.pathname === '/app/settings' ? 'active' : ''}`}
@@ -279,6 +292,7 @@ export default function Sidebar() {
           <Settings size={18} />
           {!collapsed && <span>Settings</span>}
         </Link>
+        <SyncStatusChip collapsed={collapsed} />
       </div>
 
       {notifOpen && <NotificationsPanel onClose={() => setNotifOpen(false)} />}

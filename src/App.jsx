@@ -86,6 +86,8 @@ import EnvironmentDashboard from '@pages/environment/EnvironmentDashboard';
 import UmmahDashboard from '@pages/ummah/UmmahDashboard';
 import MoontraceDashboard from '@pages/moontrance/MoontraceDashboard';
 import Settings from '@pages/Settings';
+import AccountPage from '@pages/AccountPage';
+import AuthPage from '@pages/AuthPage';
 import ModulePlaceholder from '@pages/ModulePlaceholder';
 import PropheticPathPage from '@pages/PropheticPathPage';
 import CeremonyGuard from '@components/islamic/CeremonyGuard';
@@ -137,11 +139,17 @@ function useGlobalTextareaAutoResize() {
 
 export default function App() {
   useGlobalTextareaAutoResize();
+
+  // Initialise Supabase session once on mount (no-op when Supabase is not configured)
+  const initAuth = useAuthStore((s) => s.initAuth);
+  useEffect(() => { initAuth(); }, [initAuth]);
+
   return (
     <ChunkErrorBoundary>
     <Suspense fallback={<RouteSpinner />}>
     <Routes>
       <Route path="/" element={<Landing />} />
+      <Route path="/auth" element={<AuthPage />} />
       <Route path="/get-started" element={<Onboarding />} />
       <Route path="/present/ogden" element={<OgdenPresentationPage />} />
       <Route
@@ -238,6 +246,7 @@ export default function App() {
         <Route path="pillar/moontrance" element={<MoontraceDashboard />} />
         <Route path="pillar/:pillarId" element={<CeremonyGuardDynamic paramKey="pillarId"><PillarDashboard /></CeremonyGuardDynamic>} />
         <Route path="settings" element={<Settings />} />
+        <Route path="account" element={<AccountPage />} />
         <Route path="prophetic-path" element={<PropheticPathPage />} />
         <Route path="prophetic-path-test" element={<Navigate to="/app/prophetic-path" replace />} />
         <Route path=":moduleId" element={<CeremonyGuardDynamic><ModulePlaceholder /></CeremonyGuardDynamic>} />

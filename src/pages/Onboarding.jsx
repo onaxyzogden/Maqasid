@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { isSupabaseConfigured } from '../services/supabase';
 import {
   ArrowRight, ArrowLeft,
   Moon, Sun, Briefcase,
@@ -15,8 +16,10 @@ import '../styles/landing.css';
 
 const PILLAR_ICON_MAP = ICON_REGISTRY;
 
-// Steps: 0=Welcome, 1=Profile+Intent, 2=Values Framing
-const STEPS = ['Welcome', 'Profile', 'Values'];
+// Steps: 0=Welcome, 1=Profile, 2=Values, and optionally 3=Sync (when Supabase configured)
+const STEPS = isSupabaseConfigured
+  ? ['Welcome', 'Profile', 'Values', 'Sync']
+  : ['Welcome', 'Profile', 'Values'];
 
 const INTENT_OPTIONS = [
   { id: 'personal', emoji: '🕌', label: 'Personal & Spiritual' },
@@ -42,12 +45,13 @@ export default function Onboarding() {
     return true;
   };
 
-  const finish = () => {
+  const finish = (skipToSync = false) => {
     if (intent) setWizardIntent(intent);
     recordFirstLogin();
+    const trimmedName = name.trim();
     login({
       id: genUserId(),
-      name: name.trim(),
+      name: trimmedName,
       org: org.trim(),
       modules: [],
       valuesLayer: values,
@@ -57,7 +61,11 @@ export default function Onboarding() {
     // No pillar selection in onboarding — mark Niyyah as skipped so user
     // isn't blocked by a second ceremony on first dashboard visit.
     skipNiyyah();
-    navigate('/app');
+    if (skipToSync && isSupabaseConfigured) {
+      navigate(`/auth?mode=signup&prefill_name=${encodeURIComponent(trimmedName)}`);
+    } else {
+      navigate('/app');
+    }
   };
 
   const handleNext = () => {
@@ -279,8 +287,38 @@ export default function Onboarding() {
             </div>
           )}
 
+          {/* ── Step 3: Sync (only when Supabase configured) ── */}
+          {isSupabaseConfigured && step === 3 && (
+            <div className="fade-in" style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '2.5rem', marginBottom: 'var(--space-3)' }}>☁️</div>
+              <h2 style={{ marginBottom: 'var(--space-2)' }}>Continue anywhere</h2>
+              <p style={{ color: 'var(--text2)', marginBottom: 'var(--space-6)', lineHeight: 1.6 }}>
+                Create a free account to sync your data across all your devices. Your tasks, intentions, and progress will follow you everywhere.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+                <button
+                  className="btn btn-primary btn-lg"
+                  style={{ width: '100%', justifyContent: 'center' }}
+                  onClick={() => finish(true)}
+                >
+                  Create a free account <ArrowRight size={16} />
+                </button>
+                <button
+                  className="btn btn-ghost"
+                  style={{ width: '100%', justifyContent: 'center' }}
+                  onClick={() => finish(false)}
+                >
+                  Skip for now — continue as guest
+                </button>
+              </div>
+              <p style={{ color: 'var(--text3)', fontSize: '0.78rem', marginTop: 'var(--space-4)' }}>
+                You can always create an account later from Settings.
+              </p>
+            </div>
+          )}
+
           {/* ── Navigation ── */}
-          {step > 0 && (
+          {step > 0 && !(isSupabaseConfigured && step === 3) && (
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'center',
               marginTop: 'var(--space-8)', gap: 'var(--space-3)',
@@ -292,7 +330,7 @@ export default function Onboarding() {
               {step === STEPS.length - 1 ? (
                 <button
                   className="btn btn-primary btn-lg"
-                  onClick={finish}
+                  onClick={() => finish()}
                   disabled={!canNext()}
                 >
                   Launch MAQASID <ArrowRight size={18} />
@@ -307,6 +345,12 @@ export default function Onboarding() {
                 </button>
               )}
             </div>
+          )}
+          {/* Back button on sync step */}
+          {isSupabaseConfigured && step === 3 && (
+            <button className="btn btn-ghost" style={{ marginTop: 'var(--space-4)', display: 'block', margin: '1rem auto 0' }} onClick={() => setStep(step - 1)}>
+              <ArrowLeft size={16} /> Back
+            </button>
           )}
         </div>
       </div>

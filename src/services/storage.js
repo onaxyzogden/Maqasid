@@ -183,6 +183,29 @@ if (typeof window !== 'undefined') {
   });
 }
 
+// Keys that are NEVER included in the cloud sync snapshot.
+// Imported by sync-service.js — edit here to add/remove keys from sync.
+export const SYNC_EXCLUDED_KEYS = [
+  // Device-local AI credentials — never upload
+  'ai_api_key',
+  'ai_base_url',
+  'ai_provider',
+  'ai_model',
+  // Internal backup slot — not user data
+  '__bbiz_import_backup',
+  // Per-device UI state — each device keeps its own preferences
+  'sb_open',
+  'sb_width_px',
+  'il_open',
+  'ip_width_px',
+  'ayah_collapsed',
+  'module',
+  // Sync bookkeeping — device-specific timestamps
+  'sync_device_id',
+  'sync_last_push_at',
+  'sync_pending_push',
+];
+
 export function clearAll() {
   const keys = [];
   for (let i = 0; i < localStorage.length; i++) {
