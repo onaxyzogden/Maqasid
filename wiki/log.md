@@ -3,6 +3,29 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-06-05] session | MILOS — always-visible Islamic Layer icon rail
+
+**Objective:** Add an always-visible vertical icon rail pinned to the far-right edge of the app shell, mirroring the collapsed left sidebar; its icons map to the Islamic panel's sections and clicking one opens + scrolls/expands the panel to that section.
+
+**Amanah gate:** clear — internal UI/layout work, no riba/gharar surface.
+
+**Completed:**
+- New `useIslamicSections.js` — single source of truth for the panel's ordered sections + per-section availability (`prayer`/`opening`/`attributes`/`readiness`/`during`/`reflection`/`citations`); consumed by both the rail and the panel so availability can't drift.
+- New non-persisted store state in `app-store.js`: `islamicActiveSection`, `islamicSectionNonce`, and `focusIslamicSection(id)` (opens panel + persists `il_open`, targets section, bumps nonce so re-clicks re-scroll).
+- New `IslamicRail.jsx` + `IslamicRail.css` — 64px icon-only column (desktop only) styled like the collapsed sidebar: Begin/Close ceremony icons, divider, one button per available section; active item highlighted.
+- `AppShell.jsx` grid grew 5→6 columns (permanent `il-rail` col 6); `--main-balance-end` now pads main by `max(0, leftChrome − railPx)` for centering when the panel is closed.
+- `IslamicPanel.jsx` — `ILSection` accepts `id`/`activeSection`/`nonce`, force-opens + `scrollIntoView` when targeted; `prayer`/`citations` `.il-anchor` wrappers scrolled by a panel-level effect (citations auto-revealed via `toggleCitations`); `.il-anchor { scroll-margin-top }` in CSS.
+- CONTEXT.md upkeep for `islamic/` and `layout/`.
+- Side task: `deploy.yml` build step now injects `VITE_SUPABASE_URL`/`VITE_SUPABASE_ANON_KEY` from GitHub Actions secrets (operator must add the secrets manually — I am prohibited from entering credentials into forms).
+
+**Decisions:** ADR [[2026-06-05-milos-islamic-layer-rail]] — single-source-of-truth hook prevents rail/panel drift; rail is desktop-only; `--main-balance-end` extended to pad the left/right chrome difference.
+
+**Verified:** `npm run build` green; `npm run lint` green (grounding ratchets unaffected — no seed-task changes); `npm test` 70 passing; preview confirmed rail renders far-right, section-jump works (Readiness, Citations), Universal mode drops Prayer/Citations, Islamic restores all sections, rail persists with panel closed.
+
+**Deferred:** none for the rail. Operator action outstanding: add the two Supabase secrets to GitHub repo settings, then redeploy.
+
+**Pages touched:** [[milos]], [[2026-06-05-milos-islamic-layer-rail]] (new), index, this log.
+
 ## [2026-06-05] session | BBOS dashboard — OPT retrospective + Approval Brief wired live (deferred concepts closed)
 
 **Objective:** Close the two areas the prior mock→live pass left inert — the OPT retrospective execution block and the Approval Brief content — wiring both to live task field-data + the project store through the same `buildPipelineViewModel` adapter seam.
