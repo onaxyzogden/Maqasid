@@ -535,6 +535,23 @@
 .bpd-btn-gold--gate { margin-top: 4px; width: 100%; padding: 12px 0; border-radius: 9px; font-size: 12px; }
 .bpd-btn-gold--cycle { margin-top: 10px; width: 100%; padding: 11px 0; border-radius: 8px; font-size: 12px; }
 .bpd-btn-gold--approve { width: 100%; padding: 11px 0; border-radius: 8px; font-size: 12px; }
+.bpd-btn-gold:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* gate verdict header (live scoreStage verdict + stage status) */
+.bpd-brief__gate-verdict {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 13px; border-radius: 8px;
+  background: var(--bpd-bg3); border: 1px solid var(--bpd-border);
+}
+.bpd-brief__gate-verdict-label {
+  font-family: var(--bpd-font-ui); font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--bpd-tertiary);
+}
+.bpd-brief__gate-verdict-value {
+  font-family: var(--bpd-font-ui); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--bpd-secondary);
+}
+.bpd-brief__gate-verdict[data-active="true"] .bpd-brief__gate-verdict-value { color: var(--bpd-gold); }
 
 /* gate checks */
 .bpd-gatecheck {

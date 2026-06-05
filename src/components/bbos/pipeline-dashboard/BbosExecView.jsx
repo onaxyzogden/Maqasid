@@ -147,33 +147,45 @@ export default function BbosExecView({ stage, onClose }) {
       if (tab === "metrics") return (
         <div className="bpd-col" style={{ gap: 12 }}>
           <Spirit attr={exec.spiritualOpen.attr} note={exec.spiritualOpen.note} />
-          <div className="bpd-metricgrid">
-            {exec.metrics.map((m) => (
-              <div key={m.id} className="bpd-metric">
-                <div className="bpd-metric__top">
-                  <div className="bpd-metric__label">{m.label}</div>
-                  <span className="bpd-metric__badge" style={metricVars(m.status)}>{m.status.toUpperCase()}</span>
+          {exec.metrics.length === 0 ? (
+            <div className="bpd-empty">No metrics recorded yet. File the OPT Metric Dashboard (OPT-S1) to populate the Canonical Metrics.</div>
+          ) : (
+            <div className="bpd-metricgrid">
+              {exec.metrics.map((m) => (
+                <div key={m.id} className="bpd-metric">
+                  <div className="bpd-metric__top">
+                    <div className="bpd-metric__label">{m.label}</div>
+                    {m.status && <span className="bpd-metric__badge" style={metricVars(m.status)}>{m.status.toUpperCase()}</span>}
+                  </div>
+                  <div className="bpd-metric__value" style={m.status ? metricVars(m.status) : undefined}>{m.value}</div>
+                  {(m.benchmark || m.trend) && (
+                    <div className="bpd-metric__foot">
+                      {m.benchmark && <span className="bpd-metric__bench">Benchmark: {m.benchmark}</span>}
+                      {m.trend && (
+                        <span className="bpd-metric__trend" data-trend={m.trend}>
+                          {m.trend === "up" ? "↑" : m.trend === "down" ? "↓" : "→"} {m.stage}
+                        </span>
+                      )}
+                    </div>
+                  )}
                 </div>
-                <div className="bpd-metric__value" style={metricVars(m.status)}>{m.value}</div>
-                <div className="bpd-metric__foot">
-                  <span className="bpd-metric__bench">Benchmark: {m.benchmark}</span>
-                  <span className="bpd-metric__trend" data-trend={m.trend}>
-                    {m.trend === "up" ? "↑" : m.trend === "down" ? "↓" : "→"} {m.stage}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       );
       if (tab === "bhi") return (
         <div className="bpd-col" style={{ gap: 12 }}>
-          <div className="bpd-bhi-hero">
-            <div className="bpd-bhi-hero__label">Barakah Health Index — Cycle 1</div>
-            <div className="bpd-bhi-hero__value">7.7</div>
-            <div className="bpd-bhi-hero__sub">Covenant sustained · Minor structural weaknesses identified</div>
-          </div>
-          {exec.bhi.map((b) => (
+          {exec.bhiHero && (
+            <div className="bpd-bhi-hero">
+              <div className="bpd-bhi-hero__label">Barakah Health Index — Cycle {exec.bhiHero.cycle}</div>
+              <div className="bpd-bhi-hero__value">{exec.bhiHero.value != null ? exec.bhiHero.value : "—"}</div>
+              <div className="bpd-bhi-hero__sub">{exec.bhiHero.phrase || exec.bhiHero.reading || "Awaiting overall reading"}</div>
+            </div>
+          )}
+          {exec.bhi.length === 0 ? (
+            <div className="bpd-empty">No Barakah Health Index recorded yet. File OPT-A2 to populate the five leading indicators.</div>
+          ) : exec.bhi.map((b) => (
             <div key={b.id} className="bpd-bhi" style={bhiVars(b.value)}>
               <div className="bpd-bhi__top">
                 <div>
@@ -193,12 +205,16 @@ export default function BbosExecView({ stage, onClose }) {
         <div className="bpd-col" style={{ gap: 12 }}>
           <Spirit attr={exec.spiritualGate.attr} note={exec.spiritualGate.note} lg />
           <div className="bpd-section-label" style={{ marginTop: 4 }}>Restoration Mandate Items</div>
-          {exec.restorationItems.map((r) => (
+          {exec.restorationItems.length === 0 ? (
+            <div className="bpd-empty">No restoration items yet. File the Top 3 Optimization Actions (OPT-S4) to populate the Restoration Mandate.</div>
+          ) : exec.restorationItems.map((r) => (
             <div key={r.id} className="bpd-resto" style={restoVars(r.severity, r.status)}>
-              <div className="bpd-resto__tags">
-                <span className="bpd-resto__sev">{r.severity}</span>
-                <span className="bpd-resto__status">{r.status.replace("_", " ")}</span>
-              </div>
+              {(r.severity || r.status) && (
+                <div className="bpd-resto__tags">
+                  {r.severity && <span className="bpd-resto__sev">{r.severity}</span>}
+                  {r.status && <span className="bpd-resto__status">{r.status.replace("_", " ")}</span>}
+                </div>
+              )}
               <div className="bpd-resto__label">{r.label}</div>
               <div className="bpd-resto__action">{r.action}</div>
               <div className="bpd-resto__actions">

@@ -1,10 +1,15 @@
-// BBOS Pipeline Dashboard - MOCK seed data (THROWAWAY).
+// BBOS Pipeline Dashboard - MOCK seed data (mostly superseded by live wiring).
 // ---------------------------------------------------------------------------
-// This is example content only: an OLOS/Atlas launch cycle used to drive the
-// redesigned dashboard shell. It is NOT the live data source. The follow-up
-// wiring pass replaces buildMockPipelineViewModel() inside the adapter with a
-// reader over the live stores (BBOS_STAGES, getBbosTaskDefsByStage,
-// getBbosStageIslamic, task/project stores) producing the SAME PipelineVM shape.
+// This is example content only: an OLOS/Atlas launch cycle. As of the 2026-06-04
+// follow-up wiring pass, buildPipelineViewModel() in the adapter reads LIVE
+// stores for stages IDY→RET. This seed is now retained ONLY for the concepts
+// that have no live equivalent yet and are still rendered inert:
+//   * the OPT retrospective execution block (STAGE_EXECUTION.OPT — metrics,
+//     Barakah Health Index, Restoration Mandate), reused by the adapter, and
+//   * BRIEF_SECTIONS (the Approval Brief section list).
+// The rest (the non-OPT STAGE_EXECUTION entries, STAGES, BRIEF_IDENTITY) is
+// kept so buildMockPipelineViewModel() still produces a complete VM for tests
+// and as a reference, but the live adapter no longer uses those paths.
 //
 // The three seed objects below (STAGE_EXECUTION, STAGES, BRIEF_SECTIONS) are
 // lifted verbatim from the approved mockup. buildMockPipelineViewModel() at the

@@ -3,6 +3,48 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-06-05] session | BBOS dashboard — OPT retrospective + Approval Brief wired live (deferred concepts closed)
+
+**Objective:** Close the two areas the prior mock→live pass left inert — the OPT retrospective execution block and the Approval Brief content — wiring both to live task field-data + the project store through the same `buildPipelineViewModel` adapter seam.
+
+**Amanah gate:** clear — internal dashboard data-wiring, no riba/gharar surface.
+
+**Completed (4 plan phases):**
+- **OPT retrospective live** — new `buildOptExecution(taskMap, cycle)` in the adapter: metrics from OPT-S1 (CM-1..4, **value-only** — benchmark/trend/status dropped, no live source); BHI from OPT-A2 (BHI-1..5 normalized to 0–10 via `normalizeBhi` for pct/ten/ratio kinds) + computed hero average + live `bhiOverallReading` phrase; restoration from filed OPT-S4 actions only (**no synthesized severity/status**). All empty arrays when unfilled → component empty-states. `BbosExecView` retrospective branch guards every mock-era field.
+- **Approval Brief live** — `buildBrief(...)` expands `stage.brief` with covenant readiness (`getBbosStageIslamic().readiness.rows`), findings (`scoreStage` signals), constraints (OPT → OPT-S5 hold list; other stages → unmet gate signals), assets (partitioned research/asset items), gate, and closing. Removed the hardcoded `READINESS` const and the four `bpd-empty` section stubs.
+- **Gate write-actions** — `BbosApprovalBrief` gate section drives the pipeline: proceed→`advanceBbosStage(next.id)`, halt→`BBOS_REJECTION_REASONS` picker→`rejectBbosPipeline`, conditions inert/annotated; action disabled unless `gate.canAct` (active stage) + a valid decision (and reason for halt). Dashboard root subscribes to the two store actions and passes them as callbacks (brief stays presentational). **Bug fixed:** `onAdvance` was passing the current stage id (a no-op `bbosStage=self`); now computes the next stage from `BBOS_STAGES`. Final OPT stage proceed is labelled "Close Cycle (deferred)" and left inert.
+- **Verify** — extended `adapter.test.js` (+7: OPT live metrics/BHI/hero/restoration + empty-state, brief readiness/findings/constraints holdlist/assets, `gate.canAct` true-at-active/false-elsewhere, non-OPT signals fallback). Preview on a synthetic OPT project: live metrics (72/64/88/31%), BHI hero **8.1 · Cycle 3 · ALIGNED**, restoration (filed actions only), constraints hold list, gate verdict; **proceed advanced STR→OFR** and **halt set `rejectedAt`+`rejectionReason:"riba"`** in the store; disabled-state guards confirmed; flag-OFF legacy dashboard unchanged. Synthetic project cleaned from localStorage; real BBOS project untouched (IDY).
+
+**Decisions:** ADR [[2026-06-05-bbos-opt-retro-and-brief-live]] — restoration is live-empty-state (no synthesis); gate writes only for the active stage (`canAct`); OPT-S5 hold list is the OPT constraints source; metrics are value-only.
+
+**Verified:** `npm test` 77 passing (70 prior + 7 new); `npm run lint` (grounding strict + inline-refs ratchet 0) green; `npm run build` green (pre-existing chunk-size warnings only); ESLint 0 errors (1 pre-existing warning in `IslamicPanel.jsx`, untouched).
+
+**Deferred:** cycle-completion / "Close Cycle" (`startNewBbosCycle`); proceed-with-conditions as a first-class store state; operator/client as real schema fields; typed execution-task forms. Pages touched: [[bbos-pipeline]], [[2026-06-05-bbos-opt-retro-and-brief-live]] (new), index, this log.
+
+**Note:** Unrelated working-tree changes (`atlas` submodule, `AuthPage.jsx`, `Landing.jsx`, `deploy.yml`, worktree pointers) left untouched and out of scope — not committed with this work.
+
+## [2026-06-04] session | BBOS redesigned dashboard adapter — mock → live (mappable concepts)
+
+**Objective:** Swap the redesigned BBOS pipeline-dashboard's single adapter seam (`buildPipelineViewModel`) from throwaway OLOS mock to a live-store reader for the *mappable* concepts, returning the same `PipelineVM` shape so consuming components stay untouched. The planned follow-up to the 2026-06-04 adapter-shell pass.
+
+**Amanah gate:** clear — internal dashboard data-wiring, no riba/gharar surface.
+
+**Completed (4 plan phases):**
+- **Shared scoring module** — extracted `STAGE_SCORE_SIGNALS` + `countNonEmpty` + verdict thresholds verbatim from `BbosFullDashboard.jsx` into new `src/data/bbos/bbos-stage-score.js` (`scoreStage(stageId, taskMap)` → `{totalPts, maxPts, pct, verdict, signals}`); legacy `StageScoreCard` now imports it (behavior-preserving). Single source of truth for both dashboards' gate verdicts.
+- **Live adapter** — rewrote `buildPipelineViewModel` as a live reader for IDY→RET: status/progress from `project.bbosStage` + per-stage done tasks; attributes/duʿāʾ/spiritual-notes from `getBbosStageIslamic`; research/asset items partitioned from `getBbosTaskDefsByStage` (S/V/FP/PATCH→research, A/AF/IC→asset) with tri-state status + joined field content; gate status + gateChecks from `scoreStage`. OPT retrospective + Approval Brief reused from `buildMockPipelineViewModel()` (inert).
+- **Call site + test** — `BbosPipelineDashboard.jsx` subscribes to `useTaskStore` and passes `tasks` into the memoized adapter; new `pipeline-dashboard/__tests__/adapter.test.js` contract guard (8 cases: VM shape, status derivation, gate-verdict mapping, research/asset partition, live `dua.translit`).
+- **Verify** — preview screenshots flag ON (live rail/overview/tasks on a synthetic CRD-stage project) and flag OFF (legacy `BbosFullDashboard` unchanged via shared `scoreStage`).
+
+**Decisions:** ADR [[2026-06-04-bbos-dashboard-adapter-mock-to-live]] — gate scoring extracted to a shared module imported by both dashboards; OPT retrospective stays inert (no live BHI/restoration source); adapter stays a pure function (`tasks` arg) with the component owning the store subscription.
+
+**Verified:** `npm test` 70 passing (62 prior + 8 new); `npm run lint` (grounding strict + inline-refs ratchet 0) green; `npm run build` green (pre-existing chunk-size warnings only). Synthetic preview project removed from localStorage afterward.
+
+**Deferred:** OPT live metrics/BHI/restoration; typed execution tasks (posting/call_log/proof_capture); rich per-task content renderers; full Approval Brief wiring; cycle-completion/close-cycle; "proceed with conditions" gate state; JSON stage-pack import; decision on retiring `BbosFullDashboard` at parity. Pages touched: [[bbos-pipeline]], [[2026-06-04-bbos-dashboard-adapter-mock-to-live]] (new), index, this log.
+
+**Note:** Unrelated working-tree changes (`atlas` submodule, `AuthPage.jsx`, `Landing.jsx`, `deploy.yml`, worktree pointers) were left untouched and out of scope — not committed with this work.
+
+---
+
 ## [2026-06-03] session | OLOS — per-stratum × per-type standing-protocol catalogue
 
 **Objective:** Stand up protocols that act as task triggers across every project type. The steward: "Plans and designs are great however having protocols in place that serve as triggers for tasks is super useful." Refined via AskUserQuestion to: deliverable = authoring scaffold + fully-drafted examples; coverage = universal + per-type deltas (the objective model); content = I draft from regenerative/permaculture best practice, steward is final authority on thresholds/wording.
