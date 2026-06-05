@@ -1,0 +1,63 @@
+/* Islamic Layer right-edge icon rail — mirrors the collapsed left sidebar */
+.il-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 100%;
+  height: 100%;
+  padding: var(--space-3) 0;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 20;
+}
+
+.il-rail-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 100%;
+}
+
+.il-rail-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: none;
+  color: var(--text2);
+  cursor: pointer;
+  transition: all var(--duration) var(--ease);
+}
+
+.il-rail-item:hover {
+  background: var(--bg3);
+  color: var(--text);
+}
+
+.il-rail-item.active {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.il-rail-item.done {
+  color: var(--success);
+}
+
+.il-rail-divider {
+  width: 24px;
+  height: 1px;
+  background: var(--border);
+  margin: var(--space-2) 0;
+  flex-shrink: 0;
+}
+
+/* Thin scrollbar to match the panel */
+.il-rail::-webkit-scrollbar { width: 4px; }
+.il-rail::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }

@@ -19,6 +19,7 @@ import TopBar from './TopBar';
 import MobileNav from './MobileNav';
 import SearchPalette from '../shared/SearchPalette';
 import IslamicPanel from '../islamic/IslamicPanel';
+import IslamicRail from '../islamic/IslamicRail';
 import ThresholdModal from '../islamic/ThresholdModal';
 import ResumeOverlay from '../islamic/ResumeOverlay';
 import PrayerOverlay from '../islamic/PrayerOverlay';
@@ -241,10 +242,12 @@ export default function AppShell() {
 
   const sidebarPx = sidebarOpen ? `${sidebarWidthPx}px` : '64px';
   const edgePx = '28px';
+  const railPx = '64px';
   const panelPx = `${islamicPanelWidthPx}px`;
   const gridCols = mobile
     ? '1fr'
-    : `${sidebarPx} ${edgePx} 1fr ${islamicPanelOpen ? edgePx : '0px'} ${islamicPanelOpen ? panelPx : '0px'}`;
+    // [sidebar] [left-edge] [main] [right-edge 0|28] [il-body 0|panel] [il-rail 64]
+    : `${sidebarPx} ${edgePx} 1fr ${islamicPanelOpen ? edgePx : '0px'} ${islamicPanelOpen ? panelPx : '0px'} ${railPx}`;
 
   const handleEdgePointerDown = (e) => {
     // Only handle left mouse button / primary touch
@@ -330,9 +333,11 @@ export default function AppShell() {
           gridTemplateColumns: gridCols,
           // Mirror left chrome (sidebar + edge) on the right when no right
           // panel is open, so .app-main visually centers in the viewport.
+          // A permanent 64px rail now sits on the right, so only pad the
+          // *difference* between the left chrome and that rail.
           '--main-balance-end': mobile || islamicPanelOpen
             ? '0px'
-            : `calc(${sidebarPx} + ${edgePx})`,
+            : `max(0px, calc(${sidebarPx} + ${edgePx} - ${railPx}))`,
         }}
       >
         <TopBar />
@@ -393,6 +398,11 @@ export default function AppShell() {
         {!mobile && (
           <div className={`il-wrapper${islamicPanelOpen ? ' il-wrapper--open' : ''}`} style={{ gridColumn: 5, gridRow: '1 / -1' }}>
             <IslamicPanel />
+          </div>
+        )}
+        {!mobile && (
+          <div style={{ gridColumn: 6, gridRow: '1 / -1' }}>
+            <IslamicRail />
           </div>
         )}
         {mobile && mobileIlRender && (
