@@ -3,6 +3,30 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-06-05] session | atlas — merge feat/atlas-permaculture → main (PR #38, admin-bypass)
+
+**Objective:** Merge the long-lived `feat/atlas-permaculture` branch into `main` in the atlas submodule, through the repo's PR + CI gate.
+
+**Amanah gate:** clear — repository/release-engineering work, no riba/gharar surface.
+
+**Completed:**
+- Landed `feat/atlas-permaculture` → `main` via **PR #38**, **merge commit `1b2df59c`** (a merge commit, not a squash of 1292 commits — preserves history + the per-slice ADR trail).
+- Root-caused the web-ci `test` job hang to a **vitest 2.1.x / tinypool fork-pool teardown hang** (happy-dom worker leaves an OS handle; `pool.close()` never returns), reproduced on **both Node 20 (CI) and Node 24 (local)** and confirmed **upstream of the reporter `onFinished` hook**.
+- Authored + committed a force-exit reporter (`apps/web/scripts/force-exit-reporter.mjs` + `vitest.config.ts` wiring) `bdfc42a6` — confirmed **inert** because the hang precedes `onFinished`; left in place, optional to revert.
+- Discovered the web-ci `build` failure is a **CI-config gap** (Playwright browser not installed in the build job, which `deploy.yml` does install), not a code defect — `tsc && vite build` compiles clean.
+- Confirmed merge is **deploy-safe**: `deploy.yml` is the real build path; web-ci has never been green on any branch including `main`.
+
+**Decision:** ADR [[2026-06-05-atlas-permaculture-merge-admin-bypass]] — merge via `gh pr merge --admin --merge`, bypassing the structurally-red web-ci gates (pre-existing infra defects, not regressions), on explicit operator confirmation (hard human gate) after a time-boxed fix attempt hit its pre-approved rabbit-hole fallback. Green checks at merge: `typecheck`, lint, `api-ci`, `api-integration`.
+
+**Verified:** all 281 web tests pass (the suite is green; only the harness teardown hangs); `typecheck` + lint + `api-ci` + `api-integration` (real PostGIS) green on the PR. web-ci `test`/`build` red on standing infra defects, root-caused above.
+
+**Deferred (operator's call, flagged not auto-done):**
+- Parent-repo submodule bump — `MAQASID OS - V2.1` still pins atlas at `0276a484`; `main` is now `1b2df59c`. Bump separately; do not auto-commit the parent.
+- web-ci build fix — add `pnpm exec playwright install chromium` to the build job.
+- web-ci test gate — de-gate (mark non-required) or fix/pin the vitest hang; the `bdfc42a6` reporter is inert.
+
+**Pages touched:** [[olos]], [[2026-06-05-atlas-permaculture-merge-admin-bypass]] (new), index, this log.
+
 ## [2026-06-05] session | MILOS — always-visible Islamic Layer icon rail
 
 **Objective:** Add an always-visible vertical icon rail pinned to the far-right edge of the app shell, mirroring the collapsed left sidebar; its icons map to the Islamic panel's sections and clicking one opens + scrolls/expands the panel to that section.
