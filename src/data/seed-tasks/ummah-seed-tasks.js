@@ -15215,7 +15215,7 @@ Volunteer energy is finite. The founding generation works with the passion of bu
 
 1. Determine the annual operating cost of the land stewardship programme: soil amendments, water, tools, insurance, and a basic stipend for the lead steward.
 2. Calculate the endowment principal needed to generate that annual amount at a conservative halal return rate (3-5% from Islamic investment vehicles).
-3. Launch an endowment fundraising campaign targeting community members, CSRA shareholders, and supporters who understand the waqf concept.
+3. Launch an endowment fundraising campaign targeting community members, donors, and qard ḥasan lenders who understand the waqf concept.
 4. Invest the endowment in Shariah-compliant vehicles: Islamic mutual funds, sukuk, or halal real estate — consult an Islamic finance advisor.
 5. Establish a spending policy: only the annual return is spent; the principal is never touched. In years of low return, reduce spending rather than invading the principal.
 6. Report endowment performance annually to all donors and the community — transparency builds trust and encourages further contributions.

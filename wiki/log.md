@@ -2278,6 +2278,40 @@ hand-fixed — need authorized-corpus re-sourcing per Amanah Gate:
 `faith_salah_growth[2].subtasks[1]` Tahajjud, `faith_salah_growth[3]
 .subtasks[0]` khushuʿ, `faith_salah_excellence[0].subtasks[1]` Duha).
 ADR follow-up section appended.
+## [2026-05-15] session | MILOS — Faith SALAH: 3 Cat-3 mismatched-hadith subtasks corrected
+
+**Objective:** Fix three Faith SALAH subtasks whose cited hadith were
+duplicated and topic-mismatched artifacts of the 2026-04-25 parser-first
+migration: Tahajjud (Bukhari 1109/1091/1092, travel-jam'), khushuʿ
+(Bukhari 958/959/621, ʿId-prayer / night adhan), Duha (Bukhari
+1775/1776, Duha-as-bidʿah — evidence that contradicts the subtask).
+
+**Approach:** Amanah Gate honored — zero memory-asserted hadith. All
+replacement evidence retrieved from the authorized NotebookLM Muslim
+Scholar corpus `be921648`; refs preserve the corpus's USC-MSA
+Volume/Book/Hadith form verbatim (not re-numbered from memory).
+Tahajjud → Muslim Bk6 H2611 + Bukhari V2/Bk21/H246 (tier kept T2).
+Khushuʿ → Bukhari V1/Bk12/H718 + Muslim Bk2/H451 + Bukhari V1/Bk2/H47
+(Jibril/ihsan, contextual; tier kept T2). Duha → Bukhari V3/Bk31/H202
++ Muslim Bk4/H1557 (tier upgraded T3→T2, old rationale literally
+recorded the heresy mismatch). Quran entries left untouched. Each new
+entry carries a specific non-boilerplate rationale.
+
+**Deviations:** `scripts/audit-grounding-quality.mjs` and the referenced
+istiftah ADR do not exist; substituted real gates and created a fresh
+ADR on the established grounding-ADR structure. No backlog generator
+exists — defects verified independently in source.
+
+**Verification:** `npm test` 56/56; `lint-grounding.mjs` 0 errors / 0
+legacy; `audit-inline-refs --strict` OK ≤ 0; faith file ESLint exit 0
+(2 self-introduced `rak\'at` escape errors fixed). `npm run lint` full
+chain's only failures are 3 pre-existing unrelated Sidebar/Dashboard
+errors (proven via git stash) — out of scope.
+
+- Pages touched:
+  wiki/decisions/2026-05-15-milos-faith-salah-cat3-hadith-fix.md
+  (created), wiki/log.md, wiki/index.md; src:
+  data/seed-tasks/faith-seed-tasks.js (3 subtasks, 26+/35-)
 
 ## [2026-05-14] session | Atlas — Goal Compass: project-type templates + Act calendar auto-schedule
 
@@ -3597,6 +3631,151 @@ Files: `apps/web/src/v3/observe/tools/ObserveTools.tsx`. Atlas commit `2e19f66`;
 - Verified live at `/v3/project/<id>/observe/sectors-zones` at 1280×800 and 1024×768: header + map + right checklist + bottom module rail all viewport-pinned; left rail shows themed scrollbar and reveals all 9 sector buttons + SWOT. Module switching from the toolbar mirrors the bottom rail. Inactive sections drained, active section pops.
 
 Files: `apps/web/src/v3/V3ProjectLayout.module.css`, `apps/web/src/v3/observe/ObserveLayout.{tsx,module.css}`, `apps/web/src/v3/observe/tools/ObserveTools.{tsx,module.css}` (+ pre-compaction Sun/wind 8-button split touching `ObserveDrawHost.tsx` / `SunWindWedgeTool.tsx` / `useMapToolStore.ts` / `annotationExport.ts`).
+
+## [2026-05-04] session | MTC — CSRA model erased; founding-member covenant drafted
+
+**Objective:** Two-part work: (a) draft the founding-member covenant
+that operationalizes the governance design's pre-land window; (b) on
+user direction during the same session, **erase the CSRA
+(Community-Supported Regenerative Agriculture) capital model** from
+the entire MTC architecture on fiqh grounds.
+
+**Fiqh ground for the erasure:** *Bayʿ mā laysa ʿindak* — Islam does
+not permit the sale of what one does not yet possess. The classical
+exception (salam, Sahih al-Bukhari Book 35 Nos. 443 & 445) requires a
+counterparty capable of delivering at maturity, which the pre-land MTC
+does not have. User decided that even post-acquisition, MTC will not
+offer salam-style advance-purchase as a public capital channel; a
+future yield-share will be designed as a **membership benefit**
+(entitlement as a benefit of belonging, not a return on
+advance-purchase) under fresh Scholar Council review when the corpus
+exists.
+
+**Outcome:**
+
+- **Founding-member covenant** — `stages/design-mtc-founding-member-covenant-review.md`
+  drafted (10 sections), self-review pass clean, then revised in same
+  session to remove all CSRA / salam capital-form language.
+- **Governance design doc** — `stages/design-mtc-waqf-governance-review.md`
+  swept: §6.4 rewritten ("Permitted capital channels" replacing
+  "CSRA — which entity holds it?"); §7.2, §7.5, §10.1, decisions
+  block, scope guardrails, stakeholder map, flows diagram, glossary
+  updated; `bayʿ mā laysa ʿindak` glossary entry added; Salam glossary
+  entry preserved as scriptural reference only.
+- **Grounding companion doc** —
+  `stages/scholar-review-mtc-waqf-governance-grounding-review.md`
+  prefixed with deprecation banner: salam scriptural research preserved,
+  but its application to a public MTC capital channel is superseded.
+- **Wiki concept** — `wiki/concepts/covenant-architecture.md:29`
+  rewritten to reflect the erasure and name the permitted capital
+  channels.
+- **Website sweep** — removed CSRA Pre-sales channel card from
+  `website/mtc/journey/index.html`; reframed "Direct Investment"
+  channel as "Aligned Capital Partners" (qard ḥasan / charitable
+  contributions); swept remaining "investor" framing across
+  `website/mtc/collective/index.html`, `vision/index.html`,
+  `collective/solution/index.html`, `collective/solution/vision/index.html`
+  to "capital partners & allies" / "capital partners and allies."
+- **Source data** — `src/data/module-overviews/collective-overview.js:162`
+  and `src/data/islamic/pillar-content.js:597` updated from CSRA
+  embellishment line to membership-architecture framing;
+  `src/pages/moontrance/MoontranceLevelOverview.jsx:121` updated;
+  `src/data/seed-tasks/ummah-seed-tasks.js:15218` updated.
+- **Wiki entity** — `wiki/entities/ogden-ecosystem.md:35` Atlas row
+  updated from "CSRA readiness" to "parcel readiness."
+- **Global CLAUDE.md** — preferred-term line replaced with the CSRA
+  erasure rule + permitted-channels list, so future sessions inherit
+  the new framing.
+
+**Status:** Both stages docs remain at status `review`. Founding-member
+covenant has open questions for Yousef pending response. Governance doc
+is unchanged in its external-review surface — still pending live scholar
++ Ontario counsel review on the unresolved `[scholar review]` /
+`[lawyer review]` items. The CSRA erasure does **not** require external
+review to be locked in (it is a covenant-discipline decision the user
+made directly), but the *future membership-benefit yield-share design*
+will need Scholar Council review when MTC has corpus.
+
+**Deferred:**
+
+- `wiki/entities/mtc-waqf.md` and dated ADR — still gated on external
+  review of the governance design doc.
+- Future post-acquisition yield-share *membership benefit* design.
+
+---
+
+## [2026-05-02] session | MTC — Waqf-framed organizational structure design + scholar grounding
+
+**Objective:** Close the gap between the one-line Waqf claim in
+`wiki/concepts/covenant-architecture.md:29` and an actual organizational
+structure design that names entities, roles, decision rights, capital
+flows, and scriptural grounding.
+
+**Outcome:**
+
+- **Design doc** — `stages/design-mtc-waqf-governance-review.md` created
+  (status: `review`). 13 sections covering: foundational frame (why
+  Waqf vs. corp/charity/co-op), 12-actor stakeholder map, roles &
+  decision rights with a 14-row RACI matrix, shūrā process, the
+  **tri-entity legal stack** (Holdings + Operating + Charitable, with
+  the Waqf instrument as the covenant sitting *above* all three),
+  asset/capital posture, OGDEN relationship, lifecycle, open questions,
+  appendix with MILOS literacy paths and glossary.
+- **Scholar grounding pass** — `stages/scholar-review-mtc-waqf-governance-grounding-review.md`
+  created (status: `review`). Three queries to the NotebookLM Muslim
+  Scholar corpus (Qur'an + Sahihayn) ground:
+  - Waqf itself: Khaybar hadith (Bukhari 50:895) verbatim, sadaqah
+    jāriyah (Muslim 13:4005), beneficiary verses (51:19, 2:177, 2:215,
+    9:60, 4:58).
+  - Trustee conduct: amānah (8:27, 4:58, 33:72), qawī+amīn (Al-Qaṣaṣ
+    28:26 + the "honesty lost / unfit appointed" hadith), removal
+    precedent (ʿUmar dismissing Saʿd in Kufa), shūrā (42:38 + the
+    ʿĀʾisha-slander consultation), shepherd hadith.
+  - Commerce: riba prohibitions (2:275–279, riba al-faḍl categories,
+    cursing of recorder/witnesses), gharar (sale of unripened fruit
+    and unborn offspring), salam permission with strict conditions
+    (Bukhari 35:443/445), anti-hīlah (Sabbath-breakers + melted-fat
+    hadith), Al-Baqarah 2:282 documentation mandate.
+  - Part 4 catalogues what the corpus *cannot* resolve (madhhab
+    differences, cash-waqf, AAOIFI ijārah, trustee removal procedure)
+    and must go to a live faqīh.
+- **Eight design-doc edits** folded back from the grounding pass:
+  Khaybar hadith verbatim in §2; qawī+amīn in §4.1; ʿUmar/Saʿd in §4.1
+  removal; shepherd hadith as §4.1 accountability anchor; 42:38 +
+  slander-consultation in §5; 2:282 in §5.4; salam constraint in §6.4;
+  riba-recorder accountability + anti-hīlah annual review in §7.5.
+- **Eight Yousef-level decisions resolved 2026-05-02** and folded into
+  body sections: OGDEN role with deed-bound transition trigger; five
+  trustees with three-year staggered terms (renewable once, max six);
+  hybrid surplus floors (≥30% Charitable / ≥20% corpus / ≥10% reserve)
+  with shūrā-set actuals above; 2/3-of-seated quorum with appointment
+  exception; founding-member vs. resident as distinct tracks with gated
+  pathway; CSRA naming locked; Charitable timing pre-acquisition default
+  pending counsel; tri-entity confirmed (single-entity rejected on
+  liability-isolation grounds).
+- **Wiki touch-up:** `wiki/concepts/covenant-architecture.md:29`
+  expanded from a one-line claim into a full pointer to the two stages
+  docs, with the load-bearing structural choices summarized.
+
+**What remains before promotion to `approved`:**
+
+- `[scholar review]` items (ijārah structure, financing instruments,
+  salam-as-CSRA, trustee-removal procedural form, cash-waqf posture)
+  go to a fiqh-competent scholar with the grounding doc as the brief.
+- `[lawyer review]` items (Ontario-law deed wrapper, registrability of
+  deed restrictions on title, Operating entity form, CRA scrutiny on
+  inter-entity flows, charity-registration timing) go to charity /
+  trust / agricultural-land counsel.
+- On both returns, create `wiki/entities/mtc-waqf.md` and a dated ADR.
+
+**NotebookLM correction noted:** Old Muslim Scholar ID `1c17b03b-...`
+returned `RPC GET_NOTEBOOK failed`; switched to backup
+`be921648-2088-4860-bdd8-283a5e7301f3`. Corpus has only 6 sources
+(Qur'an + Sahihayn + 99 Names) — no fiqh works, hence the live-scholar
+gap is structural, not closeable by another query pass. Memory
+(`reference_notebooklm_grounding.md`) updated.
+
+---
 
 ## [2026-05-02] session | MILOS — Prophetic Path live-demo preview on landing page
 
@@ -13812,3 +13991,26 @@ but in the dev-server launchers rather than the test config.
 - Decisions: ADR [[2026-06-04-bbos-redesigned-dashboard-adapter-shell]].
 - Deferred: swap adapter mock->live stores; resolve no-live-equivalent concepts (typed exec forms, JSON stage-pack import, cycle-completion/close-cycle, "proceed with conditions", BHI/restoration scoring); decide whether to retire BbosFullDashboard at parity.
 - Pages touched: wiki/decisions/2026-06-04-bbos-redesigned-dashboard-adapter-shell.md (new), wiki/entities/bbos-pipeline.md, wiki/index.md, wiki/log.md.
+## [2026-05-15] session | MILOS — ESLint worktree-artifact ignore: verified already fixed
+
+**Objective:** Add `.claude/worktrees/**` (and confirm `**/dist/**`) to
+`eslint.config.js` ignores so `npm run lint` stops linting other agents'
+minified build artifacts under `.claude/worktrees/*/dist/`.
+
+**Outcome:** No change required — premise was stale. On the active
+working tree (`eslint.config.js:8`) `globalIgnores` already contains
+`'dist'`, `'**/dist/**'`, and `'.claude/**'`. `.claude/**` already
+subsumes `.claude/worktrees/**`, so a dedicated pattern would be a
+redundant no-op. Verified `npx eslint .` exits 0 (only Babel >500KB
+notes on large seed-task files; zero errors/warnings — the Sidebar.jsx
+/ Dashboard.jsx nits do not fire). Full gate `npm run lint` exits 0:
+lint:eslint clean, lint:grounding-strict pass (0 empty-array, ratchet
+0), audit:inline-refs pass (0 missing refs across 2072 subtasks /
+8 pillars, ratchet 0).
+
+**Note for future agents:** if `npm run lint` is red with ~297 errors
+in `.claude/worktrees/*/dist/*.js`, the cause is a stale
+`eslint.config.js` on *that* branch/worktree predating the
+`globalIgnores` line — port this config rather than re-investigating.
+
+- Pages touched: wiki/log.md (this entry). No source files modified.

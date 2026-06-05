@@ -32,7 +32,7 @@ OGDEN Ecosystem is that surface.
 |---|---|---|
 | BBOS | [[bbos-pipeline]] — 9-stage covenant pipeline for Islamic business | `/app/ogden-bbos` |
 | MILOS   | [[milos]] — this project; the operating system for the Seven Maqasid | `/app/ogden-milos` |
-| Atlas | [[olos]] — geospatial land intelligence (CSRA readiness) | `/app/ogden-atlas` |
+| Atlas | [[olos]] — geospatial land intelligence (parcel readiness) | `/app/ogden-atlas` |
 
 Moontrance itself is intentionally **not** a sub-pillar — it is the target the
 three sub-pillars produce.
