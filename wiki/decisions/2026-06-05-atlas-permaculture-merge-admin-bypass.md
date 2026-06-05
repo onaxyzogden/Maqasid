@@ -47,8 +47,16 @@ pre-approved rabbit-hole fallback.
 
 ## Rationale
 
-- The merge is **deploy-safe**: `deploy.yml` (not web-ci) is the real build path and it
-  *does* install Playwright, so production builds are unaffected by the web-ci build gap.
+- ~~The merge is **deploy-safe**: `deploy.yml` (not web-ci) is the real build path and it
+  *does* install Playwright, so production builds are unaffected by the web-ci build gap.~~
+  **CORRECTION (2026-06-05, same session):** this was wrong. `deploy.yml` does **not**
+  install Playwright either — the GitHub Pages deploy (run `27038445466`) failed on the
+  **same** `prerender:showcase` Playwright gap immediately after the merge. The Playwright
+  dependency in `postbuild` is a regression carried in by this branch (deploy + "Test
+  (apps/web)" were green on prior `main` #37). The build gap is **not** web-ci-only; it
+  breaks production deploy. Fixed in **PR #39** (`fix/ci-playwright-install`), which adds
+  `playwright install --with-deps chromium` before the build step in **both** `web-ci.yml`
+  and `deploy.yml`.
 - The red checks gate on **harness defects**, not code quality — the suite passes and the
   type/api gates are green. Blocking the merge on a known-broken vitest teardown would
   hold the entire branch hostage to an upstream tooling bug.
@@ -76,9 +84,14 @@ pre-approved rabbit-hole fallback.
   1. **Parent-repo submodule bump** — `MAQASID OS - V2.1` still pins atlas at `0276a484`;
      `main` is now `1b2df59c`. Bump separately (`git add atlas && git commit`), not
      auto-committed without approval.
-  2. **web-ci build fix** — add `pnpm exec playwright install chromium` to the build job.
+  2. **Build fix (web-ci + deploy)** — ~~deferred~~ **addressed in PR #39**
+     (`fix/ci-playwright-install`): adds `playwright install --with-deps chromium` before
+     the build step in **both** `web-ci.yml` and `deploy.yml`. The build gap was not
+     web-ci-only — it broke the production Pages deploy (run `27038445466`) on the same
+     `prerender:showcase` Playwright launch.
   3. **web-ci test gate** — either de-gate (mark non-required) or fix/pin the vitest hang.
-     The reporter commit `bdfc42a6` is inert and optional to revert.
+     The reporter commit `bdfc42a6` is inert and optional to revert. **In progress:**
+     operator approved de-gating `test` (mark non-required via branch protection).
 - Required-check bypass is now part of this repo's history; future merges should not treat
   admin-bypass as routine — it was justified here only by **standing, code-independent**
   infra failure.
