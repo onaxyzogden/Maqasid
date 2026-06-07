@@ -86,6 +86,11 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
   }, [colorPickerOpen]);
 
   const isBbos = project?.bbosEnabled && !hideBbos;
+  // Redesigned BBOS dashboard (behind the bbosNewDashboard flag) ships its own
+  // stage rail + scroll model, so the shared LevelNavigator and the outer
+  // scroll wrapper are suppressed for that one view only.
+  const bbosNewDashboard = useAppStore((s) => s.bbosNewDashboard);
+  const newBbosDash = isBbos && view === 'dashboard' && bbosNewDashboard;
 
   const activeLayer = isBbos ? getLayerForStage(bbosFilter) : null;
   const activePillars = useMemo(() => isBbos ? getBbosNavPillars(activeLayer) : [], [activeLayer, isBbos]);
@@ -442,15 +447,16 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
       {/* Scrollable area — LevelNavigator scrolls with content in dashboard view */}
       <div style={{
         flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column',
-        ...(view === 'dashboard' ? {
+        ...(view === 'dashboard' && !newBbosDash ? {
           overflowY: 'auto',
           scrollbarGutter: 'stable',
           marginRight: 'calc(-1 * var(--space-6))',
           paddingRight: 'var(--space-6)',
         } : {}),
       }}>
-        {/* BBOS Stage Navigator — layer carousel with stage segments */}
-        {isBbos && (
+        {/* BBOS Stage Navigator — layer carousel with stage segments.
+            Suppressed on the redesigned dashboard, which has its own rail. */}
+        {isBbos && !newBbosDash && (
           <LevelNavigator
             compact
             levels={BBOS_NAV_LEVELS}
@@ -477,7 +483,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
         {!hideFilter && <FilterBar projectId={projectId} />}
 
         {/* Content */}
-        <div style={{ flex: 1, minHeight: view === 'dashboard' ? undefined : 0, display: 'flex' }}>
+        <div style={{ flex: 1, minHeight: (view === 'dashboard' && !newBbosDash) ? undefined : 0, display: 'flex' }}>
           <div className="pb-content">
             {prevContentKey && prevContentKey !== contentKey && (
               <div key={prevContentKey} className="pb-content__layer pb-content__layer--out">

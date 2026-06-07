@@ -18,7 +18,7 @@ import "./BbosPipelineDashboard.css";
 
 const EMPTY_TASKS = [];
 
-export default function BbosPipelineDashboard({ project, bbosFilter }) {
+export default function BbosPipelineDashboard({ project, bbosFilter, onStageSelect }) {
   const tasks = useTaskStore((s) => s.tasksByProject[project.id] || EMPTY_TASKS);
   const advanceBbosStage = useProjectStore((s) => s.advanceBbosStage);
   const rejectBbosPipeline = useProjectStore((s) => s.rejectBbosPipeline);
@@ -27,16 +27,30 @@ export default function BbosPipelineDashboard({ project, bbosFilter }) {
     [project, bbosFilter, tasks],
   );
 
-  // Default selection mirrors the mockup (third stage); fall back to first.
-  const [selectedId, setSelectedId] = useState(() => vm.stages[2]?.id || vm.stages[0]?.id || null);
+  // Selection is two-way bound to the parent's bbosFilter when onStageSelect is
+  // provided (the route case): bbosFilter is the single source of truth, so the
+  // rail/center pane and the header Download/Upload buttons stay in lock-step —
+  // a rail click flows up via onStageSelect and comes back down as bbosFilter,
+  // and external changes (cycle reset, advance) are reflected automatically with
+  // no effect needed. When uncontrolled, fall back to local state seeded from
+  // the filter (or the mockup default, third stage).
+  const filterId = vm.stages.find((s) => s.id === bbosFilter)?.id || null;
+  const fallbackId = filterId || vm.stages[2]?.id || vm.stages[0]?.id || null;
+  const [localId, setLocalId] = useState(fallbackId);
   const [execStage, setExecStage] = useState(null);
   const [briefStage, setBriefStage] = useState(null);
+
+  const selectedId = onStageSelect ? (filterId || fallbackId) : localId;
+  const handleSelect = (s) => {
+    if (onStageSelect) onStageSelect(s.id);
+    else setLocalId(s.id);
+  };
 
   const selected = vm.stages.find((s) => s.id === selectedId) || null;
 
   return (
     <div className="bpd">
-      <BbosPipelineRail vm={vm} selectedId={selectedId} onSelect={(s) => setSelectedId(s.id)} />
+      <BbosPipelineRail vm={vm} selectedId={selectedId} onSelect={handleSelect} />
       <div className="bpd-main">
         {selected
           ? <BbosStageOverview stage={selected} onOpenBrief={setBriefStage} onOpenExec={setExecStage} />
