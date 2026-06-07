@@ -17,7 +17,10 @@ Spiritual UX layer: prayer awareness, ceremony gates, intention setting, readine
 | ReadinessCheck.jsx | Display-only paired rows OR interactive yes/no cards with contextual column labels |
 | AttributeCard.jsx | Single attribute display: name (+ Arabic), title, description |
 | DuaSection.jsx | Renders Quranic dua: Arabic, transliteration, meaning, source |
-| IslamicPanel.jsx | Right sidebar: prayer times, pillar context, threshold buttons |
+| IslamicPanel.jsx | Right sidebar: prayer times, pillar context, threshold buttons. `ILSection` blocks accept `id`/`activeSection`/`nonce` and force-open + `scrollIntoView` when targeted by the rail; prayer + citations have `.il-anchor` wrappers scrolled by a panel-level effect |
+| IslamicRail.jsx | Always-visible vertical icon rail pinned to the far-right grid column (desktop only). One icon per available section (from `useIslamicSections`) + Begin/Close ceremony icons. Click → `focusIslamicSection(id)` (opens panel, scrolls to section). Mirrors the collapsed left sidebar |
+| IslamicRail.css | Rail styling — icon buttons, hover/active accent, left-border divider |
+| useIslamicSections.js | Single source of truth for the panel's ordered sections + per-section availability (computed from `valuesLayer`, route, `activeModule`/`activeBbosStage`, citation count). Consumed by both IslamicRail and (for availability) the panel so the two never drift |
 | ResumeOverlay.jsx | Confirmation overlay when returning to module mid-session |
 
 ## Architecture
@@ -85,7 +88,7 @@ Both modes end at the same UI:
 ## Store Dependencies
 - **threshold-store**: `setOpeningModuleId`, `completeOpening`, `deferOpening`, `completeNiyyah`, ceremony state
 - **settings-store**: `valuesLayer` (islamic/universal text switching)
-- **app-store**: `activeModule`, `toggleIslamicPanel`
+- **app-store**: `activeModule`, `toggleIslamicPanel`, `focusIslamicSection` / `islamicActiveSection` / `islamicSectionNonce` (rail → panel section targeting)
 
 ## Key Patterns
 - Every component checks `valuesLayer` for islamic vs universal text

@@ -13,6 +13,22 @@ Barakah Business Operating System pipeline UI: stage visualization, role-based a
 | BbosRolePicker.jsx | Dropdown picker for BBOS roles (all/OP/FD/etc.); uses BbosRoleBadge |
 | BbosTaskPanel.jsx | Full task detail panel: purpose, theological rationale, field forms, G-Label, AI draft |
 | BbosTaskPanel.css | Task panel layout, slide-in sidebar, mobile full-screen overlay |
+| pipeline-dashboard/ | Redesigned BBOS dashboard (preview, behind `bbosNewDashboard` flag) — see subfolder below |
+
+## Subfolder: pipeline-dashboard/ (redesigned dashboard — preview build)
+Self-contained visual redesign. Components read **only** the view-model from the adapter — never live stores (this pass). Gated behind the OFF-by-default `bbosNewDashboard` app-store flag (persisted as `bbiz_bbos_new_dash`, sync-excluded). `DashboardView.jsx` branches to `BbosPipelineDashboard` when the flag is ON.
+| File | Description |
+|------|-------------|
+| BbosPipelineDashboard.jsx | Root: `.bpd` shell — 240px rail + center overview + modal mounts; holds selected/exec/brief state |
+| BbosPipelineDashboard.css | ALL scoped styles + `.bpd` CSS-var palette (scoped dark theme — does NOT leak globally) + keyframes + scrollbar |
+| BbosPipelineRail.jsx | Left rail: header/cycle progress + StageNode list + footer |
+| BbosStageOverview.jsx | Center pane: governing attributes, du'a, gate card, two CTAs |
+| BbosExecView.jsx | Execution View modal (portal) — tabs; retrospective OPT shows Metrics/BHI/Restoration |
+| BbosApprovalBrief.jsx | Approval Brief modal (portal) — covenant, readiness, gate decision |
+| primitives.jsx | Shared JSX components: Ornament, SPill, Arc, Spirit, Dot |
+| palette.js | JSX-free color/label helpers (inline `--c`/`--c-dim`/`--c2` custom-prop maps + label fns) |
+| adapter/bbos-dashboard-adapter.js | **PUBLIC seam**: `buildPipelineViewModel({ project, bbosFilter })` — the one module the follow-up swaps mock→live |
+| adapter/bbos-dashboard-mock.js | Throwaway OLOS/Atlas example seed, re-keyed into the VM shape |
 
 ## Store/Data Dependencies
 - **task-store**: `getTask()`, `updateTask()`, `updateBbosFieldData()`, `deleteTask()`

@@ -31,7 +31,9 @@
       "Bash(npm test *)",
       "mcp__10afb233-9de4-49d5-805d-a5accd4d0b2b__fetch_quran",
       "mcp__10afb233-9de4-49d5-805d-a5accd4d0b2b__fetch_translation",
-      "Bash(notebooklm use *)"
+      "Bash(notebooklm use *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   },
   "mcpServers": {

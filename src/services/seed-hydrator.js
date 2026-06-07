@@ -1,3 +1,5 @@
+import { resolveSubmoduleFromBoardId } from '../data/maqasid-resolve';
+
 // Hydrates task description and subtask description/sources from bundled seed
 // data at read time, so these large reference strings never need to live in
 // localStorage.
@@ -79,10 +81,26 @@ export function getSeedSubtask(boardId, taskTitle, subtaskTitle) {
   return (seedTask.subtasks || []).find((s) => s.title === subtaskTitle) || null;
 }
 
-export function hydrateTask(task, boardId) {
+export function hydrateTask(task, boardId, boardTags) {
   if (!task) return task;
   const seedTask = getTaskMap(boardId).get(task.title);
-  if (!seedTask) return task;
+
+  // Always derive pillar/submodule tags from the board id — tasks created
+  // before the niyyah↔submodule wiring landed (or before this hydration
+  // path) need them, and tagging here is the cheapest place to backfill
+  // without touching localStorage.
+  const tags = boardTags || resolveSubmoduleFromBoardId(boardId);
+  const needsPillarTag = tags.pillarId && task.pillarId !== tags.pillarId;
+  const needsSubmoduleTag = tags.submoduleId && task.submoduleId !== tags.submoduleId;
+
+  if (!seedTask) {
+    if (!needsPillarTag && !needsSubmoduleTag) return task;
+    return {
+      ...task,
+      ...(needsPillarTag ? { pillarId: tags.pillarId } : {}),
+      ...(needsSubmoduleTag ? { submoduleId: tags.submoduleId } : {}),
+    };
+  }
 
   let subtasks = task.subtasks;
   if (subtasks && subtasks.length > 0) {
@@ -105,13 +123,15 @@ export function hydrateTask(task, boardId) {
   const hydrated = { ...task };
   if (!task.description && seedTask.description) hydrated.description = seedTask.description;
   if (subtasks !== task.subtasks) hydrated.subtasks = subtasks;
+  if (needsPillarTag) hydrated.pillarId = tags.pillarId;
+  if (needsSubmoduleTag) hydrated.submoduleId = tags.submoduleId;
   return hydrated;
 }
 
 export function hydrateTasks(tasks, boardId) {
   if (!tasks || tasks.length === 0) return tasks;
-  if (!ALL_SEEDS[boardId]) return tasks;
-  return tasks.map((t) => hydrateTask(t, boardId));
+  const boardTags = resolveSubmoduleFromBoardId(boardId);
+  return tasks.map((t) => hydrateTask(t, boardId, boardTags));
 }
 
 /** Returns a shallow copy of the task with description/sources stripped when

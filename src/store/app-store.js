@@ -21,8 +21,13 @@ export const useAppStore = create((set, get) => ({
   filters: {}, // { [projectId]: { priorities: [], dueDate: null, tags: [] } }
   activeBbosStage: null, // string | null — BBOS stage ID currently selected in the pipeline header
   activeBbosTaskType: null, // string | null — BBOS task type currently open in BbosTaskPanel
+  bbosNewDashboard: safeGet('bbos_new_dash', 'false') === 'true', // per-device: render redesigned pipeline dashboard
   citationsVisible: false,
   niyyahOverrideOpen: false,
+
+  // Islamic Layer rail → panel section targeting (non-persisted)
+  islamicActiveSection: null, // section id currently targeted by the rail
+  islamicSectionNonce: 0,     // bumped on every rail click so re-clicks re-trigger scroll
 
   // Ayah banner — contextual Quran/Hadith in topbar
   ayahBannerData: null,
@@ -50,6 +55,23 @@ export const useAppStore = create((set, get) => ({
     const v = !s.islamicPanelOpen;
     safeSet('il_open', String(v));
     return { islamicPanelOpen: v };
+  }),
+
+  // Open the panel (if closed) and target a section so the panel scrolls/expands to it.
+  // Incrementing the nonce lets re-clicking the same rail icon re-trigger the scroll.
+  focusIslamicSection: (id) => set((s) => {
+    if (!s.islamicPanelOpen) safeSet('il_open', 'true');
+    return {
+      islamicPanelOpen: true,
+      islamicActiveSection: id,
+      islamicSectionNonce: s.islamicSectionNonce + 1,
+    };
+  }),
+
+  toggleBbosNewDashboard: () => set((s) => {
+    const v = !s.bbosNewDashboard;
+    safeSet('bbos_new_dash', String(v));
+    return { bbosNewDashboard: v };
   }),
 
   setSearchOpen: (open) => set({ searchOpen: open }),

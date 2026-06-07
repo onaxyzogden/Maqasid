@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { isSupabaseConfigured } from '../services/supabase';
 import { ChevronDown, ArrowRight, Star, LogIn, X, Moon, Check, BookOpen, Shield, Sparkles } from 'lucide-react';
 import { MAQASID_PILLARS, MAQASID_CORE_PILLARS } from '../data/maqasid';
 import { ICON_REGISTRY, getIcon } from '../data/icon-registry';
@@ -261,9 +262,15 @@ export default function Landing() {
             </Link>
           ) : (
             <>
-              <button className="btn btn-ghost" onClick={() => setShowLogin(true)} style={{ fontSize: '0.9rem' }}>
-                <LogIn size={16} /> Sign In
-              </button>
+              {isSupabaseConfigured ? (
+                <Link to="/auth" className="btn btn-ghost" style={{ fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
+                  <LogIn size={16} /> Sign In
+                </Link>
+              ) : (
+                <button className="btn btn-ghost" onClick={() => setShowLogin(true)} style={{ fontSize: '0.9rem' }}>
+                  <LogIn size={16} /> Sign In
+                </button>
+              )}
               <Link to="/get-started" className="btn btn-primary">Get Started</Link>
             </>
           )}

@@ -2,18 +2,8 @@ import { create } from 'zustand';
 import { safeGetJSON, safeSet } from '../services/storage';
 import { genTaskId, genSubtaskId, genCheckId, genAttachmentId } from '../services/id';
 import { hydrateTasks, stripSeedFields, preloadBoardSeeds } from '../services/seed-hydrator';
-import { MAQASID_PILLARS, getPillarForModule } from '../data/maqasid';
+import { resolveSubmoduleFromProject } from '../data/maqasid-resolve';
 import { useProjectStore } from './project-store';
-
-// Faith modules use short IDs on projects (salat) but prefixed IDs on pillars
-// (faith-salah). Map the legacy short forms onto the canonical submodule ids.
-const FAITH_MODULE_TO_SUBMODULE = {
-  shahada: 'faith-shahada',
-  salat: 'faith-salah',
-  zakat: 'faith-zakah',
-  siyam: 'faith-siyam',
-  hajj: 'faith-hajj',
-};
 
 // Project IDs encode level as `{pillar}_{module}_{core|growth|excellence}`.
 // Returns 'core' | 'growth' | 'excellence' | null.
@@ -21,20 +11,6 @@ export function getProjectLevel(projectId) {
   if (!projectId) return null;
   const m = projectId.match(/_(core|growth|excellence)$/);
   return m ? m[1] : null;
-}
-
-function resolveSubmoduleFromProject(project) {
-  if (!project) return { pillarId: null, submoduleId: null };
-  const moduleId = project.moduleId ?? null;
-  if (!moduleId) return { pillarId: null, submoduleId: null };
-  // Faith modules: prefer the Faith pillar + prefixed submodule id.
-  if (FAITH_MODULE_TO_SUBMODULE[moduleId]) {
-    return { pillarId: 'faith', submoduleId: FAITH_MODULE_TO_SUBMODULE[moduleId] };
-  }
-  // Otherwise, find a pillar that lists this module id in its subModuleIds.
-  const pillar = MAQASID_PILLARS.find((p) => p.subModuleIds.includes(moduleId))
-    || getPillarForModule(moduleId);
-  return { pillarId: pillar?.id ?? null, submoduleId: moduleId };
 }
 
 function persistTasks(projectId, tasks) {
@@ -53,7 +29,19 @@ export const useTaskStore = create((set, get) => ({
     // see description/sources on first render. Cheap on cache hit.
     await preloadBoardSeeds(projectId);
     const raw = safeGetJSON(`tasks_${projectId}`, []);
-    const tasks = hydrateTasks(raw, projectId);
+    const hydrated = hydrateTasks(raw, projectId);
+    // Backfill pillarId/submoduleId on any task missing them. Hydration tags
+    // seed-matched tasks; this catches user-created tasks without a seed
+    // match. Persist only when something actually changed.
+    const project = useProjectStore.getState().projects.find((p) => p.id === projectId);
+    const { pillarId, submoduleId } = resolveSubmoduleFromProject(project);
+    let mutated = false;
+    const tasks = hydrated.map((t) => {
+      if (t.pillarId === pillarId && t.submoduleId === submoduleId) return t;
+      mutated = true;
+      return { ...t, pillarId, submoduleId };
+    });
+    if (mutated) persistTasks(projectId, tasks);
     set((s) => ({
       tasksByProject: { ...s.tasksByProject, [projectId]: tasks },
     }));

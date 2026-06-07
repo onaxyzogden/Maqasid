@@ -20,6 +20,7 @@
     "@dnd-kit/sortable": "^10.0.0",
     "@dnd-kit/utilities": "^3.2.2",
     "@ogden/ui-components": "github:onaxyzogden/ogden-ui-components#v0.1.0",
+    "@supabase/supabase-js": "^2.107.0",
     "date-fns": "^4.1.0",
     "lucide-react": "^1.8.0",
     "nanoid": "^5.1.5",

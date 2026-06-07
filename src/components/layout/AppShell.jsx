@@ -13,11 +13,13 @@ import { PRESENCE_CONFIG } from '@data/islamic/islamic-data';
 import { MODULES } from '../../data/modules';
 import { MAQASID_PILLARS } from '../../data/maqasid';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import Sidebar, { MODULE_ROUTES } from './Sidebar';
+import Sidebar from './Sidebar';
+import { MODULE_ROUTES } from './Sidebar.constants';
 import TopBar from './TopBar';
 import MobileNav from './MobileNav';
 import SearchPalette from '../shared/SearchPalette';
 import IslamicPanel from '../islamic/IslamicPanel';
+import IslamicRail from '../islamic/IslamicRail';
 import ThresholdModal from '../islamic/ThresholdModal';
 import ResumeOverlay from '../islamic/ResumeOverlay';
 import PrayerOverlay from '../islamic/PrayerOverlay';
@@ -27,6 +29,8 @@ import JournalPanel from '../journal/JournalPanel';
 import DiscussionPanel from '../discussion/DiscussionPanel';
 import Toast from '../shared/Toast';
 import PillarFirstEntry from '../onboarding/PillarFirstEntry';
+import FirstLoginModal from '../shared/FirstLoginModal';
+import { useSyncObserver } from '../../hooks/useSyncObserver';
 import './AppShell.css';
 
 // Set of every known module id — '/app/{id}' is the route convention for
@@ -41,6 +45,8 @@ const MODULE_IDS = new Set(MODULES.map((m) => m.id));
 const PREFIX_ROUTES = Object.entries(MODULE_ROUTES);
 
 export default function AppShell() {
+  useSyncObserver();
+
   const sidebarOpen = useAppStore((s) => s.sidebarOpen);
   const setSearchOpen = useAppStore((s) => s.setSearchOpen);
   const islamicPanelOpen = useAppStore((s) => s.islamicPanelOpen);
@@ -236,10 +242,12 @@ export default function AppShell() {
 
   const sidebarPx = sidebarOpen ? `${sidebarWidthPx}px` : '64px';
   const edgePx = '28px';
+  const railPx = '64px';
   const panelPx = `${islamicPanelWidthPx}px`;
   const gridCols = mobile
     ? '1fr'
-    : `${sidebarPx} ${edgePx} 1fr ${islamicPanelOpen ? edgePx : '0px'} ${islamicPanelOpen ? panelPx : '0px'}`;
+    // [sidebar] [left-edge] [main] [right-edge 0|28] [il-body 0|panel] [il-rail 64]
+    : `${sidebarPx} ${edgePx} 1fr ${islamicPanelOpen ? edgePx : '0px'} ${islamicPanelOpen ? panelPx : '0px'} ${railPx}`;
 
   const handleEdgePointerDown = (e) => {
     // Only handle left mouse button / primary touch
@@ -325,9 +333,11 @@ export default function AppShell() {
           gridTemplateColumns: gridCols,
           // Mirror left chrome (sidebar + edge) on the right when no right
           // panel is open, so .app-main visually centers in the viewport.
+          // A permanent 64px rail now sits on the right, so only pad the
+          // *difference* between the left chrome and that rail.
           '--main-balance-end': mobile || islamicPanelOpen
             ? '0px'
-            : `calc(${sidebarPx} + ${edgePx})`,
+            : `max(0px, calc(${sidebarPx} + ${edgePx} - ${railPx}))`,
         }}
       >
         <TopBar />
@@ -390,6 +400,11 @@ export default function AppShell() {
             <IslamicPanel />
           </div>
         )}
+        {!mobile && (
+          <div style={{ gridColumn: 6, gridRow: '1 / -1' }}>
+            <IslamicRail />
+          </div>
+        )}
         {mobile && mobileIlRender && (
           <>
             <div
@@ -435,6 +450,7 @@ export default function AppShell() {
       <JournalPanel />
       <DiscussionPanel />
       <PillarFirstEntry />
+      <FirstLoginModal />
       <Toast />
     </>
   );

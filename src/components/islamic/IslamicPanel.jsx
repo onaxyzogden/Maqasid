@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { X, ChevronDown, BookOpen, Play, Square } from 'lucide-react';
 import { useAppStore } from '../../store/app-store';
@@ -20,11 +20,20 @@ import TimelineIslamicContent from './TimelineIslamicContent';
 import './IslamicPanel.css';
 
 // Collapsible section block — ported from bbos-v4 IslamicLayer
-function ILSection({ label, glyph = '\u29C1', color, children, defaultOpen = false }) {
+function ILSection({ id, label, glyph = '\u29C1', color, children, defaultOpen = false, activeSection, nonce }) {
   const [open, setOpen] = useState(defaultOpen);
+  const ref = useRef(null);
+  const targeted = id != null && activeSection === id;
+
+  useEffect(() => {
+    if (!targeted) return;
+    setOpen(true);
+    ref.current?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [targeted, nonce]);
 
   return (
-    <div className="il-block">
+    <div className="il-block il-anchor" ref={ref} data-section={id}>
       <button className="il-block-toggle" onClick={() => setOpen(!open)}>
         <span className="il-block-glyph" style={{ color: color || 'var(--accent)' }}>{glyph}</span>
         <span className="il-block-label">{label}</span>
@@ -52,9 +61,15 @@ export default function IslamicPanel() {
   const completedOpening = useThresholdStore((s) => s.completedOpening);
   const completedClosing = useThresholdStore((s) => s.completedClosing);
   const toggleCitations = useAppStore((s) => s.toggleCitations);
+  const islamicActiveSection = useAppStore((s) => s.islamicActiveSection);
+  const islamicSectionNonce = useAppStore((s) => s.islamicSectionNonce);
   const mobile = useMobile();
   const { pathname } = useLocation();
   const isTimelineRoute = pathname.startsWith('/app/prophetic-path');
+
+  // Anchors for non-ILSection sections targeted by the rail (prayer, citations)
+  const prayerRef = useRef(null);
+  const citationsRef = useRef(null);
 
   const mod = MODULES.find((m) => m.id === activeModule);
   const data = getModuleData(activeModule, valuesLayer);
@@ -84,6 +99,21 @@ export default function IslamicPanel() {
 
   const hasOpenedModule = !!completedOpening[ceremonyKey];
   const hasClosedModule = !!completedClosing[ceremonyKey];
+
+  // Rail targeting for the non-ILSection sections (prayer at the top, citations
+  // at the bottom). ILSection blocks scroll themselves; these two don't.
+  useEffect(() => {
+    if (islamicActiveSection === 'prayer') {
+      prayerRef.current?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    } else if (islamicActiveSection === 'citations') {
+      if (hasCitations && !citationsVisible) toggleCitations();
+      // Defer the scroll so the just-revealed list is in the DOM.
+      requestAnimationFrame(() => {
+        citationsRef.current?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [islamicActiveSection, islamicSectionNonce]);
 
   const panelContent = (
     <aside className={`il ${mobile ? 'il-mobile' : ''}`}>
@@ -130,7 +160,11 @@ export default function IslamicPanel() {
       </div>
 
       {/* Prayer Times — only in Islamic mode */}
-      {isIslamic && <PrayerTime />}
+      {isIslamic && (
+        <div ref={prayerRef} className="il-anchor">
+          <PrayerTime />
+        </div>
+      )}
 
       {/* Pillar context */}
       {!isTimelineRoute && (() => {
@@ -225,6 +259,9 @@ export default function IslamicPanel() {
           <>
             {/* Opening Dua / Mindfulness */}
             <ILSection
+              id="opening"
+              activeSection={islamicActiveSection}
+              nonce={islamicSectionNonce}
               label={isIslamic ? 'Opening Dua' : 'Set Intention'}
               glyph={isIslamic ? '\u29C1' : '\u25CB'}
               color={bbosStage ? stageModeColor : accentColor}
@@ -246,6 +283,9 @@ export default function IslamicPanel() {
 
             {/* Governing Attributes / Principles */}
             <ILSection
+              id="attributes"
+              activeSection={islamicActiveSection}
+              nonce={islamicSectionNonce}
               label={isIslamic ? 'Governing Attributes' : 'Guiding Principles'}
               glyph={isIslamic ? '\u29C1' : '\u25CB'}
               color={bbosStage ? stageModeColor : accentColor}
@@ -263,6 +303,9 @@ export default function IslamicPanel() {
 
             {/* Readiness Check */}
             <ILSection
+              id="readiness"
+              activeSection={islamicActiveSection}
+              nonce={islamicSectionNonce}
               label="Readiness Check"
               glyph={isIslamic ? '\u29C1' : '\u25CB'}
               color={bbosStage ? stageModeColor : accentColor}
@@ -274,6 +317,9 @@ export default function IslamicPanel() {
 
             {/* During Work */}
             <ILSection
+              id="during"
+              activeSection={islamicActiveSection}
+              nonce={islamicSectionNonce}
               label={isIslamic ? 'During Work \u00B7 Tawakkul' : 'During Work \u00B7 Presence'}
               glyph={isIslamic ? '\u29C1' : '\u25CB'}
               color={bbosStage ? stageModeColor : accentColor}
@@ -296,6 +342,9 @@ export default function IslamicPanel() {
 
             {/* Reflection */}
             <ILSection
+              id="reflection"
+              activeSection={islamicActiveSection}
+              nonce={islamicSectionNonce}
               label="Reflection"
               glyph={isIslamic ? '\u29C1' : '\u25CB'}
               color={bbosStage ? stageModeColor : accentColor}
@@ -313,7 +362,9 @@ export default function IslamicPanel() {
 
       </div>
 
-      <ReferenceList citations={citations} visible={citationsVisible && hasCitations} />
+      <div ref={citationsRef} className="il-anchor">
+        <ReferenceList citations={citations} visible={citationsVisible && hasCitations} />
+      </div>
     </aside>
   );
 

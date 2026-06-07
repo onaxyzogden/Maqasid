@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard, Settings, Plus, ChevronLeft, ChevronRight,
-  ChevronDown, Bell, Moon, Search, SquareChevronRight,
+  ChevronDown, Bell, Moon, Search, SquareChevronRight, UserCircle,
 } from 'lucide-react';
+import SyncStatusChip from '../shared/SyncStatusChip';
+import { useAuthStore } from '../../store/auth-store';
 import { useAppStore } from '../../store/app-store';
 import { useSettingsStore } from '../../store/settings-store';
 import { useMobile } from '../../hooks/useMobile';
@@ -11,68 +13,12 @@ import { MODULES } from '../../data/modules';
 import { MAQASID_PILLARS, getPillarLabel } from '../../data/maqasid';
 import { ICON_REGISTRY } from '../../data/icon-registry';
 import NotificationsPanel from './NotificationsPanel';
+import { MODULE_ROUTES } from './Sidebar.constants';
 import './Sidebar.css';
 
 // Submodule + parent-pillar icons resolved via the shared registry.
 const ICON_MAP = ICON_REGISTRY;
 const PILLAR_ICON_MAP = ICON_REGISTRY;
-
-export const MODULE_ROUTES = {
-  work: '/app/work',
-  money: '/app/money',
-  people: '/app/people',
-  office: '/app/office',
-  tech: '/app/tech',
-  family: '/app/family',
-  neighbors: '/app/neighbors',
-  community: '/app/community',
-  sources: '/app/sources',
-  // Faith
-  'faith-core': '/app/faith-core',
-  'faith-growth': '/app/faith-growth',
-  'faith-excellence': '/app/faith-excellence',
-  'faith-shahada': '/app/faith-shahada',
-  'faith-salah': '/app/faith-salah',
-  'faith-zakah': '/app/faith-zakah',
-  'faith-siyam': '/app/faith-siyam',
-  'faith-hajj': '/app/faith-hajj',
-  // Health
-  'health-physical': '/app/health-physical',
-  'health-mental': '/app/health-mental',
-  'health-safety': '/app/health-safety',
-  'health-social': '/app/health-social',
-  // Intellect
-  'intellect-learning': '/app/intellect-learning',
-  'intellect-thinking': '/app/intellect-thinking',
-  'intellect-cognitive': '/app/intellect-cognitive',
-  'intellect-professional': '/app/intellect-professional',
-  // Family
-  'family-marriage': '/app/family-marriage',
-  'family-parenting': '/app/family-parenting',
-  'family-kinship': '/app/family-kinship',
-  'family-home': '/app/family-home',
-  'family-office': '/app/family-office',
-  // Wealth
-  'wealth-earning': '/app/wealth-earning',
-  'wealth-financial': '/app/wealth-financial',
-  'wealth-ownership': '/app/wealth-ownership',
-  'wealth-circulation': '/app/wealth-circulation',
-  // Environment
-  'env-resource': '/app/env-resource',
-  'env-waste': '/app/env-waste',
-  'env-ecosystem': '/app/env-ecosystem',
-  'env-sourcing': '/app/env-sourcing',
-  // Standalone
-  collective: '/app/collective',
-  // MTC (Ummah)
-  'moontrance-land': '/app/moontrance-land',
-  'moontrance-seasonal': '/app/moontrance-seasonal',
-  'moontrance-residency': '/app/moontrance-residency',
-  // OGDEN Ecosystem
-  'ogden-bbos': '/app/ogden-bbos',
-  'ogden-milos': '/app/ogden-milos',
-  'ogden-atlas': '/app/ogden-atlas',
-};
 
 const OGDEN_SIDEBAR_CHILDREN = [
   { id: 'ogden-bbos',    name: 'BBOS',    icon: 'Briefcase' },
@@ -91,6 +37,7 @@ export default function Sidebar() {
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const [notifOpen, setNotifOpen] = useState(false);
 
+  const authStatus = useAuthStore((s) => s.authStatus);
   const collapsed = mobile ? false : !sidebarOpen;
 
   const handleNavClick = () => {
@@ -327,6 +274,16 @@ export default function Sidebar() {
           <Bell size={18} />
           {!collapsed && <span>Notifications</span>}
         </button>
+        {authStatus === 'authenticated' && (
+          <Link
+            to="/app/account"
+            className={`sidebar-item ${location.pathname === '/app/account' ? 'active' : ''}`}
+            title="Account"
+          >
+            <UserCircle size={18} />
+            {!collapsed && <span>Account</span>}
+          </Link>
+        )}
         <Link
           to="/app/settings"
           className={`sidebar-item ${location.pathname === '/app/settings' ? 'active' : ''}`}
@@ -335,6 +292,7 @@ export default function Sidebar() {
           <Settings size={18} />
           {!collapsed && <span>Settings</span>}
         </Link>
+        <SyncStatusChip collapsed={collapsed} />
       </div>
 
       {notifOpen && <NotificationsPanel onClose={() => setNotifOpen(false)} />}
