@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { safeGetJSON, safeSet, safeRemove, listKeys } from '../services/storage';
+import { safeGetJSON, safeGet, safeSet, safeRemove, listKeys } from '../services/storage';
 import { supabase, isSupabaseConfigured } from '../services/supabase';
 import { pullSnapshot, pushSnapshot, detectConflict, applyPull, initSync, teardownSync } from '../services/sync-service';
 
@@ -30,6 +30,10 @@ export const useAuthStore = create((set, get) => ({
   firstLoginConflict: null,
   /** Snapshot data waiting to be applied (set by sync-service periodic pull) */
   _pendingPullData: null,
+  /** In-memory guard: user id whose first-login conflict has already been
+   *  evaluated this page load. Prevents onAuthStateChange refires (focus-driven
+   *  SIGNED_IN, TOKEN_REFRESHED) from re-running detection. Not persisted. */
+  _authBootUserId: null,
 
   // ── Existing profile actions (unchanged API) ──────────────────────────────
   login: (userData) => {
@@ -71,9 +75,9 @@ export const useAuthStore = create((set, get) => ({
     }
 
     // Subscribe to future auth state changes (magic link callback, token refresh, sign-out)
-    supabase.auth.onAuthStateChange(async (_event, session) => {
+    supabase.auth.onAuthStateChange(async (event, session) => {
       if (session) {
-        await get()._handleAuthenticatedSession(session);
+        await get()._handleAuthenticatedSession(session, event);
       } else {
         teardownSync();
         set({ authStatus: 'guest', supabaseSession: null, syncStatus: 'idle' });
@@ -82,8 +86,15 @@ export const useAuthStore = create((set, get) => ({
   },
 
   /** Internal: called when a valid Supabase session is present. */
-  _handleAuthenticatedSession: async (session) => {
+  _handleAuthenticatedSession: async (session, event) => {
     set({ supabaseSession: session, authStatus: 'authenticated' });
+
+    // Dedupe auth-event refires: supabase-js re-emits SIGNED_IN on tab refocus
+    // and TOKEN_REFRESHED on a timer. Only run conflict detection once per page
+    // load for a given user; refires just refresh the session ref above.
+    if (get()._authBootUserId === session.user.id) return; // refire — already handled
+    set({ _authBootUserId: session.user.id });
+    void event; // event reserved for future per-event handling
 
     // Determine first-login conflict state
     const local = hasLocalData();
@@ -93,7 +104,12 @@ export const useAuthStore = create((set, get) => ({
     if (local && cloudExists) {
       set({ firstLoginConflict: 'has_local_and_cloud' });
     } else if (local && !cloudExists) {
-      set({ firstLoginConflict: 'has_local_no_cloud' });
+      // Only offer the backup prompt if the user hasn't dismissed it on this
+      // device. Device-local flag (excluded from cloud snapshot); once they back
+      // up, cloud exists and this branch can no longer fire anyway.
+      if (safeGet('sync_backup_dismissed') !== 'true') {
+        set({ firstLoginConflict: 'has_local_no_cloud' });
+      }
     } else if (!local && cloudExists) {
       set({ firstLoginConflict: 'no_local_has_cloud' });
       // Auto-pull on new device — no conflict to resolve
@@ -169,7 +185,12 @@ export const useAuthStore = create((set, get) => ({
       const { ok } = await pushSnapshot();
       set({ syncStatus: ok ? 'synced' : 'error', lastSyncedAt: ok ? new Date().toISOString() : null });
     }
-    // 'keep_local_no_push' — do nothing; user manages manually
+    if (choice === 'keep_local_no_push') {
+      // Persist the dismissal so the backup prompt doesn't reappear on this
+      // device (across auth-event refires and page reloads). User can still
+      // back up manually via Settings → "Sync now".
+      safeSet('sync_backup_dismissed', 'true');
+    }
     initSync();
   },
 

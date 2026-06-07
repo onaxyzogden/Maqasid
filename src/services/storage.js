@@ -205,6 +205,7 @@ export const SYNC_EXCLUDED_KEYS = [
   'sync_device_id',
   'sync_last_push_at',
   'sync_pending_push',
+  'sync_backup_dismissed',
 ];
 
 export function clearAll() {
