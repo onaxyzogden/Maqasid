@@ -3,6 +3,22 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-06-07] session | MILOS — redesigned-dashboard UI refinements + stage link; backup-modal nag fix
+
+**Objective:** Apply five user-requested UI fixes to the redesigned BBOS dashboard (behind `bbosNewDashboard`), link its stage selection to the bundle buttons, and ship the previously-verified backup-modal fix.
+
+**Amanah gate:** clear — UI/UX + local-sync UX work, no riba/gharar surface.
+
+**Completed (two commits on `wiki/atlas-designelementlayers-fix-2026-05-12`):**
+- `687c976` — **dashboard refinements + stage-selection link** (7 files). Scoped to the new dashboard only; legacy `BbosFullDashboard` + board/list/gantt untouched. (1) `LevelNavigator` suppressed on this view — it has its own rail; (2) independent column scroll via height-bounding (no CSS scroll change; gated the outer scroll wrapper + `minHeight:0` in [ProjectBoard.jsx](src/components/work/ProjectBoard.jsx)); (3) stages colored by **BBOS layer** not status — `layerVars()` in [palette.js](src/components/bbos/pipeline-dashboard/palette.js) + `--bpd-think/execute/reckon` tokens (Think `#C9A05A`, Execute `#4AB8A8`, Reckon `#6366F1`); (4) background hexagon glyph hidden (`.bpd-orn{display:none}`); (5) 12px min font (65 sub-12px → 12px). **Link:** `BbosPipelineDashboard` now takes `bbosFilter`/`onStageSelect` from [DashboardView.jsx](src/components/work/DashboardView.jsx); when controlled, `bbosFilter` is the single source of truth (no `useEffect` — dodges `react-hooks/set-state-in-effect`), so rail selection ↔ header Download/Upload buttons ↔ exported bundle stay in lock-step; uncontrolled falls back to local state seeded from the filter.
+- `e99fcff` — **backup-modal nag fix** (2 files, verified in a prior session, committed separately). [auth-store.js](src/store/auth-store.js) `_authBootUserId` guard stops `SIGNED_IN`/`TOKEN_REFRESHED` refires from re-running first-login conflict detection; dismissal now persists via device-local `sync_backup_dismissed` (added to `SYNC_EXCLUDED_KEYS` in [storage.js](src/services/storage.js)).
+
+**Verified:** `npm run build` + `npm run lint` + tests green; DOM-level verification of all five fixes (LevelNav absent, `.bpd-orn` display:none, three distinct layer accents, minFont 12, page bounded while inner panes scroll) + screenshot of the link in lock-step (CREDIBILITY → Download/Upload CRD). One ESLint `set-state-in-effect` error during the link work was resolved by removing the effect and making `bbosFilter` the source of truth.
+
+**Deferred / left untouched:** `atlas` submodule pointer, `AuthPage.jsx`, `Landing.jsx`, and `.claude/worktrees/*` pointers — intentionally not committed (unrelated WIP). PR #10 still awaits the user's manual merge.
+
+- Pages touched: wiki/entities/bbos-pipeline.md, wiki/entities/milos.md, wiki/log.md. No new pages (refinements to the already-recorded adapter-shell + adapter-mock-to-live decisions; no standalone ADR).
+
 ## [2026-06-05] session | atlas — merge feat/atlas-permaculture → main (PR #38, admin-bypass)
 
 **Objective:** Merge the long-lived `feat/atlas-permaculture` branch into `main` in the atlas submodule, through the repo's PR + CI gate.

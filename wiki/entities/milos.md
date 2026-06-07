@@ -48,6 +48,7 @@ Active development on V2.1. Rich subtask descriptions (Why/How format) now compl
 
 | Date | Event |
 |---|---|
+| 2026-06-07 | **Backup-modal nag fixed** (commit `e99fcff`). The first-login "Back up your data?" prompt fired far too often. Two causes addressed in [src/store/auth-store.js](src/store/auth-store.js): supabase-js re-emits `SIGNED_IN` on tab refocus and `TOKEN_REFRESHED` on a timer, and each refire re-ran first-login conflict detection — added an in-memory `_authBootUserId` guard so detection runs once per page load per user; and dismissing the prompt did not persist — keeping local without pushing now sets a device-local `sync_backup_dismissed` flag (added to `SYNC_EXCLUDED_KEYS` in [src/services/storage.js](src/services/storage.js) so it never rides the cloud snapshot) which suppresses the `has_local_no_cloud` branch. Manual backup via Settings → "Sync now" unaffected. |
 | 2026-04-11 | Technical audit remediation Sprint 4: threshold-store sessionStorage migration for ceremony state (#19), Niyyah skip action (#14), geolocation 3-attempt retry with IP fallback (#20). |
 | 2026-04-11 | Sprint 5: localStorage guardrails — 500 KB attachment limit with quota estimation (#22), message pruning at 500/channel (#23), dual-contact-stores ADR (#25). |
 | 2026-04-11 | Sprint 6: MoneyDashboard rewritten from mock data to store-computed values (#15). Dashboard empty state for new users (#11). TechOverview "Simulated" badge (#16). SearchPalette expanded to 5 sources (#18). BudgetTab placeholder (#24). |
