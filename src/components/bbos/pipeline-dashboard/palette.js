@@ -13,6 +13,9 @@ const V = {
   locked: "var(--bpd-locked)", bg3: "var(--bpd-bg3)",
   gold: "var(--bpd-gold)", red: "var(--bpd-red)", teal: "var(--bpd-teal)",
   textSecondary: "var(--bpd-text-secondary)", textTertiary: "var(--bpd-text-tertiary)",
+  think: "var(--bpd-think)", thinkDim: "var(--bpd-think-dim)",
+  execute: "var(--bpd-execute)", executeDim: "var(--bpd-execute-dim)",
+  reckon: "var(--bpd-reckon)", reckonDim: "var(--bpd-reckon-dim)",
 };
 
 // ----- dynamic color var maps (return inline style objects) -----------------
@@ -23,6 +26,17 @@ export function statusVars(s) {
     available: [V.avail, V.availDim],
     locked: [V.locked, V.bg3],
   }[s] || [V.locked, V.bg3];
+  return { "--c": m[0], "--c-dim": m[1] };
+}
+
+// Color a stage by its BBOS layer (Think / Execute / Reckon) rather than its
+// status. Drives the rail node accent and the center-pane overview accent.
+export function layerVars(layer) {
+  const m = {
+    think: [V.think, V.thinkDim],
+    execute: [V.execute, V.executeDim],
+    reckon: [V.reckon, V.reckonDim],
+  }[layer] || [V.think, V.thinkDim];
   return { "--c": m[0], "--c-dim": m[1] };
 }
 

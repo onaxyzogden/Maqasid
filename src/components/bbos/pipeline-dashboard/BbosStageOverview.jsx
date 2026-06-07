@@ -1,13 +1,13 @@
 // BBOS Pipeline Dashboard - center pane: stage overview (attributes, dua, gate).
 import { Ornament, SPill } from "./primitives";
-import { gateStatusLabel, statusVars } from "./palette";
+import { gateStatusLabel, layerVars } from "./palette";
 
 export default function BbosStageOverview({ stage, onOpenBrief, onOpenExec }) {
   const isComplete = stage.status === "complete";
   const execState = stage.status === "active" ? "active" : isComplete ? "complete" : "default";
 
   return (
-    <div className="bpd-overview" style={statusVars(stage.status)}>
+    <div className="bpd-overview" style={layerVars(stage.layer)}>
       <div className="bpd-overview__head">
         <div>
           <div className="bpd-overview__eyebrow">Stage {stage.n} · {stage.code}</div>

@@ -90,7 +90,7 @@ export default function DashboardView({ project, bbosFilter, onSelectTask, selec
   // Delegate to specialized dashboards (after hooks, per Rules of Hooks)
   if (project.bbosEnabled && bbosFilter) {
     return bbosNewDashboard
-      ? <BbosPipelineDashboard project={project} bbosFilter={bbosFilter} />
+      ? <BbosPipelineDashboard project={project} bbosFilter={bbosFilter} onStageSelect={onStageSelect} />
       : <BbosFullDashboard project={project} bbosFilter={bbosFilter} onSelectTask={onSelectTask} onStageAdvance={onStageAdvance} onStageSelect={onStageSelect} />;
   }
   if (/_(core|growth|excellence|before|during|after)$/.test(project.id)) {

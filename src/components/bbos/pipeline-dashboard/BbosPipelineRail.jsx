@@ -1,6 +1,6 @@
 // BBOS Pipeline Dashboard - left rail (header + cycle progress + stage nodes).
 import { Arc, Ornament } from "./primitives";
-import { gateNodeIcon, statusVars } from "./palette";
+import { gateNodeIcon, layerVars } from "./palette";
 
 function StageNode({ stage, isSelected, onClick }) {
   const isLocked = stage.status === "locked";
@@ -9,7 +9,7 @@ function StageNode({ stage, isSelected, onClick }) {
       className="bpd-stagenode"
       data-selected={isSelected ? "true" : "false"}
       data-locked={isLocked ? "true" : "false"}
-      style={statusVars(stage.status)}
+      style={layerVars(stage.layer)}
       onClick={() => !isLocked && onClick(stage)}
     >
       <div className="bpd-stagenode__row">
