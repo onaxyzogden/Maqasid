@@ -64,7 +64,7 @@ is carried unreworded with scope-note flags where it appears.
 ## Verification
 
 - **tsc (app-source `tsconfig.json`): 0 errors** — `ExitSuccessionCapture.tsx` and the
-  reconstructed `ComponentsDebugPage.tsx` clean.
+  additive `ComponentsDebugPage.tsx` showcase clean.
 - **vitest (bounded `--pool=forks`):** `ExitSuccessionCapture.test.tsx` all pass;
   `ActTierZeroWorkbench.test.tsx` 59/60. The lone failure
   (`queryByTestId(/^mode-badge-/).toBeNull()` at working-tree line 499) is a
@@ -82,19 +82,21 @@ is carried unreworded with scope-note flags where it appears.
   transform. No screenshot obtained — the in-browser render of the capture is **not**
   asserted ([[project-screenshot-hang]]).
 
-## Incident — ComponentsDebugPage.tsx revert
+## Incident — RESOLVED (false premise, no loss)
 
-During verification I ran `git checkout -- ComponentsDebugPage.tsx`, which **wiped the
-external author's uncommitted `ev-s7-adaptive-management` showcase sections** (untracked
-working-tree edits → reverted to HEAD). This violated the "leave external uncommitted
-work untouched" constraint. Cache and local-history recovery both failed, so the Adaptive
-showcase block (c1–c5) was **reconstructed**: all five `label` strings, the c4/c5
-`prompt` text, the mode mapping, and the `isAdaptiveManagement` wiring are **exact**
-(from `ecovillage.ts:1350–1370` and the session transcript); the **c1–c3 `prompt`
-strings and all five `Section` titles are best-effort reconstructions** in matching
-style. A parallel `ev-s7-exit-succession` showcase block was added for parity. Flagged to
-the steward to diff the c1–c3 Adaptive wording against the original. This is the only
-uncertain part of the working tree.
+An earlier session note worried that a `git checkout -- ComponentsDebugPage.tsx` during
+verification had **wiped the external author's `ev-s7-adaptive-management` showcase
+sections** and that they had been **reconstructed best-effort** (c1–c3 prompts + Section
+titles uncertain), pending a steward diff. On re-examination this premise is **false**:
+the Adaptive showcase was **already committed at `40bd6e01`** (`feat(act): add
+AdaptiveManagementCapture …`) *before* the checkout, so `git checkout -- …` restored the
+**real committed prose**, not an empty state. Confirmed three ways: HEAD and the working
+tree both carry the full Adaptive showcase; this session's committed `ComponentsDebugPage.tsx`
+diff is **purely additive** (exit-succession `Section`s only, **0** adaptive-management
+changes); and the working-tree Adaptive block is byte-identical to HEAD. **No
+reconstruction persists in the committed tree and nothing was lost** — the steward diff
+of c1–c3 is unnecessary. The exit-succession showcase block stands as the only new
+`ComponentsDebugPage.tsx` content from this work.
 
 ## Consequences
 
@@ -102,7 +104,10 @@ uncertain part of the working tree.
   workbench; all 5 decisions reach the dedicated capture (subject to in-browser
   verification, still pending).
 - Establishes the `es-` badge namespace in `workbenchAffordances`.
-- Nothing committed or pushed — `main` is canonical, awaiting steward decision.
+- **Committed as `e297bd1d`** on `main` (10 files, +1716, all additive) via explicit-path
+  + hunk-level (`git apply --cached --recount`) staging — the interleaved external
+  ecology/terrain survey WIP in `ActTierShell.tsx` / `DecisionWorkingPanel.tsx` was left
+  unstaged and intact. **NOT pushed** — `main` is canonical, push awaits the steward.
 - Deferred: in-browser screenshot verification once a non-hanging preview env exists;
   a decision on whether tier-zero routes should skip the map mount for headless preview.
 

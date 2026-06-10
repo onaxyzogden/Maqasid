@@ -9,17 +9,17 @@ type: log
 
 **Amanah gate:** clear — finance copy (buy-in basis, settlement, asset distribution among co-owners) pre-cleared by the steward for verbatim transcription; no salam / CSRA / advance-sale present; carried unreworded.
 
-**Completed (working tree on `main`, NOT committed/pushed — `main` is canonical, steward decision pending):**
+**Completed (committed on `main` as `e297bd1d`, NOT pushed — `main` is canonical, push awaits steward):**
 - New `ExitSuccessionCapture.tsx` + `.module.css` + `__tests__/ExitSuccessionCapture.test.tsx` following the `ProvisionBalanceCapture` precedent (pure / controlled / no store / no projectId; `decode`/`encode`; ASCII-only). Modes c1→exitProcess · c2→dwellingTransfer · c3→landReversion · c4→dissolution · c5→legalReview; serialized to one `FormValue` key `esChoices`.
 - Wiring (8-file plan): `workbenchAffordances.ts` (`ev-s7-exit-succession`, new `es-` badge namespace) · `DecisionWorkingPanel.tsx` (`isExitSuccession?` + decode/validity/body arms) · `ActTierZeroWorkbench.tsx` (detection + return field) · `ActTierShell.tsx` (added to `TIER_ZERO_OBJECTIVE_IDS`) · `MOCKUP_REGISTRY.md` (50th-mockup row). No `objectiveActTools.ts` change (form-only).
 
 **Verified:** app-source `tsc` 0 errors; bounded `--pool=forks` vitest — `ExitSuccessionCapture.test.tsx` all pass, `ActTierZeroWorkbench.test.tsx` 59/60 (lone failure = pre-existing committed `mode-badge` assertion vs the committed `s1-vision-labour` affordance `335f7b5e`; proven external, left for that owner); vite build green (full `tsc -b` blocked only by external `AdaptiveManagementCapture.test.ts`). Preview screenshot BLOCKED — tier-shell map substrate hangs the headless renderer ([[project-screenshot-hang]]); in-browser render NOT asserted.
 
-**Incident (disclosed):** `git checkout -- ComponentsDebugPage.tsx` wiped the external author's uncommitted `ev-s7-adaptive-management` showcase sections; reconstructed c1–c5 (labels + c4/c5 prompts + mode mapping + `isAdaptiveManagement` wiring exact; c1–c3 prompts + Section titles best-effort) and added an `ev-s7-exit-succession` parity block. Flagged to steward to diff c1–c3.
+**Incident — RESOLVED (premise was false, no loss):** an earlier session note worried that `git checkout -- ComponentsDebugPage.tsx` had wiped the external author's `ev-s7-adaptive-management` showcase and that it had to be reconstructed. Re-verified false: the Adaptive showcase was ALREADY committed at `40bd6e01` before the checkout, so the checkout restored the real committed version. The working tree's Adaptive block == HEAD == the author's real prose; my committed diff to `ComponentsDebugPage.tsx` is purely ADDITIVE (exit-succession `Section`s only, 0 adaptive-management changes). No reconstruction persists; nothing was lost; no steward diff of c1–c3 is needed.
 
 **Decisions:** [[2026-06-10-atlas-exit-succession-capture]]
 
-**Deferred:** in-browser screenshot verification once a non-hanging preview env exists; decide whether tier-zero routes should skip the map mount for headless preview; steward diff of reconstructed c1–c3 Adaptive prompts; commit/push decision.
+**Deferred:** in-browser screenshot verification once a non-hanging preview env exists; decide whether tier-zero routes should skip the map mount for headless preview; push decision (steward).
 
 **Pages touched:** wiki/entities/olos.md, wiki/decisions/2026-06-10-atlas-exit-succession-capture.md, wiki/index.md, wiki/log.md (this entry).
 
