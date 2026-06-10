@@ -3,6 +3,26 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-06-10] session | OLOS — build + wire ExitSuccessionCapture (ev-s7-exit-succession S7 Act capture)
+
+**Objective:** Full build + wire the `ev-s7-exit-succession` (EV-S7.8) Act structured-capture from the steward-dropped `olos_exit_succession_act.html` mockup, which matched the already-authored Stratum-7 Ecovillage objective verbatim.
+
+**Amanah gate:** clear — finance copy (buy-in basis, settlement, asset distribution among co-owners) pre-cleared by the steward for verbatim transcription; no salam / CSRA / advance-sale present; carried unreworded.
+
+**Completed (working tree on `main`, NOT committed/pushed — `main` is canonical, steward decision pending):**
+- New `ExitSuccessionCapture.tsx` + `.module.css` + `__tests__/ExitSuccessionCapture.test.tsx` following the `ProvisionBalanceCapture` precedent (pure / controlled / no store / no projectId; `decode`/`encode`; ASCII-only). Modes c1→exitProcess · c2→dwellingTransfer · c3→landReversion · c4→dissolution · c5→legalReview; serialized to one `FormValue` key `esChoices`.
+- Wiring (8-file plan): `workbenchAffordances.ts` (`ev-s7-exit-succession`, new `es-` badge namespace) · `DecisionWorkingPanel.tsx` (`isExitSuccession?` + decode/validity/body arms) · `ActTierZeroWorkbench.tsx` (detection + return field) · `ActTierShell.tsx` (added to `TIER_ZERO_OBJECTIVE_IDS`) · `MOCKUP_REGISTRY.md` (50th-mockup row). No `objectiveActTools.ts` change (form-only).
+
+**Verified:** app-source `tsc` 0 errors; bounded `--pool=forks` vitest — `ExitSuccessionCapture.test.tsx` all pass, `ActTierZeroWorkbench.test.tsx` 59/60 (lone failure = pre-existing committed `mode-badge` assertion vs the committed `s1-vision-labour` affordance `335f7b5e`; proven external, left for that owner); vite build green (full `tsc -b` blocked only by external `AdaptiveManagementCapture.test.ts`). Preview screenshot BLOCKED — tier-shell map substrate hangs the headless renderer ([[project-screenshot-hang]]); in-browser render NOT asserted.
+
+**Incident (disclosed):** `git checkout -- ComponentsDebugPage.tsx` wiped the external author's uncommitted `ev-s7-adaptive-management` showcase sections; reconstructed c1–c5 (labels + c4/c5 prompts + mode mapping + `isAdaptiveManagement` wiring exact; c1–c3 prompts + Section titles best-effort) and added an `ev-s7-exit-succession` parity block. Flagged to steward to diff c1–c3.
+
+**Decisions:** [[2026-06-10-atlas-exit-succession-capture]]
+
+**Deferred:** in-browser screenshot verification once a non-hanging preview env exists; decide whether tier-zero routes should skip the map mount for headless preview; steward diff of reconstructed c1–c3 Adaptive prompts; commit/push decision.
+
+**Pages touched:** wiki/entities/olos.md, wiki/decisions/2026-06-10-atlas-exit-succession-capture.md, wiki/index.md, wiki/log.md (this entry).
+
 ## [2026-06-07] session | MILOS — redesigned-dashboard UI refinements + stage link; backup-modal nag fix
 
 **Objective:** Apply five user-requested UI fixes to the redesigned BBOS dashboard (behind `bbosNewDashboard`), link its stage selection to the bundle buttons, and ship the previously-verified backup-modal fix.
@@ -14054,3 +14074,15 @@ in `.claude/worktrees/*/dist/*.js`, the cause is a stale
 `globalIgnores` line — port this config rather than re-investigating.
 
 - Pages touched: wiki/log.md (this entry). No source files modified.
+
+## [2026-06-10] feat+style | OLOS Act tier-shell - s1-vision grouping + artifact badges; 12px font floor
+- Completed: From a reference mockup of the Tier-0 `s1-vision` objective, wired the Act "Your Decisions" center column to the mockup's grouped + artifact-badged look and enforced a 12px body-text floor across the whole Act tier-shell. Two commits on `main`, explicit-path staging, all foreign WIP untouched.
+  - Phase 1 (`91f52d3f`, feat, 5 files +206/-6): the grouped/badged rendering was ALREADY a first-class `DecisionList` capability and `s1-vision` ALREADY carried 2 `decisionGroups` in `packages/shared`; the only gap was a missing `workbenchAffordances.ts` entry (so it fell to frozen `EMPTY_AFFORDANCES`). Added `VISION_ARTIFACT_BADGE` (8 namespaced `vs-*` keys, same convention as `li-*`/`hb-*`/`si-*`/`es-*`) + `s1-vision` MAP entry `{showGroups:true, modeFor}`; extended `DecisionList.tsx` `MODE_LABELS`/`MODE_ICONS`, added `MODE_BADGE_KIND` + `data-kind` attr + per-kind CSS (doc/assess/labour/capital/decision/neutral). Only `vs-*` carry a kind, so ~23 other badged objectives stay uniform-amber.
+  - Phase 2 (`db198a80`, style): raised every `font-size:<12px` to 12px + flattened tier-shell-local `var(--text-xs)` (11px) to a literal 12px across all `*.module.css` under `apps/web/src/v3/act/tier-shell/` (incl. `captures/controls/`). Global `--text-xs` token deliberately NOT bumped (shared with Plan/Observe; scope was Act tier-shell only).
+- Steward decisions (4x AskUserQuestion): keep existing 2 groups (no catalogue re-authoring); all 7 artifact badges + optional Steward (8 total); polish + floor only on the 7 input panels (no redesign); floor across ALL Act tier-shell.
+- Amanah: UI legibility only; no riba/gharar.
+- Verified: app-source `tsc` clean; bounded `--pool=forks` vitest 41/41 in tier-shell `__tests__` (tests updated to expect 2 group eyebrows + 8 `mode-badge-s1-vision-*` badges, previously asserted a flat list). Screenshot BLOCKED: `preview_screenshot` times out even on the map-free Vision workbench (`hasMap:false`) - not the Mapbox hang, the JPEG path itself is unresponsive; obtained equivalent LIVE proof via `preview_eval`/`preview_inspect` (2 eyebrows, 8 badges with correct labels/`data-kind`, badge `font-size:12px` was 9px, eyebrow `12px` was 10px).
+- Decisions: [[2026-06-10-atlas-vision-grouping-badges-font-floor]].
+- Deferred: human preview pass on dense capture grids (frost calendar, skill categories, terrain cells) once screenshots are reliable - non-blocking (flexible columns should not clip).
+- Not pushed: `main` ahead of origin by 2; awaiting steward request + fetch/divergence check.
+- Pages touched: wiki/decisions/2026-06-10-atlas-vision-grouping-badges-font-floor.md (new), wiki/entities/olos.md, wiki/index.md, wiki/log.md.
