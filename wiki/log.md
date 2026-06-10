@@ -3,6 +3,23 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-06-10] session | OLOS — push-failure root cause + parent housekeeping + CapacityCeilingBlock font
+
+**Objective:** Close out the ExitSuccessionCapture session — diagnose why "every push has been failing," land the wiki corrections, bump the parent submodule pointer, tidy the stale branch, and apply a steward-requested font tweak.
+
+**Completed:**
+- **Push-failure root cause (resolved at root):** atlas `main` was a protected branch with a required status check `test` that can never pass (the web-ci vitest teardown hang from [[2026-06-05-atlas-permaculture-merge-admin-bypass]]). A required-but-never-green check rejects every push/merge server-side (`GH006`) — invisible to `git push --dry-run` (which only negotiates refs). De-gated via `gh api -X PATCH .../branches/main/protection/required_status_checks` → `{strict:false, contexts:[]}` — the de-gate the steward approved 2026-06-05 but that was never applied. Future pushes no longer blocked.
+- **Pushed both lines (steward-authorized via AskUserQuestion):** atlas `main` `335f7b5e..33485215` (publishing `e297bd1d` ExitSuccessionCapture + 4 parallel-session commits); parent MILOS `main` `3011b8a..1900f67` (3 wiki/spec commits, rebased clean). External WIP stashed for the parent rebase, restored after (`stash pop` clean).
+- **Parent submodule pointer bump:** parent commit `52022bc` on `main` pins atlas gitlink `1b2df59 -> 3348521`. Atlas-only stage; AuthPage/Landing/stages/worktree-pointer WIP left untouched. NOT pushed.
+- **Branch housekeeping:** local parent `main` fast-forwarded to `origin/main` (was 128 behind); deleted the stale `wiki/atlas-designelementlayers-fix-2026-05-12` branch (its `1900f67` is on `origin/main`; `-D` needed only because the branch's own stale remote-tracking ref lagged).
+- **Font tweak (atlas, steward-requested via live element selection):** `CapacityCeilingBlock.module.css` `.figure` font-family `var(--font-serif, Georgia, serif)` -> `var(--font-sans, Inter, system-ui, sans-serif)` — keeps color (incl. tone overrides), size, and weight; swaps the lone serif numerals to the system font. Shared primitive, so it applies to every `CapacityCeilingBlock` figure (PropagationInfra / CarryingCapacity / Forage). Verified live via `preview_inspect`: computed font-family now `Inter, "Fira Sans", system-ui, ...`, color preserved (`oklch(0.64 0.1 150)`, green pass tone), 30px/600 unchanged. Committed on atlas `main` by explicit-path stage; external ecology WIP untouched.
+
+**Amanah:** clear — push hygiene, git housekeeping, and a legibility font tweak; no riba/gharar surface.
+
+**Deferred / notes:** the parent pointer `52022bc` now trails atlas HEAD by one (the font commit) — re-bump pending steward request; the atlas font commit and the parent pointer/housekeeping commits are all **local-only, push awaits the steward**. No ADR filed — maintenance + a one-property style change, no architectural choice.
+
+**Pages touched:** wiki/log.md (this entry), wiki/entities/olos.md.
+
 ## [2026-06-10] session | OLOS — build + wire ExitSuccessionCapture (ev-s7-exit-succession S7 Act capture)
 
 **Objective:** Full build + wire the `ev-s7-exit-succession` (EV-S7.8) Act structured-capture from the steward-dropped `olos_exit_succession_act.html` mockup, which matched the already-authored Stratum-7 Ecovillage objective verbatim.
