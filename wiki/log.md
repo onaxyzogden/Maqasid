@@ -14156,3 +14156,13 @@ in `.claude/worktrees/*/dist/*.js`, the cause is a stale
 - Phase 5 remaining: server-side work tables ONLY — deliberately not implemented; new persistence surface beyond existing blob sync = undiscussed architectural change, flagged for a design discussion.
 - Not pushed: atlas `main` ahead of origin; push awaits the steward.
 - Pages touched: wiki/entities/olos.md, wiki/log.md.
+
+## [2026-06-12] feat | OLOS - ProvisionBalance c5/c6 deferred simplifications closed (sibling-derived tensions + steward-seeded ratify)
+
+- Steward chose "Both, design discussion first" (AskUserQuestion): implement the two ProvisionBalanceCapture simplifications deferred at ship time, while the server-side work-tables design goes to chat discussion (NO code until approved). Commit `9109de20` on atlas `main` (3 files, +387/-21, pathspec-limited).
+- **c5 tension auto-derive:** the original "captures cannot read sibling items" premise was stale — the panel already threads `siblingValues` (CarryingCapacity precedent). New exported pure `deriveTensionCards(siblingValues)` decides which of the 3 verbatim TENSION_CARDS apply: t1 when c1 energy is unanswered or 'H'; t2 when c2 foodSystem is unanswered or 'hybrid' (sideB gains "(N m2)" from c4 entGarden when > 0 — the mockup's "(25 m2)" was demo data, removed from the base constant); t3 when c3 financialModel is unanswered or fixed-obligation (contrib/clt/separate). Unanswered-keeps-card fallback preserves any-visit-order; `isProvisionBalanceValid`/`summarise` gained optional `siblingValues = {}` params so all 31 prior test pins pass unedited; zero applicable → trivially valid + "No structural tensions..." + `tension-empty` body. Stale resolutions persist losslessly, just don't count.
+- **c6 ratify seed:** `ratifySeedFrom(steward)` seeds founding-household rows from the sibling `s1-vision-steward` invites (labour `rosterSeedFrom` precedent) — named non-contractor invites only, deterministic `seed-<index>` ids, ALL 'pending' (the mockup's pre-confirmed demo member deliberately NOT mirrored — sovereign confirmation; seeding never weakens the no-pending validity gate). Display resolution keyed on `Array.isArray(value.ratifyMembers)` (key-absence = unpersisted) so an operator-emptied persisted list never resurrects seeds; first edit bakes all rows.
+- FINANCIAL_SCOPE_NOTE Amanah-verbatim text untouched.
+- Verified: ProvisionBalanceCapture.test.tsx 42/42 (11 new), DecisionWorkingPanel.test.tsx 57/57, web tsc clean (bounded forks vitest throughout). No screenshot proof (preview hang, disclosed).
+- Not pushed; foreign working-tree files (placement-gate WIP) untouched. Memory `project-provisionbalance-revisit` closed out.
+- Pages touched: wiki/entities/olos.md, wiki/log.md.
