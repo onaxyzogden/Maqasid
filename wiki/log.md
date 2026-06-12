@@ -14126,3 +14126,14 @@ in `.claude/worktrees/*/dist/*.js`, the cause is a stale
 - Still deferred from Phase 5: weather glyphs on day headers, carer workload summaries, wide-calendar canvas takeover, server-side work tables.
 - Not pushed: atlas `main` ahead of origin; push awaits the steward.
 - Pages touched: wiki/entities/olos.md, wiki/log.md.
+
+## [2026-06-12] feat | OLOS - weather glyphs on the work month grid (Phase 5 slice 2)
+
+- Steward directive: "next Phase-5 item — weather glyphs on the grid's day headers (reusing useForecast)". Commit `50a79377` on atlas `main` (5 files, +185/-8, pathspec-limited).
+- WorkMonthGrid calls useForecast(projectId) itself (grid mounts only on the Season tab, so the fetch fires exactly when needed); forecastByDay map skips days with null weatherCode.
+- Cells in the 7-day window show a size-9 weatherCodeMeta icon in the dots row; the selected day's agenda header shows icon + high/low via a new OPTIONAL forecastByDay prop on WorkAgendaList — Today/Week callers unchanged.
+- No-parcel / fallback / loading states render no glyphs — weather is advisory garnish, never a gate on the work.
+- Tests: useForecast stubbed with a vi.hoisted mutable holder; pins for window-only glyphs (WMO Sun/CloudRain), header decoration (22° / 11°), null-code skip, absence without data. Verified: web tsc clean; bounded forks vitest 21/21. No screenshot proof (preview hang, disclosed).
+- Still deferred from Phase 5: carer workload summaries, wide-calendar canvas takeover, server-side work tables.
+- Not pushed: atlas `main` ahead of origin; push awaits the steward.
+- Pages touched: wiki/entities/olos.md, wiki/log.md.
