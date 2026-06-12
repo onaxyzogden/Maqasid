@@ -14115,3 +14115,14 @@ in `.claude/worktrees/*/dist/*.js`, the cause is a stale
 - Deferred: Phase 5 (month grid, weather glyphs on day headers, carer workload summaries, server-side work tables); end-to-end preview screenshot once the capture path is reliable.
 - Not pushed: atlas `main` ahead by 3 (plus concurrent external placement-gate commits landing on `main` mid-session); push awaits the steward.
 - Pages touched: wiki/decisions/2026-06-11-atlas-livestock-work-management-layer.md (new), wiki/entities/olos.md, wiki/index.md, wiki/log.md.
+
+## [2026-06-12] feat | OLOS - Season tab + WorkMonthGrid (livestock work panel, Phase 5 slice 1)
+
+- Steward directive: "start Phase 5 with the Season tab + WorkMonthGrid". Commit `65d02fdf` on atlas `main` (4 files, +542/-15, pathspec-limited).
+- Built `WorkMonthGrid.tsx`: fixed 7x6 date-fns month grid for the 260px rail — Monday week start, month nav + today jump-back, per-day tone dots (overdue/open/done via workDisplayStatus, cancelled excluded), tap-a-day agenda reusing WorkAgendaList. Pure read, prop-driven, writes no store.
+- Wired the Season tab into ActWorkPanel beside Today/This week; deep-link `?workFilter=season`; season feed = full non-cancelled dated horizon (grid windows by month itself); pinned Proposed/Overdue unchanged.
+- Verified: web tsc clean; bounded forks vitest 19/19 across the 4 work suites (5 new grid tests incl. Season-tab wiring; Phase-4 e2e re-run green). No screenshot proof (preview hang, disclosed) — happy-dom DOM assertions only.
+- Concurrent external placement-gate commits (`dd61b9e2`, `c471eab5`) landed on `main` mid-session; foreign files never staged.
+- Still deferred from Phase 5: weather glyphs on day headers, carer workload summaries, wide-calendar canvas takeover, server-side work tables.
+- Not pushed: atlas `main` ahead of origin; push awaits the steward.
+- Pages touched: wiki/entities/olos.md, wiki/log.md.
