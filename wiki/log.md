@@ -14166,3 +14166,13 @@ in `.claude/worktrees/*/dist/*.js`, the cause is a stale
 - Verified: ProvisionBalanceCapture.test.tsx 42/42 (11 new), DecisionWorkingPanel.test.tsx 57/57, web tsc clean (bounded forks vitest throughout). No screenshot proof (preview hang, disclosed).
 - Not pushed; foreign working-tree files (placement-gate WIP) untouched. Memory `project-provisionbalance-revisit` closed out.
 - Pages touched: wiki/entities/olos.md, wiki/log.md.
+
+## [2026-06-12] decision | OLOS - work spine sync: blob -> typed-record transport (ADR filed)
+
+- Steward approved option i ("go") after the in-chat design discussion + a UX-lens follow-up. ADR [[2026-06-12-atlas-work-items-typed-record-transport]] filed, status accepted.
+- Decision: promote `ogden-work-items` from versioned-blob to the existing typed-record transport (`synced_records`, per-row LWW, steward-escalated conflicts via migration-048 `failed_records`). Transport-only — client store stays source of truth, confirmProposal/fulfilWorkItem seams untouched, serverId-gated.
+- Grounding verified in code this session: the 4 existing record shapes all serve `byProject` stores while workItemStore is `projectId-tagged` (syncManifest.ts:779), so the slice needs one new `recordTaggedArray` shape; `extractRecordMeta` maps observed_at/source_type/task_type; `ogden-paths` is the blob->typed promotion precedent to study.
+- Binding UX requirement recorded in the ADR: escalated conflicts surface inside the Act work panel as a pinned "Needs your decision" section (needsReview-proposals pattern), never a buried sync log.
+- Rejected alternatives + 3 open follow-ons (carer accounts; olos_act_tasks relationship; proposals-store promotion) recorded in the ADR.
+- Implementation slice NOT started — separately planned and gated on approval.
+- Pages touched: wiki/decisions/2026-06-12-atlas-work-items-typed-record-transport.md (new), wiki/index.md, wiki/log.md.
