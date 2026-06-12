@@ -14137,3 +14137,22 @@ in `.claude/worktrees/*/dist/*.js`, the cause is a stale
 - Still deferred from Phase 5: carer workload summaries, wide-calendar canvas takeover, server-side work tables.
 - Not pushed: atlas `main` ahead of origin; push awaits the steward.
 - Pages touched: wiki/entities/olos.md, wiki/log.md.
+
+## [2026-06-12] feat | OLOS - carer workload strip on the work panel (Phase 5 slice 3)
+
+- Steward directive: "the remaining Phase-5 items — carer workload summaries, wide-calendar canvas takeover, or server-side work tables" (taken in order). Commit `7a253f3b` on atlas `main` (4 files, +428/-6, pathspec-limited).
+- Built `WorkCarerSummary.tsx`: per-carer chip strip between the panel tabs and body — overdue (red) + due-this-week counts derived from live spine rows (NOT the intent-capture roster); rows without `who` pool under Unassigned, sorted last; strip hidden when no live row carries a carer.
+- Chips toggle a panel-local filter narrowing the pinned Overdue section and all three tabs (Today/Week/Season grid); proposals and the strip itself stay unfiltered (panel keeps an unfiltered `all` feed in the same single-pass useMemo).
+- Verified: web tsc clean; bounded forks vitest 22/22. No screenshot proof (preview hang, disclosed).
+- Not pushed: atlas `main` ahead of origin; push awaits the steward.
+- Pages touched: wiki/entities/olos.md, wiki/log.md.
+
+## [2026-06-12] feat | OLOS - wide-calendar canvas takeover (Phase 5 slice 4)
+
+- Same steward directive, second item. Commit `df63dfd0` on atlas `main` (6 files, +809/-4, pathspec-limited).
+- Built `WorkCalendarTakeover.tsx`: `?panel=work&workView=calendar` swaps the Act canvas from the map to a wide 7x6 month — per-day entry titles tone-coded by workDisplayStatus (3 max + "+N more"; cancelled/foreign-project excluded), forecast-window weather glyphs, selected day's full agenda below via WorkAgendaList (all row actions available). Optional todayISO prop for deterministic tests.
+- Shell wiring: takeover wins the canvas over both the map and the Tier-0 workbench; "Back to map" drops only workView; closeWorkPanel drops it too; "Wide calendar" trigger on the panel Season tab, shown only when the shell wires onOpenCalendar (both rail mounts do).
+- Verified: web tsc clean; bounded forks vitest 28/28 across all 5 work suites (6 new takeover pins). No screenshot proof (preview hang, disclosed).
+- Phase 5 remaining: server-side work tables ONLY — deliberately not implemented; new persistence surface beyond existing blob sync = undiscussed architectural change, flagged for a design discussion.
+- Not pushed: atlas `main` ahead of origin; push awaits the steward.
+- Pages touched: wiki/entities/olos.md, wiki/log.md.
