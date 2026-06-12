@@ -14176,3 +14176,14 @@ in `.claude/worktrees/*/dist/*.js`, the cause is a stale
 - Rejected alternatives + 3 open follow-ons (carer accounts; olos_act_tasks relationship; proposals-store promotion) recorded in the ADR.
 - Implementation slice NOT started — separately planned and gated on approval.
 - Pages touched: wiki/decisions/2026-06-12-atlas-work-items-typed-record-transport.md (new), wiki/index.md, wiki/log.md.
+
+## [2026-06-12] feat | OLOS - work-items typed-record transport implemented (ADR same-day, commit c7fafad6)
+
+- Steward approved the Session Execution Plan ("approved"); ADR [[2026-06-12-atlas-work-items-typed-record-transport]] implemented same-day on atlas `main`, commit `c7fafad6` (8 files, +789/-6, pathspec-limited around foreign placement-gate + atlas-wiki working-tree files).
+- **Transport swap (syncManifest):** new `recordTaggedArray(field)` shape — per-project enumeration by `row.projectId`, single-row upsert apply; meta maps observed_at←updatedAt, source_type←source, task_type←`category` (NOT `kind`, which is nested in WorkItemTargetSchema — corrected from the ADR sketch). `ogden-work-items` re-registered typed-record with the old `tagged('items')` blob shape riding along as opt-in `applyBlobFallbackForProject`; exclusivity pinned (only store with a fallback).
+- **Hydrate fallback (syncService):** fires ONLY when server holds zero synced_records rows AND device holds zero local rows (fresh device); reads the now-inert blob once, never writes it, adopts no revs; version-skew guarded. Deliberate improvement over the abandon-silently ogden-paths precedent (work data is more valuable).
+- **Binding UX requirement shipped:** `WorkConflictSection` pinned atop ActWorkPanel ("Needs your decision") — ogden-work-items conflicts only, item title + yours-vs-server due/status summary, Keep mine / Keep server through the existing `resolveRecordConflict` seam (converges via hydrate + badge reconcile), link to /conflicts for the full side-by-side diff; renders nothing when empty.
+- Covenant seams untouched: confirmProposal sole proposal→spine writer; fulfil* sole completion writers; steward-resolved conflicts never auto-applied.
+- Verified: syncManifest 17/17, fallback pins 7/7, clobber guard unchanged 4/4 (no behavior change for the five pre-existing typed-record stores), WorkConflictSection 6/6, full lib+work sweep 352/352, web tsc clean (8GB heap). No screenshot proof (preview hang on tier-shell routes, standing disclosure).
+- Not pushed: atlas `main` ahead of origin; push awaits the steward. ADR status accepted → implemented (addendum).
+- Pages touched: wiki/decisions/2026-06-12-atlas-work-items-typed-record-transport.md (addendum), wiki/entities/olos.md, wiki/log.md.

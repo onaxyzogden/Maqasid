@@ -2,7 +2,7 @@
 title: "Atlas — Work spine durability: move ogden-work-items from versioned-blob to typed-record transport"
 type: decision
 date: 2026-06-12
-status: accepted
+status: implemented
 tags: [atlas, olos, work-spine, sync, typed-record, conflict-resolution, sovereign-steward]
 superseded_by: null
 ---
@@ -120,3 +120,30 @@ work lives.
 Direction discussed in-chat 2026-06-12 (three options + UX-lens follow-up);
 steward approved option i ("go"). Implementation slice planned separately and
 gated on its own approval.
+
+## Implementation addendum (2026-06-12, same day)
+
+Steward approved the implementation plan ("approved"); shipped on atlas
+`main` in four phases:
+
+1. **Transport swap** — `recordTaggedArray(field)` shape + registration swap
+   in `syncManifest.ts`; meta maps `observed_at ← updatedAt`,
+   `source_type ← source`, `task_type ← category` (NOT `kind` — that field is
+   nested inside `WorkItemTargetSchema`, a correction to this ADR's mechanics
+   sketch). Opt-in exclusivity pinned by test: `ogden-work-items` is the only
+   typed-record store with a blob fallback.
+2. **Hydrate fallback** — improved on the abandon-silently `ogden-paths`
+   precedent: `hydrateTypedRecords` gained an opt-in
+   `applyBlobFallbackForProject` path that fires ONLY when the server holds
+   zero `synced_records` rows AND the device holds zero local rows (fresh
+   device); the pre-promotion blob row is read once, never written, no revs
+   adopted; version-skew guarded.
+3. **In-panel conflict UX (the binding requirement)** — `WorkConflictSection`
+   pinned at the top of `ActWorkPanel` ("Needs your decision"), filtered to
+   `ogden-work-items`, title + yours-vs-server due/status summary, Keep
+   mine / Keep server through the existing `resolveRecordConflict` seam, link
+   to the full `/conflicts` diff page; renders nothing when empty.
+4. **Verification** — syncManifest 17/17, new fallback suite 7/7, clobber
+   guard unchanged 4/4 (no behavior change for the five pre-existing
+   typed-record stores), WorkConflictSection 6/6; full lib+work sweep 352/352;
+   web tsc clean.
