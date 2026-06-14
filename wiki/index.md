@@ -29,6 +29,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 | Page | Summary |
 |---|---|
 | [[maqasid-al-shariah]] | The higher objectives of Islamic law — preservation of faith, life, intellect, family, wealth |
+| [[steward-data-model]] | [[olos]]: how a steward is represented — `memberStore` identity (server-synced) joined `visionStore.stewardProfiles` overlay (client-only) via `useStewardRoster`; the 2026-06-14 audit + Options 1 (dual `{userId\|email}` ref linking capture surfaces, `72a51e1b`) and 3 (`needs` field, `628e6d1e`) consolidation |
 | [[amanah-gate]] | Permissibility check protocol — ethical gate before any task execution |
 | [[amanah-gate-protocol]] | Amanah Gate Protocol — universal Bayyinah/Qarina/Niyyah evidence tier system across all OGDEN products |
 | [[ceremony-gate-pattern]] | UI access gating pattern — module entry overlay requiring Islamic grounding |
