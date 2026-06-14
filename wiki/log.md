@@ -3,6 +3,23 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-06-10] session | OLOS — push-failure root cause + parent housekeeping + CapacityCeilingBlock font
+
+**Objective:** Close out the ExitSuccessionCapture session — diagnose why "every push has been failing," land the wiki corrections, bump the parent submodule pointer, tidy the stale branch, and apply a steward-requested font tweak.
+
+**Completed:**
+- **Push-failure root cause (resolved at root):** atlas `main` was a protected branch with a required status check `test` that can never pass (the web-ci vitest teardown hang from [[2026-06-05-atlas-permaculture-merge-admin-bypass]]). A required-but-never-green check rejects every push/merge server-side (`GH006`) — invisible to `git push --dry-run` (which only negotiates refs). De-gated via `gh api -X PATCH .../branches/main/protection/required_status_checks` → `{strict:false, contexts:[]}` — the de-gate the steward approved 2026-06-05 but that was never applied. Future pushes no longer blocked.
+- **Pushed both lines (steward-authorized via AskUserQuestion):** atlas `main` `335f7b5e..33485215` (publishing `e297bd1d` ExitSuccessionCapture + 4 parallel-session commits); parent MILOS `main` `3011b8a..1900f67` (3 wiki/spec commits, rebased clean). External WIP stashed for the parent rebase, restored after (`stash pop` clean).
+- **Parent submodule pointer bump:** parent commit `52022bc` on `main` pins atlas gitlink `1b2df59 -> 3348521`. Atlas-only stage; AuthPage/Landing/stages/worktree-pointer WIP left untouched. NOT pushed.
+- **Branch housekeeping:** local parent `main` fast-forwarded to `origin/main` (was 128 behind); deleted the stale `wiki/atlas-designelementlayers-fix-2026-05-12` branch (its `1900f67` is on `origin/main`; `-D` needed only because the branch's own stale remote-tracking ref lagged).
+- **Font tweak (atlas, steward-requested via live element selection):** `CapacityCeilingBlock.module.css` `.figure` font-family `var(--font-serif, Georgia, serif)` -> `var(--font-sans, Inter, system-ui, sans-serif)` — keeps color (incl. tone overrides), size, and weight; swaps the lone serif numerals to the system font. Shared primitive, so it applies to every `CapacityCeilingBlock` figure (PropagationInfra / CarryingCapacity / Forage). Verified live via `preview_inspect`: computed font-family now `Inter, "Fira Sans", system-ui, ...`, color preserved (`oklch(0.64 0.1 150)`, green pass tone), 30px/600 unchanged. Committed on atlas `main` by explicit-path stage; external ecology WIP untouched.
+
+**Amanah:** clear — push hygiene, git housekeeping, and a legibility font tweak; no riba/gharar surface.
+
+**Deferred / notes:** the parent pointer `52022bc` now trails atlas HEAD by one (the font commit) — re-bump pending steward request; the atlas font commit and the parent pointer/housekeeping commits are all **local-only, push awaits the steward**. No ADR filed — maintenance + a one-property style change, no architectural choice.
+
+**Pages touched:** wiki/log.md (this entry), wiki/entities/olos.md.
+
 ## [2026-06-10] session | OLOS — build + wire ExitSuccessionCapture (ev-s7-exit-succession S7 Act capture)
 
 **Objective:** Full build + wire the `ev-s7-exit-succession` (EV-S7.8) Act structured-capture from the steward-dropped `olos_exit_succession_act.html` mockup, which matched the already-authored Stratum-7 Ecovillage objective verbatim.
@@ -14086,3 +14103,109 @@ in `.claude/worktrees/*/dist/*.js`, the cause is a stale
 - Deferred: human preview pass on dense capture grids (frost calendar, skill categories, terrain cells) once screenshots are reliable - non-blocking (flexible columns should not clip).
 - Not pushed: `main` ahead of origin by 2; awaiting steward request + fetch/divergence check.
 - Pages touched: wiki/decisions/2026-06-10-atlas-vision-grouping-badges-font-floor.md (new), wiki/entities/olos.md, wiki/index.md, wiki/log.md.
+
+## [2026-06-12] feat | OLOS - livestock work-management layer (Phases 1-4, three commits on `main`)
+- Completed: The full approved slice for "livestock planning and implementation manageable entirely inside OLOS" — a proposal layer feeding the existing WorkItem spine, across 9 context windows of autonomous execution.
+  - Phases 1-2 (`47aef520`): pure shared engine (`packages/shared/src/livestockWork/` — schema with stable `lvp__` rule keys + inputsHash, protocol cadence catalogue, capped deterministic recurrence expansion with hemisphere-aware seasonal windows, `generateLivestockWorkPlan` composer, `diffWorkPlan` 8-row semantics) + web `livestockWorkPlanStore` (persist v1, syncManifest-registered) whose `confirmProposal` is the ONLY spine writer (`lvw__<key>`, source `'livestock-plan'`) + `livestockWorkInputs` adapter/regeneration seam.
+  - Phase 3 (`6f078652`): Act tier-shell work surface — summary card, right-rail `ActWorkPanel` (`?panel=work`, deep-linkable), proposed/overdue/agenda sections, bulk confirm with verbatim cautions, map paddock highlight, log-move prefill, mark-done generic proof, `useEventAggregator` inclusion.
+  - Phase 4 (`201fffdb`): shared `matchLivestockFulfillment` ±7d matcher + `useLivestockFulfillmentSync` (actualEnd = field date; check-proof pool deliberately empty — no inference from unrelated logs), needsReview resolution UI, `ActWorkProgressCard` + execution-panel "Generated work" block, Plan-side proposal toast, gate-closing e2e test.
+- Covenant: slaughter-prep only behind acknowledged halal pathway; pigs never yield slaughter/consumption work; sovereign-steward confirm seam; scopeNotes verbatim; no legacy deletion; rotation moves untouched (owned by rotationSequenceSpineSync).
+- Verified: shared+web tsc clean; bounded forks vitest — shared livestockWork 64/64, web touched suites 234/234 (incl. e2e: capture -> proposals [spine untouched] -> confirm -> due row -> evidence -> done with +2d variance + back-link, idempotent), syncManifest guard 112/112. Screenshot proof NOT captured (preview hang, disclosed); Phase-3 live verification was DOM-level.
+- Disclosed residue: browser IndexedDB for project `mtc` holds 1 confirmed test spine row ("Pasture Rest Period", due 2026-07-01) + 6 proposals from live confirm-flow testing — dismissable in-app.
+- Deferred: Phase 5 (month grid, weather glyphs on day headers, carer workload summaries, server-side work tables); end-to-end preview screenshot once the capture path is reliable.
+- Not pushed: atlas `main` ahead by 3 (plus concurrent external placement-gate commits landing on `main` mid-session); push awaits the steward.
+- Pages touched: wiki/decisions/2026-06-11-atlas-livestock-work-management-layer.md (new), wiki/entities/olos.md, wiki/index.md, wiki/log.md.
+
+## [2026-06-12] feat | OLOS - Season tab + WorkMonthGrid (livestock work panel, Phase 5 slice 1)
+
+- Steward directive: "start Phase 5 with the Season tab + WorkMonthGrid". Commit `65d02fdf` on atlas `main` (4 files, +542/-15, pathspec-limited).
+- Built `WorkMonthGrid.tsx`: fixed 7x6 date-fns month grid for the 260px rail — Monday week start, month nav + today jump-back, per-day tone dots (overdue/open/done via workDisplayStatus, cancelled excluded), tap-a-day agenda reusing WorkAgendaList. Pure read, prop-driven, writes no store.
+- Wired the Season tab into ActWorkPanel beside Today/This week; deep-link `?workFilter=season`; season feed = full non-cancelled dated horizon (grid windows by month itself); pinned Proposed/Overdue unchanged.
+- Verified: web tsc clean; bounded forks vitest 19/19 across the 4 work suites (5 new grid tests incl. Season-tab wiring; Phase-4 e2e re-run green). No screenshot proof (preview hang, disclosed) — happy-dom DOM assertions only.
+- Concurrent external placement-gate commits (`dd61b9e2`, `c471eab5`) landed on `main` mid-session; foreign files never staged.
+- Still deferred from Phase 5: weather glyphs on day headers, carer workload summaries, wide-calendar canvas takeover, server-side work tables.
+- Not pushed: atlas `main` ahead of origin; push awaits the steward.
+- Pages touched: wiki/entities/olos.md, wiki/log.md.
+
+## [2026-06-12] feat | OLOS - weather glyphs on the work month grid (Phase 5 slice 2)
+
+- Steward directive: "next Phase-5 item — weather glyphs on the grid's day headers (reusing useForecast)". Commit `50a79377` on atlas `main` (5 files, +185/-8, pathspec-limited).
+- WorkMonthGrid calls useForecast(projectId) itself (grid mounts only on the Season tab, so the fetch fires exactly when needed); forecastByDay map skips days with null weatherCode.
+- Cells in the 7-day window show a size-9 weatherCodeMeta icon in the dots row; the selected day's agenda header shows icon + high/low via a new OPTIONAL forecastByDay prop on WorkAgendaList — Today/Week callers unchanged.
+- No-parcel / fallback / loading states render no glyphs — weather is advisory garnish, never a gate on the work.
+- Tests: useForecast stubbed with a vi.hoisted mutable holder; pins for window-only glyphs (WMO Sun/CloudRain), header decoration (22° / 11°), null-code skip, absence without data. Verified: web tsc clean; bounded forks vitest 21/21. No screenshot proof (preview hang, disclosed).
+- Still deferred from Phase 5: carer workload summaries, wide-calendar canvas takeover, server-side work tables.
+- Not pushed: atlas `main` ahead of origin; push awaits the steward.
+- Pages touched: wiki/entities/olos.md, wiki/log.md.
+
+## [2026-06-12] feat | OLOS - carer workload strip on the work panel (Phase 5 slice 3)
+
+- Steward directive: "the remaining Phase-5 items — carer workload summaries, wide-calendar canvas takeover, or server-side work tables" (taken in order). Commit `7a253f3b` on atlas `main` (4 files, +428/-6, pathspec-limited).
+- Built `WorkCarerSummary.tsx`: per-carer chip strip between the panel tabs and body — overdue (red) + due-this-week counts derived from live spine rows (NOT the intent-capture roster); rows without `who` pool under Unassigned, sorted last; strip hidden when no live row carries a carer.
+- Chips toggle a panel-local filter narrowing the pinned Overdue section and all three tabs (Today/Week/Season grid); proposals and the strip itself stay unfiltered (panel keeps an unfiltered `all` feed in the same single-pass useMemo).
+- Verified: web tsc clean; bounded forks vitest 22/22. No screenshot proof (preview hang, disclosed).
+- Not pushed: atlas `main` ahead of origin; push awaits the steward.
+- Pages touched: wiki/entities/olos.md, wiki/log.md.
+
+## [2026-06-12] feat | OLOS - wide-calendar canvas takeover (Phase 5 slice 4)
+
+- Same steward directive, second item. Commit `df63dfd0` on atlas `main` (6 files, +809/-4, pathspec-limited).
+- Built `WorkCalendarTakeover.tsx`: `?panel=work&workView=calendar` swaps the Act canvas from the map to a wide 7x6 month — per-day entry titles tone-coded by workDisplayStatus (3 max + "+N more"; cancelled/foreign-project excluded), forecast-window weather glyphs, selected day's full agenda below via WorkAgendaList (all row actions available). Optional todayISO prop for deterministic tests.
+- Shell wiring: takeover wins the canvas over both the map and the Tier-0 workbench; "Back to map" drops only workView; closeWorkPanel drops it too; "Wide calendar" trigger on the panel Season tab, shown only when the shell wires onOpenCalendar (both rail mounts do).
+- Verified: web tsc clean; bounded forks vitest 28/28 across all 5 work suites (6 new takeover pins). No screenshot proof (preview hang, disclosed).
+- Phase 5 remaining: server-side work tables ONLY — deliberately not implemented; new persistence surface beyond existing blob sync = undiscussed architectural change, flagged for a design discussion.
+- Not pushed: atlas `main` ahead of origin; push awaits the steward.
+- Pages touched: wiki/entities/olos.md, wiki/log.md.
+
+## [2026-06-12] feat | OLOS - ProvisionBalance c5/c6 deferred simplifications closed (sibling-derived tensions + steward-seeded ratify)
+
+- Steward chose "Both, design discussion first" (AskUserQuestion): implement the two ProvisionBalanceCapture simplifications deferred at ship time, while the server-side work-tables design goes to chat discussion (NO code until approved). Commit `9109de20` on atlas `main` (3 files, +387/-21, pathspec-limited).
+- **c5 tension auto-derive:** the original "captures cannot read sibling items" premise was stale — the panel already threads `siblingValues` (CarryingCapacity precedent). New exported pure `deriveTensionCards(siblingValues)` decides which of the 3 verbatim TENSION_CARDS apply: t1 when c1 energy is unanswered or 'H'; t2 when c2 foodSystem is unanswered or 'hybrid' (sideB gains "(N m2)" from c4 entGarden when > 0 — the mockup's "(25 m2)" was demo data, removed from the base constant); t3 when c3 financialModel is unanswered or fixed-obligation (contrib/clt/separate). Unanswered-keeps-card fallback preserves any-visit-order; `isProvisionBalanceValid`/`summarise` gained optional `siblingValues = {}` params so all 31 prior test pins pass unedited; zero applicable → trivially valid + "No structural tensions..." + `tension-empty` body. Stale resolutions persist losslessly, just don't count.
+- **c6 ratify seed:** `ratifySeedFrom(steward)` seeds founding-household rows from the sibling `s1-vision-steward` invites (labour `rosterSeedFrom` precedent) — named non-contractor invites only, deterministic `seed-<index>` ids, ALL 'pending' (the mockup's pre-confirmed demo member deliberately NOT mirrored — sovereign confirmation; seeding never weakens the no-pending validity gate). Display resolution keyed on `Array.isArray(value.ratifyMembers)` (key-absence = unpersisted) so an operator-emptied persisted list never resurrects seeds; first edit bakes all rows.
+- FINANCIAL_SCOPE_NOTE Amanah-verbatim text untouched.
+- Verified: ProvisionBalanceCapture.test.tsx 42/42 (11 new), DecisionWorkingPanel.test.tsx 57/57, web tsc clean (bounded forks vitest throughout). No screenshot proof (preview hang, disclosed).
+- Not pushed; foreign working-tree files (placement-gate WIP) untouched. Memory `project-provisionbalance-revisit` closed out.
+- Pages touched: wiki/entities/olos.md, wiki/log.md.
+
+## [2026-06-12] decision | OLOS - work spine sync: blob -> typed-record transport (ADR filed)
+
+- Steward approved option i ("go") after the in-chat design discussion + a UX-lens follow-up. ADR [[2026-06-12-atlas-work-items-typed-record-transport]] filed, status accepted.
+- Decision: promote `ogden-work-items` from versioned-blob to the existing typed-record transport (`synced_records`, per-row LWW, steward-escalated conflicts via migration-048 `failed_records`). Transport-only — client store stays source of truth, confirmProposal/fulfilWorkItem seams untouched, serverId-gated.
+- Grounding verified in code this session: the 4 existing record shapes all serve `byProject` stores while workItemStore is `projectId-tagged` (syncManifest.ts:779), so the slice needs one new `recordTaggedArray` shape; `extractRecordMeta` maps observed_at/source_type/task_type; `ogden-paths` is the blob->typed promotion precedent to study.
+- Binding UX requirement recorded in the ADR: escalated conflicts surface inside the Act work panel as a pinned "Needs your decision" section (needsReview-proposals pattern), never a buried sync log.
+- Rejected alternatives + 3 open follow-ons (carer accounts; olos_act_tasks relationship; proposals-store promotion) recorded in the ADR.
+- Implementation slice NOT started — separately planned and gated on approval.
+- Pages touched: wiki/decisions/2026-06-12-atlas-work-items-typed-record-transport.md (new), wiki/index.md, wiki/log.md.
+
+## [2026-06-12] feat | OLOS - work-items typed-record transport implemented (ADR same-day, commit c7fafad6)
+
+- Steward approved the Session Execution Plan ("approved"); ADR [[2026-06-12-atlas-work-items-typed-record-transport]] implemented same-day on atlas `main`, commit `c7fafad6` (8 files, +789/-6, pathspec-limited around foreign placement-gate + atlas-wiki working-tree files).
+- **Transport swap (syncManifest):** new `recordTaggedArray(field)` shape — per-project enumeration by `row.projectId`, single-row upsert apply; meta maps observed_at←updatedAt, source_type←source, task_type←`category` (NOT `kind`, which is nested in WorkItemTargetSchema — corrected from the ADR sketch). `ogden-work-items` re-registered typed-record with the old `tagged('items')` blob shape riding along as opt-in `applyBlobFallbackForProject`; exclusivity pinned (only store with a fallback).
+- **Hydrate fallback (syncService):** fires ONLY when server holds zero synced_records rows AND device holds zero local rows (fresh device); reads the now-inert blob once, never writes it, adopts no revs; version-skew guarded. Deliberate improvement over the abandon-silently ogden-paths precedent (work data is more valuable).
+- **Binding UX requirement shipped:** `WorkConflictSection` pinned atop ActWorkPanel ("Needs your decision") — ogden-work-items conflicts only, item title + yours-vs-server due/status summary, Keep mine / Keep server through the existing `resolveRecordConflict` seam (converges via hydrate + badge reconcile), link to /conflicts for the full side-by-side diff; renders nothing when empty.
+- Covenant seams untouched: confirmProposal sole proposal→spine writer; fulfil* sole completion writers; steward-resolved conflicts never auto-applied.
+- Verified: syncManifest 17/17, fallback pins 7/7, clobber guard unchanged 4/4 (no behavior change for the five pre-existing typed-record stores), WorkConflictSection 6/6, full lib+work sweep 352/352, web tsc clean (8GB heap). No screenshot proof (preview hang on tier-shell routes, standing disclosure).
+- Not pushed: atlas `main` ahead of origin; push awaits the steward. ADR status accepted → implemented (addendum).
+- Pages touched: wiki/decisions/2026-06-12-atlas-work-items-typed-record-transport.md (addendum), wiki/entities/olos.md, wiki/log.md.
+
+## [2026-06-12] feat | OLOS - community work-management layer (Intentional Community; 7 commits, ADR filed implemented)
+
+- Steward brief: "Make plan using Fable 5 and use Opus 4.8 and Sonnet 4.6 for execution of: Ensure Intentional Community planning and implementation can be managed via OLOS without relying on external project management tools." Plan approved via plan-mode gate; six binding scope decisions taken via AskUserQuestion beforehand (two new captures; shared store factory with zero livestock behavior change; settlement c5 ack = hard gate; end-of-trial review only; manual c6 max + derived total; c3 independent register seeded from c2). ADR [[2026-06-12-atlas-community-work-management-layer]].
+- Architecture: livestock proposal lifecycle extracted VERBATIM into domain-neutral `createWorkPlanStore(config)` (Phase 0, `66cc8348` — 84 livestock pinning tests green, zero test-file edits), then a second domain instantiated beside it: shared communityWork schema + protocol cadences (`c5128317`), pure 7-source `generateCommunityWorkPlan` with 49 covenant tests (`250d724e`), SettlementPlanCapture + OnboardingCapture from the binding ecovillage catalogue + workbench registration (`53a4227a`), community store (`cwp-`/`cmw__`, source `community-plan`, instance-key provenance) + decoder-routed adapter + ActWorkPanel/PlanTierShell triggers + blob sync (`953ca7a7`), GENERATED_PLAN_SOURCES UI widening + dual-store WorkReviewSection (`5fe88b09`), deterministic lifecycle e2e (`a23e7b5e`).
+- Covenant: confirmProposal (factory) sole proposal→spine writer for BOTH domains; dismissed-stays-dismissed; confirmed-never-mutated (needsReview); scopeNotes verbatim end-to-end (settlement self-certification note surfaces verbatim in the capture); `ev-s7-financial-plan` deliberately NOT a generation source (Amanah); contractor/landowner invites generate nothing; no CSRA/salam framing anywhere.
+- Engine semantics worth remembering: governance capture cadence supersedes the eco-governance protocol rule; steward invites superseded by ratify entries; explicit one-off dates HASHED (date edit → needsReview 'changed'), synthesized today+14 dates NOT hashed (no regen churn); fortnightly = even-epoch-week Mondays; every-5-years founding-year-anchored; onboarding capped 12 steps/member.
+- Verified: shared sweep 213/213 (14 files), web sweep 1237/1237 (111 files); shared tsc clean, web tsc exactly the 4 pre-existing errors; ~239 new tests. No screenshot proof (deterministic tier-shell preview hang, standing disclosure) — happy-dom + tsc + e2e-by-test instead.
+- Execution note: per-phase model routing (Opus 4.8: factory/generator/captures/adapter; Sonnet 4.6: schema + all test passes + UI wiring + verification); orchestrator independently re-ran each gate before each pathspec-limited commit.
+- Not pushed: atlas `main` ahead of origin; push awaits the steward.
+- Pages touched: wiki/decisions/2026-06-12-atlas-community-work-management-layer.md (new), wiki/entities/olos.md, wiki/index.md, wiki/log.md.
+
+## [2026-06-14] feat | OLOS - steward-data consolidation Options 1 + 3 (commits 72a51e1b / 628e6d1e on `main`)
+
+- Steward audit follow-on: "a steward" was only partially canonical -- `memberStore` `ProjectMemberRecord` (server-synced identity) joined `visionStore.stewardProfiles[userId]` (client-only overlay) via `useStewardRoster`, but ~6 Act capture surfaces re-typed the same person by FREE-TEXT name with no link back, so nothing was attributable to one identity. Operator sequenced four fixes: Option 1 (link surfaces) -> Option 3 (`needs` field) -> Option 2 (server-sync) -> reassess Option 4 (unified entity). This session shipped 1 + 3. See [[steward-data-model]].
+- **Option 1 (committed `72a51e1b`, 24 files, explicit pathspec):** a dual ref `StewardRef = {userId} | {email} | null` serialized as a compact token (`u:<userId>` joined member / `e:<email>` pending invite / `''` off-platform). Decode is TOTAL (junk -> null/undefined), encode its lossless inverse, ref slots OPTIONAL -- so EVERY pre-Option-1 saved decision round-trips byte-identically (no migration; the safety property of the whole slice). New `captures/stewardRef.ts` (`encode`/`decode`/`coerce`/`same`/`find` + `buildStewardOptions` [members+invites, dedupe by lowercased email, userId wins] + `memberStewardOptions` [members-only, for work assignment]) + new `StewardPicker` themed native-select control. Injection: `DecisionWorkingPanel` computes `stewardOptions` beside its existing roster/ratify seeds and threads to captures; `WorkItemRow` calls `useStewardRoster` + `memberStewardOptions` directly. Wired consumers: Labour roster (`rosterRefs[]` parallel token array), ProvisionBalance c6 ratify (optional nested `ref`, signature hard gate untouched), SettlementPlan c5 verifier (`spVerifierRef`) + c1 cohort RESTRUCTURE (free-text composition -> linkable `spCohortRows[]` `{id,ref?,name,size}`; legacy `spComposition`/`spHouseholds` DERIVED on encode so c6 capacityFit strip + `settlementPhasesFrom` read unchanged; legacy decode collapses old composition into one synthetic row), work assignment (`fulfilWorkItem.assigneeId`/`ProofCapture.assigneeId` on the spine alongside `who` -- WorkItem schema already had the slots, so NO schema change). 170/170 across 6 bounded forks suites + a new `WorkItemRow.steward` render test (closed the one uncovered render surface).
+- **Fixup `6a50f87a` (1 file):** corrected an invalid `role: 'steward'` -> `'primary_steward'` ProjectRole in the WorkItemRow.steward fixture -- a latent tsc defect that shipped inside 72a51e1b (vitest does not typecheck, so it slipped past the green-test bar; tsc was actually at 5, not the claimed 4). Honestly surfaced; tsc back to the 4-baseline after. `'steward'` is not a valid `ProjectRole` -- the steward role is `primary_steward`.
+- **Option 3 (committed `628e6d1e`, 5 files):** added `needs?: string[]` to the canonical `StewardProfile` (`apps/web/src/store/visionStore.ts`) -- the one explicit steward variable that previously had no home on the model. Rides the existing generic list-field seam (`StewardProfileListField` union += `'needs'`, edited via `setStewardProfileList`) and the whole-profile roster read model, so NO `roster.ts` change. Captured via a `needs` `ChipEditor` in `StewardSurveyDetail.tsx` mirroring the skills editor (Enter-to-add, trimmed). Counts toward completeness: `STEWARD_FIELDS` in `derivations.ts` 8 -> 9 (so `total` is now 9 in `stewardCompleteness` + the `rosterCompleteness` sums). Client-only IndexedDB overlay -- NO sync/migration/persist-version change. Operator-approved shape (chip-list) + completeness inclusion (9 fields) + "two commits" via AskUserQuestion.
+- **Verified:** web `tsc --noEmit` clean bar the 4 pre-existing baseline errors (syncServiceWorkItemsFallback.test.ts:119, WorkConflictSection.test.tsx:119/120/134); bounded vitest forks ([[project-screenshot-hang]] / Windows zombie gotcha) -- Option-1 170/170, Option-3 derivations.test.ts updated (total 8->9, pct 50->44 = round(4/9), new "counts needs" + "all 9 fields" + rosterCompleteness 16->18 cases) + new `StewardSurveyDetail.needs.test.tsx` render test (type a need + Enter -> profile.needs recorded AND chip renders; lucide-react vi.mock svg-stub + `@tanstack/react-router` useParams mock). Live preview NOT driven -- ecovillage-gated captures don't surface on the `mtc` "TYPES NOT SET" sample; picker/chip VISUALS rest on render-DOM assertions ([[project-screenshot-hang]]).
+- **Amanah:** clean/neutral -- pure identity-linking + a people-data field; no sale/advance-purchase/salam/CSRA surface added or reworded; verbatim FINANCIAL_SCOPE_NOTE / RATIFY_ACK / SETTLEMENT_SCOPE_NOTES untouched ([[fiqh-csra-erased-2026-05-04]]).
+- **State:** all three commits on atlas `main`, NOT pushed (steward authorizes pushes). HEAD later moved out-of-band to `517b6a1a` (foreign Protocol WIP); 72a51e1b/6a50f87a/628e6d1e remain ancestors -- nothing lost. The supporting `docs/steward-data-audit-2026-06-14.md` + original `wiki/concepts/steward-data-model.md` were UNTRACKED in the parent repo and swept by worktree/clean churn -- never committed, not git-recoverable; concept page reconstructed this session. Deferred (operator order): Option 2 server-sync `StewardProfile` -> reassess Option 4 unified `Steward` entity.
+- Pages touched: wiki/concepts/steward-data-model.md (reconstructed), wiki/log.md, wiki/index.md.

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { X, ChevronDown, BookOpen, Play, Square } from 'lucide-react';
+import { ChevronRight, ChevronDown, BookOpen, Play, Square } from 'lucide-react';
 import { useAppStore } from '../../store/app-store';
 import { useSettingsStore } from '../../store/settings-store';
 import { useThresholdStore } from '../../store/threshold-store';
@@ -153,8 +153,8 @@ export default function IslamicPanel() {
               <span className="il-citations-badge">{citations.length}</span>
             </button>
           )}
-          <button className="il-close" onClick={toggleIslamicPanel} title="Close panel">
-            <X size={16} />
+          <button className="il-close" onClick={toggleIslamicPanel} title="Collapse panel" aria-label="Collapse panel">
+            <ChevronRight size={16} />
           </button>
         </div>
       </div>

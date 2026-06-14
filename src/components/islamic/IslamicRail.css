@@ -8,7 +8,8 @@
   height: 100%;
   padding: var(--space-3) 0;
   background: var(--surface);
-  border-left: 1px solid var(--border);
+  /* Divider is provided by the always-present right col-edge (col 4), mirroring
+     the left sidebar — no own border-left, to avoid a double line. */
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 20;
