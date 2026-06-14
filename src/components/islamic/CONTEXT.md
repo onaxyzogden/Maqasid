@@ -18,8 +18,8 @@ Spiritual UX layer: prayer awareness, ceremony gates, intention setting, readine
 | AttributeCard.jsx | Single attribute display: name (+ Arabic), title, description |
 | DuaSection.jsx | Renders Quranic dua: Arabic, transliteration, meaning, source |
 | IslamicPanel.jsx | Right sidebar: prayer times, pillar context, threshold buttons. `ILSection` blocks accept `id`/`activeSection`/`nonce` and force-open + `scrollIntoView` when targeted by the rail; prayer + citations have `.il-anchor` wrappers scrolled by a panel-level effect |
-| IslamicRail.jsx | Always-visible vertical icon rail pinned to the far-right grid column (desktop only). One icon per available section (from `useIslamicSections`) + Begin/Close ceremony icons. Click → `focusIslamicSection(id)` (opens panel, scrolls to section). Mirrors the collapsed left sidebar |
-| IslamicRail.css | Rail styling — icon buttons, hover/active accent, left-border divider |
+| IslamicRail.jsx | The **collapsed** form of the right sidebar (desktop only): a 64px vertical icon rail shown in col 5 when `islamicPanelOpen` is false (the panel replaces it when expanded — no separate always-on bar). One icon per available section (from `useIslamicSections`) + Begin/Close ceremony icons. Click → `focusIslamicSection(id)` (expands panel, scrolls to section). Mirrors the collapsed left sidebar |
+| IslamicRail.css | Rail styling — icon buttons, hover/active accent. Divider comes from the always-present right col-edge (no own border) |
 | useIslamicSections.js | Single source of truth for the panel's ordered sections + per-section availability (computed from `valuesLayer`, route, `activeModule`/`activeBbosStage`, citation count). Consumed by both IslamicRail and (for availability) the panel so the two never drift |
 | ResumeOverlay.jsx | Confirmation overlay when returning to module mid-session |
 

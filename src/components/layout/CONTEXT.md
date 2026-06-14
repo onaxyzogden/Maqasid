@@ -6,7 +6,7 @@ Root app shell, navigation, and modal orchestration. 5 components controlling re
 ## File Inventory
 | File | Description |
 |------|-------------|
-| AppShell.jsx | Root layout: CSS Grid with sidebar + main + optional Islamic panel + always-visible right icon rail. Hosts SearchPalette, ThresholdModal, PrayerOverlay, PrayerWarning, NiyyahAct, ResumeOverlay, reflection journal |
+| AppShell.jsx | Root layout: CSS Grid with sidebar + main + right sidebar that swaps between the Islamic panel (expanded) and a 64px icon rail (collapsed) — mirrors the left sidebar. Hosts SearchPalette, ThresholdModal, PrayerOverlay, PrayerWarning, NiyyahAct, ResumeOverlay, reflection journal |
 | Sidebar.jsx | Left nav: MAQASID_PILLARS as collapsible groups with sub-modules, business module links |
 | TopBar.jsx | Header: breadcrumb, contextual tabs (WORK_TABS for project sub-routes), search/Islamic panel/notification toggles |
 | MobileNav.jsx | Bottom tab bar for mobile viewport |
@@ -18,16 +18,18 @@ AppShell (CSS Grid)
 ├── TopBar
 ├── Sidebar (desktop) / MobileNav (mobile)
 ├── <Outlet /> (page content)
-├── IslamicPanel (right sidebar body, col 5, clipped to 0px when closed)
-├── IslamicRail (far-right icon rail, col 6, always visible desktop)
+├── Right sidebar (col 5): IslamicPanel when expanded, IslamicRail (64px icons) when collapsed
 └── Modals: SearchPalette, ThresholdModal, PrayerOverlay, PrayerWarning, NiyyahAct, ResumeOverlay
 ```
 
 ### Grid columns (desktop)
-`[sidebar] [left-edge 28px] [main 1fr] [right-edge 0|28px] [il-body 0|panelPx] [il-rail 64px]`.
-The right-edge (col 4) and il-body (col 5) collapse to `0px` when the panel is
-closed; the il-rail (col 6) is permanent. `--main-balance-end` pads the main
-column by `max(0, leftChrome - railPx)` so content stays centered when closed.
+`[sidebar 64|w] [left-edge 28px] [main 1fr] [right-edge 28px] [right-sidebar 64|panelPx]`.
+Five columns, left/right symmetric. The right side is a single column that is
+the 64px `IslamicRail` when collapsed and the full `IslamicPanel` when expanded —
+there is no separate always-on icon bar. The right-edge (col 4) is the always-
+present chevron handle (drag-resize + click-toggle), mirroring the left col-edge.
+`--main-balance-end` pads the main column by `max(0, sidebarPx - railPx)` so
+content stays centered when the panel is closed.
 
 ## Store Dependencies
 - **app-store**: `sidebarOpen`, `searchOpen`, `islamicPanelOpen`, `activeModule`, `reflectionOpen`, `focusIslamicSection` (rail → panel section jump)
