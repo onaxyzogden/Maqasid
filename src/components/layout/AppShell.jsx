@@ -246,8 +246,11 @@ export default function AppShell() {
   const panelPx = `${islamicPanelWidthPx}px`;
   const gridCols = mobile
     ? '1fr'
-    // [sidebar] [left-edge] [main] [right-edge 0|28] [il-body 0|panel] [il-rail 64]
-    : `${sidebarPx} ${edgePx} 1fr ${islamicPanelOpen ? edgePx : '0px'} ${islamicPanelOpen ? panelPx : '0px'} ${railPx}`;
+    // [sidebar 64|w] [left-edge 28] [main 1fr] [right-edge 28] [right-sidebar 64|panel]
+    // The right side mirrors the left: a single column that is the 64px icon
+    // rail when collapsed and the full panel when expanded — no separate,
+    // always-on icon bar. The right-edge (col 4) is the symmetric chevron handle.
+    : `${sidebarPx} ${edgePx} 1fr ${edgePx} ${islamicPanelOpen ? panelPx : railPx}`;
 
   const handleEdgePointerDown = (e) => {
     // Only handle left mouse button / primary touch
@@ -331,13 +334,15 @@ export default function AppShell() {
         className={`app-shell${isDragging || isRightDragging ? ' app-shell--dragging' : ''}`}
         style={{
           gridTemplateColumns: gridCols,
-          // Mirror left chrome (sidebar + edge) on the right when no right
-          // panel is open, so .app-main visually centers in the viewport.
-          // A permanent 64px rail now sits on the right, so only pad the
-          // *difference* between the left chrome and that rail.
+          // Keep .app-main visually centered in the viewport. The right side
+          // is now symmetric with the left: a collapsed rail (64px) + edge
+          // (28px) mirrors the collapsed sidebar (64px) + edge (28px), so when
+          // both are collapsed the chrome is balanced and no padding is needed.
+          // Only pad the *difference* if the left sidebar is expanded wider
+          // than the right rail.
           '--main-balance-end': mobile || islamicPanelOpen
             ? '0px'
-            : `max(0px, calc(${sidebarPx} + ${edgePx} - ${railPx}))`,
+            : `max(0px, calc(${sidebarPx} - ${railPx}))`,
         }}
       >
         <TopBar />
@@ -373,36 +378,27 @@ export default function AppShell() {
         </main>
         {!mobile && (
           <div
-            className={`col-edge${islamicPanelOpen ? '' : ' col-edge--hidden'}`}
+            className="col-edge"
             aria-hidden="true"
             style={{ gridColumn: 4, gridRow: '2 / -1' }}
-            onPointerDown={islamicPanelOpen ? handleRightEdgePointerDown : undefined}
-            onPointerMove={islamicPanelOpen ? handleRightEdgePointerMove : undefined}
-            onPointerUp={islamicPanelOpen ? handleRightEdgePointerUp : undefined}
+            onPointerDown={handleRightEdgePointerDown}
+            onPointerMove={handleRightEdgePointerMove}
+            onPointerUp={handleRightEdgePointerUp}
           >
-            {islamicPanelOpen && (
-              <>
-                <div className="col-edge__line" />
-                <button
-                  className="col-edge__toggle"
-                  tabIndex={-1}
-                  aria-label="Close Islamic panel"
-                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleIslamicPanel(); } }}
-                >
-                  <ChevronRight size={14} />
-                </button>
-              </>
-            )}
+            <div className="col-edge__line" />
+            <button
+              className="col-edge__toggle"
+              tabIndex={-1}
+              aria-label={islamicPanelOpen ? 'Collapse Islamic panel' : 'Expand Islamic panel'}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleIslamicPanel(); } }}
+            >
+              {islamicPanelOpen ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
+            </button>
           </div>
         )}
         {!mobile && (
-          <div className={`il-wrapper${islamicPanelOpen ? ' il-wrapper--open' : ''}`} style={{ gridColumn: 5, gridRow: '1 / -1' }}>
-            <IslamicPanel />
-          </div>
-        )}
-        {!mobile && (
-          <div style={{ gridColumn: 6, gridRow: '1 / -1' }}>
-            <IslamicRail />
+          <div style={{ gridColumn: 5, gridRow: '1 / -1' }}>
+            {islamicPanelOpen ? <IslamicPanel /> : <IslamicRail />}
           </div>
         )}
         {mobile && mobileIlRender && (

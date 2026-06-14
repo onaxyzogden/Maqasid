@@ -88,23 +88,6 @@
   color: var(--primary-dark);
 }
 
-/* ── Islamic panel wrapper — clips content during grid transition ── */
-.il-wrapper {
-  overflow: hidden;
-  visibility: hidden;
-  transition: visibility 0s var(--duration-lg);
-}
-.il-wrapper--open {
-  visibility: visible;
-  transition: visibility 0s 0s;
-}
-
-/* Hide edge column when panel is closed */
-.col-edge--hidden {
-  pointer-events: none;
-  overflow: hidden;
-}
-
 /* ── Mobile Islamic panel — slide-over from right ── */
 .il-mobile-backdrop {
   position: fixed;
