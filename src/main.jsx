@@ -5,6 +5,7 @@ import App from './App';
 import './styles/tokens.css';
 import './styles/global.css';
 import '@ogden/ui-components/style.css';
+import './styles/level-navigator-responsive.css'; // mobile stacked-rows override - must load AFTER the package CSS
 import { runMigrations } from './services/migration';
 
 // Init theme from storage
