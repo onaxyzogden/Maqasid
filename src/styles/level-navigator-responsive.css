@@ -1,0 +1,60 @@
+/* Level Navigator — mobile stacked rows
+   ----------------------------------------------------------------------------
+   The @ogden/ui-components LevelNavigator renders its pillar/stage strip as a
+   horizontal flex row (.fln__segments). On phones that row crushes N columns
+   into ~240px -> ~1px subseg tap targets and single-letter truncated labels.
+
+   This GLOBAL override restacks the strip into full-width rows on mobile for
+   EVERY LevelNavigator instance app-wide (dashboard, pillar-overview pages,
+   pillar-submodule pages, the prayer page, and the legacy BBOS stage nav) --
+   not just the .flo surfaces. It targets the package's own class names, so it
+   is independent of which MILOS wrapper rendered the component.
+
+   Specificity: the doubled-class anchor .fln__segments.fln__segments is
+   (0,2,0), beating the package's single-class (0,1,0) base rules regardless of
+   stylesheet order; descendants are (0,3,0). Imported in main.jsx AFTER
+   @ogden/ui-components/style.css for belt-and-suspenders. */
+
+@media (max-width: 767px) {
+  .fln__segments.fln__segments {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  /* Column card -> horizontal row: [label | progress bar] */
+  .fln__segments.fln__segments .fln__segment-col {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 8px 12px;
+    min-height: 48px;
+  }
+
+  /* Full, readable label at a fixed width so bars align across rows */
+  .fln__segments.fln__segments .fln__segment-nav {
+    flex: 0 0 92px;
+    width: 92px;
+    font-size: var(--text-xs);
+    text-align: left;
+    white-space: normal;
+    line-height: 1.2;
+    overflow: visible;
+    text-overflow: clip;
+  }
+
+  /* Bar fills the row and grows tall enough for tappable subsegs
+     (subsegs inherit height -> ~44px tall targets, width = rowWidth / N) */
+  .fln__segments.fln__segments .fln__segment-bar {
+    flex: 1 1 auto;
+    height: 44px;
+    gap: 3px;
+  }
+}
+
+/* Narrow phones: trim the label column so bars keep useful width */
+@media (max-width: 479px) {
+  .fln__segments.fln__segments .fln__segment-nav {
+    flex-basis: 76px;
+    width: 76px;
+  }
+}
