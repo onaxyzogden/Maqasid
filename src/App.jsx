@@ -2,15 +2,20 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthStore } from '@store/auth-store';
 import Landing from '@pages/Landing';
-import AppShell from '@components/layout/AppShell';
 import RouteSpinner from '@components/shared/RouteSpinner';
 import ChunkErrorBoundary from '@components/shared/ChunkErrorBoundary';
 
 // ─── Route pages — all lazy so each ships its own chunk and stays out of the
 // initial bundle (previously a single ~1.75 MB entry chunk eagerly importing
-// ~60 pages). Landing + AppShell above stay eager for instant first paint and
-// the /app shell. The top-level <Suspense> renders <RouteSpinner /> while a
-// route chunk loads; <ChunkErrorBoundary> catches chunk-load failures.
+// ~60 pages). Only Landing above stays eager, for an instant spinner-free '/'.
+// The top-level <Suspense> renders <RouteSpinner /> while a route chunk loads;
+// <ChunkErrorBoundary> catches chunk-load failures.
+
+// AppShell is lazy so Landing '/' never pays for the shell tree (sidebar,
+// topbar, Islamic panel, prayer overlays). It hosts its own <Suspense>
+// around <Outlet/>, so inner-route chunk loads never unmount the chrome.
+const AppShell = lazy(() => import('@components/layout/AppShell'));
+
 const Onboarding = lazy(() => import('@pages/Onboarding'));
 const Dashboard = lazy(() => import('@pages/Dashboard'));
 
@@ -112,11 +117,13 @@ const AccountPage = lazy(() => import('@pages/AccountPage'));
 const AuthPage = lazy(() => import('@pages/AuthPage'));
 const ModulePlaceholder = lazy(() => import('@pages/ModulePlaceholder'));
 const PropheticPathPage = lazy(() => import('@pages/PropheticPathPage'));
-import CeremonyGuard from '@components/islamic/CeremonyGuard';
-import CeremonyGuardDynamic from '@components/islamic/CeremonyGuardDynamic';
-import ProjectBoard from '@components/work/ProjectBoard';
-import AssetsTab from '@components/money/AssetsTab';
-import ProjectJournal from '@components/journal/ProjectJournal';
+// Route-element wrappers + heavy work components — lazy so they leave the
+// entry graph (ProjectBoard alone drags @dnd-kit; guards drag CeremonyGate).
+const CeremonyGuard = lazy(() => import('@components/islamic/CeremonyGuard'));
+const CeremonyGuardDynamic = lazy(() => import('@components/islamic/CeremonyGuardDynamic'));
+const ProjectBoard = lazy(() => import('@components/work/ProjectBoard'));
+const AssetsTab = lazy(() => import('@components/money/AssetsTab'));
+const ProjectJournal = lazy(() => import('@components/journal/ProjectJournal'));
 import { useParams } from 'react-router-dom';
 import { useProjectStore } from '@store/project-store';
 import { useTaskStore } from '@store/task-store';

@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useRef, useState } from 'react';
+import { useEffect, useCallback, useRef, useState, Suspense } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { useAppStore } from '../../store/app-store';
 import { useProjectStore } from '../../store/project-store';
@@ -28,6 +28,8 @@ import NiyyahAct from '../islamic/NiyyahAct';
 import JournalPanel from '../journal/JournalPanel';
 import DiscussionPanel from '../discussion/DiscussionPanel';
 import Toast from '../shared/Toast';
+import RouteSpinner from '../shared/RouteSpinner';
+import ChunkErrorBoundary from '../shared/ChunkErrorBoundary';
 import PillarFirstEntry from '../onboarding/PillarFirstEntry';
 import FirstLoginModal from '../shared/FirstLoginModal';
 import { useSyncObserver } from '../../hooks/useSyncObserver';
@@ -374,7 +376,14 @@ export default function AppShell() {
             when the route element type changes, so the effects that previously
             relied on the key still re-run where it matters. */}
         <main id="main-content" className="app-main">
-          <Outlet />
+          {/* AppShell itself is lazy (App.jsx), so this inner boundary is what
+              keeps the chrome mounted while an inner route chunk loads — the
+              fallback/error render in the main column only. */}
+          <ChunkErrorBoundary label="Could not load this page.">
+            <Suspense fallback={<RouteSpinner />}>
+              <Outlet />
+            </Suspense>
+          </ChunkErrorBoundary>
         </main>
         {!mobile && (
           <div
