@@ -40,7 +40,7 @@ All lazy routes render under the **single pre-existing** top-level `<ChunkErrorB
 
 ## Alternatives Considered
 
-- **Also make `AppShell` lazy now** — rejected for this session (out of the approved plan's scope). AppShell's whole dependency tree (Sidebar, TopBar, MobileNav, IslamicRail/Panel, prayer-posture images, seed-hydrator, stores) still loads on **every** route including Landing `/`; this is now the **dominant remaining cold-load cost**. Deferred as the recommended next step: lazy `AppShell` **and** move `<Suspense>` inside its `<Outlet>` so the shell paints immediately and only the inner route suspends.
+- **Also make `AppShell` lazy now** — rejected for this session (out of the approved plan's scope). AppShell's whole dependency tree (Sidebar, TopBar, MobileNav, IslamicRail/Panel, prayer-posture images, seed-hydrator, stores) still loads on **every** route including Landing `/`; this is now the **dominant remaining cold-load cost**. Deferred as the recommended next step: lazy `AppShell` **and** move `<Suspense>` inside its `<Outlet>` so the shell paints immediately and only the inner route suspends. **Executed later the same day** — see [[2026-07-02-milos-lazy-appshell]] (entry JS down a further −81.6% to 283.12 kB).
 - **`manualChunks`-only tuning** — insufficient; it re-labels chunks but cannot remove a statically-imported page from the entry graph.
 - **Do nothing / accept slow dev cold-load** — rejected; the blank-preview papercut recurs every session and also ships an oversized entry chunk to users.
 
