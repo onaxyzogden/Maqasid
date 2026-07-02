@@ -1,9 +1,11 @@
 // BBOS Pipeline Dashboard - Execution View modal (tabs, factories, gate, retro).
 // Rendered via portal to document.body with body scroll-lock (mirrors
-// BbosTaskPanel). All write-actions are inert this pass (local state only) -
-// the follow-up wiring pass connects them to live stores.
-import { useEffect, useState } from "react";
+// BbosTaskPanel).
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { useTaskStore } from "../../../store/task-store";
+import { downloadStageBundleTemplate, validateStageBundleTemplate, importStageBundleTemplate } from "@services/bbos-template";
+import { getBbosTaskDefsByStage } from "@data/bbos/bbos-task-definitions";
 import { Dot, Ornament, Spirit } from "./primitives";
 import {
   bhiVars, iLabel, itemVars, metricVars, restoVars, typeLabel, typeVars,
@@ -119,12 +121,20 @@ function TaskRow({ task, expanded, onToggle }) {
   );
 }
 
-export default function BbosExecView({ stage, onClose }) {
+export default function BbosExecView({ stage, onClose, projectId }) {
   const exec = stage.execution;
   const isRetro = exec.type === "retrospective_dashboard";
   const tabs = isRetro
     ? [{ id: "metrics", label: "Metrics", icon: "◈" }, { id: "bhi", label: "Barakah Health", icon: "⧁" }, { id: "restoration", label: "Restoration Mandate", icon: "◆" }]
-    : [{ id: "research", label: "Research Factory", icon: "◐" }, { id: "assets", label: "Asset Factory", icon: "◫" }, { id: "execution", label: "Execution", icon: "◉" }, { id: "gate", label: "Gate Check", icon: "◆" }];
+    : [
+        { id: "research", label: "Research Factory", icon: "◐" },
+        ...(exec.assetItems?.length > 0 ? [{ id: "assets", label: "Asset Factory", icon: "◫" }] : []),
+        ...(exec.executionTasks?.length > 0 ? [{ id: "execution", label: "Execution", icon: "◉" }] : []),
+        { id: "gate", label: "Gate Check", icon: "◆" },
+      ];
+
+  const taskStore = useTaskStore();
+  const uploadRef = useRef(null);
 
   const [tab, setTab] = useState(tabs[0].id);
   const [expAsset, setExpAsset] = useState(null);
@@ -132,6 +142,8 @@ export default function BbosExecView({ stage, onClose }) {
   const [checks, setChecks] = useState(exec.gateChecks ? exec.gateChecks.reduce((a, c) => ({ ...a, [c.id]: c.passed }), {}) : {});
   const [importOpen, setImportOpen] = useState(false);
   const [importText, setImportText] = useState("");
+  const [parseError, setParseError] = useState(null);
+  const [parseSuccess, setParseSuccess] = useState(null);
 
   useEffect(() => {
     const prev = document.body.style.overflow;
@@ -141,6 +153,88 @@ export default function BbosExecView({ stage, onClose }) {
 
   const cycleCheck = (id) =>
     setChecks((p) => ({ ...p, [id]: p[id] === true ? false : p[id] === false ? null : true }));
+
+  const handleDownload = () => {
+    const stageDefs = getBbosTaskDefsByStage(stage.id);
+    const existingTasks = projectId ? (taskStore.tasksByProject[projectId] || []) : [];
+    downloadStageBundleTemplate(stage.id, stageDefs, existingTasks);
+  };
+
+  const handleParse = () => {
+    setParseError(null);
+    setParseSuccess(null);
+    try {
+      const json = JSON.parse(importText);
+      const validation = validateStageBundleTemplate(json, stage.id);
+      if (!validation.valid) {
+        setParseError(validation.errors.join('\n'));
+        return;
+      }
+      const items = importStageBundleTemplate(json);
+      const existingTasks = projectId ? (taskStore.tasksByProject[projectId] || []) : [];
+      let count = 0;
+      for (const { taskType, fieldData, gLabel } of items) {
+        const task = existingTasks.find((t) => t.bbosTaskType === taskType);
+        if (!task) continue;
+        const nonEmpty = Object.fromEntries(
+          Object.entries(fieldData).filter(([, v]) => v !== '')
+        );
+        if (Object.keys(nonEmpty).length > 0 || gLabel) {
+          taskStore.updateTask(projectId, task.id, {
+            bbosFieldData: { ...task.bbosFieldData, ...nonEmpty },
+            ...(gLabel ? { gLabel } : {}),
+          });
+          count++;
+        }
+      }
+      setParseSuccess(`Imported: ${count} task(s) updated.`);
+      setImportOpen(false);
+      setImportText('');
+    } catch (err) {
+      setParseError('Parse failed: ' + err.message);
+    }
+  };
+
+  const handleUpload = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      try {
+        const json = JSON.parse(ev.target.result);
+        const validation = validateStageBundleTemplate(json, stage.id);
+        if (!validation.valid) {
+          setParseError(validation.errors.join('\n'));
+          setParseSuccess(null);
+          return;
+        }
+        const items = importStageBundleTemplate(json);
+        const existingTasks = projectId ? (taskStore.tasksByProject[projectId] || []) : [];
+        let count = 0;
+        for (const { taskType, fieldData, gLabel } of items) {
+          const task = existingTasks.find((t) => t.bbosTaskType === taskType);
+          if (!task) continue;
+          const nonEmpty = Object.fromEntries(
+            Object.entries(fieldData).filter(([, v]) => v !== '')
+          );
+          if (Object.keys(nonEmpty).length > 0 || gLabel) {
+            taskStore.updateTask(projectId, task.id, {
+              bbosFieldData: { ...task.bbosFieldData, ...nonEmpty },
+              ...(gLabel ? { gLabel } : {}),
+            });
+            count++;
+          }
+        }
+        setParseSuccess(`Imported: ${count} task(s) updated.`);
+        setParseError(null);
+      } catch (err) {
+        setParseError('Upload failed: ' + err.message);
+        setParseSuccess(null);
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  };
 
   const renderContent = () => {
     if (isRetro) {
@@ -240,8 +334,19 @@ export default function BbosExecView({ stage, onClose }) {
         <Spirit attr={exec.spiritualOpen.attr} note={exec.spiritualOpen.note} />
         <div style={{ marginTop: 4 }}>
           <div className="bpd-section-label" style={{ marginBottom: 8 }}>Research Factory — S-Outputs</div>
-          <div className="bpd-import-trigger" data-open={importOpen ? "true" : "false"} onClick={() => setImportOpen(!importOpen)}>
-            <div className="bpd-import-trigger__icon">↓</div>
+          <div className="bpd-dl-row">
+            <button className="bpd-dl-btn" onClick={handleDownload} title={`Download ${stage.id} stage bundle`}>
+              ↓ Download <span className="bpd-dl-btn__stage">{stage.id}</span>
+            </button>
+            <button className="bpd-dl-btn" onClick={() => uploadRef.current?.click()} title={`Upload ${stage.id} stage bundle`}>
+              ↑ Upload <span className="bpd-dl-btn__stage">{stage.id}</span>
+            </button>
+            <input ref={uploadRef} type="file" accept=".json" style={{ display: 'none' }} onChange={handleUpload} />
+            {parseSuccess && <span className="bpd-parse-result bpd-parse-result--ok">{parseSuccess}</span>}
+          </div>
+          <div className="bpd-import-trigger" data-open={importOpen ? "true" : "false"}
+            onClick={() => { setImportOpen(!importOpen); setParseError(null); setParseSuccess(null); }}>
+            <div className="bpd-import-trigger__icon">↑</div>
             <div>
               <div className="bpd-import-trigger__title">Import Stage Pack (JSON)</div>
               <div className="bpd-import-trigger__sub">Full S-output + Asset pack. One import event per stage.</div>
@@ -256,7 +361,8 @@ export default function BbosExecView({ stage, onClose }) {
                 onChange={(e) => setImportText(e.target.value)}
                 placeholder={"{\n  \"stage\": \"STR\",\n  \"research\": [...],\n  \"assets\": [...]\n}"}
               />
-              <button className="bpd-import-panel__parse" onClick={() => setImportOpen(false)}>Parse & Stage for Review</button>
+              <button className="bpd-import-panel__parse" onClick={handleParse}>Parse & Stage for Review</button>
+              {parseError && <div className="bpd-parse-result bpd-parse-result--err">{parseError}</div>}
             </div>
           )}
           {exec.researchItems.map((r) => (

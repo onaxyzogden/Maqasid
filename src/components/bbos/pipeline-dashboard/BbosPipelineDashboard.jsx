@@ -56,7 +56,7 @@ export default function BbosPipelineDashboard({ project, bbosFilter, onStageSele
           ? <BbosStageOverview stage={selected} onOpenBrief={setBriefStage} onOpenExec={setExecStage} />
           : <div className="bpd-main__empty">Select a stage to begin</div>}
       </div>
-      {execStage && <BbosExecView stage={execStage} onClose={() => setExecStage(null)} />}
+      {execStage && <BbosExecView stage={execStage} onClose={() => setExecStage(null)} projectId={project.id} />}
       {briefStage && (
         <BbosApprovalBrief
           stage={briefStage}

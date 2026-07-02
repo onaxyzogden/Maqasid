@@ -9,6 +9,15 @@ superseded_by: null
 
 # Act tier-shell: s1-vision grouping + artifact badges; 12px font floor
 
+> [!note] Amended 2026-06-16
+> The `s1-vision` objective described here was later restructured: **labour and
+> capital were stripped out into a new `s1-steward` (Steward/Team) objective** as part
+> of the Tier-0 / Stratum-1 Declaration restructure
+> ([[2026-06-16-atlas-tier0-declaration-restructure]]). The grouping / artifact-badge /
+> 12px-font-floor mechanism below is unchanged and still valid; only the `s1-vision`
+> *content* (its labour/capital `vs-*` badges) is now stale -- those decisions live on
+> `s1-steward`.
+
 ## Context
 
 A steward-supplied reference mockup (`olos_tier0_vision_capacity.html`) of the

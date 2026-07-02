@@ -79,3 +79,18 @@ nothing was attributable to one identity. Four options, sequenced by the operato
 These surfaces touch cost-share and governance, never sale. The consolidation added
 no advance-purchase / salam / CSRA surface; the verbatim `FINANCIAL_SCOPE_NOTE`,
 `RATIFY_ACK`, and `SETTLEMENT_SCOPE_NOTES` are untouched. See [[fiqh-csra-erased-2026-05-04]].
+
+## A canonical Stratum-1 home (2026-06-16)
+
+The steward/team is no longer captured only as an overlay on the vision objective.
+The Tier-0 / Stratum-1 Declaration restructure ([[2026-06-16-atlas-tier0-declaration-restructure]])
+gave **steward/team capacity its own dedicated objective `s1-steward`** ("Constitute the
+steward team"), split out from `s1-vision` -- labour and capital moved off the Intent
+Object onto this Steward/Team Object, which becomes the never-re-asked canonical people
+reference and the Tier-6 capacity-matching **supply baseline** (`stewardSupplyBaseline`).
+Stage 2 (`e7a3040a`) extended `StewardProfile` with `residentStatus`, `roleAllocation`,
+`teamRole`, `decisionRights`, `capabilityByDomain`, `seasonalLabour`, and
+`capitalContribution` (all optional, back-compat decode -- the same seam as `needs?`), plus
+a project-level `StewardTeam` container on `VisionData`. The two-part canonical model above
+is unchanged; these are additive overlay fields, still client-only IndexedDB
+(`visionStore`, persist v4 -> 5).

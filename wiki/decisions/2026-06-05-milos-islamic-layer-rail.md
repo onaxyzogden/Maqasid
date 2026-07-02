@@ -3,10 +3,20 @@ title: "MILOS — Always-visible Islamic Layer icon rail"
 type: decision
 created: 2026-06-05
 tags: [milos, ui, layout, islamic-layer, app-shell, accessibility]
-status: accepted
+status: superseded
+superseded_by: 2026-06-14-milos-right-sidebar-symmetry
 ---
 
 # MILOS — Always-visible Islamic Layer icon rail
+
+> [!warning] Grid geometry superseded 2026-06-14
+> The 6-column grid and permanent col-6 rail described below were revised by
+> [[2026-06-14-milos-right-sidebar-symmetry]]: the right side is now a 5-column shell
+> whose single right column renders this rail when collapsed and the panel when expanded
+> (no permanent separate rail column). What this ADR introduced that REMAINS in force: the
+> section-navigation machinery -- `useIslamicSections.js`, `focusIslamicSection(id)`, the
+> `islamicActiveSection` / `islamicSectionNonce` store state, and the `.il-anchor` scroll
+> targeting -- is carried forward unchanged.
 
 ## Context
 
