@@ -9,6 +9,12 @@ superseded_by: null
 
 # Atlas — ExitSuccessionCapture: build + wire the ev-s7-exit-succession Act capture
 
+> [!note] Amended 2026-06-16
+> The `s1-vision-labour` affordance referenced in the verification note below was later
+> removed: labour moved to the new `s1-steward` objective in the Tier-0 / Stratum-1
+> Declaration restructure ([[2026-06-16-atlas-tier0-declaration-restructure]]). This
+> ADR's own subject (`ev-s7-exit-succession` / `ExitSuccessionCapture`) is unaffected.
+
 ## Context
 
 The steward dropped a dark-themed OLOS Act-stage workbench mockup
