@@ -1,4 +1,4 @@
-/* Level Navigator — mobile stacked rows
+/* Level Navigator — mobile stacked rows, DashboardTaskCard-styled
    ----------------------------------------------------------------------------
    The @ogden/ui-components LevelNavigator renders its pillar/stage strip as a
    horizontal flex row (.fln__segments). On phones that row crushes N columns
@@ -10,51 +10,146 @@
    not just the .flo surfaces. It targets the package's own class names, so it
    is independent of which MILOS wrapper rendered the component.
 
+   Each pillar becomes a DashboardTaskCard-style card (.dtc__card parity):
+   var(--surface) bg, --shadow-card, 1px tintable border, numbered accent
+   badge (CSS counter), card-title label, with the 44px tappable segment bar
+   below. Status colors stay on the inline subseg backgrounds (taskColorFn).
+
    Specificity: the doubled-class anchor .fln__segments.fln__segments is
    (0,2,0), beating the package's single-class (0,1,0) base rules regardless of
-   stylesheet order; descendants are (0,3,0). Imported in main.jsx AFTER
-   @ogden/ui-components/style.css for belt-and-suspenders. */
+   stylesheet order; descendants are (0,3,0). Because the card base now sets
+   background/border/box-shadow/transition at (0,3,0), the package's --current
+   (0,1,0) and --hover-sync (0,2,0) modifiers and its reduced-motion rule
+   (0,1,0) are re-stated below at (0,3,0)+ so they keep working. Imported in
+   main.jsx AFTER @ogden/ui-components/style.css for belt-and-suspenders. */
 
 @media (max-width: 767px) {
   .fln__segments.fln__segments {
     flex-direction: column;
     gap: var(--space-2);
+    counter-reset: fln-pillar; /* numbered badges, one sequence per strip */
   }
 
-  /* Column card -> horizontal row: [label | progress bar] */
+  /* Column card -> two-row card, .dtc__card parity:
+       [ badge | title ]
+       [ 44px segment bar      ]
+     Package DOM order is bar FIRST, nav SECOND, with ::before preceding
+     both -- grid areas place all three regardless of DOM order. */
   .fln__segments.fln__segments .fln__segment-col {
-    flex-direction: row;
+    counter-increment: fln-pillar;
+    display: grid;
+    grid-template-columns: var(--space-6) minmax(0, 1fr);
+    grid-template-areas:
+      'num label'
+      'bar bar';
     align-items: center;
-    gap: var(--space-3);
-    padding: 8px 12px;
-    min-height: 48px;
+    column-gap: var(--space-2);          /* .dtc__card-head mobile gap */
+    row-gap: 10px;                       /* .dtc__card base gap */
+    padding: 14px;                       /* .dtc__card mobile padding */
+    background: var(--surface);
+    border: 1px solid transparent;       /* tinted by --current below */
+    border-radius: var(--radius-lg);     /* .dtc__card mobile radius (16px) */
+    box-shadow: var(--shadow-card);
+    transition:
+      background var(--duration),
+      border-color var(--duration),
+      box-shadow var(--duration-sm),
+      transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1); /* keep hover-sync lift */
   }
 
-  /* Full, readable label at a fixed width so bars align across rows */
-  .fln__segments.fln__segments .fln__segment-nav {
-    flex: 0 0 92px;
-    width: 92px;
+  /* Numbered badge -- mirrors .dtc__card-num with --seg-color as the accent */
+  .fln__segments.fln__segments .fln__segment-col::before {
+    content: counter(fln-pillar, decimal-leading-zero); /* "01".."07" */
+    grid-area: num;
+    width: var(--space-6);
+    height: var(--space-6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-family: var(--font-heading);
     font-size: var(--text-xs);
+    font-weight: 700;
+    background: color-mix(in srgb, var(--seg-color, var(--accent)) 14%, transparent);
+    color: var(--seg-color, var(--accent));
+  }
+
+  /* Pillar label -> .dtc__card-title typography */
+  .fln__segments.fln__segments .fln__segment-nav {
+    grid-area: label;
+    justify-self: start;
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    text-transform: none;
     text-align: left;
     white-space: normal;
-    line-height: 1.2;
     overflow: visible;
     text-overflow: clip;
   }
 
-  /* Bar fills the row and grows tall enough for tappable subsegs
-     (subsegs inherit height -> ~44px tall targets, width = rowWidth / N) */
+  /* Bar spans the card, 44px tall so subsegs inherit tappable height
+     (width = cardWidth / N). var(--bg3) is the .dtc track color -- it shows
+     through the 3px gaps and fills empty pillars (.fln__subseg--empty). */
   .fln__segments.fln__segments .fln__segment-bar {
-    flex: 1 1 auto;
+    grid-area: bar;
+    width: 100%;
     height: 44px;
     gap: 3px;
+    border-radius: 8px;
+    background: var(--bg3);
+  }
+
+  /* -- Modifier re-statements (our card base is (0,3,0) and would otherwise
+        clobber the package's (0,1,0)/(0,2,0) rules) -- */
+
+  /* Current pillar: .dtc status-tint pattern (8% bg + accent border) */
+  .fln__segments.fln__segments .fln__segment-col--current {
+    background: color-mix(in srgb, var(--seg-color, var(--accent)) 8%, var(--surface));
+    border-color: var(--seg-color, var(--accent));
+  }
+
+  /* Hover-sync (JS hover mirror) -> .dtc__card--clickable:hover treatment */
+  .fln__segments.fln__segments .fln__segment-col--hover-sync:not(.fln__segment-col--current) {
+    border-color: color-mix(in srgb, var(--seg-color, var(--accent)) 70%, var(--border));
+    box-shadow: var(--shadow-card-hover);
+  }
+  .fln__segments.fln__segments .fln__segment-col--hover-sync.fln__segment-col--current {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* Current/hovered label picks up the level color (package parity) */
+  .fln__segments.fln__segments .fln__segment-col--current .fln__segment-nav,
+  .fln__segments.fln__segments .fln__segment-col--hover-sync .fln__segment-nav {
+    color: var(--seg-color, var(--accent));
   }
 }
 
-/* Narrow phones: trim the label column so bars keep useful width */
+/* Narrow phones: mirror .dtc__card's <=480 compaction */
 @media (max-width: 479px) {
+  .fln__segments.fln__segments .fln__segment-col {
+    padding: var(--space-3);
+    row-gap: var(--space-2);
+    grid-template-columns: 22px minmax(0, 1fr);
+  }
+  .fln__segments.fln__segments .fln__segment-col::before {
+    width: 22px;
+    height: 22px;
+    border-radius: 5px;
+  }
   .fln__segments.fln__segments .fln__segment-nav {
-    flex-basis: 76px;
-    width: 76px;
+    font-size: var(--text-sm-plus);
+    line-height: 1.25;
+  }
+}
+
+/* Motion safety: our (0,3,0) transition would defeat the package's
+   prefers-reduced-motion rule (0,1,0) -- restate it. */
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+  .fln__segments.fln__segments .fln__segment-col {
+    transition: none;
+    transform: none;
   }
 }
