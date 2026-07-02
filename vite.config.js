@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import process from 'node:process'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -9,6 +10,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 export default defineConfig({
   plugins: [react()],
   base: '/',
+  server: {
+    // Honor the PORT env var so preview harnesses / multi-instance dev can
+    // assign a port. Falls back to Vite's default 5173 for normal `npm run dev`.
+    port: process.env.PORT ? Number(process.env.PORT) : 5173,
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
