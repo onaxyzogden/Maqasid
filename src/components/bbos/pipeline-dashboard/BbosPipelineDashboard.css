@@ -60,6 +60,53 @@
   color: var(--bpd-text-primary);
 }
 
+/* Light theme — follows the global app toggle (data-theme on <html>). Redefines
+   the scoped --bpd-* palette only; every component reads var(--bpd-*) so the whole
+   dashboard re-themes for free. The dark block above stays the default, so dark mode
+   is unchanged and the dashboard still renders if data-theme were ever absent.
+   Elevation order is preserved (bg dimmest → bg4 whitest/inputs); accent/status hues
+   are darkened for text contrast on light surfaces while their *-dim companions flip
+   to pale tints, matching how the data-[...] background rules consume them. */
+[data-theme="light"] .bpd,
+[data-theme="light"] .bpd-modal-overlay {
+  /* backgrounds */
+  --bpd-bg: #ECECF2;
+  --bpd-bg2: #F4F4F8;
+  --bpd-bg3: #FBFBFD;
+  --bpd-bg4: #FFFFFF;
+  /* borders */
+  --bpd-border: #E3E3EB;
+  --bpd-border-mid: #D2D2DE;
+  /* text */
+  --bpd-text-primary: #1C1B2A;
+  --bpd-text-secondary: #5A5870;
+  --bpd-text-tertiary: #9A98AC;
+  /* gold */
+  --bpd-gold: #9E7C1F;
+  --bpd-gold-dim: #F7EFD7;
+  --bpd-gold-mid: #EFE3BF;
+  /* status */
+  --bpd-complete: #2F7D4D;
+  --bpd-complete-dim: #E4F3E8;
+  --bpd-active: #2D72BD;
+  --bpd-active-dim: #E2EEF9;
+  --bpd-avail: #6A5A99;
+  --bpd-avail-dim: #EFEAF7;
+  --bpd-locked: #C7C5D2;
+  --bpd-red: #B23A33;
+  --bpd-red-dim: #FAE6E4;
+  --bpd-teal: #2A8273;
+  --bpd-spirit: #8A6A42;
+  --bpd-spirit-dim: #F6EFE3;
+  /* BBOS layers (Think / Execute / Reckon) */
+  --bpd-think: #9C7A2C;
+  --bpd-think-dim: color-mix(in srgb, #9C7A2C 14%, var(--bpd-bg2));
+  --bpd-execute: #2A8A78;
+  --bpd-execute-dim: color-mix(in srgb, #2A8A78 12%, var(--bpd-bg2));
+  --bpd-reckon: #4F52CC;
+  --bpd-reckon-dim: color-mix(in srgb, #4F52CC 12%, var(--bpd-bg2));
+}
+
 .bpd {
   height: 100%;
   min-height: 0;
@@ -234,10 +281,11 @@
 }
 .bpd-attrcard__dua-ar {
   font-size: 17px; font-family: var(--bpd-font-arabic); color: var(--bpd-gold);
-  text-align: right; margin-bottom: 6px; line-height: 1.8; direction: rtl;
+  text-align: center; margin-bottom: 6px; line-height: 1.8; direction: rtl;
 }
 .bpd-attrcard__dua-tr {
   font-size: 12px; font-family: var(--bpd-font-ui); color: var(--bpd-text-tertiary); font-style: italic;
+  text-align: center;
 }
 
 /* stage gate strip */
@@ -342,6 +390,11 @@
   width: 100%; background: var(--bpd-bg2); border: 1px solid var(--bpd-border-mid);
   border-radius: 16px; overflow: hidden; display: flex; flex-direction: column;
   box-shadow: 0 32px 80px #00000088, 0 0 0 1px color-mix(in srgb, var(--bpd-gold) 13%, transparent);
+}
+/* lighter drop shadow over the light frosted scrim */
+[data-theme="light"] .bpd-modal {
+  box-shadow: 0 24px 60px rgba(20, 20, 40, 0.18),
+              0 0 0 1px color-mix(in srgb, var(--bpd-gold) 18%, transparent);
 }
 .bpd-modal--exec { max-width: 780px; height: 88vh; }
 .bpd-modal--brief { max-width: 860px; height: 85vh; }
@@ -499,6 +552,22 @@
 }
 .bpd-upload__main { font-size: 12px; color: var(--bpd-text-tertiary); font-family: var(--bpd-font-ui); }
 .bpd-upload__sub { font-size: 12px; color: var(--bpd-text-tertiary); font-family: var(--bpd-font-ui); margin-top: 3px; }
+
+/* download row + parse feedback */
+.bpd-dl-row {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+}
+.bpd-dl-btn {
+  padding: 5px 12px; background: transparent;
+  border: 1px solid var(--bpd-border-mid); border-radius: 6px;
+  color: var(--bpd-text-secondary); font-size: 11px; font-family: var(--bpd-font-ui);
+  cursor: pointer; transition: border-color 0.2s, color 0.2s;
+}
+.bpd-dl-btn:hover { border-color: color-mix(in srgb, var(--bpd-gold) 50%, transparent); color: var(--bpd-gold); }
+.bpd-dl-btn__stage { font-family: var(--bpd-font-mono, monospace); font-size: 10px; letter-spacing: 0.05em; }
+.bpd-parse-result { font-size: 11px; font-family: var(--bpd-font-ui); }
+.bpd-parse-result--ok { color: var(--bpd-teal); }
+.bpd-parse-result--err { color: var(--bpd-red); margin-top: 6px; display: block; white-space: pre-wrap; }
 
 /* import stage-pack */
 .bpd-import-trigger {

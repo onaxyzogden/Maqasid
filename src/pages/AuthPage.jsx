@@ -43,12 +43,20 @@ export default function AuthPage() {
             <code style={{ background: 'var(--surface-2)', padding: '0.1em 0.4em', borderRadius: '4px' }}>.env</code>{' '}
             file and restart the dev server.
           </p>
-          <button
-            onClick={() => navigate('/')}
-            style={{ marginTop: '1.5rem', padding: '0.6rem 1.5rem', borderRadius: '8px', border: 'none', background: 'var(--accent)', color: '#fff', cursor: 'pointer' }}
-          >
-            Back to home
-          </button>
+          <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', marginTop: '1.5rem', flexWrap: 'wrap' }}>
+            <button
+              onClick={() => navigate('/')}
+              style={{ padding: '0.6rem 1.5rem', borderRadius: '8px', border: '1px solid var(--border)', background: 'transparent', color: 'var(--text)', cursor: 'pointer' }}
+            >
+              Back to home
+            </button>
+            <button
+              onClick={() => navigate('/get-started')}
+              style={{ padding: '0.6rem 1.5rem', borderRadius: '8px', border: 'none', background: 'var(--accent)', color: '#fff', cursor: 'pointer' }}
+            >
+              Continue without account
+            </button>
+          </div>
         </div>
       </div>
     );

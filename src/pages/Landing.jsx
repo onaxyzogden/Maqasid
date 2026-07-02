@@ -268,7 +268,7 @@ export default function Landing() {
                 </Link>
               ) : (
                 <button className="btn btn-ghost" onClick={() => setShowLogin(true)} style={{ fontSize: '0.9rem' }}>
-                  <LogIn size={16} /> Sign In
+                  <LogIn size={16} /> Enter MIOS
                 </button>
               )}
               <Link to="/get-started" className="btn btn-primary">Get Started</Link>
@@ -282,10 +282,13 @@ export default function Landing() {
         <div className="expense-form-overlay" style={{ zIndex: 300 }}>
           <div className="expense-form-modal" style={{ maxWidth: 400 }}>
             <div className="expense-form-header">
-              <h3>Sign In to MAQASID</h3>
+              <h3>Continue locally</h3>
               <button className="expense-form-close" onClick={() => setShowLogin(false)}><X size={18} /></button>
             </div>
             <div className="expense-form-body">
+              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: 1.5, marginBottom: '1rem', marginTop: '-0.25rem' }}>
+                Your data stays on this device only. To sync across devices, create a free account.
+              </p>
               <div className="expense-form-field">
                 <label>Name *</label>
                 <input value={loginName} onChange={(e) => setLoginName(e.target.value)}
@@ -300,10 +303,16 @@ export default function Landing() {
               </div>
             </div>
             <div className="expense-form-footer">
-              <button className="btn btn-ghost" onClick={() => setShowLogin(false)}>Cancel</button>
+              {isSupabaseConfigured ? (
+                <Link to="/auth?mode=signup" className="btn btn-ghost" onClick={() => setShowLogin(false)}>
+                  Create account
+                </Link>
+              ) : (
+                <button className="btn btn-ghost" onClick={() => setShowLogin(false)}>Cancel</button>
+              )}
               <button className="btn btn-primary" onClick={handleLogin} disabled={!loginName.trim()}
                 style={{ opacity: loginName.trim() ? 1 : 0.4 }}>
-                Sign In <ArrowRight size={14} />
+                Continue <ArrowRight size={14} />
               </button>
             </div>
           </div>

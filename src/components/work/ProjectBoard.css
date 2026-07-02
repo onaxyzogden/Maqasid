@@ -16,6 +16,13 @@
   flex-direction: column;
 }
 
+/* When the layer hosts the redesigned BBOS dashboard, cap it to the grid
+   track (grid items default to min-height:auto and would otherwise grow to
+   content height) so .bpd's columns scroll internally instead of clipping. */
+.pb-content__layer:has(.bpd) {
+  min-height: 0;
+}
+
 .pb-content__layer--in  { animation: pbFadeIn  300ms var(--ease) both; }
 .pb-content__layer--out { animation: pbFadeOut 300ms var(--ease) both; pointer-events: none; }
 
