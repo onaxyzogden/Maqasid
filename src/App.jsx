@@ -2,99 +2,128 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthStore } from '@store/auth-store';
 import Landing from '@pages/Landing';
-import Onboarding from '@pages/Onboarding';
-import AppShell from '@components/layout/AppShell';
-import Dashboard from '@pages/Dashboard';
 import RouteSpinner from '@components/shared/RouteSpinner';
 import ChunkErrorBoundary from '@components/shared/ChunkErrorBoundary';
-// Phase 3 — Work module subtree is lazy: pulls in @dnd-kit + react-markdown
-// + remark-gfm only when a user opens a Work/Project route.
+
+// ─── Route pages — all lazy so each ships its own chunk and stays out of the
+// initial bundle (previously a single ~1.75 MB entry chunk eagerly importing
+// ~60 pages). Only Landing above stays eager, for an instant spinner-free '/'.
+// The top-level <Suspense> renders <RouteSpinner /> while a route chunk loads;
+// <ChunkErrorBoundary> catches chunk-load failures.
+
+// AppShell is lazy so Landing '/' never pays for the shell tree (sidebar,
+// topbar, Islamic panel, prayer overlays). It hosts its own <Suspense>
+// around <Outlet/>, so inner-route chunk loads never unmount the chrome.
+const AppShell = lazy(() => import('@components/layout/AppShell'));
+
+const Onboarding = lazy(() => import('@pages/Onboarding'));
+const Dashboard = lazy(() => import('@pages/Dashboard'));
+
+// Modules — Work/Project pull in @dnd-kit + react-markdown + remark-gfm.
 const Work = lazy(() => import('@pages/modules/Work'));
 const Project = lazy(() => import('@pages/modules/Project'));
-import Money from '@pages/modules/Money';
-import People from '@pages/modules/People';
-import Office from '@pages/modules/Office';
-import Tech from '@pages/modules/Tech';
-import FamilyPage from '@pages/ummah/FamilyPage';
-import Neighbors from '@pages/ummah/Neighbors';
-import Community from '@pages/ummah/Community';
-// Phase 2 — /app/sources route is lazy; reuses the SubtaskSources chunk from
-// Phase 1 so hadith.js + quran-wbw.js stay out of the main bundle.
+const Money = lazy(() => import('@pages/modules/Money'));
+const People = lazy(() => import('@pages/modules/People'));
+const Office = lazy(() => import('@pages/modules/Office'));
+const Tech = lazy(() => import('@pages/modules/Tech'));
+const FamilyPage = lazy(() => import('@pages/ummah/FamilyPage'));
+const Neighbors = lazy(() => import('@pages/ummah/Neighbors'));
+const Community = lazy(() => import('@pages/ummah/Community'));
+
+// /app/sources reuses the SubtaskSources chunk so hadith.js + quran-wbw.js
+// stay out of the main bundle.
 const SourcesPage = lazy(() => import('@pages/islamic/SourcesPage'));
-import FaithCorePage from '@pages/faith/FaithCorePage';
-import FaithGrowthPage from '@pages/faith/FaithGrowthPage';
-import FaithExcellencePage from '@pages/faith/FaithExcellencePage';
-import HealthCorePage from '@pages/health/HealthCorePage';
-import HealthGrowthPage from '@pages/health/HealthGrowthPage';
-import HealthExcellencePage from '@pages/health/HealthExcellencePage';
-import IntellectCorePage from '@pages/intellect/IntellectCorePage';
-import IntellectGrowthPage from '@pages/intellect/IntellectGrowthPage';
-import IntellectExcellencePage from '@pages/intellect/IntellectExcellencePage';
-import FamilyCorePage from '@pages/family/FamilyCorePage';
-import FamilyGrowthPage from '@pages/family/FamilyGrowthPage';
-import FamilyExcellencePage from '@pages/family/FamilyExcellencePage';
-import EnvironmentCorePage from '@pages/environment/EnvironmentCorePage';
-import EnvironmentGrowthPage from '@pages/environment/EnvironmentGrowthPage';
-import EnvironmentExcellencePage from '@pages/environment/EnvironmentExcellencePage';
-import FaithShahadaPage from '@pages/faith/FaithShahadaPage';
-import FaithSalahPage from '@pages/faith/FaithSalahPage';
-import FaithZakahPage from '@pages/faith/FaithZakahPage';
-import FaithSiyamPage from '@pages/faith/FaithSiyamPage';
-import FaithHajjPage from '@pages/faith/FaithHajjPage';
-import HealthPhysicalPage from '@pages/health/HealthPhysicalPage';
-import HealthMentalPage from '@pages/health/HealthMentalPage';
-import HealthSafetyPage from '@pages/health/HealthSafetyPage';
-import HealthSocialPage from '@pages/health/HealthSocialPage';
-import IntellectLearningPage from '@pages/intellect/IntellectLearningPage';
-import IntellectThinkingPage from '@pages/intellect/IntellectThinkingPage';
-import IntellectCognitivePage from '@pages/intellect/IntellectCognitivePage';
-import IntellectProfessionalPage from '@pages/intellect/IntellectProfessionalPage';
-import FamilyMarriagePage from '@pages/family/FamilyMarriagePage';
-import FamilyParentingPage from '@pages/family/FamilyParentingPage';
-import FamilyKinshipPage from '@pages/family/FamilyKinshipPage';
-import FamilyHomePage from '@pages/family/FamilyHomePage';
-import WealthCorePage from '@pages/wealth/WealthCorePage';
-import WealthGrowthPage from '@pages/wealth/WealthGrowthPage';
-import WealthExcellencePage from '@pages/wealth/WealthExcellencePage';
-import WealthEarningPage from '@pages/wealth/WealthEarningPage';
-import WealthFinancialPage from '@pages/wealth/WealthFinancialPage';
-import WealthOwnershipPage from '@pages/wealth/WealthOwnershipPage';
-import WealthCirculationPage from '@pages/wealth/WealthCirculationPage';
-import EnvironmentResourcePage from '@pages/environment/EnvironmentResourcePage';
-import EnvironmentWastePage from '@pages/environment/EnvironmentWastePage';
-import EnvironmentEcosystemPage from '@pages/environment/EnvironmentEcosystemPage';
-import EnvironmentSourcingPage from '@pages/environment/EnvironmentSourcingPage';
-import CollectivePage from '@pages/ummah/CollectivePage';
+
+// Pillar Core / Growth / Excellence pages
+const FaithCorePage = lazy(() => import('@pages/faith/FaithCorePage'));
+const FaithGrowthPage = lazy(() => import('@pages/faith/FaithGrowthPage'));
+const FaithExcellencePage = lazy(() => import('@pages/faith/FaithExcellencePage'));
+const HealthCorePage = lazy(() => import('@pages/health/HealthCorePage'));
+const HealthGrowthPage = lazy(() => import('@pages/health/HealthGrowthPage'));
+const HealthExcellencePage = lazy(() => import('@pages/health/HealthExcellencePage'));
+const IntellectCorePage = lazy(() => import('@pages/intellect/IntellectCorePage'));
+const IntellectGrowthPage = lazy(() => import('@pages/intellect/IntellectGrowthPage'));
+const IntellectExcellencePage = lazy(() => import('@pages/intellect/IntellectExcellencePage'));
+const FamilyCorePage = lazy(() => import('@pages/family/FamilyCorePage'));
+const FamilyGrowthPage = lazy(() => import('@pages/family/FamilyGrowthPage'));
+const FamilyExcellencePage = lazy(() => import('@pages/family/FamilyExcellencePage'));
+const EnvironmentCorePage = lazy(() => import('@pages/environment/EnvironmentCorePage'));
+const EnvironmentGrowthPage = lazy(() => import('@pages/environment/EnvironmentGrowthPage'));
+const EnvironmentExcellencePage = lazy(() => import('@pages/environment/EnvironmentExcellencePage'));
+
+// Faith sub-pillars
+const FaithShahadaPage = lazy(() => import('@pages/faith/FaithShahadaPage'));
+const FaithSalahPage = lazy(() => import('@pages/faith/FaithSalahPage'));
+const FaithZakahPage = lazy(() => import('@pages/faith/FaithZakahPage'));
+const FaithSiyamPage = lazy(() => import('@pages/faith/FaithSiyamPage'));
+const FaithHajjPage = lazy(() => import('@pages/faith/FaithHajjPage'));
+
+// Health sub-pages
+const HealthPhysicalPage = lazy(() => import('@pages/health/HealthPhysicalPage'));
+const HealthMentalPage = lazy(() => import('@pages/health/HealthMentalPage'));
+const HealthSafetyPage = lazy(() => import('@pages/health/HealthSafetyPage'));
+const HealthSocialPage = lazy(() => import('@pages/health/HealthSocialPage'));
+
+// Intellect sub-pages
+const IntellectLearningPage = lazy(() => import('@pages/intellect/IntellectLearningPage'));
+const IntellectThinkingPage = lazy(() => import('@pages/intellect/IntellectThinkingPage'));
+const IntellectCognitivePage = lazy(() => import('@pages/intellect/IntellectCognitivePage'));
+const IntellectProfessionalPage = lazy(() => import('@pages/intellect/IntellectProfessionalPage'));
+
+// Family sub-pages
+const FamilyMarriagePage = lazy(() => import('@pages/family/FamilyMarriagePage'));
+const FamilyParentingPage = lazy(() => import('@pages/family/FamilyParentingPage'));
+const FamilyKinshipPage = lazy(() => import('@pages/family/FamilyKinshipPage'));
+const FamilyHomePage = lazy(() => import('@pages/family/FamilyHomePage'));
+
+// Wealth pages
+const WealthCorePage = lazy(() => import('@pages/wealth/WealthCorePage'));
+const WealthGrowthPage = lazy(() => import('@pages/wealth/WealthGrowthPage'));
+const WealthExcellencePage = lazy(() => import('@pages/wealth/WealthExcellencePage'));
+const WealthEarningPage = lazy(() => import('@pages/wealth/WealthEarningPage'));
+const WealthFinancialPage = lazy(() => import('@pages/wealth/WealthFinancialPage'));
+const WealthOwnershipPage = lazy(() => import('@pages/wealth/WealthOwnershipPage'));
+const WealthCirculationPage = lazy(() => import('@pages/wealth/WealthCirculationPage'));
+
+// Environment sub-pages
+const EnvironmentResourcePage = lazy(() => import('@pages/environment/EnvironmentResourcePage'));
+const EnvironmentWastePage = lazy(() => import('@pages/environment/EnvironmentWastePage'));
+const EnvironmentEcosystemPage = lazy(() => import('@pages/environment/EnvironmentEcosystemPage'));
+const EnvironmentSourcingPage = lazy(() => import('@pages/environment/EnvironmentSourcingPage'));
+
+const CollectivePage = lazy(() => import('@pages/ummah/CollectivePage'));
+
 // Moontrance Land/Seasonal/Residency pull in heavy LevelNavigator data.
-// Lazy-load so the chunk only ships when those routes are visited.
 const MoontraceLandPage = lazy(() => import('@pages/ummah/MoontraceLandPage'));
 const MoontranceSeasonalPage = lazy(() => import('@pages/ummah/MoontranceSeasonalPage'));
 const MoontranceResidencyPage = lazy(() => import('@pages/ummah/MoontranceResidencyPage'));
-import OgdenFoundationPage from '@pages/ogden/OgdenFoundationPage';
-import OgdenIntegrationPage from '@pages/ogden/OgdenIntegrationPage';
-import OgdenRealizationPage from '@pages/ogden/OgdenRealizationPage';
-import OgdenBbosPage from '@pages/ogden/OgdenBbosPage';
-import OgdenMilosPage from '@pages/ogden/OgdenMilosPage';
-import OgdenAtlasPage from '@pages/ogden/OgdenAtlasPage';
-import OgdenPresentationPage from '@pages/ogden/OgdenPresentationPage';
-import PillarDashboard from '@pages/PillarDashboard';
-import FaithDashboard from '@pages/faith/FaithDashboard';
-import HealthDashboard from '@pages/health/HealthDashboard';
-import IntellectDashboard from '@pages/intellect/IntellectDashboard';
-import FamilyDashboard from '@pages/family/FamilyDashboard';
-import EnvironmentDashboard from '@pages/environment/EnvironmentDashboard';
-import UmmahDashboard from '@pages/ummah/UmmahDashboard';
-import MoontraceDashboard from '@pages/moontrance/MoontraceDashboard';
-import Settings from '@pages/Settings';
-import AccountPage from '@pages/AccountPage';
-import AuthPage from '@pages/AuthPage';
-import ModulePlaceholder from '@pages/ModulePlaceholder';
-import PropheticPathPage from '@pages/PropheticPathPage';
-import CeremonyGuard from '@components/islamic/CeremonyGuard';
-import CeremonyGuardDynamic from '@components/islamic/CeremonyGuardDynamic';
-import ProjectBoard from '@components/work/ProjectBoard';
-import AssetsTab from '@components/money/AssetsTab';
-import ProjectJournal from '@components/journal/ProjectJournal';
+
+// Ogden layer
+const OgdenFoundationPage = lazy(() => import('@pages/ogden/OgdenFoundationPage'));
+const OgdenIntegrationPage = lazy(() => import('@pages/ogden/OgdenIntegrationPage'));
+const OgdenRealizationPage = lazy(() => import('@pages/ogden/OgdenRealizationPage'));
+const OgdenBbosPage = lazy(() => import('@pages/ogden/OgdenBbosPage'));
+const OgdenMilosPage = lazy(() => import('@pages/ogden/OgdenMilosPage'));
+const OgdenAtlasPage = lazy(() => import('@pages/ogden/OgdenAtlasPage'));
+const OgdenPresentationPage = lazy(() => import('@pages/ogden/OgdenPresentationPage'));
+
+// Dashboards
+const PillarDashboard = lazy(() => import('@pages/PillarDashboard'));
+const UmmahDashboard = lazy(() => import('@pages/ummah/UmmahDashboard'));
+const MoontraceDashboard = lazy(() => import('@pages/moontrance/MoontraceDashboard'));
+
+const Settings = lazy(() => import('@pages/Settings'));
+const AccountPage = lazy(() => import('@pages/AccountPage'));
+const AuthPage = lazy(() => import('@pages/AuthPage'));
+const ModulePlaceholder = lazy(() => import('@pages/ModulePlaceholder'));
+const PropheticPathPage = lazy(() => import('@pages/PropheticPathPage'));
+// Route-element wrappers + heavy work components — lazy so they leave the
+// entry graph (ProjectBoard alone drags @dnd-kit; guards drag CeremonyGate).
+const CeremonyGuard = lazy(() => import('@components/islamic/CeremonyGuard'));
+const CeremonyGuardDynamic = lazy(() => import('@components/islamic/CeremonyGuardDynamic'));
+const ProjectBoard = lazy(() => import('@components/work/ProjectBoard'));
+const AssetsTab = lazy(() => import('@components/money/AssetsTab'));
+const ProjectJournal = lazy(() => import('@components/journal/ProjectJournal'));
 import { useParams } from 'react-router-dom';
 import { useProjectStore } from '@store/project-store';
 import { useTaskStore } from '@store/task-store';

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { isSupabaseConfigured } from '../services/supabase';
 import { ChevronDown, ArrowRight, Star, LogIn, X, Moon, Check, BookOpen, Shield, Sparkles } from 'lucide-react';
@@ -223,6 +223,23 @@ export default function Landing() {
   const [showLogin, setShowLogin] = useState(false);
   const [loginName, setLoginName] = useState('');
   const [loginEmail, setLoginEmail] = useState('');
+
+  // Warm the authenticated-shell chunks during idle so the first /app
+  // navigation doesn't pay a cold fetch. import() is deduped against the
+  // module graph — resolves to the same chunks App.jsx's lazy() requests.
+  useEffect(() => {
+    const preload = () => {
+      import('../components/layout/AppShell');
+      import('./Dashboard');                         // /app index route
+      import('../components/islamic/CeremonyGuard'); // wraps most inner routes
+    };
+    if ('requestIdleCallback' in window) {
+      const id = window.requestIdleCallback(preload, { timeout: 3000 });
+      return () => window.cancelIdleCallback(id);
+    }
+    const t = setTimeout(preload, 1500); // Safari has no requestIdleCallback
+    return () => clearTimeout(t);
+  }, []);
 
   const handleLogin = () => {
     if (!loginName.trim()) return;
