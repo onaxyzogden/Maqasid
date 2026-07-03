@@ -9,6 +9,14 @@ superseded_by: null
 
 # MILOS — LevelNavigator pillar segments become stacked rows on mobile
 
+> [!note] Amended 2026-07-02
+> The mobile row's **internal geometry** described below (horizontal `[label | bar]` row with a
+> 92 px / 76 px label column) was restyled the next day into a two-row DashboardTaskCard-style
+> card (numbered accent badge + bold title over a full-width 44 px bar) — see
+> [[2026-07-02-milos-levelnav-dtc-card-rows]]. Everything else here remains in force: the global
+> doubled-class anchor, the app-wide scope, the 767 px / 479 px breakpoints, the 44 px tap-target
+> requirement, and the CSS-only / no-fork approach.
+
 ## Context
 
 The `LevelNavigator` pillar segment strip (the FAITH / HEALTH / INTELLECT / FAMILY /
