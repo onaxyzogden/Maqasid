@@ -102,6 +102,8 @@ Commit `b8d27e6` on `perf/route-lazy-splitting` (atop the route split `5001b47`)
 [#18](https://github.com/onaxyzogden/Maqasid/pull/18) to `main`. Files: `src/App.jsx`,
 `src/components/layout/AppShell.jsx`, `src/pages/Landing.jsx`.
 
+**Merged to `main` 2026-07-02** via PR #18 (merge commit `73424af`); feature branch pruned, `origin/main` fast-forwarded to `cd1997f`.
+
 ## Connections
 
 - [[2026-07-02-milos-route-lazy-splitting]] — same-day predecessor; this executes its top deferred

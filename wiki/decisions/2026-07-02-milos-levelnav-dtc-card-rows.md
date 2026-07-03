@@ -104,6 +104,8 @@ Commit `d3941c3` on `feat/levelnav-mobile-dtc-cards` cut from `origin/main`, PR
 [#19](https://github.com/onaxyzogden/Maqasid/pull/19) to `main`. Single file:
 `src/styles/level-navigator-responsive.css`.
 
+**Merged to `main` 2026-07-02** via PR #19 (merge commit `cd1997f`, now the tip of `origin/main`); feature branch pruned.
+
 ## Connections
 
 - [[2026-07-01-milos-levelnavigator-mobile-stacked-rows]] — the decision this **amends**: row

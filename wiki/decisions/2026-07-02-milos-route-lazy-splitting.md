@@ -62,6 +62,8 @@ All lazy routes render under the **single pre-existing** top-level `<ChunkErrorB
 
 Committed 2026-07-02 per the standing branch strategy (code off `main`, wiki on current branch): code (`src/App.jsx`, `vite.config.js`, `.claude/launch.json`) on `perf/route-lazy-splitting` cut from `origin/main`, PR to `main`; this wiki entry on `docs/preserve-olos-ecovillage-stage-drafts`. The lazy-AppShell follow-up (see Alternatives) ships on the same perf branch.
 
+**Merged to `main` 2026-07-02:** code shipped via PR [#18](https://github.com/onaxyzogden/Maqasid/pull/18) — the route split `5001b47` plus the lazy-AppShell follow-up `b8d27e6`, merge commit `73424af`; this wiki entry via PR [#17](https://github.com/onaxyzogden/Maqasid/pull/17), merge commit `35467f2`. Both feature branches pruned (local + origin); `origin/main` fast-forwarded to `cd1997f` (the PR #19 merge).
+
 ## Connections
 
 - [[milos]] — the app whose entry cold-load this reduces
