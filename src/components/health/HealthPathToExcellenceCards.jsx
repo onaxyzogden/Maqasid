@@ -1,4 +1,5 @@
 import { Sparkles, HandHeart, BookOpen } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import '@components/faith/PathToExcellenceCards.css';
 
 const CARDS = [
@@ -8,6 +9,7 @@ const CARDS = [
     title: 'Foundation: Physical & Mental Baseline',
     body: 'Daily movement, rest, and dua for wellbeing — care for the body and mind as trusts from Allah.',
     cta: 'Schedule & Track',
+    route: '/app/health-physical',
   },
   {
     id: 'obligation',
@@ -15,6 +17,7 @@ const CARDS = [
     title: 'Obligation: Safety & Responsibility',
     body: 'Protect self, family, and community from harm — the preservation of life is a core maqsad.',
     cta: 'Plan Safeguards',
+    route: '/app/health-safety',
   },
   {
     id: 'aspiration',
@@ -22,22 +25,31 @@ const CARDS = [
     title: 'Aspiration: Social Character Excellence',
     body: 'Refined akhlaq with neighbors, strangers, and companions — beautify the character you leave behind.',
     cta: 'Grow Character',
+    route: '/app/health-social',
   },
 ];
 
 export default function HealthPathToExcellenceCards() {
+  const navigate = useNavigate();
+
   return (
     <div className="pte-card">
       <h2 className="pte-title">Path to Excellence: Closing the Gap</h2>
       <div className="pte-grid">
-        {CARDS.map(({ id, Icon, title, body, cta }) => (
+        {CARDS.map(({ id, Icon, title, body, cta, route }) => (
           <div key={id} className="pte-item">
             <div className="pte-item-head">
               <Icon size={20} className="pte-icon" />
               <h3 className="pte-item-title">{title}</h3>
             </div>
             <p className="pte-body">{body}</p>
-            <button type="button" className="pte-cta">{cta}</button>
+            <button
+              type="button"
+              className="pte-cta"
+              onClick={() => navigate(route, { viewTransition: true })}
+            >
+              {cta}
+            </button>
           </div>
         ))}
       </div>
