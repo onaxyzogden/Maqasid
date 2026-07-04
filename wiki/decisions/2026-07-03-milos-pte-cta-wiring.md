@@ -76,7 +76,7 @@ No CTA-label copy changes, no CSS, no shared-component / router / constants edit
 | **Wealth** | Foundation "Halal Earning" → *Audit Income* | `/app/wealth-earning` |
 | | Obligation "Zakah & Rights" → *Give Rights* | `/app/wealth-ownership` |
 | | Aspiration "Circulation & Sadaqah Jariyah" → *Plan Waqf* | `/app/wealth-circulation` |
-| **Environment** | Foundation "Resource Stewardship" → *Reduce Waste* | `/app/env-resource` ⚠️ |
+| **Environment** | Foundation "Resource Stewardship" → *Reduce Waste* | `/app/env-resource` ✅ *(confirmed 2026-07-04)* |
 | | Obligation "Ethical Sourcing" → *Audit Sources* | `/app/env-sourcing` |
 | | Aspiration "Ecosystem Khalifa" → *Plant & Protect* | `/app/env-ecosystem` |
 | **Ummah** | Foundation "Collective Stewardship" → *Join & Serve* | `/app/collective` |
@@ -118,10 +118,20 @@ No CTA-label copy changes, no CSS, no shared-component / router / constants edit
 - **All 8 pillar modules' Path-to-Excellence CTAs now navigate consistently** to their
   sub-pillar boards; the "inert stub" gap is closed. Faith is the template and is now
   behaviourally identical to its siblings.
-- ⚠️ **Environment / Foundation is a judgment call** — the card *title* is "Resource
-  Stewardship" (→ `env-resource`) but its *CTA verb* reads "Reduce Waste" (→ `env-waste`, also a
-  registered route). Chose `env-resource` (title-primary). **Flag raised for the user to confirm;
-  flip to `/app/env-waste` if the CTA verb should win.**
+- ✅ **Environment / Foundation — resolved 2026-07-04: `env-resource` confirmed, not flipped.**
+  Originally flagged as a judgment call (title "Resource Stewardship" → `env-resource` vs CTA verb
+  "Reduce Waste" → `env-waste`, both registered routes). Reading the two boards' own definitions in
+  [modules.js](src/data/modules.js) settled it decisively for `env-resource`: it is
+  *"Resource Consumption (Water & Energy) — Anti-Extravagance, Efficiency, Renewable Independence"*,
+  whereas `env-waste` is *"Waste & Pollution Management — Harm Reduction, Conscious Consumption,
+  Zero-Waste"*. The card matches `env-resource` on **three axes** — title ("Resource Stewardship" ≈
+  "Resource Consumption"), body ("water… energy… **Conservation**" = "(Water & Energy) —
+  Anti-Extravagance, Efficiency"), and the *"even by a flowing river"* hadith (the classic *israf* /
+  anti-extravagance proof — conservation of a resource, not refuse disposal). `env-waste` matched on
+  **one** axis only: the surface word "Waste" in the CTA — a false friend, because "Do not **waste**
+  water…" uses *waste* as the **verb** *squander* (israf → conservation → `env-resource`), not the
+  **noun** *refuse/pollution* (→ `env-waste`, which is garbage / zero-waste / pollution management).
+  No code change — the shipped route literal on [EnvironmentPathToExcellenceCards.jsx](src/components/environment/EnvironmentPathToExcellenceCards.jsx) is already correct.
 - **Route-shape variety handled:** traditional `-core`-family boards (`/app/health-physical`
   etc.), Environment's `/app/env-*` prefix (not `environment-*`), Ummah's **top-level** routes
   (`/app/collective`, `/app/neighbors`, `/app/community` — not `/app/ummah-*`), and Moontrance's
