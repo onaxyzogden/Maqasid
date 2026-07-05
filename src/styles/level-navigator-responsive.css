@@ -74,6 +74,62 @@
     color: var(--seg-color, var(--accent));
   }
 
+  /* Seven Maqasid pillar strip (dashboard MaqasidLevelOverview): swap the
+     ordinal 01-07 badge for each pillar's canonical glyph, matching the
+     sidebar/PillarCard treatment. Keyed on the package's data-pillar-id so it
+     lands ONLY on the seven top-level pillar ids -- sub-pillar / prayer / BBOS
+     strips carry other ids and keep their number. Glyphs are the lucide-react
+     v1.8.0 icons named in src/data/maqasid.js (icon:) -- SOURCE OF TRUTH: if a
+     pillar's icon changes there, regenerate via
+     scratchpad/gen-pillar-icons-css.mjs. Tinted with --seg-color (the level
+     color) through the mask, mirroring the badge accent; no chip, so it reads
+     as a bare glyph like the sidebar. */
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="faith"]::before,
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="health"]::before,
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="intellect"]::before,
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="family"]::before,
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="wealth"]::before,
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="environment"]::before,
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="ummah"]::before {
+    content: "";
+    background: var(--seg-color, var(--accent));
+    -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+            mask-position: center;
+    -webkit-mask-size: 76%;
+            mask-size: 76%;
+  }
+
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="faith"]::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z'/%3E%3C/svg%3E");
+  }
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="health"]::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5'/%3E%3Cpath d='M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5'/%3E%3Cpath d='M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27'/%3E%3C/svg%3E");
+  }
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="intellect"]::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 18V5'/%3E%3Cpath d='M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4'/%3E%3Cpath d='M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5'/%3E%3Cpath d='M17.997 5.125a4 4 0 0 1 2.526 5.77'/%3E%3Cpath d='M18 18a4 4 0 0 0 2-7.464'/%3E%3Cpath d='M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517'/%3E%3Cpath d='M6 18a4 4 0 0 1-2-7.464'/%3E%3Cpath d='M6.003 5.125a4 4 0 0 0-2.526 5.77'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 18V5'/%3E%3Cpath d='M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4'/%3E%3Cpath d='M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5'/%3E%3Cpath d='M17.997 5.125a4 4 0 0 1 2.526 5.77'/%3E%3Cpath d='M18 18a4 4 0 0 0 2-7.464'/%3E%3Cpath d='M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517'/%3E%3Cpath d='M6 18a4 4 0 0 1-2-7.464'/%3E%3Cpath d='M6.003 5.125a4 4 0 0 0-2.526 5.77'/%3E%3C/svg%3E");
+  }
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="family"]::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/%3E%3Cpath d='M16 3.128a4 4 0 0 1 0 7.744'/%3E%3Cpath d='M22 21v-2a4 4 0 0 0-3-3.87'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/%3E%3Cpath d='M16 3.128a4 4 0 0 1 0 7.744'/%3E%3Cpath d='M22 21v-2a4 4 0 0 0-3-3.87'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3C/svg%3E");
+  }
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="wealth"]::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 20a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z'/%3E%3Cpath d='M10 2v2'/%3E%3Cpath d='M14 2v2'/%3E%3Cpath d='m17 18-1-9'/%3E%3Cpath d='M6 2v5a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2'/%3E%3Cpath d='M6 4h12'/%3E%3Cpath d='m7 18 1-9'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 20a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z'/%3E%3Cpath d='M10 2v2'/%3E%3Cpath d='M14 2v2'/%3E%3Cpath d='m17 18-1-9'/%3E%3Cpath d='M6 2v5a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2'/%3E%3Cpath d='M6 4h12'/%3E%3Cpath d='m7 18 1-9'/%3E%3C/svg%3E");
+  }
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="environment"]::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z'/%3E%3Cpath d='M12 22v-3'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z'/%3E%3Cpath d='M12 22v-3'/%3E%3C/svg%3E");
+  }
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="ummah"]::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z'/%3E%3Crect x='3' y='14' width='7' height='7' rx='1'/%3E%3Ccircle cx='17.5' cy='17.5' r='3.5'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z'/%3E%3Crect x='3' y='14' width='7' height='7' rx='1'/%3E%3Ccircle cx='17.5' cy='17.5' r='3.5'/%3E%3C/svg%3E");
+  }
+
   /* Pillar label -> .dtc__card-title typography */
   .fln__segments.fln__segments .fln__segment-nav {
     grid-area: label;
@@ -151,5 +207,119 @@
   .fln__segments.fln__segments .fln__segment-col {
     transition: none;
     transform: none;
+  }
+}
+
+/* ============================================================================
+   Desktop pillar strip (>=768px): canonical glyph GROUPED WITH the label
+   ----------------------------------------------------------------------------
+   The package renders the desktop strip label-only: each .fln__segment-col is a
+   centered flex column of [14px .fln__segment-bar] over [.fln__segment-nav
+   button, 10px uppercase label]. The mobile block above (max-width:767px) swaps
+   the 01-07 badge for each pillar's glyph; this extends that treatment to the
+   desktop strip -- placing the glyph and the name together as one identity
+   block below the bar, matching the PillarCard / Sidebar house style
+   (Option B).
+
+   Mechanic: a ::before on .fln__segment-col can only render first (above the
+   bar) or last (below the label) -- it cannot sit BETWEEN the two. To GROUP the
+   glyph with the name, the glyph is placed on the label button
+   (.fln__segment-nav::before) and the button is set to a centered column, so
+   the icon stacks directly above its text. Keyed on the seven dashboard
+   data-pillar-ids so it lands ONLY on the top-level pillar strip -- sub-pillar /
+   prayer / BBOS strips carry other ids and stay label-only, as today.
+
+   Glyphs are the same lucide-react v1.8.0 icons as the mobile block, tinted
+   with --seg-color (the level color) through the mask. SOURCE OF TRUTH:
+   src/data/maqasid.js (icon:) -- if a pillar's icon changes there, update BOTH
+   the mobile block above AND this block (the one-time generator named in the
+   icon ADR was never committed; the URIs live in this file).
+
+   Specificity: .fln__segments.fln__segments .fln__segment-col[data-pillar-id]
+   .fln__segment-nav is (0,5,0), beating the package's (0,1,0) .fln__segment-nav
+   base; the ::before is (0,5,1). ========================================== */
+@media (min-width: 768px) {
+  /* Label button -> block box so the glyph (a centered ::before block) stacks
+     directly above the name, the two reading as one grouped identity block
+     (glyph + 4px gap + label; the package's 5px col gap separates that block
+     from the bar above).
+
+     white-space:nowrap + text-overflow:ellipsis is deliberate, and the reason
+     is the package layout: the strip (.fln__segments) is content-sized -- its
+     flex:2.8 grandparent .fln__center is pushed only as wide as the labels'
+     min-content. Keeping each label on one unbreakable line holds that
+     min-content high, so .fln__center stays wide and the strip stays at its
+     full width; the two longest names (Environment, Community) ellipsize
+     ("Environ...") instead of collapsing the whole strip. Any wrap/break rule
+     here (overflow-wrap:anywhere OR align-items:stretch + break-word) does the
+     opposite: it lowers min-content until .fln__center falls back to its narrow
+     flex-grow share (~318px) and the strip caves to a ~252px sliver with
+     labels shredded character-by-character. True multi-line wrapping would need
+     a fixed strip width (package-layout surgery) -- deferred, not done here. */
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="faith"] .fln__segment-nav,
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="health"] .fln__segment-nav,
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="intellect"] .fln__segment-nav,
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="family"] .fln__segment-nav,
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="wealth"] .fln__segment-nav,
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="environment"] .fln__segment-nav,
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="ummah"] .fln__segment-nav {
+    display: block;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Grouped glyph: a bare seg-tinted lucide icon, ~18px (PillarCard size={18}),
+     clipped from the --seg-color fill by the icon mask -- same technique and
+     icons as the mobile badge swap. */
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="faith"] .fln__segment-nav::before,
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="health"] .fln__segment-nav::before,
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="intellect"] .fln__segment-nav::before,
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="family"] .fln__segment-nav::before,
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="wealth"] .fln__segment-nav::before,
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="environment"] .fln__segment-nav::before,
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="ummah"] .fln__segment-nav::before {
+    content: "";
+    display: block;
+    margin: 0 auto 4px;   /* center the 18px glyph as a block; 4px gap to the label below */
+    width: 18px;
+    height: 18px;
+    background: var(--seg-color, var(--accent));
+    -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+            mask-position: center;
+    -webkit-mask-size: 100% 100%;   /* square 24-viewBox glyphs -> exact 18px, no intrinsic-size dependency */
+            mask-size: 100% 100%;
+  }
+
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="faith"] .fln__segment-nav::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z'/%3E%3C/svg%3E");
+  }
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="health"] .fln__segment-nav::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5'/%3E%3Cpath d='M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5'/%3E%3Cpath d='M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27'/%3E%3C/svg%3E");
+  }
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="intellect"] .fln__segment-nav::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 18V5'/%3E%3Cpath d='M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4'/%3E%3Cpath d='M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5'/%3E%3Cpath d='M17.997 5.125a4 4 0 0 1 2.526 5.77'/%3E%3Cpath d='M18 18a4 4 0 0 0 2-7.464'/%3E%3Cpath d='M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517'/%3E%3Cpath d='M6 18a4 4 0 0 1-2-7.464'/%3E%3Cpath d='M6.003 5.125a4 4 0 0 0-2.526 5.77'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 18V5'/%3E%3Cpath d='M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4'/%3E%3Cpath d='M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5'/%3E%3Cpath d='M17.997 5.125a4 4 0 0 1 2.526 5.77'/%3E%3Cpath d='M18 18a4 4 0 0 0 2-7.464'/%3E%3Cpath d='M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517'/%3E%3Cpath d='M6 18a4 4 0 0 1-2-7.464'/%3E%3Cpath d='M6.003 5.125a4 4 0 0 0-2.526 5.77'/%3E%3C/svg%3E");
+  }
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="family"] .fln__segment-nav::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/%3E%3Cpath d='M16 3.128a4 4 0 0 1 0 7.744'/%3E%3Cpath d='M22 21v-2a4 4 0 0 0-3-3.87'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/%3E%3Cpath d='M16 3.128a4 4 0 0 1 0 7.744'/%3E%3Cpath d='M22 21v-2a4 4 0 0 0-3-3.87'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3C/svg%3E");
+  }
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="wealth"] .fln__segment-nav::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 20a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z'/%3E%3Cpath d='M10 2v2'/%3E%3Cpath d='M14 2v2'/%3E%3Cpath d='m17 18-1-9'/%3E%3Cpath d='M6 2v5a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2'/%3E%3Cpath d='M6 4h12'/%3E%3Cpath d='m7 18 1-9'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 20a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z'/%3E%3Cpath d='M10 2v2'/%3E%3Cpath d='M14 2v2'/%3E%3Cpath d='m17 18-1-9'/%3E%3Cpath d='M6 2v5a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2'/%3E%3Cpath d='M6 4h12'/%3E%3Cpath d='m7 18 1-9'/%3E%3C/svg%3E");
+  }
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="environment"] .fln__segment-nav::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z'/%3E%3Cpath d='M12 22v-3'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z'/%3E%3Cpath d='M12 22v-3'/%3E%3C/svg%3E");
+  }
+  .fln__segments.fln__segments .fln__segment-col[data-pillar-id="ummah"] .fln__segment-nav::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z'/%3E%3Crect x='3' y='14' width='7' height='7' rx='1'/%3E%3Ccircle cx='17.5' cy='17.5' r='3.5'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z'/%3E%3Crect x='3' y='14' width='7' height='7' rx='1'/%3E%3Ccircle cx='17.5' cy='17.5' r='3.5'/%3E%3C/svg%3E");
   }
 }
