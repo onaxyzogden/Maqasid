@@ -209,7 +209,11 @@ export default function TopBar() {
             style={{
               borderLeftColor: ayahBannerData.color + '80',
               '--banner-tint': ayahBannerData.color + '0d',
-              right: islamicPanelOpen && !mobile ? `${islamicPanelWidthPx + 28}px` : 0,
+              // Inset past the right chrome so the banner aligns with the main
+              // column and never overlaps the right edge/rail — mirrors the
+              // left: var(--edge-w) inset. Right chrome = 28px edge +
+              // (panel open ? panel width : 64px rail). Mobile has no right column.
+              right: mobile ? 0 : `${28 + (islamicPanelOpen ? islamicPanelWidthPx : 64)}px`,
             }}
           >
             <button
