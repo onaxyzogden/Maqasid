@@ -3,6 +3,19 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-07-05] session | MILOS — Desktop dashboard pillar strip gets grouped icon+label glyphs (Option B)
+
+**Objective:** Extend the mobile pillar glyphs to the desktop (≥768px) `LevelNavigator` strip, with the glyph grouped with the label as one identity block below the bar (**Option B**, user-chosen).
+
+**Amanah gate:** neutral — presentational nav-chrome CSS; no capital / sale / CSA / CSRA / salam / yield-share surface.
+
+- **Change:** Added a new, **disjoint** `@media (min-width:768px)` block to the MILOS-owned override [src/styles/level-navigator-responsive.css](src/styles/level-navigator-responsive.css) (never a fork of `@ogden/ui-components`). Keyed on the seven dashboard `data-pillar-id`s, it (1) sets each `.fln__segment-nav` label button to a centered block (`display:block; text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis`) and (2) adds a grouped glyph on `.fln__segment-nav::before` (18px box, `margin:0 auto 4px`, `background:var(--seg-color)`, `mask-size:100% 100%`) with seven per-pillar `mask-image` data-URIs **reused verbatim from the mobile block** (Compass · HeartPulse · Brain · Users · ChessRook · TreePine · Shapes, lucide-react v1.8.0). Both anchored on the proven doubled-class `.fln__segments.fln__segments …` specificity anchor (0,5,0 / `::before` 0,5,1). Closes the "desktop is labels-only — Deferred" note from [[2026-07-04-milos-dashboard-pillar-icons]].
+- **Load-bearing discovery:** `white-space:nowrap`+`text-overflow:ellipsis` is the load-bearing choice, **not** wrapping. The desktop `.fln__segments` is content-sized; its `flex:2.8 1 0%` grandparent `.fln__center` (basis 0) is pushed only as wide as the labels' min-content. Keeping every label unbreakable holds min-content high → the strip renders full (~560px) with the three longest names ellipsizing. Any wrap/break rule (`overflow-wrap:anywhere`, or `align-items:stretch`+`break-word`) collapses `.fln__center` to its ~318px flex-grow share and the strip caves to a ~252px sliver with labels shredded character-by-character. Found empirically — two failed attempts before nowrap+ellipsis.
+- **Verified:** `npm run build` green (1.30s; only the pre-existing `auth-store INEFFECTIVE_DYNAMIC_IMPORT` warning), `npm run lint` 0 (grounding-strict + inline-refs ratchets 0), `npm test` 77/77. At 1280×900: strip width **560px stable**; all 7 `.fln__segment-nav` compute `display:block`+`white-space:nowrap`; all 7 `::before` compute `content:""`, `display:block`, `margin:0 auto 4px`, `mask-image` present, fill = `--seg-color`; only Intellect/Environment/Community ellipsize; nav `clientHeight===scrollHeight` (glyph+label fit). Canvas-rasterizing each mask URI → **7 distinct, non-blank glyphs**. A `preview_screenshot` **succeeded** this session (the heavy dashboard usually hits the 30s [[project-screenshot-hang]]). Mobile 375px re-check: desktop rule off, mobile glyph on — **zero regression**.
+- **Decisions filed:** [[2026-07-05-milos-desktop-pillar-glyphs]] (accepted).
+- **Deferred:** true multi-line label wrapping (needs a fixed strip width — package-layout surgery, not an override change); consolidating the mobile+desktop URI sets behind a committed generator; extending glyphs to sub-pillar / prayer / BBOS strips.
+- **Delivery:** CSS + ADR + `milos.md`/`index.md`/`log.md` rows shipped on `feat/levelnav-desktop-glyphs` off `main`, PR into `main`. Best merged **after** PR #22 (the wiki-only docs branch adding [[2026-07-04-milos-dashboard-pillar-icons]]) so this ADR's cross-link resolves.
+
 ## [2026-07-03] session | MILOS — Path-to-Excellence CTAs wired across the 7 non-Faith pillar modules
 
 **Objective:** The `foundation`/`obligation`/`aspiration` CTAs on the seven non-Faith pillar overview cards were inert stubs; wire them to their own sub-pillar boards, mirroring the already-wired Faith template ("each needs its own destinations").
