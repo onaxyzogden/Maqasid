@@ -158,11 +158,13 @@ No CTA-label copy changes, no CSS, no shared-component / router / constants edit
   data (disclosed). `preview_screenshot` hit the known 30s renderer hang on the heavy pillar
   pages ([[project-screenshot-hang]]-class) — disclosed; verification stands on DOM/a11y
   `preview_eval` polling.
-- **Delivery:** the change is **uncommitted working-tree state** — the 7 sibling files plus the
-  two Faith template files ([PathToExcellenceCards.jsx](src/components/faith/PathToExcellenceCards.jsx)
-  wiring + [FaithLevelOverview.jsx](src/pages/faith/FaithLevelOverview.jsx) wheel-declutter),
-  which were themselves never committed or wiki-documented before this ADR. Commit / branch /
-  push are **operator-gated** (not requested this session).
+- **Delivery:** **merged to `main` via PR [#20](https://github.com/onaxyzogden/Maqasid/pull/20)**
+  (merge commit `4c289de`, 2026-07-04) — the 7 sibling files plus the two Faith template files
+  ([PathToExcellenceCards.jsx](src/components/faith/PathToExcellenceCards.jsx) wiring +
+  [FaithLevelOverview.jsx](src/pages/faith/FaithLevelOverview.jsx) wheel-declutter), which had
+  never been committed or wiki-documented before this ADR, shipped together in that PR. This ADR
+  (with the 2026-07-04 `env-resource` resolution above) is the wiki record, landing on `main`
+  via the wiki-only PR [#22](https://github.com/onaxyzogden/Maqasid/pull/22).
 
 ## Connections
 
