@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-07-05] session | OLOS — covenant banned-terms consolidated into one shared two-tier set (deep-audit Amanah cluster)
+
+**Objective:** Close the four Amanah-class findings (§2 + A4) of the 2026-07-03 OLOS deep audit — the last open items after the six HIGH clusters H1–H6 — by replacing three divergent, individually-incomplete covenant-lint regex copies with a single shared source of truth.
+
+**Amanah gate:** central to the work, not incidental. The term model was operator-locked before any code was written (AskUserQuestion): presale → hard-ban (bayʿ mā laysa ʿindak); subscription → conditional (dual-use); the riba / equity family added to hard-ban (usury, interest-bearing, equity-stake, return-on-investment / ROI) while bare shares / interest / dividend / equity were deliberately excluded (false-positive risk). The 2026-05-04 CSRA erasure upheld.
+
+- **Change (new shared module + 8 consumers, TDD red→green):** `packages/shared/src/constants/covenant/bannedTerms.ts` — two tiers `COVENANT_HARD_BAN` (no licit use) vs `COVENANT_CONDITIONAL` (dual-use), union `COVENANT_BANNED_ALL`, null-safe stateless `matchCovenantBannedTerms` / `detectCovenantBanned` (optional tier param), exported from `@ogden/shared`. `realityCheckModel.detectCsaLikeText` now delegates to the union (closes the salam / advance-purchase gap; the `captureSampleSeed` gate inherits it); `seededRecipes.conformance` split into a two-tier scan (`recipeText` incl. scopeNotes vs hard-ban, `recipeStepText` active vs conditional); `catalogues.test.ts` routed all six Amanah scans through the shared call, deleting three dead orphaned regexes plus one live salam-less copy. **A4:** new `authoredSampleSeed.amanah.test.ts` is the standing `AUTHORED_SAMPLE_SEED` scan the file's handoff doc had promised but that never existed (a walker over every string leaf plus a planted-dirty non-vacuity guard); the doc and capture gate were corrected to match.
+- **Verified:** `bannedTerms` 46/46; `packages/shared` 1671/1671 and tsc exit 0; apps/web Amanah suites 44/44 and tsc exit 0. Race-checked (HEAD unmoved at `bf82fa71`, no `origin/claude/practical-chaum-e4a6c0`, no `MERGE_HEAD`) before committing `a5429228` (10 files, +484 / −67), now pushed to `origin/claude/practical-chaum-e4a6c0`.
+- **Deferred:** a pre-commit completeness grep found 11 more same-axis regex copies in files the audit never named (`resolveProjectObjectives` / `coherenceCheckModel` / `actMandateModel` tests plus seven `v3/act/tier-shell` declaration / reception / roster tests). Left untouched and flagged for operator direction — several scan forbidding scopeNotes, so widening them is a per-corpus covenant decision, not a mechanical sweep.
+- **Decisions filed:** [[2026-07-05-atlas-covenant-banned-terms-consolidation]].
+- **Pages touched:** `wiki/decisions/2026-07-05-atlas-covenant-banned-terms-consolidation.md` (new); `wiki/index.md` (Decisions row + `updated`); `wiki/log.md` (this entry).
+
 ## [2026-07-03] session | MILOS — Path-to-Excellence CTAs wired across the 7 non-Faith pillar modules
 
 **Objective:** The `foundation`/`obligation`/`aspiration` CTAs on the seven non-Faith pillar overview cards were inert stubs; wire them to their own sub-pillar boards, mirroring the already-wired Faith template ("each needs its own destinations").
