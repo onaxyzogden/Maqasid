@@ -3,6 +3,21 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-07-06] session | OLOS — covenant consolidation adjudicated across 3 parallel impls; Design B harvested, single-source now universal
+
+**Objective:** Not a new implementation — **adjudicate** the three independent, incompatible covenant-lint consolidations that three parallel sessions had each produced for the same 2026-07-03 deep-audit §2 finding: pick one canonical, harvest the useful parts of the rest, delete the losers. Continues [[2026-07-05-atlas-covenant-banned-terms-consolidation]].
+
+**Amanah gate:** central. Operator rulings (AskUserQuestion) fixed the term model before any code: canonical = **Design A** (`bannedTerms.ts`, two-tier) **+ harvest Design B**; `yield-share` → **conditional** and `subscription` → **conditional** (Design B's hard-ban ruling on both **overruled**); one net wording change signed off — **`gharar` promoted into hard-ban** (the module named it as a forbidden model but no term matched it). The 2026-05-04 CSRA erasure upheld.
+
+- **The three impls:** `claude/practical-chaum-e4a6c0` @ `a5429228` (Design A, pushed — canonical); `claude/elated-babbage-ee7833` @ `e0ab8a95` (Design B, surface-model, local — harvested then retired); `claude/optimistic-dubinsky-47946c` @ `f76d6c81` (third variant, local — flagged for deletion).
+- **Phase 1 — deferred sweep folded (`c8af653e`):** the 11 inline copies the prior ADR deferred were consolidated onto `detectCovenantBanned` by `cherry-pick -n` of `optimistic-dubinsky`'s covenant delta, isolating it from that branch's unrelated team-bridge work; the two team-bridge-entangled scans keep their intent-text exclusion.
+- **Phase 2 — Design B harvested (`46687986`, TDD red→green):** `gharar` → `COVENANT_HARD_BAN`; new `COVENANT_WORD_TOKENS` (bare lexemes for `includes()` guards) and `COVENANT_SOURCE_GREP_RE` (grep-safe exotic-term union) exported; the last two inline guards (`breakEvenCovenant`, `showcase/covenant`) rewired onto them (behaviour-preserving — set arithmetic + real-tree grep; sole widening `investor` → right-unbounded, tightening the net).
+- **Phase 3 — losers retired:** `elated-babbage` deleted (branch + worktree; `e0ab8a95` recoverable ~2 wk). `optimistic-dubinsky` deletion **flagged for operator** (deferred).
+- **Verified:** `bannedTerms` 54/54; `packages/shared` 1679/1679 and tsc exit 0; apps/web covenant consumers 2156/2156 and tsc exit 0. The `gharar` widening surfaced no active-copy hit anywhere.
+- **Delivery:** on atlas `claude/covenant-canonical` (`c8af653e` → `46687986`), **not pushed** — the `practical-chaum` fast-forward and `optimistic-dubinsky` deletion are held for operator sign-off. This wiki commit was isolated on its own superproject branch ref (the shared tree was mid-work on a foreign branch).
+- **Decisions filed:** [[2026-07-05-atlas-covenant-banned-terms-consolidation]] updated in place (adjudication addendum; deferred-divergence marked resolved; stale "NOT pushed" corrected).
+- **Pages touched:** `wiki/decisions/2026-07-05-atlas-covenant-banned-terms-consolidation.md` (addendum); `wiki/log.md` (this entry).
+
 ## [2026-07-05] session | OLOS — covenant banned-terms consolidated into one shared two-tier set (deep-audit Amanah cluster)
 
 **Objective:** Close the four Amanah-class findings (§2 + A4) of the 2026-07-03 OLOS deep audit — the last open items after the six HIGH clusters H1–H6 — by replacing three divergent, individually-incomplete covenant-lint regex copies with a single shared source of truth.
