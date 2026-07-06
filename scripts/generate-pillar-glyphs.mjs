@@ -235,14 +235,100 @@ async function getPillars() {
   return list.map((p) => ({ id: p.id, iconName: p.icon }));
 }
 
+// Find the array of navigator segments ({ id, Icon, ... }) in a constants
+// module without hardcoding its export name (FAITH_PILLARS, PRAYER_PILLARS, ...).
+function findSegmentArray(mod) {
+  for (const val of Object.values(mod)) {
+    if (
+      Array.isArray(val) &&
+      val.length > 0 &&
+      val.every((e) => e && typeof e === 'object' && typeof e.id === 'string' && e.Icon != null)
+    ) {
+      return val;
+    }
+  }
+  return null;
+}
+
+// A lucide component binding's PascalCase name. createLucideIcon sets
+// `displayName` to the canonical PascalCase, which also collapses deprecated
+// aliases to their target (e.g. CheckCircle2 -> "CircleCheck") -- matching the
+// glyph the app actually renders.
+function iconNameOf(segment, where) {
+  const name = segment.Icon && segment.Icon.displayName;
+  if (!name || typeof name !== 'string') {
+    throw new Error(`segment "${segment.id}" (${where}) Icon has no displayName`);
+  }
+  return name;
+}
+
+// 28 sub-pillars: for each core pillar, its
+// src/pages/<id>/<Pascal>LevelNavigator-constants.js segment array, in
+// MAQASID_CORE_PILLARS order, each pillar's segments in file order.
+async function getSubPillars(pillarIds) {
+  const out = [];
+  for (const pid of pillarIds) {
+    const Pascal = pid.charAt(0).toUpperCase() + pid.slice(1);
+    const rel = `/src/pages/${pid}/${Pascal}LevelNavigator-constants.js`;
+    const mod = await ssrLoad(rel);
+    const arr = findSegmentArray(mod);
+    if (!arr) throw new Error(`no { id, Icon }[] segment export found in ${rel}`);
+    for (const seg of arr) out.push({ id: seg.id, iconName: iconNameOf(seg, rel) });
+  }
+  return out;
+}
+
+// 6 prayer nodes from src/data/prayer-pillars.js (PRAYER_PILLARS).
+async function getPrayers() {
+  const rel = '/src/data/prayer-pillars.js';
+  const mod = await ssrLoad(rel);
+  const arr = mod.PRAYER_PILLARS || findSegmentArray(mod);
+  if (!Array.isArray(arr) || arr.length === 0) throw new Error(`no PRAYER_PILLARS in ${rel}`);
+  return arr.map((seg) => ({ id: seg.id, iconName: iconNameOf(seg, rel) }));
+}
+
 // ---- main -----------------------------------------------------------------
 async function main() {
   const check = process.argv.includes('--check');
   try {
     const pillars = await getPillars();
+    const pillarIds = pillars.map((p) => p.id);
+    const subPillars = await getSubPillars(pillarIds);
+    const prayers = await getPrayers();
+
+    // Assert the emitted set matches the known navigator taxonomy so a
+    // constants file that fails to load (or an auto-discovered wrong array)
+    // fails loudly instead of silently dropping glyphs.
+    const EXPECT_SUBPILLARS = 28;
+    const EXPECT_PRAYERS = 6;
+    if (subPillars.length !== EXPECT_SUBPILLARS) {
+      throw new Error(
+        `expected ${EXPECT_SUBPILLARS} sub-pillars, got ${subPillars.length} ` +
+          '(update EXPECT_SUBPILLARS if the taxonomy changed on purpose)',
+      );
+    }
+    if (prayers.length !== EXPECT_PRAYERS) {
+      throw new Error(
+        `expected ${EXPECT_PRAYERS} prayers, got ${prayers.length} ` +
+          '(update EXPECT_PRAYERS if the taxonomy changed on purpose)',
+      );
+    }
+
+    // Order: pillars -> sub-pillars -> prayers. Every data-pillar-id must be
+    // unique across the three namespaces (a collision would emit duplicate,
+    // conflicting mask-image rules).
+    const taxonomy = [...pillars, ...subPillars, ...prayers];
+    const seen = new Set();
+    for (const t of taxonomy) {
+      if (seen.has(t.id)) {
+        throw new Error(`duplicate data-pillar-id "${t.id}" across pillar/sub-pillar/prayer namespaces`);
+      }
+      seen.add(t.id);
+    }
+
     const entries = [];
-    for (const p of pillars) {
-      entries.push({ id: p.id, uri: iconNodeToDataUri(await loadIconNode(p.iconName)) });
+    for (const t of taxonomy) {
+      entries.push({ id: t.id, uri: iconNodeToDataUri(await loadIconNode(t.iconName)) });
     }
 
     const current = await readFile(CSS_PATH, 'utf8');
