@@ -84,6 +84,7 @@
      scratchpad/gen-pillar-icons-css.mjs. Tinted with --seg-color (the level
      color) through the mask, mirroring the badge accent; no chip, so it reads
      as a bare glyph like the sidebar. */
+  /* BEGIN GENERATED: pillar glyphs [mobile] (scripts/generate-pillar-glyphs.mjs) -- do not edit by hand */
   .fln__segments.fln__segments .fln__segment-col[data-pillar-id="faith"]::before,
   .fln__segments.fln__segments .fln__segment-col[data-pillar-id="health"]::before,
   .fln__segments.fln__segments .fln__segment-col[data-pillar-id="intellect"]::before,
@@ -129,6 +130,7 @@
     -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z'/%3E%3Crect x='3' y='14' width='7' height='7' rx='1'/%3E%3Ccircle cx='17.5' cy='17.5' r='3.5'/%3E%3C/svg%3E");
             mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z'/%3E%3Crect x='3' y='14' width='7' height='7' rx='1'/%3E%3Ccircle cx='17.5' cy='17.5' r='3.5'/%3E%3C/svg%3E");
   }
+  /* END GENERATED: pillar glyphs [mobile] */
 
   /* Pillar label -> .dtc__card-title typography */
   .fln__segments.fln__segments .fln__segment-nav {
@@ -256,6 +258,7 @@
      flex-grow share (~318px) and the strip caves to a ~252px sliver with
      labels shredded character-by-character. True multi-line wrapping would need
      a fixed strip width (package-layout surgery) -- deferred, not done here. */
+  /* BEGIN GENERATED: pillar glyphs [desktop] (scripts/generate-pillar-glyphs.mjs) -- do not edit by hand */
   .fln__segments.fln__segments .fln__segment-col[data-pillar-id="faith"] .fln__segment-nav,
   .fln__segments.fln__segments .fln__segment-col[data-pillar-id="health"] .fln__segment-nav,
   .fln__segments.fln__segments .fln__segment-col[data-pillar-id="intellect"] .fln__segment-nav,
@@ -322,4 +325,5 @@
     -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z'/%3E%3Crect x='3' y='14' width='7' height='7' rx='1'/%3E%3Ccircle cx='17.5' cy='17.5' r='3.5'/%3E%3C/svg%3E");
             mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z'/%3E%3Crect x='3' y='14' width='7' height='7' rx='1'/%3E%3Ccircle cx='17.5' cy='17.5' r='3.5'/%3E%3C/svg%3E");
   }
+  /* END GENERATED: pillar glyphs [desktop] */
 }
