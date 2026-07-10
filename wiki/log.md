@@ -3,6 +3,21 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-07-09] session | MILOS — Verse banner inset past right chrome + equal-height rounded Niyyah buttons (PTE work superseded by main)
+
+**Objective:** Ship two operator-requested app-shell UI fixes — equal-height rounded NiyyahAct footer buttons, and stop the TopBar verse banner overlapping the right rail — then push and open a PR into `main`.
+
+**Amanah gate:** neutral — presentational shell CSS + one layout inline-style; no capital / sale / CSA / CSRA / salam / yield-share surface.
+
+- **Niyyah buttons** ([NiyyahAct.css](src/components/islamic/NiyyahAct.css)): `.niyyah-footer` `align-items: center`→`stretch` (equal height); `.niyyah-skip` gains `display:flex; align-items:center; justify-content:center;` (re-center label once stretched); both `.niyyah-confirm`/`.niyyah-skip` `border-radius: var(--radius-md)`→`var(--radius)`. **Gotcha:** `--radius-md` is undefined repo-wide (0 definitions in `src/`) → invalid declaration → `border-radius` fell back to initial `0` (square); `--radius` (10px) is the real token. That swap is what produces the "rounded corners."
+- **Verse banner** ([TopBar.jsx](src/components/layout/TopBar.jsx)): inline `right` changed from `islamicPanelOpen && !mobile ? \`${islamicPanelWidthPx + 28}px\` : 0` to `mobile ? 0 : \`${28 + (islamicPanelOpen ? islamicPanelWidthPx : 64)}px\``. The banner is `position:absolute; left:var(--edge-w); right:0` inside the `grid-column:2/-1` topbar; when the panel was closed the old `right:0` ran it to the viewport edge over the 28px right-edge column + 64px rail. New value always insets past the right chrome (28px edge + panel-or-64px-rail), mirroring the left `var(--edge-w)` inset; mobile keeps `right:0` (no right column).
+- **Reconciliation (the notable event):** this branch also had a PTE-CTA wiring commit + draft ADR — both **superseded**. `origin/main` independently landed **functionally-identical** wiring for all 7 siblings **plus** Faith via **PR #20** ([[2026-07-03-milos-pte-cta-wiring]]); `git diff` vs `origin/main` confirmed identical `route:` literals + `onClick` (whitespace-only delta). Dropped the duplicate commit + draft ADR; **rebuilt the branch on current `origin/main`** carrying only the two net-new UI fixes.
+- **Verified:** in the implementing session (2026-07-04) both fixes live-verified — Niyyah buttons computed equal **42px height + 10px radius**; verse banner right edge aligned to the main column, **no overlap** — each by computed-style **and** `preview_screenshot` (channel responsive that session). On the rebuilt branch: `npm run lint` green (ratchets 0), `npm test` **77/77**, `npm run build` green.
+- **Decisions filed:** [[2026-07-09-milos-topbar-banner-inset-niyyah-buttons]] (accepted).
+- **Deferred:** define `--radius-md: 10px` in `src/styles/tokens.css` to fix the ~23 remaining square-corner uses across ~11 files in one place (operator-gated).
+- **Delivery:** 1 commit `d720df9` on `claude/quizzical-volhard-3e42ca` off current `origin/main`; PR [#25](https://github.com/onaxyzogden/Maqasid/pull/25) into `main`, updated by force-push.
+- **Pages touched:** [[milos]] (1 History row), [[2026-07-09-milos-topbar-banner-inset-niyyah-buttons]] (new ADR), [[index]] (1 Decisions row + `updated`), `log.md` (this entry).
+
 ## [2026-07-05] session | MILOS — Pillar-glyph CSS becomes a source-of-truth generator (B→A), extended to sub-pillars + prayers
 
 **Objective:** Build a `maqasid.js`→CSS generator for the LevelNavigator pillar glyphs (Option B — make today's 7-pillar mobile+desktop glyph CSS generated + byte-identical), then extend the same generator to also emit the sub-pillar + prayer strips (Option A — 28 sub-pillar + 6 prayer = 34 new ids per block, 41 total). User-chosen **B→A sequenced** fork of the standing "extend the grouped-glyph treatment to the deferred strips, or take on the generator" request.
