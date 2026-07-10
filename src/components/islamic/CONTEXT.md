@@ -12,8 +12,8 @@ Spiritual UX layer: prayer awareness, ceremony gates, intention setting, readine
 | ThresholdModal.jsx | Full ceremony flow: Dua → Attributes → Readiness [→ Pause] → Confirm |
 | NiyyahAct.jsx | Daily intention ceremony: orient step + pillar focus selection |
 | PrayerTime.jsx | Sidebar prayer schedule with geolocation + 5 daily times |
-| PrayerOverlay.jsx | Full-screen prayer blocker with countdown, auto-dismiss |
-| PrayerWarning.jsx | Toast banner warning of approaching prayer time |
+| PrayerOverlay.jsx | Slim, non-blocking prayer-time banner (top-center) — dismissible (✕ or Alhamdulillah); auto-clears after `PRAYER_TRAIL_MS` |
+| PrayerWarning.jsx | Top-center pill warning of an approaching prayer, dismissible |
 | ReadinessCheck.jsx | Display-only paired rows OR interactive yes/no cards with contextual column labels |
 | AttributeCard.jsx | Single attribute display: name (+ Arabic), title, description |
 | DuaSection.jsx | Renders Quranic dua: Arabic, transliteration, meaning, source |
@@ -79,8 +79,8 @@ Both modes end at the same UI:
 
 ### Prayer System (3-part)
 - **PrayerTime** → sidebar display, uses `usePrayerTimes()` hook
-- **PrayerWarning** → toast ~5min before prayer ("screen will pause in Xm")
-- **PrayerOverlay** → full-screen blocker with countdown, auto-dismisses after `PRAYER_TRAIL_MS`
+- **PrayerWarning** → top-center pill ~15→5min before prayer ("{Prayer} approaching · Xm"), dismissible
+- **PrayerOverlay** → slim, non-blocking, dismissible top-center banner during the prayer window; no countdown; auto-clears after `PRAYER_TRAIL_MS`. The app stays fully usable underneath, and dismissing does NOT open a resume gate (the user never stepped away)
 
 ### NiyyahAct — Daily Intention
 2-step flow: (1) Orient (Bismillah + morning dua), (2) Focus (select pillar buttons). Stores via `completeNiyyah(selectedPillars)`.
@@ -98,7 +98,7 @@ Both modes end at the same UI:
 - ReadinessCheck column labels are contextual per attribute card (`yesLabel`/`notYetLabel`), derived from the `attrFrame` question
 
 ## Gotchas
-- PrayerOverlay countdown uses `Date.now()` in 1-second interval — `onDismiss` kept in ref to avoid re-render breakage
+- PrayerOverlay uses `setTimeout`s (not a 1s tick) to flip its before→after message at prayer time and to auto-clear at window end — `onDismiss` kept in a ref so the timers never need recreating
 - Pause step dynamically inserted into steps array — step index changes
 - Back from Pause returns to Readiness, not previous step
 - ResumeOverlay must be explicitly rendered by parent (not auto-shown)

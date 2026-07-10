@@ -1,9 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
+import { X } from 'lucide-react';
 import { useSettingsStore } from '../../store/settings-store';
 import { useArabic } from '../../hooks/useArabic';
 import { PRESENCE_CONFIG } from '@data/islamic/islamic-data';
 import './PrayerOverlay.css';
 
+// Slim, non-blocking prayer-time banner. Shows that it is time to pray without
+// stopping the user from working — it is clearly dismissible and also clears
+// itself once the prayer window (PRAYER_TRAIL_MS after the prayer) has passed.
 export default function PrayerOverlay({ prayerName, prayerTimeMs, onDismiss }) {
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const isIslamic = valuesLayer === 'islamic';
@@ -11,72 +15,70 @@ export default function PrayerOverlay({ prayerName, prayerTimeMs, onDismiss }) {
 
   const [leaving, setLeaving] = useState(false);
 
-  // Real-time clock — ticks every second
-  const [now, setNow] = useState(() => Date.now());
+  // Whether we are still before the prayer's start time — flips once at prayerTimeMs.
+  const [beforePrayer, setBeforePrayer] = useState(
+    () => (prayerTimeMs ? Date.now() < prayerTimeMs : false)
+  );
 
-  // Keep onDismiss in a ref so the interval never needs to be recreated
+  // Keep onDismiss in a ref so the timers never need to be recreated.
   const onDismissRef = useRef(onDismiss);
   useEffect(() => { onDismissRef.current = onDismiss; }, [onDismiss]);
 
-  // Animated dismiss for user-initiated close
+  // Animated dismiss for user-initiated close.
   const handleDismiss = () => {
     setLeaving(true);
     setTimeout(() => onDismissRef.current?.(), 200);
   };
 
-  // Stable interval — set up once on mount, never restarts
+  // Two lightweight timers — no per-second tick, no visible countdown:
+  //   1. flip the message from "almost time" to "time for prayer" at prayerTimeMs
+  //   2. auto-clear the banner once the prayer window has fully passed
+  // beforePrayer's starting value comes from the useState initializer above;
+  // AppShell mounts a fresh PrayerOverlay per prayer, so prayerTimeMs is stable
+  // for this instance and never needs a synchronous reset here.
   useEffect(() => {
-    const interval = setInterval(() => {
-      const t = Date.now();
-      setNow(t);
-      if (prayerTimeMs) {
-        const windowEnd = prayerTimeMs + PRESENCE_CONFIG.PRAYER_TRAIL_MS;
-        if (t >= windowEnd) {
-          clearInterval(interval);
-          onDismissRef.current?.();
-        }
-      }
-    }, 1000);
-    return () => clearInterval(interval);
-    // intentionally stable — immune to re-renders and prop changes
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    if (!prayerTimeMs) return undefined;
+    const timers = [];
 
-  // Derived from real time — always accurate, no drift
-  const beforePrayer = prayerTimeMs ? now < prayerTimeMs : false;
-  const displayMs = prayerTimeMs
-    ? beforePrayer
-      ? Math.max(0, prayerTimeMs - now)                                   // approaching: time TO prayer
-      : Math.max(0, prayerTimeMs + PRESENCE_CONFIG.PRAYER_TRAIL_MS - now) // prayer: time until return to work
-    : 0;
+    const msToPrayer = prayerTimeMs - Date.now();
+    if (msToPrayer > 0) {
+      timers.push(setTimeout(() => setBeforePrayer(false), msToPrayer));
+    }
 
-  const mins = Math.floor(displayMs / 60000);
-  const secs = Math.floor((displayMs % 60000) / 1000);
-  const timeStr = `${mins}:${String(secs).padStart(2, '0')}`;
+    const msToEnd = prayerTimeMs + PRESENCE_CONFIG.PRAYER_TRAIL_MS - Date.now();
+    if (msToEnd > 0) {
+      timers.push(setTimeout(() => onDismissRef.current?.(), msToEnd));
+    } else {
+      onDismissRef.current?.();
+    }
+
+    return () => timers.forEach(clearTimeout);
+  }, [prayerTimeMs]);
 
   return (
     <div className={`prayer-overlay${leaving ? ' prayer-overlay--leaving' : ''}`} role="status" aria-live="polite">
-      <div className="prayer-content" aria-labelledby="prayer-overlay-title">
+      <div className="prayer-content">
         {isIslamic ? (
-          <>
-            <p className="prayer-basmala arabic">{fmt('بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ')}</p>
-            <h1 className="prayer-name" id="prayer-overlay-title">{prayerName}</h1>
-            <p className="prayer-prompt">
-              {beforePrayer ? 'Prayer time is approaching.' : 'It is time for prayer.'}
-            </p>
-          </>
+          <p className="prayer-prompt" id="prayer-overlay-title">
+            {beforePrayer
+              ? `It's almost time for ${prayerName}.`
+              : `It's time for ${prayerName} — pray when you're able.`}
+          </p>
         ) : (
-          <>
-            <h1 className="prayer-name-universal" id="prayer-overlay-title">Time for a Break</h1>
-            <p className="prayer-prompt">Take a moment to stretch, breathe, and rest your eyes.</p>
-          </>
+          <p className="prayer-prompt" id="prayer-overlay-title">
+            {`Time for a break — step away when you're able.`}
+          </p>
         )}
 
-        <div className="prayer-countdown">{timeStr}</div>
+        {isIslamic && (
+          <button className="prayer-dismiss" onClick={handleDismiss}>
+            <span className="prayer-dismiss-ar arabic">{fmt('الْحَمْدُ لِلَّهِ')}</span>
+            <span className="prayer-dismiss-en">Alhamdulillah</span>
+          </button>
+        )}
 
-        <button className="prayer-dismiss" onClick={handleDismiss}>
-          <span className="prayer-dismiss-ar arabic">{fmt('الْحَمْدُ لِلَّهِ')}</span>
-          <span className="prayer-dismiss-en">Alhamdu&rsquo;lil&rsquo;llah</span>
+        <button className="prayer-close" onClick={handleDismiss} aria-label="Dismiss">
+          <X size={16} />
         </button>
       </div>
     </div>

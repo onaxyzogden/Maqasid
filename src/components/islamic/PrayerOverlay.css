@@ -1,100 +1,113 @@
+/* Slim, non-blocking prayer-time banner — top-center pill, mirrors PrayerWarning.
+   It never covers the workspace: it is sized to its content and the app stays
+   fully usable underneath. (The two never appear together — the warning clears
+   when this banner activates.) */
 .prayer-overlay {
   position: fixed;
-  right: var(--space-4);
-  bottom: var(--space-4);
-  z-index: 9500;
-  pointer-events: none;
+  top: var(--space-3);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 8500;
+  max-width: calc(100vw - var(--space-5));
   animation: fadeIn var(--duration-xl) var(--ease);
-}
-
-.prayer-overlay > .prayer-content {
-  pointer-events: auto;
-  background: rgba(0, 0, 0, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
 }
 
 .prayer-overlay--leaving {
   animation: fadeOut var(--duration) var(--ease) forwards;
 }
 
-.prayer-overlay--leaving .prayer-content {
-  animation: scaleOut var(--duration) var(--ease) forwards;
-}
-
 .prayer-content {
-  text-align: center;
-  max-width: 320px;
-  padding: var(--space-5) var(--space-6);
-}
-
-.prayer-basmala {
-  font-size: var(--text-lg);
-  color: rgba(201, 160, 90, 0.7);
-  margin-bottom: var(--space-3);
-  line-height: 1.8;
-}
-
-.prayer-name {
-  font-family: var(--font-heading);
-  font-size: var(--text-2xl);
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: var(--space-1);
-}
-
-.prayer-name-universal {
-  font-family: var(--font-heading);
-  font-size: var(--text-xl);
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: var(--space-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3) var(--space-2) var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-lg);
 }
 
 .prayer-prompt {
-  font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.5);
-  margin-bottom: var(--space-3);
-  line-height: 1.5;
-}
-
-.prayer-countdown {
-  font-family: var(--font-mono);
-  font-size: var(--text-2xl);
+  font-size: var(--text-base);
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: var(--space-4);
-  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin: 0;
 }
 
 .prayer-dismiss {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text);
   background: none;
-  border: 1px solid rgba(201, 160, 90, 0.35);
-  border-radius: var(--radius);
-  padding: var(--space-2) var(--space-5);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
   cursor: pointer;
   transition: all var(--duration-lg) var(--ease);
+  flex-shrink: 0;
 }
 
 .prayer-dismiss:hover {
-  color: #fff;
-  border-color: rgba(201, 160, 90, 0.9);
-  background: rgba(201, 160, 90, 0.08);
+  color: var(--text);
+  border-color: var(--accent);
+  background: var(--bg3);
 }
 
 .prayer-dismiss-ar {
   font-family: "Amiri", "Noto Serif", serif;
-  color: rgba(201, 160, 90, 0.85);
+  color: var(--accent);
   font-size: 1.05em;
 }
 
 .prayer-dismiss-en {
   letter-spacing: 0.02em;
+}
+
+.prayer-close {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--text3);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration) var(--ease);
+  flex-shrink: 0;
+}
+
+.prayer-close:hover {
+  background: var(--bg3);
+  color: var(--text);
+}
+
+/* On narrow screens the banner spans the width (minus small side margins)
+   instead of shrink-wrapping into a tall, narrow column — keeping it a slim,
+   wide top banner. The prompt takes the first line; the acknowledgment + close
+   sit together beneath it. */
+@media (max-width: 640px) {
+  .prayer-overlay {
+    left: var(--space-3);
+    right: var(--space-3);
+    transform: none;
+    max-width: none;
+  }
+
+  .prayer-content {
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .prayer-prompt {
+    flex: 1 1 100%;
+    font-size: var(--text-sm);
+  }
 }
