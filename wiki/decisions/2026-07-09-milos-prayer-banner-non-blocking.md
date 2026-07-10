@@ -9,6 +9,13 @@ superseded_by: null
 
 # MILOS prayer overlay → slim non-blocking banner
 
+> [!note] Follow-up (2026-07-10) — banner copy reverted to original tone
+> The operator preferred the **original wording**, so the two `PrayerOverlay` prompt strings were reverted. Everything else this decision established stands — the slim top-banner form factor, the two dismiss affordances, no countdown, auto-clear, and the cut `ResumeOverlay` chain.
+> - before the adhan: *"It's almost time for {prayer}."* → **"{prayer} is approaching."**
+> - at / after `prayerTimeMs`: *"It's time for {prayer} — pray when you're able."* → **"It is time for {prayer}."**
+>
+> `PrayerWarning` was **left unchanged** by explicit operator choice: its original *"screen will pause"* wording is no longer true (see the **Consequences** section), so reverting it would put a false claim back on screen. The theological *approaching → it is time* split (below) is preserved verbatim in structure and still satisfied. Verified — `npm run lint:eslint` 0 errors, `npm run build` green, both states confirmed via live DOM (`"Fajr is approaching."` → `"It is time for Fajr."`); the screenshot tool was unresponsive (30 s timeout), so no visual capture exists — disclosed, not assumed. Session logged 2026-07-10.
+
 ## Context
 
 The operator reported: *"When it is time for prayer, a feature appears that blocks part of the screen that can't be removed until prayer time is over."*
@@ -39,7 +46,7 @@ Complete the de-lock at the perceptual layer. `PrayerOverlay` becomes a slim, to
 
 ### The message flip is theological, not cosmetic
 
-`PrayerOverlay` mounts `PRESENCE_CONFIG.PRAYER_LEAD_MS` (5 minutes) **before** the adhan. A banner that says *"It's time for {prayer}"* during that lead window invites the user to pray a fard before its time has entered — which does not discharge the obligation. The banner therefore reads *"almost time"* until `prayerTimeMs` and only then flips to *"it's time."* This distinction is load-bearing and must survive future refactors of the timer logic.
+`PrayerOverlay` mounts `PRESENCE_CONFIG.PRAYER_LEAD_MS` (5 minutes) **before** the adhan. A banner that declares *it is time* during that lead window invites the user to pray a fard before its time has entered — which does not discharge the obligation. The banner therefore reads *"approaching"* until `prayerTimeMs` and only then flips to *"it is time."* This distinction is load-bearing and must survive future refactors of the timer logic; it is stated here by its semantics rather than by the literal strings, which were reverted to the original tone on 2026-07-10 (see the Follow-up note above).
 
 ### Constraint discovered: `react-hooks/set-state-in-effect`
 
@@ -67,7 +74,7 @@ Dropping the countdown follows from the same reasoning. A ticking timer is an in
 - **`isPrayerLocked` is now a misnomer.** The store flag (`threshold-store.js:225`, `setPrayerLock(locked, prayerName, msRemaining, prayerTimeMs)`) gates a *banner*, not a lock, and has done since 2026-04-22. The name is the last surviving artifact of the lock era and is the most likely source of the next false "MILOS locks the screen during prayer" reading. **Rename to `prayerBannerActive` / `setPrayerBanner` when a session next touches this store.**
 - **`ResumeOverlay` no longer triggers from prayer dismissal.** It remains reachable from its other entry points. The `completedOpening` / `activeModule` / `triggerResume` reads are gone from `handlePrayerDismiss`'s dep array.
 - **The universal (`valuesLayer !== 'islamic'`) branch of `PrayerOverlay` remains unreachable dead code** — `valuesLayer` defaults to `'islamic'` (`settings-store.js:6`) and there is no UI to change it. Left in place; not exercised by this change.
-- Any future edit to the two `setTimeout`s must preserve the *"almost time"* / *"it's time"* split — see the theological note above.
+- Any future edit to the two `setTimeout`s must preserve the *"approaching"* / *"it is time"* split — see the theological note above.
 - `CONTEXT.md` for `src/components/islamic/` is now accurate. It was the proximate cause of two explore agents mis-reporting the component this session; stale CONTEXT.md is a live hazard under the Context-First Protocol, which mandates trusting it over reading source.
 
 ## Verification

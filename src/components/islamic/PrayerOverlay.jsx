@@ -31,7 +31,7 @@ export default function PrayerOverlay({ prayerName, prayerTimeMs, onDismiss }) {
   };
 
   // Two lightweight timers — no per-second tick, no visible countdown:
-  //   1. flip the message from "almost time" to "time for prayer" at prayerTimeMs
+  //   1. flip the message from "approaching" to "it is time" at prayerTimeMs
   //   2. auto-clear the banner once the prayer window has fully passed
   // beforePrayer's starting value comes from the useState initializer above;
   // AppShell mounts a fresh PrayerOverlay per prayer, so prayerTimeMs is stable
@@ -61,8 +61,8 @@ export default function PrayerOverlay({ prayerName, prayerTimeMs, onDismiss }) {
         {isIslamic ? (
           <p className="prayer-prompt" id="prayer-overlay-title">
             {beforePrayer
-              ? `It's almost time for ${prayerName}.`
-              : `It's time for ${prayerName} — pray when you're able.`}
+              ? `${prayerName} is approaching.`
+              : `It is time for ${prayerName}.`}
           </p>
         ) : (
           <p className="prayer-prompt" id="prayer-overlay-title">
