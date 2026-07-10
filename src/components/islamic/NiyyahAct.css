@@ -304,7 +304,7 @@
 /* Footer */
 .niyyah-footer {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   gap: var(--space-3);
   padding: var(--space-4) var(--space-6);
@@ -319,7 +319,7 @@
   background: var(--primary);
   color: white;
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius);
   font-size: var(--text-base);
   font-weight: 600;
   cursor: pointer;
@@ -336,10 +336,13 @@
 }
 
 .niyyah-skip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: var(--space-2) var(--space-4);
   background: none;
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius);
   font-size: var(--text-sm-plus);
   color: var(--text2);
   cursor: pointer;
