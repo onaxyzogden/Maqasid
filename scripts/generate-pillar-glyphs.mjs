@@ -112,9 +112,10 @@ function selectorList(ids, suffix) {
     .join('\n');
 }
 
-function perIdRule(id, uri, suffix) {
+function perIdRule(id, uri, suffix, accentVar) {
   return [
     `  ${SEL}[data-pillar-id="${id}"]${suffix} {`,
+    ...(accentVar ? [`    --pillar-accent: var(${accentVar});`] : []),
     `    -webkit-mask-image: url("${uri}");`,
     `            mask-image: url("${uri}");`,
     '  }',
@@ -122,7 +123,7 @@ function perIdRule(id, uri, suffix) {
 }
 
 function perIdRules(entries, suffix) {
-  return entries.map((e) => perIdRule(e.id, e.uri, suffix)).join('\n');
+  return entries.map((e) => perIdRule(e.id, e.uri, suffix, e.accentVar)).join('\n');
 }
 
 // Mobile block (@media max-width:767px): glyph replaces the numbered badge on
@@ -132,7 +133,7 @@ function buildMobileRegion(entries) {
   const base = [
     selectorList(ids, '::before'),
     '    content: "";',
-    '    background: var(--seg-color, var(--accent));',
+    '    background: var(--pillar-accent, var(--seg-color, var(--accent)));',
     '    -webkit-mask-repeat: no-repeat;',
     '            mask-repeat: no-repeat;',
     '    -webkit-mask-position: center;',
@@ -170,7 +171,7 @@ function buildDesktopRegion(entries) {
     '    margin: 0 auto 4px;   /* center the 18px glyph as a block; 4px gap to the label below */',
     '    width: 18px;',
     '    height: 18px;',
-    '    background: var(--seg-color, var(--accent));',
+    '    background: var(--pillar-accent, var(--seg-color, var(--accent)));',
     '    -webkit-mask-repeat: no-repeat;',
     '            mask-repeat: no-repeat;',
     '    -webkit-mask-position: center;',
@@ -273,7 +274,7 @@ async function getSubPillars(pillarIds) {
     const mod = await ssrLoad(rel);
     const arr = findSegmentArray(mod);
     if (!arr) throw new Error(`no { id, Icon }[] segment export found in ${rel}`);
-    for (const seg of arr) out.push({ id: seg.id, iconName: iconNameOf(seg, rel) });
+    for (const seg of arr) out.push({ id: seg.id, iconName: iconNameOf(seg, rel), pillarId: pid });
   }
   return out;
 }
@@ -328,7 +329,11 @@ async function main() {
 
     const entries = [];
     for (const t of taxonomy) {
-      entries.push({ id: t.id, uri: iconNodeToDataUri(await loadIconNode(t.iconName)) });
+      entries.push({
+        id: t.id,
+        uri: iconNodeToDataUri(await loadIconNode(t.iconName)),
+        accentVar: t.pillarId ? `--pillar-${t.pillarId}` : null,
+      });
     }
 
     const current = await readFile(CSS_PATH, 'utf8');
