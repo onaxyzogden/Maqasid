@@ -219,14 +219,14 @@ export default function AppShell() {
 
   // Prayer dismiss handler — chain into resume overlay
   const handlePrayerDismiss = useCallback(() => {
+    // Non-blocking banner: dismissing means "keep working", so there's no resume
+    // gate — the user never actually stepped away. Genuine away-time is still
+    // handled by the inactivity resume elsewhere.
     dismissedPrayerRef.current = currentPrayerName;
     setPrayerLock(false, null, null);
-    if (completedOpening[activeModule]) {
-      triggerResume(activeModule);
-    }
     // reason: currentPrayerName is read into a ref, intentionally not a dep
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setPrayerLock, completedOpening, activeModule, triggerResume]);
+  }, [setPrayerLock]);
 
   // Daily Niyyah Act gate
   const today = new Date().toISOString().slice(0, 10);
@@ -321,12 +321,9 @@ export default function AppShell() {
     }
   };
 
-  // Minutes until prayer itself, and minutes until the lock screen activates
+  // Minutes until the next prayer (shown in the approaching-prayer banner)
   const minutesUntilPrayer = nextPrayer?.remainingMs != null
     ? Math.ceil(nextPrayer.remainingMs / 60000)
-    : 0;
-  const minutesUntilLock = nextPrayer?.remainingMs != null
-    ? Math.ceil((nextPrayer.remainingMs - PRESENCE_CONFIG.PRAYER_LEAD_MS) / 60000)
     : 0;
 
   return (
@@ -446,7 +443,6 @@ export default function AppShell() {
         <PrayerWarning
           prayerName={prayerWarningName}
           minutesUntilPrayer={minutesUntilPrayer}
-          minutesUntilLock={minutesUntilLock}
           onDismiss={dismissPrayerWarning}
         />
       )}
