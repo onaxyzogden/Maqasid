@@ -1,0 +1,114 @@
+/* Condensed prayer-specific Sunnah card for the Prophetic Path node popup's
+   Before / After tabs (the six prayer nodes). Deliberately UNSCOPED — no
+   `.prophetic-path` ancestor selector — so it resolves when rendered through
+   the popup's <body> portal, matching CeremonySummary.css. */
+
+.pp-sunnah {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 4px 0 2px;
+}
+
+.pp-sunnah__eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text3);
+}
+
+.pp-sunnah__none {
+  margin: 0;
+  padding: 12px 14px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text2);
+  background: var(--accent-bg, rgba(201, 160, 90, 0.1));
+  border: 1px solid var(--accent-border, rgba(201, 160, 90, 0.3));
+  border-radius: 10px;
+}
+
+.pp-sunnah__row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  background: var(--accent-bg, rgba(201, 160, 90, 0.1));
+  border: 1px solid var(--accent-border, rgba(201, 160, 90, 0.3));
+  border-radius: 12px;
+}
+
+.pp-sunnah__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pp-sunnah__badge {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text);
+  padding: 3px 10px;
+  background: var(--bg2, #fff);
+  border: 1px solid var(--accent-border, rgba(201, 160, 90, 0.3));
+  border-radius: 999px;
+}
+
+.pp-sunnah__tier {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text3);
+  padding: 3px 8px;
+  border: 1px solid var(--border, rgba(0, 0, 0, 0.12));
+  border-radius: 999px;
+}
+
+.pp-sunnah__note {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.pp-sunnah__why {
+  margin: 0;
+  font-size: 0.83rem;
+  line-height: 1.6;
+  color: var(--text2);
+}
+
+.pp-sunnah__src {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border, rgba(0, 0, 0, 0.08));
+}
+
+.pp-sunnah__ar {
+  margin: 0;
+  font-family: 'Amiri', 'Noto Serif', serif;
+  font-size: 1.15rem;
+  line-height: 1.95;
+  color: var(--text);
+}
+
+.pp-sunnah__tr {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  font-style: italic;
+  color: var(--text2);
+}
+
+.pp-sunnah__ref {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text3);
+}

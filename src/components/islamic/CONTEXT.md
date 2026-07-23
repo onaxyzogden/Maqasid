@@ -22,6 +22,12 @@ Spiritual UX layer: prayer awareness, ceremony gates, intention setting, readine
 | IslamicRail.css | Rail styling — icon buttons, hover/active accent. Divider comes from the always-present right col-edge (no own border) |
 | useIslamicSections.js | Single source of truth for the panel's ordered sections + per-section availability (computed from `valuesLayer`, route, `activeModule`/`activeBbosStage`, citation count). Consumed by both IslamicRail and (for availability) the panel so the two never drift |
 | ResumeOverlay.jsx | Confirmation overlay when returning to module mid-session |
+| PropheticPath.jsx | The day's timeline spine. Renders `TimelineNode` cards (presentational) + the slide-ups (`NodePhaseSlideUp`, `PrayerSlideUp`, project/task panels) |
+| NodePhaseSlideUp.jsx | Node popup — Before / During / After tabs. The single entry point for every Prophetic Path node (replaced the old `.pp-satellite` buttons) |
+| CeremonySummary.jsx | Condensed threshold preview (du'a + up to 2 attributes) shown in the popup's Before/After tabs for **non-prayer** nodes, with a "Begin opening/closing" button that hands off to the full `ThresholdModal` |
+| PrayerSunnahSummary.jsx | Condensed prayer-specific Sunnah card shown in the popup's Before/After tabs for the **six prayer** nodes — each prayer's own hadith-graded rawātib (count badge + tier + note + why + grounded source), or a prohibition/permission note where no rawātib exists (Fajr/ʿAṣr "after", Maghrib "before", Tahajjud "after"). Data from `getPrayerPhaseSunnah(prayerId, phase)` over the private `PRAYER_GUIDE` in `@data/seed-tasks/prayer-seed-tasks`; honors `valuesLayer` (Arabic suppressed in universal). Replaced the generic `faith-salah` `CeremonySummary` on prayer nodes |
+| PropheticPathMirror.jsx | `MirrorCard` / `PPTaskCard` / `EducationList` / `ProjectRow` — extracted from `PropheticPath.jsx` so the popup can reuse them without a circular import |
+| prophetic-path-constants.js | `LEVEL_COLOR`, `PRAYER_NODE_IDS`, `THRESHOLD_MODULE_BY_NODE`, `isThresholdTriggerNode` — shared by `PropheticPath.jsx` and the popup; imports nothing from either |
 
 ## Architecture
 
@@ -82,6 +88,28 @@ Both modes end at the same UI:
 - **PrayerWarning** → top-center pill ~15→5min before prayer ("{Prayer} approaching · Xm"), dismissible
 - **PrayerOverlay** → slim, non-blocking, dismissible top-center banner during the prayer window; no countdown; auto-clears after `PRAYER_TRAIL_MS`. The app stays fully usable underneath, and dismissing does NOT open a resume gate (the user never stepped away)
 
+### Prophetic Path node popup — Before / During / After
+Clicking any node card on the spine opens `NodePhaseSlideUp` (portal → `document.body`).
+Three tabs, default **During**:
+- **Before** → `<CeremonySummary type="opening">` (non-prayer) or `<PrayerSunnahSummary phase="before">`
+  (the 6 prayer nodes) + that phase's tasks
+- **During** → `<MirrorCard>` (tasks / projects / Action-vs-Education), or — on the 6 prayer
+  nodes — a hand-off card whose "Open prayer phases" button opens `PrayerSlideUp`
+- **After** → `<CeremonySummary type="closing">` (non-prayer) or `<PrayerSunnahSummary phase="after">`
+  (the 6 prayer nodes) + that phase's tasks
+
+On the six prayer nodes the Before/After tabs no longer render the generic `faith-salah`
+opening/closing threshold (all six resolved to the same `<CeremonySummary>`); they show each
+prayer's own before/after Sunnah instead. The niyyah/readiness ceremony stays reachable via the
+route-level `CeremonyGuard`.
+
+The ceremony is **not** rendered locally: "Begin opening/closing" sets
+`openingModuleId` / `closingModuleId` on threshold-store and closes the popup, so the globally
+mounted `ThresholdModal` (`AppShell.jsx`) takes over. Module precedence is
+`THRESHOLD_MODULE_BY_NODE[node.id] || moduleId || 'work'`. This replaced the old `.pp-satellite`
+buttons, which CSS hid on every non-active node — the opening/closing thresholds are now
+reachable from **every** node on the timeline, past and upcoming included.
+
 ### NiyyahAct — Daily Intention
 2-step flow: (1) Orient (Bismillah + morning dua), (2) Focus (select pillar buttons). Stores via `completeNiyyah(selectedPillars)`.
 
@@ -103,3 +131,12 @@ Both modes end at the same UI:
 - Back from Pause returns to Readiness, not previous step
 - ResumeOverlay must be explicitly rendered by parent (not auto-shown)
 - Missing module data in `modules.js` renders empty sections (no error)
+- Every rule in `PropheticPath.css` is scoped under `.prophetic-path`, but `NodePhaseSlideUp`
+  portals into `<body>` — outside that subtree. Its portal root therefore carries
+  `className="prophetic-path pp-phase-slideup"` + `data-theme`, and
+  `.pp-phase-slideup.prophetic-path { display: contents }` strips the root's own 100vh flex box
+  while custom properties still inherit. Drop either and the mirror/pill-switch styling silently
+  disappears
+- `MODULE_ATTRS` is keyed at pillar level, so sub-modules (`faith-salah`) miss keys and fall back
+  to their parent pillar. Use `resolveCeremonyData(moduleId, valuesLayer)` from
+  `@data/islamic/islamic-data` rather than re-deriving the fallback

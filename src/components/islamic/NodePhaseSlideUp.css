@@ -1,0 +1,78 @@
+/* Node phase popup — Before / During / After.
+   Reuses the .pp-slideup__* chrome from ProjectSlideUp.css and the
+   .pp-pill-switch / .pp-mirror-* / .pp-task-* rules from PropheticPath.css. */
+
+/* Every rule in PropheticPath.css is scoped under `.prophetic-path`, but this
+   popup renders through a portal into <body> — outside that subtree. The portal
+   root therefore carries `.prophetic-path` (and `data-theme`) so the scoped
+   rules and the --pp-* palette still resolve. `display: contents` strips the
+   root's own box (it would otherwise add a 100vh flex column to the end of
+   <body>) while custom properties still inherit through it. */
+.pp-phase-slideup.prophetic-path {
+  display: contents;
+  min-height: 0;
+}
+
+.pp-phase-panel {
+  height: auto;
+  max-height: 88vh;
+}
+
+.pp-phase-panel__tabs {
+  display: flex;
+  justify-content: center;
+  padding: 12px 20px 4px;
+  flex-shrink: 0;
+}
+
+.pp-phase-panel__body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 12px 20px 24px;
+}
+
+.pp-phase-panel__body:focus {
+  outline: none;
+}
+
+/* The mirror card carries its own top margin for the inline spine layout —
+   it is the first thing in the During tab here, so drop it. */
+.pp-phase-panel__body > .pp-mirror-card {
+  margin-top: 0;
+}
+
+.pp-phase-tasks {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border, rgba(0, 0, 0, 0.08));
+}
+
+.pp-phase-handoff {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 4px 0 8px;
+}
+
+.pp-phase-handoff__text {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text2);
+}
+
+@media (max-width: 640px) {
+  .pp-phase-panel {
+    max-height: 92vh;
+  }
+
+  .pp-phase-panel__body {
+    padding: 12px 14px 24px;
+  }
+
+  .pp-phase-panel__tabs {
+    padding: 12px 14px 4px;
+  }
+}

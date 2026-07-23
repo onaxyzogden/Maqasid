@@ -1,0 +1,74 @@
+/* Condensed threshold preview shown in the Prophetic Path node popup's
+   Before / After tabs. Deliberately unscoped (no `.prophetic-path` ancestor
+   selector) so it also resolves when rendered through a portal. */
+
+.pp-ceremony {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 4px 0 2px;
+}
+
+.pp-ceremony__eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text3);
+}
+
+.pp-ceremony__mindfulness {
+  margin: 0;
+  padding: 12px 14px;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text2);
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+  border-radius: 10px;
+}
+
+.pp-ceremony__attrs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pp-ceremony__more {
+  margin: 0;
+  font-size: 0.74rem;
+  color: var(--text3);
+}
+
+.pp-ceremony__empty {
+  margin: 0;
+  padding: 16px 0;
+  font-size: 0.82rem;
+  color: var(--text3);
+}
+
+.pp-ceremony__begin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  align-self: flex-start;
+  padding: 9px 16px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #0b1014;
+  background: var(--accent);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: filter 120ms ease, transform 120ms ease;
+}
+
+.pp-ceremony__begin:hover {
+  filter: brightness(1.08);
+}
+
+.pp-ceremony__begin:active {
+  transform: translateY(1px);
+}

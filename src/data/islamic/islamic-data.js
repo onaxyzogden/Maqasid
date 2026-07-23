@@ -6139,6 +6139,19 @@ export function getModuleData(moduleId, valuesLayer) {
   return null;
 }
 
+// Ceremony data with the pillar fallback ThresholdModal applies.
+// MODULE_ATTRS is keyed at pillar level, so sub-modules (e.g. `faith-salah`)
+// resolve to null and must fall back to their parent pillar. Exported so any
+// surface previewing a threshold (e.g. the Prophetic Path node popup) resolves
+// exactly what the ceremony itself will show. Non-BBOS ids only — `bbos:` keys
+// stay ThresholdModal's own concern.
+export function resolveCeremonyData(moduleId, valuesLayer) {
+  const raw = getModuleData(moduleId, valuesLayer);
+  if (raw) return raw;
+  const pillar = getPillarForModule(moduleId);
+  return pillar ? getModuleData(pillar.id, valuesLayer) : null;
+}
+
 // ── Pause Protocol ──
 // The Istirja' is not an exit prayer — it is a return gesture.
 // Using it here signals that the operator is returning this moment
