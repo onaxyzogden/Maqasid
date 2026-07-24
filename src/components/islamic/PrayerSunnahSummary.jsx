@@ -33,13 +33,28 @@ export default function PrayerSunnahSummary({ prayerId, phase }) {
   const data = getPrayerPhaseSunnah(prayerId, phase);
   if (!data) return null;
 
-  const { prayerLabel, rows, fallbackNote } = data;
+  const { prayerLabel, rows, fallbackNote, leadNotes, rowsCaption } = data;
 
   return (
     <div className="pp-sunnah">
       <span className="pp-sunnah__eyebrow">
         Sunnah {phase} {prayerLabel}
       </span>
+
+      {/* Where the window has an approach of its own — Tahajjud's when-to-rise
+          and how-to-enter — it leads, and the structure row below follows as
+          what one rises toward. The ordering carries the teaching. */}
+      {leadNotes.length > 0 && (
+        <ul className="pp-sunnah__lead">
+          {leadNotes.map((note) => (
+            <li key={note}>{note}</li>
+          ))}
+        </ul>
+      )}
+
+      {rowsCaption && rows.length > 0 && (
+        <span className="pp-sunnah__caption">{rowsCaption}</span>
+      )}
 
       {rows.length === 0 ? (
         <p className="pp-sunnah__none">

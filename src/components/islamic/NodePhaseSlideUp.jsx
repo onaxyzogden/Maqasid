@@ -11,6 +11,7 @@ import {
   submodulesForNode,
 } from '@data/prophetic-path-submodules';
 import { getPillarSubmoduleIds } from '@data/submodule-registry';
+import { PRAYER_BOARD_PREFIX } from '@data/prayer-pillars';
 import '@components/work/ProjectSlideUp.css';
 import CeremonySummary from './CeremonySummary';
 import PrayerSunnahSummary from './PrayerSunnahSummary';
@@ -37,6 +38,43 @@ const PHASES = [
 // `buildTasksForNode` speaks the legacy slot vocabulary, where the node's own
 // window is 'main'.
 const SLOT_BY_PHASE = { before: 'before', during: 'main', after: 'after' };
+
+// For a prayer node the phase board IS the phase: `prayer_{id}_{before|during|
+// after}` is seeded per prayer per window, so read it directly instead of
+// inferring the set through buildTasksForNode's matchers.
+//
+// Inference both misses and bleeds here. It misses because PRAYER_BOARDS ship
+// `moduleId: null` (prayer-pillars.js), and buildTasksForNode's project filter
+// drops any board with no canonical submodule — which silently hid all 49
+// seeded prayer-phase tasks from this popup on every prayer, every tab. It
+// bleeds because the per-node content matchers are keyword-based: Tahajjud's
+// include /siwak|rawatib|witr/, so opening the faith-salah pool to it would
+// pull other prayers' tasks into its windows. The board is ground truth.
+function buildPrayerPhaseTasks(prayerId, phase, projects, tasksByProject, submoduleName) {
+  const projectId = `${PRAYER_BOARD_PREFIX}_${prayerId}_${phase}`;
+  const project = (projects || []).find((p) => p.id === projectId);
+  if (!project) return [];
+  return (tasksByProject?.[projectId] || [])
+    .filter((t) => !t.completedAt)
+    .map((t) => ({
+      id: t.id,
+      projectId,
+      title: t.title,
+      priority: t.priority || 'medium',
+      dueDate: t.dueDate || null,
+      columnId: t.columnId,
+      subtasks: t.subtasks || [],
+      tags: t.tags || [],
+      // Prayer boards are keyed by window, not by Maqasid level. Leave _level
+      // unset rather than letting it default to 3 ("Tahsiniyyat") — that would
+      // assert a classification the data never makes, and would label Fajr's
+      // mu'akkadah rawatib an embellishment. PPTaskCard omits the chip.
+      _level: null,
+      _submoduleId: 'faith-salah',
+      _submoduleName: submoduleName,
+      _project: project,
+    }));
+}
 
 export default function NodePhaseSlideUp({
   node,
@@ -68,13 +106,21 @@ export default function NodePhaseSlideUp({
   const slot = SLOT_BY_PHASE[phase];
 
   const phaseTasks = useMemo(
-    () => buildTasksForNode(node.id, projects, tasksByProject, {
-      limit: 8,
-      submoduleNameById,
-      phase: slot,
-      moduleId,
-    }),
-    [node.id, projects, tasksByProject, submoduleNameById, slot, moduleId],
+    () => (isPrayerNode
+      ? buildPrayerPhaseTasks(
+        node.id,
+        phase,
+        projects,
+        tasksByProject,
+        submoduleNameById['faith-salah'] || 'Salah',
+      )
+      : buildTasksForNode(node.id, projects, tasksByProject, {
+        limit: 8,
+        submoduleNameById,
+        phase: slot,
+        moduleId,
+      })),
+    [isPrayerNode, node.id, phase, projects, tasksByProject, submoduleNameById, slot, moduleId],
   );
 
   const showProjects = node.id === 'midday-labor' && phase === 'during' && viewMode === 'action';

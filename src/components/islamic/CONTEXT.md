@@ -103,6 +103,24 @@ opening/closing threshold (all six resolved to the same `<CeremonySummary>`); th
 prayer's own before/after Sunnah instead. The niyyah/readiness ceremony stays reachable via the
 route-level `CeremonyGuard`.
 
+**Task list — prayer nodes read their board directly.** Prayer nodes bypass `buildTasksForNode`
+and read `prayer_{prayerId}_{before|during|after}` out of `tasksByProject` via the popup's local
+`buildPrayerPhaseTasks`. The board *is* the phase, so there is nothing to infer. Inference was
+also broken both ways: `PRAYER_BOARDS` ship `moduleId: null` (`@data/prayer-pillars`) and
+`buildTasksForNode` drops any project with no canonical submodule — which hid all 49 seeded
+prayer-phase tasks from this popup on every prayer and every tab — while opening the
+`faith-salah` pool to fix that would have let the keyword matchers (`/siwak|rawatib|witr/`) pull
+one prayer's tasks into another's window. Non-prayer nodes still use `buildTasksForNode`.
+
+Prayer-phase rows carry `_level: null` — those boards are keyed by window, not by Maqasid level —
+so `PPTaskCard` omits the L1/L2/L3 chip for them rather than defaulting to L3 "Tahsiniyyat" and
+labelling Fajr's mu'akkadah rawatib an embellishment. Non-prayer rows keep the chip.
+
+**Tahajjud's Before leads with its approach.** Tahajjud has no `Sunnah before` row — its `Qiyām`
+row *is* the prayer — so `getPrayerPhaseSunnah` returns `leadNotes` (when to rise, how to enter,
+from `PRAYER_GUIDE.tahajjud.keys`) plus a `rowsCaption`, and `PrayerSunnahSummary` renders them
+above the row. See `SUNNAH_LEAD` in `@data/seed-tasks/prayer-seed-tasks`.
+
 The ceremony is **not** rendered locally: "Begin opening/closing" sets
 `openingModuleId` / `closingModuleId` on threshold-store and closes the popup, so the globally
 mounted `ThresholdModal` (`AppShell.jsx`) takes over. Module precedence is

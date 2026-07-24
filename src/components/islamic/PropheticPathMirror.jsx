@@ -62,11 +62,13 @@ export function PPTaskCard({ task, index, onSelectTask }) {
         : undefined}
       onSelectTask={onSelectTask}
       chips={[
-        {
+        // Prayer-phase rows carry no _level — their board is keyed by window,
+        // not by Maqasid level — so the chip is omitted rather than defaulted.
+        ...(task._level != null ? [{
           label: `${LEVEL_LABEL[task._level]} · ${LEVEL_FULL_LABEL[task._level]}`,
           className: 'dtc__chip',
           style: { background: `color-mix(in srgb, ${levelColor} 14%, transparent)`, color: levelColor },
-        },
+        }] : []),
         { label: statusLabel(status), className: `dtc__chip dtc__chip--status-${status}` },
         ...(priority ? [{
           label: priority.label,

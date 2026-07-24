@@ -621,6 +621,19 @@ const SUNNAH_FALLBACK_MATCH = {
   'tahajjud:after': 'no two witrs',
 };
 
+// Windows where PRAYER_GUIDE[id].keys carries the *approach* to the window —
+// what precedes the rakʿat — and the structure row is the prayer itself rather
+// than a rawatib around it. Tahajjud is the case: it has no 'Sunnah before'
+// row, so its Before tab leads with when to rise and how to enter, then shows
+// the Qiyām row as what one rises toward. Needles are ASCII-safe for the same
+// cp1252 reason as SUNNAH_FALLBACK_MATCH.
+const SUNNAH_LEAD = {
+  'tahajjud:before': {
+    needles: ['Best in the last third', 'Begin with 2 light'],
+    rowsCaption: 'What you rise toward',
+  },
+};
+
 function normalizeSunnahRow(row) {
   return {
     kind: row.kind,
@@ -634,9 +647,11 @@ function normalizeSunnahRow(row) {
 }
 
 // phase ∈ 'before' | 'after'. Returns
-//   { prayerId, phase, prayerLabel, rows: [normalizedRow, ...], fallbackNote }
+//   { prayerId, phase, prayerLabel, rows: [normalizedRow, ...], fallbackNote,
+//     leadNotes: [string, ...], rowsCaption }
 // or null for a non-prayer id / unsupported phase. `rows` is an array so Isha's
-// "after" can carry both the 2 rawatib and the Witr row.
+// "after" can carry both the 2 rawatib and the Witr row. `leadNotes` precede
+// the rows where the window has an approach of its own (see SUNNAH_LEAD).
 export function getPrayerPhaseSunnah(prayerId, phase) {
   const guide = PRAYER_GUIDE[prayerId];
   if (!guide || (phase !== 'before' && phase !== 'after')) return null;
@@ -665,11 +680,18 @@ export function getPrayerPhaseSunnah(prayerId, phase) {
     if (needle) fallbackNote = guide.keys.find((k) => k.includes(needle)) || null;
   }
 
+  const lead = SUNNAH_LEAD[`${prayerId}:${phase}`];
+  const leadNotes = lead
+    ? lead.needles.map((n) => guide.keys.find((k) => k.includes(n))).filter(Boolean)
+    : [];
+
   return {
     prayerId,
     phase,
     prayerLabel: PRAYER_LABEL_BY_ID[prayerId] || prayerId,
     rows,
     fallbackNote,
+    leadNotes,
+    rowsCaption: leadNotes.length > 0 ? lead.rowsCaption : null,
   };
 }
