@@ -80,11 +80,12 @@ Not rendering the ceremony inside the popup is the same discipline: `ThresholdMo
 
 **Amanah:** neutral. Navigation and layout of an existing covenant surface — no capital instrument, no CSA/CSRA/salam/yield-share surface. The change *strengthens* the covenant posture by making the opening/closing threshold reachable for windows the user has missed or not yet entered, rather than only the one they are standing in.
 
-Uncommitted on `feat/desktop-pillar-glyphs` at time of filing (see [[2026-07-23-milos-prayer-node-sunnah-tabs]] — the two changes share a working tree).
+Uncommitted at time of filing; **committed 2026-07-23 as `c8e4d60`** on `feat/desktop-pillar-glyphs`, sharing that commit with [[2026-07-23-milos-prayer-node-sunnah-tabs]]. Not pushed.
 
 ## Connections
 
 - [[milos]] — the app whose Prophetic Path this governs
 - [[2026-07-23-milos-prayer-node-sunnah-tabs]] — the follow-on that replaced the generic threshold on the six prayer nodes
+- [[2026-07-23-milos-prayer-phase-task-boards]] — the second follow-on: this popup's task list silently dropped all 49 prayer-phase tasks, because `buildTasksForNode` filters on `moduleId` and every prayer board ships `moduleId: null`
 - [[ceremony-gate-pattern]] — the pattern this popup previews and hands off to
 - [[covenant-architecture]] — marking entry and exit is the point; the satellites were preventing it
