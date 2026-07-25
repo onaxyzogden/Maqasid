@@ -7,10 +7,10 @@
 // Maqasid level → accent colour (mirrors PillarLevelDashboard.LEVEL_COLORS).
 export const LEVEL_COLOR = { 1: '#C8A96E', 2: '#4ab8a8', 3: '#8b5cf6' };
 
-// Nodes whose During phase hands off to PrayerSlideUp (Before/During/After
-// prayer sunan) instead of rendering the generic mirror content. Tahajjud is
-// included per the "all prayer-like nodes" decision, even though it lacks a
-// standard window.
+// Nodes whose During phase renders the inline prayer guide (PrayerHeroDuring)
+// instead of the generic mirror content, and whose Before/After phases show the
+// phase task board only. Tahajjud is included per the "all prayer-like nodes"
+// decision, even though it lacks a standard window.
 export const PRAYER_NODE_IDS = new Set(['fajr', 'dhuhr', 'asr', 'maghrib', 'isha', 'tahajjud']);
 
 // Every spine node's Before/After phase opens the opening/closing Threshold

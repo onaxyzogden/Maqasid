@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { X, ArrowRight } from 'lucide-react';
+import { X } from 'lucide-react';
 import { useSettingsStore } from '@store/settings-store';
 import { useThresholdStore } from '@store/threshold-store';
 import { useFocusTrap } from '@hooks/useFocusTrap';
@@ -14,7 +14,7 @@ import { getPillarSubmoduleIds } from '@data/submodule-registry';
 import { PRAYER_BOARD_PREFIX } from '@data/prayer-pillars';
 import '@components/work/ProjectSlideUp.css';
 import CeremonySummary from './CeremonySummary';
-import PrayerSunnahSummary from './PrayerSunnahSummary';
+import PrayerHeroDuring from './PrayerHeroDuring';
 import { MirrorCard, PPTaskCard } from './PropheticPathMirror';
 import { PRAYER_NODE_IDS, THRESHOLD_MODULE_BY_NODE } from './prophetic-path-constants';
 import './PropheticPath.css';
@@ -25,9 +25,9 @@ import './NodePhaseSlideUp.css';
 // currently active — so on most of the day's timeline the opening and closing
 // thresholds were unreachable.
 //
-// Before → opening threshold preview + that phase's tasks
-// During → the node's content (MirrorCard), or a hand-off to PrayerSlideUp
-// After  → closing threshold preview + that phase's tasks
+// Before → opening threshold preview + that phase's tasks (prayer nodes: tasks only)
+// During → the node's content (MirrorCard), or the inline prayer guide (PrayerHeroDuring)
+// After  → closing threshold preview + that phase's tasks (prayer nodes: tasks only)
 
 const PHASES = [
   { id: 'before', label: 'Before' },
@@ -84,7 +84,6 @@ export default function NodePhaseSlideUp({
   onSelectTask,
   onSelectProject,
   onSelectSubmodule,
-  onOpenPrayer,
   onClose,
 }) {
   const theme = useSettingsStore((s) => s.theme) ?? 'light';
@@ -157,20 +156,9 @@ export default function NodePhaseSlideUp({
   let body;
   if (phase === 'during') {
     body = isPrayerNode ? (
-      <div className="pp-phase-handoff">
-        <p className="pp-phase-handoff__text">
-          {node.title} has its own Before / During / After sunan — the raka&#39;at,
-          the adhkar, and what surrounds them.
-        </p>
-        <button
-          type="button"
-          className="pp-ceremony__begin"
-          onClick={() => onOpenPrayer(node.id)}
-        >
-          Open prayer phases
-          <ArrowRight size={14} strokeWidth={2.25} aria-hidden="true" />
-        </button>
-      </div>
+      // The prayer itself — its own Before/During/After sunan surfaced inline
+      // (rakaʿat, postures, adhkar) rather than a hand-off to a separate view.
+      <PrayerHeroDuring pillarKey={node.id} />
     ) : (
       <MirrorCard
         node={node}
@@ -188,22 +176,21 @@ export default function NodePhaseSlideUp({
         showProjects={showProjects}
       />
     );
+  } else if (isPrayerNode) {
+    // Prayer nodes: tasks only. The per-prayer Sunnah rawatib summary was
+    // removed from this popup per user request; the tab label supplies the
+    // Before/After context. Rendered without the .pp-phase-tasks wrapper so
+    // its separator border-top isn't stranded at the top (the panel body has
+    // its own padding).
+    body = taskList;
   } else {
     body = (
       <>
-        {isPrayerNode ? (
-          // Each prayer has its own before/after Sunnah (rawatib), not the
-          // generic faith-salah threshold that THRESHOLD_MODULE_BY_NODE would
-          // otherwise resolve for all six. The niyyah/readiness ceremony stays
-          // reachable via the route-level CeremonyGuard.
-          <PrayerSunnahSummary prayerId={node.id} phase={phase} />
-        ) : (
-          <CeremonySummary
-            moduleId={thresholdModuleId}
-            type={phase === 'before' ? 'opening' : 'closing'}
-            onBegin={() => beginCeremony(phase === 'before' ? 'opening' : 'closing')}
-          />
-        )}
+        <CeremonySummary
+          moduleId={thresholdModuleId}
+          type={phase === 'before' ? 'opening' : 'closing'}
+          onBegin={() => beginCeremony(phase === 'before' ? 'opening' : 'closing')}
+        />
         <div className="pp-phase-tasks">{taskList}</div>
       </>
     );

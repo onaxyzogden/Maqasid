@@ -42,7 +42,6 @@ import {
 import TaskDetailPanel from '@components/work/TaskDetailPanel';
 import ProjectSlideUp from '@components/work/ProjectSlideUp';
 import SubmoduleSlideUp from './SubmoduleSlideUp';
-import PrayerSlideUp from './PrayerSlideUp';
 import NodePhaseSlideUp from './NodePhaseSlideUp';
 import PropheticPathBanner from './PropheticPathBanner';
 import { LEVEL_COLOR } from './prophetic-path-constants';
@@ -807,8 +806,6 @@ export default function PropheticPath({ variant }) {
   const [slideUpProjectId, setSlideUpProjectId] = useState(null);
   // { id, label } for the submodule slide-up overlay (null = closed)
   const [slideUpSubmodule, setSlideUpSubmodule] = useState(null);
-  // nodeId for the prayer slide-up overlay (null = closed)
-  const [slideUpPrayerNodeId, setSlideUpPrayerNodeId] = useState(null);
 
   // Hydrate tasks for all relevant projects once on mount. The task store
   // lazily loads tasks per project — ensure every project referenced in the
@@ -970,7 +967,6 @@ export default function PropheticPath({ variant }) {
           onSelectTask={openTask}
           onSelectProject={setSlideUpProjectId}
           onSelectSubmodule={(id, label) => setSlideUpSubmodule({ id, label })}
-          onOpenPrayer={(id) => { setPhaseNodeId(null); setSlideUpPrayerNodeId(id); }}
           onClose={() => setPhaseNodeId(null)}
         />
       )}
@@ -995,14 +991,6 @@ export default function PropheticPath({ variant }) {
           submoduleId={slideUpSubmodule.id}
           fallbackLabel={slideUpSubmodule.label}
           onClose={() => setSlideUpSubmodule(null)}
-        />
-      )}
-      {slideUpPrayerNodeId && (
-        <PrayerSlideUp
-          nodeId={slideUpPrayerNodeId}
-          onClose={() => setSlideUpPrayerNodeId(null)}
-          onSelectTask={openTask}
-          onNavigate={setSlideUpPrayerNodeId}
         />
       )}
     </div>

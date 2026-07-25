@@ -6,6 +6,9 @@ status: accepted
 supersedes: prior tabs/list PrayerSlideUp (undone in-session)
 ---
 
+> [!warning] Partially superseded 2026-07-25 — the cloned components are deleted; the boards + seed model survive
+> **Decision #1 (clone, don't parameterize) is reversed.** `PrayerSlideUp`, the cloned `PrayerLevelPage`, and the cloned `PrayerLevelNavigator` were all deleted once the node popup stopped handing off to the slide-up. **Decision #5 (During as a hero, not a kanban) survives but relocated** — `PrayerHeroDuring` is now rendered *inline in the popup's During tab* rather than in `PrayerLevelPage`'s during branch. **Decisions #2 (18 real boards), #3 (Option-A seed duplication), and #4 (non-destructive migration) are untouched** — the 18 `prayer_{id}_{phase}` boards still exist and are now read directly by `buildPrayerPhaseTasks` (see [[2026-07-23-milos-prayer-phase-task-boards]]). The `_during` boards remain empty by design. See [[2026-07-25-milos-prayer-popup-consolidation]].
+
 ## Context
 
 The prayer node slide-up on `/app/prophetic-path-test` was originally a tabs/list layout that didn't match the approved mockup (`Prayer Dashboard Concept - Before.html`). The mockup required:

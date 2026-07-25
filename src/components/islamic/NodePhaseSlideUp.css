@@ -48,21 +48,6 @@
   border-top: 1px solid var(--border, rgba(0, 0, 0, 0.08));
 }
 
-.pp-phase-handoff {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 4px 0 8px;
-}
-
-.pp-phase-handoff__text {
-  margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.65;
-  color: var(--text2);
-}
-
 @media (max-width: 640px) {
   .pp-phase-panel {
     max-height: 92vh;
