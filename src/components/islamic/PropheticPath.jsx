@@ -9,9 +9,7 @@ import {
   SunMedium,
   Sunset,
   HardHat,
-  ArrowRight,
   BookOpen,
-  Play,
   Bed,
   BedDouble,
   Home,
@@ -32,37 +30,22 @@ import { useFastingStore } from '@store/fasting-store';
 import { useTravelStore } from '@store/travel-store';
 import { useIslamicDayStore, DAILY_CEREMONY_MODULES } from '@store/islamic-day-store';
 import { usePrayerTimes } from '@hooks/usePrayerTimes';
-import { MODULES, PRIORITIES } from '@data/modules';
+import { MODULES } from '@data/modules';
 import { MAQASID_PILLARS } from '@data/maqasid';
 import {
-  buildTasksForNode,
-  buildUserProjectsForScope,
-  getModuleGroups,
-  inferNodeFromHour,
-  submodulesForNode,
-  LEVEL_LABEL,
-  LEVEL_FULL_LABEL,
   isRamadan as isHijriRamadan,
   isEidFitr,
   isEidAdha,
   formatHijriLong,
   formatGregorianLong,
 } from '@data/prophetic-path-submodules';
-import {
-  getSubmoduleDisplayLabel,
-  getSubmodulePillarColor,
-  getPillarSubmoduleIds,
-} from '@data/submodule-registry';
-import DashboardTaskCard from '@components/shared/DashboardTaskCard';
 import TaskDetailPanel from '@components/work/TaskDetailPanel';
 import ProjectSlideUp from '@components/work/ProjectSlideUp';
 import SubmoduleSlideUp from './SubmoduleSlideUp';
-import PrayerSlideUp from './PrayerSlideUp';
+import NodePhaseSlideUp from './NodePhaseSlideUp';
 import PropheticPathBanner from './PropheticPathBanner';
+import { LEVEL_COLOR } from './prophetic-path-constants';
 import './PropheticPath.css';
-
-// Maqasid level → accent colour (mirrors PillarLevelDashboard.LEVEL_COLORS).
-const LEVEL_COLOR = { 1: '#C8A96E', 2: '#4ab8a8', 3: '#8b5cf6' };
 
 // Resolve a pillar-chip label to its canonical Maqasid accent color.
 // NODES uses a mix of `sidebarLabel` (Faith/Life/…), `id` (e.g. 'ummah'), and
@@ -84,44 +67,6 @@ function resolvePillarAccent(label) {
   if (!label) return null;
   return _PILLAR_ACCENT_BY_KEY[label.toLowerCase()] || null;
 }
-
-// Nodes that open the PrayerSlideUp (Before/During/After tabs) instead of
-// toggling inline satellite expansion. Tahajjud is included per the
-// "all prayer-like nodes" decision, even though it lacks a standard window.
-const PRAYER_NODE_IDS = new Set(['fajr', 'dhuhr', 'asr', 'maghrib', 'isha', 'tahajjud']);
-
-// Every spine node's Before/After satellite opens the opening/closing
-// Threshold ceremony. Each node maps to the module whose ceremony it
-// triggers — prayer nodes route to `faith-salah`, fasting nodes to
-// `faith-siyam`, transitional rest nodes to `health-physical`, work
-// transitions to `work`. Inline satellite expansion still fires alongside
-// the modal so the task surface remains visible behind the ceremony.
-const THRESHOLD_MODULE_BY_NODE = {
-  fajr: 'faith-salah',
-  dhuhr: 'faith-salah',
-  asr: 'faith-salah',
-  maghrib: 'faith-salah',
-  isha: 'faith-salah',
-  tahajjud: 'faith-salah',
-  witr: 'faith-salah',
-  duha: 'faith-salah',
-  jumuah: 'faith-salah',
-  'eid-prayer': 'faith-salah',
-  'after-asr': 'faith-salah',
-  'istijabah-hour': 'faith-salah',
-  sahari: 'faith-siyam',
-  'maghrib-iftar': 'faith-siyam',
-  'isha-taraweeh': 'faith-siyam',
-  bedtime: 'health-physical',
-  'qiyam-rest': 'health-physical',
-  qaylulah: 'health-physical',
-  morning: 'work',
-  'midday-labor': 'work',
-};
-// Backwards-compat: any node id present as a key in THRESHOLD_MODULE_BY_NODE
-// is a threshold trigger — both prayer + non-prayer.
-const isThresholdTriggerNode = (nodeId) =>
-  Object.prototype.hasOwnProperty.call(THRESHOLD_MODULE_BY_NODE, nodeId);
 
 // Map each timeline node to the Aladhan `timings` key it anchors on.
 // Aladhan returns Fajr, Sunrise, Dhuhr, Asr, Sunset, Maghrib, Isha, Imsak,
@@ -316,30 +261,6 @@ function deriveNodeTiming(nodeId, timings, activeNodeId, nextNodeId) {
   }
 
   return { time, label: spec.label, state };
-}
-
-function statusLabel(s) {
-  return s === 'done' ? 'Done' : s === 'in-progress' ? 'In Progress' : 'To Do';
-}
-
-function deriveStatus(task) {
-  const cols = task._project?.columns || [];
-  const doneCol = cols.find((c) => c.id.endsWith('_done'))?.id;
-  const progressCol = cols.find((c) => c.id.endsWith('_progress'))?.id;
-  if (task.columnId === doneCol) return 'done';
-  if (task.columnId === progressCol) return 'in-progress';
-  return 'todo';
-}
-
-function formatDue(dateStr) {
-  if (!dateStr) return null;
-  const d = new Date(dateStr);
-  const now = new Date();
-  const days = Math.ceil((d - now) / 86400000);
-  if (days < 0) return { text: 'Overdue', colorVar: 'var(--danger)' };
-  if (days === 0) return { text: 'Today', colorVar: 'var(--warning)' };
-  if (days <= 3) return { text: `${days}d`, colorVar: 'var(--warning)' };
-  return { text: d.toLocaleDateString('en', { month: 'short', day: 'numeric' }), colorVar: 'var(--text3)' };
 }
 
 const NODES = [
@@ -666,304 +587,25 @@ const EVENT_NODES = [
   },
 ];
 
-function PPTaskCard({ task, index, onSelectTask }) {
-  const priority = PRIORITIES.find((p) => p.id === task.priority);
-  const status = deriveStatus(task);
-  const levelColor = LEVEL_COLOR[task._level] || LEVEL_COLOR[3];
-  const subtaskTotal = task.subtasks?.length || 0;
-  const subtaskDone = subtaskTotal > 0 ? task.subtasks.filter((s) => s.done).length : 0;
-
-  return (
-    <DashboardTaskCard
-      taskId={task.id}
-      index={index}
-      title={task.title}
-      span={12}
-      status={status}
-      accentColor={levelColor}
-      statusTint={status === 'in-progress'
-        ? { background: 'color-mix(in srgb, #F59E0B 12%, var(--surface))' }
-        : undefined}
-      onSelectTask={onSelectTask}
-      chips={[
-        {
-          label: `${LEVEL_LABEL[task._level]} · ${LEVEL_FULL_LABEL[task._level]}`,
-          className: 'dtc__chip',
-          style: { background: `color-mix(in srgb, ${levelColor} 14%, transparent)`, color: levelColor },
-        },
-        { label: statusLabel(status), className: `dtc__chip dtc__chip--status-${status}` },
-        ...(priority ? [{
-          label: priority.label,
-          className: 'dtc__chip dtc__chip--priority',
-          style: { background: priority.bg, color: priority.color },
-        }] : []),
-      ]}
-      subtasks={subtaskTotal > 0
-        ? { done: subtaskDone, total: subtaskTotal, color: levelColor }
-        : undefined}
-      dueDate={formatDue(task.dueDate)}
-      tags={[task._submoduleName, ...(task.tags?.slice(1) || [])]}
-    />
-  );
-}
-
-function ProjectRow({ project, onClick }) {
-  return (
-    <button type="button" className="pp-project-row" onClick={() => onClick(project.id)}>
-      <span className="pp-project-row__swatch" style={{ background: project.color || '#70d8c8' }} aria-hidden="true" />
-      <span className="pp-project-row__name">{project.name}</span>
-      <ArrowRight size={14} strokeWidth={2} className="pp-project-row__chev" />
-    </button>
-  );
-}
-
-function EducationList({ nodeId, moduleId, onSelectSubmodule }) {
-  // Prefer the pillar's canonical submodule list (e.g., Wealth → all 4) when
-  // moduleId is a registered pillar. Fall back to the node's moduleGroup scope
-  // for non-pillar groups like 'community'.
-  const pillarSubs = getPillarSubmoduleIds(moduleId);
-  const submoduleIds = pillarSubs.length > 0 ? pillarSubs : submodulesForNode(nodeId, moduleId);
-  if (!submoduleIds || submoduleIds.length === 0) {
-    return <p className="pp-mirror-empty">No submodules for this window.</p>;
-  }
-  return (
-    <div className="pp-project-list">
-      {submoduleIds.map((id) => {
-        const label = getSubmoduleDisplayLabel(id, id);
-        const color = getSubmodulePillarColor(id);
-        return (
-          <button
-            key={id}
-            type="button"
-            className="pp-project-row"
-            onClick={() => onSelectSubmodule?.(id, label)}
-          >
-            <span
-              className="pp-project-row__swatch"
-              aria-hidden="true"
-              style={{ background: color }}
-            />
-            <span className="pp-project-row__name">{label}</span>
-            <ArrowRight size={14} strokeWidth={2} className="pp-project-row__chev" aria-hidden="true" />
-          </button>
-        );
-      })}
-    </div>
-  );
-}
-
-function MirrorCard({
-  node,
-  tasks,
-  projects,
-  onSelectTask,
-  onSelectProject,
-  onSelectSubmodule,
-  phaseLabel = 'Now',
-  viewMode,
-  moduleGroups,
-  moduleId,
-  onViewMode,
-  onModuleId,
-  showProjects,
-}) {
-  return (
-    <aside className="pp-mirror-card">
-      <div className="pp-mirror-header">
-        <span className="pp-mirror-eyebrow">{phaseLabel} · {node.eyebrow}</span>
-        <h4 className="pp-mirror-title">{node.title}</h4>
-        <div className="pp-mirror-toggles">
-          {moduleGroups && moduleGroups.length > 1 && (
-            <div className="pp-pill-switch" role="tablist" aria-label="Objective">
-              {moduleGroups.map((g) => (
-                <button
-                  key={g.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={moduleId === g.id}
-                  className="pp-pill-switch__btn"
-                  data-active={moduleId === g.id || undefined}
-                  onClick={() => onModuleId(g.id)}
-                >
-                  {g.label}
-                </button>
-              ))}
-            </div>
-          )}
-          <div className="pp-pill-switch" role="tablist" aria-label="View">
-            <button
-              type="button"
-              role="tab"
-              aria-selected={viewMode === 'action'}
-              className="pp-pill-switch__btn"
-              data-active={viewMode === 'action' || undefined}
-              onClick={() => onViewMode('action')}
-            >
-              <Play size={12} strokeWidth={2.25} />
-              Action
-            </button>
-            <button
-              type="button"
-              role="tab"
-              aria-selected={viewMode === 'education'}
-              className="pp-pill-switch__btn"
-              data-active={viewMode === 'education' || undefined}
-              onClick={() => onViewMode('education')}
-            >
-              <BookOpen size={12} strokeWidth={2.25} />
-              Education
-            </button>
-          </div>
-        </div>
-      </div>
-      {viewMode === 'education' ? (
-        <EducationList nodeId={node.id} moduleId={moduleId} onSelectSubmodule={onSelectSubmodule} />
-      ) : showProjects ? (
-        (projects || []).length === 0 ? (
-          <p className="pp-mirror-empty">No projects in this scope yet.</p>
-        ) : (
-          <div className="pp-project-list">
-            {projects.map((p) => (
-              <ProjectRow key={p.id} project={p} onClick={onSelectProject} />
-            ))}
-          </div>
-        )
-      ) : (tasks.length === 0 ? (
-        <p className="pp-mirror-empty">No tasks queued for this window.</p>
-      ) : (
-        <div className="pp-task-list">
-          {tasks.map((t, i) => (
-            <PPTaskCard
-              key={t.id}
-              task={t}
-              index={i}
-              onSelectTask={onSelectTask}
-            />
-          ))}
-        </div>
-      ))}
-    </aside>
-  );
-}
-
-function TimelineNode({
-  node,
-  expandedSlot,
-  onToggle,
-  projects,
-  tasksByProject,
-  submoduleNameById,
-  onSelectTask,
-  onSelectProject,
-  onSelectSubmodule,
-  onOpenPrayer,
-  timing,
-}) {
+function TimelineNode({ node, onOpenNode, timing }) {
   const { Icon, pulse } = node;
-  const isPrayerNode = PRAYER_NODE_IDS.has(node.id);
-  const isExpanded = !isPrayerNode && expandedSlot !== null;
-  const mirrorId = `pp-mirror-${node.id}`;
 
-  const moduleGroups = useMemo(() => getModuleGroups(node.id), [node.id]);
-  const [moduleId, setModuleId] = useState(() => moduleGroups[0]?.id || null);
-  const [viewMode, setViewMode] = useState('action');
-
-  const setOpeningModuleId = useThresholdStore((s) => s.setOpeningModuleId);
-  const setClosingModuleId = useThresholdStore((s) => s.setClosingModuleId);
-  const isThresholdNode = isThresholdTriggerNode(node.id);
-  // Prefer the per-node canonical module (faith-salah for prayer nodes etc.)
-  // over the user-selected moduleGroup so the ceremony content matches the
-  // node's covenant — moduleGroups still steer the inline task list.
-  const thresholdModuleId = THRESHOLD_MODULE_BY_NODE[node.id] || moduleId || 'work';
-
-  // Universal Before/After ceremony: every spine node now opens the Threshold
-  // modal (opening on Before, closing on After). For non-prayer nodes the
-  // inline phase-filtered task list also expands behind the modal, so when
-  // the user dismisses the ceremony the relevant tasks are already visible.
-  const handleBeforeClick = () => {
-    if (isThresholdNode) setOpeningModuleId(thresholdModuleId);
-    if (!isPrayerNode) onToggle(node.id, 'before');
-  };
-  const handleAfterClick = () => {
-    if (isThresholdNode) setClosingModuleId(thresholdModuleId);
-    if (!isPrayerNode) onToggle(node.id, 'after');
-  };
-
-  const phaseTasks = useMemo(() => {
-    if (!isExpanded) return [];
-    return buildTasksForNode(node.id, projects, tasksByProject, {
-      limit: 8,
-      submoduleNameById,
-      phase: expandedSlot,
-      moduleId,
-    });
-  }, [isExpanded, node.id, projects, tasksByProject, submoduleNameById, expandedSlot, moduleId]);
-
-  const showProjects = node.id === 'midday-labor' && expandedSlot === 'main' && viewMode === 'action';
-  const scopeProjects = useMemo(() => {
-    if (!showProjects) return [];
-    const pillarSubs = getPillarSubmoduleIds(moduleId);
-    const scopeIds = pillarSubs.length > 0 ? pillarSubs : submodulesForNode(node.id, moduleId);
-    return buildUserProjectsForScope(projects, scopeIds);
-  }, [showProjects, projects, node.id, moduleId]);
-
-  const handleSelectTask = (taskId) => {
-    const row = phaseTasks.find((r) => r.id === taskId);
-    if (row) onSelectTask(row);
-  };
-
-  const mirror = isExpanded ? (
-    <div id={mirrorId}>
-      <MirrorCard
-        node={node}
-        tasks={phaseTasks}
-        projects={scopeProjects}
-        onSelectTask={handleSelectTask}
-        onSelectProject={onSelectProject}
-        onSelectSubmodule={onSelectSubmodule}
-        phaseLabel={slotLabel(expandedSlot)}
-        viewMode={viewMode}
-        moduleGroups={moduleGroups}
-        moduleId={moduleId}
-        onViewMode={setViewMode}
-        onModuleId={setModuleId}
-        showProjects={showProjects}
-      />
-    </div>
-  ) : null;
   return (
     <div
       className="pp-node"
-      data-expanded={isExpanded || undefined}
       data-prayer-state={timing?.state || undefined}
     >
       <div className="pp-marker" data-tone={node.markerTone} data-prayer-state={timing?.state || undefined}>
         <Icon className="pp-marker-icon" size={12} strokeWidth={2.25} />
       </div>
       <div className="pp-node-stack">
-        {(isThresholdNode || !isPrayerNode) && (
-          <>
-            <button
-              type="button"
-              className="pp-satellite"
-              data-slot="before"
-              aria-expanded={!isPrayerNode && expandedSlot === 'before'}
-              aria-controls={isPrayerNode ? undefined : mirrorId}
-              onClick={handleBeforeClick}
-            >
-              Before
-            </button>
-            {!isPrayerNode && expandedSlot === 'before' && mirror}
-          </>
-        )}
         <button
           type="button"
           className="pp-card"
           data-style={node.cardStyle}
           data-prayer-state={timing?.state || undefined}
-          aria-expanded={isPrayerNode ? undefined : expandedSlot === 'main'}
-          aria-controls={isPrayerNode ? undefined : mirrorId}
-          onClick={() => (isPrayerNode ? onOpenPrayer(node.id) : onToggle(node.id, 'main'))}
+          aria-haspopup="dialog"
+          onClick={() => onOpenNode(node.id)}
         >
           {node.cardStyle === 'divine' && <div className="pp-card-glow" aria-hidden="true" />}
           <div className="pp-card-hover" aria-hidden="true" />
@@ -1004,31 +646,9 @@ function TimelineNode({
             </div>
           </div>
         </button>
-        {!isPrayerNode && expandedSlot === 'main' && mirror}
-        {(isThresholdNode || !isPrayerNode) && (
-          <>
-            <button
-              type="button"
-              className="pp-satellite"
-              data-slot="after"
-              aria-expanded={!isPrayerNode && expandedSlot === 'after'}
-              aria-controls={isPrayerNode ? undefined : mirrorId}
-              onClick={handleAfterClick}
-            >
-              After
-            </button>
-            {!isPrayerNode && expandedSlot === 'after' && mirror}
-          </>
-        )}
       </div>
     </div>
   );
-}
-
-function slotLabel(slot) {
-  if (slot === 'before') return 'Before';
-  if (slot === 'after') return 'After';
-  return 'Now';
 }
 
 export default function PropheticPath({ variant }) {
@@ -1178,15 +798,14 @@ export default function PropheticPath({ variant }) {
     ensureWeeklyProjects();
   }, [ensureWeeklyProjects]);
 
-  const [expanded, setExpanded] = useState(() => ({ nodeId: inferNodeFromHour(new Date()), slot: 'main' }));
+  // nodeId whose Before/During/After popup is open (null = closed)
+  const [phaseNodeId, setPhaseNodeId] = useState(null);
   // { taskId, project, projectId, levelColor } | null
   const [selectedTask, setSelectedTask] = useState(null);
   // projectId for the slide-up overlay (null = closed)
   const [slideUpProjectId, setSlideUpProjectId] = useState(null);
   // { id, label } for the submodule slide-up overlay (null = closed)
   const [slideUpSubmodule, setSlideUpSubmodule] = useState(null);
-  // nodeId for the prayer slide-up overlay (null = closed)
-  const [slideUpPrayerNodeId, setSlideUpPrayerNodeId] = useState(null);
 
   // Hydrate tasks for all relevant projects once on mount. The task store
   // lazily loads tasks per project — ensure every project referenced in the
@@ -1204,11 +823,10 @@ export default function PropheticPath({ variant }) {
     return map;
   }, []);
 
-  const toggleNode = (id, slot) => {
-    setExpanded((curr) =>
-      curr && curr.nodeId === id && curr.slot === slot ? null : { nodeId: id, slot }
-    );
-  };
+  const phaseNode = useMemo(
+    () => [...eventNodes, ...orderedNodes].find((n) => n.id === phaseNodeId) || null,
+    [eventNodes, orderedNodes, phaseNodeId],
+  );
 
   const openTask = (row) => {
     if (!row) { setSelectedTask(null); return; }
@@ -1320,15 +938,7 @@ export default function PropheticPath({ variant }) {
                   <TimelineNode
                     key={node.id}
                     node={node}
-                    expandedSlot={expanded && expanded.nodeId === node.id ? expanded.slot : null}
-                    onToggle={toggleNode}
-                    projects={projects}
-                    tasksByProject={tasksByProject}
-                    submoduleNameById={submoduleNameById}
-                    onSelectTask={openTask}
-                    onSelectProject={setSlideUpProjectId}
-                    onSelectSubmodule={(id, label) => setSlideUpSubmodule({ id, label })}
-                    onOpenPrayer={setSlideUpPrayerNodeId}
+                    onOpenNode={setPhaseNodeId}
                     timing={null}
                   />
                 ))}
@@ -1339,15 +949,7 @@ export default function PropheticPath({ variant }) {
                 <TimelineNode
                   key={node.id}
                   node={node}
-                  expandedSlot={expanded && expanded.nodeId === node.id ? expanded.slot : null}
-                  onToggle={toggleNode}
-                  projects={projects}
-                  tasksByProject={tasksByProject}
-                  submoduleNameById={submoduleNameById}
-                  onSelectTask={openTask}
-                  onSelectProject={setSlideUpProjectId}
-                  onSelectSubmodule={(id, label) => setSlideUpSubmodule({ id, label })}
-                  onOpenPrayer={setSlideUpPrayerNodeId}
+                  onOpenNode={setPhaseNodeId}
                   timing={deriveNodeTiming(node.id, timings, activeNodeId, nextNodeId)}
                 />
               ))}
@@ -1355,6 +957,19 @@ export default function PropheticPath({ variant }) {
           </div>
         </div>
       </main>
+      {phaseNode && (
+        <NodePhaseSlideUp
+          key={phaseNode.id}
+          node={phaseNode}
+          projects={projects}
+          tasksByProject={tasksByProject}
+          submoduleNameById={submoduleNameById}
+          onSelectTask={openTask}
+          onSelectProject={setSlideUpProjectId}
+          onSelectSubmodule={(id, label) => setSlideUpSubmodule({ id, label })}
+          onClose={() => setPhaseNodeId(null)}
+        />
+      )}
       {selectedTask?.project && (
         <TaskDetailPanel
           project={selectedTask.project}
@@ -1376,14 +991,6 @@ export default function PropheticPath({ variant }) {
           submoduleId={slideUpSubmodule.id}
           fallbackLabel={slideUpSubmodule.label}
           onClose={() => setSlideUpSubmodule(null)}
-        />
-      )}
-      {slideUpPrayerNodeId && (
-        <PrayerSlideUp
-          nodeId={slideUpPrayerNodeId}
-          onClose={() => setSlideUpPrayerNodeId(null)}
-          onSelectTask={openTask}
-          onNavigate={setSlideUpPrayerNodeId}
         />
       )}
     </div>

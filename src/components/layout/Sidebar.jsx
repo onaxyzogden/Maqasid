@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard, Settings, Plus, ChevronLeft, ChevronRight,
-  ChevronDown, Bell, Moon, Search, SquareChevronRight, UserCircle,
+  ChevronDown, Bell, Moon, Search, SquareChevronRight, UserCircle, Compass,
 } from 'lucide-react';
 import SyncStatusChip from '../shared/SyncStatusChip';
 import { useAuthStore } from '../../store/auth-store';
@@ -164,6 +164,16 @@ export default function Sidebar() {
         >
           <SquareChevronRight size={18} />
           {!collapsed && <span>Prophetic Path</span>}
+        </Link>
+
+        <Link
+          to="/app/orientation"
+          className={`sidebar-item ${location.pathname === '/app/orientation' ? 'active' : ''}`}
+          onClick={handleNavClick}
+          title="Orientation"
+        >
+          <Compass size={18} />
+          {!collapsed && <span>Orientation</span>}
         </Link>
 
         <Link

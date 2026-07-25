@@ -22,6 +22,12 @@ Spiritual UX layer: prayer awareness, ceremony gates, intention setting, readine
 | IslamicRail.css | Rail styling — icon buttons, hover/active accent. Divider comes from the always-present right col-edge (no own border) |
 | useIslamicSections.js | Single source of truth for the panel's ordered sections + per-section availability (computed from `valuesLayer`, route, `activeModule`/`activeBbosStage`, citation count). Consumed by both IslamicRail and (for availability) the panel so the two never drift |
 | ResumeOverlay.jsx | Confirmation overlay when returning to module mid-session |
+| PropheticPath.jsx | The day's timeline spine. Renders `TimelineNode` cards (presentational) + the slide-ups (`NodePhaseSlideUp`, project/task panels) |
+| NodePhaseSlideUp.jsx | Node popup — Before / During / After tabs. The single entry point for every Prophetic Path node (replaced the old `.pp-satellite` buttons) |
+| CeremonySummary.jsx | Condensed threshold preview (du'a + up to 2 attributes) shown in the popup's Before/After tabs for **non-prayer** nodes, with a "Begin opening/closing" button that hands off to the full `ThresholdModal` |
+| PrayerHeroDuring.jsx | The inline "during the prayer" guide shown in the popup's **During** tab for the **six prayer** nodes (prop `pillarKey` = node id). Two self-contained modes over `PRAYER_SEQUENCES` (`@data/prayer-sequences`): **Reference** (vertical scroll — rakʿah sections, postures, recitations) and opt-in **Pray-Along** (swipeable step cards); falls back to a "coming soon" card for prayers without a sequence (only Fajr/Isha have one today). Brings its own CSS + data; consumed only by `NodePhaseSlideUp` |
+| PropheticPathMirror.jsx | `MirrorCard` / `PPTaskCard` / `EducationList` / `ProjectRow` — extracted from `PropheticPath.jsx` so the popup can reuse them without a circular import |
+| prophetic-path-constants.js | `LEVEL_COLOR`, `PRAYER_NODE_IDS`, `THRESHOLD_MODULE_BY_NODE`, `isThresholdTriggerNode` — shared by `PropheticPath.jsx` and the popup; imports nothing from either |
 
 ## Architecture
 
@@ -82,6 +88,44 @@ Both modes end at the same UI:
 - **PrayerWarning** → top-center pill ~15→5min before prayer ("{Prayer} approaching · Xm"), dismissible
 - **PrayerOverlay** → slim, non-blocking, dismissible top-center banner during the prayer window; no countdown; auto-clears after `PRAYER_TRAIL_MS`. The app stays fully usable underneath, and dismissing does NOT open a resume gate (the user never stepped away)
 
+### Prophetic Path node popup — Before / During / After
+Clicking any node card on the spine opens `NodePhaseSlideUp` (portal → `document.body`).
+Three tabs, default **During**:
+- **Before** → `<CeremonySummary type="opening">` + `.pp-phase-tasks` (non-prayer), or — on the
+  6 prayer nodes — the phase task list *only*
+- **During** → `<MirrorCard>` (tasks / projects / Action-vs-Education), or — on the 6 prayer
+  nodes — `<PrayerHeroDuring pillarKey={node.id}>` rendered inline (the in-prayer guide itself)
+- **After** → `<CeremonySummary type="closing">` + `.pp-phase-tasks` (non-prayer), or — on the
+  6 prayer nodes — the phase task list *only*
+
+On the six prayer nodes the Before/After tabs are tasks-only: they render neither the generic
+`faith-salah` opening/closing threshold (all six resolved to the same `<CeremonySummary>`) nor the
+per-prayer Sunnah rawātib summary — the tab label alone supplies Before/After context. The
+niyyah/readiness ceremony stays reachable via the route-level `CeremonyGuard`. The During tab
+inlines `PrayerHeroDuring` (Reference mode by default, opt-in Pray-Along); it is self-contained
+(brings its own CSS + `PRAYER_SEQUENCES` data) and falls back to its own "coming soon" card for
+prayers without a sequence (only Fajr/Isha have one today).
+
+**Task list — prayer nodes read their board directly.** Prayer nodes bypass `buildTasksForNode`
+and read `prayer_{prayerId}_{before|during|after}` out of `tasksByProject` via the popup's local
+`buildPrayerPhaseTasks`. The board *is* the phase, so there is nothing to infer. Inference was
+also broken both ways: `PRAYER_BOARDS` ship `moduleId: null` (`@data/prayer-pillars`) and
+`buildTasksForNode` drops any project with no canonical submodule — which hid all 49 seeded
+prayer-phase tasks from this popup on every prayer and every tab — while opening the
+`faith-salah` pool to fix that would have let the keyword matchers (`/siwak|rawatib|witr/`) pull
+one prayer's tasks into another's window. Non-prayer nodes still use `buildTasksForNode`.
+
+Prayer-phase rows carry `_level: null` — those boards are keyed by window, not by Maqasid level —
+so `PPTaskCard` omits the L1/L2/L3 chip for them rather than defaulting to L3 "Tahsiniyyat" and
+labelling Fajr's mu'akkadah rawatib an embellishment. Non-prayer rows keep the chip.
+
+The ceremony is **not** rendered locally: "Begin opening/closing" sets
+`openingModuleId` / `closingModuleId` on threshold-store and closes the popup, so the globally
+mounted `ThresholdModal` (`AppShell.jsx`) takes over. Module precedence is
+`THRESHOLD_MODULE_BY_NODE[node.id] || moduleId || 'work'`. This replaced the old `.pp-satellite`
+buttons, which CSS hid on every non-active node — the opening/closing thresholds are now
+reachable from **every** node on the timeline, past and upcoming included.
+
 ### NiyyahAct — Daily Intention
 2-step flow: (1) Orient (Bismillah + morning dua), (2) Focus (select pillar buttons). Stores via `completeNiyyah(selectedPillars)`.
 
@@ -103,3 +147,12 @@ Both modes end at the same UI:
 - Back from Pause returns to Readiness, not previous step
 - ResumeOverlay must be explicitly rendered by parent (not auto-shown)
 - Missing module data in `modules.js` renders empty sections (no error)
+- Every rule in `PropheticPath.css` is scoped under `.prophetic-path`, but `NodePhaseSlideUp`
+  portals into `<body>` — outside that subtree. Its portal root therefore carries
+  `className="prophetic-path pp-phase-slideup"` + `data-theme`, and
+  `.pp-phase-slideup.prophetic-path { display: contents }` strips the root's own 100vh flex box
+  while custom properties still inherit. Drop either and the mirror/pill-switch styling silently
+  disappears
+- `MODULE_ATTRS` is keyed at pillar level, so sub-modules (`faith-salah`) miss keys and fall back
+  to their parent pillar. Use `resolveCeremonyData(moduleId, valuesLayer)` from
+  `@data/islamic/islamic-data` rather than re-deriving the fallback

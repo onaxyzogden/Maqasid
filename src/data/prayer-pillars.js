@@ -54,8 +54,8 @@ export const PRAYER_LEVEL_COLORS = {
 export const PRAYER_BOARD_PREFIX = 'prayer';
 
 // 18 boards: 6 prayers × 3 phases. `during` boards exist for structural
-// consistency with the FLN pattern but are never rendered as kanban — the
-// PrayerLevelPage overrides with PrayerHeroDuring when activeLevel === 'during'.
+// consistency with the FLN pattern but are never rendered as a task board — the
+// NodePhaseSlideUp During tab renders the inline prayer guide (PrayerHeroDuring).
 export const PRAYER_BOARDS = PRAYER_PILLARS.flatMap((pillar) =>
   PRAYER_LEVELS.map((level) => ({
     id: `prayer_${pillar.id}_${level.key}`,

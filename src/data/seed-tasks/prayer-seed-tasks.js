@@ -598,3 +598,100 @@ export function prayerSeedSummary() {
     .sort((a, b) => b[1] - a[1]);
   return rows;
 }
+
+// --- UI selector: prayer-specific before/after Sunnah --------------------
+// Surfaces each prayer's own rawatib (from PRAYER_GUIDE) for the Prophetic
+// Path node popup's Before / After tabs, so the six prayer nodes no longer
+// share one generic faith-salah threshold. PRAYER_GUIDE stays private — this
+// only reshapes the rows already used to seed the During anatomy boards; it
+// authors no new fiqh.
+
+const PRAYER_LABEL_BY_ID = Object.fromEntries(
+  PRAYER_PILLARS.map((p) => [p.id, p.label]),
+);
+
+// Prayers/phases with no rawatib row (Fajr/Asr "after", Maghrib "before",
+// Tahajjud "after") fall back to a grounded reminder already in
+// PRAYER_GUIDE[id].keys. Match on an ASCII-safe substring so the text stays
+// sourced there rather than duplicated here.
+const SUNNAH_FALLBACK_MATCH = {
+  'fajr:after': 'No voluntary prayer between Fajr',
+  'asr:after': 'No voluntary prayer after',
+  'maghrib:before': 'If time allows before',
+  'tahajjud:after': 'no two witrs',
+};
+
+// Windows where PRAYER_GUIDE[id].keys carries the *approach* to the window —
+// what precedes the rakʿat — and the structure row is the prayer itself rather
+// than a rawatib around it. Tahajjud is the case: it has no 'Sunnah before'
+// row, so its Before tab leads with when to rise and how to enter, then shows
+// the Qiyām row as what one rises toward. Needles are ASCII-safe for the same
+// cp1252 reason as SUNNAH_FALLBACK_MATCH.
+const SUNNAH_LEAD = {
+  'tahajjud:before': {
+    needles: ['Best in the last third', 'Begin with 2 light'],
+    rowsCaption: 'What you rise toward',
+  },
+};
+
+function normalizeSunnahRow(row) {
+  return {
+    kind: row.kind,
+    count: row.count,
+    tier: row.tier || null,
+    note: row.note || '',
+    why: row.why || '',
+    how: row.how || '',
+    sources: Array.isArray(row.sources) ? row.sources : [],
+  };
+}
+
+// phase ∈ 'before' | 'after'. Returns
+//   { prayerId, phase, prayerLabel, rows: [normalizedRow, ...], fallbackNote,
+//     leadNotes: [string, ...], rowsCaption }
+// or null for a non-prayer id / unsupported phase. `rows` is an array so Isha's
+// "after" can carry both the 2 rawatib and the Witr row. `leadNotes` precede
+// the rows where the window has an approach of its own (see SUNNAH_LEAD).
+export function getPrayerPhaseSunnah(prayerId, phase) {
+  const guide = PRAYER_GUIDE[prayerId];
+  if (!guide || (phase !== 'before' && phase !== 'after')) return null;
+
+  const rows = [];
+  if (phase === 'before') {
+    const beforeRow =
+      guide.structure.find((r) => r.kind === 'Sunnah before') ||
+      // Tahajjud has no "Sunnah before" row — its optional night prayer is the
+      // Qiyām row itself (startsWith keeps the match ASCII-safe past the 'ā').
+      (prayerId === 'tahajjud'
+        ? guide.structure.find((r) => r.kind.startsWith('Qiy'))
+        : null);
+    if (beforeRow) rows.push(normalizeSunnahRow(beforeRow));
+  } else {
+    const afterRow = guide.structure.find((r) => r.kind === 'Sunnah after');
+    if (afterRow) rows.push(normalizeSunnahRow(afterRow));
+    // Isha seals the night with Witr — surface it beside the 2 rawatib.
+    const witrRow = guide.structure.find((r) => r.kind === 'Witr');
+    if (witrRow) rows.push(normalizeSunnahRow(witrRow));
+  }
+
+  let fallbackNote = null;
+  if (rows.length === 0) {
+    const needle = SUNNAH_FALLBACK_MATCH[`${prayerId}:${phase}`];
+    if (needle) fallbackNote = guide.keys.find((k) => k.includes(needle)) || null;
+  }
+
+  const lead = SUNNAH_LEAD[`${prayerId}:${phase}`];
+  const leadNotes = lead
+    ? lead.needles.map((n) => guide.keys.find((k) => k.includes(n))).filter(Boolean)
+    : [];
+
+  return {
+    prayerId,
+    phase,
+    prayerLabel: PRAYER_LABEL_BY_ID[prayerId] || prayerId,
+    rows,
+    fallbackNote,
+    leadNotes,
+    rowsCaption: leadNotes.length > 0 ? lead.rowsCaption : null,
+  };
+}
