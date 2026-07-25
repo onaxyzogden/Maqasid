@@ -16,6 +16,7 @@ const LazyMarkdown = lazy(() => import('../shared/LazyMarkdown'));
 import BbosTaskPanel from '../bbos/BbosTaskPanel';
 import AmanahTierBadge from '../shared/AmanahTierBadge';
 import ChunkErrorBoundary from '../shared/ChunkErrorBoundary';
+import { isSubtaskGrounded, deriveSubtaskTier } from '../../utils/subtask-grounding';
 // SubtaskSources pulls in hadith.js (1.3 MB) + quran-wbw.js (536 KB) via HadithCard/QuranVerseCard.
 // Lazy-load so those 1.8 MB only ship when a user opens the Sources tab on a subtask.
 const SubtaskSources = lazy(() => import('./SubtaskSources'));
@@ -36,33 +37,6 @@ function SourcesSkeleton() {
       <div style={{ ...row, width: '78%' }} />
     </div>
   );
-}
-
-function isSubtaskGrounded(sub) {
-  if (!sub || !Array.isArray(sub.sources) || sub.sources.length === 0) return null;
-  const ok = sub.sources.some(
-    (e) =>
-      (e?.provenanceTier === 'Bayyinah' || e?.provenanceTier === 'Qarina') &&
-      (e?.relevance === 'direct' || e?.relevance === 'contextual'),
-  );
-  return ok;
-}
-
-// Subtask-level `tier` was hand-stamped before per-source `provenanceTier` existed.
-// When structured sources are present, treat the subtask tier as the strongest of them
-// (Bayyinah > Qarina > Niyyah). Falls back to the stored field otherwise.
-const PROVENANCE_TO_T = { Bayyinah: 'T1', Qarina: 'T2', Niyyah: 'T3' };
-const T_RANK = { T1: 1, T2: 2, T3: 3 };
-function deriveSubtaskTier(sub) {
-  if (Array.isArray(sub?.sources) && sub.sources.length > 0) {
-    let best = null;
-    for (const s of sub.sources) {
-      const t = PROVENANCE_TO_T[s?.provenanceTier];
-      if (t && (!best || T_RANK[t] < T_RANK[best])) best = t;
-    }
-    if (best) return best;
-  }
-  return sub?.tier || null;
 }
 
 /* Lucide icon name → component map for project/module icons.

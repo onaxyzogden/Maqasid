@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Kanban, Sparkles, SquareChevronRight } from 'lucide-react';
+import { Kanban, Sparkles, SquareChevronRight, Compass } from 'lucide-react';
 import { useThresholdStore } from '../store/threshold-store';
 import { useAppStore } from '../store/app-store';
 import { useSettingsStore } from '../store/settings-store';
@@ -108,6 +108,10 @@ export default function TodayFocusSection({ pillarSummary = [], primaryPillarId 
         <Link to="/app/prophetic-path" className="tfs-handoff">
           <SquareChevronRight size={16} />
           <span>Begin the day&apos;s rhythm</span>
+        </Link>
+        <Link to="/app/orientation" className="tfs-handoff">
+          <Compass size={16} />
+          <span>What&apos;s next</span>
         </Link>
         <button className="tfs-change" type="button" onClick={openNiyyahOverride}>
           Change focus

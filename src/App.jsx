@@ -117,6 +117,7 @@ const AccountPage = lazy(() => import('@pages/AccountPage'));
 const AuthPage = lazy(() => import('@pages/AuthPage'));
 const ModulePlaceholder = lazy(() => import('@pages/ModulePlaceholder'));
 const PropheticPathPage = lazy(() => import('@pages/PropheticPathPage'));
+const OrientationPage = lazy(() => import('@pages/OrientationPage'));
 // Route-element wrappers + heavy work components — lazy so they leave the
 // entry graph (ProjectBoard alone drags @dnd-kit; guards drag CeremonyGate).
 const CeremonyGuard = lazy(() => import('@components/islamic/CeremonyGuard'));
@@ -278,6 +279,7 @@ export default function App() {
         <Route path="account" element={<AccountPage />} />
         <Route path="prophetic-path" element={<PropheticPathPage />} />
         <Route path="prophetic-path-test" element={<Navigate to="/app/prophetic-path" replace />} />
+        <Route path="orientation" element={<OrientationPage />} />
         <Route path=":moduleId" element={<CeremonyGuardDynamic><ModulePlaceholder /></CeremonyGuardDynamic>} />
       </Route>
     </Routes>
