@@ -6,11 +6,8 @@ import { useThresholdStore } from '@store/threshold-store';
 import { useFocusTrap } from '@hooks/useFocusTrap';
 import {
   buildTasksForNode,
-  buildUserProjectsForScope,
   getModuleGroups,
-  submodulesForNode,
 } from '@data/prophetic-path-submodules';
-import { getPillarSubmoduleIds } from '@data/submodule-registry';
 import { PRAYER_BOARD_PREFIX } from '@data/prayer-pillars';
 import '@components/work/ProjectSlideUp.css';
 import CeremonySummary from './CeremonySummary';
@@ -25,19 +22,22 @@ import './NodePhaseSlideUp.css';
 // currently active — so on most of the day's timeline the opening and closing
 // thresholds were unreachable.
 //
-// Before → opening threshold preview + that phase's tasks (prayer nodes: tasks only)
-// During → the node's content (MirrorCard), or the inline prayer guide (PrayerHeroDuring)
-// After  → closing threshold preview + that phase's tasks (prayer nodes: tasks only)
+// Non-prayer nodes:
+//   Before → opening threshold ceremony preview only (CeremonySummary)
+//   During → the node's content (MirrorCard) + ALL of the node's tasks
+//   After  → closing threshold ceremony preview only (CeremonySummary)
+// Prayer nodes:
+//   Before → that window's tasks · During → inline prayer guide (PrayerHeroDuring) · After → tasks
+//
+// Tasks for non-prayer nodes are deliberately consolidated onto During (the
+// whole node pool, phase-agnostic) so the Before/After tabs stay pure threshold
+// previews — see wiki decision 2026-07-25-milos-prayer-popup-consolidation.
 
 const PHASES = [
   { id: 'before', label: 'Before' },
   { id: 'during', label: 'During' },
   { id: 'after', label: 'After' },
 ];
-
-// `buildTasksForNode` speaks the legacy slot vocabulary, where the node's own
-// window is 'main'.
-const SLOT_BY_PHASE = { before: 'before', during: 'main', after: 'after' };
 
 // For a prayer node the phase board IS the phase: `prayer_{id}_{before|during|
 // after}` is seeded per prayer per window, so read it directly instead of
@@ -102,7 +102,6 @@ export default function NodePhaseSlideUp({
   // over the user-selected moduleGroup so the ceremony content matches the
   // node's covenant — moduleGroups still steer the task list.
   const thresholdModuleId = THRESHOLD_MODULE_BY_NODE[node.id] || moduleId || 'work';
-  const slot = SLOT_BY_PHASE[phase];
 
   const phaseTasks = useMemo(
     () => (isPrayerNode
@@ -113,22 +112,17 @@ export default function NodePhaseSlideUp({
         tasksByProject,
         submoduleNameById['faith-salah'] || 'Salah',
       )
+      // Non-prayer nodes surface their tasks only on During, so pull the whole
+      // node pool (phase: null skips the before/main/after split) and lift the
+      // limit so the merged Before+main+After set isn't truncated at 8.
       : buildTasksForNode(node.id, projects, tasksByProject, {
-        limit: 8,
+        limit: 20,
         submoduleNameById,
-        phase: slot,
+        phase: null,
         moduleId,
       })),
-    [isPrayerNode, node.id, phase, projects, tasksByProject, submoduleNameById, slot, moduleId],
+    [isPrayerNode, node.id, phase, projects, tasksByProject, submoduleNameById, moduleId],
   );
-
-  const showProjects = node.id === 'midday-labor' && phase === 'during' && viewMode === 'action';
-  const scopeProjects = useMemo(() => {
-    if (!showProjects) return [];
-    const pillarSubs = getPillarSubmoduleIds(moduleId);
-    const scopeIds = pillarSubs.length > 0 ? pillarSubs : submodulesForNode(node.id, moduleId);
-    return buildUserProjectsForScope(projects, scopeIds);
-  }, [showProjects, projects, node.id, moduleId]);
 
   const handleSelectTask = (taskId) => {
     const row = phaseTasks.find((r) => r.id === taskId);
@@ -163,7 +157,6 @@ export default function NodePhaseSlideUp({
       <MirrorCard
         node={node}
         tasks={phaseTasks}
-        projects={scopeProjects}
         onSelectTask={handleSelectTask}
         onSelectProject={onSelectProject}
         onSelectSubmodule={onSelectSubmodule}
@@ -173,26 +166,24 @@ export default function NodePhaseSlideUp({
         moduleId={moduleId}
         onViewMode={setViewMode}
         onModuleId={setModuleId}
-        showProjects={showProjects}
+        showProjects={false}
       />
     );
   } else if (isPrayerNode) {
     // Prayer nodes: tasks only. The per-prayer Sunnah rawatib summary was
     // removed from this popup per user request; the tab label supplies the
-    // Before/After context. Rendered without the .pp-phase-tasks wrapper so
-    // its separator border-top isn't stranded at the top (the panel body has
-    // its own padding).
+    // Before/After context. Rendered as a bare list (no separator wrapper) so
+    // it sits flush against the panel body's own padding.
     body = taskList;
   } else {
+    // Non-prayer Before/After: threshold ceremony preview only. The task list
+    // now lives on During (see the phaseTasks note above).
     body = (
-      <>
-        <CeremonySummary
-          moduleId={thresholdModuleId}
-          type={phase === 'before' ? 'opening' : 'closing'}
-          onBegin={() => beginCeremony(phase === 'before' ? 'opening' : 'closing')}
-        />
-        <div className="pp-phase-tasks">{taskList}</div>
-      </>
+      <CeremonySummary
+        moduleId={thresholdModuleId}
+        type={phase === 'before' ? 'opening' : 'closing'}
+        onBegin={() => beginCeremony(phase === 'before' ? 'opening' : 'closing')}
+      />
     );
   }
 

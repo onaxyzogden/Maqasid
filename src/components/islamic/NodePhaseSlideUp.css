@@ -42,12 +42,6 @@
   margin-top: 0;
 }
 
-.pp-phase-tasks {
-  margin-top: 16px;
-  padding-top: 14px;
-  border-top: 1px solid var(--border, rgba(0, 0, 0, 0.08));
-}
-
 @media (max-width: 640px) {
   .pp-phase-panel {
     max-height: 92vh;

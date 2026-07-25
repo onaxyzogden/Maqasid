@@ -91,12 +91,19 @@ Both modes end at the same UI:
 ### Prophetic Path node popup — Before / During / After
 Clicking any node card on the spine opens `NodePhaseSlideUp` (portal → `document.body`).
 Three tabs, default **During**:
-- **Before** → `<CeremonySummary type="opening">` + `.pp-phase-tasks` (non-prayer), or — on the
+- **Before** → `<CeremonySummary type="opening">` *only* (non-prayer), or — on the
   6 prayer nodes — the phase task list *only*
-- **During** → `<MirrorCard>` (tasks / projects / Action-vs-Education), or — on the 6 prayer
-  nodes — `<PrayerHeroDuring pillarKey={node.id}>` rendered inline (the in-prayer guide itself)
-- **After** → `<CeremonySummary type="closing">` + `.pp-phase-tasks` (non-prayer), or — on the
+- **During** → `<MirrorCard>` — the consolidated task list with the Action/Education toggle
+  (the same for every non-prayer node, incl. `midday-labor`; the old `showProjects` projects
+  view was dropped), or — on the 6 prayer nodes — `<PrayerHeroDuring pillarKey={node.id}>`
+  rendered inline (the in-prayer guide itself)
+- **After** → `<CeremonySummary type="closing">` *only* (non-prayer), or — on the
   6 prayer nodes — the phase task list *only*
+
+For **non-prayer** nodes the task list is consolidated onto the During tab: `phaseTasks` pulls the
+whole node pool (`buildTasksForNode` with `phase: null`, `limit: 20`) so no before/main/after task
+is stranded, and Before/After stay pure threshold-ceremony previews. Prayer nodes keep their
+per-window task boards on Before/After (see below).
 
 On the six prayer nodes the Before/After tabs are tasks-only: they render neither the generic
 `faith-salah` opening/closing threshold (all six resolved to the same `<CeremonySummary>`) nor the

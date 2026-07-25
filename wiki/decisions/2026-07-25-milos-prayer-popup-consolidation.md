@@ -44,6 +44,8 @@ body = isPrayerNode
 - **Before/After** on prayer nodes is the bare `taskList`. No `.pp-phase-tasks` wrapper — its separator `border-top` would be stranded at the top of the panel (the body has its own padding). The tab label alone supplies before/after context.
 - **During** on prayer nodes is `<PrayerHeroDuring>` inline, replacing the hand-off. Non-prayer nodes keep `MirrorCard` on During and `CeremonySummary` + task divider on Before/After — fully untouched.
 
+> **Amended 2026-07-25 (same day):** the "non-prayer nodes … fully untouched" carve-out above was itself reversed hours later by [[2026-07-25-milos-nonprayer-tasks-to-during]] — non-prayer tasks moved onto During, Before/After reduced to `CeremonySummary` only (no task divider), and the `showProjects` view dropped. The prayer-node behavior recorded here is unchanged.
+
 ### Deletion cascade (operator-approved: *"Delete it"*)
 
 Removing the hand-off orphaned a chain. Six files deleted after grepping each for other importers:
@@ -98,4 +100,5 @@ Uncommitted at time of filing on `feat/desktop-pillar-glyphs`; commit operator-g
 - [[2026-07-23-milos-prayer-node-sunnah-tabs]] — superseded: its `PrayerSunnahSummary` on Before/After is removed
 - [[2026-04-21-prayer-slide-up-fln]] — partially superseded: its cloned `PrayerSlideUp`/`PrayerLevelPage`/`PrayerLevelNavigator` are deleted; its 18 boards + seed model survive
 - [[2026-07-23-milos-prayer-phase-task-boards]] — the direct-board read the tasks-only tabs still rely on
+- [[2026-07-25-milos-nonprayer-tasks-to-during]] — the non-prayer complement filed the same day; reverses this doc's "non-prayer untouched" carve-out
 - [[covenant-architecture]] — the During guide, inlined, keeps the prayer itself at the center of its node
