@@ -25,7 +25,7 @@ Spiritual UX layer: prayer awareness, ceremony gates, intention setting, readine
 | PropheticPath.jsx | The day's timeline spine. Renders `TimelineNode` cards (presentational) + the slide-ups (`NodePhaseSlideUp`, project/task panels) |
 | NodePhaseSlideUp.jsx | Node popup — Before / During / After tabs. The single entry point for every Prophetic Path node (replaced the old `.pp-satellite` buttons) |
 | CeremonySummary.jsx | Condensed threshold preview (du'a + up to 2 attributes) shown in the popup's Before/After tabs for **non-prayer** nodes, with a "Begin opening/closing" button that hands off to the full `ThresholdModal` |
-| PrayerHeroDuring.jsx | The inline "during the prayer" guide shown in the popup's **During** tab for the **six prayer** nodes (prop `pillarKey` = node id). Two self-contained modes over `PRAYER_SEQUENCES` (`@data/prayer-sequences`): **Reference** (vertical scroll — rakʿah sections, postures, recitations) and opt-in **Pray-Along** (swipeable step cards); falls back to a "coming soon" card for prayers without a sequence (only Fajr/Isha have one today). Brings its own CSS + data; consumed only by `NodePhaseSlideUp` |
+| PrayerHeroDuring.jsx | The inline "during the prayer" guide shown in the popup's **During** tab for the **six prayer** nodes (prop `pillarKey` = node id). Two self-contained modes over `PRAYER_SEQUENCES` (`@data/prayer-sequences`): **Reference** (vertical scroll — rakʿah sections, postures, recitations) and opt-in **Pray-Along** (swipeable step cards); falls back to a "coming soon" card for prayers without a sequence (all six prayer nodes now have one — Fajr/Dhuhr/Asr/Maghrib/Isha as fard, Tahajjud as nafl; the fallback card is now a defensive default). Brings its own CSS + data; consumed only by `NodePhaseSlideUp` |
 | PropheticPathMirror.jsx | `MirrorCard` / `PPTaskCard` / `EducationList` / `ProjectRow` — extracted from `PropheticPath.jsx` so the popup can reuse them without a circular import |
 | prophetic-path-constants.js | `LEVEL_COLOR`, `PRAYER_NODE_IDS`, `THRESHOLD_MODULE_BY_NODE`, `isThresholdTriggerNode` — shared by `PropheticPath.jsx` and the popup; imports nothing from either |
 
@@ -111,7 +111,10 @@ per-prayer Sunnah rawātib summary — the tab label alone supplies Before/After
 niyyah/readiness ceremony stays reachable via the route-level `CeremonyGuard`. The During tab
 inlines `PrayerHeroDuring` (Reference mode by default, opt-in Pray-Along); it is self-contained
 (brings its own CSS + `PRAYER_SEQUENCES` data) and falls back to its own "coming soon" card for
-prayers without a sequence (only Fajr/Isha have one today).
+prayers without a sequence. All six prayer nodes now have a During guide: Fajr/Dhuhr/Asr/Maghrib/Isha
+(fard) and Tahajjud (nafl). Dhuhr/Asr/Maghrib/Tahajjud are assembled by the shared
+`@data/prayer-during-builder`; Fajr/Isha remain hand-authored. Each sequence is grounded in a
+matching `nb_salah_<key>.json` corpus at repo root.
 
 **Task list — prayer nodes read their board directly.** Prayer nodes bypass `buildTasksForNode`
 and read `prayer_{prayerId}_{before|during|after}` out of `tasksByProject` via the popup's local

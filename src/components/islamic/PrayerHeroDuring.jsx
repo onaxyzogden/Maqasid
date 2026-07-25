@@ -67,7 +67,7 @@ function ComingSoonShell({ pillarKey }) {
         </div>
         <div className="phd-coming-soon__body">
           A guided illustration for praying {pillar?.label || "this prayer"} is
-          coming soon. Isha is available today — try it to preview the pattern.
+          coming soon.
         </div>
       </div>
     </div>
@@ -76,7 +76,7 @@ function ComingSoonShell({ pillarKey }) {
 
 // ─── Reference mode — vertical scroll, all recitations expanded ──────────
 function ReferenceView({ sequence, pillarKey, onPrayAlong }) {
-  const { steps, label, labelAr, fardRakahSummary } = sequence;
+  const { steps, label, labelAr, fardRakahSummary, headline } = sequence;
   const grouped = useMemo(() => {
     const map = new Map();
     for (const s of steps) {
@@ -92,7 +92,7 @@ function ReferenceView({ sequence, pillarKey, onPrayAlong }) {
       <div className="phd-ref__intro">
         <div className="phd-ref__eyebrow">{label} · {labelAr}</div>
         <h2 className="phd-ref__title">
-          How to pray {label} Fard ({fardRakahSummary})
+          {headline ?? `How to pray ${label} Fard (${fardRakahSummary})`}
         </h2>
         <p className="phd-ref__subtitle">
           Study each posture and its recitations below, then switch to
