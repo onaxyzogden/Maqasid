@@ -9,6 +9,9 @@ superseded_by: null
 
 # Orientation Screen — Single-Recommendation "What's Next"
 
+> [!note] Partially superseded 2026-07-25 by [[2026-07-25-milos-orientation-carousel-redesign]]
+> The **UI** described below — the `OrientationLadder` 5-rung breadcrumb, the `OrientationBalanceStrip`, and the "Something else" pillar override — was replaced by a carousel of 7 domain cards + a bottom sheet after user testing found this layout hard to act on. **Everything else in this ADR remains in force and was extended, not reversed:** the pure `orientation-selector.js`, the system-wide necessity-tier gate, the real-snooze (`snoozedUntilDayKey`) semantics, the `notApplicable` field, effect-driven recompute, and reuse of `SubtaskSources`. The redesign *added* priority-aware task selection within a pillar's active tier. The pre-existing `Date.now()` purity lint error noted under "Verified" was also resolved by the rewritten container.
+
 ## Context
 
 The operator shared a static HTML/JS concept mockup (`maqasid-orientation-v2.html`) reimagining how MILOS surfaces "what to do next." The existing model is a backlog of ~1,900 seeded subtasks across 8 pillars with no ranked entry point; the mockup instead recommends exactly **one** subtask at a time, shows a 5-rung breadcrumb trail (Pillar → Tier → Submodule → Task → Now) down to it, puts grounding evidence (Qur'an/hadith) on the same screen, and offers non-punitive exits instead of a guilt-driving streak mechanic.
