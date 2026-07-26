@@ -48,7 +48,7 @@ Reuse over rebuild kept the change UI-only. The engine stays the single source o
 - **Prototype's bespoke bottom sheet** — rejected; reusing `pp-slideup__*` + `useFocusTrap` gives portal/focus-trap/Escape/`aria-modal` for free and keeps one modal implementation.
 - **Streak counter + "welcome back" banner** — deferred; conflicts with the locked *no streak/guilt mechanic* decision and needs gap-detection that does not exist.
 - **Making orientation the home / touching `Dashboard.jsx`** — rejected as out of scope; orientation is standalone by the prior ADR.
-- **Genuine desktop layout** — deferred; mobile-first centred 520px column now, wide-viewport later.
+- **Genuine desktop layout** — deferred; mobile-first centred 520px column now, wide-viewport later. **Delivered next session** as a stage + side-rail layout — see [[2026-07-26-milos-centered-popups-node-drill-in]].
 
 ## Consequences
 
@@ -67,8 +67,12 @@ Reuse over rebuild kept the change UI-only. The engine stays the single source o
 
 All seven pillars were seeded in the **fresh, isolated preview browser** by navigating each pillar's ungated `-core` route (and `pillar/ummah` after setting its ceremony-open flag) to trigger the per-pillar `ensure*Projects` store actions — 96 projects total. This is preview-only state (the browser started empty but for `bbiz_schema_version`), **not** the operator's real MILOS data.
 
+> [!note] Amended 2026-07-26
+> Three items evolved in [[2026-07-26-milos-centered-popups-node-drill-in]]: (1) the deferred **desktop layout** shipped as `OrientationSpread` (stage + 7-row rail, gated by `useMobile()` — the carousel is untouched); (2) the "Weakest — recommended" flag's **clipping** (the track's 4px top padding vs. the −9px overhang under forced `overflow-y`) was fixed by raising the padding to `var(--space-3)`; (3) the sheet is **no longer a bottom sheet** — the shared `pp-slideup__*` chrome became a centered popup at every viewport, and the sheet's step body was extracted to `shared/SubtaskStepDetail` (also consumed by the Prophetic Path node popup). `OrientationEvidence.jsx` moved to `shared/SubtaskEvidence.jsx`. Everything else here — engine, tier gate, continuity, 3 actions — stands.
+
 ## Connections
 
+- [[2026-07-26-milos-centered-popups-node-drill-in]] — the follow-on that delivered the deferred desktop layout, fixed the badge clip, centered the sheet, and shared its step internals
 - [[2026-07-23-milos-orientation-screen]] — the surface this **partially supersedes**: the ladder+strip UI and "Something else" override are retired; that ADR's engine, system-wide tier gate, real-snooze semantics, and effect-driven recompute all remain in force (and are extended here).
 - [[milos]] — parent entity, `/app/orientation` route
 - [[maqasid-al-shariah]] — the seven pillars the carousel presents
