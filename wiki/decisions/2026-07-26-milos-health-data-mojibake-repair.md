@@ -63,6 +63,8 @@ Applied to the working tree, then committed as `9f87e8d` after the operator clea
 
 `npm run lint` chains a 4th step, `generate:pillar-glyphs:check` (the ratchet from [[2026-07-05-milos-pillar-glyph-generator]]), which **fails** here with `ENOENT … node_modules/lucide-react/dist/esm/icons/compass.js`. **Proven pre-existing and unrelated:** with the three fixed files stashed (tree reverted to pre-fix HEAD) it fails *identically*, and the script reads only lucide icon modules + one CSS file — none of the edited data files. Root cause is a **worktree dependency-install gap** (this worktree's `node_modules` has no `lucide-react/dist/esm/icons` directory). Not caused by this change, not fixed (out of scope) — resolved by an `npm install` in the worktree. **Deferred.**
 
+**Update — Resolved 2026-07-26.** Ran `npm install` in the worktree: the tree was a partial install missing `lucide-react` entirely (not just its icons dir); the lockfile already pinned `lucide-react@1.8.0`, so the install restored it **without** rewriting `package-lock.json`. The full `npm run lint` chain now exits 0 — `generate:pillar-glyphs:check` reports `up to date (41 glyphs)` — and `npm test` stays 77/77. Purely a local `node_modules` repair (node_modules gitignored, lockfile untouched): **zero tracked-file changes, no code commit.**
+
 ## Delivery
 
 1 commit `9f87e8d` on `claude/sleepy-lamarr-3f62e8` (3 files, 784/784 in-place line rewrites — no lines added/removed). **Not pushed.** The ayat file's human-review gate was cleared by the operator after reviewing the Arabic-identity proof above.
