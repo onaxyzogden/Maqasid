@@ -3,12 +3,12 @@
 // Tasks are placed in the "To Do" column by default.
 
 export const HEALTH_SEED_TASKS = {
-  // â”€â”€ PHYSICAL HEALTH â”€â”€
+  // ── PHYSICAL HEALTH ──
   health_physical_core: [
     {
-      title: 'Audit your diet â€” eliminate haram and doubtful (mashbuh) consumables',
+      title: 'Audit your diet — eliminate haram and doubtful (mashbuh) consumables',
       priority: 'urgent', tags: ['diet', 'halal'],
-      description: 'Conduct a thorough review of everything you consume â€” food, drink, supplements, and medications â€” to ensure nothing haram or doubtful enters your body.',
+      description: 'Conduct a thorough review of everything you consume — food, drink, supplements, and medications — to ensure nothing haram or doubtful enters your body.',
       subtasks: [
         { title: 'List all regularly consumed foods, drinks, and supplements', done: false,
           tier: 'T2',
@@ -17,7 +17,7 @@ export const HEALTH_SEED_TASKS = {
             {
               kind: "quran",
               ref: "Quran 2:168",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„Ù†ÙŽÙ‘Ø§Ø³Ù ÙƒÙÙ„ÙÙˆØ§ Ù…ÙÙ…ÙŽÙ‘Ø§ ÙÙÙŠ Ø§Ù„Ù’Ø£ÙŽØ±Ù’Ø¶Ù Ø­ÙŽÙ„ÙŽØ§Ù„Ù‹Ø§ Ø·ÙŽÙŠÙÙ‘Ø¨Ù‹Ø§ ÙˆÙŽÙ„ÙŽØ§ ØªÙŽØªÙŽÙ‘Ø¨ÙØ¹ÙÙˆØ§ Ø®ÙØ·ÙÙˆÙŽØ§ØªÙ Ø§Ù„Ø´ÙŽÙ‘ÙŠÙ’Ø·ÙŽØ§Ù†Ù",
+              arabic: "يَا أَيُّهَا النَّاسُ كُلُوا مِمَّا فِي الْأَرْضِ حَلَالًا طَيِّبًا وَلَا تَتَّبِعُوا خُطُوَاتِ الشَّيْطَانِ",
               translation: "O mankind, eat from whatever is on earth that is lawful and good and do not follow the footsteps of Satan.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -26,11 +26,11 @@ export const HEALTH_SEED_TASKS = {
           ],
           description: `**Why?**
 
-Taking inventory is the essential first step â€” you cannot purify what you have not examined.
+Taking inventory is the essential first step — you cannot purify what you have not examined.
 
 **How?**
 
-Open your pantry, fridge, and supplement shelf. Write down every item you regularly consume â€” food, drinks, snacks, vitamins, and medications. Include brand names so you can research their halal certification status in the next step. A simple spreadsheet or notes app works well for this.` },
+Open your pantry, fridge, and supplement shelf. Write down every item you regularly consume — food, drinks, snacks, vitamins, and medications. Include brand names so you can research their halal certification status in the next step. A simple spreadsheet or notes app works well for this.` },
         { title: 'Research halal certification status of each brand and product', done: false,
           tier: 'T2',
           amanahRationale: 'Although the verse explicitly commands believers to consume only what is lawful (halal) and good, it does not mention modern practices like checking certification logos or using apps, making the subtask a clear logical inference to practically fulfill this divine injunction.',
@@ -38,7 +38,7 @@ Open your pantry, fridge, and supplement shelf. Write down every item you regula
             {
               kind: "quran",
               ref: "Quran 5:88",
-              arabic: "ÙˆÙŽÙƒÙÙ„ÙÙˆØ§ Ù…ÙÙ…ÙŽÙ‘Ø§ Ø±ÙŽØ²ÙŽÙ‚ÙŽÙƒÙÙ…Ù Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù Ø­ÙŽÙ„ÙŽØ§Ù„Ù‹Ø§ Ø·ÙŽÙŠÙÙ‘Ø¨Ù‹Ø§ ÙˆÙŽØ§ØªÙŽÙ‘Ù‚ÙÙˆØ§ Ø§Ù„Ù„ÙŽÙ‘Ù‡ÙŽ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠ Ø£ÙŽÙ†ØªÙÙ… Ø¨ÙÙ‡Ù Ù…ÙØ¤Ù’Ù…ÙÙ†ÙÙˆÙ†ÙŽ",
+              arabic: "وَكُلُوا مِمَّا رَزَقَكُمُ اللَّهُ حَلَالًا طَيِّبًا وَاتَّقُوا اللَّهَ الَّذِي أَنتُم بِهِ مُؤْمِنُونَ",
               translation: "And eat of what Allah has provided for you which is lawful and good. And fear Allah, in whom you are believers.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -60,7 +60,7 @@ Go through your inventory list one item at a time. Check packaging for recognise
             {
               kind: "quran",
               ref: "Quran 2:168",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„Ù†ÙŽÙ‘Ø§Ø³Ù ÙƒÙÙ„ÙÙˆØ§ Ù…ÙÙ…ÙŽÙ‘Ø§ ÙÙÙŠ Ø§Ù„Ù’Ø£ÙŽØ±Ù’Ø¶Ù Ø­ÙŽÙ„ÙŽØ§Ù„Ù‹Ø§ Ø·ÙŽÙŠÙÙ‘Ø¨Ù‹Ø§ ÙˆÙŽÙ„ÙŽØ§ ØªÙŽØªÙŽÙ‘Ø¨ÙØ¹ÙÙˆØ§ Ø®ÙØ·ÙÙˆÙŽØ§ØªÙ Ø§Ù„Ø´ÙŽÙ‘ÙŠÙ’Ø·ÙŽØ§Ù†Ù",
+              arabic: "يَا أَيُّهَا النَّاسُ كُلُوا مِمَّا فِي الْأَرْضِ حَلَالًا طَيِّبًا وَلَا تَتَّبِعُوا خُطُوَاتِ الشَّيْطَانِ",
               translation: "O mankind, eat from whatever is on earth that is lawful and good, and do not follow the footsteps of Satan.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -69,7 +69,7 @@ Go through your inventory list one item at a time. Check packaging for recognise
             {
               kind: "quran",
               ref: "Quran 5:87",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ù„ÙŽØ§ ØªÙØ­ÙŽØ±ÙÙ‘Ù…ÙÙˆØ§ Ø·ÙŽÙŠÙÙ‘Ø¨ÙŽØ§ØªÙ Ù…ÙŽØ§ Ø£ÙŽØ­ÙŽÙ„ÙŽÙ‘ Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù Ù„ÙŽÙƒÙÙ…Ù’ ÙˆÙŽÙ„ÙŽØ§ ØªÙŽØ¹Ù’ØªÙŽØ¯ÙÙˆØ§",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تُحَرِّمُوا طَيِّبَاتِ مَا أَحَلَّ اللَّهُ لَكُمْ وَلَا تَعْتَدُوا",
               translation: "O you who have believed, do not prohibit the good things which Allah has made lawful to you and do not transgress.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -89,7 +89,7 @@ Go through your inventory list one item at a time. Check packaging for recognise
 
 **How?**
 
-Review every item you marked as mashbuh in the previous step. Research the specific doubtful ingredient â€” is it plant-derived or animal-derived? Contact the manufacturer for clarification. Consult a knowledgeable scholar or halal certification body if the answer remains unclear. Until resolved, treat the item as avoidable.` },
+Review every item you marked as mashbuh in the previous step. Research the specific doubtful ingredient — is it plant-derived or animal-derived? Contact the manufacturer for clarification. Consult a knowledgeable scholar or halal certification body if the answer remains unclear. Until resolved, treat the item as avoidable.` },
         { title: 'Find halal-certified alternatives for any haram or doubtful items', done: false,
           tier: 'T2',
           amanahRationale: 'While the Quranic verses explicitly command believers to eat only what is lawful and good, they omit specific practical steps like finding halal-certified replacements at grocery stores or online, making the subtask a clear logical inference necessary to fulfill this divine injunction in modern daily life.',
@@ -97,7 +97,7 @@ Review every item you marked as mashbuh in the previous step. Research the speci
             {
               kind: "quran",
               ref: "Quran 2:168",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„Ù†ÙŽÙ‘Ø§Ø³Ù ÙƒÙÙ„ÙÙˆØ§ Ù…ÙÙ…ÙŽÙ‘Ø§ ÙÙÙŠ Ø§Ù„Ù’Ø£ÙŽØ±Ù’Ø¶Ù Ø­ÙŽÙ„ÙŽØ§Ù„Ù‹Ø§ Ø·ÙŽÙŠÙÙ‘Ø¨Ù‹Ø§",
+              arabic: "يَا أَيُّهَا النَّاسُ كُلُوا مِمَّا فِي الْأَرْضِ حَلَالًا طَيِّبًا",
               translation: "O mankind, eat from whatever is on earth that is lawful and good.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -106,7 +106,7 @@ Review every item you marked as mashbuh in the previous step. Research the speci
             {
               kind: "quran",
               ref: "Quran 5:88",
-              arabic: "ÙˆÙŽÙƒÙÙ„ÙÙˆØ§ Ù…ÙÙ…ÙŽÙ‘Ø§ Ø±ÙŽØ²ÙŽÙ‚ÙŽÙƒÙÙ…Ù Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù Ø­ÙŽÙ„ÙŽØ§Ù„Ù‹Ø§ Ø·ÙŽÙŠÙÙ‘Ø¨Ù‹Ø§ ÙˆÙŽØ§ØªÙŽÙ‘Ù‚ÙÙˆØ§ Ø§Ù„Ù„ÙŽÙ‘Ù‡ÙŽ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠ Ø£ÙŽÙ†ØªÙÙ… Ø¨ÙÙ‡Ù Ù…ÙØ¤Ù’Ù…ÙÙ†ÙÙˆÙ†ÙŽ",
+              arabic: "وَكُلُوا مِمَّا رَزَقَكُمُ اللَّهُ حَلَالًا طَيِّبًا وَاتَّقُوا اللَّهَ الَّذِي أَنتُم بِهِ مُؤْمِنُونَ",
               translation: "And eat of what Allah has provided for you, lawful and good, and fear Allah in whom you are believers.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -128,7 +128,7 @@ For each item flagged as haram or unresolved mashbuh, search for a halal-certifi
             {
               kind: "quran",
               ref: "Quran 7:31",
-              arabic: "ÙŠÙŽØ§ Ø¨ÙŽÙ†ÙÙŠ Ø¢Ø¯ÙŽÙ…ÙŽ Ø®ÙØ°ÙÙˆØ§ Ø²ÙÙŠÙ†ÙŽØªÙŽÙƒÙÙ…Ù’ Ø¹ÙÙ†Ø¯ÙŽ ÙƒÙÙ„ÙÙ‘ Ù…ÙŽØ³Ù’Ø¬ÙØ¯Ù ÙˆÙŽÙƒÙÙ„ÙÙˆØ§ ÙˆÙŽØ§Ø´Ù’Ø±ÙŽØ¨ÙÙˆØ§ ÙˆÙŽÙ„ÙŽØ§ ØªÙØ³Ù’Ø±ÙÙÙÙˆØ§",
+              arabic: "يَا بَنِي آدَمَ خُذُوا زِينَتَكُمْ عِندَ كُلِّ مَسْجِدٍ وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا",
               translation: "O children of Adam, take your adornment at every mosque, and eat and drink, but be not excessive.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -151,13 +151,13 @@ An audit is only as valuable as the lasting change it produces. Updating your gr
 
 **How?**
 
-Rewrite your standard grocery list, replacing any removed items with their halal alternatives. Adjust your weekly meal plan to incorporate the new ingredients. Save this as your default shopping template â€” digital lists in a notes app or grocery app make it easy to reuse each week. Review and update quarterly as new products become available.` },
+Rewrite your standard grocery list, replacing any removed items with their halal alternatives. Adjust your weekly meal plan to incorporate the new ingredients. Save this as your default shopping template — digital lists in a notes app or grocery app make it easy to reuse each week. Review and update quarterly as new products become available.` },
       ],
     },
     {
-      title: 'Establish a consistent sleep schedule of 7â€“8 hours aligned with Fajr',
+      title: 'Establish a consistent sleep schedule of 7–8 hours aligned with Fajr',
       priority: 'high', tags: ['sleep', 'sunnah'],
-      description: 'Design your sleep rhythm around the Prophetic pattern â€” early to bed after Isha, rising before Fajr. Consistent sleep is the single most impactful health habit, affecting mood, cognitive function, immune strength, and spiritual energy for ibadah.',
+      description: 'Design your sleep rhythm around the Prophetic pattern — early to bed after Isha, rising before Fajr. Consistent sleep is the single most impactful health habit, affecting mood, cognitive function, immune strength, and spiritual energy for ibadah.',
       subtasks: [
         { title: 'Calculate your ideal bedtime based on local Fajr time and 7-8 hour target', done: false,
           tier: 'T2',
@@ -166,7 +166,7 @@ Rewrite your standard grocery list, replacing any removed items with their halal
             {
               kind: "quran",
               ref: "Quran 18:12",
-              arabic: "Ø«ÙÙ…ÙŽÙ‘ Ø¨ÙŽØ¹ÙŽØ«Ù’Ù†ÙŽØ§Ù‡ÙÙ…Ù’ Ù„ÙÙ†ÙŽØ¹Ù’Ù„ÙŽÙ…ÙŽ Ø£ÙŽÙŠÙÙ‘ Ø§Ù„Ù’Ø­ÙØ²Ù’Ø¨ÙŽÙŠÙ’Ù†Ù Ø£ÙŽØ­Ù’ØµÙŽÙ‰Ù° Ù„ÙÙ…ÙŽØ§ Ù„ÙŽØ¨ÙØ«ÙÙˆØ§ Ø£ÙŽÙ…ÙŽØ¯Ù‹Ø§",
+              arabic: "ثُمَّ بَعَثْنَاهُمْ لِنَعْلَمَ أَيُّ الْحِزْبَيْنِ أَحْصَىٰ لِمَا لَبِثُوا أَمَدًا",
               translation: "Then We woke them so that We could make clear which of the two parties was better able to work out how long they had been there.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -189,7 +189,7 @@ Without a calculated bedtime, sleep becomes reactive rather than intentional. Wo
 
 **How?**
 
-Look up your local Fajr time (it shifts seasonally). Subtract 7.5 to 8 hours â€” that is your target bedtime. For example, if Fajr is at 5:30 AM, you should be asleep by 9:30-10:00 PM. Write this bedtime down and set it as a daily alarm on your phone.` },
+Look up your local Fajr time (it shifts seasonally). Subtract 7.5 to 8 hours — that is your target bedtime. For example, if Fajr is at 5:30 AM, you should be asleep by 9:30-10:00 PM. Write this bedtime down and set it as a daily alarm on your phone.` },
         { title: 'Set a consistent wind-down alarm 30 minutes before bedtime', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources emphasize sleep as a divine means of rest and highlight the importance of consistency in night worship, they omit specific modern practices like setting a wind-down alarm, making the subtask a practical logical inference to achieve this intended restful consistency.',
@@ -197,7 +197,7 @@ Look up your local Fajr time (it shifts seasonally). Subtract 7.5 to 8 hours â�
             {
               kind: "quran",
               ref: "Quran 78:9",
-              arabic: "ÙˆÙŽØ¬ÙŽØ¹ÙŽÙ„Ù’Ù†ÙŽØ§ Ù†ÙŽÙˆÙ’Ù…ÙŽÙƒÙÙ…Ù’ Ø³ÙØ¨ÙŽØ§ØªÙ‹Ø§",
+              arabic: "وَجَعَلْنَا نَوْمَكُمْ سُبَاتًا",
               translation: "And We made your sleep a means of rest.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -206,7 +206,7 @@ Look up your local Fajr time (it shifts seasonally). Subtract 7.5 to 8 hours â�
             {
               kind: "quran",
               ref: "Quran 25:47",
-              arabic: "ÙˆÙŽÙ‡ÙÙˆÙŽ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠ Ø¬ÙŽØ¹ÙŽÙ„ÙŽ Ù„ÙŽÙƒÙÙ…Ù Ø§Ù„Ù„ÙŽÙ‘ÙŠÙ’Ù„ÙŽ Ù„ÙØ¨ÙŽØ§Ø³Ù‹Ø§ ÙˆÙŽØ§Ù„Ù†ÙŽÙ‘ÙˆÙ’Ù…ÙŽ Ø³ÙØ¨ÙŽØ§ØªÙ‹Ø§ ÙˆÙŽØ¬ÙŽØ¹ÙŽÙ„ÙŽ Ø§Ù„Ù†ÙŽÙ‘Ù‡ÙŽØ§Ø±ÙŽ Ù†ÙØ´ÙÙˆØ±Ù‹Ø§",
+              arabic: "وَهُوَ الَّذِي جَعَلَ لَكُمُ اللَّيْلَ لِبَاسًا وَالنَّوْمَ سُبَاتًا وَجَعَلَ النَّهَارَ نُشُورًا",
               translation: "And He is the One Who made the night a garment for you, and sleep a rest, and made the day for rising.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -229,7 +229,7 @@ Your body cannot switch from stimulation to sleep instantly. A wind-down buffer 
 
 **How?**
 
-Set a recurring alarm 30 minutes before your calculated bedtime. When it goes off, stop all work and stimulating activity. Use this window for calm activities â€” wudu, reading Quran, light stretching, or quiet conversation. Consistency is key: keep this alarm even on weekends.` },
+Set a recurring alarm 30 minutes before your calculated bedtime. When it goes off, stop all work and stimulating activity. Use this window for calm activities — wudu, reading Quran, light stretching, or quiet conversation. Consistency is key: keep this alarm even on weekends.` },
         { title: 'Remove screens and blue light from the bedroom after Isha', done: false,
           tier: 'T2',
           amanahRationale: 'Although the sources establish the night as a divine means for rest and highlight the Sunnah of sleeping early, they omit mention of modern technology, making the subtask\'s directive to remove screens a practical logical inference to protect this intended restful sleep.',
@@ -237,7 +237,7 @@ Set a recurring alarm 30 minutes before your calculated bedtime. When it goes of
             {
               kind: "quran",
               ref: "Quran 25:47",
-              arabic: "ÙˆÙŽÙ‡ÙÙˆÙŽ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠ Ø¬ÙŽØ¹ÙŽÙ„ÙŽ Ù„ÙŽÙƒÙÙ…Ù Ø§Ù„Ù„ÙŽÙ‘ÙŠÙ’Ù„ÙŽ Ù„ÙØ¨ÙŽØ§Ø³Ù‹Ø§ ÙˆÙŽØ§Ù„Ù†ÙŽÙ‘ÙˆÙ’Ù…ÙŽ Ø³ÙØ¨ÙŽØ§ØªÙ‹Ø§ ÙˆÙŽØ¬ÙŽØ¹ÙŽÙ„ÙŽ Ø§Ù„Ù†ÙŽÙ‘Ù‡ÙŽØ§Ø±ÙŽ Ù†ÙØ´ÙÙˆØ±Ù‹Ø§",
+              arabic: "وَهُوَ الَّذِي جَعَلَ لَكُمُ اللَّيْلَ لِبَاسًا وَالنَّوْمَ سُبَاتًا وَجَعَلَ النَّهَارَ نُشُورًا",
               translation: "And He is the One Who made the night a garment for you, and sleep a rest, and made the day for rising.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -261,14 +261,14 @@ Blue light from phones, tablets, and screens suppresses melatonin production by 
 **How?**
 
 After Isha prayer, place your phone on a charger outside the bedroom or across the room. If you use your phone as an alarm, switch to a simple alarm clock instead. Remove or cover any screens in the bedroom. If you must use a device, enable night mode and keep brightness at minimum. Replace screen time with a physical book or dhikr.` },
-        { title: "Practise the Sunnah sleep etiquettes â€” wudu, right side, sleeping duas", done: false,
+        { title: "Practise the Sunnah sleep etiquettes — wudu, right side, sleeping duas", done: false,
           tier: 'T1',
           amanahRationale: 'The provided Hadith from Sahih al-Bukhari explicitly instructs believers to perform wudu, lie on their right side, and recite a supplication before going to sleep, providing clear and direct proof for the core actions of the subtask.',
           sources: [
             {
               kind: "quran",
               ref: "Quran 78:9",
-              arabic: "ÙˆÙŽØ¬ÙŽØ¹ÙŽÙ„Ù’Ù†ÙŽØ§ Ù†ÙŽÙˆÙ’Ù…ÙŽÙƒÙÙ…Ù’ Ø³ÙØ¨ÙŽØ§ØªÙ‹Ø§",
+              arabic: "وَجَعَلْنَا نَوْمَكُمْ سُبَاتًا",
               translation: "and made your sleep a source of rest,",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -277,7 +277,7 @@ After Isha prayer, place your phone on a charger outside the bedroom or across t
             {
               kind: "quran",
               ref: "Quran 51:17",
-              arabic: "ÙƒÙŽØ§Ù†ÙÙˆØ§ Ù‚ÙŽÙ„ÙÙŠÙ„Ù‹Ø§ Ù…ÙÙ‘Ù†ÙŽ Ø§Ù„Ù„ÙŽÙ‘ÙŠÙ’Ù„Ù Ù…ÙŽØ§ ÙŠÙŽÙ‡Ù’Ø¬ÙŽØ¹ÙÙˆÙ†ÙŽ",
+              arabic: "كَانُوا قَلِيلًا مِّنَ اللَّيْلِ مَا يَهْجَعُونَ",
               translation: "sleeping only a little at night,",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -286,7 +286,7 @@ After Isha prayer, place your phone on a charger outside the bedroom or across t
             {
               kind: "quran",
               ref: "Quran 25:47",
-              arabic: "ÙˆÙŽÙ‡ÙÙˆÙŽ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠ Ø¬ÙŽØ¹ÙŽÙ„ÙŽ Ù„ÙŽÙƒÙÙ…Ù Ø§Ù„Ù„ÙŽÙ‘ÙŠÙ’Ù„ÙŽ Ù„ÙØ¨ÙŽØ§Ø³Ù‹Ø§ ÙˆÙŽØ§Ù„Ù†ÙŽÙ‘ÙˆÙ’Ù…ÙŽ Ø³ÙØ¨ÙŽØ§ØªÙ‹Ø§ ÙˆÙŽØ¬ÙŽØ¹ÙŽÙ„ÙŽ Ø§Ù„Ù†ÙŽÙ‘Ù‡ÙŽØ§Ø±ÙŽ Ù†ÙØ´ÙÙˆØ±Ù‹Ø§",
+              arabic: "وَهُوَ الَّذِي جَعَلَ لَكُمُ اللَّيْلَ لِبَاسًا وَالنَّوْمَ سُبَاتًا وَجَعَلَ النَّهَارَ نُشُورًا",
               translation: "It is He who made the night a garment for you, and sleep for rest, and made the day a resurrection.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -295,7 +295,7 @@ After Isha prayer, place your phone on a charger outside the bedroom or across t
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 247",
-              translation: "The Prophet (SAW) said: \"If any one of you goes to sleep, he should perform wudu as he does for prayer, then lie down on his right side, then say: â€˜O Allah, I submit myself to You...â€™\"",
+              translation: "The Prophet (SAW) said: \"If any one of you goes to sleep, he should perform wudu as he does for prayer, then lie down on his right side, then say: ‘O Allah, I submit myself to You...’\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -308,7 +308,7 @@ The Prophet (SAW) had a complete bedtime routine that combines spiritual protect
 
 **How?**
 
-Make wudu before getting into bed. Recite the sleeping duas â€” blow into your palms and recite the three Quls, then wipe over your body. Recite Ayat al-Kursi and the dua "Bismika Allahumma amutu wa ahya." Keep a small card with these duas by your bed until they are memorised.` },
+Make wudu before getting into bed. Recite the sleeping duas — blow into your palms and recite the three Quls, then wipe over your body. Recite Ayat al-Kursi and the dua "Bismika Allahumma amutu wa ahya." Keep a small card with these duas by your bed until they are memorised.` },
         { title: 'Track your sleep consistency for 14 days and adjust as needed', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources emphasize sleep as a divine rest and highlight the Prophet\'s consistent bedtime routine, they omit specific modern practices like maintaining a 14-day sleep log, making the subtask a practical logical inference to achieve this intended consistency.',
@@ -316,7 +316,7 @@ Make wudu before getting into bed. Recite the sleeping duas â€” blow into y
             {
               kind: "quran",
               ref: "Quran 78:9-11",
-              arabic: "ÙˆÙŽØ¬ÙŽØ¹ÙŽÙ„Ù’Ù†ÙŽØ§ Ù†ÙŽÙˆÙ’Ù…ÙŽÙƒÙÙ…Ù’ Ø³ÙØ¨ÙŽØ§ØªÙ‹Ø§ ÙˆÙŽØ¬ÙŽØ¹ÙŽÙ„Ù’Ù†ÙŽØ§ Ø§Ù„Ù„ÙŽÙ‘ÙŠÙ’Ù„ÙŽ Ù„ÙØ¨ÙŽØ§Ø³Ù‹Ø§ ÙˆÙŽØ¬ÙŽØ¹ÙŽÙ„Ù’Ù†ÙŽØ§ Ø§Ù„Ù†ÙŽÙ‘Ù‡ÙŽØ§Ø±ÙŽ Ù…ÙŽØ¹ÙŽØ§Ø´Ù‹Ø§",
+              arabic: "وَجَعَلْنَا نَوْمَكُمْ سُبَاتًا وَجَعَلْنَا اللَّيْلَ لِبَاسًا وَجَعَلْنَا النَّهَارَ مَعَاشًا",
               translation: "And We made your sleep a rest, and made the night a covering, and made the day for livelihood.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -339,7 +339,7 @@ What gets measured gets managed. Two weeks of data reveals your actual sleep pat
 
 **How?**
 
-Use a simple sleep log â€” note your bedtime, wake time, and how rested you feel (1-10 scale) each morning. A notebook or basic spreadsheet works fine; a sleep tracking app adds detail. After 14 days, review the data: identify your worst nights, look for patterns (late screen use, caffeine, stress), and adjust your routine to address the weakest links.` },
+Use a simple sleep log — note your bedtime, wake time, and how rested you feel (1-10 scale) each morning. A notebook or basic spreadsheet works fine; a sleep tracking app adds detail. After 14 days, review the data: identify your worst nights, look for patterns (late screen use, caffeine, stress), and adjust your routine to address the weakest links.` },
       ],
     },
     {
@@ -354,7 +354,7 @@ Use a simple sleep log â€” note your bedtime, wake time, and how rested you
             {
               kind: "quran",
               ref: "Quran 62:10",
-              arabic: "ÙÙŽØ¥ÙØ°ÙŽØ§ Ù‚ÙØ¶ÙÙŠÙŽØªÙ Ø§Ù„ØµÙŽÙ‘Ù„ÙŽØ§Ø©Ù ÙÙŽØ§Ù†ØªÙŽØ´ÙØ±ÙÙˆØ§ ÙÙÙŠ Ø§Ù„Ù’Ø£ÙŽØ±Ù’Ø¶Ù ÙˆÙŽØ§Ø¨Ù’ØªÙŽØºÙÙˆØ§ Ù…ÙÙ† ÙÙŽØ¶Ù’Ù„Ù Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù",
+              arabic: "فَإِذَا قُضِيَتِ الصَّلَاةُ فَانتَشِرُوا فِي الْأَرْضِ وَابْتَغُوا مِن فَضْلِ اللَّهِ",
               translation: "And when the prayer has been concluded, disperse within the land and seek from the bounty of Allah.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -385,8 +385,8 @@ Scout 2-3 routes near your home or mosque that are safe, well-lit, and enjoyable
             {
               kind: "quran",
               ref: "Quran 40:55",
-              arabic: "**Translation:** So be patient (O Muhammad ØµÙ„Ù‰ Ø§Ù„Ù„Ù‡ Ø¹Ù„ÙŠÙ‡ ÙˆØ³Ù„Ù…). Verily, the Promise of AllÃ¢h is true, and ask forgiveness for your fault and glorify the praises of your Lord in the â€˜AshÃ® (i.e. the time period after the midnoon till sunset) and in the IbkÃ¢r (i.e. the time period from early morning or sunrise till before midnoon) [it is said that, that means the five compulsory congregational SalÃ¢t (prayers) or the â€˜Asr and Fajr prayers].",
-              translation: "So be patient (O Muhammad ØµÙ„Ù‰ Ø§Ù„Ù„Ù‡ Ø¹Ù„ÙŠÙ‡ ÙˆØ³Ù„Ù…). Verily, the Promise of AllÃ¢h is true, and ask forgiveness for your fault and glorify the praises of your Lord in the â€˜AshÃ® (i.e. the time period after the midnoon till sunset) and in the IbkÃ¢r (i.e. the time period from early morning or sunrise till before midnoon) [it is said that, that means the five compulsory congregational SalÃ¢t (prayers) or the â€˜Asr and Fajr prayers].",
+              arabic: "**Translation:** So be patient (O Muhammad صلى الله عليه وسلم). Verily, the Promise of Allâh is true, and ask forgiveness for your fault and glorify the praises of your Lord in the ‘Ashî (i.e. the time period after the midnoon till sunset) and in the Ibkâr (i.e. the time period from early morning or sunrise till before midnoon) [it is said that, that means the five compulsory congregational Salât (prayers) or the ‘Asr and Fajr prayers].",
+              translation: "So be patient (O Muhammad صلى الله عليه وسلم). Verily, the Promise of Allâh is true, and ask forgiveness for your fault and glorify the praises of your Lord in the ‘Ashî (i.e. the time period after the midnoon till sunset) and in the Ibkâr (i.e. the time period from early morning or sunrise till before midnoon) [it is said that, that means the five compulsory congregational Salât (prayers) or the ‘Asr and Fajr prayers].",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -394,8 +394,8 @@ Scout 2-3 routes near your home or mosque that are safe, well-lit, and enjoyable
             {
               kind: "quran",
               ref: "Quran 76:25",
-              arabic: "**Translation:** And remember the Name of your Lord every morning and afternoon [i.e. offering of the Morning (Fajr), Zuhr, and â€˜Asr prayers].",
-              translation: "And remember the Name of your Lord every morning and afternoon [i.e. offering of the Morning (Fajr), Zuhr, and â€˜Asr prayers].",
+              arabic: "**Translation:** And remember the Name of your Lord every morning and afternoon [i.e. offering of the Morning (Fajr), Zuhr, and ‘Asr prayers].",
+              translation: "And remember the Name of your Lord every morning and afternoon [i.e. offering of the Morning (Fajr), Zuhr, and ‘Asr prayers].",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -403,8 +403,8 @@ Scout 2-3 routes near your home or mosque that are safe, well-lit, and enjoyable
             {
               kind: "quran",
               ref: "Quran 33:42",
-              arabic: "**Translation:** And glorify His Praises morning and afternoon [the early morning (Fajr) and â€˜Asr prayers].",
-              translation: "And glorify His Praises morning and afternoon [the early morning (Fajr) and â€˜Asr prayers].",
+              arabic: "**Translation:** And glorify His Praises morning and afternoon [the early morning (Fajr) and ‘Asr prayers].",
+              translation: "And glorify His Praises morning and afternoon [the early morning (Fajr) and ‘Asr prayers].",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -412,7 +412,7 @@ Scout 2-3 routes near your home or mosque that are safe, well-lit, and enjoyable
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 560",
-              translation: "Narrated Jabir bin `Abdullah:The Prophet (ï·º) used to pray the Zuhr at midday, and the `Asr at a time when the sun was still bright, the Maghrib after sunset (at its stated time) and the `Isha at a variable time. Whenever he saw the people assembled (for `Isha' prayer) he would pray earlier and if the people delayed, he would delay the prayer. And they or the Prophet (ï·º) used to offer the Fajr Prayers when it was still dark",
+              translation: "Narrated Jabir bin `Abdullah:The Prophet (ﷺ) used to pray the Zuhr at midday, and the `Asr at a time when the sun was still bright, the Maghrib after sunset (at its stated time) and the `Isha at a variable time. Whenever he saw the people assembled (for `Isha' prayer) he would pray earlier and if the people delayed, he would delay the prayer. And they or the Prophet (ﷺ) used to offer the Fajr Prayers when it was still dark",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -421,21 +421,21 @@ Scout 2-3 routes near your home or mosque that are safe, well-lit, and enjoyable
           ],
           description: `**Why?**
 
-Habit stacking â€” attaching a new behaviour to an existing one â€” is the most reliable way to build consistency. Since you already pray Fajr or Asr daily, anchoring your walk to that prayer creates an automatic trigger that requires no willpower.
+Habit stacking — attaching a new behaviour to an existing one — is the most reliable way to build consistency. Since you already pray Fajr or Asr daily, anchoring your walk to that prayer creates an automatic trigger that requires no willpower.
 
 
 **How?**
 
-Set a phone reminder for 5-10 minutes after your chosen prayer time (e.g., "Walk now" at Fajr + 10 min). Lay out your walking shoes and clothes the night before if walking after Fajr. The key is removing friction â€” when the reminder fires, you should be able to walk out the door within two minutes.` },
+Set a phone reminder for 5-10 minutes after your chosen prayer time (e.g., "Walk now" at Fajr + 10 min). Lay out your walking shoes and clothes the night before if walking after Fajr. The key is removing friction — when the reminder fires, you should be able to walk out the door within two minutes.` },
         { title: 'Prepare a playlist of Quran recitation, lectures, or dhikr for the walk', done: false,
           tier: 'T2',
-          amanahRationale: 'Fallback assignment â€” NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
+          amanahRationale: 'Fallback assignment — NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
           sources: [
             {
               kind: "quran",
               ref: "Quran 7:204",
-              arabic: "**Translation:** so pay attention and listen quietly when the Quran is recited, so that you may be given mercy.â€™",
-              translation: "so pay attention and listen quietly when the Quran is recited, so that you may be given mercy.â€™",
+              arabic: "**Translation:** so pay attention and listen quietly when the Quran is recited, so that you may be given mercy.’",
+              translation: "so pay attention and listen quietly when the Quran is recited, so that you may be given mercy.’",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -443,8 +443,8 @@ Set a phone reminder for 5-10 minutes after your chosen prayer time (e.g., "Walk
             {
               kind: "quran",
               ref: "Quran 17:78",
-              arabic: "**Translation:** So perform the regular prayers in the period from the time the sun is past its zenith till the darkness of the night, and [recite] the Quran at dawn- dawn recitation is always witnessedâ€“â€“",
-              translation: "So perform the regular prayers in the period from the time the sun is past its zenith till the darkness of the night, and [recite] the Quran at dawn- dawn recitation is always witnessedâ€“â€“",
+              arabic: "**Translation:** So perform the regular prayers in the period from the time the sun is past its zenith till the darkness of the night, and [recite] the Quran at dawn- dawn recitation is always witnessed––",
+              translation: "So perform the regular prayers in the period from the time the sun is past its zenith till the darkness of the night, and [recite] the Quran at dawn- dawn recitation is always witnessed––",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -461,7 +461,7 @@ Set a phone reminder for 5-10 minutes after your chosen prayer time (e.g., "Walk
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 1553",
-              translation: "Narrated Nafi', 'Whenever Ibn 'Umar finished his morning Salat at Dhul-Hulaifa he would get his Rahila (mount) prepared. Then, he would ride on it, and after it had stood up straight (ready to set out), he would face Al-Qiblah (the Ka'bah at Makkah) while sitting (on his mount) and recite Talbiya. When he had reached the boundaries of the Haram (or Makkah), he would stop recitation of Talbiya till he reached Dhi-Tuwa (near Makkah) where he would pass the night till it was dawn. After offering the morning Salat, he would take a bath. He claimed that Allah's Messenger (ï·º) had done the same",
+              translation: "Narrated Nafi', 'Whenever Ibn 'Umar finished his morning Salat at Dhul-Hulaifa he would get his Rahila (mount) prepared. Then, he would ride on it, and after it had stood up straight (ready to set out), he would face Al-Qiblah (the Ka'bah at Makkah) while sitting (on his mount) and recite Talbiya. When he had reached the boundaries of the Haram (or Makkah), he would stop recitation of Talbiya till he reached Dhi-Tuwa (near Makkah) where he would pass the night till it was dawn. After offering the morning Salat, he would take a bath. He claimed that Allah's Messenger (ﷺ) had done the same",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -470,7 +470,7 @@ Set a phone reminder for 5-10 minutes after your chosen prayer time (e.g., "Walk
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 2276",
-              translation: "Narrated Abu Sa`id:Some of the companions of the Prophet (ï·º) went on a journey till they reached some of the 'Arab tribes (at night). They asked the latter to treat them as their guests but they refused. The chief of that tribe was then bitten by a snake (or stung by a scorpion) and they tried their best to cure him but in vain. Some of them said (to the others), \"Nothing has benefited him, will you go to the people who resided here at night, it may be that some of them might possess something (as treatment),\" They went to the group of the companions (of the Prophet (ï·º) ) and said, \"Our chief has been bitten by a snake (or stung by a scorpion) and we have tried everything but he has not benefited. Have you got anything (useful)?\" One of them replied, \"Yes, by Allah! I can recite a Ruqya, but as you have refused to accept us as your guests, I will not recite the Ruqya for you unless you fix for us some wages for it.\" They agreed to pay them a flock of sheep. One of them then went and recited (Surat-ul-Fatiha): 'All the praises are for the Lord of the Worlds' and puffed over the chief who became all right as if he was released from a chain, and got up and started walking, showing no signs of sickness. They paid them what they agreed to pay. Some of them (i.e. the companions) then suggested to divide their earnings among themselves, but the one who performed the recitation said, \"Do not divide them till we go to the Prophet (ï·º) and narrate the whole story to him, and wait for his order.\" So, they went to Allah's Messenger (ï·º) and narrated the story. Allah's Messenger (ï·º) asked, \"How did you come to know that Surat-ul-Fatiha was recited as Ruqya?\" Then he added, \"You have done the right thing. Divide (what you have earned) and assign a share for me as well.\" The Prophet (ï·º) smiled thereupon",
+              translation: "Narrated Abu Sa`id:Some of the companions of the Prophet (ﷺ) went on a journey till they reached some of the 'Arab tribes (at night). They asked the latter to treat them as their guests but they refused. The chief of that tribe was then bitten by a snake (or stung by a scorpion) and they tried their best to cure him but in vain. Some of them said (to the others), \"Nothing has benefited him, will you go to the people who resided here at night, it may be that some of them might possess something (as treatment),\" They went to the group of the companions (of the Prophet (ﷺ) ) and said, \"Our chief has been bitten by a snake (or stung by a scorpion) and we have tried everything but he has not benefited. Have you got anything (useful)?\" One of them replied, \"Yes, by Allah! I can recite a Ruqya, but as you have refused to accept us as your guests, I will not recite the Ruqya for you unless you fix for us some wages for it.\" They agreed to pay them a flock of sheep. One of them then went and recited (Surat-ul-Fatiha): 'All the praises are for the Lord of the Worlds' and puffed over the chief who became all right as if he was released from a chain, and got up and started walking, showing no signs of sickness. They paid them what they agreed to pay. Some of them (i.e. the companions) then suggested to divide their earnings among themselves, but the one who performed the recitation said, \"Do not divide them till we go to the Prophet (ﷺ) and narrate the whole story to him, and wait for his order.\" So, they went to Allah's Messenger (ﷺ) and narrated the story. Allah's Messenger (ﷺ) asked, \"How did you come to know that Surat-ul-Fatiha was recited as Ruqya?\" Then he added, \"You have done the right thing. Divide (what you have earned) and assign a share for me as well.\" The Prophet (ﷺ) smiled thereupon",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -479,7 +479,7 @@ Set a phone reminder for 5-10 minutes after your chosen prayer time (e.g., "Walk
           ],
           description: `**Why?**
 
-Pairing physical movement with beneficial audio transforms a simple walk into a multi-layered act of self-improvement. Quran recitation nourishes the soul, lectures build knowledge, and dhikr keeps your tongue moist with the remembrance of Allah â€” all while your body gets the exercise it needs.
+Pairing physical movement with beneficial audio transforms a simple walk into a multi-layered act of self-improvement. Quran recitation nourishes the soul, lectures build knowledge, and dhikr keeps your tongue moist with the remembrance of Allah — all while your body gets the exercise it needs.
 
 
 **How?**
@@ -515,7 +515,7 @@ Research shows it takes an average of 21-66 days to form a new habit. Tracking c
 
 **How?**
 
-Use a simple habit tracker â€” a checkbox on your calendar, a streak app, or a tally in your journal. Record whether you walked each day, the duration, and a brief note on how you felt. After 21 days, review your streak: if you hit 18+ days, the habit is forming well. If you missed several days, identify the pattern (which days, what interfered) and adjust your schedule accordingly.` },
+Use a simple habit tracker — a checkbox on your calendar, a streak app, or a tally in your journal. Record whether you walked each day, the duration, and a brief note on how you felt. After 21 days, review your streak: if you hit 18+ days, the habit is forming well. If you missed several days, identify the pattern (which days, what interfered) and adjust your schedule accordingly.` },
       ],
     },
     {
@@ -530,7 +530,7 @@ Use a simple habit tracker â€” a checkbox on your calendar, a streak app, o
             {
               kind: "quran",
               ref: "Quran 17:70",
-              arabic: "ÙˆÙŽÙ„ÙŽÙ‚ÙŽØ¯Ù’ ÙƒÙŽØ±ÙŽÙ‘Ù…Ù’Ù†ÙŽØ§ Ø¨ÙŽÙ†ÙÙŠ Ø¢Ø¯ÙŽÙ…ÙŽ",
+              arabic: "وَلَقَدْ كَرَّمْنَا بَنِي آدَمَ",
               translation: "And We have certainly honoured the children of Adam.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -542,7 +542,7 @@ Use a simple habit tracker â€” a checkbox on your calendar, a streak app, o
               translation: "The Prophet (SAW) said: \"Take advantage of five before five: your youth before your old age, your health before your illness, your wealth before your poverty, your free time before your busyness, and your life before your death.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih â€” reported by Ibn Abbas",
+              hadithGrade: "Sahih — reported by Ibn Abbas",
               rationale: "Prophetic narration cited as evidence for this subtask.",
             },
           ],
@@ -553,7 +553,7 @@ Not all clinics offer the same depth of screening. A comprehensive panel coverin
 
 **How?**
 
-Search for clinics near you that offer "executive health panels" or "comprehensive wellness screenings." Compare what is included â€” at minimum, look for complete blood count, lipid panel, metabolic panel, thyroid, vitamin D, and HbA1c. Check reviews, insurance coverage, and whether the doctor spends time explaining results. Ask your community for recommendations as well.` },
+Search for clinics near you that offer "executive health panels" or "comprehensive wellness screenings." Compare what is included — at minimum, look for complete blood count, lipid panel, metabolic panel, thyroid, vitamin D, and HbA1c. Check reviews, insurance coverage, and whether the doctor spends time explaining results. Ask your community for recommendations as well.` },
         { title: 'Schedule the appointment and note any fasting requirements for blood work', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Hadiths explicitly advise believers to take advantage of their health before illness, they omit specific modern medical logistics like scheduling clinic appointments or noting fasting requirements for blood work, making the subtask a practical logical inference to fulfill this prophetic guidance.',
@@ -579,7 +579,7 @@ Search for clinics near you that offer "executive health panels" or "comprehensi
           ],
           description: `**Why?**
 
-Many blood tests require 8-12 hours of fasting for accurate results. Scheduling without knowing this can lead to wasted appointments, inaccurate readings, and the need to return â€” costing time and delaying your health insights.
+Many blood tests require 8-12 hours of fasting for accurate results. Scheduling without knowing this can lead to wasted appointments, inaccurate readings, and the need to return — costing time and delaying your health insights.
 
 
 **How?**
@@ -606,7 +606,7 @@ Doctors make better diagnostic decisions when they have complete context. Walkin
 
 **How?**
 
-Create a one-page document listing: (1) any current symptoms or concerns, no matter how minor, (2) all medications, supplements, and vitamins you take with dosages, (3) family health history â€” conditions in parents, siblings, and grandparents such as diabetes, heart disease, cancer, or hypertension. Bring a printed copy or have it on your phone to hand to the doctor.` },
+Create a one-page document listing: (1) any current symptoms or concerns, no matter how minor, (2) all medications, supplements, and vitamins you take with dosages, (3) family health history — conditions in parents, siblings, and grandparents such as diabetes, heart disease, cancer, or hypertension. Bring a printed copy or have it on your phone to hand to the doctor.` },
         { title: 'Attend the screening and obtain a copy of all results', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Hadith explicitly advises believers to take advantage of their health before sickness, it omits specific modern medical practices like attending health screenings and obtaining copies of results, making the subtask a practical logical inference to implement this prophetic guidance.',
@@ -636,7 +636,7 @@ Attend the appointment on time with your prepared health summary. Ask the clinic
             {
               kind: "quran",
               ref: "Quran 26:80",
-              arabic: "ÙˆÙŽØ¥ÙØ°ÙŽØ§ Ù…ÙŽØ±ÙØ¶Ù’ØªÙ ÙÙŽÙ‡ÙÙˆÙŽ ÙŠÙŽØ´Ù’ÙÙÙŠÙ†Ù",
+              arabic: "وَإِذَا مَرِضْتُ فَهُوَ يَشْفِينِ",
               translation: "And when I am ill, it is He who cures me.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -654,16 +654,16 @@ Attend the appointment on time with your prepared health summary. Ask the clinic
           ],
           description: `**Why?**
 
-Raw lab numbers are meaningless without interpretation. A doctor can explain what is normal, what is borderline, and what requires immediate action â€” turning data into a concrete plan that actually improves your health outcomes.
+Raw lab numbers are meaningless without interpretation. A doctor can explain what is normal, what is borderline, and what requires immediate action — turning data into a concrete plan that actually improves your health outcomes.
 
 
 **How?**
 
-Schedule a follow-up consultation (in-person or phone) to review the results with your doctor. Prepare questions for any values outside the normal range. Ask: "What lifestyle changes would improve this?" and "When should I retest?" Write down the action items during the appointment. For any flagged areas, create specific tasks with deadlines â€” for example, "Retest vitamin D in 3 months after supplementation."` },
+Schedule a follow-up consultation (in-person or phone) to review the results with your doctor. Prepare questions for any values outside the normal range. Ask: "What lifestyle changes would improve this?" and "When should I retest?" Write down the action items during the appointment. For any flagged areas, create specific tasks with deadlines — for example, "Retest vitamin D in 3 months after supplementation."` },
       ],
     },
     {
-      title: 'Identify and remove harmful substances â€” tobacco, alcohol, processed foods',
+      title: 'Identify and remove harmful substances — tobacco, alcohol, processed foods',
       priority: 'urgent', tags: ['diet', 'tayyib'],
       description: 'Allah commands us to consume what is tayyib (pure and wholesome) and forbids what harms. Tobacco, alcohol, and heavily processed foods damage the body and dull the mind. Removing them is both a health imperative and an act of obedience.',
       subtasks: [
@@ -674,7 +674,7 @@ Schedule a follow-up consultation (in-person or phone) to review the results wit
             {
               kind: "quran",
               ref: "Quran 2:195",
-              arabic: "ÙˆÙŽÙ„ÙŽØ§ ØªÙÙ„Ù’Ù‚ÙÙˆØ§ Ø¨ÙØ£ÙŽÙŠÙ’Ø¯ÙÙŠÙƒÙÙ…Ù’ Ø¥ÙÙ„ÙŽÙ‰ Ø§Ù„ØªÙŽÙ‘Ù‡Ù’Ù„ÙÙƒÙŽØ©Ù",
+              arabic: "وَلَا تُلْقُوا بِأَيْدِيكُمْ إِلَى التَّهْلُكَةِ",
               translation: "And do not throw yourselves into destruction with your own hands.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -683,7 +683,7 @@ Schedule a follow-up consultation (in-person or phone) to review the results wit
             {
               kind: "quran",
               ref: "Quran 4:29",
-              arabic: "ÙˆÙŽÙ„ÙŽØ§ ØªÙŽÙ‚Ù’ØªÙÙ„ÙÙˆØ§ Ø£ÙŽÙ†ÙÙØ³ÙŽÙƒÙÙ…Ù’ Ø¥ÙÙ†ÙŽÙ‘ Ø§Ù„Ù„ÙŽÙ‘Ù‡ÙŽ ÙƒÙŽØ§Ù†ÙŽ Ø¨ÙÙƒÙÙ…Ù’ Ø±ÙŽØ­ÙÙŠÙ…Ù‹Ø§",
+              arabic: "وَلَا تَقْتُلُوا أَنفُسَكُمْ إِنَّ اللَّهَ كَانَ بِكُمْ رَحِيمًا",
               translation: "And do not kill yourselves. Indeed, Allah is ever Merciful to you.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -692,12 +692,12 @@ Schedule a follow-up consultation (in-person or phone) to review the results wit
           ],
           description: `**Why?**
 
-Honesty with yourself is the prerequisite for change. Many people underestimate how much harm they consume because they avoid looking closely. A frank inventory â€” without judgement â€” gives you a clear baseline to work from.
+Honesty with yourself is the prerequisite for change. Many people underestimate how much harm they consume because they avoid looking closely. A frank inventory — without judgement — gives you a clear baseline to work from.
 
 
 **How?**
 
-Sit down privately and list every substance you consume that you know is harmful or suspect might be. Include tobacco, vaping, alcohol, energy drinks, excessive caffeine, heavily processed snacks, fast food frequency, and any recreational substances. Note how often you consume each one (daily, weekly, occasionally). Be honest â€” this list is for you, not for anyone else.` },
+Sit down privately and list every substance you consume that you know is harmful or suspect might be. Include tobacco, vaping, alcohol, energy drinks, excessive caffeine, heavily processed snacks, fast food frequency, and any recreational substances. Note how often you consume each one (daily, weekly, occasionally). Be honest — this list is for you, not for anyone else.` },
         { title: 'Set a firm quit date for any addictive substances (tobacco, vaping, etc.)', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided sources strictly forbid self-harm and the consumption of intoxicants, they omit specific modern psychological strategies like setting a firm quit date, making the subtask a practical logical inference to successfully abandon these prohibited substances.',
@@ -705,7 +705,7 @@ Sit down privately and list every substance you consume that you know is harmful
             {
               kind: "quran",
               ref: "Quran 2:195",
-              arabic: "ÙˆÙŽÙ„ÙŽØ§ ØªÙÙ„Ù’Ù‚ÙÙˆØ§ Ø¨ÙØ£ÙŽÙŠÙ’Ø¯ÙÙŠÙƒÙÙ…Ù’ Ø¥ÙÙ„ÙŽÙ‰ Ø§Ù„ØªÙŽÙ‘Ù‡Ù’Ù„ÙÙƒÙŽØ©Ù",
+              arabic: "وَلَا تُلْقُوا بِأَيْدِيكُمْ إِلَى التَّهْلُكَةِ",
               translation: "And do not throw yourselves into destruction with your own hands.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -728,7 +728,7 @@ A quit date transforms a vague intention into a commitment. Research shows that 
 
 **How?**
 
-Choose a date within the next 2-4 weeks â€” close enough to maintain urgency but far enough to prepare. Write it down and tell at least one person. Mark it on your calendar. Use the days before to gradually reduce intake if possible, research cessation methods, and remove triggers from your environment. Make dua for strength and renew your intention that this is an act of obedience to Allah.` },
+Choose a date within the next 2-4 weeks — close enough to maintain urgency but far enough to prepare. Write it down and tell at least one person. Mark it on your calendar. Use the days before to gradually reduce intake if possible, research cessation methods, and remove triggers from your environment. Make dua for strength and renew your intention that this is an act of obedience to Allah.` },
         { title: 'Identify processed foods in your pantry and find whole-food replacements', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly warn against excessive eating and overfilling the stomach, they omit specific modern nutritional concepts like identifying and replacing processed foods, making the subtask a practical logical inference to avoid the very overconsumption these texts condemn.',
@@ -736,7 +736,7 @@ Choose a date within the next 2-4 weeks â€” close enough to maintain urgenc
             {
               kind: "quran",
               ref: "Quran 7:31",
-              arabic: "ÙƒÙÙ„ÙÙˆØ§ ÙˆÙŽØ§Ø´Ù’Ø±ÙŽØ¨ÙÙˆØ§ ÙˆÙŽÙ„ÙŽØ§ ØªÙØ³Ù’Ø±ÙÙÙÙˆØ§ Ø¥ÙÙ†ÙŽÙ‘Ù‡Ù Ù„ÙŽØ§ ÙŠÙØ­ÙØ¨ÙÙ‘ Ø§Ù„Ù’Ù…ÙØ³Ù’Ø±ÙÙÙÙŠÙ†ÙŽ",
+              arabic: "كُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ",
               translation: "Eat and drink, but be not excessive. Indeed, He does not like those who commit excess.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -759,15 +759,15 @@ Ultra-processed foods are engineered to be addictive, containing excessive sugar
 
 **How?**
 
-Go through your pantry and fridge. Any item with more than 5 ingredients or ingredients you cannot pronounce is likely ultra-processed. Common culprits: sugary cereals, packaged snacks, instant noodles, soft drinks, and ready meals. For each one, find a whole-food alternative â€” for example, replace packaged granola bars with dates and nuts, replace soft drinks with water infused with fruit. Make the swap gradual if needed, one category per week.` },
-        { title: 'Seek support â€” accountability partner, counsellor, or cessation programme', done: false,
+Go through your pantry and fridge. Any item with more than 5 ingredients or ingredients you cannot pronounce is likely ultra-processed. Common culprits: sugary cereals, packaged snacks, instant noodles, soft drinks, and ready meals. For each one, find a whole-food alternative — for example, replace packaged granola bars with dates and nuts, replace soft drinks with water infused with fruit. Make the swap gradual if needed, one category per week.` },
+        { title: 'Seek support — accountability partner, counsellor, or cessation programme', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly command believers to cooperate in righteousness and relieve each other\'s hardships, they omit specific modern support systems like accountability partners, professional counsellors, or cessation programmes, making the subtask a practical logical inference to implement this divine and prophetic directive.',
           sources: [
             {
               kind: "quran",
               ref: "Quran 5:2",
-              arabic: "ÙˆÙŽØªÙŽØ¹ÙŽØ§ÙˆÙŽÙ†ÙÙˆØ§ Ø¹ÙŽÙ„ÙŽÙ‰ Ø§Ù„Ù’Ø¨ÙØ±ÙÙ‘ ÙˆÙŽØ§Ù„ØªÙŽÙ‘Ù‚Ù’ÙˆÙŽÙ‰Ù° ÙˆÙŽÙ„ÙŽØ§ ØªÙŽØ¹ÙŽØ§ÙˆÙŽÙ†ÙÙˆØ§ Ø¹ÙŽÙ„ÙŽÙ‰ Ø§Ù„Ù’Ø¥ÙØ«Ù’Ù…Ù ÙˆÙŽØ§Ù„Ù’Ø¹ÙØ¯Ù’ÙˆÙŽØ§Ù†Ù",
+              arabic: "وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ وَلَا تَعَاوَنُوا عَلَى الْإِثْمِ وَالْعُدْوَانِ",
               translation: "And cooperate in righteousness and piety, but do not cooperate in sin and aggression.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -790,7 +790,7 @@ Overcoming harmful habits alone is significantly harder than with support. The P
 
 **How?**
 
-Choose at least one form of support: (1) an accountability partner â€” a trusted friend or family member you check in with weekly, (2) a professional counsellor or therapist experienced in habit change or addiction, or (3) a structured programme like a smoking cessation clinic. For Islamic-specific support, look for Muslim counsellors or community programmes. Be upfront about your goals and ask them to check on your progress regularly.` },
+Choose at least one form of support: (1) an accountability partner — a trusted friend or family member you check in with weekly, (2) a professional counsellor or therapist experienced in habit change or addiction, or (3) a structured programme like a smoking cessation clinic. For Islamic-specific support, look for Muslim counsellors or community programmes. Be upfront about your goals and ask them to check on your progress regularly.` },
         { title: 'Remove harmful items from your home environment entirely', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly forbid self-harm and the infliction of harm, they omit specific practical strategies like removing harmful items from one\'s home environment, making the subtask a practical logical inference to effectively eliminate these sources of destruction.',
@@ -798,7 +798,7 @@ Choose at least one form of support: (1) an accountability partner â€” a tr
             {
               kind: "quran",
               ref: "Quran 2:195",
-              arabic: "ÙˆÙŽÙ„ÙŽØ§ ØªÙÙ„Ù’Ù‚ÙÙˆØ§ Ø¨ÙØ£ÙŽÙŠÙ’Ø¯ÙÙŠÙƒÙÙ…Ù’ Ø¥ÙÙ„ÙŽÙ‰ Ø§Ù„ØªÙŽÙ‘Ù‡Ù’Ù„ÙÙƒÙŽØ©Ù ÙˆÙŽØ£ÙŽØ­Ù’Ø³ÙÙ†ÙÙˆØ§ Ø¥ÙÙ†ÙŽÙ‘ Ø§Ù„Ù„ÙŽÙ‘Ù‡ÙŽ ÙŠÙØ­ÙØ¨ÙÙ‘ Ø§Ù„Ù’Ù…ÙØ­Ù’Ø³ÙÙ†ÙÙŠÙ†ÙŽ",
+              arabic: "وَلَا تُلْقُوا بِأَيْدِيكُمْ إِلَى التَّهْلُكَةِ وَأَحْسِنُوا إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ",
               translation: "And do not throw yourselves into destruction with your own hands, and do good. Indeed, Allah loves the doers of good.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -821,13 +821,13 @@ Willpower is a finite resource, but environment design is permanent. If harmful 
 
 **How?**
 
-Go through your home â€” kitchen, bedroom, car, desk, and any hidden stashes. Collect every harmful item you committed to eliminating: cigarettes, vaping devices, alcohol, junk food, and anything else on your inventory. Dispose of them completely â€” do not "save them for guests" or hide them "just in case." Inform household members of your decision and ask for their support in keeping the home free of these items.` },
+Go through your home — kitchen, bedroom, car, desk, and any hidden stashes. Collect every harmful item you committed to eliminating: cigarettes, vaping devices, alcohol, junk food, and anything else on your inventory. Dispose of them completely — do not "save them for guests" or hide them "just in case." Inform household members of your decision and ask for their support in keeping the home free of these items.` },
       ],
     },
   ],
   health_physical_growth: [
     {
-      title: 'Establish 3Ã—/week strength or resistance training routine',
+      title: 'Establish 3×/week strength or resistance training routine',
       priority: 'high', tags: ['exercise', 'fitness'],
       description: 'The strong believer is better and more beloved to Allah than the weak believer. Strength training preserves muscle mass, strengthens bones, boosts metabolism, and builds the physical resilience needed to serve your family, community, and deen actively.',
       subtasks: [
@@ -861,7 +861,7 @@ Starting with a programme matched to your current fitness level prevents injury 
 
 **How?**
 
-Honestly assess your current level: Can you do 10 push-ups? Have you trained before? Based on your answer, choose one path: (1) Complete beginner â€” start with a bodyweight programme, (2) Some experience â€” a basic gym programme like StrongLifts 5x5 or GZCLP, (3) Home equipment â€” a dumbbell or resistance band programme. Pick one and commit for at least 8 weeks before switching.` },
+Honestly assess your current level: Can you do 10 push-ups? Have you trained before? Based on your answer, choose one path: (1) Complete beginner — start with a bodyweight programme, (2) Some experience — a basic gym programme like StrongLifts 5x5 or GZCLP, (3) Home equipment — a dumbbell or resistance band programme. Pick one and commit for at least 8 weeks before switching.` },
         { title: 'Schedule three specific days and times per week for training', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Hadith encourages believers to be strong and to actively pursue what benefits them, it omits specific modern fitness strategies like scheduling three days a week for training, making the subtask a practical logical inference to systematically build the strength praised by the Prophet.',
@@ -878,7 +878,7 @@ Honestly assess your current level: Can you do 10 push-ups? Have you trained bef
           ],
           description: `**Why?**
 
-Vague intentions like "I will train this week" almost never materialise. Specific, time-blocked sessions treat training as a non-negotiable appointment â€” the same way you would never skip a prayer time.
+Vague intentions like "I will train this week" almost never materialise. Specific, time-blocked sessions treat training as a non-negotiable appointment — the same way you would never skip a prayer time.
 
 
 **How?**
@@ -931,12 +931,12 @@ Focus on four foundational patterns: squat (goblet squat or bodyweight squat), p
           ],
           description: `**Why?**
 
-Progressive overload â€” gradually increasing weight, reps, or sets â€” is the fundamental driver of strength gains. Without tracking, you cannot ensure you are actually progressing rather than repeating the same effort week after week.
+Progressive overload — gradually increasing weight, reps, or sets — is the fundamental driver of strength gains. Without tracking, you cannot ensure you are actually progressing rather than repeating the same effort week after week.
 
 
 **How?**
 
-Use a simple training log â€” a notebook, spreadsheet, or app like Strong or JEFIT. For every session, record the exercise, sets, reps, and weight used. Each week, aim to add a small increment â€” 1-2 extra reps, or 1-2 kg more weight. Review your log weekly to confirm you are progressing. If a lift stalls for more than two weeks, adjust your approach.` },
+Use a simple training log — a notebook, spreadsheet, or app like Strong or JEFIT. For every session, record the exercise, sets, reps, and weight used. Each week, aim to add a small increment — 1-2 extra reps, or 1-2 kg more weight. Review your log weekly to confirm you are progressing. If a lift stalls for more than two weeks, adjust your approach.` },
         { title: 'Evaluate progress and adjust the programme every 4-6 weeks', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Hadith encourages believers to strive for what benefits them and praises the strong believer, it omits specific modern fitness practices like evaluating progress and adjusting a training program every 4-6 weeks, making the subtask a practical logical inference to systematically build the physical strength beloved by Allah.',
@@ -958,11 +958,11 @@ Your body adapts to training stimuli over time. What challenged you in week one 
 
 **How?**
 
-Every 4-6 weeks, review your training log and ask: Am I still progressing on key lifts? Am I recovering well between sessions? Do I have any persistent aches? Based on your answers, make targeted adjustments â€” swap a stale exercise, increase training volume slightly, or add a deload week if fatigued. Small, intentional tweaks are more effective than a completely new programme.` },
+Every 4-6 weeks, review your training log and ask: Am I still progressing on key lifts? Am I recovering well between sessions? Do I have any persistent aches? Based on your answers, make targeted adjustments — swap a stale exercise, increase training volume slightly, or add a deload week if fatigued. Small, intentional tweaks are more effective than a completely new programme.` },
       ],
     },
     {
-      title: 'Track daily water intake (target 2â€“3 litres)',
+      title: 'Track daily water intake (target 2–3 litres)',
       priority: 'medium', tags: ['hydration', 'health'],
       description: 'Proper hydration is essential for cognitive function, digestion, joint health, and energy levels. Building a hydration habit supports every other health goal.',
       subtasks: [
@@ -973,7 +973,7 @@ Every 4-6 weeks, review your training log and ask: Am I still progressing on key
             {
               kind: "quran",
               ref: "Quran 16:69",
-              arabic: "ÙŠÙŽØ®Ù’Ø±ÙØ¬Ù Ù…ÙÙ† Ø¨ÙØ·ÙÙˆÙ†ÙÙ‡ÙŽØ§ Ø´ÙŽØ±ÙŽØ§Ø¨ÙŒ Ù…ÙÙ‘Ø®Ù’ØªÙŽÙ„ÙÙÙŒ Ø£ÙŽÙ„Ù’ÙˆÙŽØ§Ù†ÙÙ‡Ù ÙÙÙŠÙ‡Ù Ø´ÙÙÙŽØ§Ø¡ÙŒ Ù„ÙÙ‘Ù„Ù†ÙŽÙ‘Ø§Ø³Ù",
+              arabic: "يَخْرُجُ مِن بُطُونِهَا شَرَابٌ مُّخْتَلِفٌ أَلْوَانُهُ فِيهِ شِفَاءٌ لِّلنَّاسِ",
               translation: "There emerges from their bellies a drink of varying colours, in which there is healing for people.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -1022,7 +1022,7 @@ Purchase a 1-litre reusable water bottle with clear volume markings on the side.
           ],
           description: `**Why?**
 
-Thirst is a lagging indicator â€” by the time you feel thirsty, you are already mildly dehydrated. Regular reminders ensure you drink proactively and consistently rather than playing catch-up in the evening.
+Thirst is a lagging indicator — by the time you feel thirsty, you are already mildly dehydrated. Regular reminders ensure you drink proactively and consistently rather than playing catch-up in the evening.
 
 
 **How?**
@@ -1044,7 +1044,7 @@ Set phone reminders at natural anchor points: after Fajr, mid-morning, after Dhu
           ],
           description: `**Why?**
 
-Two weeks of tracking reveals your actual hydration pattern â€” most people discover they drink far less than they assumed. The data also shows which times of day you consistently miss, allowing you to target those gaps specifically.
+Two weeks of tracking reveals your actual hydration pattern — most people discover they drink far less than they assumed. The data also shows which times of day you consistently miss, allowing you to target those gaps specifically.
 
 
 **How?**
@@ -1057,8 +1057,8 @@ Choose a tracking method: a tally on a sticky note (one mark per glass), a free 
             {
               kind: "quran",
               ref: "Quran 2:184",
-              arabic: "Ø£ÙŽÙŠÙŽÙ‘Ø§Ù…Ù‹Ø§ Ù…ÙŽÙ‘Ø¹Ù’Ø¯ÙÙˆØ¯ÙŽØ§ØªÙ Ûš ÙÙŽÙ…ÙŽÙ† ÙƒÙŽØ§Ù†ÙŽ Ù…ÙÙ†ÙƒÙÙ… Ù…ÙŽÙ‘Ø±ÙÙŠØ¶Ù‹Ø§ Ø£ÙŽÙˆÙ’ Ø¹ÙŽÙ„ÙŽÙ‰Ù° Ø³ÙŽÙÙŽØ±Ù ÙÙŽØ¹ÙØ¯ÙŽÙ‘Ø©ÙŒ Ù…ÙÙ‘Ù†Ù’ Ø£ÙŽÙŠÙŽÙ‘Ø§Ù…Ù Ø£ÙØ®ÙŽØ±ÙŽ Ûš ÙˆÙŽØ¹ÙŽÙ„ÙŽÙ‰ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ ÙŠÙØ·ÙÙŠÙ‚ÙÙˆÙ†ÙŽÙ‡Ù ÙÙØ¯Ù’ÙŠÙŽØ©ÙŒ Ø·ÙŽØ¹ÙŽØ§Ù…Ù Ù…ÙØ³Ù’ÙƒÙÙŠÙ†Ù Û– ÙÙŽÙ…ÙŽÙ† ØªÙŽØ·ÙŽÙˆÙŽÙ‘Ø¹ÙŽ Ø®ÙŽÙŠÙ’Ø±Ù‹Ø§ ÙÙŽÙ‡ÙÙˆÙŽ Ø®ÙŽÙŠÙ’Ø±ÙŒ Ù„ÙŽÙ‘Ù‡Ù Ûš ÙˆÙŽØ£ÙŽÙ† ØªÙŽØµÙÙˆÙ…ÙÙˆØ§ Ø®ÙŽÙŠÙ’Ø±ÙŒ Ù„ÙŽÙ‘ÙƒÙÙ…Ù’ Û– Ø¥ÙÙ† ÙƒÙÙ†ØªÙÙ…Ù’ ØªÙŽØ¹Ù’Ù„ÙŽÙ…ÙÙˆÙ†ÙŽ",
-              translation: "Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. For those who can fast only with extreme difficulty, there is a way to compensate â€” feed a needy person. But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew.",
+              arabic: "أَيَّامًا مَّعْدُودَاتٍ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ ۖ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ ۚ وَأَن تَصُومُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ",
+              translation: "Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. For those who can fast only with extreme difficulty, there is a way to compensate — feed a needy person. But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew.",
               relevance: "contextual",
               provenanceTier: "Bayyinah",
               rationale: "the divine permission to modify fasting due to illness or travel implies attending to the body's changing needs, including hydration and nutrition levels.",
@@ -1080,13 +1080,13 @@ A flat 2-litre target ignores the reality that your body needs more water on hot
 
 **How?**
 
-On training days, add 500ml-1L extra around your workout. In hot weather, increase your baseline by 500ml. On fasting days, front-load hydration at suhoor and rehydrate generously at iftar â€” aim for 1.5L between iftar and sleep. Monitor your urine colour as a simple gauge: pale yellow means well-hydrated, dark yellow means you need more.` },
+On training days, add 500ml-1L extra around your workout. In hot weather, increase your baseline by 500ml. On fasting days, front-load hydration at suhoor and rehydrate generously at iftar — aim for 1.5L between iftar and sleep. Monitor your urine colour as a simple gauge: pale yellow means well-hydrated, dark yellow means you need more.` },
       ],
     },
     {
       title: 'Explore the Sunnah of intermittent fasting (Monday/Thursday) as a health practice',
       priority: 'medium', tags: ['fasting', 'sunnah'],
-      description: 'Fasting on Mondays and Thursdays is a confirmed Sunnah with extraordinary health benefits â€” improved insulin sensitivity, cellular repair (autophagy), mental clarity, and weight management. It combines spiritual reward with measurable physical benefit.',
+      description: 'Fasting on Mondays and Thursdays is a confirmed Sunnah with extraordinary health benefits — improved insulin sensitivity, cellular repair (autophagy), mental clarity, and weight management. It combines spiritual reward with measurable physical benefit.',
       subtasks: [
         { title: 'Research the health science behind intermittent fasting and autophagy', done: false,
           tier: 'T2',
@@ -1095,16 +1095,16 @@ On training days, add 500ml-1L extra around your workout. In hot weather, increa
             {
               kind: "quran",
               ref: "Quran 2:184",
-              arabic: "Ø£ÙŽÙŠÙŽÙ‘Ø§Ù…Ù‹Ø§ Ù…ÙŽÙ‘Ø¹Ù’Ø¯ÙÙˆØ¯ÙŽØ§ØªÙ Ûš ÙÙŽÙ…ÙŽÙ† ÙƒÙŽØ§Ù†ÙŽ Ù…ÙÙ†ÙƒÙÙ… Ù…ÙŽÙ‘Ø±ÙÙŠØ¶Ù‹Ø§ Ø£ÙŽÙˆÙ’ Ø¹ÙŽÙ„ÙŽÙ‰Ù° Ø³ÙŽÙÙŽØ±Ù ÙÙŽØ¹ÙØ¯ÙŽÙ‘Ø©ÙŒ Ù…ÙÙ‘Ù†Ù’ Ø£ÙŽÙŠÙŽÙ‘Ø§Ù…Ù Ø£ÙØ®ÙŽØ±ÙŽ Ûš ÙˆÙŽØ¹ÙŽÙ„ÙŽÙ‰ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ ÙŠÙØ·ÙÙŠÙ‚ÙÙˆÙ†ÙŽÙ‡Ù ÙÙØ¯Ù’ÙŠÙŽØ©ÙŒ Ø·ÙŽØ¹ÙŽØ§Ù…Ù Ù…ÙØ³Ù’ÙƒÙÙŠÙ†Ù Û– ÙÙŽÙ…ÙŽÙ† ØªÙŽØ·ÙŽÙˆÙŽÙ‘Ø¹ÙŽ Ø®ÙŽÙŠÙ’Ø±Ù‹Ø§ ÙÙŽÙ‡ÙÙˆÙŽ Ø®ÙŽÙŠÙ’Ø±ÙŒ Ù„ÙŽÙ‘Ù‡Ù Ûš ÙˆÙŽØ£ÙŽÙ† ØªÙŽØµÙÙˆÙ…ÙÙˆØ§ Ø®ÙŽÙŠÙ’Ø±ÙŒ Ù„ÙŽÙ‘ÙƒÙÙ…Ù’ Û– Ø¥ÙÙ† ÙƒÙÙ†ØªÙÙ…Ù’ ØªÙŽØ¹Ù’Ù„ÙŽÙ…ÙÙˆÙ†ÙŽ",
-              translation: "Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. For those who can fast only with extreme difficulty, there is a way to compensate â€” feed a needy person. But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew.",
+              arabic: "أَيَّامًا مَّعْدُودَاتٍ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ ۖ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ ۚ وَأَن تَصُومُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ",
+              translation: "Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. For those who can fast only with extreme difficulty, there is a way to compensate — feed a needy person. But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew.",
               relevance: "contextual",
               provenanceTier: "Bayyinah",
-              rationale: "\"fasting is better for you, if only you knew\" â€” a direct invitation to understand the full benefit of fasting, including its physical dimensions such as autophagy and metabolic renewal.",
+              rationale: "\"fasting is better for you, if only you knew\" — a direct invitation to understand the full benefit of fasting, including its physical dimensions such as autophagy and metabolic renewal.",
             },
             {
               kind: "hadith",
               ref: "Jami at-Tirmidhi 2038",
-              translation: "The Prophet (SAW) said: \"Make use of medical treatment, for Allah has not made a disease without appointing a remedy for it, except for one disease â€” old age.\"",
+              translation: "The Prophet (SAW) said: \"Make use of medical treatment, for Allah has not made a disease without appointing a remedy for it, except for one disease — old age.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -1149,7 +1149,7 @@ Jumping straight to two fasting days per week often leads to burnout, especially
 
 **How?**
 
-Pick either Monday or Thursday â€” whichever fits your schedule better. Make the niyyah (intention) the night before. For your first few fasts, keep your schedule light and avoid intense training. Eat a balanced suhoor with protein, healthy fats, and complex carbs to sustain you. After 4 consistent weeks of one day, you are ready to add the second day.` },
+Pick either Monday or Thursday — whichever fits your schedule better. Make the niyyah (intention) the night before. For your first few fasts, keep your schedule light and avoid intense training. Eat a balanced suhoor with protein, healthy fats, and complex carbs to sustain you. After 4 consistent weeks of one day, you are ready to add the second day.` },
         { title: 'Plan suhoor and iftar meals that are nutritionally balanced', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources state that fasting is highly beneficial and praise the consistent fasting of Dawud, they omit specific modern dietary strategies like planning nutritionally balanced suhoor and iftar meals, making the subtask a practical logical inference to physically sustain the fasts and maximize their benefits.',
@@ -1157,7 +1157,7 @@ Pick either Monday or Thursday â€” whichever fits your schedule better. Mak
             {
               kind: "quran",
               ref: "Quran 2:184",
-              arabic: "ÙˆÙŽØ£ÙŽÙ† ØªÙŽØµÙÙˆÙ…ÙÙˆØ§ Ø®ÙŽÙŠÙ’Ø±ÙŒ Ù„ÙŽÙ‘ÙƒÙÙ…Ù’ Ø¥ÙÙ† ÙƒÙÙ†ØªÙÙ…Ù’ ØªÙŽØ¹Ù’Ù„ÙŽÙ…ÙÙˆÙ†ÙŽ",
+              arabic: "وَأَن تَصُومُوا خَيْرٌ لَّكُمْ إِن كُنتُمْ تَعْلَمُونَ",
               translation: "But to fast is best for you, if you only knew.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -1188,8 +1188,8 @@ For suhoor: include slow-digesting protein (eggs, Greek yoghurt), complex carbs 
             {
               kind: "quran",
               ref: "Quran 2:184",
-              arabic: "Ø£ÙŽÙŠÙŽÙ‘Ø§Ù…Ù‹Ø§ Ù…ÙŽÙ‘Ø¹Ù’Ø¯ÙÙˆØ¯ÙŽØ§ØªÙ Ûš ÙÙŽÙ…ÙŽÙ† ÙƒÙŽØ§Ù†ÙŽ Ù…ÙÙ†ÙƒÙÙ… Ù…ÙŽÙ‘Ø±ÙÙŠØ¶Ù‹Ø§ Ø£ÙŽÙˆÙ’ Ø¹ÙŽÙ„ÙŽÙ‰Ù° Ø³ÙŽÙÙŽØ±Ù ÙÙŽØ¹ÙØ¯ÙŽÙ‘Ø©ÙŒ Ù…ÙÙ‘Ù†Ù’ Ø£ÙŽÙŠÙŽÙ‘Ø§Ù…Ù Ø£ÙØ®ÙŽØ±ÙŽ Ûš ÙˆÙŽØ¹ÙŽÙ„ÙŽÙ‰ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ ÙŠÙØ·ÙÙŠÙ‚ÙÙˆÙ†ÙŽÙ‡Ù ÙÙØ¯Ù’ÙŠÙŽØ©ÙŒ Ø·ÙŽØ¹ÙŽØ§Ù…Ù Ù…ÙØ³Ù’ÙƒÙÙŠÙ†Ù Û– ÙÙŽÙ…ÙŽÙ† ØªÙŽØ·ÙŽÙˆÙŽÙ‘Ø¹ÙŽ Ø®ÙŽÙŠÙ’Ø±Ù‹Ø§ ÙÙŽÙ‡ÙÙˆÙŽ Ø®ÙŽÙŠÙ’Ø±ÙŒ Ù„ÙŽÙ‘Ù‡Ù Ûš ÙˆÙŽØ£ÙŽÙ† ØªÙŽØµÙÙˆÙ…ÙÙˆØ§ Ø®ÙŽÙŠÙ’Ø±ÙŒ Ù„ÙŽÙ‘ÙƒÙÙ…Ù’ Û– Ø¥ÙÙ† ÙƒÙÙ†ØªÙÙ…Ù’ ØªÙŽØ¹Ù’Ù„ÙŽÙ…ÙÙˆÙ†ÙŽ",
-              translation: "Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. For those who can fast only with extreme difficulty, there is a way to compensate â€” feed a needy person. But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew.",
+              arabic: "أَيَّامًا مَّعْدُودَاتٍ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ ۖ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ ۚ وَأَن تَصُومُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ",
+              translation: "Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. For those who can fast only with extreme difficulty, there is a way to compensate — feed a needy person. But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew.",
               relevance: "contextual",
               provenanceTier: "Bayyinah",
               rationale: "tracking your experience fulfils the Quranic invitation to \"know\" the benefit of fasting through lived, self-aware observation.",
@@ -1206,12 +1206,12 @@ For suhoor: include slow-digesting protein (eggs, Greek yoghurt), complex carbs 
           ],
           description: `**Why?**
 
-Subjective tracking reveals how fasting actually affects your daily performance. Many people discover that their focus and energy are better on fasting days once adapted â€” data that reinforces the habit and helps you schedule demanding work strategically.
+Subjective tracking reveals how fasting actually affects your daily performance. Many people discover that their focus and energy are better on fasting days once adapted — data that reinforces the habit and helps you schedule demanding work strategically.
 
 
 **How?**
 
-Create a simple daily log with three ratings (1-10): energy, mood, and focus. Fill it in at the same time each day â€” mid-afternoon works well. After 4 weeks, compare your fasting-day averages to your non-fasting-day averages. Look for patterns: do you crash in the afternoon on fasting days? Is your morning focus sharper? Use these insights to adjust meal timing and activity scheduling.` },
+Create a simple daily log with three ratings (1-10): energy, mood, and focus. Fill it in at the same time each day — mid-afternoon works well. After 4 weeks, compare your fasting-day averages to your non-fasting-day averages. Look for patterns: do you crash in the afternoon on fasting days? Is your morning focus sharper? Use these insights to adjust meal timing and activity scheduling.` },
         { title: 'Gradually add the second day once the first is consistent', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Hadith establishes the Sunnah of fasting on both Mondays and Thursdays, it omits specific habit-building strategies like gradually adding the second day once the first is consistent, making the subtask a practical logical inference to sustainably complete this Prophetic practice.',
@@ -1233,7 +1233,7 @@ Adding the second fasting day completes the Sunnah practice and doubles the heal
 
 **How?**
 
-Once you have fasted consistently on your chosen day for at least 4 weeks with manageable energy levels, add the second day (Monday if you started with Thursday, or vice versa). Keep your suhoor and iftar templates the same. Monitor your energy and recovery â€” if two days feels too demanding initially, alternate weeks (both days one week, one day the next) until your body fully adapts.` },
+Once you have fasted consistently on your chosen day for at least 4 weeks with manageable energy levels, add the second day (Monday if you started with Thursday, or vice versa). Keep your suhoor and iftar templates the same. Monitor your energy and recovery — if two days feels too demanding initially, alternate weeks (both days one week, one day the next) until your body fully adapts.` },
       ],
     },
     {
@@ -1248,7 +1248,7 @@ Once you have fasted consistently on your chosen day for at least 4 weeks with m
             {
               kind: "quran",
               ref: "Quran 4:71",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø®ÙØ°ÙÙˆØ§ Ø­ÙØ°Ù’Ø±ÙŽÙƒÙÙ…Ù’",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا خُذُوا حِذْرَكُمْ",
               translation: "O you who have believed, take your precaution.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -1279,7 +1279,7 @@ Either purchase a pre-assembled first aid kit rated for household use (available
             {
               kind: "quran",
               ref: "Quran 4:71",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø®ÙØ°ÙÙˆØ§ Ø­ÙØ°Ù’Ø±ÙŽÙƒÙÙ…Ù’",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا خُذُوا حِذْرَكُمْ",
               translation: "O you who have believed, take your precaution.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -1301,7 +1301,7 @@ Review the medical needs of every household member. Add a backup supply of criti
             {
               kind: "quran",
               ref: "Quran 4:71",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø®ÙØ°ÙÙˆØ§ Ø­ÙØ°Ù’Ø±ÙŽÙƒÙÙ…Ù’",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا خُذُوا حِذْرَكُمْ",
               translation: "O you who have believed, take your precaution.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -1319,7 +1319,7 @@ Review the medical needs of every household member. Add a backup supply of criti
           ],
           description: `**Why?**
 
-In a crisis, stress impairs memory. Even phone numbers you know by heart can vanish under pressure. A physical emergency contacts card inside the kit ensures anyone â€” including babysitters, guests, or older children â€” can quickly reach the right people.
+In a crisis, stress impairs memory. Even phone numbers you know by heart can vanish under pressure. A physical emergency contacts card inside the kit ensures anyone — including babysitters, guests, or older children — can quickly reach the right people.
 
 
 **How?**
@@ -1332,7 +1332,7 @@ Write or print a card with: your family doctor's phone number, the nearest hospi
             {
               kind: "quran",
               ref: "Quran 4:71",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø®ÙØ°ÙÙˆØ§ Ø­ÙØ°Ù’Ø±ÙŽÙƒÙÙ…Ù’",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا خُذُوا حِذْرَكُمْ",
               translation: "O you who have believed, take your precaution.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -1350,12 +1350,12 @@ Write or print a card with: your family doctor's phone number, the nearest hospi
           ],
           description: `**Why?**
 
-A first aid kit hidden in a closet nobody can find is useless in an emergency. Accessibility and awareness are just as important as the contents â€” every household member should be able to locate and open the kit within 30 seconds.
+A first aid kit hidden in a closet nobody can find is useless in an emergency. Accessibility and awareness are just as important as the contents — every household member should be able to locate and open the kit within 30 seconds.
 
 
 **How?**
 
-Choose a central, accessible location â€” a kitchen cabinet, hallway closet, or bathroom shelf at an easy-to-reach height. Avoid locations that are locked, high up, or in a room that is frequently occupied. Walk every household member to the kit and show them where it is and what is inside. For children, teach them how to find it and call for help.` },
+Choose a central, accessible location — a kitchen cabinet, hallway closet, or bathroom shelf at an easy-to-reach height. Avoid locations that are locked, high up, or in a room that is frequently occupied. Walk every household member to the kit and show them where it is and what is inside. For children, teach them how to find it and call for help.` },
         { title: 'Set a 6-month reminder to check expiration dates and restock supplies', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Hadith explicitly commands believers to make use of medical treatments and remedies, it omits specific modern administrative steps like setting a 6-month reminder to check expiration dates, making the subtask a practical logical inference to ensure those medical supplies remain safe and effective when needed.',
@@ -1363,7 +1363,7 @@ Choose a central, accessible location â€” a kitchen cabinet, hallway closet
             {
               kind: "hadith",
               ref: "Jami at-Tirmidhi 2038",
-              translation: "The Prophet (SAW) said: \"Make use of medical treatment, for Allah has not made a disease without appointing a remedy for it, except for one disease â€” old age.\"",
+              translation: "The Prophet (SAW) said: \"Make use of medical treatment, for Allah has not made a disease without appointing a remedy for it, except for one disease — old age.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -1377,11 +1377,11 @@ Medications expire, bandages degrade, and supplies get used without being replac
 
 **How?**
 
-Set a recurring calendar reminder every six months â€” a good anchor is the start of Ramadan and six months after. When the reminder fires, open the kit and check every item: discard expired medications and replace them, restock any used bandages or supplies, and verify the emergency contacts card is current. The entire check takes less than 15 minutes.` },
+Set a recurring calendar reminder every six months — a good anchor is the start of Ramadan and six months after. When the reminder fires, open the kit and check every item: discard expired medications and replace them, restock any used bandages or supplies, and verify the emergency contacts card is current. The entire check takes less than 15 minutes.` },
       ],
     },
     {
-      title: "Qaylulah â€” implement the prophetic midday rest",
+      title: "Qaylulah — implement the prophetic midday rest",
       priority: "medium", tags: ["rest", "sleep", "sunnah", "transition:qaylulah"],
       description: "Qaylulah is the brief midday rest the Prophet (SAW) and his companions practised before Dhuhr. Allah names sleep among His signs, and a short midday pause restores afternoon alertness and offsets the sleep debt that night-prayer practice accumulates. The companions treated qaylulah as fuel for ibadah, not an alternative to it.",
       subtasks: [
@@ -1392,11 +1392,11 @@ Set a recurring calendar reminder every six months â€” a good anchor is the
             {
               kind: "quran",
               ref: "Quran 30:23",
-              arabic: "ÙˆÙŽÙ…ÙÙ†Ù’ Ø¢ÙŠÙŽØ§ØªÙÙ‡Ù Ù…ÙŽÙ†ÙŽØ§Ù…ÙÙƒÙÙ… Ø¨ÙØ§Ù„Ù„ÙŽÙ‘ÙŠÙ’Ù„Ù ÙˆÙŽØ§Ù„Ù†ÙŽÙ‘Ù‡ÙŽØ§Ø±Ù ÙˆÙŽØ§Ø¨Ù’ØªÙØºÙŽØ§Ø¤ÙÙƒÙÙ… Ù…ÙÙ‘Ù† ÙÙŽØ¶Ù’Ù„ÙÙ‡Ù Ûš Ø¥ÙÙ†ÙŽÙ‘ ÙÙÙŠ Ø°ÙŽÙ°Ù„ÙÙƒÙŽ Ù„ÙŽØ¢ÙŠÙŽØ§ØªÙ Ù„ÙÙ‘Ù‚ÙŽÙˆÙ’Ù…Ù ÙŠÙŽØ³Ù’Ù…ÙŽØ¹ÙÙˆÙ†ÙŽ",
+              arabic: "وَمِنْ آيَاتِهِ مَنَامُكُم بِاللَّيْلِ وَالنَّهَارِ وَابْتِغَاؤُكُم مِّن فَضْلِهِ ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَسْمَعُونَ",
               translation: "Among His signs are your sleep, by night and by day, and your seeking His bounty. There truly are signs in this for those who can hear.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              rationale: "Allah explicitly names daytime sleep among His signs alongside night-sleep â€” direct Quranic affirmation of qaylulah as a designed-into-creation pattern.",
+              rationale: "Allah explicitly names daytime sleep among His signs alongside night-sleep — direct Quranic affirmation of qaylulah as a designed-into-creation pattern.",
             },
             {
               kind: "hadith",
@@ -1405,8 +1405,8 @@ Set a recurring calendar reminder every six months â€” a good anchor is the
               relevance: "direct",
               provenanceTier: "Qarina",
               hadithGrade: "Hasan",
-              ratNote: "Verified 2026-04-26 â€” al-Tabarani al-Mu'jam al-Awsat 5662 is not indexed on sunnah.com (sunnah.com hosts Adab al-Mufrad 1239â€“1240 on qaylulah but not Tabarani's Awsat collection); the qaylulah hadith 'qilu fa-inna al-shayatina la taqilu' is graded hasan by al-Albani in Sahih al-Jami al-Saghir 4431, which is the standard secondary canonical anchor.",
-              rationale: "Direct prophetic recommendation of qaylulah, framed as a sunnah that distinguishes the believer's rhythm from shaytan's â€” the operative ground for establishing the practice.",
+              ratNote: "Verified 2026-04-26 — al-Tabarani al-Mu'jam al-Awsat 5662 is not indexed on sunnah.com (sunnah.com hosts Adab al-Mufrad 1239–1240 on qaylulah but not Tabarani's Awsat collection); the qaylulah hadith 'qilu fa-inna al-shayatina la taqilu' is graded hasan by al-Albani in Sahih al-Jami al-Saghir 4431, which is the standard secondary canonical anchor.",
+              rationale: "Direct prophetic recommendation of qaylulah, framed as a sunnah that distinguishes the believer's rhythm from shaytan's — the operative ground for establishing the practice.",
             },
           ],
           description: `**Why?**
@@ -1415,23 +1415,23 @@ Qaylulah is one of the rare practices where prophetic guidance and modern sleep 
 
 **How?**
 
-1. Block 15-30 minutes between 12:00 and 13:30 in your calendar â€” title it "Qaylulah".
+1. Block 15-30 minutes between 12:00 and 13:30 in your calendar — title it "Qaylulah".
 2. The window must close before Dhuhr so qaylulah does not eat into prayer time.
 3. Use a sleep mask or dim the room. Set an alarm. Lie on your right side.
-4. If you cannot sleep, lie quietly with eyes closed â€” the rest itself is the sunnah.
+4. If you cannot sleep, lie quietly with eyes closed — the rest itself is the sunnah.
 5. Benchmark: 5 of 7 days for two consecutive weeks.` },
         { title: "Use qaylulah strategically to enable qiyam al-layl", done: false,
           tier: "T2",
-          amanahRationale: "The cited ayah praises those who remember Allah lying down across day and night; qaylulah's classical function is to offset the sleep debt that night prayer creates â€” contextual, not direct, application.",
+          amanahRationale: "The cited ayah praises those who remember Allah lying down across day and night; qaylulah's classical function is to offset the sleep debt that night prayer creates — contextual, not direct, application.",
           sources: [
             {
               kind: "quran",
               ref: "Quran 3:190-191",
-              arabic: "Ø¥ÙÙ†ÙŽÙ‘ ÙÙÙŠ Ø®ÙŽÙ„Ù’Ù‚Ù Ø§Ù„Ø³ÙŽÙ‘Ù…ÙŽØ§ÙˆÙŽØ§ØªÙ ÙˆÙŽØ§Ù„Ù’Ø£ÙŽØ±Ù’Ø¶Ù ÙˆÙŽØ§Ø®Ù’ØªÙÙ„ÙŽØ§ÙÙ Ø§Ù„Ù„ÙŽÙ‘ÙŠÙ’Ù„Ù ÙˆÙŽØ§Ù„Ù†ÙŽÙ‘Ù‡ÙŽØ§Ø±Ù Ù„ÙŽØ¢ÙŠÙŽØ§ØªÙ Ù„ÙÙ‘Ø£ÙÙˆÙ„ÙÙŠ Ø§Ù„Ù’Ø£ÙŽÙ„Ù’Ø¨ÙŽØ§Ø¨Ù Û Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ ÙŠÙŽØ°Ù’ÙƒÙØ±ÙÙˆÙ†ÙŽ Ø§Ù„Ù„ÙŽÙ‘Ù‡ÙŽ Ù‚ÙÙŠÙŽØ§Ù…Ù‹Ø§ ÙˆÙŽÙ‚ÙØ¹ÙÙˆØ¯Ù‹Ø§ ÙˆÙŽØ¹ÙŽÙ„ÙŽÙ‰Ù° Ø¬ÙÙ†ÙÙˆØ¨ÙÙ‡ÙÙ…Ù’",
+              arabic: "إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ لَآيَاتٍ لِّأُولِي الْأَلْبَابِ ۝ الَّذِينَ يَذْكُرُونَ اللَّهَ قِيَامًا وَقُعُودًا وَعَلَىٰ جُنُوبِهِمْ",
               translation: "There truly are signs in the creation of the heavens and earth, and in the alternation of night and day, for those with understanding, who remember God standing, sitting, and lying down.",
               relevance: "contextual",
               provenanceTier: "Bayyinah",
-              rationale: "The Quran praises those whose dhikr spans every posture across day and night â€” qaylulah is the sleep that makes lying-down dhikr in the last third of the night sustainable.",
+              rationale: "The Quran praises those whose dhikr spans every posture across day and night — qaylulah is the sleep that makes lying-down dhikr in the last third of the night sustainable.",
             },
           ],
           description: `**Why?**
@@ -1441,21 +1441,21 @@ Tahajjud is biologically expensive. The classical scholars treated qaylulah as t
 **How?**
 
 1. If you currently pray tahajjud, log your wake-time and energy on days you nap vs. days you do not.
-2. If you do not yet pray tahajjud, install qaylulah first for one month, then start tahajjud â€” you will compound the habit much more reliably.
+2. If you do not yet pray tahajjud, install qaylulah first for one month, then start tahajjud — you will compound the habit much more reliably.
 3. Treat qaylulah as a fixed input, not a luxury you cut on busy days. Busy days are when you need it most.
 4. Benchmark: tahajjud sustained 4+ nights/week with qaylulah on the same days, for one full month.` },
-        { title: "Optimise the qaylulah environment â€” dark, quiet, brief", done: false,
+        { title: "Optimise the qaylulah environment — dark, quiet, brief", done: false,
           tier: "T2",
           amanahRationale: "Sleep-quality optimisation is contextual application of the broader Quranic framing of sleep as a sign and mercy; the specific environmental controls do not appear in revelation but follow from treating the rest as ibadah.",
           sources: [
             {
               kind: "quran",
               ref: "Quran 25:47",
-              arabic: "ÙˆÙŽÙ‡ÙÙˆÙŽ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠ Ø¬ÙŽØ¹ÙŽÙ„ÙŽ Ù„ÙŽÙƒÙÙ…Ù Ø§Ù„Ù„ÙŽÙ‘ÙŠÙ’Ù„ÙŽ Ù„ÙØ¨ÙŽØ§Ø³Ù‹Ø§ ÙˆÙŽØ§Ù„Ù†ÙŽÙ‘ÙˆÙ’Ù…ÙŽ Ø³ÙØ¨ÙŽØ§ØªÙ‹Ø§ ÙˆÙŽØ¬ÙŽØ¹ÙŽÙ„ÙŽ Ø§Ù„Ù†ÙŽÙ‘Ù‡ÙŽØ§Ø±ÙŽ Ù†ÙØ´ÙÙˆØ±Ù‹Ø§",
+              arabic: "وَهُوَ الَّذِي جَعَلَ لَكُمُ اللَّيْلَ لِبَاسًا وَالنَّوْمَ سُبَاتًا وَجَعَلَ النَّهَارَ نُشُورًا",
               translation: "It is He who made the night a garment for you, and sleep a rest, and made the day like a resurrection.",
               relevance: "thematic",
               provenanceTier: "Bayyinah",
-              rationale: "The Quran identifies sleep as a designed mercy of rest â€” environmental controls are contextual application that honours the design.",
+              rationale: "The Quran identifies sleep as a designed mercy of rest — environmental controls are contextual application that honours the design.",
             },
           ],
           description: `**Why?**
@@ -1464,14 +1464,14 @@ A 20-minute nap in a noisy, bright room delivers maybe 5 minutes of actual resto
 
 **How?**
 
-1. Choose the same location every day â€” a couch, a bedroom, even a parked car at lunch.
+1. Choose the same location every day — a couch, a bedroom, even a parked car at lunch.
 2. Block light: blackout curtains, sleep mask, or a hoodie pulled over your eyes.
 3. Block sound: foam earplugs cost $5 and remove the highest disruptor.
-4. Cap duration at 30 minutes â€” beyond that you enter deep sleep and wake groggy.
+4. Cap duration at 30 minutes — beyond that you enter deep sleep and wake groggy.
 5. Benchmark: you wake refreshed without needing the alarm 4 of 5 nap days.` },
-        { title: "Set the niyyah â€” qaylulah as ibadah, not laziness", done: false,
+        { title: "Set the niyyah — qaylulah as ibadah, not laziness", done: false,
           tier: "T2",
-          amanahRationale: "The foundational hadith of niyyah governs every action â€” naming qaylulah as a sunnah enacted in obedience is direct application of the universal rule.",
+          amanahRationale: "The foundational hadith of niyyah governs every action — naming qaylulah as a sunnah enacted in obedience is direct application of the universal rule.",
           sources: [
             {
               kind: "hadith",
@@ -1480,12 +1480,12 @@ A 20-minute nap in a noisy, bright room delivers maybe 5 minutes of actual resto
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "The foundational hadith of niyyah governs every action â€” qaylulah without intention is rest; with intention it becomes a sunnah enacted in obedience.",
+              rationale: "The foundational hadith of niyyah governs every action — qaylulah without intention is rest; with intention it becomes a sunnah enacted in obedience.",
             },
           ],
           description: `**Why?**
 
-The hadith of niyyah is the universal lever â€” it transforms the same 20 minutes of horizontal stillness into either nothing or worship. Without the intention, qaylulah is a habit you may eventually feel guilty about. With it, qaylulah is a daily act of obedience to a sunnah of the Prophet (SAW).
+The hadith of niyyah is the universal lever — it transforms the same 20 minutes of horizontal stillness into either nothing or worship. Without the intention, qaylulah is a habit you may eventually feel guilty about. With it, qaylulah is a daily act of obedience to a sunnah of the Prophet (SAW).
 
 **How?**
 
@@ -1506,7 +1506,7 @@ Before lying down, silently say: "Ya Allah, I take this rest as a sunnah of Your
             {
               kind: "quran",
               ref: "Quran 7:31",
-              arabic: "ÙƒÙÙ„ÙÙˆØ§ ÙˆÙŽØ§Ø´Ù’Ø±ÙŽØ¨ÙÙˆØ§ ÙˆÙŽÙ„ÙŽØ§ ØªÙØ³Ù’Ø±ÙÙÙÙˆØ§",
+              arabic: "كُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا",
               translation: "Eat and drink, but be not excessive.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -1529,7 +1529,7 @@ Eating the right macronutrient at the right time can significantly improve worko
 
 **How?**
 
-Study the three key windows: (1) Pre-workout (1-2 hours before) â€” focus on easily digestible carbs and moderate protein, (2) Post-workout (within 1 hour after) â€” prioritise protein with some carbs for recovery, (3) General meals â€” balanced macros spread throughout the day. Read 2-3 articles from reputable sports nutrition sources to understand the principles before designing your own templates.` },
+Study the three key windows: (1) Pre-workout (1-2 hours before) — focus on easily digestible carbs and moderate protein, (2) Post-workout (within 1 hour after) — prioritise protein with some carbs for recovery, (3) General meals — balanced macros spread throughout the day. Read 2-3 articles from reputable sports nutrition sources to understand the principles before designing your own templates.` },
         { title: 'Design a pre-workout and post-workout meal template', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided source emphasizes the general Islamic principle of moderation in eating and portion control, it offers neither explicit proof nor contextual indication for the highly specific modern fitness practice of designing pre-workout and post-workout meal templates.',
@@ -1546,12 +1546,12 @@ Study the three key windows: (1) Pre-workout (1-2 hours before) â€” focus o
           ],
           description: `**Why?**
 
-Having a meal template eliminates daily decision-making about what to eat around training. When the template is dialled in, you show up to every workout properly fuelled and recover optimally afterward â€” consistency that compounds into visible results over months.
+Having a meal template eliminates daily decision-making about what to eat around training. When the template is dialled in, you show up to every workout properly fuelled and recover optimally afterward — consistency that compounds into visible results over months.
 
 
 **How?**
 
-Create two simple templates. Pre-workout (1-2 hours before): pick 2-3 go-to meals â€” for example, oats with banana and honey, or rice with chicken. Post-workout (within 60 minutes): pick 2-3 protein-rich options â€” for example, a protein shake with fruit, or eggs with toast. Write these on a card and keep it on your fridge. Rotate between options to prevent boredom while maintaining nutritional consistency.` },
+Create two simple templates. Pre-workout (1-2 hours before): pick 2-3 go-to meals — for example, oats with banana and honey, or rice with chicken. Post-workout (within 60 minutes): pick 2-3 protein-rich options — for example, a protein shake with fruit, or eggs with toast. Write these on a card and keep it on your fridge. Rotate between options to prevent boredom while maintaining nutritional consistency.` },
         { title: 'Create an optimised suhoor meal plan for fasting days (slow-digesting, hydrating)', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly command taking suhoor and highlight its inherent blessings, they omit specific modern nutritional guidelines, making the subtask a practical logical inference to physically sustain the fast and maximize the benefits of this Prophetic practice.',
@@ -1559,8 +1559,8 @@ Create two simple templates. Pre-workout (1-2 hours before): pick 2-3 go-to meal
             {
               kind: "quran",
               ref: "Quran 2:184",
-              arabic: "Ø£ÙŽÙŠÙŽÙ‘Ø§Ù…Ù‹Ø§ Ù…ÙŽÙ‘Ø¹Ù’Ø¯ÙÙˆØ¯ÙŽØ§ØªÙ Ûš ÙÙŽÙ…ÙŽÙ† ÙƒÙŽØ§Ù†ÙŽ Ù…ÙÙ†ÙƒÙÙ… Ù…ÙŽÙ‘Ø±ÙÙŠØ¶Ù‹Ø§ Ø£ÙŽÙˆÙ’ Ø¹ÙŽÙ„ÙŽÙ‰Ù° Ø³ÙŽÙÙŽØ±Ù ÙÙŽØ¹ÙØ¯ÙŽÙ‘Ø©ÙŒ Ù…ÙÙ‘Ù†Ù’ Ø£ÙŽÙŠÙŽÙ‘Ø§Ù…Ù Ø£ÙØ®ÙŽØ±ÙŽ Ûš ÙˆÙŽØ¹ÙŽÙ„ÙŽÙ‰ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ ÙŠÙØ·ÙÙŠÙ‚ÙÙˆÙ†ÙŽÙ‡Ù ÙÙØ¯Ù’ÙŠÙŽØ©ÙŒ Ø·ÙŽØ¹ÙŽØ§Ù…Ù Ù…ÙØ³Ù’ÙƒÙÙŠÙ†Ù Û– ÙÙŽÙ…ÙŽÙ† ØªÙŽØ·ÙŽÙˆÙŽÙ‘Ø¹ÙŽ Ø®ÙŽÙŠÙ’Ø±Ù‹Ø§ ÙÙŽÙ‡ÙÙˆÙŽ Ø®ÙŽÙŠÙ’Ø±ÙŒ Ù„ÙŽÙ‘Ù‡Ù Ûš ÙˆÙŽØ£ÙŽÙ† ØªÙŽØµÙÙˆÙ…ÙÙˆØ§ Ø®ÙŽÙŠÙ’Ø±ÙŒ Ù„ÙŽÙ‘ÙƒÙÙ…Ù’ Û– Ø¥ÙÙ† ÙƒÙÙ†ØªÙÙ…Ù’ ØªÙŽØ¹Ù’Ù„ÙŽÙ…ÙÙˆÙ†ÙŽ",
-              translation: "Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. For those who can fast only with extreme difficulty, there is a way to compensate â€” feed a needy person. But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew.",
+              arabic: "أَيَّامًا مَّعْدُودَاتٍ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ ۖ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ ۚ وَأَن تَصُومُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ",
+              translation: "Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. For those who can fast only with extreme difficulty, there is a way to compensate — feed a needy person. But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew.",
               relevance: "contextual",
               provenanceTier: "Bayyinah",
               rationale: "the command to fast implies preparing the body well for it, including nourishing suhoor planning.",
@@ -1577,7 +1577,7 @@ Create two simple templates. Pre-workout (1-2 hours before): pick 2-3 go-to meal
           ],
           description: `**Why?**
 
-Suhoor is your fuel tank for the entire fasting day. A poorly planned suhoor â€” or skipping it entirely â€” leads to energy crashes, poor focus, and unnecessary suffering. The Prophet (SAW) emphasised the barakah of suhoor, and optimising it honours both the spiritual and physical dimensions of fasting.
+Suhoor is your fuel tank for the entire fasting day. A poorly planned suhoor — or skipping it entirely — leads to energy crashes, poor focus, and unnecessary suffering. The Prophet (SAW) emphasised the barakah of suhoor, and optimising it honours both the spiritual and physical dimensions of fasting.
 
 
 **How?**
@@ -1590,7 +1590,7 @@ Design 3-4 rotating suhoor meals built around slow-digesting foods: complex carb
             {
               kind: "quran",
               ref: "Quran 2:187",
-              arabic: "ÙˆÙŽÙƒÙÙ„ÙÙˆØ§ ÙˆÙŽØ§Ø´Ù’Ø±ÙŽØ¨ÙÙˆØ§ Ø­ÙŽØªÙŽÙ‘Ù‰Ù° ÙŠÙŽØªÙŽØ¨ÙŽÙŠÙŽÙ‘Ù†ÙŽ Ù„ÙŽÙƒÙÙ…Ù Ø§Ù„Ù’Ø®ÙŽÙŠÙ’Ø·Ù Ø§Ù„Ù’Ø£ÙŽØ¨Ù’ÙŠÙŽØ¶Ù Ù…ÙÙ†ÙŽ Ø§Ù„Ù’Ø®ÙŽÙŠÙ’Ø·Ù Ø§Ù„Ù’Ø£ÙŽØ³Ù’ÙˆÙŽØ¯Ù Ù…ÙÙ†ÙŽ Ø§Ù„Ù’ÙÙŽØ¬Ù’Ø±Ù",
+              arabic: "وَكُلُوا وَاشْرَبُوا حَتَّىٰ يَتَبَيَّنَ لَكُمُ الْخَيْطُ الْأَبْيَضُ مِنَ الْخَيْطِ الْأَسْوَدِ مِنَ الْفَجْرِ",
               translation: "And eat and drink until the white thread of dawn becomes distinct to you from the black thread of night.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -1604,7 +1604,7 @@ The way you break your fast determines how quickly your body recovers and how we
 
 **How?**
 
-Follow the Sunnah two-phase approach: Phase 1 â€” break with dates and water to restore blood sugar gently. Phase 2 â€” after Maghrib prayer, eat a balanced meal with protein, vegetables, and complex carbs. Design 5-7 rotating iftar menus to cover the week. Keep portions moderate â€” you can eat again before bed if needed. Prep meals in advance to avoid the temptation of ordering takeaway when hungry.` },
+Follow the Sunnah two-phase approach: Phase 1 — break with dates and water to restore blood sugar gently. Phase 2 — after Maghrib prayer, eat a balanced meal with protein, vegetables, and complex carbs. Design 5-7 rotating iftar menus to cover the week. Keep portions moderate — you can eat again before bed if needed. Prep meals in advance to avoid the temptation of ordering takeaway when hungry.` },
         { title: 'Test and refine the protocol over 30 days, tracking energy and recovery', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided Hadith encourages the broad, general principle of striving for what is beneficial, it offers neither explicit proof nor contextual indication for the highly specific modern practice of tracking and refining a nutrition protocol over a 30-day period.',
@@ -1621,7 +1621,7 @@ Follow the Sunnah two-phase approach: Phase 1 â€” break with dates and wate
           ],
           description: `**Why?**
 
-Nutrition science provides general principles, but your body is unique. A 30-day test period reveals what actually works for you â€” which meal timing gives you peak energy, which foods sit well before training, and how your recovery responds to post-workout nutrition changes.
+Nutrition science provides general principles, but your body is unique. A 30-day test period reveals what actually works for you — which meal timing gives you peak energy, which foods sit well before training, and how your recovery responds to post-workout nutrition changes.
 
 
 **How?**
@@ -1659,12 +1659,12 @@ Follow your nutrient-timing templates consistently for 30 days. Each day, rate y
           ],
           description: `**Why?**
 
-Knowing what is available locally turns an aspiration into a concrete plan. Many people assume these sports are inaccessible, but most cities have swimming pools, archery ranges, and equestrian centres within reasonable distance â€” you just need to find them.
+Knowing what is available locally turns an aspiration into a concrete plan. Many people assume these sports are inaccessible, but most cities have swimming pools, archery ranges, and equestrian centres within reasonable distance — you just need to find them.
 
 
 **How?**
 
-Search online for swimming pools, archery clubs, and horse riding stables within 30 minutes of your home. Check community centres, university facilities, and parks departments â€” they often offer affordable options. Read reviews, compare prices, and note beginner-friendly options. If Muslim-specific facilities exist (women-only swimming sessions, for example), prioritise those.` },
+Search online for swimming pools, archery clubs, and horse riding stables within 30 minutes of your home. Check community centres, university facilities, and parks departments — they often offer affordable options. Read reviews, compare prices, and note beginner-friendly options. If Muslim-specific facilities exist (women-only swimming sessions, for example), prioritise those.` },
         { title: 'Enrol in a beginner course or find an experienced instructor', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Hadith explicitly encourages learning and practicing the skills of archery, swimming, and horse training, it omits specific modern methods of acquiring them, making the subtask a practical logical inference to safely and effectively master these Prophetic sports through proper instruction.',
@@ -1686,7 +1686,7 @@ Proper instruction from the start prevents bad habits, reduces injury risk, and 
 
 **How?**
 
-Contact the facility you identified and ask about beginner courses â€” most offer structured multi-week programmes. If group classes are unavailable, book private lessons with a certified instructor. For swimming, look for adult beginner classes if you are not yet confident in water. Commit to at least 8 sessions before evaluating whether to continue or switch to a different sport.` },
+Contact the facility you identified and ask about beginner courses — most offer structured multi-week programmes. If group classes are unavailable, book private lessons with a certified instructor. For swimming, look for adult beginner classes if you are not yet confident in water. Commit to at least 8 sessions before evaluating whether to continue or switch to a different sport.` },
         { title: 'Commit to a regular practice schedule (weekly minimum)', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Hadith establishes the broad principle of striving for strength and actively pursuing what is beneficial, it omits specific administrative instructions like committing to a weekly practice schedule, making the subtask a practical logical inference to systematically achieve that Prophetic ideal.',
@@ -1708,7 +1708,7 @@ Skill development requires consistent repetition. Practising once a month yields
 
 **How?**
 
-Block one specific day and time per week for your chosen sport â€” treat it like an appointment you cannot cancel. If possible, find a training partner for mutual accountability. Start with one session per week; add a second session once the first is firmly established. Keep your gear ready to go so logistics never become an excuse to skip.` },
+Block one specific day and time per week for your chosen sport — treat it like an appointment you cannot cancel. If possible, find a training partner for mutual accountability. Start with one session per week; add a second session once the first is firmly established. Keep your gear ready to go so logistics never become an excuse to skip.` },
         { title: 'Set a 90-day proficiency goal for your chosen sport', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Hadith establishes the broad principles of gradual mastery and consistent training in Prophetic sports, it omits specific modern frameworks like setting a 90-day proficiency goal, making the subtask a practical logical inference to systematically achieve that ideal.',
@@ -1738,7 +1738,7 @@ Define a concrete, testable goal for 90 days out. For swimming: "Swim 500 metres
             {
               kind: "quran",
               ref: "Quran 66:6",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ù‚ÙÙˆØ§ Ø£ÙŽÙ†ÙÙØ³ÙŽÙƒÙÙ…Ù’ ÙˆÙŽØ£ÙŽÙ‡Ù’Ù„ÙÙŠÙƒÙÙ…Ù’ Ù†ÙŽØ§Ø±Ù‹Ø§",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا قُوا أَنفُسَكُمْ وَأَهْلِيكُمْ نَارًا",
               translation: "O you who have believed, protect yourselves and your families from a Fire.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -1761,7 +1761,7 @@ The hadith about teaching children swimming, archery, and horse riding is fundam
 
 **How?**
 
-Invite your spouse or children to join you for a session. Many facilities offer family packages or parent-child classes. Start with the most accessible option â€” a family swim session is easier to arrange than horse riding for young children. If family members are hesitant, let them watch you first, then invite them to try. Even if they choose a different sport, the culture of physical activity in your household grows.` },
+Invite your spouse or children to join you for a session. Many facilities offer family packages or parent-child classes. Start with the most accessible option — a family swim session is easier to arrange than horse riding for young children. If family members are hesitant, let them watch you first, then invite them to try. Even if they choose a different sport, the culture of physical activity in your household grows.` },
       ],
     },
     {
@@ -1794,12 +1794,12 @@ Invite your spouse or children to join you for a session. Many facilities offer 
           ],
           description: `**Why?**
 
-You need a precise starting point to set a realistic target and track meaningful progress. Scale weight alone is misleading â€” two people at the same weight can look completely different based on muscle-to-fat ratio. Body composition measurement gives you the full picture.
+You need a precise starting point to set a realistic target and track meaningful progress. Scale weight alone is misleading — two people at the same weight can look completely different based on muscle-to-fat ratio. Body composition measurement gives you the full picture.
 
 
 **How?**
 
-Weigh yourself first thing in the morning after using the bathroom. Measure body fat percentage using a skinfold caliper, bioimpedance scale, or DEXA scan (most accurate). Take key body measurements with a tape measure: chest, waist, hips, arms, and thighs. Record everything in a spreadsheet or journal. Take front, side, and back photos in consistent lighting â€” these are often more telling than numbers.` },
+Weigh yourself first thing in the morning after using the bathroom. Measure body fat percentage using a skinfold caliper, bioimpedance scale, or DEXA scan (most accurate). Take key body measurements with a tape measure: chest, waist, hips, arms, and thighs. Record everything in a spreadsheet or journal. Take front, side, and back photos in consistent lighting — these are often more telling than numbers.` },
         { title: 'Set a realistic 90-day target based on your goals and starting point', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided Hadith emphasizes the broad, general Islamic principles of valuing strength and striving for what is beneficial, it offers neither explicit proof nor contextual indication for the highly specific modern fitness practice of setting a realistic 90-day target based on physiological benchmarks.',
@@ -1851,7 +1851,7 @@ If your goal is fat loss: choose a 3-4 day resistance programme with 2 days of m
             {
               kind: "quran",
               ref: "Quran 7:31",
-              arabic: "ÙˆÙŽÙƒÙÙ„ÙÙˆØ§ ÙˆÙŽØ§Ø´Ù’Ø±ÙŽØ¨ÙÙˆØ§ ÙˆÙŽÙ„ÙŽØ§ ØªÙØ³Ù’Ø±ÙÙÙÙˆØ§ Ø¥ÙÙ†ÙŽÙ‘Ù‡Ù Ù„ÙŽØ§ ÙŠÙØ­ÙØ¨ÙÙ‘ Ø§Ù„Ù’Ù…ÙØ³Ù’Ø±ÙÙÙÙŠÙ†ÙŽ",
+              arabic: "وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ",
               translation: "And eat and drink, but be not excessive. Indeed, He likes not those who commit excess.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -1860,7 +1860,7 @@ If your goal is fat loss: choose a 3-4 day resistance programme with 2 days of m
           ],
           description: `**Why?**
 
-Training without a nutrition plan is like building without blueprints. Your caloric balance determines whether you gain or lose weight, and your macronutrient split determines what that weight is made of â€” muscle or fat. Precision here accelerates results dramatically.
+Training without a nutrition plan is like building without blueprints. Your caloric balance determines whether you gain or lose weight, and your macronutrient split determines what that weight is made of — muscle or fat. Precision here accelerates results dramatically.
 
 
 **How?**
@@ -1887,7 +1887,7 @@ Body composition changes happen gradually and are hard to notice in the mirror d
 
 **How?**
 
-Set a recurring bi-weekly reminder (every other Sunday morning works well). Each check-in: weigh yourself under the same conditions, retake body measurements, and take comparison photos in the same lighting and clothing. Log everything alongside your previous entries. Look for trends over 4+ weeks rather than reacting to any single data point â€” fluctuations are normal.` },
+Set a recurring bi-weekly reminder (every other Sunday morning works well). Each check-in: weigh yourself under the same conditions, retake body measurements, and take comparison photos in the same lighting and clothing. Log everything alongside your previous entries. Look for trends over 4+ weeks rather than reacting to any single data point — fluctuations are normal.` },
         { title: 'Review and adjust the plan at the 45-day midpoint', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided Quranic verses offer a general spiritual reassurance that ease accompanies hardship, they provide neither explicit proof nor contextual indication for the highly specific modern fitness practice of reviewing and adjusting a 90-day training and nutrition plan at a 45-day midpoint.',
@@ -1895,7 +1895,7 @@ Set a recurring bi-weekly reminder (every other Sunday morning works well). Each
             {
               kind: "quran",
               ref: "Quran 94:5-6",
-              arabic: "ÙÙŽØ¥ÙÙ†ÙŽÙ‘ Ù…ÙŽØ¹ÙŽ Ø§Ù„Ù’Ø¹ÙØ³Ù’Ø±Ù ÙŠÙØ³Ù’Ø±Ù‹Ø§ Ø¥ÙÙ†ÙŽÙ‘ Ù…ÙŽØ¹ÙŽ Ø§Ù„Ù’Ø¹ÙØ³Ù’Ø±Ù ÙŠÙØ³Ù’Ø±Ù‹Ø§",
+              arabic: "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا إِنَّ مَعَ الْعُسْرِ يُسْرًا",
               translation: "For indeed, with hardship will be ease. Indeed, with hardship will be ease.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -1914,22 +1914,22 @@ At day 45, review all your data: compare your current measurements and photos to
     },
   ],
 
-  // â”€â”€ MENTAL WELL-BEING â”€â”€
+  // ── MENTAL WELL-BEING ──
   health_mental_core: [
     {
-      title: 'Establish a morning routine: Fajr â†’ Quran (minimum 1 page) â†’ morning adhkar â†’ journal',
+      title: 'Establish a morning routine: Fajr → Quran (minimum 1 page) → morning adhkar → journal',
       priority: 'urgent', tags: ['routine', 'adhkar'],
-      description: 'How you start your morning determines the quality of your entire day. This Prophetic morning sequence â€” prayer, Quran, remembrance of Allah, and self-reflection â€” anchors your mind in purpose and protects against anxiety and aimlessness.',
+      description: 'How you start your morning determines the quality of your entire day. This Prophetic morning sequence — prayer, Quran, remembrance of Allah, and self-reflection — anchors your mind in purpose and protects against anxiety and aimlessness.',
       subtasks: [
         { title: 'Write out the exact sequence and estimated time for each element', done: false,
           tier: 'T2',
-          amanahRationale: 'Although the provided sources establish the core spiritual elements of the morning routineâ€”prayer, Quran recitation, and adhkarâ€”and introduce the general concept of allocating specific portions of time for worship, they omit specific modern administrative methods like writing down an exact sequence with estimated minutes, making the subtask a practical logical inference to systematically implement these practices.',
+          amanahRationale: 'Although the provided sources establish the core spiritual elements of the morning routine—prayer, Quran recitation, and adhkar—and introduce the general concept of allocating specific portions of time for worship, they omit specific modern administrative methods like writing down an exact sequence with estimated minutes, making the subtask a practical logical inference to systematically implement these practices.',
           sources: [
             {
               kind: "quran",
               ref: "Quran 73:1-4",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„Ù’Ù…ÙØ²ÙŽÙ‘Ù…ÙÙ‘Ù„Ù Ù‚ÙÙ…Ù Ø§Ù„Ù„ÙŽÙ‘ÙŠÙ’Ù„ÙŽ Ø¥ÙÙ„ÙŽÙ‘Ø§ Ù‚ÙŽÙ„ÙÙŠÙ„Ù‹Ø§",
-              translation: "O you who wraps himself, arise the night, except for a little â€” half of it, or subtract from it a little, or add to it, and recite the Quran with measured recitation.",
+              arabic: "يَا أَيُّهَا الْمُزَّمِّلُ قُمِ اللَّيْلَ إِلَّا قَلِيلًا",
+              translation: "O you who wraps himself, arise the night, except for a little — half of it, or subtract from it a little, or add to it, and recite the Quran with measured recitation.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -1937,7 +1937,7 @@ At day 45, review all your data: compare your current measurements and photos to
             {
               kind: "quran",
               ref: "Quran 17:78",
-              arabic: "Ø£ÙŽÙ‚ÙÙ…Ù Ø§Ù„ØµÙŽÙ‘Ù„ÙŽØ§Ø©ÙŽ Ù„ÙØ¯ÙÙ„ÙÙˆÙƒÙ Ø§Ù„Ø´ÙŽÙ‘Ù…Ù’Ø³Ù Ø¥ÙÙ„ÙŽÙ‰Ù° ØºÙŽØ³ÙŽÙ‚Ù Ø§Ù„Ù„ÙŽÙ‘ÙŠÙ’Ù„Ù ÙˆÙŽÙ‚ÙØ±Ù’Ø¢Ù†ÙŽ Ø§Ù„Ù’ÙÙŽØ¬Ù’Ø±Ù Ø¥ÙÙ†ÙŽÙ‘ Ù‚ÙØ±Ù’Ø¢Ù†ÙŽ Ø§Ù„Ù’ÙÙŽØ¬Ù’Ø±Ù ÙƒÙŽØ§Ù†ÙŽ Ù…ÙŽØ´Ù’Ù‡ÙÙˆØ¯Ù‹Ø§",
+              arabic: "أَقِمِ الصَّلَاةَ لِدُلُوكِ الشَّمْسِ إِلَىٰ غَسَقِ اللَّيْلِ وَقُرْآنَ الْفَجْرِ إِنَّ قُرْآنَ الْفَجْرِ كَانَ مَشْهُودًا",
               translation: "Establish prayer at the decline of the sun until the darkness of the night, and the Quran at dawn. Indeed, the recitation of dawn is witnessed.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -1968,8 +1968,8 @@ List each element in order: Fajr salah, Quran reading, morning adhkar, journalin
             {
               kind: "quran",
               ref: "Quran 35:13",
-              arabic: "ÙŠÙÙˆÙ„ÙØ¬Ù Ø§Ù„Ù„ÙŽÙ‘ÙŠÙ’Ù„ÙŽ ÙÙÙŠ Ø§Ù„Ù†ÙŽÙ‘Ù‡ÙŽØ§Ø±Ù ÙˆÙŽÙŠÙÙˆÙ„ÙØ¬Ù Ø§Ù„Ù†ÙŽÙ‘Ù‡ÙŽØ§Ø±ÙŽ ÙÙÙŠ Ø§Ù„Ù„ÙŽÙ‘ÙŠÙ’Ù„Ù ÙˆÙŽØ³ÙŽØ®ÙŽÙ‘Ø±ÙŽ Ø§Ù„Ø´ÙŽÙ‘Ù…Ù’Ø³ÙŽ ÙˆÙŽØ§Ù„Ù’Ù‚ÙŽÙ…ÙŽØ±ÙŽ ÙƒÙÙ„ÙŒÙ‘ ÙŠÙŽØ¬Ù’Ø±ÙÙŠ Ù„ÙØ£ÙŽØ¬ÙŽÙ„Ù Ù…ÙÙ‘Ø³ÙŽÙ…Ù‹Ù‘Ù‰ Ûš Ø°ÙŽÙ°Ù„ÙÙƒÙÙ…Ù Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù Ø±ÙŽØ¨ÙÙ‘ÙƒÙÙ…Ù’ Ù„ÙŽÙ‡Ù Ø§Ù„Ù’Ù…ÙÙ„Ù’ÙƒÙ",
-              translation: "He makes the night merge into the day and the day into the night; He has subjected the sun and the moon â€” each runs for an appointed term. Such is God your Lord: all control belongs to Him.",
+              arabic: "يُولِجُ اللَّيْلَ فِي النَّهَارِ وَيُولِجُ النَّهَارَ فِي اللَّيْلِ وَسَخَّرَ الشَّمْسَ وَالْقَمَرَ كُلٌّ يَجْرِي لِأَجَلٍ مُّسَمًّى ۚ ذَٰلِكُمُ اللَّهُ رَبُّكُمْ لَهُ الْمُلْكُ",
+              translation: "He makes the night merge into the day and the day into the night; He has subjected the sun and the moon — each runs for an appointed term. Such is God your Lord: all control belongs to Him.",
               relevance: "contextual",
               provenanceTier: "Bayyinah",
               rationale: "Allah's ordering of night into day is the very architecture around which the morning routine is built; preparing the night before aligns with this divinely ordered rhythm.",
@@ -1991,7 +1991,7 @@ Friction kills habits. If you have to search for your Quran or journal half-asle
 
 **How?**
 
-Choose a specific spot in your home â€” a prayer corner, desk, or reading chair. Each night before bed, place your Quran open to where you left off, your journal with a pen, and your adhkar card or phone (on airplane mode). Make this nightly preparation part of your evening wind-down.` },
+Choose a specific spot in your home — a prayer corner, desk, or reading chair. Each night before bed, place your Quran open to where you left off, your journal with a pen, and your adhkar card or phone (on airplane mode). Make this nightly preparation part of your evening wind-down.` },
         { title: 'Memorise or print the morning adhkar (Hisn al-Muslim or equivalent)', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided sources reference the morning in the context of congregational prayer and parables of faith, they offer neither explicit proof nor contextual indication for the highly specific practice of memorizing or printing morning adhkar.',
@@ -2008,7 +2008,7 @@ Choose a specific spot in your home â€” a prayer corner, desk, or reading c
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 1205",
-              translation: "Narrated Anas bin Malik: While Abu Bakr was leading the people in the morning prayer on a Monday, the Prophet (ï·º) came towards them suddenly having lifted the curtain of 'Aisha's house, and looked at them as they were standing in rows and smiled. Abu Bakr tried to come back thinking that Allah's Apostle wanted to come out for the prayer. The attention of the Muslims was diverted from the prayer because they were delighted to see the Prophet. The Prophet (ï·º) waved his hand to them to complete their prayer, then he went back into the room and let down the curtain. The Prophet expired on that very day",
+              translation: "Narrated Anas bin Malik: While Abu Bakr was leading the people in the morning prayer on a Monday, the Prophet (ﷺ) came towards them suddenly having lifted the curtain of 'Aisha's house, and looked at them as they were standing in rows and smiled. Abu Bakr tried to come back thinking that Allah's Apostle wanted to come out for the prayer. The attention of the Muslims was diverted from the prayer because they were delighted to see the Prophet. The Prophet (ﷺ) waved his hand to them to complete their prayer, then he went back into the room and let down the curtain. The Prophet expired on that very day",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -2017,7 +2017,7 @@ Choose a specific spot in your home â€” a prayer corner, desk, or reading c
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 558",
-              translation: "Narrated Abu Musa:The Prophet (ï·º) said, \"The example of Muslims, Jews and Christians is like the example of a man who employed laborers to work for him from morning till night. They worked till midday and they said, 'We are not in need of your reward.' So the man employed another batch and said to them, 'Complete the rest of the day and yours will be the wages I had fixed (for the first batch). They worked until the time of the `Asr prayer and said, 'Whatever we have done is for you.' He employed another batch. They worked for the rest of the day till sunset, and they received the wages of the two former batches",
+              translation: "Narrated Abu Musa:The Prophet (ﷺ) said, \"The example of Muslims, Jews and Christians is like the example of a man who employed laborers to work for him from morning till night. They worked till midday and they said, 'We are not in need of your reward.' So the man employed another batch and said to them, 'Complete the rest of the day and yours will be the wages I had fixed (for the first batch). They worked until the time of the `Asr prayer and said, 'Whatever we have done is for you.' He employed another batch. They worked for the rest of the day till sunset, and they received the wages of the two former batches",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -2039,7 +2039,7 @@ Get a copy of Hisn al-Muslim (Fortress of the Muslim) in print or use a reliable
             {
               kind: "quran",
               ref: "Quran 73:20",
-              arabic: "ÙÙŽØ§Ù‚Ù’Ø±ÙŽØ¡ÙÙˆØ§ Ù…ÙŽØ§ ØªÙŽÙŠÙŽØ³ÙŽÙ‘Ø±ÙŽ Ù…ÙÙ†ÙŽ Ø§Ù„Ù’Ù‚ÙØ±Ù’Ø¢Ù†Ù",
+              arabic: "فَاقْرَءُوا مَا تَيَسَّرَ مِنَ الْقُرْآنِ",
               translation: "So recite what is easy for you of the Quran.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2048,7 +2048,7 @@ Get a copy of Hisn al-Muslim (Fortress of the Muslim) in print or use a reliable
           ],
           description: `**Why?**
 
-Attempting a 45-minute morning routine from day one almost guarantees burnout. Starting small builds the neural pathway of consistency first â€” once the habit is locked in, expanding it becomes natural rather than forced.
+Attempting a 45-minute morning routine from day one almost guarantees burnout. Starting small builds the neural pathway of consistency first — once the habit is locked in, expanding it becomes natural rather than forced.
 
 
 **How?**
@@ -2061,7 +2061,7 @@ Begin with the absolute minimum: pray Fajr, read half a page of Quran, say 3 adh
             {
               kind: "quran",
               ref: "Quran 29:45",
-              arabic: "Ø¥ÙÙ†ÙŽÙ‘ Ø§Ù„ØµÙŽÙ‘Ù„ÙŽØ§Ø©ÙŽ ØªÙŽÙ†Ù’Ù‡ÙŽÙ‰Ù° Ø¹ÙŽÙ†Ù Ø§Ù„Ù’ÙÙŽØ­Ù’Ø´ÙŽØ§Ø¡Ù ÙˆÙŽØ§Ù„Ù’Ù…ÙÙ†ÙƒÙŽØ±Ù",
+              arabic: "إِنَّ الصَّلَاةَ تَنْهَىٰ عَنِ الْفَحْشَاءِ وَالْمُنكَرِ",
               translation: "Indeed, prayer prohibits immorality and wrongdoing.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2084,13 +2084,13 @@ What gets tracked gets done. A visible streak of completed mornings creates posi
 
 **How?**
 
-Use a simple habit tracker â€” a printed calendar on the wall, a checklist in your journal, or an app like Habitica or Streaks. Each morning, mark whether you completed the routine. Review your tracker weekly. If you miss a day, never miss two in a row.` },
+Use a simple habit tracker — a printed calendar on the wall, a checklist in your journal, or an app like Habitica or Streaks. Each morning, mark whether you completed the routine. Review your tracker weekly. If you miss a day, never miss two in a row.` },
       ],
     },
     {
       title: 'Identify sources of haram media (music, content) and set firm boundaries',
       priority: 'high', tags: ['media', 'protection'],
-      description: 'The eyes, ears, and heart are all accountable before Allah. Haram media â€” whether explicit content, idle entertainment that wastes time, or music that hardens the heart â€” erodes spiritual sensitivity and mental clarity. Setting boundaries is an act of self-preservation.',
+      description: 'The eyes, ears, and heart are all accountable before Allah. Haram media — whether explicit content, idle entertainment that wastes time, or music that hardens the heart — erodes spiritual sensitivity and mental clarity. Setting boundaries is an act of self-preservation.',
       subtasks: [
         { title: 'Audit your subscriptions, apps, and social media follows for harmful content', done: false,
           tier: 'T2',
@@ -2099,7 +2099,7 @@ Use a simple habit tracker â€” a printed calendar on the wall, a checklist 
             {
               kind: "quran",
               ref: "Quran 24:30",
-              arabic: "Ù‚ÙÙ„ Ù„ÙÙ‘Ù„Ù’Ù…ÙØ¤Ù’Ù…ÙÙ†ÙÙŠÙ†ÙŽ ÙŠÙŽØºÙØ¶ÙÙ‘ÙˆØ§ Ù…ÙÙ†Ù’ Ø£ÙŽØ¨Ù’ØµÙŽØ§Ø±ÙÙ‡ÙÙ…Ù’ ÙˆÙŽÙŠÙŽØ­Ù’ÙÙŽØ¸ÙÙˆØ§ ÙÙØ±ÙÙˆØ¬ÙŽÙ‡ÙÙ…Ù’",
+              arabic: "قُل لِّلْمُؤْمِنِينَ يَغُضُّوا مِنْ أَبْصَارِهِمْ وَيَحْفَظُوا فُرُوجَهُمْ",
               translation: "Tell the believing men to lower their gaze and guard their private parts.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2108,8 +2108,8 @@ Use a simple habit tracker â€” a printed calendar on the wall, a checklist 
             {
               kind: "quran",
               ref: "Quran 7:33",
-              arabic: "Ù‚ÙÙ„Ù’ Ø¥ÙÙ†ÙŽÙ‘Ù…ÙŽØ§ Ø­ÙŽØ±ÙŽÙ‘Ù…ÙŽ Ø±ÙŽØ¨ÙÙ‘ÙŠÙŽ Ø§Ù„Ù’ÙÙŽÙˆÙŽØ§Ø­ÙØ´ÙŽ Ù…ÙŽØ§ Ø¸ÙŽÙ‡ÙŽØ±ÙŽ Ù…ÙÙ†Ù’Ù‡ÙŽØ§ ÙˆÙŽÙ…ÙŽØ§ Ø¨ÙŽØ·ÙŽÙ†ÙŽ",
-              translation: "Say: My Lord has only forbidden immoralities â€” what is apparent of them and what is concealed.",
+              arabic: "قُلْ إِنَّمَا حَرَّمَ رَبِّيَ الْفَوَاحِشَ مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ",
+              translation: "Say: My Lord has only forbidden immoralities — what is apparent of them and what is concealed.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -2126,7 +2126,7 @@ Use a simple habit tracker â€” a printed calendar on the wall, a checklist 
           ],
           description: `**Why?**
 
-You cannot set boundaries on what you have not identified. An honest audit reveals how much haram or wasteful media has quietly accumulated in your digital life â€” subscriptions you forgot, accounts that add no value, and apps designed to steal your time.
+You cannot set boundaries on what you have not identified. An honest audit reveals how much haram or wasteful media has quietly accumulated in your digital life — subscriptions you forgot, accounts that add no value, and apps designed to steal your time.
 
 
 **How?**
@@ -2139,7 +2139,7 @@ Set aside 30 minutes. Go through every app on your phone, every subscription ser
             {
               kind: "quran",
               ref: "Quran 24:30",
-              arabic: "Ù‚ÙÙ„ Ù„ÙÙ‘Ù„Ù’Ù…ÙØ¤Ù’Ù…ÙÙ†ÙÙŠÙ†ÙŽ ÙŠÙŽØºÙØ¶ÙÙ‘ÙˆØ§ Ù…ÙÙ†Ù’ Ø£ÙŽØ¨Ù’ØµÙŽØ§Ø±ÙÙ‡ÙÙ…Ù’",
+              arabic: "قُل لِّلْمُؤْمِنِينَ يَغُضُّوا مِنْ أَبْصَارِهِمْ",
               translation: "Tell the believing men to lower their gaze.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2170,8 +2170,8 @@ Work through your audit list systematically. Unsubscribe from streaming services
             {
               kind: "quran",
               ref: "Quran 17:36",
-              arabic: "Ø¥ÙÙ†ÙŽÙ‘ Ø§Ù„Ø³ÙŽÙ‘Ù…Ù’Ø¹ÙŽ ÙˆÙŽØ§Ù„Ù’Ø¨ÙŽØµÙŽØ±ÙŽ ÙˆÙŽØ§Ù„Ù’ÙÙØ¤ÙŽØ§Ø¯ÙŽ ÙƒÙÙ„ÙÙ‘ Ø£ÙÙˆÙ„ÙŽÙ°Ø¦ÙÙƒÙŽ ÙƒÙŽØ§Ù†ÙŽ Ø¹ÙŽÙ†Ù’Ù‡Ù Ù…ÙŽØ³Ù’Ø¦ÙÙˆÙ„Ù‹Ø§",
-              translation: "Indeed, the hearing, the sight, and the heart â€” about all those one will be questioned.",
+              arabic: "إِنَّ السَّمْعَ وَالْبَصَرَ وَالْفُؤَادَ كُلُّ أُولَٰئِكَ كَانَ عَنْهُ مَسْئُولًا",
+              translation: "Indeed, the hearing, the sight, and the heart — about all those one will be questioned.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -2192,7 +2192,7 @@ Subscribe to 3-5 Islamic podcasts or lecture series that genuinely interest you.
             {
               kind: "quran",
               ref: "Quran 66:6",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ù‚ÙÙˆØ§ Ø£ÙŽÙ†ÙÙØ³ÙŽÙƒÙÙ…Ù’ ÙˆÙŽØ£ÙŽÙ‡Ù’Ù„ÙÙŠÙƒÙÙ…Ù’ Ù†ÙŽØ§Ø±Ù‹Ø§",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا قُوا أَنفُسَكُمْ وَأَهْلِيكُمْ نَارًا",
               translation: "O you who have believed, protect yourselves and your families from a Fire.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2210,7 +2210,7 @@ Subscribe to 3-5 Islamic podcasts or lecture series that genuinely interest you.
           ],
           description: `**Why?**
 
-Willpower alone is unreliable â€” the tech industry spends billions engineering addiction. Content filters and screen time controls add a structural barrier between you and harmful content, protecting you in moments of weakness when your resolve is low.
+Willpower alone is unreliable — the tech industry spends billions engineering addiction. Content filters and screen time controls add a structural barrier between you and harmful content, protecting you in moments of weakness when your resolve is low.
 
 
 **How?**
@@ -2223,7 +2223,7 @@ Enable built-in parental controls or screen time settings on your phone and comp
             {
               kind: "quran",
               ref: "Quran 66:6",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ù‚ÙÙˆØ§ Ø£ÙŽÙ†ÙÙØ³ÙŽÙƒÙÙ…Ù’ ÙˆÙŽØ£ÙŽÙ‡Ù’Ù„ÙÙŠÙƒÙÙ…Ù’ Ù†ÙŽØ§Ø±Ù‹Ø§",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا قُوا أَنفُسَكُمْ وَأَهْلِيكُمْ نَارًا",
               translation: "O you who have believed, protect yourselves and your families from a Fire whose fuel is people and stones.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2241,7 +2241,7 @@ Enable built-in parental controls or screen time settings on your phone and comp
           ],
           description: `**Why?**
 
-Children absorb media without the filters of adult judgement. A clear household media policy protects your family from harmful content and teaches children to be intentional consumers of media â€” a skill that will serve them for life.
+Children absorb media without the filters of adult judgement. A clear household media policy protects your family from harmful content and teaches children to be intentional consumers of media — a skill that will serve them for life.
 
 
 **How?**
@@ -2250,7 +2250,7 @@ Sit down with your spouse and agree on clear rules: what devices are allowed, wh
       ],
     },
     {
-      title: 'Practise daily dhikr for anxiety â€” recite Ayat al-Kursi, last two ayat of Al-Baqarah',
+      title: 'Practise daily dhikr for anxiety — recite Ayat al-Kursi, last two ayat of Al-Baqarah',
       priority: 'high', tags: ['dhikr', 'mental-health'],
       description: 'Allah says: "Verily, in the remembrance of Allah do hearts find rest" (13:28). Specific adhkar have been prescribed by the Prophet (SAW) for protection and tranquillity. Making these a non-negotiable daily practice builds a spiritual shield against anxiety and intrusive thoughts.',
       subtasks: [
@@ -2261,8 +2261,8 @@ Sit down with your spouse and agree on clear rules: what devices are allowed, wh
             {
               kind: "quran",
               ref: "Quran 24:34",
-              arabic: "**Translation:** And indeed We have sent down for you AyÃ¢t (proofs, evidence, verses, lessons, signs, revelations, etc.) that make things plain, and the example of those who passed away before you, and an admonition for those who are Al-MuttaqÃ»n (the pious - See V.2:2).",
-              translation: "And indeed We have sent down for you AyÃ¢t (proofs, evidence, verses, lessons, signs, revelations, etc.) that make things plain, and the example of those who passed away before you, and an admonition for those who are Al-MuttaqÃ»n (the pious - See V.2:2).",
+              arabic: "**Translation:** And indeed We have sent down for you Ayât (proofs, evidence, verses, lessons, signs, revelations, etc.) that make things plain, and the example of those who passed away before you, and an admonition for those who are Al-Muttaqûn (the pious - See V.2:2).",
+              translation: "And indeed We have sent down for you Ayât (proofs, evidence, verses, lessons, signs, revelations, etc.) that make things plain, and the example of those who passed away before you, and an admonition for those who are Al-Muttaqûn (the pious - See V.2:2).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -2270,7 +2270,7 @@ Sit down with your spouse and agree on clear rules: what devices are allowed, wh
             {
               kind: "hadith",
               ref: "Sahih Muslim 1839",
-              translation: "Abdullah b. 'Umar reported Allah's Messenger (ï·º) as saying:The example of a man who has memorised the Qur'an is like that of a hobbled camel. If he remained vigilant, he would be able to retain it (with him), and if he loosened the hobbled camel it would escape",
+              translation: "Abdullah b. 'Umar reported Allah's Messenger (ﷺ) as saying:The example of a man who has memorised the Qur'an is like that of a hobbled camel. If he remained vigilant, he would be able to retain it (with him), and if he loosened the hobbled camel it would escape",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -2279,7 +2279,7 @@ Sit down with your spouse and agree on clear rules: what devices are allowed, wh
           ],
           description: `**Why?**
 
-Ayat al-Kursi is the greatest ayah in the Quran. Memorising it ensures you can recite it anywhere, anytime â€” in moments of anxiety, before sleep, and after every salah.
+Ayat al-Kursi is the greatest ayah in the Quran. Memorising it ensures you can recite it anywhere, anytime — in moments of anxiety, before sleep, and after every salah.
 
 **How?**
 
@@ -2291,8 +2291,8 @@ If you do not already know it, break it into 3-4 segments. Learn one segment per
             {
               kind: "quran",
               ref: "Quran 24:1",
-              arabic: "**Translation:** (This is) a SÃ»rah (chapter of the Qurâ€™Ã¢n) which We have sent down and which We have enjoined, (ordained its laws); and in it We have revealed manifest AyÃ¢t (proofs, evidence, verses, lessons, signs, revelations - lawful and unlawful things, and set boundaries of IslÃ¢mic Religion), that you may remember.",
-              translation: "(This is) a SÃ»rah (chapter of the Qurâ€™Ã¢n) which We have sent down and which We have enjoined, (ordained its laws); and in it We have revealed manifest AyÃ¢t (proofs, evidence, verses, lessons, signs, revelations - lawful and unlawful things, and set boundaries of IslÃ¢mic Religion), that you may remember.",
+              arabic: "**Translation:** (This is) a Sûrah (chapter of the Qur’ân) which We have sent down and which We have enjoined, (ordained its laws); and in it We have revealed manifest Ayât (proofs, evidence, verses, lessons, signs, revelations - lawful and unlawful things, and set boundaries of Islâmic Religion), that you may remember.",
+              translation: "(This is) a Sûrah (chapter of the Qur’ân) which We have sent down and which We have enjoined, (ordained its laws); and in it We have revealed manifest Ayât (proofs, evidence, verses, lessons, signs, revelations - lawful and unlawful things, and set boundaries of Islâmic Religion), that you may remember.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -2300,8 +2300,8 @@ If you do not already know it, break it into 3-4 segments. Learn one segment per
             {
               kind: "quran",
               ref: "Quran 9:44",
-              arabic: "**Translation:** Those who believe in AllÃ¢h and the Last Day would not ask your leave to be exempted from fighting with their properties and their lives; and AllÃ¢h is the All-Knower of Al-MuttaqÃ»n (the pious - See V.2:2).",
-              translation: "Those who believe in AllÃ¢h and the Last Day would not ask your leave to be exempted from fighting with their properties and their lives; and AllÃ¢h is the All-Knower of Al-MuttaqÃ»n (the pious - See V.2:2).",
+              arabic: "**Translation:** Those who believe in Allâh and the Last Day would not ask your leave to be exempted from fighting with their properties and their lives; and Allâh is the All-Knower of Al-Muttaqûn (the pious - See V.2:2).",
+              translation: "Those who believe in Allâh and the Last Day would not ask your leave to be exempted from fighting with their properties and their lives; and Allâh is the All-Knower of Al-Muttaqûn (the pious - See V.2:2).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -2309,8 +2309,8 @@ If you do not already know it, break it into 3-4 segments. Learn one segment per
             {
               kind: "quran",
               ref: "Quran 24:34",
-              arabic: "**Translation:** And indeed We have sent down for you AyÃ¢t (proofs, evidence, verses, lessons, signs, revelations, etc.) that make things plain, and the example of those who passed away before you, and an admonition for those who are Al-MuttaqÃ»n (the pious - See V.2:2).",
-              translation: "And indeed We have sent down for you AyÃ¢t (proofs, evidence, verses, lessons, signs, revelations, etc.) that make things plain, and the example of those who passed away before you, and an admonition for those who are Al-MuttaqÃ»n (the pious - See V.2:2).",
+              arabic: "**Translation:** And indeed We have sent down for you Ayât (proofs, evidence, verses, lessons, signs, revelations, etc.) that make things plain, and the example of those who passed away before you, and an admonition for those who are Al-Muttaqûn (the pious - See V.2:2).",
+              translation: "And indeed We have sent down for you Ayât (proofs, evidence, verses, lessons, signs, revelations, etc.) that make things plain, and the example of those who passed away before you, and an admonition for those who are Al-Muttaqûn (the pious - See V.2:2).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -2318,7 +2318,7 @@ If you do not already know it, break it into 3-4 segments. Learn one segment per
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5040",
-              translation: "Narrated Abu Mas`ud al-Ansari:The Prophet (ï·º) said, \"If one recites the last two verses of Surat al-Baqarah at night, it is sufficient for him (for that night)",
+              translation: "Narrated Abu Mas`ud al-Ansari:The Prophet (ﷺ) said, \"If one recites the last two verses of Surat al-Baqarah at night, it is sufficient for him (for that night)",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -2327,7 +2327,7 @@ If you do not already know it, break it into 3-4 segments. Learn one segment per
             {
               kind: "hadith",
               ref: "Sahih Muslim 1013",
-              translation: "Abu Qatada reported it on the authority of his father:The Messenger of Allah (ï·º) would recite in the first two rak'ahs of the noon and afternoon prayers the opening chapter of the Book and another surah. He would sometimes recite loud enough to make audible to us the verse and would recite in the last two rak'ahs Surat al-Faitiha (only)",
+              translation: "Abu Qatada reported it on the authority of his father:The Messenger of Allah (ﷺ) would recite in the first two rak'ahs of the noon and afternoon prayers the opening chapter of the Book and another surah. He would sometimes recite loud enough to make audible to us the verse and would recite in the last two rak'ahs Surat al-Faitiha (only)",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -2336,7 +2336,7 @@ If you do not already know it, break it into 3-4 segments. Learn one segment per
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 4439",
-              translation: "Narrated Aisha:Whenever Allah's Messenger (ï·º) became ill, he used to recite the Muawidhatan (i.e. the last two surahs of the Qur'an) and blow his breath over himself (after their recitation ) and rubbed his hands over his body. So when he was afflicted with his fatal illness. I started reciting the Muawidhatan and blowing my breath over him as he used to do and then I rubbed the hand of the Prophet (ï·º) over his body",
+              translation: "Narrated Aisha:Whenever Allah's Messenger (ﷺ) became ill, he used to recite the Muawidhatan (i.e. the last two surahs of the Qur'an) and blow his breath over himself (after their recitation ) and rubbed his hands over his body. So when he was afflicted with his fatal illness. I started reciting the Muawidhatan and blowing my breath over him as he used to do and then I rubbed the hand of the Prophet (ﷺ) over his body",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -2357,8 +2357,8 @@ These two verses are moderate in length. Break each verse into two halves. Learn
             {
               kind: "quran",
               ref: "Quran 33:62",
-              arabic: "Ø³ÙÙ†ÙŽÙ‘Ø©ÙŽ Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù ÙÙÙŠ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø®ÙŽÙ„ÙŽÙˆÙ’Ø§ Ù…ÙÙ† Ù‚ÙŽØ¨Ù’Ù„Ù Û– ÙˆÙŽÙ„ÙŽÙ† ØªÙŽØ¬ÙØ¯ÙŽ Ù„ÙØ³ÙÙ†ÙŽÙ‘Ø©Ù Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù ØªÙŽØ¨Ù’Ø¯ÙÙŠÙ„Ù‹Ø§",
-              translation: "This has been Godâ€™s practice with those who went before. You will find no change in Godâ€™s practices.",
+              arabic: "سُنَّةَ اللَّهِ فِي الَّذِينَ خَلَوْا مِن قَبْلُ ۖ وَلَن تَجِدَ لِسُنَّةِ اللَّهِ تَبْدِيلًا",
+              translation: "This has been God’s practice with those who went before. You will find no change in God’s practices.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -2366,8 +2366,8 @@ These two verses are moderate in length. Break each verse into two halves. Learn
             {
               kind: "quran",
               ref: "Quran 48:23",
-              arabic: "Ø³ÙÙ†ÙŽÙ‘Ø©ÙŽ Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù Ø§Ù„ÙŽÙ‘ØªÙÙŠ Ù‚ÙŽØ¯Ù’ Ø®ÙŽÙ„ÙŽØªÙ’ Ù…ÙÙ† Ù‚ÙŽØ¨Ù’Ù„Ù Û– ÙˆÙŽÙ„ÙŽÙ† ØªÙŽØ¬ÙØ¯ÙŽ Ù„ÙØ³ÙÙ†ÙŽÙ‘Ø©Ù Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù ØªÙŽØ¨Ù’Ø¯ÙÙŠÙ„Ù‹Ø§",
-              translation: "such was Godâ€™s practice in the past and you will find no change in Godâ€™s practices.",
+              arabic: "سُنَّةَ اللَّهِ الَّتِي قَدْ خَلَتْ مِن قَبْلُ ۖ وَلَن تَجِدَ لِسُنَّةِ اللَّهِ تَبْدِيلًا",
+              translation: "such was God’s practice in the past and you will find no change in God’s practices.",
               relevance: "contextual",
               provenanceTier: "Bayyinah",
               rationale: "the unchanging sunnah of Allah grounds the call to establish consistent, unvarying personal sunnah practices after every prayer.",
@@ -2397,7 +2397,7 @@ After each fardh prayer, before you get up from your place, recite Ayat al-Kursi
             {
               kind: "quran",
               ref: "Quran 17:111",
-              arabic: "ÙˆÙŽÙ‚ÙÙ„Ù Ø§Ù„Ù’Ø­ÙŽÙ…Ù’Ø¯Ù Ù„ÙÙ„ÙŽÙ‘Ù‡Ù Ø§Ù„ÙŽÙ‘Ø°ÙÙŠ Ù„ÙŽÙ…Ù’ ÙŠÙŽØªÙŽÙ‘Ø®ÙØ°Ù’ ÙˆÙŽÙ„ÙŽØ¯Ù‹Ø§ ÙˆÙŽÙ„ÙŽÙ…Ù’ ÙŠÙŽÙƒÙÙ† Ù„ÙŽÙ‘Ù‡Ù Ø´ÙŽØ±ÙÙŠÙƒÙŒ ÙÙÙŠ Ø§Ù„Ù’Ù…ÙÙ„Ù’ÙƒÙ ÙˆÙŽÙ„ÙŽÙ…Ù’ ÙŠÙŽÙƒÙÙ† Ù„ÙŽÙ‘Ù‡Ù ÙˆÙŽÙ„ÙÙŠÙŒÙ‘ Ù…ÙÙ‘Ù†ÙŽ Ø§Ù„Ø°ÙÙ‘Ù„ÙÙ‘ Û– ÙˆÙŽÙƒÙŽØ¨ÙÙ‘Ø±Ù’Ù‡Ù ØªÙŽÙƒÙ’Ø¨ÙÙŠØ±Ù‹Ø§",
+              arabic: "وَقُلِ الْحَمْدُ لِلَّهِ الَّذِي لَمْ يَتَّخِذْ وَلَدًا وَلَمْ يَكُن لَّهُ شَرِيكٌ فِي الْمُلْكِ وَلَمْ يَكُن لَّهُ وَلِيٌّ مِّنَ الذُّلِّ ۖ وَكَبِّرْهُ تَكْبِيرًا",
               translation: "And say: \"Praise be to God who has never had a child, who has no partner in His rule, who needs no one to protect Him from humiliation.\" Proclaim His greatness.",
               relevance: "contextual",
               provenanceTier: "Bayyinah",
@@ -2406,7 +2406,7 @@ After each fardh prayer, before you get up from your place, recite Ayat al-Kursi
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 2013",
-              translation: "Narrated Abu Salama bin `Abdur Rahman:that he asked `Aisha \"How was the prayer of Allah's Messenger (ï·º) in Ramadan?\" She replied, \"He did not pray more than eleven rak`at in Ramadan or in any other month. He used to pray four rak`at ---- let alone their beauty and length----and then he would pray four ----let alone their beauty and length ---- and then he would pray three rak`at (witr).\" She added, \"I asked, 'O Allah's Messenger (ï·º)! Do you sleep before praying the witr?' He replied, 'O `Aisha! My eyes sleep but my heart does not sleep",
+              translation: "Narrated Abu Salama bin `Abdur Rahman:that he asked `Aisha \"How was the prayer of Allah's Messenger (ﷺ) in Ramadan?\" She replied, \"He did not pray more than eleven rak`at in Ramadan or in any other month. He used to pray four rak`at ---- let alone their beauty and length----and then he would pray four ----let alone their beauty and length ---- and then he would pray three rak`at (witr).\" She added, \"I asked, 'O Allah's Messenger (ﷺ)! Do you sleep before praying the witr?' He replied, 'O `Aisha! My eyes sleep but my heart does not sleep",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -2415,7 +2415,7 @@ After each fardh prayer, before you get up from your place, recite Ayat al-Kursi
           ],
           description: `**Why?**
 
-The evening adhkar are the complement to the morning shield. The Prophet (SAW) would recite the three Quls into his hands and wipe over his body before sleep. Combined with Ayat al-Kursi, this practice creates a complete spiritual protection for the night â€” reducing nighttime anxiety and disturbed sleep.
+The evening adhkar are the complement to the morning shield. The Prophet (SAW) would recite the three Quls into his hands and wipe over his body before sleep. Combined with Ayat al-Kursi, this practice creates a complete spiritual protection for the night — reducing nighttime anxiety and disturbed sleep.
 
 
 **How?**
@@ -2428,11 +2428,11 @@ Set a reminder 10 minutes before your bedtime. Sit in bed and recite: Ayat al-Ku
             {
               kind: "quran",
               ref: "Quran 79:8",
-              arabic: "Ù‚ÙÙ„ÙÙˆØ¨ÙŒ ÙŠÙŽÙˆÙ’Ù…ÙŽØ¦ÙØ°Ù ÙˆÙŽØ§Ø¬ÙÙÙŽØ©ÙŒ",
+              arabic: "قُلُوبٌ يَوْمَئِذٍ وَاجِفَةٌ",
               translation: "hearts will tremble on that Day.",
               relevance: "contextual",
               provenanceTier: "Bayyinah",
-              rationale: "awareness of the anxious heart â€” and its contrast with the tranquillity that dhikr brings â€” is the very insight this journaling practice is designed to cultivate.",
+              rationale: "awareness of the anxious heart — and its contrast with the tranquillity that dhikr brings — is the very insight this journaling practice is designed to cultivate.",
             },
             {
               kind: "hadith",
@@ -2455,7 +2455,7 @@ Each evening, rate your anxiety on a simple 1-10 scale in your journal. Note whe
       ],
     },
     {
-      title: 'Limit social media use to defined time windows â€” set screen-time limits',
+      title: 'Limit social media use to defined time windows — set screen-time limits',
       priority: 'high', tags: ['digital-detox', 'focus'],
       description: 'Uncontrolled social media use fragments attention, feeds comparison, and steals hours that could be spent in worship, learning, or meaningful connection. Setting firm time windows turns a passive habit into a controlled, intentional tool.',
       subtasks: [
@@ -2466,7 +2466,7 @@ Each evening, rate your anxiety on a simple 1-10 scale in your journal. Note whe
             {
               kind: "quran",
               ref: "Quran 103:1-3",
-              arabic: "ÙˆÙŽØ§Ù„Ù’Ø¹ÙŽØµÙ’Ø±Ù Ø¥ÙÙ†ÙŽÙ‘ Ø§Ù„Ù’Ø¥ÙÙ†Ø³ÙŽØ§Ù†ÙŽ Ù„ÙŽÙÙÙŠ Ø®ÙØ³Ù’Ø±Ù Ø¥ÙÙ„ÙŽÙ‘Ø§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ ÙˆÙŽØ¹ÙŽÙ…ÙÙ„ÙÙˆØ§ Ø§Ù„ØµÙŽÙ‘Ø§Ù„ÙØ­ÙŽØ§ØªÙ",
+              arabic: "وَالْعَصْرِ إِنَّ الْإِنسَانَ لَفِي خُسْرٍ إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ",
               translation: "By time, indeed mankind is in loss, except for those who have believed and done righteous deeds.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2484,7 +2484,7 @@ Each evening, rate your anxiety on a simple 1-10 scale in your journal. Note whe
           ],
           description: `**Why?**
 
-You cannot fix what you have not measured. Most people drastically underestimate their screen time. Seeing the actual numbers â€” often 4-6 hours daily on social media alone â€” creates the shock of awareness needed to motivate real change.
+You cannot fix what you have not measured. Most people drastically underestimate their screen time. Seeing the actual numbers — often 4-6 hours daily on social media alone — creates the shock of awareness needed to motivate real change.
 
 
 **How?**
@@ -2497,7 +2497,7 @@ Open your phone's screen time or digital wellbeing settings right now. Look at y
             {
               kind: "quran",
               ref: "Quran 59:18",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø§ØªÙŽÙ‘Ù‚ÙÙˆØ§ Ø§Ù„Ù„ÙŽÙ‘Ù‡ÙŽ ÙˆÙŽÙ„Ù’ØªÙŽÙ†Ø¸ÙØ±Ù’ Ù†ÙŽÙÙ’Ø³ÙŒ Ù…ÙŽÙ‘Ø§ Ù‚ÙŽØ¯ÙŽÙ‘Ù…ÙŽØªÙ’ Ù„ÙØºÙŽØ¯Ù",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَلْتَنظُرْ نَفْسٌ مَّا قَدَّمَتْ لِغَدٍ",
               translation: "O you who have believed, fear Allah. And let every soul look to what it has put forth for tomorrow.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2506,7 +2506,7 @@ Open your phone's screen time or digital wellbeing settings right now. Look at y
           ],
           description: `**Why?**
 
-Open-ended access to social media means it bleeds into every idle moment â€” eroding focus, fragmenting attention, and stealing time from worship and productive work. Defined time windows transform social media from a compulsion into a controlled, intentional activity.
+Open-ended access to social media means it bleeds into every idle moment — eroding focus, fragmenting attention, and stealing time from worship and productive work. Defined time windows transform social media from a compulsion into a controlled, intentional activity.
 
 
 **How?**
@@ -2519,7 +2519,7 @@ Choose two 30-minute windows that do not conflict with prayer times or deep work
             {
               kind: "quran",
               ref: "Quran 103:1-3",
-              arabic: "ÙˆÙŽØ§Ù„Ù’Ø¹ÙŽØµÙ’Ø±Ù Ø¥ÙÙ†ÙŽÙ‘ Ø§Ù„Ù’Ø¥ÙÙ†Ø³ÙŽØ§Ù†ÙŽ Ù„ÙŽÙÙÙŠ Ø®ÙØ³Ù’Ø±Ù",
+              arabic: "وَالْعَصْرِ إِنَّ الْإِنسَانَ لَفِي خُسْرٍ",
               translation: "By time, indeed mankind is in loss.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2537,7 +2537,7 @@ Choose two 30-minute windows that do not conflict with prayer times or deep work
           ],
           description: `**Why?**
 
-Relying on willpower alone to resist apps engineered for addiction is a losing strategy. Screen time limits create a structural barrier â€” when the app locks you out, the decision is made for you, protecting you from your own weakness in moments of temptation.
+Relying on willpower alone to resist apps engineered for addiction is a losing strategy. Screen time limits create a structural barrier — when the app locks you out, the decision is made for you, protecting you from your own weakness in moments of temptation.
 
 
 **How?**
@@ -2564,7 +2564,7 @@ Visual cues trigger habits. When social media icons sit on your home screen, eve
 
 **How?**
 
-Move all social media apps into a folder on your second or third home screen page. Better yet, delete the apps entirely and only access social media through the browser â€” the worse experience acts as a natural deterrent. Replace home screen slots with beneficial apps: Quran, adhkar, or a habit tracker.` },
+Move all social media apps into a folder on your second or third home screen page. Better yet, delete the apps entirely and only access social media through the browser — the worse experience acts as a natural deterrent. Replace home screen slots with beneficial apps: Quran, adhkar, or a habit tracker.` },
         { title: 'Replace idle scrolling moments with dhikr, reading, or a beneficial app', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources establish the spiritual reassurance found in dhikr and the transient mindset of a traveler avoiding worldly attachments, they omit specific modern concepts like idle scrolling, making the subtask a practical logical inference to systematically utilize contemporary free time for remembrance and beneficial activities.',
@@ -2572,7 +2572,7 @@ Move all social media apps into a folder on your second or third home screen pag
             {
               kind: "quran",
               ref: "Quran 13:28",
-              arabic: "Ø£ÙŽÙ„ÙŽØ§ Ø¨ÙØ°ÙÙƒÙ’Ø±Ù Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù ØªÙŽØ·Ù’Ù…ÙŽØ¦ÙÙ†ÙÙ‘ Ø§Ù„Ù’Ù‚ÙÙ„ÙÙˆØ¨Ù",
+              arabic: "أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",
               translation: "Unquestionably, by the remembrance of Allah hearts are assured.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2590,7 +2590,7 @@ Move all social media apps into a folder on your second or third home screen pag
           ],
           description: `**Why?**
 
-The moments you used to fill with scrolling â€” waiting in line, sitting in the car, before bed â€” are actually precious pockets of time. Filling them with dhikr or reading transforms dead time into spiritual and intellectual growth, compounding over months into significant personal development.
+The moments you used to fill with scrolling — waiting in line, sitting in the car, before bed — are actually precious pockets of time. Filling them with dhikr or reading transforms dead time into spiritual and intellectual growth, compounding over months into significant personal development.
 
 
 **How?**
@@ -2610,7 +2610,7 @@ Identify your top 3 idle scrolling triggers (e.g., waiting for food, riding the 
             {
               kind: "quran",
               ref: "Quran 94:5-6",
-              arabic: "ÙÙŽØ¥ÙÙ†ÙŽÙ‘ Ù…ÙŽØ¹ÙŽ Ø§Ù„Ù’Ø¹ÙØ³Ù’Ø±Ù ÙŠÙØ³Ù’Ø±Ù‹Ø§ Ø¥ÙÙ†ÙŽÙ‘ Ù…ÙŽØ¹ÙŽ Ø§Ù„Ù’Ø¹ÙØ³Ù’Ø±Ù ÙŠÙØ³Ù’Ø±Ù‹Ø§",
+              arabic: "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا إِنَّ مَعَ الْعُسْرِ يُسْرًا",
               translation: "For indeed, with hardship will be ease. Indeed, with hardship will be ease.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2628,7 +2628,7 @@ Identify your top 3 idle scrolling triggers (e.g., waiting for food, riding the 
           ],
           description: `**Why?**
 
-Many Muslims push through emotional suffering silently, mistaking it for sabr or assuming that more ibadah alone will fix it. Honest self-assessment is the first step â€” you cannot seek a cure for what you refuse to diagnose. Persistent distress lasting more than two weeks deserves professional attention.
+Many Muslims push through emotional suffering silently, mistaking it for sabr or assuming that more ibadah alone will fix it. Honest self-assessment is the first step — you cannot seek a cure for what you refuse to diagnose. Persistent distress lasting more than two weeks deserves professional attention.
 
 
 **How?**
@@ -2650,7 +2650,7 @@ Set aside 15 quiet minutes. Ask yourself: Have I felt persistently sad, anxious,
           ],
           description: `**Why?**
 
-A therapist who understands your faith can integrate Islamic principles into the healing process â€” they will not dismiss your spiritual life or suggest solutions that conflict with your values. Finding the right fit makes the difference between therapy that feels foreign and therapy that feels like home.
+A therapist who understands your faith can integrate Islamic principles into the healing process — they will not dismiss your spiritual life or suggest solutions that conflict with your values. Finding the right fit makes the difference between therapy that feels foreign and therapy that feels like home.
 
 
 **How?**
@@ -2672,12 +2672,12 @@ Search directories like Khalil Center, Noor Human Consulting, or the Muslim Ment
           ],
           description: `**Why?**
 
-The hardest step is the first one. Scheduling the appointment turns intention into action. Many therapists offer a free 15-minute consultation call â€” this low-commitment first step lets you gauge fit without a full commitment.
+The hardest step is the first one. Scheduling the appointment turns intention into action. Many therapists offer a free 15-minute consultation call — this low-commitment first step lets you gauge fit without a full commitment.
 
 
 **How?**
 
-Pick your top choice from your shortlist and call or email to schedule. Most practices have online booking. Request an initial consultation or intake session. If the first therapist is not available soon, book with your second choice â€” do not let a waitlist become an excuse to delay.` },
+Pick your top choice from your shortlist and call or email to schedule. Most practices have online booking. Request an initial consultation or intake session. If the first therapist is not available soon, book with your second choice — do not let a waitlist become an excuse to delay.` },
         { title: 'Discuss your spiritual practices as part of the therapeutic conversation', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided sources affirm the comforting power of Allah\'s remembrance and the spiritual virtues of patience and gratitude during hardships, they offer neither explicit proof nor contextual indication for the specific modern directive to discuss one\'s spiritual practices within a therapeutic setting.',
@@ -2685,7 +2685,7 @@ Pick your top choice from your shortlist and call or email to schedule. Most pra
             {
               kind: "quran",
               ref: "Quran 94:5-6",
-              arabic: "ÙÙŽØ¥ÙÙ†ÙŽÙ‘ Ù…ÙŽØ¹ÙŽ Ø§Ù„Ù’Ø¹ÙØ³Ù’Ø±Ù ÙŠÙØ³Ù’Ø±Ù‹Ø§ Ø¥ÙÙ†ÙŽÙ‘ Ù…ÙŽØ¹ÙŽ Ø§Ù„Ù’Ø¹ÙØ³Ù’Ø±Ù ÙŠÙØ³Ù’Ø±Ù‹Ø§",
+              arabic: "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا إِنَّ مَعَ الْعُسْرِ يُسْرًا",
               translation: "For indeed, with hardship comes ease. Indeed, with hardship comes ease.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2694,7 +2694,7 @@ Pick your top choice from your shortlist and call or email to schedule. Most pra
             {
               kind: "quran",
               ref: "Quran 13:28",
-              arabic: "Ø£ÙŽÙ„ÙŽØ§ Ø¨ÙØ°ÙÙƒÙ’Ø±Ù Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù ØªÙŽØ·Ù’Ù…ÙŽØ¦ÙÙ†ÙÙ‘ Ø§Ù„Ù’Ù‚ÙÙ„ÙÙˆØ¨Ù",
+              arabic: "أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",
               translation: "Verily, in the remembrance of Allah do hearts find rest.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2712,12 +2712,12 @@ Pick your top choice from your shortlist and call or email to schedule. Most pra
           ],
           description: `**Why?**
 
-Your relationship with Allah, your prayer life, and your spiritual struggles are not separate from your mental health â€” they are deeply intertwined. A therapist who knows about your spiritual practices can offer more holistic and effective guidance than one working with only half the picture.
+Your relationship with Allah, your prayer life, and your spiritual struggles are not separate from your mental health — they are deeply intertwined. A therapist who knows about your spiritual practices can offer more holistic and effective guidance than one working with only half the picture.
 
 
 **How?**
 
-In your first session, mention that your Islamic faith is central to your life and that you want it integrated into therapy. Share your daily spiritual practices (salah, Quran, dhikr). Be honest about spiritual struggles too â€” doubts, guilt, or feeling disconnected from Allah are important therapeutic material.` },
+In your first session, mention that your Islamic faith is central to your life and that you want it integrated into therapy. Share your daily spiritual practices (salah, Quran, dhikr). Be honest about spiritual struggles too — doubts, guilt, or feeling disconnected from Allah are important therapeutic material.` },
         { title: 'Commit to at least 4-6 sessions before evaluating whether to continue', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources establish the spiritual principles of trusting that ease follows hardship and valuing consistent deeds, they omit specific modern clinical methods like committing to 4-6 therapy sessions, making the subtask a practical logical inference to systematically apply patience and consistency to mental health treatment.',
@@ -2725,7 +2725,7 @@ In your first session, mention that your Islamic faith is central to your life a
             {
               kind: "quran",
               ref: "Quran 94:5-6",
-              arabic: "ÙÙŽØ¥ÙÙ†ÙŽÙ‘ Ù…ÙŽØ¹ÙŽ Ø§Ù„Ù’Ø¹ÙØ³Ù’Ø±Ù ÙŠÙØ³Ù’Ø±Ù‹Ø§ Ø¥ÙÙ†ÙŽÙ‘ Ù…ÙŽØ¹ÙŽ Ø§Ù„Ù’Ø¹ÙØ³Ù’Ø±Ù ÙŠÙØ³Ù’Ø±Ù‹Ø§",
+              arabic: "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا إِنَّ مَعَ الْعُسْرِ يُسْرًا",
               translation: "For indeed, with hardship comes ease. Indeed, with hardship comes ease.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2754,9 +2754,9 @@ Make a commitment to yourself: attend at least 6 sessions before making any judg
   ],
   health_mental_growth: [
     {
-      title: 'Start a daily muhasaba (self-accounting) journal â€” 5 minutes before sleep',
+      title: 'Start a daily muhasaba (self-accounting) journal — 5 minutes before sleep',
       priority: 'high', tags: ['muhasaba', 'reflection'],
-      description: 'Umar (RA) said: "Take account of yourselves before you are taken to account." Muhasaba is the practice of reviewing your day â€” what you did well, where you fell short, and what you intend for tomorrow. Five minutes of honest self-reflection accelerates personal growth dramatically.',
+      description: 'Umar (RA) said: "Take account of yourselves before you are taken to account." Muhasaba is the practice of reviewing your day — what you did well, where you fell short, and what you intend for tomorrow. Five minutes of honest self-reflection accelerates personal growth dramatically.',
       subtasks: [
         { title: 'Get a dedicated journal or notebook for nightly muhasaba', done: false,
           tier: 'T2',
@@ -2765,7 +2765,7 @@ Make a commitment to yourself: attend at least 6 sessions before making any judg
             {
               kind: "quran",
               ref: "Quran 59:18",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø§ØªÙŽÙ‘Ù‚ÙÙˆØ§ Ø§Ù„Ù„ÙŽÙ‘Ù‡ÙŽ ÙˆÙŽÙ„Ù’ØªÙŽÙ†Ø¸ÙØ±Ù’ Ù†ÙŽÙÙ’Ø³ÙŒ Ù…ÙŽÙ‘Ø§ Ù‚ÙŽØ¯ÙŽÙ‘Ù…ÙŽØªÙ’ Ù„ÙØºÙŽØ¯Ù",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَلْتَنظُرْ نَفْسٌ مَّا قَدَّمَتْ لِغَدٍ",
               translation: "O you who have believed, fear Allah. And let every soul look to what it has put forth for tomorrow.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2774,12 +2774,12 @@ Make a commitment to yourself: attend at least 6 sessions before making any judg
           ],
           description: `**Why?**
 
-A dedicated journal signals to your mind that muhasaba is a serious, sacred practice â€” not an afterthought scribbled on random paper. Having a single place for all your reflections also allows you to review patterns over time, which is where the deepest insights emerge.
+A dedicated journal signals to your mind that muhasaba is a serious, sacred practice — not an afterthought scribbled on random paper. Having a single place for all your reflections also allows you to review patterns over time, which is where the deepest insights emerge.
 
 
 **How?**
 
-Choose a simple notebook that feels pleasant to write in â€” nothing fancy that makes you afraid to use it. Keep it with a pen on your nightstand or beside your bed. Label the first page with your start date and the intention: "Muhasaba â€” taking account of my soul before Allah takes account of me." ` },
+Choose a simple notebook that feels pleasant to write in — nothing fancy that makes you afraid to use it. Keep it with a pen on your nightstand or beside your bed. Label the first page with your start date and the intention: "Muhasaba — taking account of my soul before Allah takes account of me." ` },
         { title: 'Create a simple template: 3 blessings, 1 shortcoming, 1 intention for tomorrow', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources establish the foundational spiritual principles of self-accountability and prioritizing obligatory duties, they omit specific modern journaling methods like a structured template for blessings, shortcomings, and intentions, making the subtask a practical logical inference to systematically fulfill the command to reflect on what one prepares for tomorrow.',
@@ -2787,7 +2787,7 @@ Choose a simple notebook that feels pleasant to write in â€” nothing fancy 
             {
               kind: "quran",
               ref: "Quran 59:18",
-              arabic: "ÙˆÙŽÙ„Ù’ØªÙŽÙ†Ø¸ÙØ±Ù’ Ù†ÙŽÙÙ’Ø³ÙŒ Ù…ÙŽÙ‘Ø§ Ù‚ÙŽØ¯ÙŽÙ‘Ù…ÙŽØªÙ’ Ù„ÙØºÙŽØ¯Ù",
+              arabic: "وَلْتَنظُرْ نَفْسٌ مَّا قَدَّمَتْ لِغَدٍ",
               translation: "And let every soul look to what it has put forth for tomorrow.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2810,7 +2810,7 @@ A template removes the paralysis of the blank page. By structuring your reflecti
 
 **How?**
 
-Write this template on the inside cover of your journal: (1) Three blessings I noticed today â€” things to thank Allah for, (2) One area where I fell short â€” missed salah, harsh words, wasted time, (3) One intention for tomorrow â€” something specific I will do better. Each entry should take no more than 5 minutes.` },
+Write this template on the inside cover of your journal: (1) Three blessings I noticed today — things to thank Allah for, (2) One area where I fell short — missed salah, harsh words, wasted time, (3) One intention for tomorrow — something specific I will do better. Each entry should take no more than 5 minutes.` },
         { title: 'Set a recurring alarm 15 minutes before your target bedtime', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Hadith establishes the prophetic practice of maintaining a consistent nightly routine of remembrance and supplication before sleeping, it omits specific modern digital tools like setting a recurring phone alarm, making the subtask a practical logical inference to systematically trigger and establish this reflective habit.',
@@ -2827,7 +2827,7 @@ Write this template on the inside cover of your journal: (1) Three blessings I n
           ],
           description: `**Why?**
 
-Without a trigger, muhasaba will be forgotten in the rush of nightly routines. An alarm 15 minutes before bed creates a consistent cue that says "it is time to reflect" â€” giving you enough runway to write before sleep pulls you under.
+Without a trigger, muhasaba will be forgotten in the rush of nightly routines. An alarm 15 minutes before bed creates a consistent cue that says "it is time to reflect" — giving you enough runway to write before sleep pulls you under.
 
 
 **How?**
@@ -2849,7 +2849,7 @@ Set a daily recurring alarm on your phone for 15 minutes before your target bedt
           ],
           description: `**Why?**
 
-Perfectionism kills journaling habits faster than laziness does. If you judge every entry ("this is shallow," "I wrote the same thing yesterday"), you will dread the practice and eventually quit. The goal for the first 21 days is consistency, not quality â€” quality comes naturally once the habit is established.
+Perfectionism kills journaling habits faster than laziness does. If you judge every entry ("this is shallow," "I wrote the same thing yesterday"), you will dread the practice and eventually quit. The goal for the first 21 days is consistency, not quality — quality comes naturally once the habit is established.
 
 
 **How?**
@@ -2862,7 +2862,7 @@ Write something every night for 21 days straight, even if it is one sentence. Do
             {
               kind: "quran",
               ref: "Quran 91:9-10",
-              arabic: "Ù‚ÙŽØ¯Ù’ Ø£ÙŽÙÙ’Ù„ÙŽØ­ÙŽ Ù…ÙŽÙ† Ø²ÙŽÙƒÙŽÙ‘Ø§Ù‡ÙŽØ§ ÙˆÙŽÙ‚ÙŽØ¯Ù’ Ø®ÙŽØ§Ø¨ÙŽ Ù…ÙŽÙ† Ø¯ÙŽØ³ÙŽÙ‘Ø§Ù‡ÙŽØ§",
+              arabic: "قَدْ أَفْلَحَ مَن زَكَّاهَا وَقَدْ خَابَ مَن دَسَّاهَا",
               translation: "He has succeeded who purifies it, and he has failed who instills it with corruption.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2871,7 +2871,7 @@ Write something every night for 21 days straight, even if it is one sentence. Do
           ],
           description: `**Why?**
 
-Individual entries reveal daily fluctuations, but weekly review reveals patterns â€” the recurring sins you keep falling into, the blessings you keep overlooking, and the areas where you are actually growing. Pattern recognition is where muhasaba transforms from diary-keeping into genuine self-knowledge.
+Individual entries reveal daily fluctuations, but weekly review reveals patterns — the recurring sins you keep falling into, the blessings you keep overlooking, and the areas where you are actually growing. Pattern recognition is where muhasaba transforms from diary-keeping into genuine self-knowledge.
 
 
 **How?**
@@ -2882,7 +2882,7 @@ Every Friday (or another consistent day), read through your past week of entries
     {
       title: 'Designate one day per week as a digital-free unplugged day',
       priority: 'medium', tags: ['digital-detox', 'rest'],
-      description: 'The mind needs genuine rest â€” not just sleep, but freedom from the constant stimulation of screens and notifications. An unplugged day restores mental clarity, deepens family bonds, and creates space for worship, nature, and unhurried thought.',
+      description: 'The mind needs genuine rest — not just sleep, but freedom from the constant stimulation of screens and notifications. An unplugged day restores mental clarity, deepens family bonds, and creates space for worship, nature, and unhurried thought.',
       subtasks: [
         { title: 'Choose a consistent day of the week for your digital detox', done: false,
           tier: 'T2',
@@ -2905,7 +2905,7 @@ Consistency makes the unplugged day a ritual rather than a random experiment. Wh
 
 **How?**
 
-Pick a day that works with your schedule â€” many people choose Saturday or Sunday. Consider choosing Friday to align with Jummah and family time. Avoid choosing a workday if your job requires digital communication. Commit to the same day every week for at least one month before reassessing.` },
+Pick a day that works with your schedule — many people choose Saturday or Sunday. Consider choosing Friday to align with Jummah and family time. Avoid choosing a workday if your job requires digital communication. Commit to the same day every week for at least one month before reassessing.` },
         { title: 'Inform key contacts and set an auto-reply for that day', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources establish the broad spiritual principles of valuing the natural rhythms of rest and the blessings of health and free time, they omit specific modern logistical practices like setting a digital auto-reply, making the subtask a practical logical inference to systematically protect one\'s time and peace of mind from interruption.',
@@ -2913,7 +2913,7 @@ Pick a day that works with your schedule â€” many people choose Saturday or
             {
               kind: "quran",
               ref: "Quran 25:47",
-              arabic: "ÙˆÙŽÙ‡ÙÙˆÙŽ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠ Ø¬ÙŽØ¹ÙŽÙ„ÙŽ Ù„ÙŽÙƒÙÙ…Ù Ø§Ù„Ù„ÙŽÙ‘ÙŠÙ’Ù„ÙŽ Ù„ÙØ¨ÙŽØ§Ø³Ù‹Ø§ ÙˆÙŽØ§Ù„Ù†ÙŽÙ‘ÙˆÙ’Ù…ÙŽ Ø³ÙØ¨ÙŽØ§ØªÙ‹Ø§ ÙˆÙŽØ¬ÙŽØ¹ÙŽÙ„ÙŽ Ø§Ù„Ù†ÙŽÙ‘Ù‡ÙŽØ§Ø±ÙŽ Ù†ÙØ´ÙÙˆØ±Ù‹Ø§",
+              arabic: "وَهُوَ الَّذِي جَعَلَ لَكُمُ اللَّيْلَ لِبَاسًا وَالنَّوْمَ سُبَاتًا وَجَعَلَ النَّهَارَ نُشُورًا",
               translation: "And He is the One Who made the night a garment for you, and sleep a rest, and made the day for rising.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2931,7 +2931,7 @@ Pick a day that works with your schedule â€” many people choose Saturday or
           ],
           description: `**Why?**
 
-Fear of missing something urgent is the number one reason people break their digital detox. Informing key contacts in advance and setting an auto-reply eliminates this anxiety â€” you know that anyone who truly needs you can reach you through a phone call.
+Fear of missing something urgent is the number one reason people break their digital detox. Informing key contacts in advance and setting an auto-reply eliminates this anxiety — you know that anyone who truly needs you can reach you through a phone call.
 
 
 **How?**
@@ -2944,7 +2944,7 @@ Tell your family, close friends, and work colleagues which day you will be offli
             {
               kind: "quran",
               ref: "Quran 62:10",
-              arabic: "ÙÙŽØ¥ÙØ°ÙŽØ§ Ù‚ÙØ¶ÙÙŠÙŽØªÙ Ø§Ù„ØµÙŽÙ‘Ù„ÙŽØ§Ø©Ù ÙÙŽØ§Ù†ØªÙŽØ´ÙØ±ÙÙˆØ§ ÙÙÙŠ Ø§Ù„Ù’Ø£ÙŽØ±Ù’Ø¶Ù ÙˆÙŽØ§Ø¨Ù’ØªÙŽØºÙÙˆØ§ Ù…ÙÙ† ÙÙŽØ¶Ù’Ù„Ù Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù",
+              arabic: "فَإِذَا قُضِيَتِ الصَّلَاةُ فَانتَشِرُوا فِي الْأَرْضِ وَابْتَغُوا مِن فَضْلِ اللَّهِ",
               translation: "And when the prayer has been concluded, disperse within the land and seek from the bounty of Allah.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2953,12 +2953,12 @@ Tell your family, close friends, and work colleagues which day you will be offli
           ],
           description: `**Why?**
 
-An unplugged day without a plan quickly becomes a boring day â€” and boredom drives you straight back to your phone. Planning enjoyable, meaningful activities in advance ensures the day feels like a gift rather than a deprivation.
+An unplugged day without a plan quickly becomes a boring day — and boredom drives you straight back to your phone. Planning enjoyable, meaningful activities in advance ensures the day feels like a gift rather than a deprivation.
 
 
 **How?**
 
-The night before your unplugged day, write a loose plan: morning Quran and breakfast with family, a nature walk or park visit, an afternoon reading session, visiting the mosque for a prayer, cooking a meal together. You do not need to schedule every hour â€” just have enough options that you never feel idle and tempted.` },
+The night before your unplugged day, write a loose plan: morning Quran and breakfast with family, a nature walk or park visit, an afternoon reading session, visiting the mosque for a prayer, cooking a meal together. You do not need to schedule every hour — just have enough options that you never feel idle and tempted.` },
         { title: 'Put devices in a drawer or designated storage for the full day', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Quranic verse establishes the spiritual directive to remember Allah inwardly with humility during the mornings and evenings, it omits specific modern practices like physically storing digital devices, making the subtask a practical logical inference to systematically eliminate distractions and foster a conducive environment for this remembrance.',
@@ -2966,7 +2966,7 @@ The night before your unplugged day, write a loose plan: morning Quran and break
             {
               kind: "quran",
               ref: "Quran 7:205",
-              arabic: "ÙˆÙŽØ§Ø°Ù’ÙƒÙØ± Ø±ÙŽÙ‘Ø¨ÙŽÙ‘ÙƒÙŽ ÙÙÙŠ Ù†ÙŽÙÙ’Ø³ÙÙƒÙŽ ØªÙŽØ¶ÙŽØ±ÙÙ‘Ø¹Ù‹Ø§ ÙˆÙŽØ®ÙÙŠÙÙŽØ©Ù‹ ÙˆÙŽØ¯ÙÙˆÙ†ÙŽ Ø§Ù„Ù’Ø¬ÙŽÙ‡Ù’Ø±Ù Ù…ÙÙ†ÙŽ Ø§Ù„Ù’Ù‚ÙŽÙˆÙ’Ù„Ù Ø¨ÙØ§Ù„Ù’ØºÙØ¯ÙÙˆÙÙ‘ ÙˆÙŽØ§Ù„Ù’Ø¢ØµÙŽØ§Ù„Ù",
+              arabic: "وَاذْكُر رَّبَّكَ فِي نَفْسِكَ تَضَرُّعًا وَخِيفَةً وَدُونَ الْجَهْرِ مِنَ الْقَوْلِ بِالْغُدُوِّ وَالْآصَالِ",
               translation: "And remember your Lord within yourself in humility and in fear, without being apparent in speech, in the mornings and the evenings.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2980,7 +2980,7 @@ Out of sight, out of mind. If your phone is on the kitchen counter, you will pic
 
 **How?**
 
-Choose a drawer, box, or cabinet as your "device parking spot." The night before, charge all devices and place them there. In the morning, leave them. If you need a phone for emergency calls, put it on Do Not Disturb in another room â€” accessible but not convenient. Resist the urge to "just check one thing." ` },
+Choose a drawer, box, or cabinet as your "device parking spot." The night before, charge all devices and place them there. In the morning, leave them. If you need a phone for emergency calls, put it on Do Not Disturb in another room — accessible but not convenient. Resist the urge to "just check one thing." ` },
         { title: 'Journal your experience after the first three unplugged days to notice the impact', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources establish the foundational spiritual principles of self-accountability and taking account of one\'s deeds, they omit specific modern practices like journaling after a digital detox, making the subtask a practical logical inference to systematically apply reflection to one\'s habits and well-being.',
@@ -2988,7 +2988,7 @@ Choose a drawer, box, or cabinet as your "device parking spot." The night before
             {
               kind: "quran",
               ref: "Quran 59:18",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø§ØªÙŽÙ‘Ù‚ÙÙˆØ§ Ø§Ù„Ù„ÙŽÙ‘Ù‡ÙŽ ÙˆÙŽÙ„Ù’ØªÙŽÙ†Ø¸ÙØ±Ù’ Ù†ÙŽÙÙ’Ø³ÙŒ Ù…ÙŽÙ‘Ø§ Ù‚ÙŽØ¯ÙŽÙ‘Ù…ÙŽØªÙ’ Ù„ÙØºÙŽØ¯Ù",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَلْتَنظُرْ نَفْسٌ مَّا قَدَّمَتْ لِغَدٍ",
               translation: "O you who have believed, fear Allah. And let every soul look to what it has put forth for tomorrow.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3000,26 +3000,26 @@ Choose a drawer, box, or cabinet as your "device parking spot." The night before
               translation: "The Prophet (SAW) said: \"Take account of yourselves before you are taken to account.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih â€” attributed to Umar ibn al-Khattab, widely narrated",
+              hadithGrade: "Sahih — attributed to Umar ibn al-Khattab, widely narrated",
               rationale: "Prophetic narration cited as evidence for this subtask.",
             },
           ],
           description: `**Why?**
 
-Without reflection, the benefits of an unplugged day fade into vague feelings. Journaling your experience creates a record you can revisit when motivation dips â€” concrete evidence that disconnecting makes you calmer, more present, and more connected to what matters.
+Without reflection, the benefits of an unplugged day fade into vague feelings. Journaling your experience creates a record you can revisit when motivation dips — concrete evidence that disconnecting makes you calmer, more present, and more connected to what matters.
 
 
 **How?**
 
-After each of your first three unplugged days, write a short journal entry answering: How did I feel during the day? What did I notice about my attention and mood? What did I do with the extra time? What was hardest? After three entries, compare them â€” most people notice significant positive shifts by the third week.` },
+After each of your first three unplugged days, write a short journal entry answering: How did I feel during the day? What did I notice about my attention and mood? What did I do with the extra time? What was hardest? After three entries, compare them — most people notice significant positive shifts by the third week.` },
       ],
     },
     {
       title: 'Study and practise Sunnah grounding techniques: wudu for anger, salah for stress, istighfar for guilt',
       priority: 'medium', tags: ['sunnah', 'mental-health'],
-      description: 'The Prophet (SAW) prescribed specific spiritual actions for specific emotional states â€” wudu to cool anger, prayer to find relief in distress, and istighfar to release guilt. These are divinely guided coping mechanisms that address both the spiritual and psychological root of difficult emotions.',
+      description: 'The Prophet (SAW) prescribed specific spiritual actions for specific emotional states — wudu to cool anger, prayer to find relief in distress, and istighfar to release guilt. These are divinely guided coping mechanisms that address both the spiritual and psychological root of difficult emotions.',
       subtasks: [
-        { title: 'Study the hadith sources for each technique (angerâ†’wudu, distressâ†’salah, guiltâ†’istighfar)', done: false,
+        { title: 'Study the hadith sources for each technique (anger→wudu, distress→salah, guilt→istighfar)', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Hadiths establish the prophetic prescription of making wudu to extinguish anger and the virtue of self-control, they omit the other mentioned techniques and specific modern practices like writing references on a card, making the subtask a practical logical inference to systematically study and internalize these spiritual coping strategies.',
           sources: [
@@ -3044,7 +3044,7 @@ After each of your first three unplugged days, write a short journal entry answe
           ],
           description: `**Why?**
 
-Knowing the Prophetic source behind each technique transforms it from a generic coping strategy into an act of worship. When you understand that the Prophet (SAW) specifically prescribed wudu for anger, you approach the sink not just to calm down but to follow a Sunnah â€” and that intention multiplies the benefit.
+Knowing the Prophetic source behind each technique transforms it from a generic coping strategy into an act of worship. When you understand that the Prophet (SAW) specifically prescribed wudu for anger, you approach the sink not just to calm down but to follow a Sunnah — and that intention multiplies the benefit.
 
 
 **How?**
@@ -3066,7 +3066,7 @@ Look up the relevant hadith for each technique: the hadith about wudu extinguish
           ],
           description: `**Why?**
 
-In the heat of a strong emotion, your rational mind goes offline. A pre-written cue card bypasses the need to think â€” you have already decided what to do when anger, stress, or guilt strikes. This is the essence of emotional preparedness in Islam: planning your response before the test arrives.
+In the heat of a strong emotion, your rational mind goes offline. A pre-written cue card bypasses the need to think — you have already decided what to do when anger, stress, or guilt strikes. This is the essence of emotional preparedness in Islam: planning your response before the test arrives.
 
 
 **How?**
@@ -3079,8 +3079,8 @@ Write three simple if-then statements: "When I feel anger rising, I will make wu
             {
               kind: "quran",
               ref: "Quran 3:134",
-              arabic: "ÙˆÙŽØ§Ù„Ù’ÙƒÙŽØ§Ø¸ÙÙ…ÙÙŠÙ†ÙŽ Ø§Ù„Ù’ØºÙŽÙŠÙ’Ø¸ÙŽ ÙˆÙŽØ§Ù„Ù’Ø¹ÙŽØ§ÙÙÙŠÙ†ÙŽ Ø¹ÙŽÙ†Ù Ø§Ù„Ù†ÙŽÙ‘Ø§Ø³Ù",
-              translation: "And those who restrain anger and who pardon the people â€” and Allah loves the doers of good.",
+              arabic: "وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ",
+              translation: "And those who restrain anger and who pardon the people — and Allah loves the doers of good.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -3097,12 +3097,12 @@ Write three simple if-then statements: "When I feel anger rising, I will make wu
           ],
           description: `**Why?**
 
-Knowledge without practice is like medicine that stays in the bottle. The first time you actually get up and make wudu when angry â€” or pray when stressed â€” you experience firsthand the power of these Prophetic prescriptions. That lived experience is what transforms theory into lifelong habit.
+Knowledge without practice is like medicine that stays in the bottle. The first time you actually get up and make wudu when angry — or pray when stressed — you experience firsthand the power of these Prophetic prescriptions. That lived experience is what transforms theory into lifelong habit.
 
 
 **How?**
 
-Commit right now: the very next time you feel a strong negative emotion, you will use the corresponding technique. Do not wait for a "big" moment â€” practice with mild irritation or minor stress first. The more you practice in small moments, the more automatic it becomes for the big ones.` },
+Commit right now: the very next time you feel a strong negative emotion, you will use the corresponding technique. Do not wait for a "big" moment — practice with mild irritation or minor stress first. The more you practice in small moments, the more automatic it becomes for the big ones.` },
         { title: 'Reflect on effectiveness in your muhasaba journal after each use', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Quranic verse establishes the spiritual virtue of restraining anger, it omits specific modern practices like maintaining a muhasaba journal, making the subtask a practical logical inference to systematically track and improve one\'s emotional regulation over time.',
@@ -3110,8 +3110,8 @@ Commit right now: the very next time you feel a strong negative emotion, you wil
             {
               kind: "quran",
               ref: "Quran 3:134",
-              arabic: "ÙˆÙŽØ§Ù„Ù’ÙƒÙŽØ§Ø¸ÙÙ…ÙÙŠÙ†ÙŽ Ø§Ù„Ù’ØºÙŽÙŠÙ’Ø¸ÙŽ ÙˆÙŽØ§Ù„Ù’Ø¹ÙŽØ§ÙÙÙŠÙ†ÙŽ Ø¹ÙŽÙ†Ù Ø§Ù„Ù†ÙŽÙ‘Ø§Ø³Ù ÙˆÙŽØ§Ù„Ù„ÙŽÙ‘Ù‡Ù ÙŠÙØ­ÙØ¨ÙÙ‘ Ø§Ù„Ù’Ù…ÙØ­Ù’Ø³ÙÙ†ÙÙŠÙ†ÙŽ",
-              translation: "Who restrain anger and who pardon the people â€” and Allah loves the doers of good.",
+              arabic: "وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ وَاللَّهُ يُحِبُّ الْمُحْسِنِينَ",
+              translation: "Who restrain anger and who pardon the people — and Allah loves the doers of good.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -3119,7 +3119,7 @@ Commit right now: the very next time you feel a strong negative emotion, you wil
           ],
           description: `**Why?**
 
-Documenting when you used a Sunnah grounding technique and how it affected you creates a personal evidence base. Over time, you will see clear patterns proving that these divinely guided methods actually work â€” strengthening both your practice and your iman.
+Documenting when you used a Sunnah grounding technique and how it affected you creates a personal evidence base. Over time, you will see clear patterns proving that these divinely guided methods actually work — strengthening both your practice and your iman.
 
 
 **How?**
@@ -3132,15 +3132,15 @@ After each time you use wudu for anger, salah for stress, or istighfar for guilt
       priority: 'medium', tags: ['study', 'tazkiyah'],
       description: 'Islamic tradition has a rich body of knowledge on the purification of the soul and the diseases of the heart. Reading works by scholars like Imam al-Ghazali, Ibn al-Qayyim, and contemporary Muslim psychologists deepens self-understanding and provides tools for genuine inner transformation.',
       subtasks: [
-        { title: 'Build a reading list â€” start with Ihya Ulum al-Din (abridged), Purification of the Heart, or Reclaim Your Heart', done: false,
+        { title: 'Build a reading list — start with Ihya Ulum al-Din (abridged), Purification of the Heart, or Reclaim Your Heart', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Quranic verses establish the foundational divine command to read, learn, and seek knowledge, they omit specific practices like curating a reading list with specific contemporary and classical titles, making the subtask a practical logical inference to systematically fulfill this directive.',
           sources: [
             {
               kind: "quran",
               ref: "Quran 96:1-5",
-              arabic: "Ø§Ù‚Ù’Ø±ÙŽØ£Ù’ Ø¨ÙØ§Ø³Ù’Ù…Ù Ø±ÙŽØ¨ÙÙ‘ÙƒÙŽ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠ Ø®ÙŽÙ„ÙŽÙ‚ÙŽ Ø®ÙŽÙ„ÙŽÙ‚ÙŽ Ø§Ù„Ù’Ø¥ÙÙ†Ø³ÙŽØ§Ù†ÙŽ Ù…ÙÙ†Ù’ Ø¹ÙŽÙ„ÙŽÙ‚Ù Ø§Ù‚Ù’Ø±ÙŽØ£Ù’ ÙˆÙŽØ±ÙŽØ¨ÙÙ‘ÙƒÙŽ Ø§Ù„Ù’Ø£ÙŽÙƒÙ’Ø±ÙŽÙ…Ù Ø§Ù„ÙŽÙ‘Ø°ÙÙŠ Ø¹ÙŽÙ„ÙŽÙ‘Ù…ÙŽ Ø¨ÙØ§Ù„Ù’Ù‚ÙŽÙ„ÙŽÙ…Ù Ø¹ÙŽÙ„ÙŽÙ‘Ù…ÙŽ Ø§Ù„Ù’Ø¥ÙÙ†Ø³ÙŽØ§Ù†ÙŽ Ù…ÙŽØ§ Ù„ÙŽÙ…Ù’ ÙŠÙŽØ¹Ù’Ù„ÙŽÙ…Ù’",
-              translation: "Recite in the name of your Lord who created â€” created man from a clinging substance. Recite, and your Lord is the most Generous â€” Who taught by the pen â€” taught man that which he knew not.",
+              arabic: "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ خَلَقَ الْإِنسَانَ مِنْ عَلَقٍ اقْرَأْ وَرَبُّكَ الْأَكْرَمُ الَّذِي عَلَّمَ بِالْقَلَمِ عَلَّمَ الْإِنسَانَ مَا لَمْ يَعْلَمْ",
+              translation: "Recite in the name of your Lord who created — created man from a clinging substance. Recite, and your Lord is the most Generous — Who taught by the pen — taught man that which he knew not.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -3148,7 +3148,7 @@ After each time you use wudu for anger, salah for stress, or istighfar for guilt
           ],
           description: `**Why?**
 
-Without a curated reading list, you either never start or waste time on low-quality material. These three books represent different entry points into Islamic psychology â€” classical scholarship (Ghazali), poetic wisdom (Hamza Yusuf), and contemporary reflection (Yasmin Mogahed) â€” ensuring you find a voice that resonates with you.
+Without a curated reading list, you either never start or waste time on low-quality material. These three books represent different entry points into Islamic psychology — classical scholarship (Ghazali), poetic wisdom (Hamza Yusuf), and contemporary reflection (Yasmin Mogahed) — ensuring you find a voice that resonates with you.
 
 
 **How?**
@@ -3161,7 +3161,7 @@ Order or download at least two of these books today. If you prefer classical dep
             {
               kind: "quran",
               ref: "Quran 96:1",
-              arabic: "Ø§Ù‚Ù’Ø±ÙŽØ£Ù’ Ø¨ÙØ§Ø³Ù’Ù…Ù Ø±ÙŽØ¨ÙÙ‘ÙƒÙŽ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠ Ø®ÙŽÙ„ÙŽÙ‚ÙŽ",
+              arabic: "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ",
               translation: "Read in the name of your Lord who created.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3179,12 +3179,12 @@ Order or download at least two of these books today. If you prefer classical dep
           ],
           description: `**Why?**
 
-Reading about tazkiyah in scattered, random moments means you never build momentum or depth. A scheduled daily window â€” even just 20 minutes â€” ensures consistent progress. One book per month at this pace equals twelve transformative works in a year.
+Reading about tazkiyah in scattered, random moments means you never build momentum or depth. A scheduled daily window — even just 20 minutes — ensures consistent progress. One book per month at this pace equals twelve transformative works in a year.
 
 
 **How?**
 
-Choose a time that naturally fits your routine â€” after Fajr, during lunch, or before bed. Block it on your calendar and treat it as an appointment with your soul. Keep your current book in your designated reading spot. Set a phone timer for 20 minutes so you do not have to watch the clock.` },
+Choose a time that naturally fits your routine — after Fajr, during lunch, or before bed. Block it on your calendar and treat it as an appointment with your soul. Keep your current book in your designated reading spot. Set a phone timer for 20 minutes so you do not have to watch the clock.` },
         { title: 'Take notes on key concepts and how they apply to your own nafs', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Quranic verses establish the foundational spiritual necessity of purifying the soul (nafs) to achieve success, they omit specific practices like taking written notes on key concepts, making the subtask a practical logical inference to systematically engage in this process of self-purification.',
@@ -3192,7 +3192,7 @@ Choose a time that naturally fits your routine â€” after Fajr, during lunch
             {
               kind: "quran",
               ref: "Quran 91:7-10",
-              arabic: "ÙˆÙŽÙ†ÙŽÙÙ’Ø³Ù ÙˆÙŽÙ…ÙŽØ§ Ø³ÙŽÙˆÙŽÙ‘Ø§Ù‡ÙŽØ§ ÙÙŽØ£ÙŽÙ„Ù’Ù‡ÙŽÙ…ÙŽÙ‡ÙŽØ§ ÙÙØ¬ÙÙˆØ±ÙŽÙ‡ÙŽØ§ ÙˆÙŽØªÙŽÙ‚Ù’ÙˆÙŽØ§Ù‡ÙŽØ§ Ù‚ÙŽØ¯Ù’ Ø£ÙŽÙÙ’Ù„ÙŽØ­ÙŽ Ù…ÙŽÙ† Ø²ÙŽÙƒÙŽÙ‘Ø§Ù‡ÙŽØ§ ÙˆÙŽÙ‚ÙŽØ¯Ù’ Ø®ÙŽØ§Ø¨ÙŽ Ù…ÙŽÙ† Ø¯ÙŽØ³ÙŽÙ‘Ø§Ù‡ÙŽØ§",
+              arabic: "وَنَفْسٍ وَمَا سَوَّاهَا فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَاهَا قَدْ أَفْلَحَ مَن زَكَّاهَا وَقَدْ خَابَ مَن دَسَّاهَا",
               translation: "And by the soul and He who proportioned it, and inspired it with its wickedness and its righteousness. He has succeeded who purifies it, and he has failed who corrupts it.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3236,7 +3236,7 @@ Invite one or two people to read the same book as you, or simply share interesti
             {
               kind: "quran",
               ref: "Quran 91:9",
-              arabic: "Ù‚ÙŽØ¯Ù’ Ø£ÙŽÙÙ’Ù„ÙŽØ­ÙŽ Ù…ÙŽÙ† Ø²ÙŽÙƒÙŽÙ‘Ø§Ù‡ÙŽØ§",
+              arabic: "قَدْ أَفْلَحَ مَن زَكَّاهَا",
               translation: "He has succeeded who purifies it (the soul).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3265,9 +3265,9 @@ At the end of each book, review your notes and choose the single most impactful 
   ],
   health_mental_excellence: [
     {
-      title: 'Begin a cognitive training programme â€” Quran memorisation or language learning',
+      title: 'Begin a cognitive training programme — Quran memorisation or language learning',
       priority: 'medium', tags: ['memorisation', 'cognitive'],
-      description: 'The brain, like any muscle, grows stronger with consistent challenge. Quran memorisation is the pinnacle of cognitive training for a Muslim â€” it strengthens memory, builds discipline, and earns immense reward. Language learning (Arabic especially) opens doors to understanding the deen directly.',
+      description: 'The brain, like any muscle, grows stronger with consistent challenge. Quran memorisation is the pinnacle of cognitive training for a Muslim — it strengthens memory, builds discipline, and earns immense reward. Language learning (Arabic especially) opens doors to understanding the deen directly.',
       subtasks: [
         { title: "Choose your track: Quran memorisation (hifz) or Arabic/language learning", done: false,
           tier: 'T2',
@@ -3276,8 +3276,8 @@ At the end of each book, review your notes and choose the single most impactful 
             {
               kind: "quran",
               ref: "Quran 41:44",
-              arabic: "ÙˆÙŽÙ„ÙŽÙˆÙ’ Ø¬ÙŽØ¹ÙŽÙ„Ù’Ù†ÙŽØ§Ù‡Ù Ù‚ÙØ±Ù’Ø¢Ù†Ù‹Ø§ Ø£ÙŽØ¹Ù’Ø¬ÙŽÙ…ÙÙŠÙ‹Ù‘Ø§ Ù„ÙŽÙ‘Ù‚ÙŽØ§Ù„ÙÙˆØ§ Ù„ÙŽÙˆÙ’Ù„ÙŽØ§ ÙÙØµÙÙ‘Ù„ÙŽØªÙ’ Ø¢ÙŠÙŽØ§ØªÙÙ‡Ù Û– Ø£ÙŽØ£ÙŽØ¹Ù’Ø¬ÙŽÙ…ÙÙŠÙŒÙ‘ ÙˆÙŽØ¹ÙŽØ±ÙŽØ¨ÙÙŠÙŒÙ‘ Û— Ù‚ÙÙ„Ù’ Ù‡ÙÙˆÙŽ Ù„ÙÙ„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ù‡ÙØ¯Ù‹Ù‰ ÙˆÙŽØ´ÙÙÙŽØ§Ø¡ÙŒ",
-              translation: "If We had made it a foreign Quran, they would have said, â€œIf only its verses were clear!â€ Say, â€œIt is guidance and healing for those who have faith.â€",
+              arabic: "وَلَوْ جَعَلْنَاهُ قُرْآنًا أَعْجَمِيًّا لَّقَالُوا لَوْلَا فُصِّلَتْ آيَاتُهُ ۖ أَأَعْجَمِيٌّ وَعَرَبِيٌّ ۗ قُلْ هُوَ لِلَّذِينَ آمَنُوا هُدًى وَشِفَاءٌ",
+              translation: "If We had made it a foreign Quran, they would have said, “If only its verses were clear!” Say, “It is guidance and healing for those who have faith.”",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -3285,7 +3285,7 @@ At the end of each book, review your notes and choose the single most impactful 
             {
               kind: "quran",
               ref: "Quran 13:37",
-              arabic: "ÙˆÙŽÙƒÙŽØ°ÙŽÙ°Ù„ÙÙƒÙŽ Ø£ÙŽÙ†Ø²ÙŽÙ„Ù’Ù†ÙŽØ§Ù‡Ù Ø­ÙÙƒÙ’Ù…Ù‹Ø§ Ø¹ÙŽØ±ÙŽØ¨ÙÙŠÙ‹Ù‘Ø§ Ûš ÙˆÙŽÙ„ÙŽØ¦ÙÙ†Ù Ø§ØªÙŽÙ‘Ø¨ÙŽØ¹Ù’ØªÙŽ Ø£ÙŽÙ‡Ù’ÙˆÙŽØ§Ø¡ÙŽÙ‡ÙÙ… Ø¨ÙŽØ¹Ù’Ø¯ÙŽÙ…ÙŽØ§ Ø¬ÙŽØ§Ø¡ÙŽÙƒÙŽ Ù…ÙÙ†ÙŽ Ø§Ù„Ù’Ø¹ÙÙ„Ù’Ù…Ù Ù…ÙŽØ§ Ù„ÙŽÙƒÙŽ Ù…ÙÙ†ÙŽ Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù Ù…ÙÙ† ÙˆÙŽÙ„ÙÙŠÙÙ‘ ÙˆÙŽÙ„ÙŽØ§ ÙˆÙŽØ§Ù‚Ù",
+              arabic: "وَكَذَٰلِكَ أَنزَلْنَاهُ حُكْمًا عَرَبِيًّا ۚ وَلَئِنِ اتَّبَعْتَ أَهْوَاءَهُم بَعْدَمَا جَاءَكَ مِنَ الْعِلْمِ مَا لَكَ مِنَ اللَّهِ مِن وَلِيٍّ وَلَا وَاقٍ",
               translation: "So We have sent down the Quran to give judgement in the Arabic language. If you were to follow their desires, after the knowledge that has come to you, you would have no one to guard or protect you from God.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3294,8 +3294,8 @@ At the end of each book, review your notes and choose the single most impactful 
             {
               kind: "quran",
               ref: "Quran 16:103",
-              arabic: "ÙˆÙŽÙ„ÙŽÙ‚ÙŽØ¯Ù’ Ù†ÙŽØ¹Ù’Ù„ÙŽÙ…Ù Ø£ÙŽÙ†ÙŽÙ‘Ù‡ÙÙ…Ù’ ÙŠÙŽÙ‚ÙÙˆÙ„ÙÙˆÙ†ÙŽ Ø¥ÙÙ†ÙŽÙ‘Ù…ÙŽØ§ ÙŠÙØ¹ÙŽÙ„ÙÙ‘Ù…ÙÙ‡Ù Ø¨ÙŽØ´ÙŽØ±ÙŒ Û— Ù„ÙÙ‘Ø³ÙŽØ§Ù†Ù Ø§Ù„ÙŽÙ‘Ø°ÙÙŠ ÙŠÙÙ„Ù’Ø­ÙØ¯ÙÙˆÙ†ÙŽ Ø¥ÙÙ„ÙŽÙŠÙ’Ù‡Ù Ø£ÙŽØ¹Ù’Ø¬ÙŽÙ…ÙÙŠÙŒÙ‘ ÙˆÙŽÙ‡ÙŽÙ°Ø°ÙŽØ§ Ù„ÙØ³ÙŽØ§Ù†ÙŒ Ø¹ÙŽØ±ÙŽØ¨ÙÙŠÙŒÙ‘ Ù…ÙÙ‘Ø¨ÙÙŠÙ†ÙŒ",
-              translation: "We know very well that they say, â€œIt is a man who teaches him,â€ but the language of the person they allude to is foreign, while this revelation is in clear Arabic.",
+              arabic: "وَلَقَدْ نَعْلَمُ أَنَّهُمْ يَقُولُونَ إِنَّمَا يُعَلِّمُهُ بَشَرٌ ۗ لِّسَانُ الَّذِي يُلْحِدُونَ إِلَيْهِ أَعْجَمِيٌّ وَهَٰذَا لِسَانٌ عَرَبِيٌّ مُّبِينٌ",
+              translation: "We know very well that they say, “It is a man who teaches him,” but the language of the person they allude to is foreign, while this revelation is in clear Arabic.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -3303,7 +3303,7 @@ At the end of each book, review your notes and choose the single most impactful 
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 5027",
-              translation: "The Prophet (SAW) said: â€œThe best of you are those who learn the Quran and teach it.â€",
+              translation: "The Prophet (SAW) said: “The best of you are those who learn the Quran and teach it.”",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -3312,7 +3312,7 @@ At the end of each book, review your notes and choose the single most impactful 
           ],
           description: `**Why?**
 
-Trying to do everything at once diffuses your energy and leads to abandoning both. Choosing one track â€” hifz or language â€” allows you to channel your full cognitive effort into deep, sustained practice. You can always add the second track later once the first is established.
+Trying to do everything at once diffuses your energy and leads to abandoning both. Choosing one track — hifz or language — allows you to channel your full cognitive effort into deep, sustained practice. You can always add the second track later once the first is established.
 
 
 **How?**
@@ -3325,7 +3325,7 @@ Ask yourself: what would benefit me more right now? If you already read Arabic b
             {
               kind: "quran",
               ref: "Quran 20:114",
-              arabic: "ÙˆÙŽÙ‚ÙÙ„ Ø±ÙŽÙ‘Ø¨ÙÙ‘ Ø²ÙØ¯Ù’Ù†ÙÙŠ Ø¹ÙÙ„Ù’Ù…Ù‹Ø§",
+              arabic: "وَقُل رَّبِّ زِدْنِي عِلْمًا",
               translation: "And say: My Lord, increase me in knowledge.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3343,7 +3343,7 @@ Ask yourself: what would benefit me more right now? If you already read Arabic b
           ],
           description: `**Why?**
 
-Self-teaching Quran memorisation or Arabic is possible but dramatically slower and more error-prone than guided learning. A qualified teacher corrects your tajweed, holds you accountable, and adapts the pace to your ability â€” all of which accelerate progress and prevent bad habits from forming.
+Self-teaching Quran memorisation or Arabic is possible but dramatically slower and more error-prone than guided learning. A qualified teacher corrects your tajweed, holds you accountable, and adapts the pace to your ability — all of which accelerate progress and prevent bad habits from forming.
 
 
 **How?**
@@ -3365,12 +3365,12 @@ For hifz: ask your local mosque about memorisation circles, or search for online
           ],
           description: `**Why?**
 
-Cognitive training requires daily repetition to build neural pathways. Sporadic practice â€” memorising on Monday, skipping until Thursday â€” means you spend most of your time re-learning what you forgot. A daily window of at least 20 minutes ensures forward momentum and retention.
+Cognitive training requires daily repetition to build neural pathways. Sporadic practice — memorising on Monday, skipping until Thursday — means you spend most of your time re-learning what you forgot. A daily window of at least 20 minutes ensures forward momentum and retention.
 
 
 **How?**
 
-Choose a time when your mind is freshest â€” for most people, this is after Fajr or in the early morning. Block 20-30 minutes on your daily schedule. Start your session the same way each time (e.g., recite what you know, then learn new material, then review). Protect this time as non-negotiable.` },
+Choose a time when your mind is freshest — for most people, this is after Fajr or in the early morning. Block 20-30 minutes on your daily schedule. Start your session the same way each time (e.g., recite what you know, then learn new material, then review). Protect this time as non-negotiable.` },
         { title: 'Establish a review system to retain what you have already learned', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly emphasize that the Quran has been made easy for remembrance and highly praise those who learn it, they omit specific modern study techniques like using spaced repetition or flashcard apps, making the subtask a practical logical inference to systematically retain and preserve this sacred knowledge.',
@@ -3378,7 +3378,7 @@ Choose a time when your mind is freshest â€” for most people, this is after
             {
               kind: "quran",
               ref: "Quran 54:17",
-              arabic: "ÙˆÙŽÙ„ÙŽÙ‚ÙŽØ¯Ù’ ÙŠÙŽØ³ÙŽÙ‘Ø±Ù’Ù†ÙŽØ§ Ø§Ù„Ù’Ù‚ÙØ±Ù’Ø¢Ù†ÙŽ Ù„ÙÙ„Ø°ÙÙ‘ÙƒÙ’Ø±Ù ÙÙŽÙ‡ÙŽÙ„Ù’ Ù…ÙÙ† Ù…ÙÙ‘Ø¯ÙŽÙ‘ÙƒÙØ±Ù",
+              arabic: "وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ",
               translation: "And We have certainly made the Quran easy for remembrance, so is there any who will remember?",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3409,7 +3409,7 @@ Use a spaced repetition approach: review today's new material tomorrow, then aga
             {
               kind: "quran",
               ref: "Quran 54:17",
-              arabic: "ÙˆÙŽÙ„ÙŽÙ‚ÙŽØ¯Ù’ ÙŠÙŽØ³ÙŽÙ‘Ø±Ù’Ù†ÙŽØ§ Ø§Ù„Ù’Ù‚ÙØ±Ù’Ø¢Ù†ÙŽ Ù„ÙÙ„Ø°ÙÙ‘ÙƒÙ’Ø±Ù ÙÙŽÙ‡ÙŽÙ„Ù’ Ù…ÙÙ† Ù…ÙÙ‘Ø¯ÙŽÙ‘ÙƒÙØ±Ù",
+              arabic: "وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ",
               translation: "And We have certainly made the Quran easy for remembrance, so is there any who will remember?",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3432,7 +3432,7 @@ Without milestones, long-term goals feel abstract and motivation fades. Monthly 
 
 **How?**
 
-Set a realistic monthly target based on your current pace. For hifz: 1 page per week means roughly 4 pages per month â€” at that pace, a full juz every 5-6 months. For language: completing one lesson per day in your programme. Write your milestones in your journal and review progress on the 1st of each month. Adjust targets based on actual performance, not wishful thinking.` },
+Set a realistic monthly target based on your current pace. For hifz: 1 page per week means roughly 4 pages per month — at that pace, a full juz every 5-6 months. For language: completing one lesson per day in your programme. Write your milestones in your journal and review progress on the 1st of each month. Adjust targets based on actual performance, not wishful thinking.` },
       ],
     },
     {
@@ -3447,7 +3447,7 @@ Set a realistic monthly target based on your current pace. For hifz: 1 page per 
             {
               kind: "quran",
               ref: "Quran 16:43",
-              arabic: "ÙÙŽØ§Ø³Ù’Ø£ÙŽÙ„ÙÙˆØ§ Ø£ÙŽÙ‡Ù’Ù„ÙŽ Ø§Ù„Ø°ÙÙ‘ÙƒÙ’Ø±Ù Ø¥ÙÙ† ÙƒÙÙ†ØªÙÙ…Ù’ Ù„ÙŽØ§ ØªÙŽØ¹Ù’Ù„ÙŽÙ…ÙÙˆÙ†ÙŽ",
+              arabic: "فَاسْأَلُوا أَهْلَ الذِّكْرِ إِن كُنتُمْ لَا تَعْلَمُونَ",
               translation: "So ask the people of knowledge if you do not know.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3487,7 +3487,7 @@ Reflect honestly: Are you struggling with iman, connection to Allah, or understa
           ],
           description: `**Why?**
 
-The quality of the mentoring relationship depends heavily on fit â€” credentials, personality, communication style, and shared values all matter. Shortlisting multiple options gives you the ability to compare and choose wisely rather than committing to the first name you find.
+The quality of the mentoring relationship depends heavily on fit — credentials, personality, communication style, and shared values all matter. Shortlisting multiple options gives you the ability to compare and choose wisely rather than committing to the first name you find.
 
 
 **How?**
@@ -3509,7 +3509,7 @@ Ask trusted community members, imams, or friends for recommendations. Search pro
           ],
           description: `**Why?**
 
-Research without action is procrastination in disguise. The introductory conversation is low-risk â€” most mentors and therapists offer a brief initial call to assess fit. Taking this step moves you from thinking about growth to actually investing in it.
+Research without action is procrastination in disguise. The introductory conversation is low-risk — most mentors and therapists offer a brief initial call to assess fit. Taking this step moves you from thinking about growth to actually investing in it.
 
 
 **How?**
@@ -3531,7 +3531,7 @@ Send an email or make a call to your top choice today. Briefly introduce yoursel
           ],
           description: `**Why?**
 
-Sporadic sessions prevent the depth and momentum that mentoring, coaching, or therapy requires. A regular cadence â€” weekly for intensive work, bi-weekly for maintenance â€” ensures continuity. Your mentor or therapist can build on previous sessions rather than starting fresh each time.
+Sporadic sessions prevent the depth and momentum that mentoring, coaching, or therapy requires. A regular cadence — weekly for intensive work, bi-weekly for maintenance — ensures continuity. Your mentor or therapist can build on previous sessions rather than starting fresh each time.
 
 
 **How?**
@@ -3539,13 +3539,13 @@ Sporadic sessions prevent the depth and momentum that mentoring, coaching, or th
 Agree on a frequency with your mentor or therapist during the introductory conversation. Block the recurring time on your calendar and treat it as unmovable. Budget for the cost if applicable. Commit to the cadence for at least 3 months before evaluating whether to adjust.` },
         { title: 'Prepare for each session with specific questions, challenges, or reflections', done: false,
           tier: 'T2',
-          amanahRationale: 'Fallback assignment â€” NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
+          amanahRationale: 'Fallback assignment — NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
           sources: [
             {
               kind: "quran",
               ref: "Quran 29:69",
-              arabic: "ÙˆÙŽØ§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¬ÙŽØ§Ù‡ÙŽØ¯ÙÙˆØ§ ÙÙÙŠÙ†ÙŽØ§ Ù„ÙŽÙ†ÙŽÙ‡Ù’Ø¯ÙÙŠÙŽÙ†ÙŽÙ‘Ù‡ÙÙ…Ù’ Ø³ÙØ¨ÙÙ„ÙŽÙ†ÙŽØ§",
-              translation: "And those who strive for Us â€” We will surely guide them to Our ways.",
+              arabic: "وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا",
+              translation: "And those who strive for Us — We will surely guide them to Our ways.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -3564,7 +3564,7 @@ Keep a running note on your phone or in your journal labeled "For next session."
     {
       title: 'Write a personal soul-map: your psychological autobiography, values, wounds, and aspirations',
       priority: 'low', tags: ['reflection', 'tazkiyah'],
-      description: 'A soul-map is a deep, honest written exploration of who you are â€” your formative experiences, core values, emotional wounds, recurring patterns, and highest aspirations. This exercise brings unconscious drivers into conscious awareness, enabling intentional change and genuine self-knowledge.',
+      description: 'A soul-map is a deep, honest written exploration of who you are — your formative experiences, core values, emotional wounds, recurring patterns, and highest aspirations. This exercise brings unconscious drivers into conscious awareness, enabling intentional change and genuine self-knowledge.',
       subtasks: [
         { title: 'Write your life story in 3-5 pages, focusing on pivotal moments that shaped you', done: false,
           tier: 'T2',
@@ -3573,7 +3573,7 @@ Keep a running note on your phone or in your journal labeled "For next session."
             {
               kind: "quran",
               ref: "Quran 59:18",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø§ØªÙŽÙ‘Ù‚ÙÙˆØ§ Ø§Ù„Ù„ÙŽÙ‘Ù‡ÙŽ ÙˆÙŽÙ„Ù’ØªÙŽÙ†Ø¸ÙØ±Ù’ Ù†ÙŽÙÙ’Ø³ÙŒ Ù…ÙŽÙ‘Ø§ Ù‚ÙŽØ¯ÙŽÙ‘Ù…ÙŽØªÙ’ Ù„ÙØºÙŽØ¯Ù",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَلْتَنظُرْ نَفْسٌ مَّا قَدَّمَتْ لِغَدٍ",
               translation: "O you who have believed, fear Allah. And let every soul look to what it has put forth for tomorrow.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3582,7 +3582,7 @@ Keep a running note on your phone or in your journal labeled "For next session."
             {
               kind: "quran",
               ref: "Quran 91:7-10",
-              arabic: "ÙˆÙŽÙ†ÙŽÙÙ’Ø³Ù ÙˆÙŽÙ…ÙŽØ§ Ø³ÙŽÙˆÙŽÙ‘Ø§Ù‡ÙŽØ§ ÙÙŽØ£ÙŽÙ„Ù’Ù‡ÙŽÙ…ÙŽÙ‡ÙŽØ§ ÙÙØ¬ÙÙˆØ±ÙŽÙ‡ÙŽØ§ ÙˆÙŽØªÙŽÙ‚Ù’ÙˆÙŽØ§Ù‡ÙŽØ§",
+              arabic: "وَنَفْسٍ وَمَا سَوَّاهَا فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَاهَا",
               translation: "And by the soul and He who proportioned it, and inspired it with its wickedness and its righteousness.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3591,12 +3591,12 @@ Keep a running note on your phone or in your journal labeled "For next session."
           ],
           description: `**Why?**
 
-Most of us have never sat down to write our own story. Pivotal moments â€” the loss that changed you, the teacher who believed in you, the failure that redirected your path â€” are scattered across memory without coherence. Writing them down reveals the narrative thread of your life and the qadr of Allah within it.
+Most of us have never sat down to write our own story. Pivotal moments — the loss that changed you, the teacher who believed in you, the failure that redirected your path — are scattered across memory without coherence. Writing them down reveals the narrative thread of your life and the qadr of Allah within it.
 
 
 **How?**
 
-Set aside 2-3 hours in a quiet place. Write chronologically from childhood to now, focusing on turning points: moments of joy, pain, decision, loss, and growth. Do not edit as you write â€” let the story flow. You can always revise later. Aim for 3-5 handwritten or typed pages.` },
+Set aside 2-3 hours in a quiet place. Write chronologically from childhood to now, focusing on turning points: moments of joy, pain, decision, loss, and growth. Do not edit as you write — let the story flow. You can always revise later. Aim for 3-5 handwritten or typed pages.` },
         { title: 'List your top 5 non-negotiable values and test whether your life reflects them', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Quranic verses establish the foundational spiritual imperative to purify the soul by discerning between its inherent righteousness and wickedness, they omit specific modern practices like listing five core values to audit one\'s life, making the subtask a practical logical inference to systematically engage in this required self-purification.',
@@ -3604,7 +3604,7 @@ Set aside 2-3 hours in a quiet place. Write chronologically from childhood to no
             {
               kind: "quran",
               ref: "Quran 91:7-10",
-              arabic: "ÙˆÙŽÙ†ÙŽÙÙ’Ø³Ù ÙˆÙŽÙ…ÙŽØ§ Ø³ÙŽÙˆÙŽÙ‘Ø§Ù‡ÙŽØ§ ÙÙŽØ£ÙŽÙ„Ù’Ù‡ÙŽÙ…ÙŽÙ‡ÙŽØ§ ÙÙØ¬ÙÙˆØ±ÙŽÙ‡ÙŽØ§ ÙˆÙŽØªÙŽÙ‚Ù’ÙˆÙŽØ§Ù‡ÙŽØ§ Ù‚ÙŽØ¯Ù’ Ø£ÙŽÙÙ’Ù„ÙŽØ­ÙŽ Ù…ÙŽÙ† Ø²ÙŽÙƒÙŽÙ‘Ø§Ù‡ÙŽØ§ ÙˆÙŽÙ‚ÙŽØ¯Ù’ Ø®ÙŽØ§Ø¨ÙŽ Ù…ÙŽÙ† Ø¯ÙŽØ³ÙŽÙ‘Ø§Ù‡ÙŽØ§",
+              arabic: "وَنَفْسٍ وَمَا سَوَّاهَا فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَاهَا قَدْ أَفْلَحَ مَن زَكَّاهَا وَقَدْ خَابَ مَن دَسَّاهَا",
               translation: "And by the soul and He who proportioned it, and inspired it with discernment of its wickedness and its righteousness. He has succeeded who purifies it, and he has failed who instills it with corruption.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3613,7 +3613,7 @@ Set aside 2-3 hours in a quiet place. Write chronologically from childhood to no
           ],
           description: `**Why?**
 
-Many people live with a disconnect between what they say they value and how they actually spend their time and energy. Listing your core values and honestly testing them against your real life reveals where you are aligned and where you are living in contradiction â€” which is a source of deep inner tension.
+Many people live with a disconnect between what they say they value and how they actually spend their time and energy. Listing your core values and honestly testing them against your real life reveals where you are aligned and where you are living in contradiction — which is a source of deep inner tension.
 
 
 **How?**
@@ -3626,7 +3626,7 @@ Write down the 5 values most important to you (e.g., tawakkul, family, honesty, 
             {
               kind: "quran",
               ref: "Quran 89:27-30",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙŽÙ‘ØªÙÙ‡ÙŽØ§ Ø§Ù„Ù†ÙŽÙ‘ÙÙ’Ø³Ù Ø§Ù„Ù’Ù…ÙØ·Ù’Ù…ÙŽØ¦ÙÙ†ÙŽÙ‘Ø©Ù Ø§Ø±Ù’Ø¬ÙØ¹ÙÙŠ Ø¥ÙÙ„ÙŽÙ‰Ù° Ø±ÙŽØ¨ÙÙ‘ÙƒÙ Ø±ÙŽØ§Ø¶ÙÙŠÙŽØ©Ù‹ Ù…ÙŽÙ‘Ø±Ù’Ø¶ÙÙŠÙŽÙ‘Ø©Ù‹",
+              arabic: "يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ ارْجِعِي إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً",
               translation: "O reassured soul, return to your Lord, well-pleased and pleasing to Him.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3644,20 +3644,20 @@ Write down the 5 values most important to you (e.g., tawakkul, family, honesty, 
           ],
           description: `**Why?**
 
-Unexamined emotional wounds do not heal â€” they drive behaviour from the shadows. The anger you cannot explain, the relationships you sabotage, the validation you endlessly seek often trace back to specific wounds from childhood, family, or past experiences. Naming them is the first step toward healing.
+Unexamined emotional wounds do not heal — they drive behaviour from the shadows. The anger you cannot explain, the relationships you sabotage, the validation you endlessly seek often trace back to specific wounds from childhood, family, or past experiences. Naming them is the first step toward healing.
 
 
 **How?**
 
-Reflect on recurring emotional patterns in your life: what consistently triggers disproportionate anger, sadness, or fear? Trace each pattern back to its earliest memory. Write down what happened, how it made you feel, and how it still shows up in your behaviour today. This exercise may bring up strong emotions â€” be gentle with yourself, and consider sharing what you find with a therapist.` },
-        { title: 'Describe the person you aspire to become in 5 years â€” spiritually, mentally, socially', done: false,
+Reflect on recurring emotional patterns in your life: what consistently triggers disproportionate anger, sadness, or fear? Trace each pattern back to its earliest memory. Write down what happened, how it made you feel, and how it still shows up in your behaviour today. This exercise may bring up strong emotions — be gentle with yourself, and consider sharing what you find with a therapist.` },
+        { title: 'Describe the person you aspire to become in 5 years — spiritually, mentally, socially', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources establish the foundational spiritual commands to evaluate one\'s deeds and look toward the future, they omit specific modern practices like writing a detailed 5-year vision of oneself, making the subtask a practical logical inference to systematically fulfill this duty of self-accountability.',
           sources: [
             {
               kind: "quran",
               ref: "Quran 59:18",
-              arabic: "ÙˆÙŽÙ„Ù’ØªÙŽÙ†Ø¸ÙØ±Ù’ Ù†ÙŽÙÙ’Ø³ÙŒ Ù…ÙŽÙ‘Ø§ Ù‚ÙŽØ¯ÙŽÙ‘Ù…ÙŽØªÙ’ Ù„ÙØºÙŽØ¯Ù",
+              arabic: "وَلْتَنظُرْ نَفْسٌ مَّا قَدَّمَتْ لِغَدٍ",
               translation: "And let every soul look to what it has put forth for tomorrow.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3669,18 +3669,18 @@ Reflect on recurring emotional patterns in your life: what consistently triggers
               translation: "Umar (RA) said: \"Take account of yourselves before you are taken to account, and weigh your deeds before they are weighed for you.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih â€” athar of Umar",
+              hadithGrade: "Sahih — athar of Umar",
               rationale: "Prophetic narration cited as evidence for this subtask.",
             },
           ],
           description: `**Why?**
 
-A clear vision of your future self creates a magnetic pull toward growth. Without it, you drift â€” reacting to life rather than intentionally building the character and capabilities you want. The soul-map is incomplete without a destination: who is the person Allah is shaping you to become?
+A clear vision of your future self creates a magnetic pull toward growth. Without it, you drift — reacting to life rather than intentionally building the character and capabilities you want. The soul-map is incomplete without a destination: who is the person Allah is shaping you to become?
 
 
 **How?**
 
-Write a detailed portrait of yourself 5 years from now across three dimensions. Spiritually: what is your relationship with Allah like? What is your Quran practice? Mentally: how do you handle stress, make decisions, and think? Socially: what are your relationships like, how do you serve your community? Be specific and vivid â€” this is not a wish list but a blueprint.` },
+Write a detailed portrait of yourself 5 years from now across three dimensions. Spiritually: what is your relationship with Allah like? What is your Quran practice? Mentally: how do you handle stress, make decisions, and think? Socially: what are your relationships like, how do you serve your community? Be specific and vivid — this is not a wish list but a blueprint.` },
         { title: 'Share relevant portions with a trusted mentor or spouse for external reflection', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources establish the foundational principle of mutual reflection by describing a believer as a mirror to their brother, they omit specific modern practices like sharing a personal "soul-map" with a mentor or spouse, making the subtask a practical logical inference to systematically seek an external perspective for self-improvement.',
@@ -3688,7 +3688,7 @@ Write a detailed portrait of yourself 5 years from now across three dimensions. 
             {
               kind: "quran",
               ref: "Quran 4:58",
-              arabic: "Ø¥ÙÙ†ÙŽÙ‘ Ø§Ù„Ù„ÙŽÙ‘Ù‡ÙŽ ÙŠÙŽØ£Ù’Ù…ÙØ±ÙÙƒÙÙ…Ù’ Ø£ÙŽÙ† ØªÙØ¤ÙŽØ¯ÙÙ‘ÙˆØ§ Ø§Ù„Ù’Ø£ÙŽÙ…ÙŽØ§Ù†ÙŽØ§ØªÙ Ø¥ÙÙ„ÙŽÙ‰Ù° Ø£ÙŽÙ‡Ù’Ù„ÙÙ‡ÙŽØ§",
+              arabic: "إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا",
               translation: "Indeed, Allah commands you to render trusts to whom they are due.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3706,22 +3706,22 @@ Write a detailed portrait of yourself 5 years from now across three dimensions. 
           ],
           description: `**Why?**
 
-Self-knowledge has a ceiling when pursued alone. A trusted outside perspective â€” someone who knows you well and cares about your growth â€” can see patterns, blind spots, and strengths that you cannot see in yourself. Sharing your soul-map is an act of vulnerability that deepens both self-understanding and relational trust.
+Self-knowledge has a ceiling when pursued alone. A trusted outside perspective — someone who knows you well and cares about your growth — can see patterns, blind spots, and strengths that you cannot see in yourself. Sharing your soul-map is an act of vulnerability that deepens both self-understanding and relational trust.
 
 
 **How?**
 
-Choose someone you deeply trust â€” your spouse, a close friend, a mentor, or a therapist. Share the portions of your soul-map that you are comfortable with. Ask them: "Does this match what you see in me? What am I missing? What patterns do you notice that I might not?" Listen without defending. Their perspective is a gift, not a judgement.` },
+Choose someone you deeply trust — your spouse, a close friend, a mentor, or a therapist. Share the portions of your soul-map that you are comfortable with. Ask them: "Does this match what you see in me? What am I missing? What patterns do you notice that I might not?" Listen without defending. Their perspective is a gift, not a judgement.` },
       ],
     },
   ],
 
-  // â”€â”€ SAFETY & SECURITY â”€â”€
+  // ── SAFETY & SECURITY ──
   health_safety_core: [
     {
       title: 'Confirm stable, secure, and dignified housing for your household',
       priority: 'urgent', tags: ['housing', 'security'],
-      description: 'Shelter is one of the most fundamental human needs and a prerequisite for stability in every other area of life. Dignified housing means a space that is safe, clean, adequately sized, and free from threats â€” a foundation upon which spiritual and professional life can be built.',
+      description: 'Shelter is one of the most fundamental human needs and a prerequisite for stability in every other area of life. Dignified housing means a space that is safe, clean, adequately sized, and free from threats — a foundation upon which spiritual and professional life can be built.',
       subtasks: [
         { title: 'Assess your current housing for safety issues (locks, lighting, structural integrity)', done: false,
           tier: 'T2',
@@ -3730,7 +3730,7 @@ Choose someone you deeply trust â€” your spouse, a close friend, a mentor, 
             {
               kind: "quran",
               ref: "Quran 2:125",
-              arabic: "ÙˆÙŽØ¥ÙØ°Ù’ Ø¬ÙŽØ¹ÙŽÙ„Ù’Ù†ÙŽØ§ Ø§Ù„Ù’Ø¨ÙŽÙŠÙ’ØªÙŽ Ù…ÙŽØ«ÙŽØ§Ø¨ÙŽØ©Ù‹ Ù„ÙÙ‘Ù„Ù†ÙŽÙ‘Ø§Ø³Ù ÙˆÙŽØ£ÙŽÙ…Ù’Ù†Ù‹Ø§",
+              arabic: "وَإِذْ جَعَلْنَا الْبَيْتَ مَثَابَةً لِّلنَّاسِ وَأَمْنًا",
               translation: "And when We made the House a place of return for the people and a place of security.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3748,12 +3748,12 @@ Choose someone you deeply trust â€” your spouse, a close friend, a mentor, 
           ],
           description: `**Why?**
 
-A home that is physically unsafe undermines every other pursuit â€” you cannot focus on ibadah, work, or family when basic security is compromised. Identifying hazards is the first step toward fulfilling your amanah as protector of your household.
+A home that is physically unsafe undermines every other pursuit — you cannot focus on ibadah, work, or family when basic security is compromised. Identifying hazards is the first step toward fulfilling your amanah as protector of your household.
 
 
 **How?**
 
-Walk through your home room by room. Check that all exterior doors have functioning deadbolts and that windows lock securely. Test outdoor and hallway lighting â€” replace any burned-out bulbs. Look for structural concerns: cracks in walls, water damage, loose railings, or tripping hazards. Write down every issue you find and rank them by urgency.` },
+Walk through your home room by room. Check that all exterior doors have functioning deadbolts and that windows lock securely. Test outdoor and hallway lighting — replace any burned-out bulbs. Look for structural concerns: cracks in walls, water damage, loose railings, or tripping hazards. Write down every issue you find and rank them by urgency.` },
         { title: 'Verify that your lease or mortgage terms are halal and sustainable', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Quranic verse establishes the foundational financial principle that trade is permitted and interest (riba) is forbidden, it omits specific modern applications like verifying lease or mortgage terms, making the subtask a practical logical inference to systematically ensure one\'s housing arrangements are halal.',
@@ -3761,7 +3761,7 @@ Walk through your home room by room. Check that all exterior doors have function
             {
               kind: "quran",
               ref: "Quran 2:275",
-              arabic: "Ø£ÙŽØ­ÙŽÙ„ÙŽÙ‘ Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù Ø§Ù„Ù’Ø¨ÙŽÙŠÙ’Ø¹ÙŽ ÙˆÙŽØ­ÙŽØ±ÙŽÙ‘Ù…ÙŽ Ø§Ù„Ø±ÙÙ‘Ø¨ÙŽØ§",
+              arabic: "أَحَلَّ اللَّهُ الْبَيْعَ وَحَرَّمَ الرِّبَا",
               translation: "Allah has permitted trade and has forbidden interest (riba).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3770,7 +3770,7 @@ Walk through your home room by room. Check that all exterior doors have function
           ],
           description: `**Why?**
 
-Riba-based housing arrangements are among the most common haram financial entanglements Muslims face. Verifying that your lease or mortgage is halal ensures your shelter â€” one of your most fundamental needs â€” is not built on a prohibited foundation.
+Riba-based housing arrangements are among the most common haram financial entanglements Muslims face. Verifying that your lease or mortgage is halal ensures your shelter — one of your most fundamental needs — is not built on a prohibited foundation.
 
 
 **How?**
@@ -3783,7 +3783,7 @@ Review your current lease or mortgage agreement. If you have a conventional mort
             {
               kind: "quran",
               ref: "Quran 16:80",
-              arabic: "ÙˆÙŽØ§Ù„Ù„ÙŽÙ‘Ù‡Ù Ø¬ÙŽØ¹ÙŽÙ„ÙŽ Ù„ÙŽÙƒÙÙ… Ù…ÙÙ‘Ù† Ø¨ÙÙŠÙÙˆØªÙÙƒÙÙ…Ù’ Ø³ÙŽÙƒÙŽÙ†Ù‹Ø§",
+              arabic: "وَاللَّهُ جَعَلَ لَكُم مِّن بُيُوتِكُمْ سَكَنًا",
               translation: "And Allah has made for you from your homes a place of rest.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3792,7 +3792,7 @@ Review your current lease or mortgage agreement. If you have a conventional mort
             {
               kind: "quran",
               ref: "Quran 24:27",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ù„ÙŽØ§ ØªÙŽØ¯Ù’Ø®ÙÙ„ÙÙˆØ§ Ø¨ÙÙŠÙÙˆØªÙ‹Ø§ ØºÙŽÙŠÙ’Ø±ÙŽ Ø¨ÙÙŠÙÙˆØªÙÙƒÙÙ…Ù’ Ø­ÙŽØªÙŽÙ‘Ù‰Ù° ØªÙŽØ³Ù’ØªÙŽØ£Ù’Ù†ÙØ³ÙÙˆØ§ ÙˆÙŽØªÙØ³ÙŽÙ„ÙÙ‘Ù…ÙÙˆØ§ Ø¹ÙŽÙ„ÙŽÙ‰Ù° Ø£ÙŽÙ‡Ù’Ù„ÙÙ‡ÙŽØ§",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تَدْخُلُوا بُيُوتًا غَيْرَ بُيُوتِكُمْ حَتَّىٰ تَسْتَأْنِسُوا وَتُسَلِّمُوا عَلَىٰ أَهْلِهَا",
               translation: "O you who have believed, do not enter houses other than your own until you ascertain welcome and greet their inhabitants.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3823,12 +3823,12 @@ Evaluate whether each family member has reasonable personal space. Designate a c
           ],
           description: `**Why?**
 
-Delaying urgent repairs â€” a broken lock, exposed wiring, a gas leak, mould â€” puts your family at real physical risk. Acting immediately on safety hazards is part of taking by the means (al-akhdh bil-asbab) while trusting in Allah.
+Delaying urgent repairs — a broken lock, exposed wiring, a gas leak, mould — puts your family at real physical risk. Acting immediately on safety hazards is part of taking by the means (al-akhdh bil-asbab) while trusting in Allah.
 
 
 **How?**
 
-From your housing assessment, identify any issues that pose an immediate safety threat. Fix what you can yourself today â€” replace a broken lock, cover exposed wires, install a smoke detector. For issues beyond your skill, contact your landlord or hire a qualified professional. Do not wait for a convenient time; urgency means acting now.` },
+From your housing assessment, identify any issues that pose an immediate safety threat. Fix what you can yourself today — replace a broken lock, cover exposed wires, install a smoke detector. For issues beyond your skill, contact your landlord or hire a qualified professional. Do not wait for a convenient time; urgency means acting now.` },
         { title: 'If housing is unstable, create a plan with timeline and budget for improvement', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Quranic verse establishes the broad spiritual promise that Allah will provide a way out of hardships for those who fear Him, it omits specific modern logistical details like creating a timeline and budget for unstable housing, making the subtask a practical logical inference to systematically seek this promised relief.',
@@ -3836,8 +3836,8 @@ From your housing assessment, identify any issues that pose an immediate safety 
             {
               kind: "quran",
               ref: "Quran 65:2-3",
-              arabic: "ÙˆÙŽÙ…ÙŽÙ† ÙŠÙŽØªÙŽÙ‘Ù‚Ù Ø§Ù„Ù„ÙŽÙ‘Ù‡ÙŽ ÙŠÙŽØ¬Ù’Ø¹ÙŽÙ„ Ù„ÙŽÙ‘Ù‡Ù Ù…ÙŽØ®Ù’Ø±ÙŽØ¬Ù‹Ø§ ÙˆÙŽÙŠÙŽØ±Ù’Ø²ÙÙ‚Ù’Ù‡Ù Ù…ÙÙ†Ù’ Ø­ÙŽÙŠÙ’Ø«Ù Ù„ÙŽØ§ ÙŠÙŽØ­Ù’ØªÙŽØ³ÙØ¨Ù",
-              translation: "And whoever fears Allah â€” He will make for him a way out and will provide for him from where he does not expect.",
+              arabic: "وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ",
+              translation: "And whoever fears Allah — He will make for him a way out and will provide for him from where he does not expect.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -3845,12 +3845,12 @@ From your housing assessment, identify any issues that pose an immediate safety 
           ],
           description: `**Why?**
 
-If your current housing is genuinely unstable â€” unsafe neighbourhood, unaffordable rent, or uninhabitable conditions â€” you need a concrete plan, not just worry. A written plan with a timeline transforms anxiety into action and brings you closer to dignified shelter.
+If your current housing is genuinely unstable — unsafe neighbourhood, unaffordable rent, or uninhabitable conditions — you need a concrete plan, not just worry. A written plan with a timeline transforms anxiety into action and brings you closer to dignified shelter.
 
 
 **How?**
 
-Define what "stable housing" looks like for your family â€” location, size, cost, and safety criteria. Research options: moving, renegotiating your lease, applying for assistance, or saving for a halal mortgage. Set a realistic timeline with monthly milestones and a budget. Share the plan with your spouse or a trusted advisor for accountability.` },
+Define what "stable housing" looks like for your family — location, size, cost, and safety criteria. Research options: moving, renegotiating your lease, applying for assistance, or saving for a halal mortgage. Set a realistic timeline with monthly milestones and a budget. Share the plan with your spouse or a trusted advisor for accountability.` },
       ],
     },
     {
@@ -3865,7 +3865,7 @@ Define what "stable housing" looks like for your family â€” location, size,
             {
               kind: "quran",
               ref: "Quran 2:188",
-              arabic: "ÙˆÙŽÙ„ÙŽØ§ ØªÙŽØ£Ù’ÙƒÙÙ„ÙÙˆØ§ Ø£ÙŽÙ…Ù’ÙˆÙŽØ§Ù„ÙŽÙƒÙÙ… Ø¨ÙŽÙŠÙ’Ù†ÙŽÙƒÙÙ… Ø¨ÙØ§Ù„Ù’Ø¨ÙŽØ§Ø·ÙÙ„Ù",
+              arabic: "وَلَا تَأْكُلُوا أَمْوَالَكُم بَيْنَكُم بِالْبَاطِلِ",
               translation: "And do not consume one another's wealth unjustly.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3888,7 +3888,7 @@ Every dirham that enters your household either carries barakah or strips it away
 
 **How?**
 
-Write down every source of income: salary, side work, investments, rental income, government benefits, and gifts. For each one, assess whether the industry, the contract terms, and the way you earn it are halal. If you are unsure about any source, consult a knowledgeable scholar. Be honest â€” this exercise only works if you are willing to face uncomfortable truths.` },
+Write down every source of income: salary, side work, investments, rental income, government benefits, and gifts. For each one, assess whether the industry, the contract terms, and the way you earn it are halal. If you are unsure about any source, consult a knowledgeable scholar. Be honest — this exercise only works if you are willing to face uncomfortable truths.` },
         { title: 'Calculate your monthly essential expenses (food, clothing, shelter, utilities)', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources establish the fundamental obligation to spend according to one\'s means and to provide for dependents, they omit specific modern financial practices like calculating monthly essential expenses using a spreadsheet, making the subtask a practical logical inference to systematically ensure this duty is fulfilled without withholding necessary support.',
@@ -3896,8 +3896,8 @@ Write down every source of income: salary, side work, investments, rental income
             {
               kind: "quran",
               ref: "Quran 65:7",
-              arabic: "Ù„ÙÙŠÙÙ†ÙÙÙ‚Ù’ Ø°ÙÙˆ Ø³ÙŽØ¹ÙŽØ©Ù Ù…ÙÙ‘Ù† Ø³ÙŽØ¹ÙŽØªÙÙ‡Ù ÙˆÙŽÙ…ÙŽÙ† Ù‚ÙØ¯ÙØ±ÙŽ Ø¹ÙŽÙ„ÙŽÙŠÙ’Ù‡Ù Ø±ÙØ²Ù’Ù‚ÙÙ‡Ù ÙÙŽÙ„Ù’ÙŠÙÙ†ÙÙÙ‚Ù’ Ù…ÙÙ…ÙŽÙ‘Ø§ Ø¢ØªÙŽØ§Ù‡Ù Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù",
-              translation: "Let a man of wealth spend from his wealth, and he whose provision is restricted â€” let him spend from what Allah has given him.",
+              arabic: "لِيُنفِقْ ذُو سَعَةٍ مِّن سَعَتِهِ وَمَن قُدِرَ عَلَيْهِ رِزْقُهُ فَلْيُنفِقْ مِمَّا آتَاهُ اللَّهُ",
+              translation: "Let a man of wealth spend from his wealth, and he whose provision is restricted — let him spend from what Allah has given him.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -3914,7 +3914,7 @@ Write down every source of income: salary, side work, investments, rental income
           ],
           description: `**Why?**
 
-You cannot know whether your halal income is sufficient unless you know exactly what your essential costs are. This number is the baseline â€” the minimum your household needs to survive with dignity each month.
+You cannot know whether your halal income is sufficient unless you know exactly what your essential costs are. This number is the baseline — the minimum your household needs to survive with dignity each month.
 
 
 **How?**
@@ -3927,8 +3927,8 @@ Review the last three months of spending. Categorise expenses into essentials (r
             {
               kind: "quran",
               ref: "Quran 65:2-3",
-              arabic: "ÙˆÙŽÙ…ÙŽÙ† ÙŠÙŽØªÙŽÙ‘Ù‚Ù Ø§Ù„Ù„ÙŽÙ‘Ù‡ÙŽ ÙŠÙŽØ¬Ù’Ø¹ÙŽÙ„ Ù„ÙŽÙ‘Ù‡Ù Ù…ÙŽØ®Ù’Ø±ÙŽØ¬Ù‹Ø§ ÙˆÙŽÙŠÙŽØ±Ù’Ø²ÙÙ‚Ù’Ù‡Ù Ù…ÙÙ†Ù’ Ø­ÙŽÙŠÙ’Ø«Ù Ù„ÙŽØ§ ÙŠÙŽØ­Ù’ØªÙŽØ³ÙØ¨Ù",
-              translation: "And whoever fears Allah â€” He will make for him a way out and will provide for him from where he does not expect.",
+              arabic: "وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ",
+              translation: "And whoever fears Allah — He will make for him a way out and will provide for him from where he does not expect.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -3936,12 +3936,12 @@ Review the last three months of spending. Categorise expenses into essentials (r
           ],
           description: `**Why?**
 
-If your halal income does not cover your essential expenses, you are vulnerable â€” to debt, to compromise, and to the temptation of haram alternatives. Confirming coverage gives you the peace of mind that your foundation is sound.
+If your halal income does not cover your essential expenses, you are vulnerable — to debt, to compromise, and to the temptation of haram alternatives. Confirming coverage gives you the peace of mind that your foundation is sound.
 
 
 **How?**
 
-Compare your total verified halal income against your monthly essential expenses. If halal income exceeds essentials, you have a surplus to build on. If there is a shortfall, quantify it exactly â€” this is the gap you need to close. Be precise; rounding or estimating can hide real problems.` },
+Compare your total verified halal income against your monthly essential expenses. If halal income exceeds essentials, you have a surplus to build on. If there is a shortfall, quantify it exactly — this is the gap you need to close. Be precise; rounding or estimating can hide real problems.` },
         { title: 'If there is a gap, identify halal income opportunities to close it', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Quranic verse establishes the foundational spiritual truth that Allah is the provider for all creatures, it omits specific modern financial practices like brainstorming halal income opportunities to close a budget gap, making the subtask a practical logical inference to systematically seek the provision promised by Him.',
@@ -3949,7 +3949,7 @@ Compare your total verified halal income against your monthly essential expenses
             {
               kind: "quran",
               ref: "Quran 11:6",
-              arabic: "ÙˆÙŽÙ…ÙŽØ§ Ù…ÙÙ† Ø¯ÙŽØ§Ø¨ÙŽÙ‘Ø©Ù ÙÙÙŠ Ø§Ù„Ù’Ø£ÙŽØ±Ù’Ø¶Ù Ø¥ÙÙ„ÙŽÙ‘Ø§ Ø¹ÙŽÙ„ÙŽÙ‰ Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù Ø±ÙØ²Ù’Ù‚ÙÙ‡ÙŽØ§",
+              arabic: "وَمَا مِن دَابَّةٍ فِي الْأَرْضِ إِلَّا عَلَى اللَّهِ رِزْقُهَا",
               translation: "And there is no creature on earth but that upon Allah is its provision.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3971,7 +3971,7 @@ Brainstorm halal income opportunities: freelance skills, a side business, a bett
             {
               kind: "quran",
               ref: "Quran 2:278-279",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø§ØªÙŽÙ‘Ù‚ÙÙˆØ§ Ø§Ù„Ù„ÙŽÙ‘Ù‡ÙŽ ÙˆÙŽØ°ÙŽØ±ÙÙˆØ§ Ù…ÙŽØ§ Ø¨ÙŽÙ‚ÙÙŠÙŽ Ù…ÙÙ†ÙŽ Ø§Ù„Ø±ÙÙ‘Ø¨ÙŽØ§ Ø¥ÙÙ† ÙƒÙÙ†ØªÙÙ… Ù…ÙÙ‘Ø¤Ù’Ù…ÙÙ†ÙÙŠÙ†ÙŽ",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَذَرُوا مَا بَقِيَ مِنَ الرِّبَا إِن كُنتُم مُّؤْمِنِينَ",
               translation: "O you who have believed, fear Allah and give up what remains of interest, if you should be believers.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3990,7 +3990,7 @@ For each haram income source identified, create an exit plan with a timeline. If
     {
       title: 'Build a 3-month emergency fund in a halal savings vehicle',
       priority: 'high', tags: ['finance', 'emergency'],
-      description: 'An emergency fund provides a buffer against unexpected job loss, medical expenses, or urgent needs â€” reducing the temptation to take on riba-based debt in a crisis. Three months of essential expenses, held in a halal account, is the minimum safety net every Muslim household should have.',
+      description: 'An emergency fund provides a buffer against unexpected job loss, medical expenses, or urgent needs — reducing the temptation to take on riba-based debt in a crisis. Three months of essential expenses, held in a halal account, is the minimum safety net every Muslim household should have.',
       subtasks: [
         { title: 'Calculate your total monthly essential expenses to determine the 3-month target', done: false,
           tier: 'T3',
@@ -4013,7 +4013,7 @@ Your emergency fund target must be based on real numbers, not guesses. An unders
 
 **How?**
 
-Use your monthly essential expenses calculation (food, shelter, utilities, transport, medical). Multiply by three to get your emergency fund target. Write this number down prominently â€” it is your goal. If you have not yet calculated your essentials, complete that subtask first.` },
+Use your monthly essential expenses calculation (food, shelter, utilities, transport, medical). Multiply by three to get your emergency fund target. Write this number down prominently — it is your goal. If you have not yet calculated your essentials, complete that subtask first.` },
         { title: 'Open a halal savings account (Islamic bank or halal investment vehicle)', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources establish the foundational principles of saving for future needs and taking practical precautions while trusting in Allah, they omit specific modern financial methods like opening a halal savings account, making the subtask a practical logical inference to systematically implement this required preparation.',
@@ -4021,7 +4021,7 @@ Use your monthly essential expenses calculation (food, shelter, utilities, trans
             {
               kind: "quran",
               ref: "Quran 12:47-48",
-              arabic: "Ù‚ÙŽØ§Ù„ÙŽ ØªÙŽØ²Ù’Ø±ÙŽØ¹ÙÙˆÙ†ÙŽ Ø³ÙŽØ¨Ù’Ø¹ÙŽ Ø³ÙÙ†ÙÙŠÙ†ÙŽ Ø¯ÙŽØ£ÙŽØ¨Ù‹Ø§ ÙÙŽÙ…ÙŽØ§ Ø­ÙŽØµÙŽØ¯ØªÙÙ‘Ù…Ù’ ÙÙŽØ°ÙŽØ±ÙÙˆÙ‡Ù ÙÙÙŠ Ø³ÙÙ†Ø¨ÙÙ„ÙÙ‡Ù Ø¥ÙÙ„ÙŽÙ‘Ø§ Ù‚ÙŽÙ„ÙÙŠÙ„Ù‹Ø§ Ù…ÙÙ‘Ù…ÙŽÙ‘Ø§ ØªÙŽØ£Ù’ÙƒÙÙ„ÙÙˆÙ†ÙŽ",
+              arabic: "قَالَ تَزْرَعُونَ سَبْعَ سِنِينَ دَأَبًا فَمَا حَصَدتُّمْ فَذَرُوهُ فِي سُنبُلِهِ إِلَّا قَلِيلًا مِّمَّا تَأْكُلُونَ",
               translation: "Yusuf (AS) said: You will plant for seven years consecutively; and what you harvest, leave in its spears, except a little from which you will eat. (The Quranic model of saving for future need.)",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4052,7 +4052,7 @@ Research Islamic banks or credit unions in your area that offer savings accounts
             {
               kind: "quran",
               ref: "Quran 17:29",
-              arabic: "ÙˆÙŽÙ„ÙŽØ§ ØªÙŽØ¬Ù’Ø¹ÙŽÙ„Ù’ ÙŠÙŽØ¯ÙŽÙƒÙŽ Ù…ÙŽØºÙ’Ù„ÙÙˆÙ„ÙŽØ©Ù‹ Ø¥ÙÙ„ÙŽÙ‰Ù° Ø¹ÙÙ†ÙÙ‚ÙÙƒÙŽ ÙˆÙŽÙ„ÙŽØ§ ØªÙŽØ¨Ù’Ø³ÙØ·Ù’Ù‡ÙŽØ§ ÙƒÙÙ„ÙŽÙ‘ Ø§Ù„Ù’Ø¨ÙŽØ³Ù’Ø·Ù",
+              arabic: "وَلَا تَجْعَلْ يَدَكَ مَغْلُولَةً إِلَىٰ عُنُقِكَ وَلَا تَبْسُطْهَا كُلَّ الْبَسْطِ",
               translation: "And do not make your hand as chained to your neck or extend it completely, lest you sit blamed and insolvent.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4061,20 +4061,20 @@ Research Islamic banks or credit unions in your area that offer savings accounts
           ],
           description: `**Why?**
 
-Automation removes willpower from the equation. If you rely on manually transferring money each month, life will get in the way. An automatic transfer treats your emergency fund like a non-negotiable bill â€” because it is.
+Automation removes willpower from the equation. If you rely on manually transferring money each month, life will get in the way. An automatic transfer treats your emergency fund like a non-negotiable bill — because it is.
 
 
 **How?**
 
-Log into your primary bank account and set up a recurring automatic transfer to your halal savings account. Schedule it for the day after your paycheck arrives. Start with whatever amount you can afford â€” even a small amount builds momentum. Increase the transfer amount whenever your income grows or expenses decrease.` },
-        { title: 'Avoid touching the fund for non-emergencies â€” define what qualifies as an emergency', done: false,
+Log into your primary bank account and set up a recurring automatic transfer to your halal savings account. Schedule it for the day after your paycheck arrives. Start with whatever amount you can afford — even a small amount builds momentum. Increase the transfer amount whenever your income grows or expenses decrease.` },
+        { title: 'Avoid touching the fund for non-emergencies — define what qualifies as an emergency', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Quranic verses establish the foundational principles of avoiding wastefulness and practicing moderation in spending, they omit specific modern financial rules like defining and restricting the use of an emergency fund, making the subtask a practical logical inference to systematically ensure this commanded financial discipline.',
           sources: [
             {
               kind: "quran",
               ref: "Quran 17:27",
-              arabic: "Ø¥ÙÙ†ÙŽÙ‘ Ø§Ù„Ù’Ù…ÙØ¨ÙŽØ°ÙÙ‘Ø±ÙÙŠÙ†ÙŽ ÙƒÙŽØ§Ù†ÙÙˆØ§ Ø¥ÙØ®Ù’ÙˆÙŽØ§Ù†ÙŽ Ø§Ù„Ø´ÙŽÙ‘ÙŠÙŽØ§Ø·ÙÙŠÙ†Ù",
+              arabic: "إِنَّ الْمُبَذِّرِينَ كَانُوا إِخْوَانَ الشَّيَاطِينِ",
               translation: "Indeed, the wasteful are brothers of the devils.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4083,7 +4083,7 @@ Log into your primary bank account and set up a recurring automatic transfer to 
             {
               kind: "quran",
               ref: "Quran 25:67",
-              arabic: "ÙˆÙŽØ§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¥ÙØ°ÙŽØ§ Ø£ÙŽÙ†ÙÙŽÙ‚ÙÙˆØ§ Ù„ÙŽÙ…Ù’ ÙŠÙØ³Ù’Ø±ÙÙÙÙˆØ§ ÙˆÙŽÙ„ÙŽÙ…Ù’ ÙŠÙŽÙ‚Ù’ØªÙØ±ÙÙˆØ§ ÙˆÙŽÙƒÙŽØ§Ù†ÙŽ Ø¨ÙŽÙŠÙ’Ù†ÙŽ Ø°ÙŽÙ°Ù„ÙÙƒÙŽ Ù‚ÙŽÙˆÙŽØ§Ù…Ù‹Ø§",
+              arabic: "وَالَّذِينَ إِذَا أَنفَقُوا لَمْ يُسْرِفُوا وَلَمْ يَقْتُرُوا وَكَانَ بَيْنَ ذَٰلِكَ قَوَامًا",
               translation: "And those who, when they spend, do so not excessively nor sparingly but are ever, between that, moderate.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4092,7 +4092,7 @@ Log into your primary bank account and set up a recurring automatic transfer to 
           ],
           description: `**Why?**
 
-An emergency fund that gets raided for vacations, gadgets, or "just this once" situations is not an emergency fund â€” it is a slush fund. Clear boundaries protect the fund from your own nafs and ensure it is there when you truly need it.
+An emergency fund that gets raided for vacations, gadgets, or "just this once" situations is not an emergency fund — it is a slush fund. Clear boundaries protect the fund from your own nafs and ensure it is there when you truly need it.
 
 
 **How?**
@@ -4105,7 +4105,7 @@ Write a short list of what counts as an emergency: job loss, medical emergency, 
             {
               kind: "quran",
               ref: "Quran 12:47-48",
-              arabic: "ØªÙŽØ²Ù’Ø±ÙŽØ¹ÙÙˆÙ†ÙŽ Ø³ÙŽØ¨Ù’Ø¹ÙŽ Ø³ÙÙ†ÙÙŠÙ†ÙŽ Ø¯ÙŽØ£ÙŽØ¨Ù‹Ø§",
+              arabic: "تَزْرَعُونَ سَبْعَ سِنِينَ دَأَبًا",
               translation: "You will plant for seven years consecutively... (Yusuf's model of disciplined saving.)",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4128,13 +4128,13 @@ Tracking progress keeps you motivated and accountable. Seeing your fund grow mon
 
 **How?**
 
-Set a monthly reminder to check your emergency fund balance. Record the balance in a simple spreadsheet or notebook alongside your target. Calculate the percentage complete and estimated months to reach the goal. Celebrate milestones â€” reaching 25%, 50%, and 75% of your target are real achievements. Adjust your transfer amount if progress is too slow.` },
+Set a monthly reminder to check your emergency fund balance. Record the balance in a simple spreadsheet or notebook alongside your target. Calculate the percentage complete and estimated months to reach the goal. Celebrate milestones — reaching 25%, 50%, and 75% of your target are real achievements. Adjust your transfer amount if progress is too slow.` },
       ],
     },
     {
       title: 'Obtain basic first aid and CPR certification',
       priority: 'high', tags: ['first-aid', 'preparation'],
-      description: 'Knowing how to respond in a medical emergency can save a life â€” a family member, a colleague, or a stranger. First aid and CPR certification equips you with practical skills that fulfil the Islamic duty of preserving life (hifz al-nafs) in its most direct form.',
+      description: 'Knowing how to respond in a medical emergency can save a life — a family member, a colleague, or a stranger. First aid and CPR certification equips you with practical skills that fulfil the Islamic duty of preserving life (hifz al-nafs) in its most direct form.',
       subtasks: [
         { title: 'Find a certified first aid and CPR course in your area or online', done: false,
           tier: 'T2',
@@ -4143,7 +4143,7 @@ Set a monthly reminder to check your emergency fund balance. Record the balance 
             {
               kind: "quran",
               ref: "Quran 5:32",
-              arabic: "ÙˆÙŽÙ…ÙŽÙ†Ù’ Ø£ÙŽØ­Ù’ÙŠÙŽØ§Ù‡ÙŽØ§ ÙÙŽÙƒÙŽØ£ÙŽÙ†ÙŽÙ‘Ù…ÙŽØ§ Ø£ÙŽØ­Ù’ÙŠÙŽØ§ Ø§Ù„Ù†ÙŽÙ‘Ø§Ø³ÙŽ Ø¬ÙŽÙ…ÙÙŠØ¹Ù‹Ø§",
+              arabic: "وَمَنْ أَحْيَاهَا فَكَأَنَّمَا أَحْيَا النَّاسَ جَمِيعًا",
               translation: "And whoever saves a life, it is as if he has saved all of mankind.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4161,7 +4161,7 @@ Set a monthly reminder to check your emergency fund balance. Record the balance 
           ],
           description: `**Why?**
 
-You cannot learn these skills from a YouTube video alone â€” proper certification involves hands-on practice with feedback from qualified instructors. Finding the right course is the first step toward being prepared to save a life.
+You cannot learn these skills from a YouTube video alone — proper certification involves hands-on practice with feedback from qualified instructors. Finding the right course is the first step toward being prepared to save a life.
 
 
 **How?**
@@ -4174,7 +4174,7 @@ Search for Red Cross, Red Crescent, St John Ambulance, or equivalent certified c
             {
               kind: "quran",
               ref: "Quran 5:32",
-              arabic: "ÙˆÙŽÙ…ÙŽÙ†Ù’ Ø£ÙŽØ­Ù’ÙŠÙŽØ§Ù‡ÙŽØ§ ÙÙŽÙƒÙŽØ£ÙŽÙ†ÙŽÙ‘Ù…ÙŽØ§ Ø£ÙŽØ­Ù’ÙŠÙŽØ§ Ø§Ù„Ù†ÙŽÙ‘Ø§Ø³ÙŽ Ø¬ÙŽÙ…ÙÙŠØ¹Ù‹Ø§",
+              arabic: "وَمَنْ أَحْيَاهَا فَكَأَنَّمَا أَحْيَا النَّاسَ جَمِيعًا",
               translation: "And whoever saves a life, it is as if he has saved all of mankind.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4188,7 +4188,7 @@ Knowledge without action is worth nothing. Registering locks you into a commitme
 
 **How?**
 
-Register for the course you identified â€” pay the fee and block the time on your calendar. Attend the full session and participate actively in all practical exercises. Ask questions about scenarios you find confusing. Take the written and practical assessments seriously. Keep your certification card in a safe, accessible place.` },
+Register for the course you identified — pay the fee and block the time on your calendar. Attend the full session and participate actively in all practical exercises. Ask questions about scenarios you find confusing. Take the written and practical assessments seriously. Keep your certification card in a safe, accessible place.` },
         { title: 'Practise key skills: recovery position, CPR compressions, choking response', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Hadith establishes the general medical principle that every disease has a matching medicine through which Allah grants recovery, it omits specific modern first-aid techniques like practicing CPR compressions and the choking response, making the subtask a practical logical inference to systematically prepare and apply these life-saving treatments.',
@@ -4205,12 +4205,12 @@ Register for the course you identified â€” pay the fee and block the time o
           ],
           description: `**Why?**
 
-Skills fade quickly without reinforcement. In a real emergency, you will not have time to recall what you learned six months ago â€” your body needs to remember through repeated practice.
+Skills fade quickly without reinforcement. In a real emergency, you will not have time to recall what you learned six months ago — your body needs to remember through repeated practice.
 
 
 **How?**
 
-After the course, practise the recovery position with a family member. Review the CPR compression technique monthly â€” 30 compressions to 2 breaths, 5-6 cm depth, 100-120 beats per minute. Walk through the choking response (back blows and abdominal thrusts) so the sequence is automatic. Consider purchasing a practice mannequin or attending refresher workshops.` },
+After the course, practise the recovery position with a family member. Review the CPR compression technique monthly — 30 compressions to 2 breaths, 5-6 cm depth, 100-120 beats per minute. Walk through the choking response (back blows and abdominal thrusts) so the sequence is automatic. Consider purchasing a practice mannequin or attending refresher workshops.` },
         { title: 'Keep your certification current with renewal before expiry', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Hadith establishes the general obligation to make use of medical treatment since Allah has appointed a remedy for every disease, it omits specific modern administrative steps like renewing a first-aid certification before its expiry, making the subtask a practical logical inference to systematically ensure one\'s medical knowledge and readiness remain effective.',
@@ -4218,7 +4218,7 @@ After the course, practise the recovery position with a family member. Review th
             {
               kind: "hadith",
               ref: "Jami at-Tirmidhi 2038",
-              translation: "The Prophet (SAW) said: \"Make use of medical treatment, for Allah has not made a disease without appointing a remedy for it, except for one disease â€” old age.\"",
+              translation: "The Prophet (SAW) said: \"Make use of medical treatment, for Allah has not made a disease without appointing a remedy for it, except for one disease — old age.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -4236,9 +4236,9 @@ Note your certification expiry date and set a calendar reminder two months befor
       ],
     },
     {
-      title: 'Document an emergency contact plan â€” phone numbers, meeting point, exit routes',
+      title: 'Document an emergency contact plan — phone numbers, meeting point, exit routes',
       priority: 'medium', tags: ['emergency', 'planning'],
-      description: 'In an emergency â€” fire, natural disaster, or security threat â€” panic is the enemy. A pre-documented plan with clear contacts, meeting points, and exit routes ensures your family can act quickly and reunite safely. Tawakkul in Allah does not negate taking practical precautions.',
+      description: 'In an emergency — fire, natural disaster, or security threat — panic is the enemy. A pre-documented plan with clear contacts, meeting points, and exit routes ensures your family can act quickly and reunite safely. Tawakkul in Allah does not negate taking practical precautions.',
       subtasks: [
         { title: 'List emergency contacts: family, neighbours, local emergency services, mosque', done: false,
           tier: 'T2',
@@ -4247,7 +4247,7 @@ Note your certification expiry date and set a calendar reminder two months befor
             {
               kind: "quran",
               ref: "Quran 4:71",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø®ÙØ°ÙÙˆØ§ Ø­ÙØ°Ù’Ø±ÙŽÙƒÙÙ…Ù’",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا خُذُوا حِذْرَكُمْ",
               translation: "O you who have believed, take your precaution.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4265,7 +4265,7 @@ Note your certification expiry date and set a calendar reminder two months befor
           ],
           description: `**Why?**
 
-In an emergency, you should not have to search for phone numbers. Having every critical contact pre-listed means any family member â€” including children â€” can reach help immediately, even if the primary adult is incapacitated.
+In an emergency, you should not have to search for phone numbers. Having every critical contact pre-listed means any family member — including children — can reach help immediately, even if the primary adult is incapacitated.
 
 
 **How?**
@@ -4278,7 +4278,7 @@ Create a contact list that includes: local emergency services (police, fire, amb
             {
               kind: "quran",
               ref: "Quran 4:71",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø®ÙØ°ÙÙˆØ§ Ø­ÙØ°Ù’Ø±ÙŽÙƒÙÙ…Ù’",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا خُذُوا حِذْرَكُمْ",
               translation: "O you who have believed, take your precaution.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4301,7 +4301,7 @@ If the primary exit is blocked by fire or debris, a second route can save your l
 
 **How?**
 
-Walk through your home and identify two ways out of every room â€” typically a door and a window. Ensure windows designated as exits can actually be opened quickly. Choose a meeting point outside that is far enough from the building to be safe but close enough to be obvious â€” a specific tree, lamppost, or neighbour's front yard. Make sure every family member knows both routes and the meeting point.` },
+Walk through your home and identify two ways out of every room — typically a door and a window. Ensure windows designated as exits can actually be opened quickly. Choose a meeting point outside that is far enough from the building to be safe but close enough to be obvious — a specific tree, lamppost, or neighbour's front yard. Make sure every family member knows both routes and the meeting point.` },
         { title: 'Print the plan and post it in a visible location (kitchen or hallway)', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Quranic verse establishes the broad mandate to take general precautions, it omits specific modern emergency procedures like printing a physical emergency plan and posting it in a visible location, making the subtask a practical logical inference to systematically fulfill this divine command.',
@@ -4309,7 +4309,7 @@ Walk through your home and identify two ways out of every room â€” typicall
             {
               kind: "quran",
               ref: "Quran 4:71",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø®ÙØ°ÙÙˆØ§ Ø­ÙØ°Ù’Ø±ÙŽÙƒÙÙ…Ù’",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا خُذُوا حِذْرَكُمْ",
               translation: "O you who have believed, take your precaution.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4323,7 +4323,7 @@ A plan that only exists in your head or buried in a phone is useless during a cr
 
 **How?**
 
-Format your emergency plan clearly on a single page: contacts at the top, exit routes in the middle, meeting point at the bottom. Use large, readable font. Print it and laminate it if possible. Post it on the inside of a kitchen cabinet door, on the fridge, or in the main hallway â€” somewhere every family member passes daily. Keep a backup copy in your car or go-bag.` },
+Format your emergency plan clearly on a single page: contacts at the top, exit routes in the middle, meeting point at the bottom. Use large, readable font. Print it and laminate it if possible. Post it on the inside of a kitchen cabinet door, on the fridge, or in the main hallway — somewhere every family member passes daily. Keep a backup copy in your car or go-bag.` },
         { title: 'Save all emergency numbers in every family member\'s phone', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources establish the broad principles of taking precautions and being responsible for the safety of one\'s family, they omit specific modern emergency procedures like saving all emergency numbers in every family member\'s phone, making the subtask a practical logical inference to systematically fulfill this mandate.',
@@ -4331,7 +4331,7 @@ Format your emergency plan clearly on a single page: contacts at the top, exit r
             {
               kind: "quran",
               ref: "Quran 4:71",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø®ÙØ°ÙÙˆØ§ Ø­ÙØ°Ù’Ø±ÙŽÙƒÙÙ…Ù’",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا خُذُوا حِذْرَكُمْ",
               translation: "O you who have believed, take your precaution.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4362,7 +4362,7 @@ Go through each family member's phone and add all emergency contacts with clear 
             {
               kind: "quran",
               ref: "Quran 4:71",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø®ÙØ°ÙÙˆØ§ Ø­ÙØ°Ù’Ø±ÙŽÙƒÙÙ…Ù’",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا خُذُوا حِذْرَكُمْ",
               translation: "O you who have believed, take your precaution.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4380,18 +4380,18 @@ Go through each family member's phone and add all emergency contacts with clear 
           ],
           description: `**Why?**
 
-A plan on paper is only as good as the people who know how to follow it. A walkthrough turns abstract instructions into physical memory â€” your children will know which window to open, which direction to run, and where to gather.
+A plan on paper is only as good as the people who know how to follow it. A walkthrough turns abstract instructions into physical memory — your children will know which window to open, which direction to run, and where to gather.
 
 
 **How?**
 
-Gather your entire household and walk through the emergency plan step by step. Physically practise both exit routes. Have everyone walk to the meeting point. Let each person practise calling an emergency contact. Make it calm and informative, not frightening â€” frame it as being smart and prepared. Repeat the walkthrough every six months or whenever a new family member moves in.` },
+Gather your entire household and walk through the emergency plan step by step. Physically practise both exit routes. Have everyone walk to the meeting point. Let each person practise calling an emergency contact. Make it calm and informative, not frightening — frame it as being smart and prepared. Repeat the walkthrough every six months or whenever a new family member moves in.` },
       ],
     },
   ],
   health_safety_growth: [
     {
-      title: 'Improve living conditions â€” reduce overcrowding, noise, and environmental stressors',
+      title: 'Improve living conditions — reduce overcrowding, noise, and environmental stressors',
       priority: 'high', tags: ['housing', 'well-being'],
       description: 'Your environment shapes your mental state. Overcrowding, excessive noise, clutter, and poor lighting create chronic stress that erodes well-being and makes ibadah, study, and family life harder. Improving your living conditions is an investment in every dimension of your life.',
       subtasks: [
@@ -4417,14 +4417,14 @@ You cannot fix what you have not identified. Most people adapt to chronic enviro
 **How?**
 
 Spend a day paying deliberate attention to what bothers you in your home. Notice noise levels, clutter hotspots, dark corners, cramped spaces, temperature issues, or unpleasant smells. Ask family members what stresses them most. Rank everything and pick the top three that have the greatest daily impact on your mood and productivity.` },
-        { title: 'Declutter one room at a time â€” remove what you do not need or use', done: false,
+        { title: 'Declutter one room at a time — remove what you do not need or use', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources establish the foundational principles of making the home a place of rest and maintaining cleanliness, they omit specific modern practices like decluttering one room at a time, making the subtask a practical logical inference to systematically achieve this commanded domestic peace and order.',
           sources: [
             {
               kind: "quran",
               ref: "Quran 16:80",
-              arabic: "ÙˆÙŽØ§Ù„Ù„ÙŽÙ‘Ù‡Ù Ø¬ÙŽØ¹ÙŽÙ„ÙŽ Ù„ÙŽÙƒÙÙ… Ù…ÙÙ‘Ù† Ø¨ÙÙŠÙÙˆØªÙÙƒÙÙ…Ù’ Ø³ÙŽÙƒÙŽÙ†Ù‹Ø§",
+              arabic: "وَاللَّهُ جَعَلَ لَكُم مِّن بُيُوتِكُمْ سَكَنًا",
               translation: "And Allah has made for you from your homes a place of rest.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4436,18 +4436,18 @@ Spend a day paying deliberate attention to what bothers you in your home. Notice
               translation: "The Prophet (SAW) said: \"Cleanliness is half of faith.\" (Emphasising the importance of a clean, orderly environment.)",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih â€” narrated in Sahih Muslim 223",
+              hadithGrade: "Sahih — narrated in Sahih Muslim 223",
               rationale: "Prophetic narration cited as evidence for this subtask.",
             },
           ],
           description: `**Why?**
 
-Clutter is not just an aesthetic problem â€” it creates visual noise that taxes your brain, makes cleaning harder, and subtly communicates disorder. The Prophet (SAW) valued cleanliness and order; a decluttered home is easier to maintain and more conducive to peace.
+Clutter is not just an aesthetic problem — it creates visual noise that taxes your brain, makes cleaning harder, and subtly communicates disorder. The Prophet (SAW) valued cleanliness and order; a decluttered home is easier to maintain and more conducive to peace.
 
 
 **How?**
 
-Pick one room to start with â€” ideally the one you spend the most time in. Go through every item and decide: keep, donate, or discard. Be honest about what you actually use versus what you are keeping "just in case." Box up donations immediately and remove them from the house. Organise what remains with clear storage. Move to the next room only after the first is complete.` },
+Pick one room to start with — ideally the one you spend the most time in. Go through every item and decide: keep, donate, or discard. Be honest about what you actually use versus what you are keeping "just in case." Box up donations immediately and remove them from the house. Organise what remains with clear storage. Move to the next room only after the first is complete.` },
         { title: 'Address noise issues with practical solutions (rugs, curtains, white noise, conversation)', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources highlight the disruptive nature of overwhelming sound and the profound blessing of feeling secure and peaceful in one\'s dwelling, they omit specific modern acoustic solutions like using heavy curtains or white noise machines, making the subtask a practical logical inference to systematically cultivate this desired domestic tranquility and spiritual focus.',
@@ -4455,8 +4455,8 @@ Pick one room to start with â€” ideally the one you spend the most time in.
             {
               kind: "quran",
               ref: "Quran 80:33",
-              arabic: "ÙÙŽØ¥ÙØ°ÙŽØ§ Ø¬ÙŽØ§Ø¡ÙŽØªÙ Ø§Ù„ØµÙŽÙ‘Ø§Ø®ÙŽÙ‘Ø©Ù",
-              translation: "When the Deafening Blast comesâ€”",
+              arabic: "فَإِذَا جَاءَتِ الصَّاخَّةُ",
+              translation: "When the Deafening Blast comes—",
               relevance: "contextual",
               provenanceTier: "Bayyinah",
               rationale: "the Quran's vivid depiction of overwhelming sound underscores how noise disrupts the heart's ability to focus; reducing worldly noise is a prerequisite for spiritual presence.",
@@ -4464,7 +4464,7 @@ Pick one room to start with â€” ideally the one you spend the most time in.
             {
               kind: "quran",
               ref: "Quran 101:2",
-              arabic: "Ù…ÙŽØ§ Ø§Ù„Ù’Ù‚ÙŽØ§Ø±ÙØ¹ÙŽØ©Ù",
+              arabic: "مَا الْقَارِعَةُ",
               translation: "What is the Crashing Blow?",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4473,7 +4473,7 @@ Pick one room to start with â€” ideally the one you spend the most time in.
             {
               kind: "hadith",
               ref: "Sahih Muslim 2965",
-              translation: "The Prophet (SAW) said: \"Whoever among you wakes up secure in his dwelling, healthy in his body, having his food for the day â€” it is as if the whole world has been gathered for him.\"",
+              translation: "The Prophet (SAW) said: \"Whoever among you wakes up secure in his dwelling, healthy in his body, having his food for the day — it is as if the whole world has been gathered for him.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -4482,20 +4482,20 @@ Pick one room to start with â€” ideally the one you spend the most time in.
           ],
           description: `**Why?**
 
-Chronic noise â€” traffic, neighbours, appliances, or even family activity â€” elevates cortisol, disrupts sleep, and makes concentration during salah or study nearly impossible. Reducing noise is one of the highest-impact improvements you can make.
+Chronic noise — traffic, neighbours, appliances, or even family activity — elevates cortisol, disrupts sleep, and makes concentration during salah or study nearly impossible. Reducing noise is one of the highest-impact improvements you can make.
 
 
 **How?**
 
-Identify your primary noise sources. For external noise, add heavy curtains, seal window gaps, or use a white noise machine. For hard-floor echo, lay down rugs or carpet. For internal noise conflicts (children playing while someone studies), establish quiet hours or use room dividers. If a neighbour is the source, have a respectful conversation â€” many people are unaware of the impact.` },
-        { title: 'Improve lighting â€” maximise natural light and add warm task lighting where needed', done: false,
+Identify your primary noise sources. For external noise, add heavy curtains, seal window gaps, or use a white noise machine. For hard-floor echo, lay down rugs or carpet. For internal noise conflicts (children playing while someone studies), establish quiet hours or use room dividers. If a neighbour is the source, have a respectful conversation — many people are unaware of the impact.` },
+        { title: 'Improve lighting — maximise natural light and add warm task lighting where needed', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Quranic verse establishes the foundational concept of the home as a place of rest, it omits specific modern interior design practices like maximizing natural light or adding warm task lighting, making the subtask a practical logical inference to systematically cultivate this promised domestic tranquility.',
           sources: [
             {
               kind: "quran",
               ref: "Quran 16:80",
-              arabic: "ÙˆÙŽØ§Ù„Ù„ÙŽÙ‘Ù‡Ù Ø¬ÙŽØ¹ÙŽÙ„ÙŽ Ù„ÙŽÙƒÙÙ… Ù…ÙÙ‘Ù† Ø¨ÙÙŠÙÙˆØªÙÙƒÙÙ…Ù’ Ø³ÙŽÙƒÙŽÙ†Ù‹Ø§",
+              arabic: "وَاللَّهُ جَعَلَ لَكُم مِّن بُيُوتِكُمْ سَكَنًا",
               translation: "And Allah has made for you from your homes a place of rest.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4517,7 +4517,7 @@ Start by maximising natural light: clean windows, open curtains during the day, 
             {
               kind: "quran",
               ref: "Quran 16:80",
-              arabic: "ÙˆÙŽØ§Ù„Ù„ÙŽÙ‘Ù‡Ù Ø¬ÙŽØ¹ÙŽÙ„ÙŽ Ù„ÙŽÙƒÙÙ… Ù…ÙÙ‘Ù† Ø¨ÙÙŠÙÙˆØªÙÙƒÙÙ…Ù’ Ø³ÙŽÙƒÙŽÙ†Ù‹Ø§",
+              arabic: "وَاللَّهُ جَعَلَ لَكُم مِّن بُيُوتِكُمْ سَكَنًا",
               translation: "And Allah has made for you from your homes a place of rest.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4526,7 +4526,7 @@ Start by maximising natural light: clean windows, open curtains during the day, 
             {
               kind: "quran",
               ref: "Quran 7:205",
-              arabic: "ÙˆÙŽØ§Ø°Ù’ÙƒÙØ± Ø±ÙŽÙ‘Ø¨ÙŽÙ‘ÙƒÙŽ ÙÙÙŠ Ù†ÙŽÙÙ’Ø³ÙÙƒÙŽ ØªÙŽØ¶ÙŽØ±ÙÙ‘Ø¹Ù‹Ø§ ÙˆÙŽØ®ÙÙŠÙÙŽØ©Ù‹",
+              arabic: "وَاذْكُر رَّبَّكَ فِي نَفْسِكَ تَضَرُّعًا وَخِيفَةً",
               translation: "And remember your Lord within yourself in humility and in fear.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4540,7 +4540,7 @@ Having a designated space for worship and reflection signals to your nafs and yo
 
 **How?**
 
-Choose a clean, quiet corner of your home â€” it does not need to be an entire room. Lay a dedicated prayer mat and keep a Quran or mushaf nearby. Ensure the space faces the qiblah. Remove screens and distractions from the area. Add a small shelf for Islamic books. If space is limited, a foldable screen or curtain can partition a corner of a bedroom or living room.` },
+Choose a clean, quiet corner of your home — it does not need to be an entire room. Lay a dedicated prayer mat and keep a Quran or mushaf nearby. Ensure the space faces the qiblah. Remove screens and distractions from the area. Add a small shelf for Islamic books. If space is limited, a foldable screen or curtain can partition a corner of a bedroom or living room.` },
       ],
     },
     {
@@ -4555,7 +4555,7 @@ Choose a clean, quiet corner of your home â€” it does not need to be an ent
             {
               kind: "quran",
               ref: "Quran 5:2",
-              arabic: "ÙˆÙŽØªÙŽØ¹ÙŽØ§ÙˆÙŽÙ†ÙÙˆØ§ Ø¹ÙŽÙ„ÙŽÙ‰ Ø§Ù„Ù’Ø¨ÙØ±ÙÙ‘ ÙˆÙŽØ§Ù„ØªÙŽÙ‘Ù‚Ù’ÙˆÙŽÙ‰Ù° ÙˆÙŽÙ„ÙŽØ§ ØªÙŽØ¹ÙŽØ§ÙˆÙŽÙ†ÙÙˆØ§ Ø¹ÙŽÙ„ÙŽÙ‰ Ø§Ù„Ù’Ø¥ÙØ«Ù’Ù…Ù ÙˆÙŽØ§Ù„Ù’Ø¹ÙØ¯Ù’ÙˆÙŽØ§Ù†Ù",
+              arabic: "وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ وَلَا تَعَاوَنُوا عَلَى الْإِثْمِ وَالْعُدْوَانِ",
               translation: "And cooperate in righteousness and piety, but do not cooperate in sin and aggression.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4564,7 +4564,7 @@ Choose a clean, quiet corner of your home â€” it does not need to be an ent
           ],
           description: `**Why?**
 
-Conventional insurance involves riba (interest), gharar (excessive uncertainty), and maysir (gambling-like risk transfer) â€” all prohibited in Islam. Understanding why takaful is different helps you make an informed choice and explain it to your family.
+Conventional insurance involves riba (interest), gharar (excessive uncertainty), and maysir (gambling-like risk transfer) — all prohibited in Islam. Understanding why takaful is different helps you make an informed choice and explain it to your family.
 
 
 **How?**
@@ -4592,14 +4592,14 @@ Takaful availability varies widely by region. In some countries, multiple provid
 **How?**
 
 Search online for "takaful providers in [your country/state]." Check Islamic finance directories and ask your local mosque or Muslim community for recommendations. If no takaful is available locally, research whether any providers offer online or cross-border coverage. Note each provider's product range, reputation, and Shariah board credentials.` },
-        { title: 'Compare plans for health coverage â€” premiums, coverage limits, exclusions', done: false,
+        { title: 'Compare plans for health coverage — premiums, coverage limits, exclusions', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Quranic verse establishes the foundational financial principle of engaging in lawful trade by mutual consent and avoiding the unjust consumption of wealth, it omits specific modern steps like comparing health coverage plans and their details, making the subtask a practical logical inference to systematically ensure informed consent and fair financial dealings.',
           sources: [
             {
               kind: "quran",
               ref: "Quran 4:29",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ù„ÙŽØ§ ØªÙŽØ£Ù’ÙƒÙÙ„ÙÙˆØ§ Ø£ÙŽÙ…Ù’ÙˆÙŽØ§Ù„ÙŽÙƒÙÙ… Ø¨ÙŽÙŠÙ’Ù†ÙŽÙƒÙÙ… Ø¨ÙØ§Ù„Ù’Ø¨ÙŽØ§Ø·ÙÙ„Ù Ø¥ÙÙ„ÙŽÙ‘Ø§ Ø£ÙŽÙ† ØªÙŽÙƒÙÙˆÙ†ÙŽ ØªÙØ¬ÙŽØ§Ø±ÙŽØ©Ù‹ Ø¹ÙŽÙ† ØªÙŽØ±ÙŽØ§Ø¶Ù Ù…ÙÙ‘Ù†ÙƒÙÙ…Ù’",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تَأْكُلُوا أَمْوَالَكُم بَيْنَكُم بِالْبَاطِلِ إِلَّا أَن تَكُونَ تِجَارَةً عَن تَرَاضٍ مِّنكُمْ",
               translation: "O you who have believed, do not consume one another's wealth unjustly but only in lawful trade by mutual consent.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4621,7 +4621,7 @@ Request quotes from at least two takaful providers. For each plan, compare: mont
             {
               kind: "quran",
               ref: "Quran 5:2",
-              arabic: "ÙˆÙŽØªÙŽØ¹ÙŽØ§ÙˆÙŽÙ†ÙÙˆØ§ Ø¹ÙŽÙ„ÙŽÙ‰ Ø§Ù„Ù’Ø¨ÙØ±ÙÙ‘ ÙˆÙŽØ§Ù„ØªÙŽÙ‘Ù‚Ù’ÙˆÙŽÙ‰Ù°",
+              arabic: "وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ",
               translation: "And cooperate in righteousness and piety.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4639,12 +4639,12 @@ Request quotes from at least two takaful providers. For each plan, compare: mont
           ],
           description: `**Why?**
 
-A fire, flood, or theft could wipe out years of savings in a single event. Property takaful protects your physical assets â€” your home, furniture, electronics, and valuables â€” so that a disaster does not become a financial catastrophe on top of an emotional one.
+A fire, flood, or theft could wipe out years of savings in a single event. Property takaful protects your physical assets — your home, furniture, electronics, and valuables — so that a disaster does not become a financial catastrophe on top of an emotional one.
 
 
 **How?**
 
-Estimate the replacement value of your home contents and any property you own. Request property takaful quotes and compare coverage for fire, theft, water damage, and natural disasters. Check whether the plan covers full replacement cost or depreciated value. Read the exclusions carefully â€” flood and earthquake coverage is often separate. Choose a plan that covers your most likely risks.` },
+Estimate the replacement value of your home contents and any property you own. Request property takaful quotes and compare coverage for fire, theft, water damage, and natural disasters. Check whether the plan covers full replacement cost or depreciated value. Read the exclusions carefully — flood and earthquake coverage is often separate. Choose a plan that covers your most likely risks.` },
         { title: 'Select and enrol in the most suitable plans for your household', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Hadith emphasizes the profound blessings of feeling secure in one\'s dwelling and maintaining physical health, it omits specific modern financial mechanisms like enrolling in health and property takaful plans, making the subtask a practical logical inference to systematically safeguard these recognized blessings.',
@@ -4661,7 +4661,7 @@ Estimate the replacement value of your home contents and any property you own. R
           ],
           description: `**Why?**
 
-Research without action leaves your family unprotected. Choosing and enrolling closes the loop â€” turning knowledge into actual coverage that will be there when crisis strikes.
+Research without action leaves your family unprotected. Choosing and enrolling closes the loop — turning knowledge into actual coverage that will be there when crisis strikes.
 
 
 **How?**
@@ -4681,7 +4681,7 @@ Based on your comparison, select the health and property takaful plans that offe
             {
               kind: "quran",
               ref: "Quran 4:71",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø®ÙØ°ÙÙˆØ§ Ø­ÙØ°Ù’Ø±ÙŽÙƒÙÙ…Ù’",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا خُذُوا حِذْرَكُمْ",
               translation: "O you who have believed, take your precaution.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4695,7 +4695,7 @@ Smoke detectors and carbon monoxide alarms are your first line of defence agains
 
 **How?**
 
-Check every level of your home for smoke detectors â€” there should be one in every bedroom, outside each sleeping area, and on every floor including the basement. Test each detector by pressing the test button. Replace batteries immediately if the alarm is weak or chirping. If you have no carbon monoxide alarm, purchase and install one near sleeping areas. Replace any detector older than 10 years.` },
+Check every level of your home for smoke detectors — there should be one in every bedroom, outside each sleeping area, and on every floor including the basement. Test each detector by pressing the test button. Replace batteries immediately if the alarm is weak or chirping. If you have no carbon monoxide alarm, purchase and install one near sleeping areas. Replace any detector older than 10 years.` },
         { title: 'Write a fire escape plan with two exits per room and a meeting point', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources establish the broad principles of taking general precautions and bearing responsibility for the safety of one\'s family, they omit specific modern emergency procedures like writing a fire escape plan, making the subtask a practical logical inference to systematically fulfill this mandate.',
@@ -4703,7 +4703,7 @@ Check every level of your home for smoke detectors â€” there should be one 
             {
               kind: "quran",
               ref: "Quran 4:71",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø®ÙØ°ÙÙˆØ§ Ø­ÙØ°Ù’Ø±ÙŽÙƒÙÙ…Ù’",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا خُذُوا حِذْرَكُمْ",
               translation: "O you who have believed, take your precaution.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4721,7 +4721,7 @@ Check every level of your home for smoke detectors â€” there should be one 
           ],
           description: `**Why?**
 
-A documented fire escape plan removes the need to think during a crisis. When smoke fills a room, you have seconds â€” not minutes â€” to act. A written plan ensures every family member has a pre-decided path to safety.
+A documented fire escape plan removes the need to think during a crisis. When smoke fills a room, you have seconds — not minutes — to act. A written plan ensures every family member has a pre-decided path to safety.
 
 
 **How?**
@@ -4734,7 +4734,7 @@ Draw a simple floor plan of your home. For each room, mark two exit routes (typi
             {
               kind: "quran",
               ref: "Quran 4:71",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø®ÙØ°ÙÙˆØ§ Ø­ÙØ°Ù’Ø±ÙŽÙƒÙÙ…Ù’",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا خُذُوا حِذْرَكُمْ",
               translation: "O you who have believed, take your precaution.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4765,7 +4765,7 @@ For gas leaks: write down to not use any electrical switches, open windows, evac
             {
               kind: "quran",
               ref: "Quran 73:12",
-              arabic: "Ø¥ÙÙ†ÙŽÙ‘ Ù„ÙŽØ¯ÙŽÙŠÙ’Ù†ÙŽØ§ Ø£ÙŽÙ†ÙƒÙŽØ§Ù„Ù‹Ø§ ÙˆÙŽØ¬ÙŽØ­ÙÙŠÙ…Ù‹Ø§",
+              arabic: "إِنَّ لَدَيْنَا أَنكَالًا وَجَحِيمًا",
               translation: "We have fetters, a blazing fire,",
               relevance: "contextual",
               provenanceTier: "Bayyinah",
@@ -4783,12 +4783,12 @@ For gas leaks: write down to not use any electrical switches, open windows, evac
           ],
           description: `**Why?**
 
-Most home fires start in the kitchen. A fire extinguisher within reach can stop a small fire before it becomes a deadly blaze â€” but only if you know how to use it. An unused extinguisher during a kitchen fire is a tragic missed opportunity.
+Most home fires start in the kitchen. A fire extinguisher within reach can stop a small fire before it becomes a deadly blaze — but only if you know how to use it. An unused extinguisher during a kitchen fire is a tragic missed opportunity.
 
 
 **How?**
 
-Purchase an ABC-rated fire extinguisher (effective against ordinary, liquid, and electrical fires). Mount it on the wall near your kitchen exit â€” not next to the stove, where a fire would block access. Learn the PASS technique: Pull the pin, Aim at the base of the fire, Squeeze the handle, Sweep side to side. Check the pressure gauge monthly and replace the unit before its expiry date.` },
+Purchase an ABC-rated fire extinguisher (effective against ordinary, liquid, and electrical fires). Mount it on the wall near your kitchen exit — not next to the stove, where a fire would block access. Learn the PASS technique: Pull the pin, Aim at the base of the fire, Squeeze the handle, Sweep side to side. Check the pressure gauge monthly and replace the unit before its expiry date.` },
         { title: 'Rehearse the fire escape plan with all household members quarterly', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources establish the broad principles of taking general precautions and bearing responsibility for the safety of one\'s family, they omit specific modern emergency preparedness procedures like rehearsing a fire escape plan quarterly, making the subtask a practical logical inference to systematically fulfill this mandate.',
@@ -4796,7 +4796,7 @@ Purchase an ABC-rated fire extinguisher (effective against ordinary, liquid, and
             {
               kind: "quran",
               ref: "Quran 4:71",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø®ÙØ°ÙÙˆØ§ Ø­ÙØ°Ù’Ø±ÙŽÙƒÙÙ…Ù’",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا خُذُوا حِذْرَكُمْ",
               translation: "O you who have believed, take your precaution.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4814,18 +4814,18 @@ Purchase an ABC-rated fire extinguisher (effective against ordinary, liquid, and
           ],
           description: `**Why?**
 
-A plan that has never been practised will fail under pressure. Regular rehearsal builds muscle memory so that your family reacts automatically when the alarm sounds â€” no hesitation, no confusion, no wasted seconds.
+A plan that has never been practised will fail under pressure. Regular rehearsal builds muscle memory so that your family reacts automatically when the alarm sounds — no hesitation, no confusion, no wasted seconds.
 
 
 **How?**
 
-Set a quarterly calendar reminder for a family fire drill. Sound the alarm (or shout "fire drill"), start a timer, and have everyone follow the escape routes to the outdoor meeting point. Time the drill and discuss what went well and what was slow. Practise at different times â€” including at night â€” so the plan works regardless of when an emergency strikes. Make it a family routine, not a one-off exercise.` },
+Set a quarterly calendar reminder for a family fire drill. Sound the alarm (or shout "fire drill"), start a timer, and have everyone follow the escape routes to the outdoor meeting point. Time the drill and discuss what went well and what was slow. Practise at different times — including at night — so the plan works regardless of when an emergency strikes. Make it a family routine, not a one-off exercise.` },
       ],
     },
     {
       title: 'Understand your legal rights as a Muslim in your jurisdiction (employment, religious accommodation)',
       priority: 'medium', tags: ['rights', 'knowledge'],
-      description: 'Knowing your legal rights regarding religious practice â€” prayer breaks, hijab, dietary accommodation, holiday observance â€” empowers you to advocate for yourself professionally and protects you from unlawful discrimination. Knowledge here is both practical wisdom and a form of self-preservation.',
+      description: 'Knowing your legal rights regarding religious practice — prayer breaks, hijab, dietary accommodation, holiday observance — empowers you to advocate for yourself professionally and protects you from unlawful discrimination. Knowledge here is both practical wisdom and a form of self-preservation.',
       subtasks: [
         { title: 'Research anti-discrimination laws regarding religion in your jurisdiction', done: false,
           tier: 'T2',
@@ -4834,7 +4834,7 @@ Set a quarterly calendar reminder for a family fire drill. Sound the alarm (or s
             {
               kind: "quran",
               ref: "Quran 4:135",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ ÙƒÙÙˆÙ†ÙÙˆØ§ Ù‚ÙŽÙˆÙŽÙ‘Ø§Ù…ÙÙŠÙ†ÙŽ Ø¨ÙØ§Ù„Ù’Ù‚ÙØ³Ù’Ø·Ù",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا كُونُوا قَوَّامِينَ بِالْقِسْطِ",
               translation: "O you who have believed, be persistently standing firm in justice.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4843,7 +4843,7 @@ Set a quarterly calendar reminder for a family fire drill. Sound the alarm (or s
             {
               kind: "quran",
               ref: "Quran 49:13",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„Ù†ÙŽÙ‘Ø§Ø³Ù Ø¥ÙÙ†ÙŽÙ‘Ø§ Ø®ÙŽÙ„ÙŽÙ‚Ù’Ù†ÙŽØ§ÙƒÙÙ… Ù…ÙÙ‘Ù† Ø°ÙŽÙƒÙŽØ±Ù ÙˆÙŽØ£ÙÙ†Ø«ÙŽÙ‰Ù° ÙˆÙŽØ¬ÙŽØ¹ÙŽÙ„Ù’Ù†ÙŽØ§ÙƒÙÙ…Ù’ Ø´ÙØ¹ÙÙˆØ¨Ù‹Ø§ ÙˆÙŽÙ‚ÙŽØ¨ÙŽØ§Ø¦ÙÙ„ÙŽ Ù„ÙØªÙŽØ¹ÙŽØ§Ø±ÙŽÙÙÙˆØ§",
+              arabic: "يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا",
               translation: "O mankind, indeed We have created you from male and female and made you peoples and tribes that you may know one another.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4865,8 +4865,8 @@ Search for your country or state's anti-discrimination legislation regarding rel
             {
               kind: "quran",
               ref: "Quran 62:9",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø¥ÙØ°ÙŽØ§ Ù†ÙÙˆØ¯ÙÙŠÙŽ Ù„ÙÙ„ØµÙŽÙ‘Ù„ÙŽØ§Ø©Ù Ù…ÙÙ† ÙŠÙŽÙˆÙ’Ù…Ù Ø§Ù„Ù’Ø¬ÙÙ…ÙØ¹ÙŽØ©Ù ÙÙŽØ§Ø³Ù’Ø¹ÙŽÙˆÙ’Ø§ Ø¥ÙÙ„ÙŽÙ‰Ù° Ø°ÙÙƒÙ’Ø±Ù Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù ÙˆÙŽØ°ÙŽØ±ÙÙˆØ§ Ø§Ù„Ù’Ø¨ÙŽÙŠÙ’Ø¹ÙŽ Ûš Ø°ÙŽÙ°Ù„ÙÙƒÙÙ…Ù’ Ø®ÙŽÙŠÙ’Ø±ÙŒ Ù„ÙŽÙ‘ÙƒÙÙ…Ù’ Ø¥ÙÙ† ÙƒÙÙ†ØªÙÙ…Ù’ ØªÙŽØ¹Ù’Ù„ÙŽÙ…ÙÙˆÙ†ÙŽ",
-              translation: "Believers! When the call to prayer is made on the day of congregation, hurry towards the reminder of God and leave off your trading â€” that is better for you, if only you knew.",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا نُودِيَ لِلصَّلَاةِ مِن يَوْمِ الْجُمُعَةِ فَاسْعَوْا إِلَىٰ ذِكْرِ اللَّهِ وَذَرُوا الْبَيْعَ ۚ ذَٰلِكُمْ خَيْرٌ لَّكُمْ إِن كُنتُمْ تَعْلَمُونَ",
+              translation: "Believers! When the call to prayer is made on the day of congregation, hurry towards the reminder of God and leave off your trading — that is better for you, if only you knew.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -4874,7 +4874,7 @@ Search for your country or state's anti-discrimination legislation regarding rel
             {
               kind: "quran",
               ref: "Quran 9:122",
-              arabic: "ÙˆÙŽÙ…ÙŽØ§ ÙƒÙŽØ§Ù†ÙŽ Ø§Ù„Ù’Ù…ÙØ¤Ù’Ù…ÙÙ†ÙÙˆÙ†ÙŽ Ù„ÙÙŠÙŽÙ†ÙÙØ±ÙÙˆØ§ ÙƒÙŽØ§ÙÙŽÙ‘Ø©Ù‹ Ûš ÙÙŽÙ„ÙŽÙˆÙ’Ù„ÙŽØ§ Ù†ÙŽÙÙŽØ±ÙŽ Ù…ÙÙ† ÙƒÙÙ„ÙÙ‘ ÙÙØ±Ù’Ù‚ÙŽØ©Ù Ù…ÙÙ‘Ù†Ù’Ù‡ÙÙ…Ù’ Ø·ÙŽØ§Ø¦ÙÙÙŽØ©ÙŒ Ù„ÙÙ‘ÙŠÙŽØªÙŽÙÙŽÙ‚ÙŽÙ‘Ù‡ÙÙˆØ§ ÙÙÙŠ Ø§Ù„Ø¯ÙÙ‘ÙŠÙ†Ù ÙˆÙŽÙ„ÙÙŠÙÙ†Ø°ÙØ±ÙÙˆØ§ Ù‚ÙŽÙˆÙ’Ù…ÙŽÙ‡ÙÙ…Ù’ Ø¥ÙØ°ÙŽØ§ Ø±ÙŽØ¬ÙŽØ¹ÙÙˆØ§ Ø¥ÙÙ„ÙŽÙŠÙ’Ù‡ÙÙ…Ù’ Ù„ÙŽØ¹ÙŽÙ„ÙŽÙ‘Ù‡ÙÙ…Ù’ ÙŠÙŽØ­Ù’Ø°ÙŽØ±ÙÙˆÙ†ÙŽ",
+              arabic: "وَمَا كَانَ الْمُؤْمِنُونَ لِيَنفِرُوا كَافَّةً ۚ فَلَوْلَا نَفَرَ مِن كُلِّ فِرْقَةٍ مِّنْهُمْ طَائِفَةٌ لِّيَتَفَقَّهُوا فِي الدِّينِ وَلِيُنذِرُوا قَوْمَهُمْ إِذَا رَجَعُوا إِلَيْهِمْ لَعَلَّهُمْ يَحْذَرُونَ",
               translation: "Yet it is not right for all the believers to go out together: out of each community, a group should go out to gain understanding of the religion, so that they can teach their people when they return and so that they can guard themselves against evil.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4897,7 +4897,7 @@ Many employers are legally required to accommodate sincere religious practices u
 
 **How?**
 
-Research the concept of "reasonable religious accommodation" in your jurisdiction. Understand what your employer is required to provide: a space for prayer, schedule flexibility for Jumu'ah, exceptions to dress codes for religious garments. Know the difference between a request and a demand â€” frame accommodation requests professionally, in writing, citing your legal rights. Keep copies of all correspondence.` },
+Research the concept of "reasonable religious accommodation" in your jurisdiction. Understand what your employer is required to provide: a space for prayer, schedule flexibility for Jumu'ah, exceptions to dress codes for religious garments. Know the difference between a request and a demand — frame accommodation requests professionally, in writing, citing your legal rights. Keep copies of all correspondence.` },
         { title: 'Identify legal resources and Muslim advocacy organisations in your area', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Quranic verse establishes the foundational principle of human equality and the purpose of diversity as mutual understanding, it omits specific modern defensive strategies like identifying legal resources and Muslim advocacy organizations, making the subtask a practical logical inference to systematically protect this divine standard of respectful coexistence from being violated.',
@@ -4905,7 +4905,7 @@ Research the concept of "reasonable religious accommodation" in your jurisdictio
             {
               kind: "quran",
               ref: "Quran 49:13",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„Ù†ÙŽÙ‘Ø§Ø³Ù Ø¥ÙÙ†ÙŽÙ‘Ø§ Ø®ÙŽÙ„ÙŽÙ‚Ù’Ù†ÙŽØ§ÙƒÙÙ… Ù…ÙÙ‘Ù† Ø°ÙŽÙƒÙŽØ±Ù ÙˆÙŽØ£ÙÙ†Ø«ÙŽÙ‰Ù° ÙˆÙŽØ¬ÙŽØ¹ÙŽÙ„Ù’Ù†ÙŽØ§ÙƒÙÙ…Ù’ Ø´ÙØ¹ÙÙˆØ¨Ù‹Ø§ ÙˆÙŽÙ‚ÙŽØ¨ÙŽØ§Ø¦ÙÙ„ÙŽ Ù„ÙØªÙŽØ¹ÙŽØ§Ø±ÙŽÙÙÙˆØ§",
+              arabic: "يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا",
               translation: "O mankind, indeed We have created you from male and female and made you peoples and tribes that you may know one another.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4919,7 +4919,7 @@ If your rights are ever violated, you need to know who to call before the crisis
 
 **How?**
 
-Search for Muslim civil rights organisations active in your country (e.g., CAIR in the US, MEND in the UK, NCCM in Canada). Save their hotline numbers and websites. Identify local legal aid societies that handle discrimination cases. Ask your mosque if they have a legal committee or partnerships with Muslim lawyers. Keep this information accessible â€” you may need it on short notice.` },
+Search for Muslim civil rights organisations active in your country (e.g., CAIR in the US, MEND in the UK, NCCM in Canada). Save their hotline numbers and websites. Identify local legal aid societies that handle discrimination cases. Ask your mosque if they have a legal committee or partnerships with Muslim lawyers. Keep this information accessible — you may need it on short notice.` },
         { title: 'Document any current or past accommodation requests and their outcomes', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Quranic verse establishes the foundational duty to enjoin what is right and forbid what is wrong, it omits specific modern administrative actions like documenting accommodation requests and their outcomes, making the subtask a practical logical inference to systematically create accountability and oppose workplace injustice.',
@@ -4927,7 +4927,7 @@ Search for Muslim civil rights organisations active in your country (e.g., CAIR 
             {
               kind: "quran",
               ref: "Quran 3:110",
-              arabic: "ÙƒÙÙ†ØªÙÙ…Ù’ Ø®ÙŽÙŠÙ’Ø±ÙŽ Ø£ÙÙ…ÙŽÙ‘Ø©Ù Ø£ÙØ®Ù’Ø±ÙØ¬ÙŽØªÙ’ Ù„ÙÙ„Ù†ÙŽÙ‘Ø§Ø³Ù ØªÙŽØ£Ù’Ù…ÙØ±ÙÙˆÙ†ÙŽ Ø¨ÙØ§Ù„Ù’Ù…ÙŽØ¹Ù’Ø±ÙÙˆÙÙ ÙˆÙŽØªÙŽÙ†Ù’Ù‡ÙŽÙˆÙ’Ù†ÙŽ Ø¹ÙŽÙ†Ù Ø§Ù„Ù’Ù…ÙÙ†ÙƒÙŽØ±Ù",
+              arabic: "كُنتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنَّاسِ تَأْمُرُونَ بِالْمَعْرُوفِ وَتَنْهَوْنَ عَنِ الْمُنكَرِ",
               translation: "You are the best nation produced for mankind. You enjoin what is right and forbid what is wrong.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4941,7 +4941,7 @@ A paper trail is essential if a situation ever escalates to a formal complaint o
 
 **How?**
 
-Write down every accommodation request you have made at work: the date, what you asked for, who you asked, and what the response was. Include any follow-up conversations. If you made verbal requests in the past, send a follow-up email summarising the conversation to create a written record. Store these documents in a secure personal folder â€” not on your work computer.` },
+Write down every accommodation request you have made at work: the date, what you asked for, who you asked, and what the response was. Include any follow-up conversations. If you made verbal requests in the past, send a follow-up email summarising the conversation to create a written record. Store these documents in a secure personal folder — not on your work computer.` },
         { title: 'Know the process for filing a complaint if your rights are violated', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources establish the foundational mandates to stand persistently firm in justice and actively prevent oppression, they omit specific modern legal procedures like knowing the process for filing a formal discrimination complaint, making the subtask a practical logical inference to systematically empower believers to combat injustice and fulfill this divine obligation.',
@@ -4949,7 +4949,7 @@ Write down every accommodation request you have made at work: the date, what you
             {
               kind: "quran",
               ref: "Quran 4:135",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ ÙƒÙÙˆÙ†ÙÙˆØ§ Ù‚ÙŽÙˆÙŽÙ‘Ø§Ù…ÙÙŠÙ†ÙŽ Ø¨ÙØ§Ù„Ù’Ù‚ÙØ³Ù’Ø·Ù Ø´ÙÙ‡ÙŽØ¯ÙŽØ§Ø¡ÙŽ Ù„ÙÙ„ÙŽÙ‘Ù‡Ù",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا كُونُوا قَوَّامِينَ بِالْقِسْطِ شُهَدَاءَ لِلَّهِ",
               translation: "O you who have believed, be persistently standing firm in justice, witnesses for Allah.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4972,13 +4972,13 @@ Knowing the complaint process before you need it removes a major barrier to acti
 
 **How?**
 
-Research the formal complaint process for religious discrimination in your jurisdiction â€” this is often through a government agency (e.g., EEOC in the US, Equality and Human Rights Commission in the UK). Note the filing deadlines, required documentation, and steps involved. Identify whether your employer has an internal grievance procedure and understand that process as well. Consult with a Muslim advocacy organisation if you are unsure how to proceed.` },
+Research the formal complaint process for religious discrimination in your jurisdiction — this is often through a government agency (e.g., EEOC in the US, Equality and Human Rights Commission in the UK). Note the filing deadlines, required documentation, and steps involved. Identify whether your employer has an internal grievance procedure and understand that process as well. Consult with a Muslim advocacy organisation if you are unsure how to proceed.` },
       ],
     },
   ],
   health_safety_excellence: [
     {
-      title: 'Contribute to a community safety initiative â€” neighbourhood watch, emergency response training',
+      title: 'Contribute to a community safety initiative — neighbourhood watch, emergency response training',
       priority: 'low', tags: ['community', 'safety'],
       description: 'Extending safety beyond your own household to your community is a manifestation of the Prophetic principle that the best of people are those most beneficial to others. Community safety initiatives build social cohesion, deter harm, and create networks of mutual support.',
       subtasks: [
@@ -4989,7 +4989,7 @@ Research the formal complaint process for religious discrimination in your juris
             {
               kind: "quran",
               ref: "Quran 5:2",
-              arabic: "ÙˆÙŽØªÙŽØ¹ÙŽØ§ÙˆÙŽÙ†ÙÙˆØ§ Ø¹ÙŽÙ„ÙŽÙ‰ Ø§Ù„Ù’Ø¨ÙØ±ÙÙ‘ ÙˆÙŽØ§Ù„ØªÙŽÙ‘Ù‚Ù’ÙˆÙŽÙ‰Ù° ÙˆÙŽÙ„ÙŽØ§ ØªÙŽØ¹ÙŽØ§ÙˆÙŽÙ†ÙÙˆØ§ Ø¹ÙŽÙ„ÙŽÙ‰ Ø§Ù„Ù’Ø¥ÙØ«Ù’Ù…Ù ÙˆÙŽØ§Ù„Ù’Ø¹ÙØ¯Ù’ÙˆÙŽØ§Ù†Ù",
+              arabic: "وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ وَلَا تَعَاوَنُوا عَلَى الْإِثْمِ وَالْعُدْوَانِ",
               translation: "And cooperate in righteousness and piety, but do not cooperate in sin and aggression.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5012,7 +5012,7 @@ Before starting something new, find out what already exists. Joining an establis
 
 **How?**
 
-Ask your mosque board, local council, or neighbourhood association whether any safety programmes exist â€” neighbourhood watch, community emergency response teams, or disaster preparedness committees. Check local government websites for community safety initiatives. Attend a community meeting to learn about active efforts and unmet needs.` },
+Ask your mosque board, local council, or neighbourhood association whether any safety programmes exist — neighbourhood watch, community emergency response teams, or disaster preparedness committees. Check local government websites for community safety initiatives. Attend a community meeting to learn about active efforts and unmet needs.` },
         { title: 'Attend an introductory meeting or training session', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Hadith establishes the foundational duty to actively combat and change evil through direct action, it omits specific modern organizational steps like attending an introductory meeting or training session, making the subtask a practical logical inference to systematically prepare to fulfill this mandate.',
@@ -5020,7 +5020,7 @@ Ask your mosque board, local council, or neighbourhood association whether any s
             {
               kind: "hadith",
               ref: "Sahih Muslim 49",
-              translation: "The Prophet (peace be upon him) said: \"Whoever among you sees an evil, let him change it with his hand; if he cannot, then with his tongue; if he cannot, then with his heart â€” and that is the weakest of faith.\"",
+              translation: "The Prophet (peace be upon him) said: \"Whoever among you sees an evil, let him change it with his hand; if he cannot, then with his tongue; if he cannot, then with his heart — and that is the weakest of faith.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -5029,12 +5029,12 @@ Ask your mosque board, local council, or neighbourhood association whether any s
           ],
           description: `**Why?**
 
-Showing up is the transition from intention to commitment. An introductory meeting lets you meet the team, understand the scope of the initiative, and assess where your skills can best contribute â€” all before making a long-term commitment.
+Showing up is the transition from intention to commitment. An introductory meeting lets you meet the team, understand the scope of the initiative, and assess where your skills can best contribute — all before making a long-term commitment.
 
 
 **How?**
 
-Contact the programme coordinator and ask when the next meeting or training session is. Put it on your calendar and attend with an open mind. Listen more than you speak â€” learn the current structure, challenges, and how volunteers are deployed. Take notes on where you see opportunities to help. Introduce yourself and express your interest in contributing.` },
+Contact the programme coordinator and ask when the next meeting or training session is. Put it on your calendar and attend with an open mind. Listen more than you speak — learn the current structure, challenges, and how volunteers are deployed. Take notes on where you see opportunities to help. Introduce yourself and express your interest in contributing.` },
         { title: 'Volunteer for a specific role (coordinator, trainer, communications)', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Quranic verse establishes the foundational mandate to cooperate in righteousness and piety, it omits specific modern organizational actions like volunteering for defined roles, making the subtask a practical logical inference to systematically fulfill this divine command of mutual assistance.',
@@ -5042,7 +5042,7 @@ Contact the programme coordinator and ask when the next meeting or training sess
             {
               kind: "quran",
               ref: "Quran 5:2",
-              arabic: "ÙˆÙŽØªÙŽØ¹ÙŽØ§ÙˆÙŽÙ†ÙÙˆØ§ Ø¹ÙŽÙ„ÙŽÙ‰ Ø§Ù„Ù’Ø¨ÙØ±ÙÙ‘ ÙˆÙŽØ§Ù„ØªÙŽÙ‘Ù‚Ù’ÙˆÙŽÙ‰Ù°",
+              arabic: "وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ",
               translation: "And cooperate in righteousness and piety.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5064,7 +5064,7 @@ After attending a meeting, identify which role aligns with your skills and avail
             {
               kind: "quran",
               ref: "Quran 5:2",
-              arabic: "ÙˆÙŽØªÙŽØ¹ÙŽØ§ÙˆÙŽÙ†ÙÙˆØ§ Ø¹ÙŽÙ„ÙŽÙ‰ Ø§Ù„Ù’Ø¨ÙØ±ÙÙ‘ ÙˆÙŽØ§Ù„ØªÙŽÙ‘Ù‚Ù’ÙˆÙŽÙ‰Ù°",
+              arabic: "وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ",
               translation: "And cooperate in righteousness and piety.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5095,7 +5095,7 @@ Ask the programme coordinator what training is required or recommended. Common o
             {
               kind: "quran",
               ref: "Quran 3:104",
-              arabic: "ÙˆÙŽÙ„Ù’ØªÙŽÙƒÙÙ† Ù…ÙÙ‘Ù†ÙƒÙÙ…Ù’ Ø£ÙÙ…ÙŽÙ‘Ø©ÙŒ ÙŠÙŽØ¯Ù’Ø¹ÙÙˆÙ†ÙŽ Ø¥ÙÙ„ÙŽÙ‰ Ø§Ù„Ù’Ø®ÙŽÙŠÙ’Ø±Ù ÙˆÙŽÙŠÙŽØ£Ù’Ù…ÙØ±ÙÙˆÙ†ÙŽ Ø¨ÙØ§Ù„Ù’Ù…ÙŽØ¹Ù’Ø±ÙÙˆÙÙ ÙˆÙŽÙŠÙŽÙ†Ù’Ù‡ÙŽÙˆÙ’Ù†ÙŽ Ø¹ÙŽÙ†Ù Ø§Ù„Ù’Ù…ÙÙ†ÙƒÙŽØ±Ù",
+              arabic: "وَلْتَكُن مِّنكُمْ أُمَّةٌ يَدْعُونَ إِلَى الْخَيْرِ وَيَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنكَرِ",
               translation: "And let there be among you a group inviting to good, enjoining what is right and forbidding what is wrong.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5118,23 +5118,23 @@ Community safety is only as strong as the number of people involved. Recruiting 
 
 **How?**
 
-Think of two or three people in your community who are reliable and community-minded â€” fellow mosque-goers, neighbours, or friends. Have a personal conversation about what the programme does and why it matters. Invite them to the next meeting or training session. People are more likely to join when personally invited by someone they trust than when they see a flyer.` },
+Think of two or three people in your community who are reliable and community-minded — fellow mosque-goers, neighbours, or friends. Have a personal conversation about what the programme does and why it matters. Invite them to the next meeting or training session. People are more likely to join when personally invited by someone they trust than when they see a flyer.` },
       ],
     },
     {
-      title: 'Develop a family continuity plan â€” wills, guardianship, Islamic estate planning',
+      title: 'Develop a family continuity plan — wills, guardianship, Islamic estate planning',
       priority: 'medium', tags: ['planning', 'family'],
       description: 'Islamic estate planning (mirath) is a fardh obligation, yet most Muslims die without a valid Islamic will. A family continuity plan ensures your assets are distributed according to Shariah, your children have designated guardians, and your family is not left in legal limbo during their most vulnerable moment.',
       subtasks: [
         { title: 'Learn the Islamic rules of inheritance (mirath) and obligatory shares', done: false,
           tier: 'T2',
-          amanahRationale: 'Fallback assignment â€” NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
+          amanahRationale: 'Fallback assignment — NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
           sources: [
             {
               kind: "quran",
               ref: "Quran 4:176",
-              arabic: "**Translation:** They ask you [Prophet] for a ruling. Say, â€˜God gives you a ruling about inheritance from someone who dies childless with no surviving parents. If a man leaves a sister, she is entitled to half of the inheritance; if she has no child her brother is her sole heir; if there are two sisters, they are entitled to two-thirds of the inheritance between them, but if there are surviving brothers and sisters, the male is entitled to twice the share of the female. God makes this clear to you so that you do not make mistakes: He has full knowledge of everything.â€™",
-              translation: "They ask you [Prophet] for a ruling. Say, â€˜God gives you a ruling about inheritance from someone who dies childless with no surviving parents. If a man leaves a sister, she is entitled to half of the inheritance; if she has no child her brother is her sole heir; if there are two sisters, they are entitled to two-thirds of the inheritance between them, but if there are surviving brothers and sisters, the male is entitled to twice the share of the female. God makes this clear to you so that you do not make mistakes: He has full knowledge of everything.â€™",
+              arabic: "**Translation:** They ask you [Prophet] for a ruling. Say, ‘God gives you a ruling about inheritance from someone who dies childless with no surviving parents. If a man leaves a sister, she is entitled to half of the inheritance; if she has no child her brother is her sole heir; if there are two sisters, they are entitled to two-thirds of the inheritance between them, but if there are surviving brothers and sisters, the male is entitled to twice the share of the female. God makes this clear to you so that you do not make mistakes: He has full knowledge of everything.’",
+              translation: "They ask you [Prophet] for a ruling. Say, ‘God gives you a ruling about inheritance from someone who dies childless with no surviving parents. If a man leaves a sister, she is entitled to half of the inheritance; if she has no child her brother is her sole heir; if there are two sisters, they are entitled to two-thirds of the inheritance between them, but if there are surviving brothers and sisters, the male is entitled to twice the share of the female. God makes this clear to you so that you do not make mistakes: He has full knowledge of everything.’",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -5142,8 +5142,8 @@ Think of two or three people in your community who are reliable and community-mi
             {
               kind: "quran",
               ref: "Quran 4:127",
-              arabic: "**Translation:** They ask you [Prophet] for a ruling about women. Say, â€˜God Himself gives you a ruling about them. You already have what has been recited to you in the Scripture about orphan girls [in your charge] from whom you withhold the prescribed shares [of their inheritance] and whom you wish to marry, and also about helpless children- God instructs you to treat orphans fairly: He is well aware of whatever good you do.â€™",
-              translation: "They ask you [Prophet] for a ruling about women. Say, â€˜God Himself gives you a ruling about them. You already have what has been recited to you in the Scripture about orphan girls [in your charge] from whom you withhold the prescribed shares [of their inheritance] and whom you wish to marry, and also about helpless children- God instructs you to treat orphans fairly: He is well aware of whatever good you do.â€™",
+              arabic: "**Translation:** They ask you [Prophet] for a ruling about women. Say, ‘God Himself gives you a ruling about them. You already have what has been recited to you in the Scripture about orphan girls [in your charge] from whom you withhold the prescribed shares [of their inheritance] and whom you wish to marry, and also about helpless children- God instructs you to treat orphans fairly: He is well aware of whatever good you do.’",
+              translation: "They ask you [Prophet] for a ruling about women. Say, ‘God Himself gives you a ruling about them. You already have what has been recited to you in the Scripture about orphan girls [in your charge] from whom you withhold the prescribed shares [of their inheritance] and whom you wish to marry, and also about helpless children- God instructs you to treat orphans fairly: He is well aware of whatever good you do.’",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -5151,7 +5151,7 @@ Think of two or three people in your community who are reliable and community-mi
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6736",
-              translation: "Narrated Huzail bin Shirahbil:Abu Musa was asked regarding (the inheritance of) a daughter, a son's daughter, and a sister. He said, \"The daughter will take one-half and the sister will take one-half. If you go to Ibn Mas`ud, he will tell you the same.\" Ibn Mas`ud was asked and was told of Abu Musa's verdict. Ibn Mas`ud then said, \"If I give the same verdict, I would stray and would not be of the rightly-guided. The verdict I will give in this case, will be the same as the Prophet (ï·º) did, i.e. one-half is for daughter, and one-sixth for the son's daughter, i.e. both shares make two-thirds of the total property; and the rest is for the sister.\" Afterwards we cams to Abu Musa and informed him of Ibn Mas`ud's verdict, whereupon he said, \"So, do not ask me for verdicts, as long as this learned man is among you",
+              translation: "Narrated Huzail bin Shirahbil:Abu Musa was asked regarding (the inheritance of) a daughter, a son's daughter, and a sister. He said, \"The daughter will take one-half and the sister will take one-half. If you go to Ibn Mas`ud, he will tell you the same.\" Ibn Mas`ud was asked and was told of Abu Musa's verdict. Ibn Mas`ud then said, \"If I give the same verdict, I would stray and would not be of the rightly-guided. The verdict I will give in this case, will be the same as the Prophet (ﷺ) did, i.e. one-half is for daughter, and one-sixth for the son's daughter, i.e. both shares make two-thirds of the total property; and the rest is for the sister.\" Afterwards we cams to Abu Musa and informed him of Ibn Mas`ud's verdict, whereupon he said, \"So, do not ask me for verdicts, as long as this learned man is among you",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -5160,7 +5160,7 @@ Think of two or three people in your community who are reliable and community-mi
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 1643",
-              translation: "Narrated `Urwa:I asked `Aisha : \"How do you interpret the statement of Allah,. : Verily! (the mountains) As-Safa and Al-Marwa are among the symbols of Allah, and whoever performs the Hajj to the Ka`ba or performs `Umra, it is not harmful for him to perform Tawaf between them (Safa and Marwa.) (2.158). By Allah! (it is evident from this revelation) there is no harm if one does not perform Tawaf between Safa and Marwa.\" `Aisha said, \"O, my nephew! Your interpretation is not true. Had this interpretation of yours been correct, the statement of Allah should have been, 'It is not harmful for him if he does not perform Tawaf between them.' But in fact, this divine inspiration was revealed concerning the Ansar who used to assume Ihram for worshipping an idol called \"Manat\" which they used to worship at a place called Al-Mushallal before they embraced Islam, and whoever assumed Ihram (for the idol), would consider it not right to perform Tawaf between Safa and Marwa. When they embraced Islam, they asked Allah's Messenger (ï·º) regarding it, saying, \"O Allah's Apostle! We used to refrain from Tawaf between Safa and Marwa.\" So Allah revealed: 'Verily; (the mountains) As-Safa and Al-Marwa are among the symbols of Allah.' \" Aisha added, \"Surely, Allah's Apostle set the tradition of Tawaf between Safa and Marwa, so nobody is allowed to omit the Tawaf between them.\" Later on I (`Urwa) told Abu Bakr bin `Abdur-Rahman (of `Aisha's narration) and he said, 'I have not heard of such information, but I heard learned men saying that all the people, except those whom `Aisha mentioned and who used to assume Ihram for the sake of Manat, used to perform Tawaf between Safa and Marwa. When Allah referred to the Tawaf of the Ka`ba and did not mention Safa and Marwa in the Qur'an, the people asked, 'O Allah's Messenger (ï·º)! We used to perform Tawaf between Safa and Marwa and Allah has revealed (the verses concerning) Tawaf of the Ka`ba and has not mentioned Safa and Marwa. Is there any harm if we perform Tawaf between Safa and Marwa?' So Allah revealed: \"Verily As-Safa and Al- Marwa are among the symbols of Allah.\" Abu Bakr said, \"It seems that this verse was revealed concerning the two groups, those who used to refrain from Tawaf between Safa and Marwa in the Pre- Islamic Period of ignorance and those who used to perform the Tawaf then, and after embracing Islam they refrained from the Tawaf between them as Allah had enjoined Tawaf of the Ka`ba and did not mention Tawaf (of Safa and Marwa) till later after mentioning the Tawaf of the Ka`ba",
+              translation: "Narrated `Urwa:I asked `Aisha : \"How do you interpret the statement of Allah,. : Verily! (the mountains) As-Safa and Al-Marwa are among the symbols of Allah, and whoever performs the Hajj to the Ka`ba or performs `Umra, it is not harmful for him to perform Tawaf between them (Safa and Marwa.) (2.158). By Allah! (it is evident from this revelation) there is no harm if one does not perform Tawaf between Safa and Marwa.\" `Aisha said, \"O, my nephew! Your interpretation is not true. Had this interpretation of yours been correct, the statement of Allah should have been, 'It is not harmful for him if he does not perform Tawaf between them.' But in fact, this divine inspiration was revealed concerning the Ansar who used to assume Ihram for worshipping an idol called \"Manat\" which they used to worship at a place called Al-Mushallal before they embraced Islam, and whoever assumed Ihram (for the idol), would consider it not right to perform Tawaf between Safa and Marwa. When they embraced Islam, they asked Allah's Messenger (ﷺ) regarding it, saying, \"O Allah's Apostle! We used to refrain from Tawaf between Safa and Marwa.\" So Allah revealed: 'Verily; (the mountains) As-Safa and Al-Marwa are among the symbols of Allah.' \" Aisha added, \"Surely, Allah's Apostle set the tradition of Tawaf between Safa and Marwa, so nobody is allowed to omit the Tawaf between them.\" Later on I (`Urwa) told Abu Bakr bin `Abdur-Rahman (of `Aisha's narration) and he said, 'I have not heard of such information, but I heard learned men saying that all the people, except those whom `Aisha mentioned and who used to assume Ihram for the sake of Manat, used to perform Tawaf between Safa and Marwa. When Allah referred to the Tawaf of the Ka`ba and did not mention Safa and Marwa in the Qur'an, the people asked, 'O Allah's Messenger (ﷺ)! We used to perform Tawaf between Safa and Marwa and Allah has revealed (the verses concerning) Tawaf of the Ka`ba and has not mentioned Safa and Marwa. Is there any harm if we perform Tawaf between Safa and Marwa?' So Allah revealed: \"Verily As-Safa and Al- Marwa are among the symbols of Allah.\" Abu Bakr said, \"It seems that this verse was revealed concerning the two groups, those who used to refrain from Tawaf between Safa and Marwa in the Pre- Islamic Period of ignorance and those who used to perform the Tawaf then, and after embracing Islam they refrained from the Tawaf between them as Allah had enjoined Tawaf of the Ka`ba and did not mention Tawaf (of Safa and Marwa) till later after mentioning the Tawaf of the Ka`ba",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -5169,7 +5169,7 @@ Think of two or three people in your community who are reliable and community-mi
           ],
           description: `**Why?**
 
-Islamic inheritance law is not optional â€” it is a divine command with specific shares prescribed in the Quran. Not knowing these rules means risking a distribution that violates what Allah has ordained, which wrongs both the deceased and the heirs.
+Islamic inheritance law is not optional — it is a divine command with specific shares prescribed in the Quran. Not knowing these rules means risking a distribution that violates what Allah has ordained, which wrongs both the deceased and the heirs.
 
 
 **How?**
@@ -5177,7 +5177,7 @@ Islamic inheritance law is not optional â€” it is a divine command with spe
 Study the Quranic verses on inheritance (primarily Surah An-Nisa, verses 11-12 and 176). Take a class or read a clear guidebook on Islamic inheritance. Understand the fixed shares (fard) for spouses, parents, children, and siblings. Learn when shares adjust based on the presence or absence of other heirs. Use an online mirath calculator to see how your own estate would be divided.` },
         { title: 'Draft an Islamic will (wasiyyah) with the help of a knowledgeable scholar or solicitor', done: false,
           tier: 'T2',
-          amanahRationale: 'Fallback assignment â€” NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
+          amanahRationale: 'Fallback assignment — NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
           sources: [
             {
               kind: "quran",
@@ -5191,7 +5191,7 @@ Study the Quranic verses on inheritance (primarily Surah An-Nisa, verses 11-12 a
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 3",
-              translation: "Narrated 'Aisha (the mother of the faithful believers):The commencement of the Divine Inspiration to Allah's Messenger (ï·º) was in the form of good dreams which came true like bright daylight, and then the love of seclusion was bestowed upon him. He used to go in seclusion in the cave of Hira where he used to worship (Allah alone) continuously for many days before his desire to see his family. He used to take with him the journey food for the stay and then come back to (his wife) Khadija to take his food likewise again till suddenly the Truth descended upon him while he was in the cave of Hira. The angel came to him and asked him to read. The Prophet (ï·º) replied, \"I do not know how to read.\" The Prophet (ï·º) added, \"The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists), created man from a clot. Read! And your Lord is the Most Generous.\" (96.1, 96.2, 96.3) Then Allah's Messenger (ï·º) returned with the Inspiration and with his heart beating severely. Then he went to Khadija bint Khuwailid and said, \"Cover me! Cover me!\" They covered him till his fear was over and after that he told her everything that had happened and said, \"I fear that something may happen to me.\" Khadija replied, \"Never! By Allah, Allah will never disgrace you. You keep good relations with your kith and kin, help the poor and the destitute, serve your guests generously and assist the deserving calamity-afflicted ones.\" Khadija then accompanied him to her cousin Waraqa bin Naufal bin Asad bin 'Abdul 'Uzza, who, during the pre-Islamic Period became a Christian and used to write the writing with Hebrew letters. He would write from the Gospel in Hebrew as much as Allah wished him to write. He was an old man and had lost his eyesight. Khadija said to Waraqa, \"Listen to the story of your nephew, O my cousin!\" Waraqa asked, \"O my nephew! What have you seen?\" Allah's Messenger (ï·º) described whatever he had seen. Waraqa said, \"This is the same one who keeps the secrets (angel Gabriel) whom Allah had sent to Moses. I wish I were young and could live up to the time when your people would turn you out.\" Allah's Messenger (ï·º) asked, \"Will they drive me out?\" Waraqa replied in the affirmative and said, \"Anyone (man) who came with something similar to what you have brought was treated with hostility; and if I should remain alive till the day when you will be turned out then I would support you strongly.\" But after a few days Waraqa died and the Divine Inspiration was also paused for a while",
+              translation: "Narrated 'Aisha (the mother of the faithful believers):The commencement of the Divine Inspiration to Allah's Messenger (ﷺ) was in the form of good dreams which came true like bright daylight, and then the love of seclusion was bestowed upon him. He used to go in seclusion in the cave of Hira where he used to worship (Allah alone) continuously for many days before his desire to see his family. He used to take with him the journey food for the stay and then come back to (his wife) Khadija to take his food likewise again till suddenly the Truth descended upon him while he was in the cave of Hira. The angel came to him and asked him to read. The Prophet (ﷺ) replied, \"I do not know how to read.\" The Prophet (ﷺ) added, \"The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists), created man from a clot. Read! And your Lord is the Most Generous.\" (96.1, 96.2, 96.3) Then Allah's Messenger (ﷺ) returned with the Inspiration and with his heart beating severely. Then he went to Khadija bint Khuwailid and said, \"Cover me! Cover me!\" They covered him till his fear was over and after that he told her everything that had happened and said, \"I fear that something may happen to me.\" Khadija replied, \"Never! By Allah, Allah will never disgrace you. You keep good relations with your kith and kin, help the poor and the destitute, serve your guests generously and assist the deserving calamity-afflicted ones.\" Khadija then accompanied him to her cousin Waraqa bin Naufal bin Asad bin 'Abdul 'Uzza, who, during the pre-Islamic Period became a Christian and used to write the writing with Hebrew letters. He would write from the Gospel in Hebrew as much as Allah wished him to write. He was an old man and had lost his eyesight. Khadija said to Waraqa, \"Listen to the story of your nephew, O my cousin!\" Waraqa asked, \"O my nephew! What have you seen?\" Allah's Messenger (ﷺ) described whatever he had seen. Waraqa said, \"This is the same one who keeps the secrets (angel Gabriel) whom Allah had sent to Moses. I wish I were young and could live up to the time when your people would turn you out.\" Allah's Messenger (ﷺ) asked, \"Will they drive me out?\" Waraqa replied in the affirmative and said, \"Anyone (man) who came with something similar to what you have brought was treated with hostility; and if I should remain alive till the day when you will be turned out then I would support you strongly.\" But after a few days Waraqa died and the Divine Inspiration was also paused for a while",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -5200,12 +5200,12 @@ Study the Quranic verses on inheritance (primarily Surah An-Nisa, verses 11-12 a
           ],
           description: `**Why?**
 
-Without a valid will, your estate will be distributed according to local secular law â€” which almost certainly does not match Islamic inheritance rules. A properly drafted Islamic will ensures your wealth is divided as Allah commands and can include your wasiyyah (bequest of up to one-third for charitable or non-heir purposes).
+Without a valid will, your estate will be distributed according to local secular law — which almost certainly does not match Islamic inheritance rules. A properly drafted Islamic will ensures your wealth is divided as Allah commands and can include your wasiyyah (bequest of up to one-third for charitable or non-heir purposes).
 
 
 **How?**
 
-Find a solicitor or lawyer experienced with Islamic wills in your jurisdiction. Many Muslim organisations offer will-drafting services or templates. Work with a scholar to determine the correct shares for your heirs. Ensure the will is legally valid in your jurisdiction â€” it must meet local legal requirements to be enforceable. Sign it with witnesses as required by law.` },
+Find a solicitor or lawyer experienced with Islamic wills in your jurisdiction. Many Muslim organisations offer will-drafting services or templates. Work with a scholar to determine the correct shares for your heirs. Ensure the will is legally valid in your jurisdiction — it must meet local legal requirements to be enforceable. Sign it with witnesses as required by law.` },
         { title: 'Designate guardians for minor children in consultation with your spouse and family', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources emphasize the importance of protecting vulnerable offspring and leaving heirs financially secure, they omit specific legal steps like designating guardians, making the subtask a practical logical inference to systematically ensure the children\'s well-being and Islamic upbringing after their parents\' passing.',
@@ -5213,7 +5213,7 @@ Find a solicitor or lawyer experienced with Islamic wills in your jurisdiction. 
             {
               kind: "quran",
               ref: "Quran 4:9",
-              arabic: "ÙˆÙŽÙ„Ù’ÙŠÙŽØ®Ù’Ø´ÙŽ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ù„ÙŽÙˆÙ’ ØªÙŽØ±ÙŽÙƒÙÙˆØ§ Ù…ÙÙ†Ù’ Ø®ÙŽÙ„Ù’ÙÙÙ‡ÙÙ…Ù’ Ø°ÙØ±ÙÙ‘ÙŠÙŽÙ‘Ø©Ù‹ Ø¶ÙØ¹ÙŽØ§ÙÙ‹Ø§ Ø®ÙŽØ§ÙÙÙˆØ§ Ø¹ÙŽÙ„ÙŽÙŠÙ’Ù‡ÙÙ…Ù’",
+              arabic: "وَلْيَخْشَ الَّذِينَ لَوْ تَرَكُوا مِنْ خَلْفِهِمْ ذُرِّيَّةً ضِعَافًا خَافُوا عَلَيْهِمْ",
               translation: "And let those fear who, if they left behind them weak offspring, would fear for them.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5231,7 +5231,7 @@ Find a solicitor or lawyer experienced with Islamic wills in your jurisdiction. 
           ],
           description: `**Why?**
 
-If both parents pass away without designated guardians, the court decides who raises your children â€” and the court may not choose someone who will raise them upon Islam. This is one of the most important decisions you will ever make as a parent.
+If both parents pass away without designated guardians, the court decides who raises your children — and the court may not choose someone who will raise them upon Islam. This is one of the most important decisions you will ever make as a parent.
 
 
 **How?**
@@ -5244,7 +5244,7 @@ Discuss with your spouse who you would trust to raise your children with Islamic
             {
               kind: "quran",
               ref: "Quran 4:9",
-              arabic: "ÙˆÙŽÙ„Ù’ÙŠÙŽØ®Ù’Ø´ÙŽ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ù„ÙŽÙˆÙ’ ØªÙŽØ±ÙŽÙƒÙÙˆØ§ Ù…ÙÙ†Ù’ Ø®ÙŽÙ„Ù’ÙÙÙ‡ÙÙ…Ù’ Ø°ÙØ±ÙÙ‘ÙŠÙŽÙ‘Ø©Ù‹ Ø¶ÙØ¹ÙŽØ§ÙÙ‹Ø§ Ø®ÙŽØ§ÙÙÙˆØ§ Ø¹ÙŽÙ„ÙŽÙŠÙ’Ù‡ÙÙ…Ù’ ÙÙŽÙ„Ù’ÙŠÙŽØªÙŽÙ‘Ù‚ÙÙˆØ§ Ø§Ù„Ù„ÙŽÙ‘Ù‡ÙŽ ÙˆÙŽÙ„Ù’ÙŠÙŽÙ‚ÙÙˆÙ„ÙÙˆØ§ Ù‚ÙŽÙˆÙ’Ù„Ù‹Ø§ Ø³ÙŽØ¯ÙÙŠØ¯Ù‹Ø§",
+              arabic: "وَلْيَخْشَ الَّذِينَ لَوْ تَرَكُوا مِنْ خَلْفِهِمْ ذُرِّيَّةً ضِعَافًا خَافُوا عَلَيْهِمْ فَلْيَتَّقُوا اللَّهَ وَلْيَقُولُوا قَوْلًا سَدِيدًا",
               translation: "And let those fear who, if they left behind them weak offspring, would fear for them. So let them fear Allah and speak words of appropriate justice.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5284,12 +5284,12 @@ Create a master document listing: all bank accounts (with account numbers and in
           ],
           description: `**Why?**
 
-Life changes â€” births, deaths, marriages, divorces, significant financial changes â€” can make a will outdated or even legally invalid. An annual review ensures your will reflects your current reality, not a snapshot from years ago.
+Life changes — births, deaths, marriages, divorces, significant financial changes — can make a will outdated or even legally invalid. An annual review ensures your will reflects your current reality, not a snapshot from years ago.
 
 
 **How?**
 
-Set an annual calendar reminder to review your will â€” a good time is during Ramadan, when reflection on mortality is natural. After any major life event (new child, death of an heir, marriage, divorce, major purchase), review immediately. Check that guardian designations, asset lists, and heir shares are still accurate. Update and re-sign the will with witnesses if any changes are needed.` },
+Set an annual calendar reminder to review your will — a good time is during Ramadan, when reflection on mortality is natural. After any major life event (new child, death of an heir, marriage, divorce, major purchase), review immediately. Check that guardian designations, asset lists, and heir shares are still accurate. Update and re-sign the will with witnesses if any changes are needed.` },
         { title: 'Inform your executor and family members where the will and key documents are stored', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Hadiths establish the urgent duty to write a will and the importance of leaving heirs financially secure, they omit specific modern administrative steps like informing executors and family members where key documents are stored, making the subtask a practical logical inference to systematically ensure the written will is actually executed and its purpose fulfilled.',
@@ -5315,18 +5315,18 @@ Set an annual calendar reminder to review your will â€” a good time is duri
           ],
           description: `**Why?**
 
-A perfectly drafted will that nobody can find is worthless. Your executor needs to know where the will is, who the witnesses are, and how to access the master asset document â€” ideally before they need it, not after you are gone.
+A perfectly drafted will that nobody can find is worthless. Your executor needs to know where the will is, who the witnesses are, and how to access the master asset document — ideally before they need it, not after you are gone.
 
 
 **How?**
 
-Have a direct conversation with your designated executor about their role and responsibilities. Tell them exactly where your will and asset documents are stored â€” safe, lawyer's office, or secure digital vault. Give them the access information they need (safe combination, lawyer's contact, vault password). Inform your spouse and at least one other trusted family member as a backup.` },
+Have a direct conversation with your designated executor about their role and responsibilities. Tell them exactly where your will and asset documents are stored — safe, lawyer's office, or secure digital vault. Give them the access information they need (safe combination, lawyer's contact, vault password). Inform your spouse and at least one other trusted family member as a backup.` },
       ],
     },
     {
       title: 'Pursue a leadership role in your neighbourhood or mosque safety committee',
       priority: 'low', tags: ['leadership', 'community'],
-      description: 'Taking a leadership role in safety infrastructure â€” whether at the mosque, school, or neighbourhood level â€” multiplies your impact and ensures that safety planning is proactive rather than reactive. It is a form of khidmah (service) that protects the most vulnerable.',
+      description: 'Taking a leadership role in safety infrastructure — whether at the mosque, school, or neighbourhood level — multiplies your impact and ensures that safety planning is proactive rather than reactive. It is a form of khidmah (service) that protects the most vulnerable.',
       subtasks: [
         { title: 'Express your interest to the mosque board or community organisation leadership', done: false,
           tier: 'T2',
@@ -5335,7 +5335,7 @@ Have a direct conversation with your designated executor about their role and re
             {
               kind: "quran",
               ref: "Quran 3:104",
-              arabic: "ÙˆÙŽÙ„Ù’ØªÙŽÙƒÙÙ† Ù…ÙÙ‘Ù†ÙƒÙÙ…Ù’ Ø£ÙÙ…ÙŽÙ‘Ø©ÙŒ ÙŠÙŽØ¯Ù’Ø¹ÙÙˆÙ†ÙŽ Ø¥ÙÙ„ÙŽÙ‰ Ø§Ù„Ù’Ø®ÙŽÙŠÙ’Ø±Ù ÙˆÙŽÙŠÙŽØ£Ù’Ù…ÙØ±ÙÙˆÙ†ÙŽ Ø¨ÙØ§Ù„Ù’Ù…ÙŽØ¹Ù’Ø±ÙÙˆÙÙ ÙˆÙŽÙŠÙŽÙ†Ù’Ù‡ÙŽÙˆÙ’Ù†ÙŽ Ø¹ÙŽÙ†Ù Ø§Ù„Ù’Ù…ÙÙ†ÙƒÙŽØ±Ù Ûš ÙˆÙŽØ£ÙÙˆÙ„ÙŽÙ°Ø¦ÙÙƒÙŽ Ù‡ÙÙ…Ù Ø§Ù„Ù’Ù…ÙÙÙ’Ù„ÙØ­ÙÙˆÙ†ÙŽ",
+              arabic: "وَلْتَكُن مِّنكُمْ أُمَّةٌ يَدْعُونَ إِلَى الْخَيْرِ وَيَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنكَرِ ۚ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ",
               translation: "Let there be a group among you who call others to good, and enjoin what is right, and forbid what is wrong: those who do this are the successful ones.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5353,12 +5353,12 @@ Have a direct conversation with your designated executor about their role and re
           ],
           description: `**Why?**
 
-Leadership positions are rarely handed out â€” they go to those who step forward. Expressing interest signals that you are serious, and it opens a conversation about how your skills and experience can serve the community's safety needs.
+Leadership positions are rarely handed out — they go to those who step forward. Expressing interest signals that you are serious, and it opens a conversation about how your skills and experience can serve the community's safety needs.
 
 
 **How?**
 
-Request a meeting or send a message to the mosque board chairperson or community organisation leader. Explain your background, your interest in safety and emergency preparedness, and what specific experience or skills you bring. Ask what the current safety structure looks like and where they see the biggest need. Be specific about what you are offering â€” vague offers to "help out" get forgotten.` },
+Request a meeting or send a message to the mosque board chairperson or community organisation leader. Explain your background, your interest in safety and emergency preparedness, and what specific experience or skills you bring. Ask what the current safety structure looks like and where they see the biggest need. Be specific about what you are offering — vague offers to "help out" get forgotten.` },
         { title: 'Assess the current state of safety protocols and identify the biggest gaps', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Quranic verse establishes the foundational mandate to form a group that invites to good, enjoins what is right, and forbids what is wrong, it omits specific modern administrative actions like assessing the current state of safety protocols and identifying gaps, making the subtask a practical logical inference to systematically ensure the community\'s well-being and fulfill this divine command.',
@@ -5366,7 +5366,7 @@ Request a meeting or send a message to the mosque board chairperson or community
             {
               kind: "quran",
               ref: "Quran 3:104",
-              arabic: "ÙˆÙŽÙ„Ù’ØªÙŽÙƒÙÙ† Ù…ÙÙ‘Ù†ÙƒÙÙ…Ù’ Ø£ÙÙ…ÙŽÙ‘Ø©ÙŒ ÙŠÙŽØ¯Ù’Ø¹ÙÙˆÙ†ÙŽ Ø¥ÙÙ„ÙŽÙ‰ Ø§Ù„Ù’Ø®ÙŽÙŠÙ’Ø±Ù ÙˆÙŽÙŠÙŽØ£Ù’Ù…ÙØ±ÙÙˆÙ†ÙŽ Ø¨ÙØ§Ù„Ù’Ù…ÙŽØ¹Ù’Ø±ÙÙˆÙÙ ÙˆÙŽÙŠÙŽÙ†Ù’Ù‡ÙŽÙˆÙ’Ù†ÙŽ Ø¹ÙŽÙ†Ù Ø§Ù„Ù’Ù…ÙÙ†ÙƒÙŽØ±Ù",
+              arabic: "وَلْتَكُن مِّنكُمْ أُمَّةٌ يَدْعُونَ إِلَى الْخَيْرِ وَيَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنكَرِ",
               translation: "And let there be arising from you a nation inviting to all that is good, enjoining what is right and forbidding what is wrong.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5388,7 +5388,7 @@ Conduct a walkthrough of the community space with a safety checklist: fire exits
             {
               kind: "quran",
               ref: "Quran 3:104",
-              arabic: "ÙˆÙŽÙ„Ù’ØªÙŽÙƒÙÙ† Ù…ÙÙ‘Ù†ÙƒÙÙ…Ù’ Ø£ÙÙ…ÙŽÙ‘Ø©ÙŒ ÙŠÙŽØ¯Ù’Ø¹ÙÙˆÙ†ÙŽ Ø¥ÙÙ„ÙŽÙ‰ Ø§Ù„Ù’Ø®ÙŽÙŠÙ’Ø±Ù ÙˆÙŽÙŠÙŽØ£Ù’Ù…ÙØ±ÙÙˆÙ†ÙŽ Ø¨ÙØ§Ù„Ù’Ù…ÙŽØ¹Ù’Ø±ÙÙˆÙÙ ÙˆÙŽÙŠÙŽÙ†Ù’Ù‡ÙŽÙˆÙ’Ù†ÙŽ Ø¹ÙŽÙ†Ù Ø§Ù„Ù’Ù…ÙÙ†ÙƒÙŽØ±Ù",
+              arabic: "وَلْتَكُن مِّنكُمْ أُمَّةٌ يَدْعُونَ إِلَى الْخَيْرِ وَيَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنكَرِ",
               translation: "And let there be among you a group inviting to good, enjoining what is right and forbidding what is wrong.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5419,12 +5419,12 @@ Based on your assessment, create a document with three priority tiers: immediate
           ],
           description: `**Why?**
 
-Safety infrastructure is only effective if the community knows it exists and knows how to use it. A training event educates, builds awareness, and creates a culture where safety is everyone's responsibility â€” not just the committee's.
+Safety infrastructure is only effective if the community knows it exists and knows how to use it. A training event educates, builds awareness, and creates a culture where safety is everyone's responsibility — not just the committee's.
 
 
 **How?**
 
-Plan a community event: a first aid workshop, a fire safety demonstration, or an emergency preparedness seminar. Partner with local fire departments, ambulance services, or qualified trainers who may offer free community sessions. Promote the event through the mosque announcement, social media, and word of mouth. Make it family-friendly and practical â€” people remember what they physically practise, not what they hear in a lecture.` },
+Plan a community event: a first aid workshop, a fire safety demonstration, or an emergency preparedness seminar. Partner with local fire departments, ambulance services, or qualified trainers who may offer free community sessions. Promote the event through the mosque announcement, social media, and word of mouth. Make it family-friendly and practical — people remember what they physically practise, not what they hear in a lecture.` },
         { title: 'Build a team of committed volunteers to sustain the initiative beyond you', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources establish the foundational mandates to form a dedicated group for good and to function collectively as a unified body, they omit specific modern organizational steps like building a team of committed volunteers with defined roles and succession plans, making the subtask a practical logical inference to systematically ensure the sustainability of this collective obligation.',
@@ -5432,7 +5432,7 @@ Plan a community event: a first aid workshop, a fire safety demonstration, or an
             {
               kind: "quran",
               ref: "Quran 3:104",
-              arabic: "ÙˆÙŽÙ„Ù’ØªÙŽÙƒÙÙ† Ù…ÙÙ‘Ù†ÙƒÙÙ…Ù’ Ø£ÙÙ…ÙŽÙ‘Ø©ÙŒ ÙŠÙŽØ¯Ù’Ø¹ÙÙˆÙ†ÙŽ Ø¥ÙÙ„ÙŽÙ‰ Ø§Ù„Ù’Ø®ÙŽÙŠÙ’Ø±Ù",
+              arabic: "وَلْتَكُن مِّنكُمْ أُمَّةٌ يَدْعُونَ إِلَى الْخَيْرِ",
               translation: "And let there be among you a group inviting to good.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5460,10 +5460,10 @@ Identify 3-5 community members who showed interest during events or training. In
     },
   ],
 
-  // â”€â”€ SOCIAL CHARACTER â”€â”€
+  // ── SOCIAL CHARACTER ──
   health_social_core: [
     {
-      title: 'Master the Islamic greeting â€” give salam freely and respond completely',
+      title: 'Master the Islamic greeting — give salam freely and respond completely',
       priority: 'high', tags: ['adab', 'sunnah'],
       description: ' Shall I not tell you of something that if you do it, you will love one another? Spread the salam amongst yourselves." The greeting of peace is the simplest, most powerful tool for building Muslim brotherhood.',
       subtasks: [
@@ -5474,11 +5474,11 @@ Identify 3-5 community members who showed interest during events or training. In
             {
               kind: "quran",
               ref: "Quran 28:53",
-              arabic: "ÙˆÙŽØ¥ÙØ°ÙŽØ§ ÙŠÙØªÙ’Ù„ÙŽÙ‰Ù° Ø¹ÙŽÙ„ÙŽÙŠÙ’Ù‡ÙÙ…Ù’ Ù‚ÙŽØ§Ù„ÙÙˆØ§ Ø¢Ù…ÙŽÙ†ÙŽÙ‘Ø§ Ø¨ÙÙ‡Ù Ø¥ÙÙ†ÙŽÙ‘Ù‡Ù Ø§Ù„Ù’Ø­ÙŽÙ‚ÙÙ‘ Ù…ÙÙ† Ø±ÙŽÙ‘Ø¨ÙÙ‘Ù†ÙŽØ§ Ø¥ÙÙ†ÙŽÙ‘Ø§ ÙƒÙÙ†ÙŽÙ‘Ø§ Ù…ÙÙ† Ù‚ÙŽØ¨Ù’Ù„ÙÙ‡Ù Ù…ÙØ³Ù’Ù„ÙÙ…ÙÙŠÙ†ÙŽ",
+              arabic: "وَإِذَا يُتْلَىٰ عَلَيْهِمْ قَالُوا آمَنَّا بِهِ إِنَّهُ الْحَقُّ مِن رَّبِّنَا إِنَّا كُنَّا مِن قَبْلِهِ مُسْلِمِينَ",
               translation: "and, when it is recited to them, say, \"We believe in it, it is the truth from our Lord. Before it came we had already devoted ourselves to Him.",
               relevance: "contextual",
               provenanceTier: "Bayyinah",
-              rationale: "those who submit to Allah naturally express peace â€” initiating salam is the outward expression of inner Islam.",
+              rationale: "those who submit to Allah naturally express peace — initiating salam is the outward expression of inner Islam.",
             },
             {
               kind: "hadith",
@@ -5497,7 +5497,7 @@ The one who initiates the greeting earns greater reward. By making salam your de
 
 **How?**
 
-Set a personal rule: you will be the first to say "As-salamu alaykum" in every interaction with a Muslim â€” at the store, the parking lot, the hallway. Do not wait for eye contact or familiarity. Track yourself for one week and notice how many new connections open up.` },
+Set a personal rule: you will be the first to say "As-salamu alaykum" in every interaction with a Muslim — at the store, the parking lot, the hallway. Do not wait for eye contact or familiarity. Track yourself for one week and notice how many new connections open up.` },
         { title: 'Learn and use the full response: "Wa alaykum as-salam wa rahmatullahi wa barakatuh"', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly command responding to a greeting with a better one and demonstrate the use of "mercy and blessings" within the context of prayer, they omit the exact everyday phrase "Wa alaykum as-salam wa rahmatullahi wa barakatuh," making the subtask to learn and use this specific full reply a logical inference to fulfill the Quranic injunction.',
@@ -5505,7 +5505,7 @@ Set a personal rule: you will be the first to say "As-salamu alaykum" in every i
             {
               kind: "quran",
               ref: "Quran 4:86",
-              arabic: "ÙˆÙŽØ¥ÙØ°ÙŽØ§ Ø­ÙÙŠÙÙ‘ÙŠØªÙÙ… Ø¨ÙØªÙŽØ­ÙÙŠÙŽÙ‘Ø©Ù ÙÙŽØ­ÙŽÙŠÙÙ‘ÙˆØ§ Ø¨ÙØ£ÙŽØ­Ù’Ø³ÙŽÙ†ÙŽ Ù…ÙÙ†Ù’Ù‡ÙŽØ§ Ø£ÙŽÙˆÙ’ Ø±ÙØ¯ÙÙ‘ÙˆÙ‡ÙŽØ§ Û— Ø¥ÙÙ†ÙŽÙ‘ Ø§Ù„Ù„ÙŽÙ‘Ù‡ÙŽ ÙƒÙŽØ§Ù†ÙŽ Ø¹ÙŽÙ„ÙŽÙ‰Ù° ÙƒÙÙ„ÙÙ‘ Ø´ÙŽÙŠÙ’Ø¡Ù Ø­ÙŽØ³ÙÙŠØ¨Ù‹Ø§",
+              arabic: "وَإِذَا حُيِّيتُم بِتَحِيَّةٍ فَحَيُّوا بِأَحْسَنَ مِنْهَا أَوْ رُدُّوهَا ۗ إِنَّ اللَّهَ كَانَ عَلَىٰ كُلِّ شَيْءٍ حَسِيبًا",
               translation: "When you are greeted with a greeting, respond with a better one, or at least return it: God keeps account of everything.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5514,7 +5514,7 @@ Set a personal rule: you will be the first to say "As-salamu alaykum" in every i
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 831",
-              translation: "Narrated Shaqiq bin Salama:`Abdullah said, \"Whenever we prayed behind the Prophet (ï·º) we used to recite (in sitting) 'Peace be on Gabriel, Michael, peace be on so and so. Once Allah's Messenger (ï·º) looked back at us and said, 'Allah Himself is As-Salam (Peace), and if anyone of you prays then he should say, at-Tahiyatu li l-lahi wa ssalawatu wa t-taiyibat. As-salamu `alalika aiyuha n-Nabiyu wa rahmatu l-lahi wa barakatuh. Assalamu `alaina wa `ala `ibadi l-lahi s-salihin. (All the compliments, prayers and good things are due to Allah; peace be on you, O Prophet, and Allah's mercy and blessings [be on you]. Peace be on us an on the pious subjects of Allah). (If you say that, it will reach all the subjects in the heaven and the earth). Ash-hadu al-la ilaha illa l-lah, wa ash-hadu anna Muhammadan `Abduhu wa Rasuluh. (I testify that there is no Deity [worthy of worship] but Allah, and I testify that Muhammad is His slave and His Apostle",
+              translation: "Narrated Shaqiq bin Salama:`Abdullah said, \"Whenever we prayed behind the Prophet (ﷺ) we used to recite (in sitting) 'Peace be on Gabriel, Michael, peace be on so and so. Once Allah's Messenger (ﷺ) looked back at us and said, 'Allah Himself is As-Salam (Peace), and if anyone of you prays then he should say, at-Tahiyatu li l-lahi wa ssalawatu wa t-taiyibat. As-salamu `alalika aiyuha n-Nabiyu wa rahmatu l-lahi wa barakatuh. Assalamu `alaina wa `ala `ibadi l-lahi s-salihin. (All the compliments, prayers and good things are due to Allah; peace be on you, O Prophet, and Allah's mercy and blessings [be on you]. Peace be on us an on the pious subjects of Allah). (If you say that, it will reach all the subjects in the heaven and the earth). Ash-hadu al-la ilaha illa l-lah, wa ash-hadu anna Muhammadan `Abduhu wa Rasuluh. (I testify that there is no Deity [worthy of worship] but Allah, and I testify that Muhammad is His slave and His Apostle",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -5528,7 +5528,7 @@ Responding with the complete greeting maximises the reward and honours the one w
 
 **How?**
 
-Memorise the full response and practise it until it flows naturally. When someone gives you salam, pause for a beat and deliver the complete reply. Correct yourself out loud if you cut it short â€” this builds the habit quickly.` },
+Memorise the full response and practise it until it flows naturally. When someone gives you salam, pause for a beat and deliver the complete reply. Correct yourself out loud if you cut it short — this builds the habit quickly.` },
         { title: 'Greet strangers at the mosque, workplace, and in your neighbourhood', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources establish the obligation to return greetings and demonstrate the practice of greeting within the mosque, they omit explicit instructions to initiate greetings with strangers in broader settings like the workplace or neighbourhood, making the subtask a practical logical inference to systematically spread peace and build community.',
@@ -5545,7 +5545,7 @@ Memorise the full response and practise it until it flows naturally. When someon
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 757",
-              translation: "Narrated Abu Huraira:Allah's Messenger (ï·º) entered the mosque and a person followed him. The man prayed and went to the Prophet and greeted him. The Prophet (ï·º) returned the greeting and said to him, \"Go back and pray, for you have not prayed.\" The man went back prayed in the same way as before, returned and greeted the Prophet who said, \"Go back and pray, for you have not prayed.\" This happened thrice. The man said, \"By Him Who sent you with the Truth, I cannot offer the prayer in a better way than this. Please, teach me how to pray.\" The Prophet (ï·º) said, \"When you stand for Prayer say Takbir and then recite from the Holy Qur'an (of what you know by heart) and then bow till you feel at ease. Then raise your head and stand up straight, then prostrate till you feel at ease during your prostration, then sit with calmness till you feel at ease (do not hurry) and do the same in all your prayers",
+              translation: "Narrated Abu Huraira:Allah's Messenger (ﷺ) entered the mosque and a person followed him. The man prayed and went to the Prophet and greeted him. The Prophet (ﷺ) returned the greeting and said to him, \"Go back and pray, for you have not prayed.\" The man went back prayed in the same way as before, returned and greeted the Prophet who said, \"Go back and pray, for you have not prayed.\" This happened thrice. The man said, \"By Him Who sent you with the Truth, I cannot offer the prayer in a better way than this. Please, teach me how to pray.\" The Prophet (ﷺ) said, \"When you stand for Prayer say Takbir and then recite from the Holy Qur'an (of what you know by heart) and then bow till you feel at ease. Then raise your head and stand up straight, then prostrate till you feel at ease during your prostration, then sit with calmness till you feel at ease (do not hurry) and do the same in all your prayers",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -5559,7 +5559,7 @@ Salam is most impactful when given to those you do not know. It transforms a roo
 
 **How?**
 
-Choose one setting each week â€” the mosque, your office, or your neighbourhood â€” and deliberately greet every Muslim you see, including those you have never spoken to. Smile, make eye contact, and say it clearly. Notice how quickly walls come down.` },
+Choose one setting each week — the mosque, your office, or your neighbourhood — and deliberately greet every Muslim you see, including those you have never spoken to. Smile, make eye contact, and say it clearly. Notice how quickly walls come down.` },
         { title: 'Teach children the etiquette of giving and responding to salam', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Hadiths explicitly establish the commands to spread peace and detail the specific etiquette of the younger greeting the older, they omit the direct instruction to teach this to children, making the subtask a practical logical inference to systematically ensure the next generation learns and applies this prophetic tradition.',
@@ -5570,7 +5570,7 @@ Choose one setting each week â€” the mosque, your office, or your neighbour
               translation: "The Prophet (SAW) said: \"You will not enter Paradise until you believe, and you will not believe until you love one another. Shall I not tell you of something which, if you do it, you will love one another? Spread the salam amongst yourselves.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih â€” narrated in Sahih Muslim 54",
+              hadithGrade: "Sahih — narrated in Sahih Muslim 54",
               rationale: "Prophetic narration cited as evidence for this subtask.",
             },
             {
@@ -5590,13 +5590,13 @@ Children who learn the salam early internalise that every human interaction begi
 
 **How?**
 
-Model the behaviour â€” greet everyone with salam in front of your children and prompt them to do the same. Teach them who greets first (the young greets the elder, the walker greets the seated) and praise them when they initiate salam on their own.` },
+Model the behaviour — greet everyone with salam in front of your children and prompt them to do the same. Teach them who greets first (the young greets the elder, the walker greets the seated) and praise them when they initiate salam on their own.` },
       ],
     },
     {
-      title: 'Fulfil social obligations consistently â€” attend weddings, funerals, and visit the sick',
+      title: 'Fulfil social obligations consistently — attend weddings, funerals, and visit the sick',
       priority: 'high', tags: ['adab', 'community'],
-      description: 'The Prophet (SAW) outlined five rights of a Muslim upon another Muslim, including visiting the sick, attending funerals, and accepting invitations. These are not optional courtesies â€” they are obligations that maintain the social fabric of the ummah and earn immense reward.',
+      description: 'The Prophet (SAW) outlined five rights of a Muslim upon another Muslim, including visiting the sick, attending funerals, and accepting invitations. These are not optional courtesies — they are obligations that maintain the social fabric of the ummah and earn immense reward.',
       subtasks: [
         { title: 'Keep a calendar or list of upcoming social obligations (weddings, births, illnesses)', done: false,
           tier: 'T2',
@@ -5623,7 +5623,7 @@ Model the behaviour â€” greet everyone with salam in front of your children
           ],
           description: `**Why?**
 
-Social obligations in Islam are not optional â€” they are rights that others hold over you. Without a system to track them, you will inevitably miss weddings, forget to visit the sick, and lose the reward and connection that come from showing up.
+Social obligations in Islam are not optional — they are rights that others hold over you. Without a system to track them, you will inevitably miss weddings, forget to visit the sick, and lose the reward and connection that come from showing up.
 
 
 **How?**
@@ -5631,21 +5631,21 @@ Social obligations in Islam are not optional â€” they are rights that other
 Create a dedicated section in your calendar or notes app for social obligations. When you hear of a wedding, birth, illness, or death, add it immediately with a reminder. Review this list weekly so nothing falls through the cracks.` },
         { title: 'Prioritise attending janazah prayers whenever you are notified of a death', done: false,
           tier: 'T2',
-          amanahRationale: 'Fallback assignment â€” NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
+          amanahRationale: 'Fallback assignment — NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
           sources: [
             {
               kind: "quran",
               ref: "Quran 3:185",
-              arabic: "ÙƒÙÙ„ÙÙ‘ Ù†ÙŽÙÙ’Ø³Ù Ø°ÙŽØ§Ø¦ÙÙ‚ÙŽØ©Ù Ø§Ù„Ù’Ù…ÙŽÙˆÙ’ØªÙ Û— ÙˆÙŽØ¥ÙÙ†ÙŽÙ‘Ù…ÙŽØ§ ØªÙÙˆÙŽÙÙŽÙ‘ÙˆÙ’Ù†ÙŽ Ø£ÙØ¬ÙÙˆØ±ÙŽÙƒÙÙ…Ù’ ÙŠÙŽÙˆÙ’Ù…ÙŽ Ø§Ù„Ù’Ù‚ÙÙŠÙŽØ§Ù…ÙŽØ©Ù Û– ÙÙŽÙ…ÙŽÙ† Ø²ÙØ­Ù’Ø²ÙØ­ÙŽ Ø¹ÙŽÙ†Ù Ø§Ù„Ù†ÙŽÙ‘Ø§Ø±Ù ÙˆÙŽØ£ÙØ¯Ù’Ø®ÙÙ„ÙŽ Ø§Ù„Ù’Ø¬ÙŽÙ†ÙŽÙ‘Ø©ÙŽ ÙÙŽÙ‚ÙŽØ¯Ù’ ÙÙŽØ§Ø²ÙŽ Û— ÙˆÙŽÙ…ÙŽØ§ Ø§Ù„Ù’Ø­ÙŽÙŠÙŽØ§Ø©Ù Ø§Ù„Ø¯ÙÙ‘Ù†Ù’ÙŠÙŽØ§ Ø¥ÙÙ„ÙŽÙ‘Ø§ Ù…ÙŽØªÙŽØ§Ø¹Ù Ø§Ù„Ù’ØºÙØ±ÙÙˆØ±Ù",
+              arabic: "كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ ۗ وَإِنَّمَا تُوَفَّوْنَ أُجُورَكُمْ يَوْمَ الْقِيَامَةِ ۖ فَمَن زُحْزِحَ عَنِ النَّارِ وَأُدْخِلَ الْجَنَّةَ فَقَدْ فَازَ ۗ وَمَا الْحَيَاةُ الدُّنْيَا إِلَّا مَتَاعُ الْغُرُورِ",
               translation: "Every soul will taste death, and you will only be given your full reward on the Day of Resurrection. Whoever is kept away from the Fire and admitted to the Garden will have triumphed. The present world is only an illusory pleasure.",
               relevance: "contextual",
               provenanceTier: "Bayyinah",
-              rationale: "attending the janazah is the believer's response to this universal reality â€” honouring the deceased and reminding oneself of the return to Allah.",
+              rationale: "attending the janazah is the believer's response to this universal reality — honouring the deceased and reminding oneself of the return to Allah.",
             },
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 1091",
-              translation: "Narrated `Abdullah bin `Umar:\"I saw Allah's Messenger (ï·º) delaying the Maghrib prayer till he offered it along with the `Isha' prayer whenever he was in a hurry during the journey.\" Salim narrated, \"Ibn `Umar used to do the same whenever he was in a hurry during the journey.\" And Salim added, \"Ibn `Umar used to pray the Maghrib and `Isha' prayers together in Al-Muzdalifa.\" Salim said, \"Ibn `Umar delayed the Maghrib prayer because at that time he heard the news of the death of his wife Safiya bint Abi `Ubaid. I said to him, 'The prayer (is due).' He said, 'Go on.' Again I said, 'The prayer (is due).' He said, 'Go on,' till we covered two or three miles. Then he got down, prayed and said, 'I saw the Prophet (ï·º) praying in this way, whenever he was in a hurry during the journey.' `Abdullah (bin `Umar) added, \"Whenever the Prophet was in a hurry, he used to delay the Maghrib prayer and then offer three rak`at (of the Maghrib) and perform Taslim, and after waiting for a short while, Iqama used to be pronounced for the `Isha' prayer when he would offer two rak`at and perform Taslim. He would never offer any optional prayer till the middle of the night (when he used to pray the Tahajjud)",
+              translation: "Narrated `Abdullah bin `Umar:\"I saw Allah's Messenger (ﷺ) delaying the Maghrib prayer till he offered it along with the `Isha' prayer whenever he was in a hurry during the journey.\" Salim narrated, \"Ibn `Umar used to do the same whenever he was in a hurry during the journey.\" And Salim added, \"Ibn `Umar used to pray the Maghrib and `Isha' prayers together in Al-Muzdalifa.\" Salim said, \"Ibn `Umar delayed the Maghrib prayer because at that time he heard the news of the death of his wife Safiya bint Abi `Ubaid. I said to him, 'The prayer (is due).' He said, 'Go on.' Again I said, 'The prayer (is due).' He said, 'Go on,' till we covered two or three miles. Then he got down, prayed and said, 'I saw the Prophet (ﷺ) praying in this way, whenever he was in a hurry during the journey.' `Abdullah (bin `Umar) added, \"Whenever the Prophet was in a hurry, he used to delay the Maghrib prayer and then offer three rak`at (of the Maghrib) and perform Taslim, and after waiting for a short while, Iqama used to be pronounced for the `Isha' prayer when he would offer two rak`at and perform Taslim. He would never offer any optional prayer till the middle of the night (when he used to pray the Tahajjud)",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -5654,7 +5654,7 @@ Create a dedicated section in your calendar or notes app for social obligations.
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 1092",
-              translation: "Narrated `Abdullah bin `Umar:\"I saw Allah's Messenger (ï·º) delaying the Maghrib prayer till he offered it along with the `Isha' prayer whenever he was in a hurry during the journey.\" Salim narrated, \"Ibn `Umar used to do the same whenever he was in a hurry during the journey.\" And Salim added, \"Ibn `Umar used to pray the Maghrib and `Isha' prayers together in Al-Muzdalifa.\" Salim said, \"Ibn `Umar delayed the Maghrib prayer because at that time he heard the news of the death of his wife Safiya bint Abi `Ubaid. I said to him, 'The prayer (is due).' He said, 'Go on.' Again I said, 'The prayer (is due).' He said, 'Go on,' till we covered two or three miles. Then he got down, prayed and said, 'I saw the Prophet (ï·º) praying in this way, whenever he was in a hurry during the journey.' `Abdullah (bin `Umar) added, \"Whenever the Prophet was in a hurry, he used to delay the Maghrib prayer and then offer three rak`at (of the Maghrib) and perform Taslim, and after waiting for a short while, Iqama used to be pronounced for the `Isha' prayer when he would offer two rak`at and perform Taslim. He would never offer any optional prayer till the middle of the night (when he used to pray the Tahajjud)",
+              translation: "Narrated `Abdullah bin `Umar:\"I saw Allah's Messenger (ﷺ) delaying the Maghrib prayer till he offered it along with the `Isha' prayer whenever he was in a hurry during the journey.\" Salim narrated, \"Ibn `Umar used to do the same whenever he was in a hurry during the journey.\" And Salim added, \"Ibn `Umar used to pray the Maghrib and `Isha' prayers together in Al-Muzdalifa.\" Salim said, \"Ibn `Umar delayed the Maghrib prayer because at that time he heard the news of the death of his wife Safiya bint Abi `Ubaid. I said to him, 'The prayer (is due).' He said, 'Go on.' Again I said, 'The prayer (is due).' He said, 'Go on,' till we covered two or three miles. Then he got down, prayed and said, 'I saw the Prophet (ﷺ) praying in this way, whenever he was in a hurry during the journey.' `Abdullah (bin `Umar) added, \"Whenever the Prophet was in a hurry, he used to delay the Maghrib prayer and then offer three rak`at (of the Maghrib) and perform Taslim, and after waiting for a short while, Iqama used to be pronounced for the `Isha' prayer when he would offer two rak`at and perform Taslim. He would never offer any optional prayer till the middle of the night (when he used to pray the Tahajjud)",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -5663,21 +5663,21 @@ Create a dedicated section in your calendar or notes app for social obligations.
           ],
           description: `**Why?**
 
-Attending the janazah prayer is a communal obligation (fardh kifayah) and carries the reward of a qirat â€” a mountain of good deeds. It also comforts the bereaved family and reminds you of your own mortality, softening your heart.
+Attending the janazah prayer is a communal obligation (fardh kifayah) and carries the reward of a qirat — a mountain of good deeds. It also comforts the bereaved family and reminds you of your own mortality, softening your heart.
 
 
 **How?**
 
-Sign up for your local mosque notification list or community WhatsApp group that announces deaths. When a janazah is announced, treat it as a priority â€” rearrange your schedule if possible. Even if you did not know the deceased, your presence fulfils a right and earns immense reward.` },
-        { title: 'Visit at least one sick person per month â€” bring food, dua, and companionship', done: false,
+Sign up for your local mosque notification list or community WhatsApp group that announces deaths. When a janazah is announced, treat it as a priority — rearrange your schedule if possible. Even if you did not know the deceased, your presence fulfils a right and earns immense reward.` },
+        { title: 'Visit at least one sick person per month — bring food, dua, and companionship', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Hadith explicitly commands believers to "visit the sick" and "feed the hungry," it omits specific modern parameters like visiting at least one sick person per month, making the subtask a practical logical inference to systematically fulfill this prophetic obligation of care and companionship.',
           sources: [
             {
               kind: "quran",
               ref: "Quran 2:184",
-              arabic: "Ø£ÙŽÙŠÙŽÙ‘Ø§Ù…Ù‹Ø§ Ù…ÙŽÙ‘Ø¹Ù’Ø¯ÙÙˆØ¯ÙŽØ§ØªÙ Ûš ÙÙŽÙ…ÙŽÙ† ÙƒÙŽØ§Ù†ÙŽ Ù…ÙÙ†ÙƒÙÙ… Ù…ÙŽÙ‘Ø±ÙÙŠØ¶Ù‹Ø§ Ø£ÙŽÙˆÙ’ Ø¹ÙŽÙ„ÙŽÙ‰Ù° Ø³ÙŽÙÙŽØ±Ù ÙÙŽØ¹ÙØ¯ÙŽÙ‘Ø©ÙŒ Ù…ÙÙ‘Ù†Ù’ Ø£ÙŽÙŠÙŽÙ‘Ø§Ù…Ù Ø£ÙØ®ÙŽØ±ÙŽ Ûš ÙˆÙŽØ¹ÙŽÙ„ÙŽÙ‰ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ ÙŠÙØ·ÙÙŠÙ‚ÙÙˆÙ†ÙŽÙ‡Ù ÙÙØ¯Ù’ÙŠÙŽØ©ÙŒ Ø·ÙŽØ¹ÙŽØ§Ù…Ù Ù…ÙØ³Ù’ÙƒÙÙŠÙ†Ù Û– ÙÙŽÙ…ÙŽÙ† ØªÙŽØ·ÙŽÙˆÙŽÙ‘Ø¹ÙŽ Ø®ÙŽÙŠÙ’Ø±Ù‹Ø§ ÙÙŽÙ‡ÙÙˆÙŽ Ø®ÙŽÙŠÙ’Ø±ÙŒ Ù„ÙŽÙ‘Ù‡Ù Ûš ÙˆÙŽØ£ÙŽÙ† ØªÙŽØµÙÙˆÙ…ÙÙˆØ§ Ø®ÙŽÙŠÙ’Ø±ÙŒ Ù„ÙŽÙ‘ÙƒÙÙ…Ù’ Û– Ø¥ÙÙ† ÙƒÙÙ†ØªÙÙ…Ù’ ØªÙŽØ¹Ù’Ù„ÙŽÙ…ÙÙˆÙ†ÙŽ",
-              translation: "Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. For those who can fast only with extreme difficulty, there is a way to compensate â€” feed a needy person. But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew.",
+              arabic: "أَيَّامًا مَّعْدُودَاتٍ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ ۖ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ ۚ وَأَن تَصُومُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ",
+              translation: "Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. For those who can fast only with extreme difficulty, there is a way to compensate — feed a needy person. But if anyone does good of his own accord, it is better for him, and fasting is better for you, if only you knew.",
               relevance: "contextual",
               provenanceTier: "Bayyinah",
               rationale: "the Quran's acknowledgement of illness as a condition requiring communal accommodation grounds the broader obligation to care for the sick.",
@@ -5698,7 +5698,7 @@ Visiting the sick is one of the five rights of a Muslim upon another Muslim. It 
 
 **How?**
 
-Ask around your circle each week â€” who is unwell, recovering from surgery, or housebound? Schedule a visit, bring a home-cooked meal or fruit, sit with them, make dua for their recovery, and keep the visit brief unless they want company. Consistency matters more than grand gestures.` },
+Ask around your circle each week — who is unwell, recovering from surgery, or housebound? Schedule a visit, bring a home-cooked meal or fruit, sit with them, make dua for their recovery, and keep the visit brief unless they want company. Consistency matters more than grand gestures.` },
         { title: 'Accept invitations to walimah and other gatherings unless there is a valid Islamic reason not to', done: false,
           tier: 'T1',
           amanahRationale: 'The provided Hadith from Sahih al-Bukhari explicitly states that failing to accept a walimah invitation constitutes disobedience to Allah and His Messenger, providing direct and clear proof for the core action of the subtask.',
@@ -5706,16 +5706,16 @@ Ask around your circle each week â€” who is unwell, recovering from surgery
             {
               kind: "quran",
               ref: "Quran 2:221",
-              arabic: "ÙˆÙŽÙ„ÙŽØ§ ØªÙŽÙ†ÙƒÙØ­ÙÙˆØ§ Ø§Ù„Ù’Ù…ÙØ´Ù’Ø±ÙÙƒÙŽØ§ØªÙ Ø­ÙŽØªÙŽÙ‘Ù‰Ù° ÙŠÙØ¤Ù’Ù…ÙÙ†ÙŽÙ‘ Ûš ÙˆÙŽÙ„ÙŽØ£ÙŽÙ…ÙŽØ©ÙŒ Ù…ÙÙ‘Ø¤Ù’Ù…ÙÙ†ÙŽØ©ÙŒ Ø®ÙŽÙŠÙ’Ø±ÙŒ Ù…ÙÙ‘Ù† Ù…ÙÙ‘Ø´Ù’Ø±ÙÙƒÙŽØ©Ù ÙˆÙŽÙ„ÙŽÙˆÙ’ Ø£ÙŽØ¹Ù’Ø¬ÙŽØ¨ÙŽØªÙ’ÙƒÙÙ…Ù’ Û— ÙˆÙŽÙ„ÙŽØ§ ØªÙÙ†ÙƒÙØ­ÙÙˆØ§ Ø§Ù„Ù’Ù…ÙØ´Ù’Ø±ÙÙƒÙÙŠÙ†ÙŽ Ø­ÙŽØªÙŽÙ‘Ù‰Ù° ÙŠÙØ¤Ù’Ù…ÙÙ†ÙÙˆØ§ Ûš ÙˆÙŽÙ„ÙŽØ¹ÙŽØ¨Ù’Ø¯ÙŒ Ù…ÙÙ‘Ø¤Ù’Ù…ÙÙ†ÙŒ Ø®ÙŽÙŠÙ’Ø±ÙŒ Ù…ÙÙ‘Ù† Ù…ÙÙ‘Ø´Ù’Ø±ÙÙƒÙ ÙˆÙŽÙ„ÙŽÙˆÙ’ Ø£ÙŽØ¹Ù’Ø¬ÙŽØ¨ÙŽÙƒÙÙ…Ù’",
+              arabic: "وَلَا تَنكِحُوا الْمُشْرِكَاتِ حَتَّىٰ يُؤْمِنَّ ۚ وَلَأَمَةٌ مُّؤْمِنَةٌ خَيْرٌ مِّن مُّشْرِكَةٍ وَلَوْ أَعْجَبَتْكُمْ ۗ وَلَا تُنكِحُوا الْمُشْرِكِينَ حَتَّىٰ يُؤْمِنُوا ۚ وَلَعَبْدٌ مُّؤْمِنٌ خَيْرٌ مِّن مُّشْرِكٍ وَلَوْ أَعْجَبَكُمْ",
               translation: "Do not marry idolatresses until they believe: a believing slave woman is certainly better than an idolatress, even though she may please you. And do not give your women in marriage to idolaters until they believe: a believing slave is certainly better than an idolater, even though he may please you.",
               relevance: "contextual",
               provenanceTier: "Bayyinah",
-              rationale: "this verse affirms the sanctity of Islamic marriage â€” the walimah is its public celebration, which believers are commanded to honour by attending.",
+              rationale: "this verse affirms the sanctity of Islamic marriage — the walimah is its public celebration, which believers are commanded to honour by attending.",
             },
             {
               kind: "quran",
               ref: "Quran 3:85",
-              arabic: "ÙˆÙŽÙ…ÙŽÙ† ÙŠÙŽØ¨Ù’ØªÙŽØºÙ ØºÙŽÙŠÙ’Ø±ÙŽ Ø§Ù„Ù’Ø¥ÙØ³Ù’Ù„ÙŽØ§Ù…Ù Ø¯ÙÙŠÙ†Ù‹Ø§ ÙÙŽÙ„ÙŽÙ† ÙŠÙÙ‚Ù’Ø¨ÙŽÙ„ÙŽ Ù…ÙÙ†Ù’Ù‡Ù ÙˆÙŽÙ‡ÙÙˆÙŽ ÙÙÙŠ Ø§Ù„Ù’Ø¢Ø®ÙØ±ÙŽØ©Ù Ù…ÙÙ†ÙŽ Ø§Ù„Ù’Ø®ÙŽØ§Ø³ÙØ±ÙÙŠÙ†ÙŽ",
+              arabic: "وَمَن يَبْتَغِ غَيْرَ الْإِسْلَامِ دِينًا فَلَن يُقْبَلَ مِنْهُ وَهُوَ فِي الْآخِرَةِ مِنَ الْخَاسِرِينَ",
               translation: "If anyone seeks a religion other than complete devotion to God, it will not be accepted from him: he will be one of the losers in the Hereafter.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5772,9 +5772,9 @@ After visiting the sick, attending a funeral, or going to a wedding, send a brie
       ],
     },
     {
-      title: 'Audit your speech â€” eliminate backbiting (gheebah), slander (buhtan), and lying',
+      title: 'Audit your speech — eliminate backbiting (gheebah), slander (buhtan), and lying',
       priority: 'urgent', tags: ['adab', 'character'],
-      description: 'Allah compares backbiting to eating the flesh of your dead brother (49:12). The tongue is the most dangerous limb â€” it can destroy relationships, reputations, and your own akhirah. An honest audit of your speech habits is the starting point for purifying your social character.',
+      description: 'Allah compares backbiting to eating the flesh of your dead brother (49:12). The tongue is the most dangerous limb — it can destroy relationships, reputations, and your own akhirah. An honest audit of your speech habits is the starting point for purifying your social character.',
       subtasks: [
         { title: 'For one week, actively monitor every conversation for gheebah, buhtan, or exaggeration', done: false,
           tier: 'T2',
@@ -5783,7 +5783,7 @@ After visiting the sick, attending a funeral, or going to a wedding, send a brie
             {
               kind: "quran",
               ref: "Quran 49:12",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø§Ø¬Ù’ØªÙŽÙ†ÙØ¨ÙÙˆØ§ ÙƒÙŽØ«ÙÙŠØ±Ù‹Ø§ Ù…ÙÙ‘Ù†ÙŽ Ø§Ù„Ø¸ÙŽÙ‘Ù†ÙÙ‘ Ø¥ÙÙ†ÙŽÙ‘ Ø¨ÙŽØ¹Ù’Ø¶ÙŽ Ø§Ù„Ø¸ÙŽÙ‘Ù†ÙÙ‘ Ø¥ÙØ«Ù’Ù…ÙŒ ÙˆÙŽÙ„ÙŽØ§ ØªÙŽØ¬ÙŽØ³ÙŽÙ‘Ø³ÙÙˆØ§ ÙˆÙŽÙ„ÙŽØ§ ÙŠÙŽØºÙ’ØªÙŽØ¨ Ø¨ÙŽÙ‘Ø¹Ù’Ø¶ÙÙƒÙÙ… Ø¨ÙŽØ¹Ù’Ø¶Ù‹Ø§",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا اجْتَنِبُوا كَثِيرًا مِّنَ الظَّنِّ إِنَّ بَعْضَ الظَّنِّ إِثْمٌ وَلَا تَجَسَّسُوا وَلَا يَغْتَب بَّعْضُكُم بَعْضًا",
               translation: "O you who have believed, avoid much suspicion. Indeed, some suspicion is sin. And do not spy or backbite each other.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5792,7 +5792,7 @@ After visiting the sick, attending a funeral, or going to a wedding, send a brie
             {
               kind: "quran",
               ref: "Quran 104:1",
-              arabic: "ÙˆÙŽÙŠÙ’Ù„ÙŒ Ù„ÙÙ‘ÙƒÙÙ„ÙÙ‘ Ù‡ÙÙ…ÙŽØ²ÙŽØ©Ù Ù„ÙÙ‘Ù…ÙŽØ²ÙŽØ©Ù",
+              arabic: "وَيْلٌ لِّكُلِّ هُمَزَةٍ لُّمَزَةٍ",
               translation: "Woe to every scorner and mocker.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5806,15 +5806,15 @@ You cannot fix what you do not see. Most people backbite so habitually that they
 
 **How?**
 
-For seven days, carry a small notebook or use your phone to tally every instance where you speak negatively about someone who is not present â€” even if what you said is true. Note what you said, about whom, and in what context. Review the tally at the end of each day.` },
-        { title: 'Identify your triggers â€” who, what, and when do you most often slip into harmful speech', done: false,
+For seven days, carry a small notebook or use your phone to tally every instance where you speak negatively about someone who is not present — even if what you said is true. Note what you said, about whom, and in what context. Review the tally at the end of each day.` },
+        { title: 'Identify your triggers — who, what, and when do you most often slip into harmful speech', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly forbid backbiting and clearly define its nature, they omit specific modern self-reflection techniques like identifying personal triggers, making the subtask a practical logical inference to systematically avoid this prohibited behavior and fulfill the divine command.',
           sources: [
             {
               kind: "quran",
               ref: "Quran 49:12",
-              arabic: "ÙˆÙŽÙ„ÙŽØ§ ÙŠÙŽØºÙ’ØªÙŽØ¨ Ø¨ÙŽÙ‘Ø¹Ù’Ø¶ÙÙƒÙÙ… Ø¨ÙŽØ¹Ù’Ø¶Ù‹Ø§ Ø£ÙŽÙŠÙØ­ÙØ¨ÙÙ‘ Ø£ÙŽØ­ÙŽØ¯ÙÙƒÙÙ…Ù’ Ø£ÙŽÙ† ÙŠÙŽØ£Ù’ÙƒÙÙ„ÙŽ Ù„ÙŽØ­Ù’Ù…ÙŽ Ø£ÙŽØ®ÙÙŠÙ‡Ù Ù…ÙŽÙŠÙ’ØªÙ‹Ø§ ÙÙŽÙƒÙŽØ±ÙÙ‡Ù’ØªÙÙ…ÙÙˆÙ‡Ù",
+              arabic: "وَلَا يَغْتَب بَّعْضُكُم بَعْضًا أَيُحِبُّ أَحَدُكُمْ أَن يَأْكُلَ لَحْمَ أَخِيهِ مَيْتًا فَكَرِهْتُمُوهُ",
               translation: "And do not backbite each other. Would one of you like to eat the flesh of his brother when dead? You would detest it.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5832,12 +5832,12 @@ For seven days, carry a small notebook or use your phone to tally every instance
           ],
           description: `**Why?**
 
-Harmful speech is rarely random â€” it follows patterns. Certain people, topics, or emotional states trigger it. Identifying your triggers is the key to interrupting the cycle before it starts.
+Harmful speech is rarely random — it follows patterns. Certain people, topics, or emotional states trigger it. Identifying your triggers is the key to interrupting the cycle before it starts.
 
 
 **How?**
 
-Review your week-long audit and look for patterns. Do you backbite most with a particular friend? About a specific colleague? When you are stressed or bored? Write down your top three triggers and develop a plan for each â€” whether that means changing the subject, excusing yourself, or avoiding the trigger environment.` },
+Review your week-long audit and look for patterns. Do you backbite most with a particular friend? About a specific colleague? When you are stressed or bored? Write down your top three triggers and develop a plan for each — whether that means changing the subject, excusing yourself, or avoiding the trigger environment.` },
         { title: 'Establish a personal rule: speak about someone only as you would in their presence', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly forbid backbiting and clearly define it as mentioning a brother with something he dislikes, they omit specific modern behavioral techniques like establishing a personal rule or writing it on a reminder card, making the subtask a practical logical inference to systematically avoid this prohibited speech and fulfill the divine command.',
@@ -5845,7 +5845,7 @@ Review your week-long audit and look for patterns. Do you backbite most with a p
             {
               kind: "quran",
               ref: "Quran 49:12",
-              arabic: "ÙˆÙŽÙ„ÙŽØ§ ÙŠÙŽØºÙ’ØªÙŽØ¨ Ø¨ÙŽÙ‘Ø¹Ù’Ø¶ÙÙƒÙÙ… Ø¨ÙŽØ¹Ù’Ø¶Ù‹Ø§",
+              arabic: "وَلَا يَغْتَب بَّعْضُكُم بَعْضًا",
               translation: "And do not backbite each other.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5868,7 +5868,7 @@ This single rule, if followed consistently, eliminates the vast majority of harm
 
 **How?**
 
-Before you say anything about someone who is not present, pause and ask: "Would I say this exactly the same way if they were sitting here?" If the answer is no, do not say it. Write this rule on a card and keep it visible â€” in your wallet, on your desk, or as a phone reminder â€” until it becomes second nature.` },
+Before you say anything about someone who is not present, pause and ask: "Would I say this exactly the same way if they were sitting here?" If the answer is no, do not say it. Write this rule on a card and keep it visible — in your wallet, on your desk, or as a phone reminder — until it becomes second nature.` },
         { title: 'When you catch yourself backbiting, make istighfar and say something positive about the person', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly forbid backbiting and emphasize the importance of guarding one\'s tongue, they omit specific behavioral correction steps like making istighfar and saying something positive upon slipping, making the subtask a practical logical inference to systematically repent and rectify the prohibited speech.',
@@ -5876,7 +5876,7 @@ Before you say anything about someone who is not present, pause and ask: "Would 
             {
               kind: "quran",
               ref: "Quran 49:12",
-              arabic: "ÙˆÙŽÙ„ÙŽØ§ ÙŠÙŽØºÙ’ØªÙŽØ¨ Ø¨ÙŽÙ‘Ø¹Ù’Ø¶ÙÙƒÙÙ… Ø¨ÙŽØ¹Ù’Ø¶Ù‹Ø§",
+              arabic: "وَلَا يَغْتَب بَّعْضُكُم بَعْضًا",
               translation: "And do not backbite each other.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5907,7 +5907,7 @@ The moment you realise you have said something that qualifies as gheebah, stop m
             {
               kind: "quran",
               ref: "Quran 49:10",
-              arabic: "Ø¥ÙÙ†ÙŽÙ‘Ù…ÙŽØ§ Ø§Ù„Ù’Ù…ÙØ¤Ù’Ù…ÙÙ†ÙÙˆÙ†ÙŽ Ø¥ÙØ®Ù’ÙˆÙŽØ©ÙŒ ÙÙŽØ£ÙŽØµÙ’Ù„ÙØ­ÙÙˆØ§ Ø¨ÙŽÙŠÙ’Ù†ÙŽ Ø£ÙŽØ®ÙŽÙˆÙŽÙŠÙ’ÙƒÙÙ…Ù’",
+              arabic: "إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ فَأَصْلِحُوا بَيْنَ أَخَوَيْكُمْ",
               translation: "The believers are but brothers, so make settlement between your brothers.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5925,18 +5925,18 @@ The moment you realise you have said something that qualifies as gheebah, stop m
           ],
           description: `**Why?**
 
-Self-monitoring has limits â€” you will have blind spots. An accountability partner provides an external check and makes the commitment social, which dramatically increases follow-through.
+Self-monitoring has limits — you will have blind spots. An accountability partner provides an external check and makes the commitment social, which dramatically increases follow-through.
 
 
 **How?**
 
-Choose a trusted friend, spouse, or colleague and explain your goal. Ask them to gently signal you â€” a tap on the arm, a code word, a look â€” whenever they hear you slip into gheebah. Agree that neither of you will take offence at being corrected. Check in with each other weekly on progress.` },
+Choose a trusted friend, spouse, or colleague and explain your goal. Ask them to gently signal you — a tap on the arm, a code word, a look — whenever they hear you slip into gheebah. Agree that neither of you will take offence at being corrected. Check in with each other weekly on progress.` },
       ],
     },
     {
-      title: 'Practise positive body language â€” eye contact, open posture, and full presence in conversations',
+      title: 'Practise positive body language — eye contact, open posture, and full presence in conversations',
       priority: 'medium', tags: ['adab', 'communication'],
-      description: ' Positive body language â€” eye contact, leaning in, putting down your phone â€” communicates respect and builds trust in every interaction.',
+      description: ' Positive body language — eye contact, leaning in, putting down your phone — communicates respect and builds trust in every interaction.',
       subtasks: [
         { title: 'Put your phone away (face down or in pocket) during all face-to-face conversations', done: false,
           tier: 'T2',
@@ -5963,13 +5963,13 @@ Choose a trusted friend, spouse, or colleague and explain your goal. Ask them to
           ],
           description: `**Why?**
 
-A visible phone â€” even face-up on the table â€” signals divided attention. Research shows that the mere presence of a phone reduces the quality of conversation and makes the other person feel less valued. Removing it is the simplest way to show someone they matter.
+A visible phone — even face-up on the table — signals divided attention. Research shows that the mere presence of a phone reduces the quality of conversation and makes the other person feel less valued. Removing it is the simplest way to show someone they matter.
 
 
 **How?**
 
 Make it a non-negotiable habit: when a conversation begins, your phone goes face-down on the table or into your pocket. Turn off vibration if you are easily distracted. Start with one-on-one conversations and expand to group settings. Notice how the quality of your interactions changes within a week.` },
-        { title: 'Practise making comfortable eye contact â€” aim for 60-70% of the conversation', done: false,
+        { title: 'Practise making comfortable eye contact — aim for 60-70% of the conversation', done: false,
           tier: 'T3',
           amanahRationale: 'Although the provided Hadith gives clear ethical guidance on verbal communication by commanding believers to either speak good or remain silent, it offers neither explicit proof nor a logical inference supporting the specific non-verbal practice of maintaining comfortable eye contact.',
           sources: [
@@ -6007,12 +6007,12 @@ During your next few conversations, consciously maintain eye contact while the o
           ],
           description: `**Why?**
 
-Your body communicates before your words do. Crossed arms, turned shoulders, or leaning away signal defensiveness or disinterest â€” even if you are genuinely listening. Open posture invites trust and makes the speaker feel safe to share.
+Your body communicates before your words do. Crossed arms, turned shoulders, or leaning away signal defensiveness or disinterest — even if you are genuinely listening. Open posture invites trust and makes the speaker feel safe to share.
 
 
 **How?**
 
-When someone speaks to you, turn your full body toward them â€” not just your head. Uncross your arms and let your hands rest naturally. Lean forward slightly to show engagement. This mirrors the sunnah of the Prophet (SAW), who would turn his entire body to face whoever addressed him.` },
+When someone speaks to you, turn your full body toward them — not just your head. Uncross your arms and let your hands rest naturally. Lean forward slightly to show engagement. This mirrors the sunnah of the Prophet (SAW), who would turn his entire body to face whoever addressed him.` },
         { title: 'Observe how others respond when you give them full, undivided attention', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources establish the overarching principles of giving full measure and exhibiting the best manners, they omit specific psychological techniques like observing others\' responses and journaling them, making the subtask a practical logical inference to systematically reinforce this prophetic standard of social interaction.',
@@ -6020,11 +6020,11 @@ When someone speaks to you, turn your full body toward them â€” not just yo
             {
               kind: "quran",
               ref: "Quran 26:181",
-              arabic: "Ø£ÙŽÙˆÙ’ÙÙÙˆØ§ Ø§Ù„Ù’ÙƒÙŽÙŠÙ’Ù„ÙŽ ÙˆÙŽÙ„ÙŽØ§ ØªÙŽÙƒÙÙˆÙ†ÙÙˆØ§ Ù…ÙÙ†ÙŽ Ø§Ù„Ù’Ù…ÙØ®Ù’Ø³ÙØ±ÙÙŠÙ†ÙŽ",
+              arabic: "أَوْفُوا الْكَيْلَ وَلَا تَكُونُوا مِنَ الْمُخْسِرِينَ",
               translation: "Give full measure: do not sell others short.",
               relevance: "contextual",
               provenanceTier: "Bayyinah",
-              rationale: "giving full attention in conversation is the social expression of this Quranic command â€” giving people the full measure of your presence, not a diminished, distracted version.",
+              rationale: "giving full attention in conversation is the social expression of this Quranic command — giving people the full measure of your presence, not a diminished, distracted version.",
             },
             {
               kind: "hadith",
@@ -6043,11 +6043,11 @@ Noticing the impact of your improved presence reinforces the habit. When you see
 
 **How?**
 
-After practising the previous subtasks for two weeks, start paying attention to how people react. Do they share more? Do conversations go deeper? Do people seek you out for advice? Journal your observations â€” this positive feedback loop will cement the habit permanently.` },
+After practising the previous subtasks for two weeks, start paying attention to how people react. Do they share more? Do conversations go deeper? Do people seek you out for advice? Journal your observations — this positive feedback loop will cement the habit permanently.` },
       ],
     },
     {
-      title: 'Respond to wrongdoing with patience (hilm) â€” implement a 24-hour rule before reacting',
+      title: 'Respond to wrongdoing with patience (hilm) — implement a 24-hour rule before reacting',
       priority: 'medium', tags: ['character', 'patience'],
       description: '',
       subtasks: [
@@ -6058,7 +6058,7 @@ After practising the previous subtasks for two weeks, start paying attention to 
             {
               kind: "quran",
               ref: "Quran 41:34",
-              arabic: "ÙˆÙŽÙ„ÙŽØ§ ØªÙŽØ³Ù’ØªÙŽÙˆÙÙŠ Ø§Ù„Ù’Ø­ÙŽØ³ÙŽÙ†ÙŽØ©Ù ÙˆÙŽÙ„ÙŽØ§ Ø§Ù„Ø³ÙŽÙ‘ÙŠÙÙ‘Ø¦ÙŽØ©Ù Ø§Ø¯Ù’ÙÙŽØ¹Ù’ Ø¨ÙØ§Ù„ÙŽÙ‘ØªÙÙŠ Ù‡ÙÙŠÙŽ Ø£ÙŽØ­Ù’Ø³ÙŽÙ†Ù ÙÙŽØ¥ÙØ°ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠ Ø¨ÙŽÙŠÙ’Ù†ÙŽÙƒÙŽ ÙˆÙŽØ¨ÙŽÙŠÙ’Ù†ÙŽÙ‡Ù Ø¹ÙŽØ¯ÙŽØ§ÙˆÙŽØ©ÙŒ ÙƒÙŽØ£ÙŽÙ†ÙŽÙ‘Ù‡Ù ÙˆÙŽÙ„ÙÙŠÙŒÙ‘ Ø­ÙŽÙ…ÙÙŠÙ…ÙŒ",
+              arabic: "وَلَا تَسْتَوِي الْحَسَنَةُ وَلَا السَّيِّئَةُ ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ فَإِذَا الَّذِي بَيْنَكَ وَبَيْنَهُ عَدَاوَةٌ كَأَنَّهُ وَلِيٌّ حَمِيمٌ",
               translation: "And not equal are the good deed and the bad. Repel evil by that which is better; and thereupon the one whom between you and him is enmity will become as though he was a devoted friend.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6081,7 +6081,7 @@ Most regrettable words and actions happen in the heat of the moment. A 24-hour b
 
 **How?**
 
-Write the rule down and place it where you will see it daily. When you feel the urge to fire back â€” via text, email, or in person â€” tell yourself "24 hours." If someone is in front of you, excuse yourself politely. Do not type, send, or say anything until the time has passed.` },
+Write the rule down and place it where you will see it daily. When you feel the urge to fire back — via text, email, or in person — tell yourself "24 hours." If someone is in front of you, excuse yourself politely. Do not type, send, or say anything until the time has passed.` },
         { title: 'During the waiting period, make wudu, pray two rakaat, and seek counsel from Allah', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly command believers to restrain their anger and control themselves, they omit specific spiritual interventions like making wudu, praying two rakaat, and seeking counsel from Allah, making the subtask a practical logical inference to systematically manage anger and fulfill these divine and prophetic instructions.',
@@ -6089,8 +6089,8 @@ Write the rule down and place it where you will see it daily. When you feel the 
             {
               kind: "quran",
               ref: "Quran 3:134",
-              arabic: "ÙˆÙŽØ§Ù„Ù’ÙƒÙŽØ§Ø¸ÙÙ…ÙÙŠÙ†ÙŽ Ø§Ù„Ù’ØºÙŽÙŠÙ’Ø¸ÙŽ ÙˆÙŽØ§Ù„Ù’Ø¹ÙŽØ§ÙÙÙŠÙ†ÙŽ Ø¹ÙŽÙ†Ù Ø§Ù„Ù†ÙŽÙ‘Ø§Ø³Ù ÙˆÙŽØ§Ù„Ù„ÙŽÙ‘Ù‡Ù ÙŠÙØ­ÙØ¨ÙÙ‘ Ø§Ù„Ù’Ù…ÙØ­Ù’Ø³ÙÙ†ÙÙŠÙ†ÙŽ",
-              translation: "And those who restrain anger and who pardon the people â€” and Allah loves the doers of good.",
+              arabic: "وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ وَاللَّهُ يُحِبُّ الْمُحْسِنِينَ",
+              translation: "And those who restrain anger and who pardon the people — and Allah loves the doers of good.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -6098,7 +6098,7 @@ Write the rule down and place it where you will see it daily. When you feel the 
             {
               kind: "quran",
               ref: "Quran 41:34",
-              arabic: "Ø§Ø¯Ù’ÙÙŽØ¹Ù’ Ø¨ÙØ§Ù„ÙŽÙ‘ØªÙÙŠ Ù‡ÙÙŠÙŽ Ø£ÙŽØ­Ù’Ø³ÙŽÙ†Ù ÙÙŽØ¥ÙØ°ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠ Ø¨ÙŽÙŠÙ’Ù†ÙŽÙƒÙŽ ÙˆÙŽØ¨ÙŽÙŠÙ’Ù†ÙŽÙ‡Ù Ø¹ÙŽØ¯ÙŽØ§ÙˆÙŽØ©ÙŒ ÙƒÙŽØ£ÙŽÙ†ÙŽÙ‘Ù‡Ù ÙˆÙŽÙ„ÙÙŠÙŒÙ‘ Ø­ÙŽÙ…ÙÙŠÙ…ÙŒ",
+              arabic: "ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ فَإِذَا الَّذِي بَيْنَكَ وَبَيْنَهُ عَدَاوَةٌ كَأَنَّهُ وَلِيٌّ حَمِيمٌ",
               translation: "Repel evil by that which is better, and thereupon the one between whom and you there was enmity will become like a devoted friend.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6116,7 +6116,7 @@ Write the rule down and place it where you will see it daily. When you feel the 
           ],
           description: `**Why?**
 
-The 24-hour window is not just about waiting â€” it is about redirecting your energy toward Allah. Wudu cools the body, salah centres the heart, and dua opens the door to guidance. The Prophet (SAW) prescribed these exact remedies for anger.
+The 24-hour window is not just about waiting — it is about redirecting your energy toward Allah. Wudu cools the body, salah centres the heart, and dua opens the door to guidance. The Prophet (SAW) prescribed these exact remedies for anger.
 
 **How?**
 
@@ -6128,8 +6128,8 @@ As soon as you step away from the triggering situation, go make wudu. Then pray 
             {
               kind: "quran",
               ref: "Quran 42:43",
-              arabic: "ÙˆÙŽÙ„ÙŽÙ…ÙŽÙ† ØµÙŽØ¨ÙŽØ±ÙŽ ÙˆÙŽØºÙŽÙÙŽØ±ÙŽ Ø¥ÙÙ†ÙŽÙ‘ Ø°ÙŽÙ°Ù„ÙÙƒÙŽ Ù„ÙŽÙ…ÙÙ†Ù’ Ø¹ÙŽØ²Ù’Ù…Ù Ø§Ù„Ù’Ø£ÙÙ…ÙÙˆØ±Ù",
-              translation: "And whoever is patient and forgives â€” indeed, that is of the matters requiring resolve.",
+              arabic: "وَلَمَن صَبَرَ وَغَفَرَ إِنَّ ذَٰلِكَ لَمِنْ عَزْمِ الْأُمُورِ",
+              translation: "And whoever is patient and forgives — indeed, that is of the matters requiring resolve.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -6159,8 +6159,8 @@ Within the first few hours of the 24-hour period, write a brief account: What ha
             {
               kind: "quran",
               ref: "Quran 42:40",
-              arabic: "ÙˆÙŽØ¬ÙŽØ²ÙŽØ§Ø¡Ù Ø³ÙŽÙŠÙÙ‘Ø¦ÙŽØ©Ù Ø³ÙŽÙŠÙÙ‘Ø¦ÙŽØ©ÙŒ Ù…ÙÙ‘Ø«Ù’Ù„ÙÙ‡ÙŽØ§ ÙÙŽÙ…ÙŽÙ†Ù’ Ø¹ÙŽÙÙŽØ§ ÙˆÙŽØ£ÙŽØµÙ’Ù„ÙŽØ­ÙŽ ÙÙŽØ£ÙŽØ¬Ù’Ø±ÙÙ‡Ù Ø¹ÙŽÙ„ÙŽÙ‰ Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù",
-              translation: "The retribution for an evil act is an evil one like it, but whoever pardons and makes reconciliation â€” his reward is due from Allah.",
+              arabic: "وَجَزَاءُ سَيِّئَةٍ سَيِّئَةٌ مِّثْلُهَا فَمَنْ عَفَا وَأَصْلَحَ فَأَجْرُهُ عَلَى اللَّهِ",
+              translation: "The retribution for an evil act is an evil one like it, but whoever pardons and makes reconciliation — his reward is due from Allah.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -6181,7 +6181,7 @@ After 24 hours, review your written notes and ask: What is the most just respons
             {
               kind: "quran",
               ref: "Quran 3:134",
-              arabic: "ÙˆÙŽØ§Ù„Ù’ÙƒÙŽØ§Ø¸ÙÙ…ÙÙŠÙ†ÙŽ Ø§Ù„Ù’ØºÙŽÙŠÙ’Ø¸ÙŽ ÙˆÙŽØ§Ù„Ù’Ø¹ÙŽØ§ÙÙÙŠÙ†ÙŽ Ø¹ÙŽÙ†Ù Ø§Ù„Ù†ÙŽÙ‘Ø§Ø³Ù",
+              arabic: "وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ",
               translation: "And those who restrain anger and who pardon the people.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6204,7 +6204,7 @@ Tracking your wins builds confidence in the system. Every time you look back and
 
 **How?**
 
-Keep a simple log â€” date, what triggered you, what you would have said or done immediately, and what you actually did after 24 hours. Over time, this log becomes powerful evidence of your growth in hilm and a motivator to continue.` },
+Keep a simple log — date, what triggered you, what you would have said or done immediately, and what you actually did after 24 hours. Over time, this log becomes powerful evidence of your growth in hilm and a motivator to continue.` },
       ],
     },
   ],
@@ -6212,16 +6212,16 @@ Keep a simple log â€” date, what triggered you, what you would have said or
     {
       title: 'Build a reputation for honesty and reliability in your professional and social circles',
       priority: 'high', tags: ['trust', 'character'],
-      description: 'The Prophet (SAW) was known as al-Amin (the trustworthy) even before revelation. A reputation for honesty and reliability is built through consistent small actions â€” keeping promises, meeting deadlines, telling the truth even when it is inconvenient, and never overpromising.',
+      description: 'The Prophet (SAW) was known as al-Amin (the trustworthy) even before revelation. A reputation for honesty and reliability is built through consistent small actions — keeping promises, meeting deadlines, telling the truth even when it is inconvenient, and never overpromising.',
       subtasks: [
-        { title: 'Audit your current commitments â€” are there any unfulfilled promises or overdue obligations?', done: false,
+        { title: 'Audit your current commitments — are there any unfulfilled promises or overdue obligations?', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly command believers to fulfill their contracts and warn against breaking promises, they omit specific modern organizational practices like conducting an audit or listing commitments, making the subtask a practical logical inference to systematically track and fulfill these religious obligations.',
           sources: [
             {
               kind: "quran",
               ref: "Quran 5:1",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø£ÙŽÙˆÙ’ÙÙÙˆØ§ Ø¨ÙØ§Ù„Ù’Ø¹ÙÙ‚ÙÙˆØ¯Ù",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا أَوْفُوا بِالْعُقُودِ",
               translation: "O you who have believed, fulfil all contracts.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6244,7 +6244,7 @@ You cannot build a reputation for reliability while carrying a backlog of broken
 
 **How?**
 
-Set aside 30 minutes and list every commitment you have made recently â€” to family, friends, colleagues, and community. For each one, mark whether it is fulfilled, in progress, or overdue. For anything overdue, either complete it this week or communicate honestly about the delay. This single exercise rebuilds trust faster than any grand gesture.` },
+Set aside 30 minutes and list every commitment you have made recently — to family, friends, colleagues, and community. For each one, mark whether it is fulfilled, in progress, or overdue. For anything overdue, either complete it this week or communicate honestly about the delay. This single exercise rebuilds trust faster than any grand gesture.` },
         { title: 'Adopt a policy of under-promising and over-delivering in all commitments', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Hadith explicitly warns against breaking promises by classifying it as a sign of hypocrisy, it omits specific behavioral strategies like adopting a policy of under-promising and over-delivering, making the subtask a practical logical inference to systematically safeguard against this prohibited behavior.',
@@ -6261,7 +6261,7 @@ Set aside 30 minutes and list every commitment you have made recently â€” t
           ],
           description: `**Why?**
 
-Over-promising feels generous in the moment but erodes trust when you cannot follow through. Under-promising creates a buffer that allows you to consistently exceed expectations â€” and people remember those who deliver more than they promised.
+Over-promising feels generous in the moment but erodes trust when you cannot follow through. Under-promising creates a buffer that allows you to consistently exceed expectations — and people remember those who deliver more than they promised.
 
 
 **How?**
@@ -6274,7 +6274,7 @@ Before making any commitment, pause and ask: "Can I realistically deliver this, 
             {
               kind: "quran",
               ref: "Quran 23:8",
-              arabic: "ÙˆÙŽØ§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ù‡ÙÙ…Ù’ Ù„ÙØ£ÙŽÙ…ÙŽØ§Ù†ÙŽØ§ØªÙÙ‡ÙÙ…Ù’ ÙˆÙŽØ¹ÙŽÙ‡Ù’Ø¯ÙÙ‡ÙÙ…Ù’ Ø±ÙŽØ§Ø¹ÙÙˆÙ†ÙŽ",
+              arabic: "وَالَّذِينَ هُمْ لِأَمَانَاتِهِمْ وَعَهْدِهِمْ رَاعُونَ",
               translation: "And those who are to their trusts and their promises attentive.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6292,7 +6292,7 @@ Before making any commitment, pause and ask: "Can I realistically deliver this, 
           ],
           description: `**Why?**
 
-Trust is built in the small things. Returning a call when you said you would, showing up five minutes early, and completing a small favour without being reminded â€” these micro-actions signal that you are someone who keeps their word at every level.
+Trust is built in the small things. Returning a call when you said you would, showing up five minutes early, and completing a small favour without being reminded — these micro-actions signal that you are someone who keeps their word at every level.
 
 
 **How?**
@@ -6305,7 +6305,7 @@ Treat every small commitment with the same seriousness as a major deadline. When
             {
               kind: "quran",
               ref: "Quran 17:34",
-              arabic: "ÙˆÙŽÙ„ÙŽØ§ ØªÙŽÙ‚Ù’Ø±ÙŽØ¨ÙÙˆØ§ Ù…ÙŽØ§Ù„ÙŽ Ø§Ù„Ù’ÙŠÙŽØªÙÙŠÙ…Ù Ø¥ÙÙ„ÙŽÙ‘Ø§ Ø¨ÙØ§Ù„ÙŽÙ‘ØªÙÙŠ Ù‡ÙÙŠÙŽ Ø£ÙŽØ­Ù’Ø³ÙŽÙ†Ù Ø­ÙŽØªÙŽÙ‘Ù‰Ù° ÙŠÙŽØ¨Ù’Ù„ÙØºÙŽ Ø£ÙŽØ´ÙØ¯ÙŽÙ‘Ù‡Ù Ûš ÙˆÙŽØ£ÙŽÙˆÙ’ÙÙÙˆØ§ Ø¨ÙØ§Ù„Ù’Ø¹ÙŽÙ‡Ù’Ø¯Ù Û– Ø¥ÙÙ†ÙŽÙ‘ Ø§Ù„Ù’Ø¹ÙŽÙ‡Ù’Ø¯ÙŽ ÙƒÙŽØ§Ù†ÙŽ Ù…ÙŽØ³Ù’Ø¦ÙÙˆÙ„Ù‹Ø§",
+              arabic: "وَلَا تَقْرَبُوا مَالَ الْيَتِيمِ إِلَّا بِالَّتِي هِيَ أَحْسَنُ حَتَّىٰ يَبْلُغَ أَشُدَّهُ ۚ وَأَوْفُوا بِالْعَهْدِ ۖ إِنَّ الْعَهْدَ كَانَ مَسْئُولًا",
               translation: "Do not go near the orphan's property, except with the best intentions, until he reaches the age of maturity. Honour your pledges: you will be questioned about your pledges.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6323,12 +6323,12 @@ Treat every small commitment with the same seriousness as a major deadline. When
           ],
           description: `**Why?**
 
-Everyone occasionally falls short â€” what separates trustworthy people from unreliable ones is how they handle it. Proactive, honest communication when you cannot deliver preserves trust because it shows respect for the other person's time and expectations.
+Everyone occasionally falls short — what separates trustworthy people from unreliable ones is how they handle it. Proactive, honest communication when you cannot deliver preserves trust because it shows respect for the other person's time and expectations.
 
 
 **How?**
 
-The moment you realise you will miss a deadline or cannot fulfil a promise, reach out immediately â€” do not wait until the last minute. Explain the situation honestly (no excuses), apologise sincerely, and offer a concrete alternative or revised timeline. People forgive delays far more readily than silence.` },
+The moment you realise you will miss a deadline or cannot fulfil a promise, reach out immediately — do not wait until the last minute. Explain the situation honestly (no excuses), apologise sincerely, and offer a concrete alternative or revised timeline. People forgive delays far more readily than silence.` },
         { title: 'Ask a trusted friend or colleague for honest feedback on your reliability', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly command believers to be attentive to their trusts and warn against betraying promises as a sign of hypocrisy, they omit specific modern self-assessment methods like seeking honest feedback from a friend, making the subtask a practical logical inference to systematically ensure one\'s reliability and fulfill these religious obligations.',
@@ -6336,7 +6336,7 @@ The moment you realise you will miss a deadline or cannot fulfil a promise, reac
             {
               kind: "quran",
               ref: "Quran 23:8",
-              arabic: "ÙˆÙŽØ§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ù‡ÙÙ…Ù’ Ù„ÙØ£ÙŽÙ…ÙŽØ§Ù†ÙŽØ§ØªÙÙ‡ÙÙ…Ù’ ÙˆÙŽØ¹ÙŽÙ‡Ù’Ø¯ÙÙ‡ÙÙ…Ù’ Ø±ÙŽØ§Ø¹ÙÙˆÙ†ÙŽ",
+              arabic: "وَالَّذِينَ هُمْ لِأَمَانَاتِهِمْ وَعَهْدِهِمْ رَاعُونَ",
               translation: "And those who are to their trusts and their promises attentive.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6363,7 +6363,7 @@ Choose one or two people who know you well in different contexts (work and perso
       ],
     },
     {
-      title: 'Perform a regular act of service (khidmah) â€” volunteer, help a neighbour, or assist at the mosque',
+      title: 'Perform a regular act of service (khidmah) — volunteer, help a neighbour, or assist at the mosque',
       priority: 'medium', tags: ['khidmah', 'community'],
       description: '',
       subtasks: [
@@ -6389,14 +6389,14 @@ Service is most sustainable and impactful when it aligns with what you are good 
 **How?**
 
 List your top three skills (organising, teaching, cooking, driving, technology, etc.) and your top three values (education, hunger relief, youth development, etc.). Search for local organisations or mosque programmes that sit at the intersection. Reach out to one this week and ask how you can contribute.` },
-        { title: 'Commit to a regular schedule â€” even 2-4 hours per month makes a difference', done: false,
+        { title: 'Commit to a regular schedule — even 2-4 hours per month makes a difference', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly praise charitable acts like feeding the vulnerable and relieving the hardships of believers, they omit specific modern organizational strategies like committing to a regular monthly schedule, making the subtask a practical logical inference to systematically and consistently fulfill these divine and prophetic exhortations.',
           sources: [
             {
               kind: "quran",
               ref: "Quran 76:8-9",
-              arabic: "ÙˆÙŽÙŠÙØ·Ù’Ø¹ÙÙ…ÙÙˆÙ†ÙŽ Ø§Ù„Ø·ÙŽÙ‘Ø¹ÙŽØ§Ù…ÙŽ Ø¹ÙŽÙ„ÙŽÙ‰Ù° Ø­ÙØ¨ÙÙ‘Ù‡Ù Ù…ÙØ³Ù’ÙƒÙÙŠÙ†Ù‹Ø§ ÙˆÙŽÙŠÙŽØªÙÙŠÙ…Ù‹Ø§ ÙˆÙŽØ£ÙŽØ³ÙÙŠØ±Ù‹Ø§ Ø¥ÙÙ†ÙŽÙ‘Ù…ÙŽØ§ Ù†ÙØ·Ù’Ø¹ÙÙ…ÙÙƒÙÙ…Ù’ Ù„ÙÙˆÙŽØ¬Ù’Ù‡Ù Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù",
+              arabic: "وَيُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا وَيَتِيمًا وَأَسِيرًا إِنَّمَا نُطْعِمُكُمْ لِوَجْهِ اللَّهِ",
               translation: "And they give food in spite of love for it to the needy, the orphan, and the captive, saying: We feed you only for the sake of Allah.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6414,12 +6414,12 @@ List your top three skills (organising, teaching, cooking, driving, technology, 
           ],
           description: `**Why?**
 
-Sporadic service is better than none, but consistent service creates real change â€” both in the community and in your own character. A regular schedule turns khidmah from an occasional impulse into a pillar of your life.
+Sporadic service is better than none, but consistent service creates real change — both in the community and in your own character. A regular schedule turns khidmah from an occasional impulse into a pillar of your life.
 
 
 **How?**
 
-Block a specific time on your calendar â€” the first Saturday morning of each month, every other Friday afternoon, whatever works. Treat it like a non-negotiable appointment. Start with just 2-4 hours per month and increase only when you can sustain it without resentment or burnout.` },
+Block a specific time on your calendar — the first Saturday morning of each month, every other Friday afternoon, whatever works. Treat it like a non-negotiable appointment. Start with just 2-4 hours per month and increase only when you can sustain it without resentment or burnout.` },
         { title: 'Look for daily micro-opportunities: carrying groceries, giving rides, checking on elderly neighbours', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Hadith explicitly warns against neglecting a hungry neighbor, it omits specific daily micro-services like carrying groceries or giving rides, making the subtask a practical logical inference to systematically cultivate a servant mindset and fulfill this prophetic principle of neighborhood care.',
@@ -6441,7 +6441,7 @@ Structured volunteering is valuable, but the majority of service opportunities a
 
 **How?**
 
-Train your eye to notice needs around you: the elderly person struggling with bags, the neighbour whose bins are still out, the colleague who looks overwhelmed. Act immediately without overthinking â€” carry the bags, bring the bins in, offer to help. Keep a mental count of daily micro-services for one week to build awareness.` },
+Train your eye to notice needs around you: the elderly person struggling with bags, the neighbour whose bins are still out, the colleague who looks overwhelmed. Act immediately without overthinking — carry the bags, bring the bins in, offer to help. Keep a mental count of daily micro-services for one week to build awareness.` },
         { title: 'Involve your family in service activities to build a culture of giving', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly encourage feeding the vulnerable and establish the principle that individuals are responsible for guiding their families, they omit specific modern methods like choosing a monthly family-friendly service activity, making the subtask a practical logical inference to systematically instill these divine and prophetic values of charity within the household.',
@@ -6449,7 +6449,7 @@ Train your eye to notice needs around you: the elderly person struggling with ba
             {
               kind: "quran",
               ref: "Quran 76:8-9",
-              arabic: "ÙˆÙŽÙŠÙØ·Ù’Ø¹ÙÙ…ÙÙˆÙ†ÙŽ Ø§Ù„Ø·ÙŽÙ‘Ø¹ÙŽØ§Ù…ÙŽ Ø¹ÙŽÙ„ÙŽÙ‰Ù° Ø­ÙØ¨ÙÙ‘Ù‡Ù Ù…ÙØ³Ù’ÙƒÙÙŠÙ†Ù‹Ø§ ÙˆÙŽÙŠÙŽØªÙÙŠÙ…Ù‹Ø§ ÙˆÙŽØ£ÙŽØ³ÙÙŠØ±Ù‹Ø§",
+              arabic: "وَيُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا وَيَتِيمًا وَأَسِيرًا",
               translation: "And they give food in spite of love for it to the needy, the orphan, and the captive.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6472,13 +6472,13 @@ When service is a family activity, it multiplies the impact and instils generosi
 
 **How?**
 
-Choose one family-friendly service activity per month: cooking meals for a shelter together, cleaning the mosque grounds, visiting an elderly neighbour as a family, or assembling care packages. Let your children take ownership of age-appropriate tasks. Discuss the experience afterwards â€” why it matters and how it felt.` },
+Choose one family-friendly service activity per month: cooking meals for a shelter together, cleaning the mosque grounds, visiting an elderly neighbour as a family, or assembling care packages. Let your children take ownership of age-appropriate tasks. Discuss the experience afterwards — why it matters and how it felt.` },
       ],
     },
     {
-      title: 'Develop active listening skills â€” practise full presence and ask thoughtful follow-up questions',
+      title: 'Develop active listening skills — practise full presence and ask thoughtful follow-up questions',
       priority: 'medium', tags: ['communication', 'character'],
-      description: 'Most people listen to respond, not to understand. Active listening â€” being fully present, reflecting back what you hear, and asking genuine follow-up questions â€” is one of the most powerful ways to honour another human being and build deep, trusting relationships.',
+      description: 'Most people listen to respond, not to understand. Active listening — being fully present, reflecting back what you hear, and asking genuine follow-up questions — is one of the most powerful ways to honour another human being and build deep, trusting relationships.',
       subtasks: [
         { title: 'In your next 5 conversations, focus entirely on listening without planning your response', done: false,
           tier: 'T3',
@@ -6487,7 +6487,7 @@ Choose one family-friendly service activity per month: cooking meals for a shelt
             {
               kind: "quran",
               ref: "Quran 49:6",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø¥ÙÙ† Ø¬ÙŽØ§Ø¡ÙŽÙƒÙÙ…Ù’ ÙÙŽØ§Ø³ÙÙ‚ÙŒ Ø¨ÙÙ†ÙŽØ¨ÙŽØ¥Ù ÙÙŽØªÙŽØ¨ÙŽÙŠÙŽÙ‘Ù†ÙÙˆØ§",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا إِن جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا",
               translation: "O you who have believed, if there comes to you a disobedient one with information, investigate.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6501,7 +6501,7 @@ The habit of mentally composing your reply while someone is still speaking means
 
 **How?**
 
-In your next five meaningful conversations, give yourself one instruction: do not think about what you will say next. When you notice your mind drifting to your response, gently bring your attention back to the speaker's words, tone, and body language. Allow a pause after they finish before you respond â€” the pause proves you were listening, not just waiting.` },
+In your next five meaningful conversations, give yourself one instruction: do not think about what you will say next. When you notice your mind drifting to your response, gently bring your attention back to the speaker's words, tone, and body language. Allow a pause after they finish before you respond — the pause proves you were listening, not just waiting.` },
         { title: 'Practise paraphrasing: "So what I hear you saying is..." before responding', done: false,
           tier: 'T3',
           amanahRationale: 'Although the provided sources broadly commend those who listen to speech and encourage believers to embody the best manners, they offer neither explicit proof nor a logical inference supporting the specific active listening technique of paraphrasing someone\'s words to confirm understanding.',
@@ -6509,7 +6509,7 @@ In your next five meaningful conversations, give yourself one instruction: do no
             {
               kind: "quran",
               ref: "Quran 39:18",
-              arabic: "Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ ÙŠÙŽØ³Ù’ØªÙŽÙ…ÙØ¹ÙÙˆÙ†ÙŽ Ø§Ù„Ù’Ù‚ÙŽÙˆÙ’Ù„ÙŽ ÙÙŽÙŠÙŽØªÙŽÙ‘Ø¨ÙØ¹ÙÙˆÙ†ÙŽ Ø£ÙŽØ­Ù’Ø³ÙŽÙ†ÙŽÙ‡Ù",
+              arabic: "الَّذِينَ يَسْتَمِعُونَ الْقَوْلَ فَيَتَّبِعُونَ أَحْسَنَهُ",
               translation: "Those who listen to speech and follow the best of it.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6527,7 +6527,7 @@ In your next five meaningful conversations, give yourself one instruction: do no
           ],
           description: `**Why?**
 
-Paraphrasing confirms to the speaker that they have been understood â€” and it often reveals misunderstandings before they cause conflict. It is one of the most effective tools for preventing miscommunication and showing genuine care.
+Paraphrasing confirms to the speaker that they have been understood — and it often reveals misunderstandings before they cause conflict. It is one of the most effective tools for preventing miscommunication and showing genuine care.
 
 
 **How?**
@@ -6540,16 +6540,16 @@ After someone shares something important, resist the urge to immediately give yo
             {
               kind: "quran",
               ref: "Quran 18:70",
-              arabic: "Ù‚ÙŽØ§Ù„ÙŽ ÙÙŽØ¥ÙÙ†Ù Ø§ØªÙŽÙ‘Ø¨ÙŽØ¹Ù’ØªÙŽÙ†ÙÙŠ ÙÙŽÙ„ÙŽØ§ ØªÙŽØ³Ù’Ø£ÙŽÙ„Ù’Ù†ÙÙŠ Ø¹ÙŽÙ† Ø´ÙŽÙŠÙ’Ø¡Ù Ø­ÙŽØªÙŽÙ‘Ù‰Ù° Ø£ÙØ­Ù’Ø¯ÙØ«ÙŽ Ù„ÙŽÙƒÙŽ Ù…ÙÙ†Ù’Ù‡Ù Ø°ÙÙƒÙ’Ø±Ù‹Ø§",
+              arabic: "قَالَ فَإِنِ اتَّبَعْتَنِي فَلَا تَسْأَلْنِي عَن شَيْءٍ حَتَّىٰ أُحْدِثَ لَكَ مِنْهُ ذِكْرًا",
               translation: "The man said, \"If you follow me then, do not query anything I do before I mention it to you myself.",
               relevance: "contextual",
               provenanceTier: "Bayyinah",
-              rationale: "the deliberate, patient inquiry modelled between Musa and al-Khidr illustrates how thoughtful questions deepen understanding â€” the opposite of hasty, surface-level conversation.",
+              rationale: "the deliberate, patient inquiry modelled between Musa and al-Khidr illustrates how thoughtful questions deepen understanding — the opposite of hasty, surface-level conversation.",
             },
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6250",
-              translation: "The Prophet (SAW) used to face the person he was speaking to completely and give them his full attention â€” a model of engaged, curious presence in every conversation.",
+              translation: "The Prophet (SAW) used to face the person he was speaking to completely and give them his full attention — a model of engaged, curious presence in every conversation.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -6563,7 +6563,7 @@ A thoughtful follow-up question tells the speaker: "I am genuinely interested in
 
 **How?**
 
-After someone shares, ask a question that goes deeper: "What was that like for you?" "What do you think you will do next?" "How did that change your perspective?" Avoid questions that shift the topic to yourself. Make this a personal challenge â€” one genuine follow-up question per meaningful conversation, every day.` },
+After someone shares, ask a question that goes deeper: "What was that like for you?" "What do you think you will do next?" "How did that change your perspective?" Avoid questions that shift the topic to yourself. Make this a personal challenge — one genuine follow-up question per meaningful conversation, every day.` },
         { title: 'Notice the difference in connection quality when you listen deeply vs. superficially', done: false,
           tier: 'T3',
           amanahRationale: 'Although the provided Quranic verse broadly praises those who listen to speech and follow the best of it, it offers neither explicit proof nor a logical inference supporting the specific interpersonal exercise of rating and comparing the connection quality of deep versus superficial listening.',
@@ -6571,7 +6571,7 @@ After someone shares, ask a question that goes deeper: "What was that like for y
             {
               kind: "quran",
               ref: "Quran 39:18",
-              arabic: "Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ ÙŠÙŽØ³Ù’ØªÙŽÙ…ÙØ¹ÙÙˆÙ†ÙŽ Ø§Ù„Ù’Ù‚ÙŽÙˆÙ’Ù„ÙŽ ÙÙŽÙŠÙŽØªÙŽÙ‘Ø¨ÙØ¹ÙÙˆÙ†ÙŽ Ø£ÙŽØ­Ù’Ø³ÙŽÙ†ÙŽÙ‡Ù",
+              arabic: "الَّذِينَ يَسْتَمِعُونَ الْقَوْلَ فَيَتَّبِعُونَ أَحْسَنَهُ",
               translation: "Those who listen to speech and follow the best of it. Those are the ones Allah has guided.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6585,10 +6585,10 @@ Awareness of the difference is what transforms active listening from a technique
 
 **How?**
 
-After each conversation this week, rate the connection quality on a scale of 1-5. Note whether you were fully present or distracted. Compare the ratings â€” you will see a clear pattern. Conversations where you truly listened will consistently score higher, reinforcing the habit with real evidence.` },
+After each conversation this week, rate the connection quality on a scale of 1-5. Note whether you were fully present or distracted. Compare the ratings — you will see a clear pattern. Conversations where you truly listened will consistently score higher, reinforcing the habit with real evidence.` },
         { title: 'Read or watch one resource on active listening techniques this month', done: false,
           tier: 'T2',
-          amanahRationale: 'Fallback assignment â€” NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
+          amanahRationale: 'Fallback assignment — NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
           sources: [
             {
               kind: "hadith",
@@ -6602,7 +6602,7 @@ After each conversation this week, rate the connection quality on a scale of 1-5
           ],
           description: `**Why?**
 
-Learning from experts accelerates your growth. There are techniques â€” mirroring, labelling emotions, strategic silence â€” that you may not discover through practice alone. Even one good resource can give you tools that transform your conversations.
+Learning from experts accelerates your growth. There are techniques — mirroring, labelling emotions, strategic silence — that you may not discover through practice alone. Even one good resource can give you tools that transform your conversations.
 
 
 **How?**
@@ -6613,7 +6613,7 @@ Search for a highly-rated book, podcast episode, or video on active listening. G
     {
       title: 'Identify and reconcile at least one broken or strained relationship this month',
       priority: 'high', tags: ['reconciliation', 'sulh'],
-      description: ' Reconciliation â€” even when you were wronged â€” is one of the highest acts of character in Islam.',
+      description: ' Reconciliation — even when you were wronged — is one of the highest acts of character in Islam.',
       subtasks: [
         { title: 'List relationships that are currently strained, broken, or distant', done: false,
           tier: 'T2',
@@ -6622,7 +6622,7 @@ Search for a highly-rated book, podcast episode, or video on active listening. G
             {
               kind: "quran",
               ref: "Quran 49:10",
-              arabic: "Ø¥ÙÙ†ÙŽÙ‘Ù…ÙŽØ§ Ø§Ù„Ù’Ù…ÙØ¤Ù’Ù…ÙÙ†ÙÙˆÙ†ÙŽ Ø¥ÙØ®Ù’ÙˆÙŽØ©ÙŒ ÙÙŽØ£ÙŽØµÙ’Ù„ÙØ­ÙÙˆØ§ Ø¨ÙŽÙŠÙ’Ù†ÙŽ Ø£ÙŽØ®ÙŽÙˆÙŽÙŠÙ’ÙƒÙÙ…Ù’",
+              arabic: "إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ فَأَصْلِحُوا بَيْنَ أَخَوَيْكُمْ",
               translation: "The believers are but brothers, so make settlement between your brothers.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6645,7 +6645,7 @@ You cannot reconcile what you have not acknowledged. Writing down strained relat
 
 **How?**
 
-Sit quietly and think through your family, friends, colleagues, and community members. Write the name of every person with whom things are not right â€” whether through conflict, neglect, or slow drift. Be honest; include relationships you have been avoiding thinking about. This list is your starting point.` },
+Sit quietly and think through your family, friends, colleagues, and community members. Write the name of every person with whom things are not right — whether through conflict, neglect, or slow drift. Be honest; include relationships you have been avoiding thinking about. This list is your starting point.` },
         { title: "Choose one relationship to prioritise for reconciliation this month", done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly command believers to reconcile conflicts and forbid forsaking a brother for more than three days, they omit specific modern organizational strategies like prioritizing a single relationship for a month, making the subtask a practical logical inference to systematically fulfill these divine and prophetic instructions.',
@@ -6653,8 +6653,8 @@ Sit quietly and think through your family, friends, colleagues, and community me
             {
               kind: "quran",
               ref: "Quran 49:9",
-              arabic: "ÙˆÙŽØ¥ÙÙ† Ø·ÙŽØ§Ø¦ÙÙÙŽØªÙŽØ§Ù†Ù Ù…ÙÙ†ÙŽ Ø§Ù„Ù’Ù…ÙØ¤Ù’Ù…ÙÙ†ÙÙŠÙ†ÙŽ Ø§Ù‚Ù’ØªÙŽØªÙŽÙ„ÙÙˆØ§ ÙÙŽØ£ÙŽØµÙ’Ù„ÙØ­ÙÙˆØ§ Ø¨ÙŽÙŠÙ’Ù†ÙŽÙ‡ÙÙ…ÙŽØ§ Û– ÙÙŽØ¥ÙÙ† Ø¨ÙŽØºÙŽØªÙ’ Ø¥ÙØ­Ù’Ø¯ÙŽØ§Ù‡ÙÙ…ÙŽØ§ Ø¹ÙŽÙ„ÙŽÙ‰ Ø§Ù„Ù’Ø£ÙØ®Ù’Ø±ÙŽÙ‰Ù° ÙÙŽÙ‚ÙŽØ§ØªÙÙ„ÙÙˆØ§ Ø§Ù„ÙŽÙ‘ØªÙÙŠ ØªÙŽØ¨Ù’ØºÙÙŠ Ø­ÙŽØªÙŽÙ‘Ù‰Ù° ØªÙŽÙÙÙŠØ¡ÙŽ Ø¥ÙÙ„ÙŽÙ‰Ù° Ø£ÙŽÙ…Ù’Ø±Ù Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù Ûš ÙÙŽØ¥ÙÙ† ÙÙŽØ§Ø¡ÙŽØªÙ’ ÙÙŽØ£ÙŽØµÙ’Ù„ÙØ­ÙÙˆØ§ Ø¨ÙŽÙŠÙ’Ù†ÙŽÙ‡ÙÙ…ÙŽØ§ Ø¨ÙØ§Ù„Ù’Ø¹ÙŽØ¯Ù’Ù„Ù ÙˆÙŽØ£ÙŽÙ‚Ù’Ø³ÙØ·ÙÙˆØ§ Û– Ø¥ÙÙ†ÙŽÙ‘ Ø§Ù„Ù„ÙŽÙ‘Ù‡ÙŽ ÙŠÙØ­ÙØ¨ÙÙ‘ Ø§Ù„Ù’Ù…ÙÙ‚Ù’Ø³ÙØ·ÙÙŠÙ†ÙŽ",
-              translation: "If two groups of the believers fight, you should try to reconcile them; if one of them is clearly oppressing the other, fight the oppressors until they submit to Godâ€™s command, then make a just and even-handed reconciliation between the two of them: God loves those who are even-handed.",
+              arabic: "وَإِن طَائِفَتَانِ مِنَ الْمُؤْمِنِينَ اقْتَتَلُوا فَأَصْلِحُوا بَيْنَهُمَا ۖ فَإِن بَغَتْ إِحْدَاهُمَا عَلَى الْأُخْرَىٰ فَقَاتِلُوا الَّتِي تَبْغِي حَتَّىٰ تَفِيءَ إِلَىٰ أَمْرِ اللَّهِ ۚ فَإِن فَاءَتْ فَأَصْلِحُوا بَيْنَهُمَا بِالْعَدْلِ وَأَقْسِطُوا ۖ إِنَّ اللَّهَ يُحِبُّ الْمُقْسِطِينَ",
+              translation: "If two groups of the believers fight, you should try to reconcile them; if one of them is clearly oppressing the other, fight the oppressors until they submit to God’s command, then make a just and even-handed reconciliation between the two of them: God loves those who are even-handed.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -6677,14 +6677,14 @@ Trying to fix everything at once leads to paralysis. Choosing one relationship f
 **How?**
 
 Review your list and select the relationship that weighs most heavily on your heart, or the one where reconciliation is most achievable. Consider factors like proximity, the severity of the rift, and whether the other person might be receptive. Commit to this one relationship for the next 30 days.` },
-        { title: 'Reflect honestly on your role in the breakdown â€” make istighfar if needed', done: false,
+        { title: 'Reflect honestly on your role in the breakdown — make istighfar if needed', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly command believers to make settlement between brothers and forbid shunning them for more than three days, they omit specific internal steps like honest self-reflection and making istighfar, making the subtask a practical logical inference to systematically prepare the heart for genuine reconciliation.',
           sources: [
             {
               kind: "quran",
               ref: "Quran 49:10",
-              arabic: "Ø¥ÙÙ†ÙŽÙ‘Ù…ÙŽØ§ Ø§Ù„Ù’Ù…ÙØ¤Ù’Ù…ÙÙ†ÙÙˆÙ†ÙŽ Ø¥ÙØ®Ù’ÙˆÙŽØ©ÙŒ ÙÙŽØ£ÙŽØµÙ’Ù„ÙØ­ÙÙˆØ§ Ø¨ÙŽÙŠÙ’Ù†ÙŽ Ø£ÙŽØ®ÙŽÙˆÙŽÙŠÙ’ÙƒÙÙ…Ù’ ÙˆÙŽØ§ØªÙŽÙ‘Ù‚ÙÙˆØ§ Ø§Ù„Ù„ÙŽÙ‘Ù‡ÙŽ Ù„ÙŽØ¹ÙŽÙ„ÙŽÙ‘ÙƒÙÙ…Ù’ ØªÙØ±Ù’Ø­ÙŽÙ…ÙÙˆÙ†ÙŽ",
+              arabic: "إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ فَأَصْلِحُوا بَيْنَ أَخَوَيْكُمْ وَاتَّقُوا اللَّهَ لَعَلَّكُمْ تُرْحَمُونَ",
               translation: "The believers are but brothers, so make settlement between your brothers. And fear Allah that you may receive mercy.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6702,29 +6702,29 @@ Review your list and select the relationship that weighs most heavily on your he
           ],
           description: `**Why?**
 
-It is human nature to see yourself as the victim in every conflict. Honest self-reflection often reveals that you contributed to the breakdown â€” through words, neglect, pride, or misunderstanding. Acknowledging your role is the foundation of genuine reconciliation.
+It is human nature to see yourself as the victim in every conflict. Honest self-reflection often reveals that you contributed to the breakdown — through words, neglect, pride, or misunderstanding. Acknowledging your role is the foundation of genuine reconciliation.
 
 
 **How?**
 
-Before reaching out, spend time in honest self-examination. Ask yourself: What did I do or fail to do? Did I listen, or did I dismiss? Was I fair, or was I harsh? If you find fault in yourself, make sincere istighfar and be prepared to acknowledge your part when you reach out. This is not weakness â€” it is the strength of prophetic character.` },
-        { title: 'Reach out with humility â€” a call, visit, or sincere message', done: false,
+Before reaching out, spend time in honest self-examination. Ask yourself: What did I do or fail to do? Did I listen, or did I dismiss? Was I fair, or was I harsh? If you find fault in yourself, make sincere istighfar and be prepared to acknowledge your part when you reach out. This is not weakness — it is the strength of prophetic character.` },
+        { title: 'Reach out with humility — a call, visit, or sincere message', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly emphasize the duty of conveying the message and highly praise the act of reconciling between people, they omit specific modern communication methods like making a call or sending a message, making the subtask a practical logical inference to systematically initiate reconciliation and fulfill these religious injunctions.',
           sources: [
             {
               kind: "quran",
               ref: "Quran 13:40",
-              arabic: "ÙˆÙŽØ¥ÙÙ† Ù…ÙŽÙ‘Ø§ Ù†ÙØ±ÙÙŠÙŽÙ†ÙŽÙ‘ÙƒÙŽ Ø¨ÙŽØ¹Ù’Ø¶ÙŽ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠ Ù†ÙŽØ¹ÙØ¯ÙÙ‡ÙÙ…Ù’ Ø£ÙŽÙˆÙ’ Ù†ÙŽØªÙŽÙˆÙŽÙÙŽÙ‘ÙŠÙŽÙ†ÙŽÙ‘ÙƒÙŽ ÙÙŽØ¥ÙÙ†ÙŽÙ‘Ù…ÙŽØ§ Ø¹ÙŽÙ„ÙŽÙŠÙ’ÙƒÙŽ Ø§Ù„Ù’Ø¨ÙŽÙ„ÙŽØ§ØºÙ ÙˆÙŽØ¹ÙŽÙ„ÙŽÙŠÙ’Ù†ÙŽØ§ Ø§Ù„Ù’Ø­ÙØ³ÙŽØ§Ø¨Ù",
+              arabic: "وَإِن مَّا نُرِيَنَّكَ بَعْضَ الَّذِي نَعِدُهُمْ أَوْ نَتَوَفَّيَنَّكَ فَإِنَّمَا عَلَيْكَ الْبَلَاغُ وَعَلَيْنَا الْحِسَابُ",
               translation: "Whether We let you see part of what We threaten them with, or cause you to die before that, your duty is only to deliver the message: the Reckoning is Ours.",
               relevance: "contextual",
               provenanceTier: "Bayyinah",
-              rationale: "your duty is to make the sincere outreach â€” the outcome belongs to Allah. Reach out; do not wait for guaranteed results.",
+              rationale: "your duty is to make the sincere outreach — the outcome belongs to Allah. Reach out; do not wait for guaranteed results.",
             },
             {
               kind: "hadith",
               ref: "Sunan Abi Dawud 4919",
-              translation: "The Prophet (SAW) said: \"Shall I not tell you of something better in degree than fasting, prayer, and charity?\" They said: \"Yes.\" He said: \"Reconciling between people â€” for discord among people is the destroyer.\"",
+              translation: "The Prophet (SAW) said: \"Shall I not tell you of something better in degree than fasting, prayer, and charity?\" They said: \"Yes.\" He said: \"Reconciling between people — for discord among people is the destroyer.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -6738,7 +6738,7 @@ The first move is always the hardest, and the one who initiates reconciliation e
 
 **How?**
 
-Choose the medium that feels most personal â€” a face-to-face visit is best, followed by a phone call, then a heartfelt message. Keep it simple: express that you value the relationship, acknowledge any wrongdoing on your part, and express your desire to move forward. Do not demand an apology or relitigate the past. Your job is to open the door; let Allah handle the rest.` },
+Choose the medium that feels most personal — a face-to-face visit is best, followed by a phone call, then a heartfelt message. Keep it simple: express that you value the relationship, acknowledge any wrongdoing on your part, and express your desire to move forward. Do not demand an apology or relitigate the past. Your job is to open the door; let Allah handle the rest.` },
         { title: 'Focus on restoring basic goodwill, not necessarily resolving every issue at once', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly encourage and highly praise the act of reconciling between people, they omit specific conflict-resolution strategies like focusing initially on restoring basic goodwill rather than resolving every issue at once, making the subtask a practical logical inference to systematically achieve this religious objective.',
@@ -6746,7 +6746,7 @@ Choose the medium that feels most personal â€” a face-to-face visit is best
             {
               kind: "quran",
               ref: "Quran 4:114",
-              arabic: "Ù„ÙŽÙ‘Ø§ Ø®ÙŽÙŠÙ’Ø±ÙŽ ÙÙÙŠ ÙƒÙŽØ«ÙÙŠØ±Ù Ù…ÙÙ‘Ù† Ù†ÙŽÙ‘Ø¬Ù’ÙˆÙŽØ§Ù‡ÙÙ…Ù’ Ø¥ÙÙ„ÙŽÙ‘Ø§ Ù…ÙŽÙ†Ù’ Ø£ÙŽÙ…ÙŽØ±ÙŽ Ø¨ÙØµÙŽØ¯ÙŽÙ‚ÙŽØ©Ù Ø£ÙŽÙˆÙ’ Ù…ÙŽØ¹Ù’Ø±ÙÙˆÙÙ Ø£ÙŽÙˆÙ’ Ø¥ÙØµÙ’Ù„ÙŽØ§Ø­Ù Ø¨ÙŽÙŠÙ’Ù†ÙŽ Ø§Ù„Ù†ÙŽÙ‘Ø§Ø³Ù",
+              arabic: "لَّا خَيْرَ فِي كَثِيرٍ مِّن نَّجْوَاهُمْ إِلَّا مَنْ أَمَرَ بِصَدَقَةٍ أَوْ مَعْرُوفٍ أَوْ إِصْلَاحٍ بَيْنَ النَّاسِ",
               translation: "No good is there in much of their private conversation, except for those who enjoin charity or that which is right or reconciliation between people.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6764,12 +6764,12 @@ Choose the medium that feels most personal â€” a face-to-face visit is best
           ],
           description: `**Why?**
 
-Reconciliation does not mean resolving every disagreement â€” it means restoring basic goodwill, respect, and willingness to engage. Trying to solve everything in one conversation often reignites conflict. Small, steady steps rebuild trust more effectively than grand resolutions.
+Reconciliation does not mean resolving every disagreement — it means restoring basic goodwill, respect, and willingness to engage. Trying to solve everything in one conversation often reignites conflict. Small, steady steps rebuild trust more effectively than grand resolutions.
 
 
 **How?**
 
-Set realistic expectations: your goal is to move from hostility or silence to basic warmth and communication. Start with simple gestures â€” a greeting, a shared meal, a brief check-in. Let the relationship rebuild naturally over time. If deeper issues need addressing, schedule those conversations once the foundation of goodwill is restored.` },
+Set realistic expectations: your goal is to move from hostility or silence to basic warmth and communication. Start with simple gestures — a greeting, a shared meal, a brief check-in. Let the relationship rebuild naturally over time. If deeper issues need addressing, schedule those conversations once the foundation of goodwill is restored.` },
       ],
     },
   ],
@@ -6777,7 +6777,7 @@ Set realistic expectations: your goal is to move from hostility or silence to ba
     {
       title: 'Mentor a younger Muslim in character development and professional or spiritual growth',
       priority: 'medium', tags: ['mentorship', 'dawah'],
-      description: 'The Prophet (SAW) invested deeply in individual mentorship â€” his companionship with Abu Bakr, his guidance of Ali, his nurturing of Anas. Mentoring a younger Muslim passes on hard-won wisdom, multiplies your impact, and fulfils the obligation of mutual enjoining of good (amr bil maruf).',
+      description: 'The Prophet (SAW) invested deeply in individual mentorship — his companionship with Abu Bakr, his guidance of Ali, his nurturing of Anas. Mentoring a younger Muslim passes on hard-won wisdom, multiplies your impact, and fulfils the obligation of mutual enjoining of good (amr bil maruf).',
       subtasks: [
         { title: 'Identify a younger Muslim in your community, workplace, or family who could benefit from mentorship', done: false,
           tier: 'T3',
@@ -6795,13 +6795,13 @@ Set realistic expectations: your goal is to move from hostility or silence to ba
           ],
           description: `**Why?**
 
-Every generation needs guides who have walked the path before them. Without mentorship, younger Muslims navigate career, character, and spiritual challenges alone â€” often making avoidable mistakes. Your experience, even if imperfect, is exactly what someone needs right now.
+Every generation needs guides who have walked the path before them. Without mentorship, younger Muslims navigate career, character, and spiritual challenges alone — often making avoidable mistakes. Your experience, even if imperfect, is exactly what someone needs right now.
 
 
 **How?**
 
-Look around your immediate circles: the mosque, your workplace, your extended family, or community programmes. Notice who is at a transition point â€” starting university, entering the workforce, newly married, or struggling with direction. Approach them naturally, not with a formal "I want to mentor you" speech, but with genuine interest in their life and a willingness to be available.` },
-        { title: 'Initiate the relationship naturally â€” regular check-ins over coffee, walks, or shared activities', done: false,
+Look around your immediate circles: the mosque, your workplace, your extended family, or community programmes. Notice who is at a transition point — starting university, entering the workforce, newly married, or struggling with direction. Approach them naturally, not with a formal "I want to mentor you" speech, but with genuine interest in their life and a willingness to be available.` },
+        { title: 'Initiate the relationship naturally — regular check-ins over coffee, walks, or shared activities', done: false,
           tier: 'T3',
           amanahRationale: 'Although the provided Hadith beautifully illustrates the general principle of mutual love and empathy among believers, it offers neither explicit proof nor a logical inference supporting the specific social mechanics of initiating a mentorship relationship naturally through shared activities like coffee or walks.',
           sources: [
@@ -6817,12 +6817,12 @@ Look around your immediate circles: the mosque, your workplace, your extended fa
           ],
           description: `**Why?**
 
-Forced mentorship feels like a lecture. The most transformative mentoring relationships are built on natural, relaxed interactions where wisdom is exchanged through conversation, shared experience, and genuine companionship â€” just as the Sahaba learned from the Prophet (SAW) by being with him.
+Forced mentorship feels like a lecture. The most transformative mentoring relationships are built on natural, relaxed interactions where wisdom is exchanged through conversation, shared experience, and genuine companionship — just as the Sahaba learned from the Prophet (SAW) by being with him.
 
 
 **How?**
 
-Suggest a low-pressure activity: coffee, a walk after Jumuah, helping them with a project, or attending a community event together. Let conversations flow naturally rather than following a curriculum. Be consistent with your invitations â€” showing up regularly communicates that you genuinely care, not that you are fulfilling an obligation.` },
+Suggest a low-pressure activity: coffee, a walk after Jumuah, helping them with a project, or attending a community event together. Let conversations flow naturally rather than following a curriculum. Be consistent with your invitations — showing up regularly communicates that you genuinely care, not that you are fulfilling an obligation.` },
         { title: 'Listen first to understand their challenges, goals, and aspirations', done: false,
           tier: 'T3',
           amanahRationale: 'Although the provided sources explicitly command believers to invite others to the way of the Lord with wisdom and to convey knowledge, they offer neither explicit proof nor a logical inference supporting the specific mentoring technique of listening first to understand a person\'s challenges and goals.',
@@ -6830,7 +6830,7 @@ Suggest a low-pressure activity: coffee, a walk after Jumuah, helping them with 
             {
               kind: "quran",
               ref: "Quran 16:125",
-              arabic: "Ø§Ø¯Ù’Ø¹Ù Ø¥ÙÙ„ÙŽÙ‰Ù° Ø³ÙŽØ¨ÙÙŠÙ„Ù Ø±ÙŽØ¨ÙÙ‘ÙƒÙŽ Ø¨ÙØ§Ù„Ù’Ø­ÙÙƒÙ’Ù…ÙŽØ©Ù ÙˆÙŽØ§Ù„Ù’Ù…ÙŽÙˆÙ’Ø¹ÙØ¸ÙŽØ©Ù Ø§Ù„Ù’Ø­ÙŽØ³ÙŽÙ†ÙŽØ©Ù",
+              arabic: "ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ",
               translation: "Invite to the way of your Lord with wisdom and good instruction.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6842,7 +6842,7 @@ Suggest a low-pressure activity: coffee, a walk after Jumuah, helping them with 
               translation: "The Prophet (SAW) said: \"Convey from me, even if it is one verse.\" (Emphasising the responsibility to share knowledge.)",
               relevance: "direct",
               provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih â€” narrated in Sahih al-Bukhari 3461",
+              hadithGrade: "Sahih — narrated in Sahih al-Bukhari 3461",
               rationale: "Prophetic narration cited as evidence for this subtask.",
             },
           ],
@@ -6875,8 +6875,8 @@ Young people tune out lectures but absorb stories. Sharing your own mistakes, fa
 
 **How?**
 
-When a topic arises where you have relevant experience, share it as a story, not a directive: "I went through something similar and here is what I learned..." Include your mistakes and what you wish you had done differently. Recommend books, podcasts, or people who helped you â€” but limit to one or two suggestions at a time. Let them ask for more rather than overwhelming them.` },
-        { title: 'Meet consistently â€” at least monthly â€” and follow up on previous conversations', done: false,
+When a topic arises where you have relevant experience, share it as a story, not a directive: "I went through something similar and here is what I learned..." Include your mistakes and what you wish you had done differently. Recommend books, podcasts, or people who helped you — but limit to one or two suggestions at a time. Let them ask for more rather than overwhelming them.` },
+        { title: 'Meet consistently — at least monthly — and follow up on previous conversations', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly praise deeds done consistently and the embodiment of the best manners, they omit specific mentoring practices like meeting on a monthly basis and following up on previous conversations, making the subtask a practical logical inference to systematically apply these prophetic principles to a mentorship relationship.',
           sources: [
@@ -6901,18 +6901,18 @@ When a topic arises where you have relevant experience, share it as a story, not
           ],
           description: `**Why?**
 
-Consistency is what separates mentorship from a one-off conversation. Meeting regularly shows that you are invested in their growth, and following up on previous topics demonstrates that you actually listen and remember â€” which deepens the trust exponentially.
+Consistency is what separates mentorship from a one-off conversation. Meeting regularly shows that you are invested in their growth, and following up on previous topics demonstrates that you actually listen and remember — which deepens the trust exponentially.
 
 
 **How?**
 
-Set a recurring date â€” the first Sunday of each month, every other Friday after Maghrib, whatever works for both of you. At each meeting, reference something from the last conversation: "Last time you mentioned you were applying for that role â€” how did it go?" This continuity transforms casual catch-ups into a meaningful mentoring journey.` },
+Set a recurring date — the first Sunday of each month, every other Friday after Maghrib, whatever works for both of you. At each meeting, reference something from the last conversation: "Last time you mentioned you were applying for that role — how did it go?" This continuity transforms casual catch-ups into a meaningful mentoring journey.` },
       ],
     },
     {
-      title: 'Represent Islam publicly through excellence in conduct â€” let your character be your dawah',
+      title: 'Represent Islam publicly through excellence in conduct — let your character be your dawah',
       priority: 'medium', tags: ['dawah', 'character'],
-      description: 'The greatest dawah is not a speech or a pamphlet â€” it is your character. When non-Muslims see a Muslim who is honest, generous, patient, and excellent in their work, it speaks louder than any argument. This task is about being intentionally excellent in public-facing interactions as an act of worship.',
+      description: 'The greatest dawah is not a speech or a pamphlet — it is your character. When non-Muslims see a Muslim who is honest, generous, patient, and excellent in their work, it speaks louder than any argument. This task is about being intentionally excellent in public-facing interactions as an act of worship.',
       subtasks: [
         { title: 'Identify 3 public-facing contexts where you interact with non-Muslims regularly', done: false,
           tier: 'T2',
@@ -6921,7 +6921,7 @@ Set a recurring date â€” the first Sunday of each month, every other Friday
             {
               kind: "quran",
               ref: "Quran 16:125",
-              arabic: "Ø§Ø¯Ù’Ø¹Ù Ø¥ÙÙ„ÙŽÙ‰Ù° Ø³ÙŽØ¨ÙÙŠÙ„Ù Ø±ÙŽØ¨ÙÙ‘ÙƒÙŽ Ø¨ÙØ§Ù„Ù’Ø­ÙÙƒÙ’Ù…ÙŽØ©Ù ÙˆÙŽØ§Ù„Ù’Ù…ÙŽÙˆÙ’Ø¹ÙØ¸ÙŽØ©Ù Ø§Ù„Ù’Ø­ÙŽØ³ÙŽÙ†ÙŽØ©Ù",
+              arabic: "ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ",
               translation: "Invite to the way of your Lord with wisdom and good instruction.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6930,7 +6930,7 @@ Set a recurring date â€” the first Sunday of each month, every other Friday
             {
               kind: "quran",
               ref: "Quran 41:33",
-              arabic: "ÙˆÙŽÙ…ÙŽÙ†Ù’ Ø£ÙŽØ­Ù’Ø³ÙŽÙ†Ù Ù‚ÙŽÙˆÙ’Ù„Ù‹Ø§ Ù…ÙÙ‘Ù…ÙŽÙ‘Ù† Ø¯ÙŽØ¹ÙŽØ§ Ø¥ÙÙ„ÙŽÙ‰ Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù ÙˆÙŽØ¹ÙŽÙ…ÙÙ„ÙŽ ØµÙŽØ§Ù„ÙØ­Ù‹Ø§ ÙˆÙŽÙ‚ÙŽØ§Ù„ÙŽ Ø¥ÙÙ†ÙŽÙ‘Ù†ÙÙŠ Ù…ÙÙ†ÙŽ Ø§Ù„Ù’Ù…ÙØ³Ù’Ù„ÙÙ…ÙÙŠÙ†ÙŽ",
+              arabic: "وَمَنْ أَحْسَنُ قَوْلًا مِّمَّن دَعَا إِلَى اللَّهِ وَعَمِلَ صَالِحًا وَقَالَ إِنَّنِي مِنَ الْمُسْلِمِينَ",
               translation: "And who is better in speech than one who invites to Allah and does righteousness and says: Indeed, I am of the Muslims.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6945,14 +6945,14 @@ You cannot be intentional about something you have not identified. Mapping the c
 **How?**
 
 Think through your weekly routine: your workplace, your neighbourhood, the school gate, local shops, the gym, community events. Write down three specific contexts where you interact with non-Muslims regularly. For each, note what impression you currently leave and what excellence would look like in that setting.` },
-        { title: 'In each context, aim for measurably excellent conduct â€” extra courtesy, reliability, generosity', done: false,
+        { title: 'In each context, aim for measurably excellent conduct — extra courtesy, reliability, generosity', done: false,
           tier: 'T2',
-          amanahRationale: 'Fallback assignment â€” NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
+          amanahRationale: 'Fallback assignment — NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
           sources: [
             {
               kind: "quran",
               ref: "Quran 3:110",
-              arabic: "ÙƒÙÙ†ØªÙÙ…Ù’ Ø®ÙŽÙŠÙ’Ø±ÙŽ Ø£ÙÙ…ÙŽÙ‘Ø©Ù Ø£ÙØ®Ù’Ø±ÙØ¬ÙŽØªÙ’ Ù„ÙÙ„Ù†ÙŽÙ‘Ø§Ø³Ù ØªÙŽØ£Ù’Ù…ÙØ±ÙÙˆÙ†ÙŽ Ø¨ÙØ§Ù„Ù’Ù…ÙŽØ¹Ù’Ø±ÙÙˆÙÙ ÙˆÙŽØªÙŽÙ†Ù’Ù‡ÙŽÙˆÙ’Ù†ÙŽ Ø¹ÙŽÙ†Ù Ø§Ù„Ù’Ù…ÙÙ†ÙƒÙŽØ±Ù",
+              arabic: "كُنتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنَّاسِ تَأْمُرُونَ بِالْمَعْرُوفِ وَتَنْهَوْنَ عَنِ الْمُنكَرِ",
               translation: "You are the best nation produced for mankind. You enjoin what is right and forbid what is wrong.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6970,7 +6970,7 @@ Think through your weekly routine: your workplace, your neighbourhood, the schoo
           ],
           description: `**Why?**
 
-Vague intentions to "be a good Muslim in public" rarely translate into action. Measurable excellence â€” going above and beyond what is expected â€” creates memorable impressions that people associate with your faith.
+Vague intentions to "be a good Muslim in public" rarely translate into action. Measurable excellence — going above and beyond what is expected — creates memorable impressions that people associate with your faith.
 
 
 **How?**
@@ -6983,8 +6983,8 @@ For each of your three contexts, set one specific excellence target this month. 
             {
               kind: "quran",
               ref: "Quran 68:2",
-              arabic: "Ù…ÙŽØ§ Ø£ÙŽÙ†ØªÙŽ Ø¨ÙÙ†ÙØ¹Ù’Ù…ÙŽØ©Ù Ø±ÙŽØ¨ÙÙ‘ÙƒÙŽ Ø¨ÙÙ…ÙŽØ¬Ù’Ù†ÙÙˆÙ†Ù",
-              translation: "Your Lordâ€™s grace does not make you [Prophet] a madman.",
+              arabic: "مَا أَنتَ بِنِعْمَةِ رَبِّكَ بِمَجْنُونٍ",
+              translation: "Your Lord’s grace does not make you [Prophet] a madman.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -6992,7 +6992,7 @@ For each of your three contexts, set one specific excellence target this month. 
             {
               kind: "quran",
               ref: "Quran 52:29",
-              arabic: "ÙÙŽØ°ÙŽÙƒÙÙ‘Ø±Ù’ ÙÙŽÙ…ÙŽØ§ Ø£ÙŽÙ†ØªÙŽ Ø¨ÙÙ†ÙØ¹Ù’Ù…ÙŽØªÙ Ø±ÙŽØ¨ÙÙ‘ÙƒÙŽ Ø¨ÙÙƒÙŽØ§Ù‡ÙÙ†Ù ÙˆÙŽÙ„ÙŽØ§ Ù…ÙŽØ¬Ù’Ù†ÙÙˆÙ†Ù",
+              arabic: "فَذَكِّرْ فَمَا أَنتَ بِنِعْمَتِ رَبِّكَ بِكَاهِنٍ وَلَا مَجْنُونٍ",
               translation: "So [Prophet] remind [people]. By the grace of your Lord [Prophet], you are neither oracle nor madman.",
               relevance: "contextual",
               provenanceTier: "Bayyinah",
@@ -7010,7 +7010,7 @@ For each of your three contexts, set one specific excellence target this month. 
           ],
           description: `**Why?**
 
-Anyone can be pleasant when things are going well. The true test of character â€” and the most powerful dawah â€” is how you respond when someone is rude, unfair, or hostile. The Prophet (SAW) met hostility with dignity, and many hearts were opened through his composure.
+Anyone can be pleasant when things are going well. The true test of character — and the most powerful dawah — is how you respond when someone is rude, unfair, or hostile. The Prophet (SAW) met hostility with dignity, and many hearts were opened through his composure.
 
 
 **How?**
@@ -7018,7 +7018,7 @@ Anyone can be pleasant when things are going well. The true test of character â
 When faced with rudeness or conflict in a public setting, take a breath before responding. Speak calmly, lower your voice rather than raising it, and seek resolution rather than victory. If someone is rude to you because of your faith, respond with warmth and facts rather than defensiveness. Afterwards, reflect on how you handled it and what you would improve.` },
         { title: 'Be willing to explain Islamic practices when asked, with warmth and confidence', done: false,
           tier: 'T2',
-          amanahRationale: 'Fallback assignment â€” NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
+          amanahRationale: 'Fallback assignment — NotebookLM returned stale conversation (empty answer, turn_number:0); subtask has sources so Qarina is the conservative assignment.',
           sources: [
             {
               kind: "quran",
@@ -7032,8 +7032,8 @@ When faced with rudeness or conflict in a public setting, take a breath before r
             {
               kind: "quran",
               ref: "Quran 42:13",
-              arabic: "**Translation:** He (AllÃ¢h) has ordained for you the same religion (IslÃ¢mic Monotheism) which He ordained for NÃ»h (Noah), and that which We have revealed to you (O Muhammad ØµÙ„Ù‰ Ø§Ù„Ù„Ù‡ Ø¹Ù„ÙŠÙ‡ Ùˆ Ø³Ù„Ù…), and that which We ordained for IbrÃ¢hÃ®m (Abraham), MÃ»sÃ¢ (Moses) and â€˜ÃŽsÃ¢ (Jesus) saying you should establish religion (i.e. to do what it orders you to do practically), and make no divisions in it (religion) (i.e. various sects in religion). Intolerable for the MushrikÃ»n, is that (Islamic Monotheism) to which you (O Muhammad ØµÙ„Ù‰ Ø§Ù„Ù„Ù‡ Ø¹Ù„ÙŠÙ‡ Ùˆ Ø³Ù„Ù…) call them. AllÃ¢h chooses for Himself whom He wills, and guides unto Himself who turns to Him in repentance and in obedience.",
-              translation: "He (AllÃ¢h) has ordained for you the same religion (IslÃ¢mic Monotheism) which He ordained for NÃ»h (Noah), and that which We have revealed to you (O Muhammad ØµÙ„Ù‰ Ø§Ù„Ù„Ù‡ Ø¹Ù„ÙŠÙ‡ Ùˆ Ø³Ù„Ù…), and that which We ordained for IbrÃ¢hÃ®m (Abraham), MÃ»sÃ¢ (Moses) and â€˜ÃŽsÃ¢ (Jesus) saying you should establish religion (i.e. to do what it orders you to do practically), and make no divisions in it (religion) (i.e. various sects in religion). Intolerable for the MushrikÃ»n, is that (Islamic Monotheism) to which you (O Muhammad ØµÙ„Ù‰ Ø§Ù„Ù„Ù‡ Ø¹Ù„ÙŠÙ‡ Ùˆ Ø³Ù„Ù…) call them. AllÃ¢h chooses for Himself whom He wills, and guides unto Himself who turns to Him in repentance and in obedience.",
+              arabic: "**Translation:** He (Allâh) has ordained for you the same religion (Islâmic Monotheism) which He ordained for Nûh (Noah), and that which We have revealed to you (O Muhammad صلى الله عليه و سلم), and that which We ordained for Ibrâhîm (Abraham), Mûsâ (Moses) and ‘Îsâ (Jesus) saying you should establish religion (i.e. to do what it orders you to do practically), and make no divisions in it (religion) (i.e. various sects in religion). Intolerable for the Mushrikûn, is that (Islamic Monotheism) to which you (O Muhammad صلى الله عليه و سلم) call them. Allâh chooses for Himself whom He wills, and guides unto Himself who turns to Him in repentance and in obedience.",
+              translation: "He (Allâh) has ordained for you the same religion (Islâmic Monotheism) which He ordained for Nûh (Noah), and that which We have revealed to you (O Muhammad صلى الله عليه و سلم), and that which We ordained for Ibrâhîm (Abraham), Mûsâ (Moses) and ‘Îsâ (Jesus) saying you should establish religion (i.e. to do what it orders you to do practically), and make no divisions in it (religion) (i.e. various sects in religion). Intolerable for the Mushrikûn, is that (Islamic Monotheism) to which you (O Muhammad صلى الله عليه و سلم) call them. Allâh chooses for Himself whom He wills, and guides unto Himself who turns to Him in repentance and in obedience.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -7041,7 +7041,7 @@ When faced with rudeness or conflict in a public setting, take a breath before r
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 3",
-              translation: "Narrated 'Aisha (the mother of the faithful believers):The commencement of the Divine Inspiration to Allah's Messenger (ï·º) was in the form of good dreams which came true like bright daylight, and then the love of seclusion was bestowed upon him. He used to go in seclusion in the cave of Hira where he used to worship (Allah alone) continuously for many days before his desire to see his family. He used to take with him the journey food for the stay and then come back to (his wife) Khadija to take his food likewise again till suddenly the Truth descended upon him while he was in the cave of Hira. The angel came to him and asked him to read. The Prophet (ï·º) replied, \"I do not know how to read.\" The Prophet (ï·º) added, \"The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists), created man from a clot. Read! And your Lord is the Most Generous.\" (96.1, 96.2, 96.3) Then Allah's Messenger (ï·º) returned with the Inspiration and with his heart beating severely. Then he went to Khadija bint Khuwailid and said, \"Cover me! Cover me!\" They covered him till his fear was over and after that he told her everything that had happened and said, \"I fear that something may happen to me.\" Khadija replied, \"Never! By Allah, Allah will never disgrace you. You keep good relations with your kith and kin, help the poor and the destitute, serve your guests generously and assist the deserving calamity-afflicted ones.\" Khadija then accompanied him to her cousin Waraqa bin Naufal bin Asad bin 'Abdul 'Uzza, who, during the pre-Islamic Period became a Christian and used to write the writing with Hebrew letters. He would write from the Gospel in Hebrew as much as Allah wished him to write. He was an old man and had lost his eyesight. Khadija said to Waraqa, \"Listen to the story of your nephew, O my cousin!\" Waraqa asked, \"O my nephew! What have you seen?\" Allah's Messenger (ï·º) described whatever he had seen. Waraqa said, \"This is the same one who keeps the secrets (angel Gabriel) whom Allah had sent to Moses. I wish I were young and could live up to the time when your people would turn you out.\" Allah's Messenger (ï·º) asked, \"Will they drive me out?\" Waraqa replied in the affirmative and said, \"Anyone (man) who came with something similar to what you have brought was treated with hostility; and if I should remain alive till the day when you will be turned out then I would support you strongly.\" But after a few days Waraqa died and the Divine Inspiration was also paused for a while",
+              translation: "Narrated 'Aisha (the mother of the faithful believers):The commencement of the Divine Inspiration to Allah's Messenger (ﷺ) was in the form of good dreams which came true like bright daylight, and then the love of seclusion was bestowed upon him. He used to go in seclusion in the cave of Hira where he used to worship (Allah alone) continuously for many days before his desire to see his family. He used to take with him the journey food for the stay and then come back to (his wife) Khadija to take his food likewise again till suddenly the Truth descended upon him while he was in the cave of Hira. The angel came to him and asked him to read. The Prophet (ﷺ) replied, \"I do not know how to read.\" The Prophet (ﷺ) added, \"The angel caught me (forcefully) and pressed me so hard that I could not bear it any more. He then released me and again asked me to read and I replied, 'I do not know how to read.' Thereupon he caught me again and pressed me a second time till I could not bear it any more. He then released me and again asked me to read but again I replied, 'I do not know how to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, and then released me and said, 'Read in the name of your Lord, who has created (all that exists), created man from a clot. Read! And your Lord is the Most Generous.\" (96.1, 96.2, 96.3) Then Allah's Messenger (ﷺ) returned with the Inspiration and with his heart beating severely. Then he went to Khadija bint Khuwailid and said, \"Cover me! Cover me!\" They covered him till his fear was over and after that he told her everything that had happened and said, \"I fear that something may happen to me.\" Khadija replied, \"Never! By Allah, Allah will never disgrace you. You keep good relations with your kith and kin, help the poor and the destitute, serve your guests generously and assist the deserving calamity-afflicted ones.\" Khadija then accompanied him to her cousin Waraqa bin Naufal bin Asad bin 'Abdul 'Uzza, who, during the pre-Islamic Period became a Christian and used to write the writing with Hebrew letters. He would write from the Gospel in Hebrew as much as Allah wished him to write. He was an old man and had lost his eyesight. Khadija said to Waraqa, \"Listen to the story of your nephew, O my cousin!\" Waraqa asked, \"O my nephew! What have you seen?\" Allah's Messenger (ﷺ) described whatever he had seen. Waraqa said, \"This is the same one who keeps the secrets (angel Gabriel) whom Allah had sent to Moses. I wish I were young and could live up to the time when your people would turn you out.\" Allah's Messenger (ﷺ) asked, \"Will they drive me out?\" Waraqa replied in the affirmative and said, \"Anyone (man) who came with something similar to what you have brought was treated with hostility; and if I should remain alive till the day when you will be turned out then I would support you strongly.\" But after a few days Waraqa died and the Divine Inspiration was also paused for a while",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -7050,12 +7050,12 @@ When faced with rudeness or conflict in a public setting, take a breath before r
           ],
           description: `**Why?**
 
-When your excellent conduct sparks curiosity, people will ask about your faith. Being able to explain your practices â€” fasting, prayer, hijab, dietary choices â€” with warmth and confidence turns a casual question into a moment of genuine connection and understanding.
+When your excellent conduct sparks curiosity, people will ask about your faith. Being able to explain your practices — fasting, prayer, hijab, dietary choices — with warmth and confidence turns a casual question into a moment of genuine connection and understanding.
 
 
 **How?**
 
-Prepare simple, warm explanations for the practices people most commonly ask about: "I pray five times a day â€” it is like a reset button that keeps me grounded." "Ramadan is our month of fasting â€” it teaches gratitude and self-discipline." Practise saying these out loud so they feel natural. Welcome questions with a smile rather than treating them as intrusions.` },
+Prepare simple, warm explanations for the practices people most commonly ask about: "I pray five times a day — it is like a reset button that keeps me grounded." "Ramadan is our month of fasting — it teaches gratitude and self-discipline." Practise saying these out loud so they feel natural. Welcome questions with a smile rather than treating them as intrusions.` },
         { title: 'Reflect monthly on whether your public conduct would make the Prophet (SAW) proud', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly establish the Prophet as an excellent pattern and emphasize the perfection of good character, they omit specific modern self-assessment practices like conducting a monthly 15-minute reflection, making the subtask a practical logical inference to systematically evaluate and align one\'s conduct with this prophetic standard.',
@@ -7063,7 +7063,7 @@ Prepare simple, warm explanations for the practices people most commonly ask abo
             {
               kind: "quran",
               ref: "Quran 33:21",
-              arabic: "Ù„ÙŽÙ‘Ù‚ÙŽØ¯Ù’ ÙƒÙŽØ§Ù†ÙŽ Ù„ÙŽÙƒÙÙ…Ù’ ÙÙÙŠ Ø±ÙŽØ³ÙÙˆÙ„Ù Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù Ø£ÙØ³Ù’ÙˆÙŽØ©ÙŒ Ø­ÙŽØ³ÙŽÙ†ÙŽØ©ÙŒ",
+              arabic: "لَّقَدْ كَانَ لَكُمْ فِي رَسُولِ اللَّهِ أُسْوَةٌ حَسَنَةٌ",
               translation: "There has certainly been for you in the Messenger of Allah an excellent pattern.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -7081,7 +7081,7 @@ Prepare simple, warm explanations for the practices people most commonly ask abo
           ],
           description: `**Why?**
 
-Without regular reflection, even the best intentions fade into routine. Asking whether your conduct would make the Prophet (SAW) proud is the highest standard of self-assessment â€” it keeps your niyyah (intention) aligned and your actions sharp.
+Without regular reflection, even the best intentions fade into routine. Asking whether your conduct would make the Prophet (SAW) proud is the highest standard of self-assessment — it keeps your niyyah (intention) aligned and your actions sharp.
 
 
 **How?**
@@ -7101,11 +7101,11 @@ At the end of each month, set aside 15 minutes for honest reflection. Review you
             {
               kind: "quran",
               ref: "Quran 2:165",
-              arabic: "ÙˆÙŽÙ…ÙÙ†ÙŽ Ø§Ù„Ù†ÙŽÙ‘Ø§Ø³Ù Ù…ÙŽÙ† ÙŠÙŽØªÙŽÙ‘Ø®ÙØ°Ù Ù…ÙÙ† Ø¯ÙÙˆÙ†Ù Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù Ø£ÙŽÙ†Ø¯ÙŽØ§Ø¯Ù‹Ø§ ÙŠÙØ­ÙØ¨ÙÙ‘ÙˆÙ†ÙŽÙ‡ÙÙ…Ù’ ÙƒÙŽØ­ÙØ¨ÙÙ‘ Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù Û– ÙˆÙŽØ§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø£ÙŽØ´ÙŽØ¯ÙÙ‘ Ø­ÙØ¨Ù‹Ù‘Ø§ Ù„ÙÙ‘Ù„ÙŽÙ‘Ù‡Ù Û— ÙˆÙŽÙ„ÙŽÙˆÙ’ ÙŠÙŽØ±ÙŽÙ‰ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¸ÙŽÙ„ÙŽÙ…ÙÙˆØ§ Ø¥ÙØ°Ù’ ÙŠÙŽØ±ÙŽÙˆÙ’Ù†ÙŽ Ø§Ù„Ù’Ø¹ÙŽØ°ÙŽØ§Ø¨ÙŽ Ø£ÙŽÙ†ÙŽÙ‘ Ø§Ù„Ù’Ù‚ÙÙˆÙŽÙ‘Ø©ÙŽ Ù„ÙÙ„ÙŽÙ‘Ù‡Ù Ø¬ÙŽÙ…ÙÙŠØ¹Ù‹Ø§ ÙˆÙŽØ£ÙŽÙ†ÙŽÙ‘ Ø§Ù„Ù„ÙŽÙ‘Ù‡ÙŽ Ø´ÙŽØ¯ÙÙŠØ¯Ù Ø§Ù„Ù’Ø¹ÙŽØ°ÙŽØ§Ø¨Ù",
+              arabic: "وَمِنَ النَّاسِ مَن يَتَّخِذُ مِن دُونِ اللَّهِ أَندَادًا يُحِبُّونَهُمْ كَحُبِّ اللَّهِ ۖ وَالَّذِينَ آمَنُوا أَشَدُّ حُبًّا لِّلَّهِ ۗ وَلَوْ يَرَى الَّذِينَ ظَلَمُوا إِذْ يَرَوْنَ الْعَذَابَ أَنَّ الْقُوَّةَ لِلَّهِ جَمِيعًا وَأَنَّ اللَّهَ شَدِيدُ الْعَذَابِ",
               translation: "Even so, there are some who choose to worship others besides God as rivals to Him, loving them with the love due to God, but the believers have greater love for God.",
               relevance: "contextual",
               provenanceTier: "Bayyinah",
-              rationale: "those who choose companions based on shared love of Allah â€” not merely comfort or convenience â€” are following the believers' way described here.",
+              rationale: "those who choose companions based on shared love of Allah — not merely comfort or convenience — are following the believers' way described here.",
             },
             {
               kind: "hadith",
@@ -7132,7 +7132,7 @@ Think of Muslim brothers or sisters who consistently demonstrate commitment to t
             {
               kind: "quran",
               ref: "Quran 103:1-3",
-              arabic: "ÙˆÙŽØ§Ù„Ù’Ø¹ÙŽØµÙ’Ø±Ù Ø¥ÙÙ†ÙŽÙ‘ Ø§Ù„Ù’Ø¥ÙÙ†Ø³ÙŽØ§Ù†ÙŽ Ù„ÙŽÙÙÙŠ Ø®ÙØ³Ù’Ø±Ù Ø¥ÙÙ„ÙŽÙ‘Ø§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ ÙˆÙŽØ¹ÙŽÙ…ÙÙ„ÙÙˆØ§ Ø§Ù„ØµÙŽÙ‘Ø§Ù„ÙØ­ÙŽØ§ØªÙ ÙˆÙŽØªÙŽÙˆÙŽØ§ØµÙŽÙˆÙ’Ø§ Ø¨ÙØ§Ù„Ù’Ø­ÙŽÙ‚ÙÙ‘ ÙˆÙŽØªÙŽÙˆÙŽØ§ØµÙŽÙˆÙ’Ø§ Ø¨ÙØ§Ù„ØµÙŽÙ‘Ø¨Ù’Ø±Ù",
+              arabic: "وَالْعَصْرِ إِنَّ الْإِنسَانَ لَفِي خُسْرٍ إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ",
               translation: "By time, indeed mankind is in loss, except for those who have believed and done righteous deeds and advised each other to truth and advised each other to patience.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -7141,7 +7141,7 @@ Think of Muslim brothers or sisters who consistently demonstrate commitment to t
           ],
           description: `**Why?**
 
-Without a clear format agreed upon upfront, groups quickly lose momentum. Defining the logistics â€” frequency, duration, location, and structure â€” before the first session sets expectations and prevents the drift that kills most informal groups within weeks.
+Without a clear format agreed upon upfront, groups quickly lose momentum. Defining the logistics — frequency, duration, location, and structure — before the first session sets expectations and prevents the drift that kills most informal groups within weeks.
 
 
 **How?**
@@ -7154,7 +7154,7 @@ Draft a simple one-page proposal: purpose of the group, suggested frequency (bi-
             {
               kind: "quran",
               ref: "Quran 49:10",
-              arabic: "Ø¥ÙÙ†ÙŽÙ‘Ù…ÙŽØ§ Ø§Ù„Ù’Ù…ÙØ¤Ù’Ù…ÙÙ†ÙÙˆÙ†ÙŽ Ø¥ÙØ®Ù’ÙˆÙŽØ©ÙŒ",
+              arabic: "إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ",
               translation: "The believers are but brothers.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -7185,8 +7185,8 @@ At your first session, discuss and agree on ground rules together. Essential one
             {
               kind: "quran",
               ref: "Quran 58:11",
-              arabic: "ÙŠÙŽØ§ Ø£ÙŽÙŠÙÙ‘Ù‡ÙŽØ§ Ø§Ù„ÙŽÙ‘Ø°ÙÙŠÙ†ÙŽ Ø¢Ù…ÙŽÙ†ÙÙˆØ§ Ø¥ÙØ°ÙŽØ§ Ù‚ÙÙŠÙ„ÙŽ Ù„ÙŽÙƒÙÙ…Ù’ ØªÙŽÙÙŽØ³ÙŽÙ‘Ø­ÙÙˆØ§ ÙÙÙŠ Ø§Ù„Ù’Ù…ÙŽØ¬ÙŽØ§Ù„ÙØ³Ù ÙÙŽØ§ÙÙ’Ø³ÙŽØ­ÙÙˆØ§ ÙŠÙŽÙÙ’Ø³ÙŽØ­Ù Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù Ù„ÙŽÙƒÙÙ…Ù’",
-              translation: "O you who have believed, when you are told to make room in gatherings, then make room â€” Allah will make room for you.",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا قِيلَ لَكُمْ تَفَسَّحُوا فِي الْمَجَالِسِ فَافْسَحُوا يَفْسَحِ اللَّهُ لَكُمْ",
+              translation: "O you who have believed, when you are told to make room in gatherings, then make room — Allah will make room for you.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               rationale: "Quranic basis cited as evidence for this subtask.",
@@ -7208,7 +7208,7 @@ A structured session ensures the group stays focused and everyone gets equal tim
 
 **How?**
 
-Use a simple three-part structure: (1) Each member shares a brief update on goals set at the previous session â€” what went well, what did not. (2) Open floor for sharing current struggles, seeking advice, or requesting accountability on a specific area. (3) Close with each member making dua for the person next to them. Keep time so everyone gets equal space.` },
+Use a simple three-part structure: (1) Each member shares a brief update on goals set at the previous session — what went well, what did not. (2) Open floor for sharing current struggles, seeking advice, or requesting accountability on a specific area. (3) Close with each member making dua for the person next to them. Keep time so everyone gets equal space.` },
         { title: 'Rotate facilitation so no single person carries the burden of leading every session', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided Hadith establishes the overarching principle of believers acting as one body in mutual mercy and compassion, it omits specific organizational practices like rotating facilitation, making the subtask a practical logical inference to systematically distribute the burden of leading every session and embody this prophetic empathy within a group setting.',
@@ -7230,7 +7230,7 @@ When one person always leads, they carry a disproportionate burden and the group
 
 **How?**
 
-Assign facilitation on a rotating schedule â€” each member leads one session in turn. The facilitator is responsible for opening the session, keeping time, ensuring everyone speaks, and closing with dua. Create a simple facilitation guide so every member feels confident when their turn comes. Review the rotation quarterly and adjust as needed.` },
+Assign facilitation on a rotating schedule — each member leads one session in turn. The facilitator is responsible for opening the session, keeping time, ensuring everyone speaks, and closing with dua. Create a simple facilitation guide so every member feels confident when their turn comes. Review the rotation quarterly and adjust as needed.` },
         { title: 'Evaluate the group dynamic after 3 months and adjust format as needed', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly command believers to consult one another and praise consistent deeds, they omit specific modern organizational practices like evaluating a group dynamic after three months, making the subtask a practical logical inference to systematically apply these divine and prophetic principles to maintain group health and longevity.',
@@ -7238,7 +7238,7 @@ Assign facilitation on a rotating schedule â€” each member leads one sessio
             {
               kind: "quran",
               ref: "Quran 3:159",
-              arabic: "ÙˆÙŽØ´ÙŽØ§ÙˆÙØ±Ù’Ù‡ÙÙ…Ù’ ÙÙÙŠ Ø§Ù„Ù’Ø£ÙŽÙ…Ù’Ø±Ù",
+              arabic: "وَشَاوِرْهُمْ فِي الْأَمْرِ",
               translation: "And consult them in the matter.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -7261,7 +7261,7 @@ No format is perfect from the start. A three-month evaluation gives the group en
 
 **How?**
 
-At the three-month mark, dedicate an entire session to evaluation. Ask each member: What is working well? What is not? Are you growing? Do you feel safe? Is the format sustainable? Collect honest feedback, discuss openly, and make concrete changes â€” whether that means adjusting frequency, structure, communication style, or even membership. Then set the next evaluation date.` },
+At the three-month mark, dedicate an entire session to evaluation. Ask each member: What is working well? What is not? Are you growing? Do you feel safe? Is the format sustainable? Collect honest feedback, discuss openly, and make concrete changes — whether that means adjusting frequency, structure, communication style, or even membership. Then set the next evaluation date.` },
       ],
     },
   ],
