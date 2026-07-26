@@ -1,6 +1,9 @@
-import { Check, Ban, Shuffle, Clock } from 'lucide-react';
+import { Check, Ban, Clock } from 'lucide-react';
 
-export default function OrientationActions({ onMarkDone, onNotApplicable, onSomethingElse, onNotToday, pickerOpen }) {
+// Three actions on the open sheet: Mark done / Doesn't apply / Not today.
+// "Something else" was dropped when the carousel became the pillar picker —
+// switching domains is a swipe, not a button (see orientation/CONTEXT.md).
+export default function OrientationActions({ onMarkDone, onNotApplicable, onNotToday }) {
   return (
     <div className="orient-actions">
       <button type="button" className="orient-actions__btn orient-actions__btn--primary" onClick={onMarkDone}>
@@ -10,15 +13,6 @@ export default function OrientationActions({ onMarkDone, onNotApplicable, onSome
       <button type="button" className="orient-actions__btn" onClick={onNotApplicable}>
         <Ban size={18} aria-hidden="true" />
         Doesn&apos;t apply
-      </button>
-      <button
-        type="button"
-        className={`orient-actions__btn${pickerOpen ? ' orient-actions__btn--active' : ''}`}
-        onClick={onSomethingElse}
-        aria-expanded={pickerOpen}
-      >
-        <Shuffle size={18} aria-hidden="true" />
-        Something else
       </button>
       <button type="button" className="orient-actions__btn orient-actions__btn--ghost" onClick={onNotToday}>
         <Clock size={18} aria-hidden="true" />

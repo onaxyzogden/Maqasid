@@ -26,8 +26,11 @@ function SourcesSkeleton() {
   );
 }
 
-export default function OrientationEvidence({ subtask }) {
-  const [open, setOpen] = useState(true);
+// `label`/`defaultOpen` let the same lazy-sources accordion serve as the sheet's
+// "Evidence" section (collapsed until asked, so the 1.8 MB hadith/Qur'an chunk
+// only loads on demand). Defaults suit that primary use.
+export default function OrientationEvidence({ subtask, label = 'Evidence', defaultOpen = false }) {
+  const [open, setOpen] = useState(defaultOpen);
 
   return (
     <div className="orient-evidence">
@@ -37,7 +40,7 @@ export default function OrientationEvidence({ subtask }) {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
       >
-        <span>Why &amp; how</span>
+        <span>{label}</span>
         <ChevronDown
           size={16}
           className={`orient-evidence__chevron${open ? ' orient-evidence__chevron--open' : ''}`}

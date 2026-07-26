@@ -8,7 +8,9 @@ import {
   findFirstEligibleInPillarTier,
   findNextEligibleSubtask,
   recommendOrientation,
+  buildOrientationCarousel,
 } from '../orientation-selector';
+import { MAQASID_CORE_PILLARS } from '../maqasid';
 
 const TODAY = '2026-07-23';
 
@@ -134,6 +136,97 @@ describe('findFirstEligibleInPillarTier / findNextEligibleSubtask', () => {
   it('findNextEligibleSubtask returns null once every subtask is satisfied', () => {
     const t = task('t1', [subtask('a', { done: true }), subtask('b', { notApplicable: true })]);
     expect(findNextEligibleSubtask(t, TODAY)).toBeNull();
+  });
+});
+
+describe('findFirstEligibleInPillarTier — priority ordering', () => {
+  it('walks tasks most-urgent-first, ahead of authored order', () => {
+    const projects = [project('wealth_earning_core')];
+    const tasksByProject = {
+      wealth_earning_core: [
+        task('t-low', [subtask('low1')], { order: 0, priority: 'low' }),
+        task('t-urgent', [subtask('urg1')], { order: 5, priority: 'urgent' }),
+        task('t-high', [subtask('hi1')], { order: 1, priority: 'high' }),
+      ],
+    };
+    const found = findFirstEligibleInPillarTier('wealth', 'core', projects, tasksByProject, TODAY);
+    expect(found.task.id).toBe('t-urgent');
+    expect(found.subtask.id).toBe('urg1');
+  });
+
+  it('breaks ties within the same priority by authored order', () => {
+    const projects = [project('wealth_earning_core')];
+    const tasksByProject = {
+      wealth_earning_core: [
+        task('t-second', [subtask('b')], { order: 2, priority: 'high' }),
+        task('t-first', [subtask('a')], { order: 1, priority: 'high' }),
+      ],
+    };
+    const found = findFirstEligibleInPillarTier('wealth', 'core', projects, tasksByProject, TODAY);
+    expect(found.task.id).toBe('t-first');
+  });
+
+  it('treats absent priority as lowest, below any explicit level', () => {
+    const projects = [project('wealth_earning_core')];
+    const tasksByProject = {
+      wealth_earning_core: [
+        task('t-none', [subtask('n1')], { order: 0 }),
+        task('t-medium', [subtask('m1')], { order: 9, priority: 'medium' }),
+      ],
+    };
+    const found = findFirstEligibleInPillarTier('wealth', 'core', projects, tasksByProject, TODAY);
+    expect(found.task.id).toBe('t-medium');
+  });
+});
+
+describe('buildOrientationCarousel', () => {
+  it('returns one card per core pillar, in canonical order', () => {
+    const { projects, tasksByProject } = buildFixture();
+    const { cards } = buildOrientationCarousel({ projects, tasksByProject, todayKey: TODAY });
+    expect(cards).toHaveLength(MAQASID_CORE_PILLARS.length);
+    expect(cards.map((c) => c.pillar.id)).toEqual(MAQASID_CORE_PILLARS.map((p) => p.id));
+  });
+
+  it('flags exactly the pillar recommendOrientation would surface', () => {
+    const { projects, tasksByProject } = buildFixture();
+    const { cards, recommendedPillarId } = buildOrientationCarousel({ projects, tasksByProject, todayKey: TODAY });
+    const rec = recommendOrientation({ projects, tasksByProject, todayKey: TODAY });
+    expect(recommendedPillarId).toBe(rec.pillar.id); // 'health'
+    const flagged = cards.filter((c) => c.isRecommended);
+    expect(flagged).toHaveLength(1);
+    expect(flagged[0].pillar.id).toBe('health');
+  });
+
+  it('recommended card carries the same next task/subtask and its own progress', () => {
+    const { projects, tasksByProject } = buildFixture();
+    const { cards } = buildOrientationCarousel({ projects, tasksByProject, todayKey: TODAY });
+    const health = cards.find((c) => c.pillar.id === 'health');
+    expect(health.hasEligible).toBe(true);
+    expect(health.tier).toBe('core');
+    expect(health.subtask.id).toBe('s2');
+    // t-health-core: s1 done, s2 open, s3 snoozed -> 1 of 3 satisfied
+    expect(health.taskStats).toEqual({ done: 1, total: 3 });
+  });
+
+  it('pillars with no eligible work carry hasEligible:false and null task/subtask', () => {
+    const { projects, tasksByProject } = buildFixture();
+    const { cards } = buildOrientationCarousel({ projects, tasksByProject, todayKey: TODAY });
+    // family/wealth/environment/ummah have no seeded projects in the fixture
+    const family = cards.find((c) => c.pillar.id === 'family');
+    expect(family.hasEligible).toBe(false);
+    expect(family.task).toBeNull();
+    expect(family.subtask).toBeNull();
+    expect(family.taskStats).toEqual({ done: 0, total: 0 });
+  });
+
+  it('recommendedPillarId is null when nothing is eligible anywhere today', () => {
+    const projects = [project('health_physical_core')];
+    const tasksByProject = {
+      health_physical_core: [task('t1', [subtask('s1', { done: true })])],
+    };
+    const { cards, recommendedPillarId } = buildOrientationCarousel({ projects, tasksByProject, todayKey: TODAY });
+    expect(recommendedPillarId).toBeNull();
+    expect(cards.every((c) => !c.isRecommended)).toBe(true);
   });
 });
 

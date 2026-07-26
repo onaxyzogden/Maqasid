@@ -94,9 +94,18 @@ function rankPillars(projects, tasksByProject) {
     .sort((a, b) => TIER_RANK[a.tier] - TIER_RANK[b.tier] || a.ratio - b.ratio);
 }
 
+// Task urgency ranking for within-tier ordering. Mirrors the app's four
+// priority levels (see DashboardView's byPriority map); an unknown or absent
+// priority sorts last (rank 9) so it never jumps ahead of an explicit
+// Urgent/High task.
+const PRIORITY_RANK = { urgent: 0, high: 1, medium: 2, low: 3 };
+
 // First task in a pillar+tier with an eligible (not done/N-A/snoozed-today)
-// subtask. Deterministic project/task ordering (id, then order) so the same
-// state always recommends the same thing.
+// subtask. Tasks are walked most-urgent-first (priority, then authored `order`)
+// so a pillar's Urgent/High work surfaces ahead of lower-priority tasks even
+// when the latter were seeded earlier — this is spec §4's "most urgent task".
+// Project ordering stays id-deterministic so the same state always recommends
+// the same thing.
 export function findFirstEligibleInPillarTier(pillarId, tier, projects, tasksByProject, todayKey) {
   const tierProjects = getPillarProjectsAtTier(pillarId, tier, projects)
     .slice()
@@ -104,7 +113,10 @@ export function findFirstEligibleInPillarTier(pillarId, tier, projects, tasksByP
   for (const project of tierProjects) {
     const tasks = (tasksByProject[project.id] || [])
       .slice()
-      .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+      .sort((a, b) =>
+        (PRIORITY_RANK[a.priority] ?? 9) - (PRIORITY_RANK[b.priority] ?? 9)
+        || (a.order ?? 0) - (b.order ?? 0)
+      );
     for (const task of tasks) {
       const subtask = (task.subtasks || []).find((st) => isSubtaskEligible(st, todayKey));
       if (subtask) return { project, task, subtask };
@@ -200,4 +212,58 @@ export function recommendOrientation({ projects, tasksByProject, heldTaskKey, ov
   }
 
   return null;
+}
+
+// Builds the full seven-pillar carousel model for the orientation screen.
+// Unlike recommendOrientation (which returns the single next subtask), this
+// returns one card per Maqasid pillar in canonical order (faith → … → ummah,
+// stable like the balance strip), each carrying that pillar's active-tier
+// progress and its own most-urgent eligible task/subtask — so every card can
+// render independently while exactly one is flagged `isRecommended`.
+//
+// `recommendedPillarId` is whatever recommendOrientation would surface right
+// now (inheriting its fall-through: if the weakest pillar has nothing eligible
+// today, the flag moves to the pillar that actually gets recommended). It is
+// null when nothing is eligible anywhere — no card is flagged.
+//
+// Per card:
+//   tier/ratio/done/total — from getPillarActiveTierRatio (pillar-wide, the
+//                            first tier with open work; 0/0 tiers fall through)
+//   project/task/subtask  — this pillar's most-urgent eligible next step, or
+//                            null when it has none (all done/N-A/snoozed today)
+//   taskStats             — done/total subtasks within that one task (the card
+//                            progress bar), not the whole tier
+//   hasEligible           — false → render the card's "nothing right now" state
+export function buildOrientationCarousel({ projects, tasksByProject, todayKey }) {
+  const recommended = recommendOrientation({ projects, tasksByProject, todayKey });
+  const recommendedPillarId = recommended?.pillar?.id ?? null;
+
+  const cards = MAQASID_CORE_PILLARS.map((pillar) => {
+    const active = getPillarActiveTierRatio(pillar.id, projects, tasksByProject);
+    const found = findFirstEligibleInPillarTier(pillar.id, active.tier, projects, tasksByProject, todayKey);
+    const task = found?.task ?? null;
+    const subtasks = task?.subtasks ?? [];
+    let taskDone = 0;
+    for (const st of subtasks) if (isSubtaskSatisfied(st)) taskDone += 1;
+    const submoduleId = found
+      ? (resolveSubmoduleFromProject(found.project).submoduleId ?? found.task.submoduleId ?? null)
+      : null;
+
+    return {
+      pillar,
+      tier: active.tier,
+      ratio: active.ratio,
+      done: active.done,
+      total: active.total,
+      submoduleId,
+      project: found?.project ?? null,
+      task,
+      subtask: found?.subtask ?? null,
+      taskStats: { done: taskDone, total: subtasks.length },
+      hasEligible: !!found,
+      isRecommended: pillar.id === recommendedPillarId,
+    };
+  });
+
+  return { cards, recommendedPillarId };
 }
