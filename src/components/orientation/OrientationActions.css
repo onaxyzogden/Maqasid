@@ -1,0 +1,38 @@
+/* ---------- Actions ---------- */
+/* Three actions rendered inside a popup footer (which overrides the columns so
+   the primary spans and the two secondaries share the row below). This base is
+   the standalone fallback. Moved verbatim from Orientation.css so the node
+   popup drill-in can reuse the row without pulling the whole page stylesheet. */
+.orient-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+}
+.orient-actions__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: var(--text-sm-plus);
+  font-weight: 500;
+  cursor: pointer;
+}
+.orient-actions__btn:hover {
+  background: var(--surface-hover);
+}
+.orient-actions__btn--primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+.orient-actions__btn--primary:hover {
+  background: color-mix(in srgb, var(--primary) 88%, #000);
+}
+.orient-actions__btn--ghost {
+  color: var(--text2);
+}

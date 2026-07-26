@@ -1,12 +1,9 @@
-import { lazy, Suspense, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Check, ChevronDown } from 'lucide-react';
+import { X, Check } from 'lucide-react';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
 import { getPillarLabel, getSubmoduleLabel } from '../../data/maqasid';
 import { TIER_META } from '../../data/orientation-selector';
-import { deriveSubtaskTier, isSubtaskGrounded } from '../../utils/subtask-grounding';
-import AmanahTierBadge from '../shared/AmanahTierBadge';
-import OrientationEvidence from './OrientationEvidence';
+import SubtaskStepDetail from '../shared/SubtaskStepDetail';
 import OrientationActions from './OrientationActions';
 // Base slide-up chrome (.pp-slideup__*). OrientationSheet.css layers the
 // orientation-specific content on top and must load after it — its panel
@@ -14,82 +11,13 @@ import OrientationActions from './OrientationActions';
 import '../work/ProjectSlideUp.css';
 import './OrientationSheet.css';
 
-// Subtask guidance markdown (react-markdown + remark-gfm, ~80 KB) is only pulled
-// once the "Why & how" section is expanded — same lazy split as TaskDetailPanel.
-const LazyMarkdown = lazy(() => import('../shared/LazyMarkdown'));
-
-// The card face only badges Urgent/High; the detail sheet shows the real
-// priority whatever it is, so any known level earns a pill here.
-const KNOWN_PRIORITIES = new Set(['urgent', 'high', 'medium', 'low']);
-
-// A subtask's Why?/How? prose, else its markdown description, else a gentle
-// empty note — same precedence as TaskDetailPanel so a subtask reads identically
-// on the work surface and here.
-function SubtaskGuidance({ subtask }) {
-  if (subtask.why || subtask.how) {
-    return (
-      <div className="os-sheet__guide">
-        {subtask.why && (
-          <section className="os-sheet__guide-sec">
-            <h4 className="os-sheet__guide-label">Why?</h4>
-            <p className="os-sheet__guide-text">{subtask.why}</p>
-          </section>
-        )}
-        {subtask.how && (
-          <section className="os-sheet__guide-sec">
-            <h4 className="os-sheet__guide-label">How?</h4>
-            <p className="os-sheet__guide-text">{subtask.how}</p>
-          </section>
-        )}
-      </div>
-    );
-  }
-  if (subtask.description) {
-    return (
-      <div className="os-sheet__guide os-sheet__guide--md">
-        <Suspense fallback={<p className="os-sheet__guide-text">{subtask.description}</p>}>
-          <LazyMarkdown>{subtask.description}</LazyMarkdown>
-        </Suspense>
-      </div>
-    );
-  }
-  return (
-    <p className="os-sheet__guide-text os-sheet__guide--empty">
-      No extra guidance for this step yet.
-    </p>
-  );
-}
-
-// Collapsible section, closed on each open (the sheet remounts per open, so
-// local state is enough). Shares the .orient-evidence__* look with the Evidence
-// accordion stacked below it.
-function SheetSection({ label, children }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="orient-evidence">
-      <button
-        type="button"
-        className="orient-evidence__toggle"
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-      >
-        <span>{label}</span>
-        <ChevronDown
-          size={16}
-          className={`orient-evidence__chevron${open ? ' orient-evidence__chevron--open' : ''}`}
-          aria-hidden="true"
-        />
-      </button>
-      {open && <div className="orient-evidence__body">{children}</div>}
-    </div>
-  );
-}
-
 // Bottom sheet for one Maqasid domain's current step. Built on the shared
-// slide-up chrome (ProjectSlideUp.css): portal to <body>, backdrop, focus trap +
+// popup chrome (ProjectSlideUp.css): portal to <body>, backdrop, focus trap +
 // Escape via useFocusTrap, role=dialog / aria-modal. Purely presentational — the
 // container decides which card is shown and what each action does; `card` is the
-// engine's card shape (see buildOrientationCarousel).
+// engine's card shape (see buildOrientationCarousel). The step internals (crumb,
+// title, tags, Now box, Why & how, Evidence) render via the shared
+// <SubtaskStepDetail> — also used by the Prophetic Path node popup drill-in.
 export default function OrientationSheet({ card, valuesLayer, onMarkDone, onNotApplicable, onNotToday, onClose }) {
   // Hook runs unconditionally (before the null guard); active only when a card
   // is present so it never traps focus on an empty portal.
@@ -101,10 +29,6 @@ export default function OrientationSheet({ card, valuesLayer, onMarkDone, onNotA
   const enLabel = getPillarLabel(pillar, valuesLayer);
   const tierLabel = TIER_META[tier]?.label ?? '';
   const clusterLabel = getSubmoduleLabel(submoduleId, pillar.id);
-  const priority = task?.priority;
-  const showPriority = KNOWN_PRIORITIES.has(priority);
-  const amanahTier = subtask ? deriveSubtaskTier(subtask) : null;
-  const grounded = subtask ? isSubtaskGrounded(subtask) : null;
   const hasStep = hasEligible && !!subtask;
 
   return createPortal(
@@ -135,40 +59,12 @@ export default function OrientationSheet({ card, valuesLayer, onMarkDone, onNotA
         {hasStep ? (
           <>
             <div className="pp-slideup__body os-sheet__body">
-              <p className="os-sheet__crumb">
-                {tierLabel}
-                {clusterLabel && <> <span className="os-sheet__crumb-sep">&rsaquo;</span> {clusterLabel}</>}
-              </p>
-
-              <h3 className="os-sheet__task">
-                <span className="os-sheet__task-title">{task.title}</span>
-                <span className="os-sheet__task-prog">{taskStats.done}/{taskStats.total}</span>
-              </h3>
-
-              <div className="os-sheet__tags">
-                {showPriority && (
-                  <span className={`os-sheet__pri os-sheet__pri--${priority}`}>{priority}</span>
-                )}
-                {amanahTier && <AmanahTierBadge tier={amanahTier} size="md" />}
-                {grounded !== null && (
-                  <span className={`os-sheet__grounded${grounded ? '' : ' os-sheet__grounded--no'}`}>
-                    {grounded ? 'Grounded' : 'Ungrounded'}
-                  </span>
-                )}
-              </div>
-
-              <div className="os-sheet__now">
-                <span className="os-sheet__now-label">Now</span>
-                <p className="os-sheet__now-text">{subtask.title}</p>
-              </div>
-
-              {/* Keyed by subtask so both accordions reset to collapsed when the
-                  step advances within a held task (spec: collapsed each open). */}
-              <SheetSection key={`why-${subtask.id}`} label="Why & how">
-                <SubtaskGuidance subtask={subtask} />
-              </SheetSection>
-
-              <OrientationEvidence key={`ev-${subtask.id}`} subtask={subtask} label="Evidence" />
+              <SubtaskStepDetail
+                crumbParts={[tierLabel, clusterLabel]}
+                task={task}
+                subtask={subtask}
+                taskStats={taskStats}
+              />
             </div>
 
             <div className="os-sheet__footer">

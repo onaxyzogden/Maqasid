@@ -1,19 +1,15 @@
-/* Orientation bottom sheet — extends the .pp-slideup__* chrome from
+/* Orientation sheet (centered popup) — extends the .pp-slideup__* chrome from
    ProjectSlideUp.css. The only fixed element is that shared .pp-slideup__root;
    every rule here styles content INSIDE the panel (no new position:fixed in
    this module — see orientation/CONTEXT.md + project memory).
    Colours are app design tokens throughout, so the sheet themes light/dark;
    geometry follows the prototype. */
 
-/* Auto-height sheet, capped; centred 520px column on wide viewports, full-width
-   on mobile (mobile-first). Overrides .pp-slideup__panel's fixed 94vh height —
-   same class specificity, wins by load order (this file imported after). */
+/* Height / centring now come from the shared .pp-slideup__panel chrome; the
+   sheet only narrows the popup to a 520px reading column. Same class
+   specificity — wins by load order (this file imported after). */
 .os-sheet__panel {
-  height: auto;
-  max-height: 92vh;
-  width: 100%;
   max-width: 520px;
-  margin: 0 auto;
 }
 
 /* ---------- Header: bilingual pillar title ---------- */
@@ -43,164 +39,9 @@
   gap: var(--space-4);
 }
 
-.os-sheet__crumb {
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--text3);
-}
-.os-sheet__crumb-sep {
-  color: var(--text2);
-}
-
-.os-sheet__task {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--space-3);
-  margin: 0;
-}
-.os-sheet__task-title {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 17px;
-  line-height: 1.3;
-  color: var(--text);
-}
-.os-sheet__task-prog {
-  flex-shrink: 0;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--text3);
-}
-
-/* ---------- Tag row ---------- */
-.os-sheet__tags {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-2);
-}
-.os-sheet__pri {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 2px 8px;
-  border-radius: var(--radius-xs);
-  border: 1px solid transparent;
-}
-.os-sheet__pri--urgent {
-  color: var(--pri-urgent);
-  background: var(--pri-urgent-bg);
-  border-color: color-mix(in srgb, var(--pri-urgent) 35%, transparent);
-}
-.os-sheet__pri--high {
-  color: var(--pri-high);
-  background: var(--pri-high-bg);
-  border-color: color-mix(in srgb, var(--pri-high) 35%, transparent);
-}
-.os-sheet__pri--medium {
-  color: var(--pri-medium);
-  background: var(--pri-medium-bg);
-  border-color: color-mix(in srgb, var(--pri-medium) 35%, transparent);
-}
-.os-sheet__pri--low {
-  color: var(--pri-low);
-  background: var(--pri-low-bg);
-  border-color: color-mix(in srgb, var(--pri-low) 35%, transparent);
-}
-
-.os-sheet__grounded {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  padding: 2px 8px;
-  border-radius: var(--radius-full);
-  color: var(--success);
-  background: var(--success-bg);
-  border: 1px solid var(--success-border);
-  white-space: nowrap;
-}
-.os-sheet__grounded--no {
-  color: var(--warning);
-  background: var(--warning-bg);
-  border-color: var(--warning-border);
-}
-
-/* ---------- Now box ---------- */
-.os-sheet__now {
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-4);
-  background: var(--surface-hover);
-}
-.os-sheet__now-label {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--primary);
-  margin-bottom: var(--space-1);
-}
-.os-sheet__now-text {
-  margin: 0;
-  font-family: var(--font-serif);
-  font-size: 18px;
-  line-height: 1.35;
-  color: var(--text);
-}
-
-/* ---------- Guidance (inside the Why & how accordion) ---------- */
-.os-sheet__guide {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-.os-sheet__guide-sec {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-}
-.os-sheet__guide-label {
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text3);
-}
-.os-sheet__guide-text {
-  margin: 0;
-  font-family: var(--font-body);
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--text2);
-}
-.os-sheet__guide--empty {
-  color: var(--text3);
-  font-style: italic;
-}
-/* Markdown description body */
-.os-sheet__guide--md {
-  font-family: var(--font-body);
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--text2);
-}
-.os-sheet__guide--md :where(p, ul, ol) {
-  margin: 0 0 var(--space-3);
-}
-.os-sheet__guide--md :where(p, ul, ol):last-child {
-  margin-bottom: 0;
-}
-.os-sheet__guide--md a {
-  color: var(--primary);
-}
+/* The step-detail internals (crumb / task / tags / now / guide / clear blocks)
+   moved verbatim to shared/SubtaskStepDetail.css — the sheet renders them via
+   <SubtaskStepDetail>; class names kept. */
 
 /* ---------- Footer / actions ---------- */
 .os-sheet__footer {
@@ -222,35 +63,7 @@
   justify-content: flex-end;
 }
 
-/* ---------- Caught-up state ---------- */
-.os-sheet__clear {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: var(--space-2);
-  padding: var(--space-8) var(--space-4);
-}
-.os-sheet__clear-icon {
-  color: var(--success);
-}
-.os-sheet__clear-title {
-  margin: 0;
-  font-family: var(--font-serif);
-  font-size: 18px;
-  color: var(--text);
-}
-.os-sheet__clear-sub {
-  margin: 0;
-  font-family: var(--font-body);
-  font-size: 13px;
-  color: var(--text3);
-}
-
 @media (max-width: 640px) {
-  .os-sheet__panel {
-    max-height: 94vh;
-  }
   .os-sheet__body {
     padding: var(--space-4) var(--space-4) var(--space-6);
   }

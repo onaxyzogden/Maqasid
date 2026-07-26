@@ -1,4 +1,5 @@
 import { Check, Ban, Clock } from 'lucide-react';
+import './OrientationActions.css';
 
 // Three actions on the open sheet: Mark done / Doesn't apply / Not today.
 // "Something else" was dropped when the carousel became the pillar picker —

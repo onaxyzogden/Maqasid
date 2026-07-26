@@ -1,10 +1,16 @@
+/* Shared centered-popup chrome (pp-slideup__* — class names kept for now; a
+   pp-popup rename is a deferred mechanical follow-up). Every app modal reuses
+   this root/backdrop/panel: ProjectSlideUp, SubmoduleSlideUp, NodePhaseSlideUp,
+   OrientationSheet. The panel is a centered dialog at EVERY viewport width. */
 .pp-slideup__root {
   position: fixed;
   inset: 0;
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
   pointer-events: none;
 }
 
@@ -24,14 +30,22 @@
   pointer-events: auto;
   background: var(--surface, #fff);
   color: var(--text1, #0f172a);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.35);
-  height: 94vh;
+  border-radius: 20px;
+  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.45);
+  width: min(92vw, 620px);
+  height: auto;
+  max-height: 85vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  animation: pp-slideup-rise 240ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: pp-slideup-pop 240ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Big browsing surfaces (project / submodule popups) get a wider, taller panel. */
+.pp-slideup__panel--wide {
+  width: min(94vw, 1100px);
+  height: 88vh;
+  max-height: 88vh;
 }
 
 .pp-slideup__header {
@@ -96,7 +110,7 @@
   to { opacity: 1; }
 }
 
-@keyframes pp-slideup-rise {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
+@keyframes pp-slideup-pop {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: none; }
 }

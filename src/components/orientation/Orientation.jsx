@@ -4,38 +4,14 @@ import { useProjectStore } from '../../store/project-store';
 import { useTaskStore } from '../../store/task-store';
 import { useSettingsStore } from '../../store/settings-store';
 import { usePrayerTimes } from '../../hooks/usePrayerTimes';
-import { currentIslamicDayKey } from '../../store/islamic-day-store';
+import { useMobile } from '../../hooks/useMobile';
+import { computeTodayKey } from '../../utils/islamic-day-key';
 import { getPillarById, getPillarLabel } from '../../data/maqasid';
 import { buildOrientationCarousel } from '../../data/orientation-selector';
 import OrientationCarousel from './OrientationCarousel';
+import OrientationSpread from './OrientationSpread';
 import OrientationSheet from './OrientationSheet';
 import './Orientation.css';
-
-// Local copy of the "HH:MM (TZ)" → epoch-ms parser duplicated across the
-// codebase (usePrayerTimes.js, PropheticPath.jsx) rather than centralized —
-// following existing precedent, see orientation/CONTEXT.md Gotchas.
-function timeToMs(raw, dayStart) {
-  if (!raw) return null;
-  const clean = raw.replace(/\s*\(.*\)/, '');
-  const match = /^(\d{1,2}):(\d{2})/.exec(clean);
-  if (!match) return null;
-  const d = new Date(dayStart);
-  d.setHours(Number(match[1]), Number(match[2]), 0, 0);
-  return d.getTime();
-}
-
-function localDayKey() {
-  const d = new Date();
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-}
-
-// Reads the wall clock (Date.now / new Date), so it must only be called from
-// effects and event handlers — never the render body (react-hooks/purity).
-// Maghrib-pivoted: before Maghrib the Islamic day key is still yesterday's.
-function computeTodayKey(maghribRaw) {
-  if (!maghribRaw) return localDayKey();
-  return currentIslamicDayKey(Date.now(), timeToMs(maghribRaw, new Date())) || localDayKey();
-}
 
 function lowerFirst(text) {
   return text ? text.charAt(0).toLowerCase() + text.slice(1) : text;
@@ -49,6 +25,7 @@ export default function Orientation() {
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const { timings } = usePrayerTimes();
   const maghribRaw = timings?.Maghrib ?? null;
+  const mobile = useMobile();
 
   // undefined = not yet computed (avoids an empty-state flash on first paint).
   const [model, setModel] = useState(undefined);
@@ -176,16 +153,28 @@ export default function Orientation() {
         <p className="orient-head__eyebrow">Orientation</p>
         <h1 className="orient-head__title">What&apos;s next</h1>
         <p className="orient-head__sub">
-          Your weakest domain leads. Swipe through the seven &mdash; tap a card to open its next step.
+          {mobile
+            ? <>Your weakest domain leads. Swipe through the seven &mdash; tap a card to open its next step.</>
+            : <>Your weakest domain leads. Pick a domain from the rail &mdash; tap the card to open its next step.</>}
         </p>
       </header>
 
-      <OrientationCarousel
-        cards={model.cards}
-        valuesLayer={valuesLayer}
-        focusPillarId={focusPillarId}
-        onOpenCard={setOpenPillarId}
-      />
+      {mobile ? (
+        <OrientationCarousel
+          cards={model.cards}
+          valuesLayer={valuesLayer}
+          focusPillarId={focusPillarId}
+          onOpenCard={setOpenPillarId}
+        />
+      ) : (
+        <OrientationSpread
+          cards={model.cards}
+          valuesLayer={valuesLayer}
+          focusPillarId={focusPillarId}
+          onSelect={setFocusPillarId}
+          onOpenCard={setOpenPillarId}
+        />
+      )}
 
       {openCard && (
         <OrientationSheet
