@@ -77,8 +77,14 @@ function validateStructuredEntry(entry, idPath, i) {
   if (entry.provenanceTier && !VALID_TIERS.has(entry.provenanceTier)) {
     errors.push(`${idPath} entry[${i}].provenanceTier ${JSON.stringify(entry.provenanceTier)} not in {Bayyinah,Qarina,Niyyah}`);
   }
-  if (kind === 'quran' && (typeof entry.arabic !== 'string' || entry.arabic.length === 0)) {
-    errors.push(`${idPath} entry[${i}] quran missing arabic`);
+  if (kind === 'quran') {
+    if (typeof entry.arabic !== 'string' || entry.arabic.length === 0) {
+      errors.push(`${idPath} entry[${i}] quran missing arabic`);
+    } else if (!/[؀-ۿ]/.test(entry.arabic)) {
+      // Guards against the 2026-07-26 authoring defect where `arabic` held the
+      // English translation prose ("**Translation:** …") instead of verse text.
+      errors.push(`${idPath} entry[${i}] quran arabic has no Arabic-block characters (U+0600–U+06FF): ${JSON.stringify(entry.arabic.slice(0, 40))}`);
+    }
   }
   if (kind === 'hadith' && (typeof entry.hadithGrade !== 'string' || entry.hadithGrade.length === 0)) {
     errors.push(`${idPath} entry[${i}] hadith missing hadithGrade`);

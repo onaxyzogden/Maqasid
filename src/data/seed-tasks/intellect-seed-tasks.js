@@ -682,7 +682,7 @@ Reading without reflection is consumption without digestion. The Quran repeatedl
             {
               kind: "quran",
               ref: "Quran 24:1",
-              arabic: "**Translation:** (This is) a Sûrah (chapter of the Qur’ân) which We have sent down and which We have enjoined, (ordained its laws); and in it We have revealed manifest Ayât (proofs, evidence, verses, lessons, signs, revelations - lawful and unlawful things, and set boundaries of Islâmic Religion), that you may remember.",
+              arabic: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ سُورَةٌ أَنْزَلْنَاهَا وَفَرَضْنَاهَا وَأَنْزَلْنَا فِيهَا آيَاتٍ بَيِّنَاتٍ لَعَلَّكُمْ تَذَكَّرُونَ",
               translation: "(This is) a Sûrah (chapter of the Qur’ân) which We have sent down and which We have enjoined, (ordained its laws); and in it We have revealed manifest Ayât (proofs, evidence, verses, lessons, signs, revelations - lawful and unlawful things, and set boundaries of Islâmic Religion), that you may remember.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -691,7 +691,7 @@ Reading without reflection is consumption without digestion. The Quran repeatedl
             {
               kind: "quran",
               ref: "Quran 6:105",
-              arabic: "**Translation:** This is how We explain Our revelations in various ways- though they will say, ‘You [Muhammad] have been studying’- to make them clear for those who know.",
+              arabic: "وَكَذَٰلِكَ نُصَرِّفُ الْآيَاتِ وَلِيَقُولُوا دَرَسْتَ وَلِنُبَيِّنَهُ لِقَوْمٍ يَعْلَمُونَ",
               translation: "This is how We explain Our revelations in various ways- though they will say, ‘You [Muhammad] have been studying’- to make them clear for those who know.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -1899,7 +1899,7 @@ Without a formal checkpoint, you will lack objective evidence of your progress. 
             {
               kind: "quran",
               ref: "Quran 41:41",
-              arabic: "**Translation:** Verily, those who disbelieved in the Reminder (i.e. the Qur’ân) when it came to them (shall receive the punishment). And verily, it is an honourable well-fortified respected Book (because it is Allâh’s Speech, and He has protected it from corruption. (See V.15:9)",
+              arabic: "إِنَّ الَّذِينَ كَفَرُوا بِالذِّكْرِ لَمَّا جَاءَهُمْ ۖ وَإِنَّهُ لَكِتَابٌ عَزِيزٌ",
               translation: "Verily, those who disbelieved in the Reminder (i.e. the Qur’ân) when it came to them (shall receive the punishment). And verily, it is an honourable well-fortified respected Book (because it is Allâh’s Speech, and He has protected it from corruption. (See V.15:9)",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -1908,7 +1908,7 @@ Without a formal checkpoint, you will lack objective evidence of your progress. 
             {
               kind: "quran",
               ref: "Quran 3:85",
-              arabic: "**Translation:** If anyone desires a religion other than Islam (submission to Allah), never will it be accepted of him; and in the Hereafter He will be in the ranks of those who have lost (All spiritual good).",
+              arabic: "وَمَنْ يَبْتَغِ غَيْرَ الْإِسْلَامِ دِينًا فَلَنْ يُقْبَلَ مِنْهُ وَهُوَ فِي الْآخِرَةِ مِنَ الْخَاسِرِينَ",
               translation: "If anyone desires a religion other than Islam (submission to Allah), never will it be accepted of him; and in the Hereafter He will be in the ranks of those who have lost (All spiritual good).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2758,7 +2758,7 @@ A curriculum designed for "everyone" serves no one. The most effective education
             {
               kind: "quran",
               ref: "Quran 80:12",
-              arabic: "**Translation:** from which those who wish to be taught should learn,",
+              arabic: "فَمَنْ شَاءَ ذَكَرَهُ",
               translation: "from which those who wish to be taught should learn,",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3225,7 +3225,7 @@ Habits form through consistent repetition and self-monitoring. The 30-day practi
             {
               kind: "quran",
               ref: "Quran 51:10",
-              arabic: "**Translation:** Destroyed are the misinformers",
+              arabic: "قُتِلَ الْخَرَّاصُونَ",
               translation: "Destroyed are the misinformers",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3547,7 +3547,7 @@ Knowing fallacies in theory is different from spotting them in the wild. Real-wo
             {
               kind: "quran",
               ref: "Quran 12:95",
-              arabic: "**Translation:** They said, “By God, you are still in your old fallacy!”",
+              arabic: "قَالُوا تَاللَّهِ إِنَّكَ لَفِي ضَلَالِكَ الْقَدِيمِ",
               translation: "They said, “By God, you are still in your old fallacy!”",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4472,7 +4472,7 @@ Shura (consultation) is a Quranic principle (42:38) and a Prophetic practice. Th
             {
               kind: "quran",
               ref: "Quran 3:17",
-              arabic: "**Translation:** (They are) those who are patient, those who are true (in Faith, words, and deeds), and obedient with sincere devotion in worship to Allâh. Those who spend [give the Zakât and alms in the Way of Allâh] and those who pray and beg Allâh’s Pardon in the last hours of the night.",
+              arabic: "الصَّابِرِينَ وَالصَّادِقِينَ وَالْقَانِتِينَ وَالْمُنْفِقِينَ وَالْمُسْتَغْفِرِينَ بِالْأَسْحَارِ",
               translation: "(They are) those who are patient, those who are true (in Faith, words, and deeds), and obedient with sincere devotion in worship to Allâh. Those who spend [give the Zakât and alms in the Way of Allâh] and those who pray and beg Allâh’s Pardon in the last hours of the night.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4481,7 +4481,7 @@ Shura (consultation) is a Quranic principle (42:38) and a Prophetic practice. Th
             {
               kind: "quran",
               ref: "Quran 39:22",
-              arabic: "**Translation:** So I ask about a person whose heart Allah has opened up for Islam, and consequently he proceeds in a light from his Lord. (Can he be equal to the one whose heart is hardened?) So, woe to those whose hearts are too hard to remember Allah. Those are wandering in open error.",
+              arabic: "أَفَمَنْ شَرَحَ اللَّهُ صَدْرَهُ لِلْإِسْلَامِ فَهُوَ عَلَىٰ نُورٍ مِنْ رَبِّهِ ۚ فَوَيْلٌ لِلْقَاسِيَةِ قُلُوبُهُمْ مِنْ ذِكْرِ اللَّهِ ۚ أُولَٰئِكَ فِي ضَلَالٍ مُبِينٍ",
               translation: "So I ask about a person whose heart Allah has opened up for Islam, and consequently he proceeds in a light from his Lord. (Can he be equal to the one whose heart is hardened?) So, woe to those whose hearts are too hard to remember Allah. Those are wandering in open error.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5187,7 +5187,7 @@ Clear, structured writing is the vehicle through which complex thinking becomes 
             {
               kind: "quran",
               ref: "Quran 22:8",
-              arabic: "**Translation:** And of mankind is one who argues about Allah without knowledge or guidance or an illuminating scripture,",
+              arabic: "وَمِنَ النَّاسِ مَنْ يُجَادِلُ فِي اللَّهِ بِغَيْرِ عِلْمٍ وَلَا هُدًى وَلَا كِتَابٍ مُنِيرٍ",
               translation: "And of mankind is one who argues about Allah without knowledge or guidance or an illuminating scripture,",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5196,7 +5196,7 @@ Clear, structured writing is the vehicle through which complex thinking becomes 
             {
               kind: "quran",
               ref: "Quran 39:22",
-              arabic: "**Translation:** Can he whose breast Allah has opened up for Islam and who is thus (moving along a Path) illumined by a light from Allah (be likened to him who derives no lesson from what he observes)? Woe, then, to those whose hearts were further hardened after Allah's admonition. Such are indeed in obvious error.",
+              arabic: "أَفَمَنْ شَرَحَ اللَّهُ صَدْرَهُ لِلْإِسْلَامِ فَهُوَ عَلَىٰ نُورٍ مِنْ رَبِّهِ ۚ فَوَيْلٌ لِلْقَاسِيَةِ قُلُوبُهُمْ مِنْ ذِكْرِ اللَّهِ ۚ أُولَٰئِكَ فِي ضَلَالٍ مُبِينٍ",
               translation: "Can he whose breast Allah has opened up for Islam and who is thus (moving along a Path) illumined by a light from Allah (be likened to him who derives no lesson from what he observes)? Woe, then, to those whose hearts were further hardened after Allah's admonition. Such are indeed in obvious error.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5205,7 +5205,7 @@ Clear, structured writing is the vehicle through which complex thinking becomes 
             {
               kind: "quran",
               ref: "Quran 98:7",
-              arabic: "**Translation:** Verily, those who believe [in the Oneness of Allâh, and in His Messenger Muhammad صلى الله عليه وسلم) including all obligations ordered by Islâm] and do righteous good deeds, they are the best of creatures.",
+              arabic: "إِنَّ الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ أُولَٰئِكَ هُمْ خَيْرُ الْبَرِيَّةِ",
               translation: "Verily, those who believe [in the Oneness of Allâh, and in His Messenger Muhammad صلى الله عليه وسلم) including all obligations ordered by Islâm] and do righteous good deeds, they are the best of creatures.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5581,7 +5581,7 @@ Preparation without delivery is incomplete. The act of presenting your ideas pub
             {
               kind: "quran",
               ref: "Quran 51:8",
-              arabic: "**Translation:** you are (involved) in a contradictory discussion.",
+              arabic: "إِنَّكُمْ لَفِي قَوْلٍ مُخْتَلِفٍ",
               translation: "you are (involved) in a contradictory discussion.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5862,7 +5862,7 @@ Even the best solution fails without stakeholder buy-in. Presenting your solutio
             {
               kind: "quran",
               ref: "Quran 17:35",
-              arabic: "**Translation:** And give full measure when you measure, and weigh with an even [i.e., honest] balance. That is the best [way] and best in result.",
+              arabic: "وَأَوْفُوا الْكَيْلَ إِذَا كِلْتُمْ وَزِنُوا بِالْقِسْطَاسِ الْمُسْتَقِيمِ ۚ ذَٰلِكَ خَيْرٌ وَأَحْسَنُ تَأْوِيلًا",
               translation: "And give full measure when you measure, and weigh with an even [i.e., honest] balance. That is the best [way] and best in result.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6165,7 +6165,7 @@ The battle for your morning begins the night before. If your phone is active whe
             {
               kind: "quran",
               ref: "Quran 76:25",
-              arabic: "**Translation:** And remember the Name of your Lord every morning and afternoon [i.e. offering of the Morning (Fajr), Zuhr, and ‘Asr prayers].",
+              arabic: "وَاذْكُرِ اسْمَ رَبِّكَ بُكْرَةً وَأَصِيلًا",
               translation: "And remember the Name of your Lord every morning and afternoon [i.e. offering of the Morning (Fajr), Zuhr, and ‘Asr prayers].",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6174,7 +6174,7 @@ The battle for your morning begins the night before. If your phone is active whe
             {
               kind: "quran",
               ref: "Quran 30:17",
-              arabic: "**Translation:** So glorify Allâh [above all that (evil) they associate with Him (O believers)] when you come up to the evening [i.e. offer the (Maghrib ) sunset and (‘Ishâ’) night prayers], and when you enter the morning [i.e. offer the (Fajr) morning prayer].",
+              arabic: "فَسُبْحَانَ اللَّهِ حِينَ تُمْسُونَ وَحِينَ تُصْبِحُونَ",
               translation: "So glorify Allâh [above all that (evil) they associate with Him (O believers)] when you come up to the evening [i.e. offer the (Maghrib ) sunset and (‘Ishâ’) night prayers], and when you enter the morning [i.e. offer the (Fajr) morning prayer].",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6183,7 +6183,7 @@ The battle for your morning begins the night before. If your phone is active whe
             {
               kind: "quran",
               ref: "Quran 33:42",
-              arabic: "**Translation:** And glorify His Praises morning and afternoon [the early morning (Fajr) and ‘Asr prayers].",
+              arabic: "وَسَبِّحُوهُ بُكْرَةً وَأَصِيلًا",
               translation: "And glorify His Praises morning and afternoon [the early morning (Fajr) and ‘Asr prayers].",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6414,7 +6414,7 @@ Like any capacity, your tolerance for silence and depth of contemplation grow wi
             {
               kind: "quran",
               ref: "Quran 6:105",
-              arabic: "**Translation:** Thus We explain variously the Verses so that they (the disbelievers) may say: \"You have studied (the Books of the people of the Scripture and brought this Qur’ân from that)\" and that We may make the matter clear for the people who have knowledge.",
+              arabic: "وَكَذَٰلِكَ نُصَرِّفُ الْآيَاتِ وَلِيَقُولُوا دَرَسْتَ وَلِنُبَيِّنَهُ لِقَوْمٍ يَعْلَمُونَ",
               translation: "Thus We explain variously the Verses so that they (the disbelievers) may say: \"You have studied (the Books of the people of the Scripture and brought this Qur’ân from that)\" and that We may make the matter clear for the people who have knowledge.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6423,7 +6423,7 @@ Like any capacity, your tolerance for silence and depth of contemplation grow wi
             {
               kind: "quran",
               ref: "Quran 2:190",
-              arabic: "**Translation:** And fight in the Way of Allâh those who fight you, but transgress not the limits. Truly, Allâh likes not the transgressors. [This Verse is the first one that was revealed in connection with Jihâd, but it was supplemented by another (9:36)].",
+              arabic: "وَقَاتِلُوا فِي سَبِيلِ اللَّهِ الَّذِينَ يُقَاتِلُونَكُمْ وَلَا تَعْتَدُوا ۚ إِنَّ اللَّهَ لَا يُحِبُّ الْمُعْتَدِينَ",
               translation: "And fight in the Way of Allâh those who fight you, but transgress not the limits. Truly, Allâh likes not the transgressors. [This Verse is the first one that was revealed in connection with Jihâd, but it was supplemented by another (9:36)].",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6931,7 +6931,7 @@ Three sessions per week is the minimum effective dose, but five sessions — rou
             {
               kind: "quran",
               ref: "Quran 27:92",
-              arabic: "**Translation:** I am commanded to recite the Quran.’ Whoever chooses to follow the right path does so for his own good. Say to whoever deviates from it, ‘I am only here to warn.’",
+              arabic: "وَأَنْ أَتْلُوَ الْقُرْآنَ ۖ فَمَنِ اهْتَدَىٰ فَإِنَّمَا يَهْتَدِي لِنَفْسِهِ ۖ وَمَنْ ضَلَّ فَقُلْ إِنَّمَا أَنَا مِنَ الْمُنْذِرِينَ",
               translation: "I am commanded to recite the Quran.’ Whoever chooses to follow the right path does so for his own good. Say to whoever deviates from it, ‘I am only here to warn.’",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -7156,7 +7156,7 @@ Without a designated day, rest becomes accidental — and accidental rest is usu
             {
               kind: "quran",
               ref: "Quran 16:80",
-              arabic: "**Translation:** And Allāh has made for you from your homes a place of rest and made for you from the hides of the animals tents which you find light on your day of travel and your day of encampment; and from their wool, fur and hair is furnishing and enjoyment [i.e., provision] for a time.",
+              arabic: "وَاللَّهُ جَعَلَ لَكُمْ مِنْ بُيُوتِكُمْ سَكَنًا وَجَعَلَ لَكُمْ مِنْ جُلُودِ الْأَنْعَامِ بُيُوتًا تَسْتَخِفُّونَهَا يَوْمَ ظَعْنِكُمْ وَيَوْمَ إِقَامَتِكُمْ ۙ وَمِنْ أَصْوَافِهَا وَأَوْبَارِهَا وَأَشْعَارِهَا أَثَاثًا وَمَتَاعًا إِلَىٰ حِينٍ",
               translation: "And Allāh has made for you from your homes a place of rest and made for you from the hides of the animals tents which you find light on your day of travel and your day of encampment; and from their wool, fur and hair is furnishing and enjoyment [i.e., provision] for a time.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -7669,7 +7669,7 @@ Original contribution begins with seeing what others have missed. Every great fr
             {
               kind: "quran",
               ref: "Quran 3:104",
-              arabic: "**Translation:** Let there arise out of you a group of people inviting to all that is good (Islâm), enjoining Al-Ma‘rûf (i.e. Islâmic Monotheism and all that Islâm orders one to do) and forbidding Al-Munkar (polytheism and disbelief and all that Islâm has forbidden). And it is they who are the successful.",
+              arabic: "وَلْتَكُنْ مِنْكُمْ أُمَّةٌ يَدْعُونَ إِلَى الْخَيْرِ وَيَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنْكَرِ ۚ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ",
               translation: "Let there arise out of you a group of people inviting to all that is good (Islâm), enjoining Al-Ma‘rûf (i.e. Islâmic Monotheism and all that Islâm orders one to do) and forbidding Al-Munkar (polytheism and disbelief and all that Islâm has forbidden). And it is they who are the successful.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -7759,7 +7759,7 @@ A framework that only works in theory is not a framework — it is a hypothesis.
             {
               kind: "quran",
               ref: "Quran 26:197",
-              arabic: "**Translation:** Is it not a sign to them that the learned scholars (like ‘Abdullâh bin Salâm رضي الله عنه who embraced Islâm) of the Children of Israel knew it (as true)?",
+              arabic: "أَوَلَمْ يَكُنْ لَهُمْ آيَةً أَنْ يَعْلَمَهُ عُلَمَاءُ بَنِي إِسْرَائِيلَ",
               translation: "Is it not a sign to them that the learned scholars (like ‘Abdullâh bin Salâm رضي الله عنه who embraced Islâm) of the Children of Israel knew it (as true)?",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -7768,7 +7768,7 @@ A framework that only works in theory is not a framework — it is a hypothesis.
             {
               kind: "quran",
               ref: "Quran 3:85",
-              arabic: "**Translation:** If anyone seeks a religion other than [islam] complete devotion to God, it will not be accepted from him: he will be one of the losers in the Hereafter.",
+              arabic: "وَمَنْ يَبْتَغِ غَيْرَ الْإِسْلَامِ دِينًا فَلَنْ يُقْبَلَ مِنْهُ وَهُوَ فِي الْآخِرَةِ مِنَ الْخَاسِرِينَ",
               translation: "If anyone seeks a religion other than [islam] complete devotion to God, it will not be accepted from him: he will be one of the losers in the Hereafter.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -8322,7 +8322,7 @@ Every halal profession serves people in some way — directly or indirectly. Ide
             {
               kind: "quran",
               ref: "Quran 20:32",
-              arabic: "**Translation:** and associate him with me in my mission,",
+              arabic: "وَأَشْرِكْهُ فِي أَمْرِي",
               translation: "and associate him with me in my mission,",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -8392,7 +8392,7 @@ A mission statement that cannot be applied is just decoration. The true test of 
             {
               kind: "quran",
               ref: "Quran 79:36",
-              arabic: "**Translation:** and Hell is there for all to see,",
+              arabic: "وَبُرِّزَتِ الْجَحِيمُ لِمَنْ يَرَىٰ",
               translation: "and Hell is there for all to see,",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -9871,7 +9871,7 @@ The first 30 days of any leadership role set the tone for your entire tenure. Le
             {
               kind: "quran",
               ref: "Quran 7:159",
-              arabic: "**Translation:** And of the people of Mûsâ (Moses) there is a community who lead (the men) with truth and establish justice therewith (i.e. judge among men with truth and justice).",
+              arabic: "وَمِنْ قَوْمِ مُوسَىٰ أُمَّةٌ يَهْدُونَ بِالْحَقِّ وَبِهِ يَعْدِلُونَ",
               translation: "And of the people of Mûsâ (Moses) there is a community who lead (the men) with truth and establish justice therewith (i.e. judge among men with truth and justice).",
               relevance: "direct",
               provenanceTier: "Bayyinah",

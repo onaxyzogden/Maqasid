@@ -385,7 +385,7 @@ Scout 2-3 routes near your home or mosque that are safe, well-lit, and enjoyable
             {
               kind: "quran",
               ref: "Quran 40:55",
-              arabic: "**Translation:** So be patient (O Muhammad صلى الله عليه وسلم). Verily, the Promise of Allâh is true, and ask forgiveness for your fault and glorify the praises of your Lord in the ‘Ashî (i.e. the time period after the midnoon till sunset) and in the Ibkâr (i.e. the time period from early morning or sunrise till before midnoon) [it is said that, that means the five compulsory congregational Salât (prayers) or the ‘Asr and Fajr prayers].",
+              arabic: "فَاصْبِرْ إِنَّ وَعْدَ اللَّهِ حَقٌّ وَاسْتَغْفِرْ لِذَنْبِكَ وَسَبِّحْ بِحَمْدِ رَبِّكَ بِالْعَشِيِّ وَالْإِبْكَارِ",
               translation: "So be patient (O Muhammad صلى الله عليه وسلم). Verily, the Promise of Allâh is true, and ask forgiveness for your fault and glorify the praises of your Lord in the ‘Ashî (i.e. the time period after the midnoon till sunset) and in the Ibkâr (i.e. the time period from early morning or sunrise till before midnoon) [it is said that, that means the five compulsory congregational Salât (prayers) or the ‘Asr and Fajr prayers].",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -394,7 +394,7 @@ Scout 2-3 routes near your home or mosque that are safe, well-lit, and enjoyable
             {
               kind: "quran",
               ref: "Quran 76:25",
-              arabic: "**Translation:** And remember the Name of your Lord every morning and afternoon [i.e. offering of the Morning (Fajr), Zuhr, and ‘Asr prayers].",
+              arabic: "وَاذْكُرِ اسْمَ رَبِّكَ بُكْرَةً وَأَصِيلًا",
               translation: "And remember the Name of your Lord every morning and afternoon [i.e. offering of the Morning (Fajr), Zuhr, and ‘Asr prayers].",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -403,7 +403,7 @@ Scout 2-3 routes near your home or mosque that are safe, well-lit, and enjoyable
             {
               kind: "quran",
               ref: "Quran 33:42",
-              arabic: "**Translation:** And glorify His Praises morning and afternoon [the early morning (Fajr) and ‘Asr prayers].",
+              arabic: "وَسَبِّحُوهُ بُكْرَةً وَأَصِيلًا",
               translation: "And glorify His Praises morning and afternoon [the early morning (Fajr) and ‘Asr prayers].",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -434,7 +434,7 @@ Set a phone reminder for 5-10 minutes after your chosen prayer time (e.g., "Walk
             {
               kind: "quran",
               ref: "Quran 7:204",
-              arabic: "**Translation:** so pay attention and listen quietly when the Quran is recited, so that you may be given mercy.’",
+              arabic: "وَإِذَا قُرِئَ الْقُرْآنُ فَاسْتَمِعُوا لَهُ وَأَنْصِتُوا لَعَلَّكُمْ تُرْحَمُونَ",
               translation: "so pay attention and listen quietly when the Quran is recited, so that you may be given mercy.’",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -443,7 +443,7 @@ Set a phone reminder for 5-10 minutes after your chosen prayer time (e.g., "Walk
             {
               kind: "quran",
               ref: "Quran 17:78",
-              arabic: "**Translation:** So perform the regular prayers in the period from the time the sun is past its zenith till the darkness of the night, and [recite] the Quran at dawn- dawn recitation is always witnessed––",
+              arabic: "أَقِمِ الصَّلَاةَ لِدُلُوكِ الشَّمْسِ إِلَىٰ غَسَقِ اللَّيْلِ وَقُرْآنَ الْفَجْرِ ۖ إِنَّ قُرْآنَ الْفَجْرِ كَانَ مَشْهُودًا",
               translation: "So perform the regular prayers in the period from the time the sun is past its zenith till the darkness of the night, and [recite] the Quran at dawn- dawn recitation is always witnessed––",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -452,7 +452,7 @@ Set a phone reminder for 5-10 minutes after your chosen prayer time (e.g., "Walk
             {
               kind: "quran",
               ref: "Quran 37:3",
-              arabic: "**Translation:** then by those who recite the dhikr,",
+              arabic: "فَالتَّالِيَاتِ ذِكْرًا",
               translation: "then by those who recite the dhikr,",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -1999,7 +1999,7 @@ Choose a specific spot in your home — a prayer corner, desk, or reading chair.
             {
               kind: "quran",
               ref: "Quran 3:72",
-              arabic: "**Translation:** And a party of the people of the Scripture say: \"Believe in the morning in that which is revealed to the believers (Muslims), and reject it at the end of the day, so that they may turn back.",
+              arabic: "وَقَالَتْ طَائِفَةٌ مِنْ أَهْلِ الْكِتَابِ آمِنُوا بِالَّذِي أُنْزِلَ عَلَى الَّذِينَ آمَنُوا وَجْهَ النَّهَارِ وَاكْفُرُوا آخِرَهُ لَعَلَّهُمْ يَرْجِعُونَ",
               translation: "And a party of the people of the Scripture say: \"Believe in the morning in that which is revealed to the believers (Muslims), and reject it at the end of the day, so that they may turn back.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2261,7 +2261,7 @@ Sit down with your spouse and agree on clear rules: what devices are allowed, wh
             {
               kind: "quran",
               ref: "Quran 24:34",
-              arabic: "**Translation:** And indeed We have sent down for you Ayât (proofs, evidence, verses, lessons, signs, revelations, etc.) that make things plain, and the example of those who passed away before you, and an admonition for those who are Al-Muttaqûn (the pious - See V.2:2).",
+              arabic: "وَلَقَدْ أَنْزَلْنَا إِلَيْكُمْ آيَاتٍ مُبَيِّنَاتٍ وَمَثَلًا مِنَ الَّذِينَ خَلَوْا مِنْ قَبْلِكُمْ وَمَوْعِظَةً لِلْمُتَّقِينَ",
               translation: "And indeed We have sent down for you Ayât (proofs, evidence, verses, lessons, signs, revelations, etc.) that make things plain, and the example of those who passed away before you, and an admonition for those who are Al-Muttaqûn (the pious - See V.2:2).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2291,7 +2291,7 @@ If you do not already know it, break it into 3-4 segments. Learn one segment per
             {
               kind: "quran",
               ref: "Quran 24:1",
-              arabic: "**Translation:** (This is) a Sûrah (chapter of the Qur’ân) which We have sent down and which We have enjoined, (ordained its laws); and in it We have revealed manifest Ayât (proofs, evidence, verses, lessons, signs, revelations - lawful and unlawful things, and set boundaries of Islâmic Religion), that you may remember.",
+              arabic: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ سُورَةٌ أَنْزَلْنَاهَا وَفَرَضْنَاهَا وَأَنْزَلْنَا فِيهَا آيَاتٍ بَيِّنَاتٍ لَعَلَّكُمْ تَذَكَّرُونَ",
               translation: "(This is) a Sûrah (chapter of the Qur’ân) which We have sent down and which We have enjoined, (ordained its laws); and in it We have revealed manifest Ayât (proofs, evidence, verses, lessons, signs, revelations - lawful and unlawful things, and set boundaries of Islâmic Religion), that you may remember.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2300,7 +2300,7 @@ If you do not already know it, break it into 3-4 segments. Learn one segment per
             {
               kind: "quran",
               ref: "Quran 9:44",
-              arabic: "**Translation:** Those who believe in Allâh and the Last Day would not ask your leave to be exempted from fighting with their properties and their lives; and Allâh is the All-Knower of Al-Muttaqûn (the pious - See V.2:2).",
+              arabic: "لَا يَسْتَأْذِنُكَ الَّذِينَ يُؤْمِنُونَ بِاللَّهِ وَالْيَوْمِ الْآخِرِ أَنْ يُجَاهِدُوا بِأَمْوَالِهِمْ وَأَنْفُسِهِمْ ۗ وَاللَّهُ عَلِيمٌ بِالْمُتَّقِينَ",
               translation: "Those who believe in Allâh and the Last Day would not ask your leave to be exempted from fighting with their properties and their lives; and Allâh is the All-Knower of Al-Muttaqûn (the pious - See V.2:2).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2309,7 +2309,7 @@ If you do not already know it, break it into 3-4 segments. Learn one segment per
             {
               kind: "quran",
               ref: "Quran 24:34",
-              arabic: "**Translation:** And indeed We have sent down for you Ayât (proofs, evidence, verses, lessons, signs, revelations, etc.) that make things plain, and the example of those who passed away before you, and an admonition for those who are Al-Muttaqûn (the pious - See V.2:2).",
+              arabic: "وَلَقَدْ أَنْزَلْنَا إِلَيْكُمْ آيَاتٍ مُبَيِّنَاتٍ وَمَثَلًا مِنَ الَّذِينَ خَلَوْا مِنْ قَبْلِكُمْ وَمَوْعِظَةً لِلْمُتَّقِينَ",
               translation: "And indeed We have sent down for you Ayât (proofs, evidence, verses, lessons, signs, revelations, etc.) that make things plain, and the example of those who passed away before you, and an admonition for those who are Al-Muttaqûn (the pious - See V.2:2).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5133,7 +5133,7 @@ Think of two or three people in your community who are reliable and community-mi
             {
               kind: "quran",
               ref: "Quran 4:176",
-              arabic: "**Translation:** They ask you [Prophet] for a ruling. Say, ‘God gives you a ruling about inheritance from someone who dies childless with no surviving parents. If a man leaves a sister, she is entitled to half of the inheritance; if she has no child her brother is her sole heir; if there are two sisters, they are entitled to two-thirds of the inheritance between them, but if there are surviving brothers and sisters, the male is entitled to twice the share of the female. God makes this clear to you so that you do not make mistakes: He has full knowledge of everything.’",
+              arabic: "يَسْتَفْتُونَكَ قُلِ اللَّهُ يُفْتِيكُمْ فِي الْكَلَالَةِ ۚ إِنِ امْرُؤٌ هَلَكَ لَيْسَ لَهُ وَلَدٌ وَلَهُ أُخْتٌ فَلَهَا نِصْفُ مَا تَرَكَ ۚ وَهُوَ يَرِثُهَا إِنْ لَمْ يَكُنْ لَهَا وَلَدٌ ۚ فَإِنْ كَانَتَا اثْنَتَيْنِ فَلَهُمَا الثُّلُثَانِ مِمَّا تَرَكَ ۚ وَإِنْ كَانُوا إِخْوَةً رِجَالًا وَنِسَاءً فَلِلذَّكَرِ مِثْلُ حَظِّ الْأُنْثَيَيْنِ ۗ يُبَيِّنُ اللَّهُ لَكُمْ أَنْ تَضِلُّوا ۗ وَاللَّهُ بِكُلِّ شَيْءٍ عَلِيمٌ",
               translation: "They ask you [Prophet] for a ruling. Say, ‘God gives you a ruling about inheritance from someone who dies childless with no surviving parents. If a man leaves a sister, she is entitled to half of the inheritance; if she has no child her brother is her sole heir; if there are two sisters, they are entitled to two-thirds of the inheritance between them, but if there are surviving brothers and sisters, the male is entitled to twice the share of the female. God makes this clear to you so that you do not make mistakes: He has full knowledge of everything.’",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5142,7 +5142,7 @@ Think of two or three people in your community who are reliable and community-mi
             {
               kind: "quran",
               ref: "Quran 4:127",
-              arabic: "**Translation:** They ask you [Prophet] for a ruling about women. Say, ‘God Himself gives you a ruling about them. You already have what has been recited to you in the Scripture about orphan girls [in your charge] from whom you withhold the prescribed shares [of their inheritance] and whom you wish to marry, and also about helpless children- God instructs you to treat orphans fairly: He is well aware of whatever good you do.’",
+              arabic: "وَيَسْتَفْتُونَكَ فِي النِّسَاءِ ۖ قُلِ اللَّهُ يُفْتِيكُمْ فِيهِنَّ وَمَا يُتْلَىٰ عَلَيْكُمْ فِي الْكِتَابِ فِي يَتَامَى النِّسَاءِ اللَّاتِي لَا تُؤْتُونَهُنَّ مَا كُتِبَ لَهُنَّ وَتَرْغَبُونَ أَنْ تَنْكِحُوهُنَّ وَالْمُسْتَضْعَفِينَ مِنَ الْوِلْدَانِ وَأَنْ تَقُومُوا لِلْيَتَامَىٰ بِالْقِسْطِ ۚ وَمَا تَفْعَلُوا مِنْ خَيْرٍ فَإِنَّ اللَّهَ كَانَ بِهِ عَلِيمًا",
               translation: "They ask you [Prophet] for a ruling about women. Say, ‘God Himself gives you a ruling about them. You already have what has been recited to you in the Scripture about orphan girls [in your charge] from whom you withhold the prescribed shares [of their inheritance] and whom you wish to marry, and also about helpless children- God instructs you to treat orphans fairly: He is well aware of whatever good you do.’",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5182,7 +5182,7 @@ Study the Quranic verses on inheritance (primarily Surah An-Nisa, verses 11-12 a
             {
               kind: "quran",
               ref: "Quran 8:72",
-              arabic: "**Translation:** Surely those who believed and migrated and strove hard in the way of Allah with their possessions and their lives, and those that sheltered and helped them - they alone are the true allies of one another. And those who believed but did not migrate (to Dar-al-Islam), you are under no obligation of alliance unless they migrate. And should they seek help from you in the matter of religion, it is incumbent on you to provide help unless it be against a people with whom you have a pact. Allah is cognizant of all that you do.",
+              arabic: "إِنَّ الَّذِينَ آمَنُوا وَهَاجَرُوا وَجَاهَدُوا بِأَمْوَالِهِمْ وَأَنْفُسِهِمْ فِي سَبِيلِ اللَّهِ وَالَّذِينَ آوَوْا وَنَصَرُوا أُولَٰئِكَ بَعْضُهُمْ أَوْلِيَاءُ بَعْضٍ ۚ وَالَّذِينَ آمَنُوا وَلَمْ يُهَاجِرُوا مَا لَكُمْ مِنْ وَلَايَتِهِمْ مِنْ شَيْءٍ حَتَّىٰ يُهَاجِرُوا ۚ وَإِنِ اسْتَنْصَرُوكُمْ فِي الدِّينِ فَعَلَيْكُمُ النَّصْرُ إِلَّا عَلَىٰ قَوْمٍ بَيْنَكُمْ وَبَيْنَهُمْ مِيثَاقٌ ۗ وَاللَّهُ بِمَا تَعْمَلُونَ بَصِيرٌ",
               translation: "Surely those who believed and migrated and strove hard in the way of Allah with their possessions and their lives, and those that sheltered and helped them - they alone are the true allies of one another. And those who believed but did not migrate (to Dar-al-Islam), you are under no obligation of alliance unless they migrate. And should they seek help from you in the matter of religion, it is incumbent on you to provide help unless it be against a people with whom you have a pact. Allah is cognizant of all that you do.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5536,7 +5536,7 @@ Memorise the full response and practise it until it flows naturally. When someon
             {
               kind: "quran",
               ref: "Quran 4:86",
-              arabic: "**Translation:** When ye are greeted with a greeting, greet ye with a better than it or return it. Lo! Allah taketh count of all things.",
+              arabic: "وَإِذَا حُيِّيتُمْ بِتَحِيَّةٍ فَحَيُّوا بِأَحْسَنَ مِنْهَا أَوْ رُدُّوهَا ۗ إِنَّ اللَّهَ كَانَ عَلَىٰ كُلِّ شَيْءٍ حَسِيبًا",
               translation: "When ye are greeted with a greeting, greet ye with a better than it or return it. Lo! Allah taketh count of all things.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -7023,7 +7023,7 @@ When faced with rudeness or conflict in a public setting, take a breath before r
             {
               kind: "quran",
               ref: "Quran 6:125",
-              arabic: "**Translation:** So, whomsoever Allah wills to guide, He makes his heart wide open for Islam, and whomsoever He wills to let go astray, He makes his heart strait and constricted, (and he feels embracing Islam as difficult) as if he were climbing to the sky. In this way, Allah lays abomination on those who do not believe.",
+              arabic: "فَمَنْ يُرِدِ اللَّهُ أَنْ يَهْدِيَهُ يَشْرَحْ صَدْرَهُ لِلْإِسْلَامِ ۖ وَمَنْ يُرِدْ أَنْ يُضِلَّهُ يَجْعَلْ صَدْرَهُ ضَيِّقًا حَرَجًا كَأَنَّمَا يَصَّعَّدُ فِي السَّمَاءِ ۚ كَذَٰلِكَ يَجْعَلُ اللَّهُ الرِّجْسَ عَلَى الَّذِينَ لَا يُؤْمِنُونَ",
               translation: "So, whomsoever Allah wills to guide, He makes his heart wide open for Islam, and whomsoever He wills to let go astray, He makes his heart strait and constricted, (and he feels embracing Islam as difficult) as if he were climbing to the sky. In this way, Allah lays abomination on those who do not believe.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -7032,7 +7032,7 @@ When faced with rudeness or conflict in a public setting, take a breath before r
             {
               kind: "quran",
               ref: "Quran 42:13",
-              arabic: "**Translation:** He (Allâh) has ordained for you the same religion (Islâmic Monotheism) which He ordained for Nûh (Noah), and that which We have revealed to you (O Muhammad صلى الله عليه و سلم), and that which We ordained for Ibrâhîm (Abraham), Mûsâ (Moses) and ‘Îsâ (Jesus) saying you should establish religion (i.e. to do what it orders you to do practically), and make no divisions in it (religion) (i.e. various sects in religion). Intolerable for the Mushrikûn, is that (Islamic Monotheism) to which you (O Muhammad صلى الله عليه و سلم) call them. Allâh chooses for Himself whom He wills, and guides unto Himself who turns to Him in repentance and in obedience.",
+              arabic: "شَرَعَ لَكُمْ مِنَ الدِّينِ مَا وَصَّىٰ بِهِ نُوحًا وَالَّذِي أَوْحَيْنَا إِلَيْكَ وَمَا وَصَّيْنَا بِهِ إِبْرَاهِيمَ وَمُوسَىٰ وَعِيسَىٰ ۖ أَنْ أَقِيمُوا الدِّينَ وَلَا تَتَفَرَّقُوا فِيهِ ۚ كَبُرَ عَلَى الْمُشْرِكِينَ مَا تَدْعُوهُمْ إِلَيْهِ ۚ اللَّهُ يَجْتَبِي إِلَيْهِ مَنْ يَشَاءُ وَيَهْدِي إِلَيْهِ مَنْ يُنِيبُ",
               translation: "He (Allâh) has ordained for you the same religion (Islâmic Monotheism) which He ordained for Nûh (Noah), and that which We have revealed to you (O Muhammad صلى الله عليه و سلم), and that which We ordained for Ibrâhîm (Abraham), Mûsâ (Moses) and ‘Îsâ (Jesus) saying you should establish religion (i.e. to do what it orders you to do practically), and make no divisions in it (religion) (i.e. various sects in religion). Intolerable for the Mushrikûn, is that (Islamic Monotheism) to which you (O Muhammad صلى الله عليه و سلم) call them. Allâh chooses for Himself whom He wills, and guides unto Himself who turns to Him in repentance and in obedience.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
