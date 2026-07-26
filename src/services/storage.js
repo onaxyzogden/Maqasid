@@ -206,6 +206,8 @@ export const SYNC_EXCLUDED_KEYS = [
   'sync_last_push_at',
   'sync_pending_push',
   'sync_backup_dismissed',
+  // Per-device one-shot migration flag — each device repairs its own titles once
+  'mojibake_titles_repaired',
 ];
 
 export function clearAll() {
