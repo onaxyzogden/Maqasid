@@ -1197,4 +1197,44 @@ export const useProjectStore = create((set, get) => ({
       return { projects };
     });
   },
+
+  // Startup pass: seed the boards + tasks of every Maqasid pillar, so
+  // cross-pillar surfaces (the Orientation carousel, the balance strip,
+  // search) never read a pillar the operator simply has not visited yet.
+  //
+  // Boot-cost guard: a pillar whose boards all exist has nothing left for its
+  // seeder to do, so skip it. What that saves is the seven redundant passes —
+  // each diffs every project and calls seedTasks() on every board, i.e. a
+  // localStorage read plus a JSON.parse of each board's task array.
+  //
+  // It does NOT save the seed-chunk downloads, despite each ensure*Projects
+  // opening with preloadPillarSeeds(). Measured: a second boot still fetches
+  // all seven. task-store's loadTasks awaits preloadBoardSeeds() per project
+  // and AppShell bulk-loads every project, because stripSeedFields() keeps
+  // description/sources out of localStorage and re-hydrates them from the
+  // bundle at read time. The chunks are a read-time dependency, not a
+  // seeding-time one, so no guard here can remove them.
+  //
+  // A pillar missing even ONE board still runs in full — that is how boards
+  // added by a future seed release get created. The per-pillar dashboards
+  // also still call their own ensure*Projects unguarded, so that remains the
+  // repair path for a pillar whose boards exist but whose task storage is
+  // empty (e.g. a quota-failed write).
+  ensureAllPillarProjects: async () => {
+    const existing = get().projects;
+    const missingAny = (boards) =>
+      boards.some((b) => !existing.some((p) => p.id === b.id));
+    const s = get();
+
+    const pending = [];
+    if (missingAny(FAITH_BOARDS)) pending.push(s.ensureFaithProjects());
+    if (missingAny(HEALTH_BOARDS)) pending.push(s.ensureHealthProjects());
+    if (missingAny(INTELLECT_BOARDS)) pending.push(s.ensureIntellectProjects());
+    if (missingAny(FAMILY_BOARDS)) pending.push(s.ensureFamilyProjects());
+    if (missingAny(WEALTH_BOARDS)) pending.push(s.ensureWealthProjects());
+    if (missingAny(ENVIRONMENT_BOARDS)) pending.push(s.ensureEnvironmentProjects());
+    if (missingAny(UMMAH_BOARDS)) pending.push(s.ensureUmmahProjects());
+
+    await Promise.all(pending);
+  },
 }));

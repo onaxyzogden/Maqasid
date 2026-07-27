@@ -3,6 +3,17 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-07-27] fix | MILOS — boot-cost guard applied; the saving it was predicted to deliver does not exist
+
+Operator directed: *"apply the boot-cost guard, then push and fold into PR #30."* Guard applied and **measured** — it works, but the premise recorded in [[2026-07-27-milos-startup-pillar-seeding]] (and in the entry below) was **wrong**, so the decision now carries a correcting addendum. **Amanah gate:** neutral — startup cost of already-halal seed content.
+
+- **Applied** as `ensureAllPillarProjects()` in [project-store.js](src/store/project-store.js): diffs each pillar's `*_BOARDS` against `projects`, runs that pillar's seeder only when a board is missing. [AppShell.jsx](src/components/layout/AppShell.jsx) calls the one action instead of seven. A pillar missing **even one** board still runs in full — a naive *"has ≥1 board → skip"* test would have silently stranded boards added by a future seed release.
+- **The predicted ~1.5 MB saving does not materialise.** Measured across two boots of one guest profile: 1st (0 → 96 projects) fetched all 7 pillar seed modules; 2nd (96 projects, guard skipping every seeder) **still fetched all 7**.
+- **Why.** `loadTasks` awaits `preloadBoardSeeds(projectId)` ([task-store.js](src/store/task-store.js)) and AppShell's pre-existing bulk loader runs it over *every* project; `backfillAndStripSeeds` preloads every stored pillar independently. Both exist because `stripSeedFields` deliberately keeps `description`/`sources` **out of localStorage** and re-hydrates from the bundle at read time. The chunks are a **read-time dependency of displaying any seeded task**, not a seeding-time cost — a storage-size-over-download trade predating the decision. No guard on the seeders can remove it.
+- **What it does buy:** skips seven redundant passes, each diffing 96 projects and calling `seedTasks()` per board (~96 localStorage reads + a `JSON.parse` of each task array, main thread). Real CPU, not transfer.
+- **Verified:** orientation totals unchanged post-guard (Faith **0/139**, Health **0/96**, Intellect **0/94**, Family **0/97**, Wealth **0/98**, Environment **0/91**, Community **0/200**); console clean; `npm test` **143/143**; eslint 0 errors; `npm run build` ✓ with `seed-*` chunks still split from `AppShell` (dynamic-import boundary intact). Screenshots unavailable a **fourth** consecutive session ([[project-screenshot-hang]]) — stated, not worked around.
+- **Genuinely deferred (unproven, not agreed):** narrow the AppShell bulk loader so startup does not `loadTasks` all 96 boards, or give the hydrator a storage-backed cache. That is where a download saving actually lives.
+
 ## [2026-07-27] feature | MILOS — all seven pillars seed at app-startup; orientation cards stop faking "caught up"
 
 Operator selected a live `OrientationCard` (Faith, reading **`0/0`** above *"Nothing left for today"*) and asked why that domain "and many other domains" showed `0/0`. Live-store inspection isolated it: **only Health had boards** (12 boards / 49 tasks / 240 subtasks); Faith, Intellect, Family, Wealth, Environment, Ummah had **zero projects**. Operator chose **"Both"** — fix the misleading display *and* populate the six — then directed the seeding to app-startup. Decision: [[2026-07-27-milos-startup-pillar-seeding]]. **Amanah gate:** neutral — UI data wiring over already-halal, already-grounded seed content.

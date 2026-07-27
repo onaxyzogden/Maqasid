@@ -41,16 +41,38 @@ Not caused by the sequential-locking work ([[2026-07-26-milos-orientation-sequen
 ## Alternatives Considered
 
 - **Seed inside the Orientation view** (the originally-proposed plan) — rejected by the operator in favour of app-startup. Would have left every *other* cross-pillar surface (the balance strip, dashboard rollups, search) still reading unseeded pillars.
-- **Guard the startup effect to only call seeders for pillars with no boards** — deferred, not rejected. It would skip the six lazy seed-chunk imports on every boot after the first. Not applied because it was outside the approved scope; see Consequences.
+- **Guard the startup effect to only call seeders for pillars with no boards** — **applied** in a follow-up commit as `ensureAllPillarProjects()`, but it does **not** deliver the saving predicted here. See the Boot-cost addendum below.
 - **Reuse the active-tier `total === 0` as the "unseeded" signal** — rejected; ambiguous for a complete-but-unpopulated-last-tier pillar, as above.
 - **Backfill boards via a migration** — rejected as heavier than needed; the idempotent ensure-path already converges existing installs on next boot.
 
 ## Consequences
 
 - **Every cross-pillar surface now sees a fully-populated store**, not just Orientation. Verified live on a fresh guest profile: all seven cards render real totals and real *Now* steps — Faith **0/139**, Health **0/96**, Intellect **0/94**, Family **0/97**, Wealth **0/98**, Environment **0/91**, Community **0/200** — each at Necessities, Faith flagged *Weakest — recommended*. No console errors on boot.
-- **Startup cost, flagged to the operator:** every boot now eagerly pulls all seven seed chunks (~1.5 MB gzip across `seed-faith` 197 kB … `seed-ummah` 423 kB) in the background rather than lazily per pillar-visit. It is post-paint and async so it does not block first render, but a returning user re-imports chunks only to find nothing missing. **Deferred optimisation:** guard the effect to call `ensure*` only for pillars with no boards yet, so later boots skip the imports entirely. Operator-gated.
+- **Startup cost, flagged to the operator:** every boot now eagerly pulls all seven seed chunks (~1.5 MB gzip across `seed-faith` 197 kB … `seed-ummah` 423 kB) in the background rather than lazily per pillar-visit. It is post-paint and async so it does not block first render. See the addendum below for why this is **structural, not a regression this decision introduced**.
 - **`seeded` is additive to the card shape** — no existing consumer breaks; `OrientationSheet` is untouched and the Prophetic Path node drill-in is unaffected.
 - **`.orient-card__clear--empty`** is the first modifier on the clear-state block; the vestigial `.orient-card--clear` root class still has no CSS rule (pre-existing, left alone).
+
+## Addendum — the boot-cost guard, and why it saves less than predicted
+
+The guard was applied as **`ensureAllPillarProjects()`** in [project-store.js](src/store/project-store.js): it diffs each pillar's `*_BOARDS` against `projects` and calls that pillar's `ensure*Projects()` only when a board is missing. [AppShell.jsx](src/components/layout/AppShell.jsx) now calls that one action instead of all seven seeders. A pillar missing even one board still runs in full, which is also how boards added by a **future seed release** get created — a naive "pillar has ≥1 board → skip" test would have silently stranded them.
+
+**The predicted saving does not materialise, and the prediction above was wrong.** Measured on the dev server across two boots of one guest profile:
+
+| Boot | `projects` | Pillar seed modules fetched |
+|---|---|---|
+| 1st (fresh profile) | 0 → 96 | all 7 |
+| 2nd (reload) | 96 | **still all 7** |
+
+The seed chunks are **not** pulled only by `ensure*Projects`. Two other paths require them on every boot:
+
+1. **[task-store.js](src/store/task-store.js) `loadTasks` awaits `preloadBoardSeeds(projectId)`** — and AppShell's pre-existing bulk loader runs `loadTasks` over *every* project. This alone guarantees all seven chunks.
+2. **`backfillAndStripSeeds` preloads every pillar with stored boards** ([project-store.js](src/store/project-store.js)), before its own one-shot `seed_strip_v2` flag is consulted.
+
+Both exist because `stripSeedFields` deliberately **removes `description`/`sources` from localStorage** and re-hydrates them from the bundle at read time. The chunks are therefore a **read-time dependency of displaying any seeded task at all**, not merely a seeding-time cost — a deliberate storage-size-over-download trade that predates this decision. Guarding the seeders cannot remove a cost the read path independently requires.
+
+**What the guard does still buy:** it skips seven redundant `ensure*Projects` passes — each diffing 96 projects and calling `seedTasks()` on every board, i.e. ~96 `localStorage` reads plus a `JSON.parse` of each board's task array, on the main thread. Real CPU work, but not the ~1.5 MB of transfer the prediction claimed.
+
+**Genuinely deferred, and where the download saving actually lives:** narrow the AppShell bulk loader so it does not `loadTasks` all 96 boards at startup (it exists to make cross-project search work), or give the hydrator a storage-backed cache so read-time hydration stops needing the bundle. Both are larger than this session's scope and unproven — do not treat either as agreed.
 
 > [!warning] Contradiction with the 2026-07-27 prayer-boards entry
 > The earlier 2026-07-27 record (in [[log]] and [[milos]]) states: *"Every sibling is wired to a mount effect (`ensureFaithProjects`/`ensureHealthProjects` in `AppShell.jsx`, `ensureWeeklyProjects` in `PropheticPath.jsx`)."*

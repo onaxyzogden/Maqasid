@@ -62,15 +62,10 @@ export default function AppShell() {
   const projects = useProjectStore((s) => s.projects);
   const loadTasks = useTaskStore((s) => s.loadTasks);
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
-  // Per-pillar board seeders — invoked once at app-startup (effect below) so
-  // every Maqasid pillar exists before any cross-pillar surface reads it.
-  const ensureFaithProjects = useProjectStore((s) => s.ensureFaithProjects);
-  const ensureHealthProjects = useProjectStore((s) => s.ensureHealthProjects);
-  const ensureIntellectProjects = useProjectStore((s) => s.ensureIntellectProjects);
-  const ensureFamilyProjects = useProjectStore((s) => s.ensureFamilyProjects);
-  const ensureWealthProjects = useProjectStore((s) => s.ensureWealthProjects);
-  const ensureEnvironmentProjects = useProjectStore((s) => s.ensureEnvironmentProjects);
-  const ensureUmmahProjects = useProjectStore((s) => s.ensureUmmahProjects);
+  // Board seeder for every Maqasid pillar — invoked once at app-startup
+  // (effect below) so each pillar exists before any cross-pillar surface
+  // reads it. Skips the pillars whose boards already exist; see the action.
+  const ensureAllPillarProjects = useProjectStore((s) => s.ensureAllPillarProjects);
 
   // Presence awareness state
   const completedOpening = useThresholdStore((s) => s.completedOpening);
@@ -174,19 +169,15 @@ export default function AppShell() {
   // lazily when each pillar's dashboard is first opened. Without this, a pillar
   // the operator has never visited has zero boards, so cross-pillar surfaces
   // (the Orientation carousel, the balance strip) render it as a bare "0/0".
-  // Each ensure*Projects is idempotent — it creates only missing boards and its
-  // task seeding early-returns on already-seeded boards — so this is a no-op on
-  // every boot after the first. Appending the new boards grows projects.length,
-  // which fires the bulk task-loader below to hydrate them into tasksByProject.
+  // ensureAllPillarProjects skips any pillar whose boards already exist, so a
+  // returning operator pays one array diff instead of seven full seed passes.
+  // (It does not avoid the seed-chunk downloads — the bulk task-loader below
+  // needs those anyway to re-hydrate stripped descriptions; see the action.)
+  // Appending new boards grows projects.length, which fires that same loader
+  // to hydrate them into tasksByProject.
   useEffect(() => {
-    ensureFaithProjects();
-    ensureHealthProjects();
-    ensureIntellectProjects();
-    ensureFamilyProjects();
-    ensureWealthProjects();
-    ensureEnvironmentProjects();
-    ensureUmmahProjects();
-    // reason: run once on mount; ensure*Projects are stable store actions
+    ensureAllPillarProjects();
+    // reason: run once on mount; ensureAllPillarProjects is a stable store action
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
