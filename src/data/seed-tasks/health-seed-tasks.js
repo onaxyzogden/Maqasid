@@ -1,4 +1,4 @@
-// Seed tasks for Life pillar submodules (Hifz al-Nafs).
+// Seed tasks for Health pillar submodules (Hifz al-Nafs).
 // Each submodule has tasks across CORE, GROWTH, and EXCELLENCE boards.
 // Tasks are placed in the "To Do" column by default.
 

@@ -24,7 +24,7 @@ const LEVELS = [
  * `useModulesProgress`, and the wheel recolors per the module's palette.
  *
  * Props:
- *   moduleLabel   — hub center label (e.g. 'LIFE')
+ *   moduleLabel   — hub center label (e.g. 'HEALTH')
  *   pillars       — [{ id, label, Icon, route? }]
  *   moduleIds     — string[] (usually pillars.map(p => p.id))
  *   levelColors   — { core, growth, excellence } hex map (from MODULE_PALETTE)
