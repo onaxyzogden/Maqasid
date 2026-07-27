@@ -85,10 +85,10 @@ export default function FamilyDashboard() {
       {/* ── Pillars Bento Grid ── */}
       <section className="family-pillars">
 
-        {/* Level 1: Core Pillars */}
+        {/* Level 1: Core */}
         <div className="family-core-card">
-          <span className="family-badge family-badge--dark">LEVEL 1: NECESSITIES</span>
-          <h3 className="family-core-card__title">Core Pillars</h3>
+          <span className="family-badge family-badge--dark">LEVEL 1: CORE</span>
+          <h3 className="family-core-card__title">Core</h3>
           <p className="family-core-card__desc">
             Foundational elements required for the preservation of lineage and legacy.
           </p>
@@ -126,10 +126,10 @@ export default function FamilyDashboard() {
         {/* Level 2 + 3 sub-grid */}
         <div className="family-pillars__right">
 
-          {/* Level 2: Growth Space */}
+          {/* Level 2: Growth */}
           <div className="family-needs-card">
-            <span className="family-badge family-badge--secondary">LEVEL 2: NEEDS</span>
-            <h3 className="family-needs-card__title">Growth Space</h3>
+            <span className="family-badge family-badge--secondary">LEVEL 2: GROWTH</span>
+            <h3 className="family-needs-card__title">Growth</h3>
             <p className="family-needs-card__desc">
               Strengthening family bonds through active care, presence, and remembrance.
             </p>
@@ -164,10 +164,10 @@ export default function FamilyDashboard() {
             </div>
           </div>
 
-          {/* Level 3: Embellishments */}
+          {/* Level 3: Excellence */}
           <div className="family-excellence-card">
             <span className="family-badge family-badge--tertiary">LEVEL 3: EXCELLENCE</span>
-            <h3 className="family-excellence-card__title">Embellishments</h3>
+            <h3 className="family-excellence-card__title">Excellence</h3>
             <p className="family-excellence-card__desc">
               The refinement of family life into a legacy of mercy and generational impact.
             </p>
@@ -226,7 +226,7 @@ export default function FamilyDashboard() {
         <p className="family-tarbiyah-bridge__desc">
           The parenting and mentorship track connects to the MTC Collective
           through tarbiyah &mdash; the holistic cultivation of children within a
-          community-supported environment.
+          supportive community.
         </p>
         <div className="family-tarbiyah-bridge__conditions">
           <div className="family-tarbiyah-bridge__condition">
@@ -235,7 +235,7 @@ export default function FamilyDashboard() {
           </div>
           <div className="family-tarbiyah-bridge__condition">
             <span className="family-tarbiyah-bridge__dot" />
-            <span>Ummah higher objective milestones include community formation</span>
+            <span>Community pillar milestones include collective formation</span>
           </div>
           <div className="family-tarbiyah-bridge__condition">
             <span className="family-tarbiyah-bridge__dot" />
@@ -246,7 +246,7 @@ export default function FamilyDashboard() {
           className="family-tarbiyah-bridge__btn"
           onClick={() => navigate('/app/pillar/ummah')}
         >
-          View Ummah Pillar <ArrowRight size={14} />
+          View Community Pillar <ArrowRight size={14} />
         </button>
       </section>
 
