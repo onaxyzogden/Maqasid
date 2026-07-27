@@ -16,7 +16,7 @@
 
 import { nanoid } from 'nanoid';
 import { exportAll, importAll, createBackup, clearAll, safeGet, safeSet, SYNC_EXCLUDED_KEYS } from './storage';
-import { supabase, isSupabaseConfigured } from './supabase';
+import { supabase, cloudAccountsEnabled } from './supabase';
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 
@@ -98,8 +98,8 @@ export function buildSyncSnapshot() {
 /** Upload the current snapshot to Supabase.
  *  @returns {{ ok: boolean, error: Error|null }} */
 export async function pushSnapshot() {
-  if (!isSupabaseConfigured || !supabase) {
-    return { ok: false, error: new Error('Supabase not configured') };
+  if (!cloudAccountsEnabled || !supabase) {
+    return { ok: false, error: new Error('Cloud accounts disabled') };
   }
 
   const { data: { session } } = await supabase.auth.getSession();
@@ -148,8 +148,8 @@ export async function pushSnapshot() {
 /** Fetch the latest snapshot metadata + blob from Supabase.
  *  @returns {{ ok: boolean, data: object|null, cloudUpdatedAt: string|null, error: Error|null }} */
 export async function pullSnapshot() {
-  if (!isSupabaseConfigured || !supabase) {
-    return { ok: false, data: null, cloudUpdatedAt: null, error: new Error('Supabase not configured') };
+  if (!cloudAccountsEnabled || !supabase) {
+    return { ok: false, data: null, cloudUpdatedAt: null, error: new Error('Cloud accounts disabled') };
   }
 
   const { data: { session } } = await supabase.auth.getSession();

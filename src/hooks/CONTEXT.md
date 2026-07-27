@@ -13,6 +13,7 @@ Custom React hooks (5) and utility services (3) shared across the app.
 | useModuleProgress.js | Aggregates task completion by moduleId; returns `{ total, completed, pct }` |
 | useDashboard.js | Utility module (not a hook): `getGreeting()` returns time-of-day string, `getMotivation()` returns day-indexed phrase, `BCG_RANGES` array defines chart range options |
 | usePrayerTimes.js | Fetches from Aladhan API (method 2); reverse geocodes via Nominatim; calculates active prayer window (5min before to 10min after); polls every 30s; caches to localStorage |
+| useSyncObserver.js | **DORMANT.** Watches store mutations and fires `triggerDebouncedPush()` (30s debounce). Early-returns unless `authStatus === 'authenticated'`, which can no longer happen — see below |
 
 ## Services
 
@@ -21,6 +22,13 @@ Custom React hooks (5) and utility services (3) shared across the app.
 | id.js | 30+ ID generator factories using `nanoid`: `genProjectId()`, `genTaskId()`, `genExpenseId()`, etc. Pattern: `'prefix_' + nanoid(length)` |
 | storage.js | localStorage wrapper with `'bbiz_'` prefix: `safeSet`, `safeGet`, `safeGetJSON`, `safeRemove`, `listKeys(prefix)`, `exportAll()`, `importAll()`, `clearAll()`. All ops wrapped in try/catch |
 | migration.js | Runs before React mounts (sync). Schema v5.0 — unified contacts model. Migrates old people_employees → ContactRecord + HRRecord. Stamps schema version for rollback safety |
+| supabase.js | **Master switch lives here.** `CLOUD_ACCOUNTS_ENABLED` (hardcoded `false`), `isSupabaseConfigured` (creds present only), `cloudAccountsEnabled` (the one to branch on). Exports `supabase` — `null` while disabled, so no client is ever constructed |
+| sync-service.js | **DORMANT.** Full-snapshot last-write-wins cloud sync: bucket `mios-snapshots`, table `user_snapshots`, `SCHEMA_VERSION 5.0`. Both `pushSnapshot`/`pullSnapshot` bail on `!cloudAccountsEnabled` |
+
+## Dormant: cloud sync
+Online accounts are off (`CLOUD_ACCOUNTS_ENABLED = false`) because the backend isn't ready. `initAuth()` therefore settles permanently at `authStatus: 'guest'`, which is the single chokepoint that silences `useSyncObserver`, `SyncStatusChip`, `FirstLoginModal` and Settings' Account & Sync panel — none of them needed editing. Guard new cloud code with `cloudAccountsEnabled`, never `isSupabaseConfigured`. Full design + restore path: `wiki/decisions/2026-07-27-milos-disable-online-accounts.md`.
+
+**A pull always requires a full page reload** — stores hydrate from `localStorage` at module-load time, so `applyPull()` does `createBackup()` → `clearAll()` → `importAll()` → `window.location.reload()`. `importAll()` alone is *additive*; only the `clearAll()` first makes it a true replace.
 
 ## Key Dependencies
 - **usePrayerTimes**: Aladhan API (external), Nominatim API (external), localStorage cache

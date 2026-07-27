@@ -7,7 +7,7 @@
 | Store | Key State | Persistence Keys |
 |-------|-----------|-----------------|
 | app-store.js | `sidebarOpen`, `islamicPanelOpen`, `activeModule`, `expandedPillars`, `filters` | Mixed (safeGet/safeSet) |
-| auth-store.js | `user: { name, ... } | null` | `auth_user` |
+| auth-store.js | `user: { name, ... } | null` (local profile) **+** `authStatus`/`supabaseSession`/`syncStatus` (cloud — dormant) | `user` (**not** `auth_user`) |
 | task-store.js | `tasksByProject: { [projectId]: Task[] }` | `tasks_${projectId}` |
 | project-store.js | `projects: Project[]` | `projects` |
 | money-store.js | `expenses`, `invoices`, `categories`, `budgets`, `vendors`, `accounts`, `incomes`, `assets` | 8 keys + `invoiceCounter` |
@@ -23,6 +23,18 @@
 ## Architecture
 
 **No Zustand persist middleware** — all stores use manual `safeGet`/`safeSet`/`safeGetJSON` from `services/storage.js`.
+
+**`auth-store` holds two independent identities — do not conflate them.**
+
+| | Local profile | Cloud identity |
+|---|---|---|
+| State | `user` | `authStatus` (`'loading'｜'guest'｜'authenticated'`), `supabaseSession`, `syncStatus` |
+| Storage | `localStorage` `bbiz_user` | Supabase session |
+| Set by | Onboarding, Landing's "Enter MIOS" modal | Supabase sign-in |
+| Gates | **`ProtectedRoute` gates all of `/app` on this** | nothing routable — UI visibility only |
+| Read by | ~15 components (greetings, assignee initials, message authorship) | 4 cloud-only components |
+
+The cloud half is **dormant** as of 2026-07-27 — `CLOUD_ACCOUNTS_ENABLED = false` in `services/supabase.js` makes `initAuth()` settle permanently at `authStatus: 'guest'`, which is what silences `SyncStatusChip`, `FirstLoginModal`, `useSyncObserver` and Settings' Account & Sync panel. The code stays on disk; see `wiki/decisions/2026-07-27-milos-disable-online-accounts.md`. **Editing the local-profile actions (`login`/`updateUser`/`logout`) would log every user out of `/app`.**
 
 **Create pattern:**
 ```js
