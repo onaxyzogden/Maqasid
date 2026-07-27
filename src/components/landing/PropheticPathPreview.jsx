@@ -180,7 +180,7 @@ export default function PropheticPathPreview() {
         <div className="ppp-phone-screen">
           <div className="ppp-screen-header">
             <span className="ppp-screen-eyebrow">Prophetic Path</span>
-            <span className="ppp-screen-date">15 Shawwal</span>
+            <span className="ppp-screen-date">Today</span>
           </div>
 
           <div className="ppp-spine-wrap">
