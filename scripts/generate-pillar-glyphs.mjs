@@ -27,6 +27,7 @@
  * seven existing pillar glyphs with an empty git diff.
  */
 import { readFile, writeFile } from 'node:fs/promises';
+import { createRequire } from 'node:module';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { createServer } from 'vite';
@@ -34,7 +35,12 @@ import { createServer } from 'vite';
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO = resolve(HERE, '..');
 const CSS_PATH = resolve(REPO, 'src/styles/level-navigator-responsive.css');
-const ICON_DIR = resolve(REPO, 'node_modules/lucide-react/dist/esm/icons');
+// Ask Node where lucide is rather than assuming `<repo>/node_modules`: a git
+// worktree has no node_modules of its own and falls back to the parent
+// checkout's, exactly as the `vite` import above already does. Hardcoding the
+// path made `npm run lint` unrunnable outside the primary checkout.
+const require_ = createRequire(import.meta.url);
+const ICON_DIR = resolve(dirname(require_.resolve('lucide-react/package.json')), 'dist/esm/icons');
 const SEL = '.fln__segments.fln__segments .fln__segment-col';
 
 // ---- casing helpers -------------------------------------------------------
