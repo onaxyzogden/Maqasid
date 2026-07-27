@@ -654,6 +654,7 @@ export default function PropheticPath({ variant }) {
   const theme = variant ?? appTheme ?? 'light';
   const projects = useProjectStore((s) => s.projects);
   const ensureWeeklyProjects = useProjectStore((s) => s.ensureWeeklyProjects);
+  const ensurePrayerProjects = useProjectStore((s) => s.ensurePrayerProjects);
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
   const loadTasks = useTaskStore((s) => s.loadTasks);
   const niyyahFocus = useThresholdStore((s) => s.niyyahFocus);
@@ -795,6 +796,13 @@ export default function PropheticPath({ variant }) {
   useEffect(() => {
     ensureWeeklyProjects();
   }, [ensureWeeklyProjects]);
+
+  // Prayer boards back the Before/During/After popup on all 6 prayer nodes —
+  // NodePhaseSlideUp reads prayer_{id}_{phase} directly, so the boards must
+  // exist before the popup opens.
+  useEffect(() => {
+    ensurePrayerProjects();
+  }, [ensurePrayerProjects]);
 
   // nodeId whose Before/During/After popup is open (null = closed)
   const [phaseNodeId, setPhaseNodeId] = useState(null);
