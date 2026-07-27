@@ -3,6 +3,22 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-07-26] housekeeping | MILOS — `.claude/worktrees/` gitlinks untracked, 5 agent worktrees swept, atlas set to `ignore = dirty`
+
+Six lines of `git status` noise had persisted across several sessions, obscuring real changes. Root cause was **not cosmetic**: six `.claude/worktrees/*` entries were committed as **gitlinks (mode `160000`) with no `.gitmodules` mapping**, which made `git submodule status` **fatally error** and broke every `git submodule` command in the repo — including `--init`/`update` for the legitimate `atlas` submodule. Repo hygiene only — **zero `src/` change**. Decision: [[2026-07-26-milos-worktree-gitlinks-atlas-ignore]].
+
+**Amanah gate:** neutral — git plumbing and branch hygiene, no covenant, revelation, or capital surface touched.
+
+- **The ignore rule had been inert since it was written.** `.gitignore` carried `.worktrees/`, which never matches the real path `.claude/worktrees/`. Fixed by adding `.claude/worktrees/` beside it, scoped so the eight legitimate tracked files under `.claude/` (`launch.json`, `settings.local.json`, `skills/*`, `plans/*`) stay tracked.
+- **Preserve-before-sweep, in that order.** `mystifying-chatelet-186474` held an **uncommitted** `isPrayerLocked` → `prayerBannerActive` rename across `AppShell.jsx`, `threshold-store.js` + 2 `CONTEXT.md` — committed to its own branch as `a1e5892` (verified *not* already on the working branch). `vigilant-buck-1a9ff0` held **136 untracked** grounding-audit `tasks/*.json` — copied to the session scratchpad, count-verified, before a `--force` removal. `nifty-lalande-2585df` held the Health-mojibake ADR, cherry-picked out first (below).
+- **No branch was deleted — that was the whole safety net.** Removing a git worktree does not delete its branch. All four survive: `claude/charming-heisenberg-48c52c`, `claude/sleepy-lamarr-3f62e8`, `claude/practical-brahmagupta-f8d999`, `claude/vigilant-buck-1a9ff0`.
+- **ADR rescued from a worktree branch.** [[2026-07-26-milos-health-data-mojibake-repair]] existed only on `claude/sleepy-lamarr-3f62e8`. Cherry-picked as `86facd0` + `cfa4761`; the 3 predicted wiki conflicts (`log.md`, `index.md`, `entities/milos.md`) were all additive single-row inserts, resolved by keeping current content and placing each incoming piece in date order — the Health entry is the **earliest** 2026-07-26 work (04:41), so it sits at the **bottom** of that day's group.
+- **atlas: `ignore = dirty`, pointer deliberately NOT committed.** atlas HEAD `e4031e2` exists on **no remote**, so a pointer bump would record a commit no recursive clone could fetch. `ignore = dirty` hides its 34 dirty files but still surfaces genuine pointer drift — which is why ` M atlas` correctly remains. Nothing in this session wrote inside `atlas` (verified after: still 34 dirty, still `e4031e2`).
+- **Verified:** `git submodule status` now prints its single atlas line without fatal (the proof the breakage is fixed); `git worktree list` shows only the main worktree + `mwt/glyphgen`; `npm test` 142/142 pass.
+- **Residue:** two now-empty dirs (`nifty-lalande-2585df`, `quizzical-volhard-3e42ca`) could not be unlinked — Windows *"used by another process"*. Git had already emptied and **deregistered** both; empty dirs are invisible to git and the path is now ignored, so this is filesystem residue only.
+- **Concurrent writer noted.** Another process modified 4 `src/` files (`orientation-selector.js` + its test, `OrientationActions.jsx`, `SubtaskStepDetail.jsx`) mid-session. Every commit here was staged **explicitly by path** — no `git add -A`, no `commit -a` — so none of it was swept up.
+- **Pages touched:** [[milos]] (1 History row), wiki/decisions/2026-07-26-milos-worktree-gitlinks-atlas-ignore.md (new), wiki/index.md (1 Decisions row), wiki/log.md.
+
 ## [2026-07-26] housekeeping | MILOS — PR #27 closed as superseded (prayer banner already on main)
 
 PR #27 (`feat/prayer-banner-dismissible`) sat `CONFLICTING` / `DIRTY` on GitHub and was raised for conflict resolution. Investigation showed there was nothing to resolve: its single commit `00f5798` is a cherry-pick of `e4302ce`, already an ancestor of `main` via #28 (merge `5739147`), and the governing ADR [[2026-07-09-milos-prayer-banner-non-blocking]] is on `main` too. Repo housekeeping only — **zero code change to `main`** (still `47d3ae5`).
