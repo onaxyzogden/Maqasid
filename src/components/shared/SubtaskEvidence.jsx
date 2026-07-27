@@ -1,8 +1,8 @@
 import { lazy, Suspense, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import ChunkErrorBoundary from '../shared/ChunkErrorBoundary';
+import ChunkErrorBoundary from './ChunkErrorBoundary';
 // SubtaskSources renders into tdp-* classes owned by TaskDetailPanel.css —
-// imported here rather than duplicated (see orientation/CONTEXT.md Gotchas).
+// imported here rather than duplicated (see shared/CONTEXT.md Gotchas).
 import '../work/TaskDetailPanel.css';
 
 // SubtaskSources pulls in hadith.js (1.3 MB) + quran-wbw.js (536 KB) via
@@ -26,8 +26,12 @@ function SourcesSkeleton() {
   );
 }
 
-export default function OrientationEvidence({ subtask }) {
-  const [open, setOpen] = useState(true);
+// `label`/`defaultOpen` let the same lazy-sources accordion serve as a detail
+// view's "Evidence" section (collapsed until asked, so the 1.8 MB hadith/Qur'an
+// chunk only loads on demand). Defaults suit that primary use. Class names keep
+// the historical orient-evidence__ prefix (moved here from orientation/).
+export default function SubtaskEvidence({ subtask, label = 'Evidence', defaultOpen = false }) {
+  const [open, setOpen] = useState(defaultOpen);
 
   return (
     <div className="orient-evidence">
@@ -37,7 +41,7 @@ export default function OrientationEvidence({ subtask }) {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
       >
-        <span>Why &amp; how</span>
+        <span>{label}</span>
         <ChevronDown
           size={16}
           className={`orient-evidence__chevron${open ? ' orient-evidence__chevron--open' : ''}`}

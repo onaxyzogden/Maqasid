@@ -1,4 +1,5 @@
 import { resolveSubmoduleFromBoardId } from '../data/maqasid-resolve';
+import { repairMojibake } from './mojibake';
 
 // Hydrates task description and subtask description/sources from bundled seed
 // data at read time, so these large reference strings never need to live in
@@ -75,15 +76,27 @@ function getTaskMap(boardId) {
   return map;
 }
 
+// Resilience: the one-shot migration repairs persisted titles so this join
+// hits on a clean title. But a title re-introduced with mojibake (e.g. by
+// importing an old backup after the migration flag is set) would miss and
+// serve the task bare. Retry the lookup with the reversed title so *content*
+// hydration stays immune. repairMojibake is a strict no-op on clean titles, so
+// this never alters the primary path and never writes storage.
+function seedByTitle(map, title) {
+  return map.get(title) || map.get(repairMojibake(title));
+}
+
 export function getSeedSubtask(boardId, taskTitle, subtaskTitle) {
-  const seedTask = getTaskMap(boardId).get(taskTitle);
+  const seedTask = seedByTitle(getTaskMap(boardId), taskTitle);
   if (!seedTask) return null;
-  return (seedTask.subtasks || []).find((s) => s.title === subtaskTitle) || null;
+  const subs = seedTask.subtasks || [];
+  const clean = repairMojibake(subtaskTitle);
+  return subs.find((s) => s.title === subtaskTitle || s.title === clean) || null;
 }
 
 export function hydrateTask(task, boardId, boardTags) {
   if (!task) return task;
-  const seedTask = getTaskMap(boardId).get(task.title);
+  const seedTask = seedByTitle(getTaskMap(boardId), task.title);
 
   // Always derive pillar/submodule tags from the board id — tasks created
   // before the niyyah↔submodule wiring landed (or before this hydration
@@ -107,7 +120,7 @@ export function hydrateTask(task, boardId, boardTags) {
     const seedSubMap = new Map();
     (seedTask.subtasks || []).forEach((s) => seedSubMap.set(s.title, s));
     subtasks = subtasks.map((st) => {
-      const seedSub = seedSubMap.get(st.title);
+      const seedSub = seedSubMap.get(st.title) || seedSubMap.get(repairMojibake(st.title));
       if (!seedSub) return st;
       const patch = {};
       if (!st.description && seedSub.description) patch.description = seedSub.description;

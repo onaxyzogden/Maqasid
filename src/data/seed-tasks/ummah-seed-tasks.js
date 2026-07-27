@@ -3211,7 +3211,7 @@ A visit without practical support is warmth without substance. When a neighbor i
             {
               kind: "quran",
               ref: "Quran 33:60",
-              arabic: "**Translation:** If the hypocrites do not desist, as well as those with sickness in their hearts and the rumormongers in the City(of Madinah) , We will surely incite yousg against them; then they will not neighbor you in it except for a short while.",
+              arabic: "لَئِنْ لَمْ يَنْتَهِ الْمُنَافِقُونَ وَالَّذِينَ فِي قُلُوبِهِمْ مَرَضٌ وَالْمُرْجِفُونَ فِي الْمَدِينَةِ لَنُغْرِيَنَّكَ بِهِمْ ثُمَّ لَا يُجَاوِرُونَكَ فِيهَا إِلَّا قَلِيلًا",
               translation: "If the hypocrites do not desist, as well as those with sickness in their hearts and the rumormongers in the City(of Madinah) , We will surely incite yousg against them; then they will not neighbor you in it except for a short while.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3220,7 +3220,7 @@ A visit without practical support is warmth without substance. When a neighbor i
             {
               kind: "quran",
               ref: "Quran 73:20",
-              arabic: "**Translation:** [Prophet], your Lord is well aware that you sometimes spend nearly two-thirds of the night at prayer––sometimes half, sometimes a third––as do some of your followers. God determines the division of night and day. He knows that you will not be able to keep a measure of it and He has relented towards all of you, so recite as much of the Quran as is easy for you. He knows that some of you will be sick, some of you travelling through the land seeking God’s bounty, some of you fighting in God’s way: recite as much as is easy for you, keep up the prayer, pay the prescribed alms, and make God a good loan. Whatever good you store up for yourselves will be improved and increased for you. Ask God for His forgiveness, He is most forgiving, most merciful.",
+              arabic: "إِنَّ رَبَّكَ يَعْلَمُ أَنَّكَ تَقُومُ أَدْنَىٰ مِنْ ثُلُثَيِ اللَّيْلِ وَنِصْفَهُ وَثُلُثَهُ وَطَائِفَةٌ مِنَ الَّذِينَ مَعَكَ ۚ وَاللَّهُ يُقَدِّرُ اللَّيْلَ وَالنَّهَارَ ۚ عَلِمَ أَنْ لَنْ تُحْصُوهُ فَتَابَ عَلَيْكُمْ ۖ فَاقْرَءُوا مَا تَيَسَّرَ مِنَ الْقُرْآنِ ۚ عَلِمَ أَنْ سَيَكُونُ مِنْكُمْ مَرْضَىٰ ۙ وَآخَرُونَ يَضْرِبُونَ فِي الْأَرْضِ يَبْتَغُونَ مِنْ فَضْلِ اللَّهِ ۙ وَآخَرُونَ يُقَاتِلُونَ فِي سَبِيلِ اللَّهِ ۖ فَاقْرَءُوا مَا تَيَسَّرَ مِنْهُ ۚ وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ وَأَقْرِضُوا اللَّهَ قَرْضًا حَسَنًا ۚ وَمَا تُقَدِّمُوا لِأَنْفُسِكُمْ مِنْ خَيْرٍ تَجِدُوهُ عِنْدَ اللَّهِ هُوَ خَيْرًا وَأَعْظَمَ أَجْرًا ۚ وَاسْتَغْفِرُوا اللَّهَ ۖ إِنَّ اللَّهَ غَفُورٌ رَحِيمٌ",
               translation: "[Prophet], your Lord is well aware that you sometimes spend nearly two-thirds of the night at prayer––sometimes half, sometimes a third––as do some of your followers. God determines the division of night and day. He knows that you will not be able to keep a measure of it and He has relented towards all of you, so recite as much of the Quran as is easy for you. He knows that some of you will be sick, some of you travelling through the land seeking God’s bounty, some of you fighting in God’s way: recite as much as is easy for you, keep up the prayer, pay the prescribed alms, and make God a good loan. Whatever good you store up for yourselves will be improved and increased for you. Ask God for His forgiveness, He is most forgiving, most merciful.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3699,7 +3699,7 @@ Availability is the currency of trust. If a neighbor calls and you never answer,
             {
               kind: "quran",
               ref: "Quran 4:36",
-              arabic: "**Translation:** Worship Allah, and do not associate with Him anything, and be good to parents and to kinsmen and orphans and the needy and the close neighbor and the distant neighbor and the companion at your side and the wayfarer and to those (slaves who are) owned by you. Surely, Allah does not like those who are arrogant, proud,",
+              arabic: "وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا ۖ وَبِالْوَالِدَيْنِ إِحْسَانًا وَبِذِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينِ وَالْجَارِ ذِي الْقُرْبَىٰ وَالْجَارِ الْجُنُبِ وَالصَّاحِبِ بِالْجَنْبِ وَابْنِ السَّبِيلِ وَمَا مَلَكَتْ أَيْمَانُكُمْ ۗ إِنَّ اللَّهَ لَا يُحِبُّ مَنْ كَانَ مُخْتَالًا فَخُورًا",
               translation: "Worship Allah, and do not associate with Him anything, and be good to parents and to kinsmen and orphans and the needy and the close neighbor and the distant neighbor and the companion at your side and the wayfarer and to those (slaves who are) owned by you. Surely, Allah does not like those who are arrogant, proud,",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3708,7 +3708,7 @@ Availability is the currency of trust. If a neighbor calls and you never answer,
             {
               kind: "quran",
               ref: "Quran 49:13",
-              arabic: "**Translation:** O mankind, We have created you from a male and a female, and made you into races and tribes, so that you may identify one another. Surely the noblest of you, in Allah’s sight, is the one who is most pious of you. Surely Allah is All-Knowing, All-Aware.",
+              arabic: "يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُمْ مِنْ ذَكَرٍ وَأُنْثَىٰ وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا ۚ إِنَّ أَكْرَمَكُمْ عِنْدَ اللَّهِ أَتْقَاكُمْ ۚ إِنَّ اللَّهَ عَلِيمٌ خَبِيرٌ",
               translation: "O mankind, We have created you from a male and a female, and made you into races and tribes, so that you may identify one another. Surely the noblest of you, in Allah’s sight, is the one who is most pious of you. Surely Allah is All-Knowing, All-Aware.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4350,7 +4350,7 @@ The Quran states: "Allah does not forbid you from those who do not fight you bec
             {
               kind: "quran",
               ref: "Quran 3:104",
-              arabic: "**Translation:** Let there arise out of you a group of people inviting to all that is good (Islâm), enjoining Al-Ma‘rûf (i.e. Islâmic Monotheism and all that Islâm orders one to do) and forbidding Al-Munkar (polytheism and disbelief and all that Islâm has forbidden). And it is they who are the successful.",
+              arabic: "وَلْتَكُنْ مِنْكُمْ أُمَّةٌ يَدْعُونَ إِلَى الْخَيْرِ وَيَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنْكَرِ ۚ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ",
               translation: "Let there arise out of you a group of people inviting to all that is good (Islâm), enjoining Al-Ma‘rûf (i.e. Islâmic Monotheism and all that Islâm orders one to do) and forbidding Al-Munkar (polytheism and disbelief and all that Islâm has forbidden). And it is they who are the successful.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5474,7 +5474,7 @@ The Prophet (peace be upon him) paired the Muhajirun with the Ansar — every ne
             {
               kind: "quran",
               ref: "Quran 62:9",
-              arabic: "**Translation:** O you who have believed, when [the adhān] is called for the prayer on the day of Jumuʿah [Friday], then proceed to the remembrance of Allāh and leave trade. That is better for you, if you only knew.",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا نُودِيَ لِلصَّلَاةِ مِنْ يَوْمِ الْجُمُعَةِ فَاسْعَوْا إِلَىٰ ذِكْرِ اللَّهِ وَذَرُوا الْبَيْعَ ۚ ذَٰلِكُمْ خَيْرٌ لَكُمْ إِنْ كُنْتُمْ تَعْلَمُونَ",
               translation: "O you who have believed, when [the adhān] is called for the prayer on the day of Jumuʿah [Friday], then proceed to the remembrance of Allāh and leave trade. That is better for you, if you only knew.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5928,7 +5928,7 @@ Allah commands: "If two groups of believers fight, make peace between them" (Qur
             {
               kind: "quran",
               ref: "Quran 30:18",
-              arabic: "**Translation:** And His are all the praises and thanks in the heavens and the earth; and (glorify Him) in the afternoon (i.e. offer ‘Asr prayer) and when you come up to the time, when the day begins to decline (i.e. offer Zuhr prayer). (Ibn ‘Abbâs said: \"These are the five compulsory congregational prayers mentioned in the Qur’ân).\" [Tafsir At-Tabari]",
+              arabic: "وَلَهُ الْحَمْدُ فِي السَّمَاوَاتِ وَالْأَرْضِ وَعَشِيًّا وَحِينَ تُظْهِرُونَ",
               translation: "And His are all the praises and thanks in the heavens and the earth; and (glorify Him) in the afternoon (i.e. offer ‘Asr prayer) and when you come up to the time, when the day begins to decline (i.e. offer Zuhr prayer). (Ibn ‘Abbâs said: \"These are the five compulsory congregational prayers mentioned in the Qur’ân).\" [Tafsir At-Tabari]",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5937,7 +5937,7 @@ Allah commands: "If two groups of believers fight, make peace between them" (Qur
             {
               kind: "quran",
               ref: "Quran 40:55",
-              arabic: "**Translation:** So be patient (O Muhammad صلى الله عليه وسلم). Verily, the Promise of Allâh is true, and ask forgiveness for your fault and glorify the praises of your Lord in the ‘Ashî (i.e. the time period after the midnoon till sunset) and in the Ibkâr (i.e. the time period from early morning or sunrise till before midnoon) [it is said that, that means the five compulsory congregational Salât (prayers) or the ‘Asr and Fajr prayers].",
+              arabic: "فَاصْبِرْ إِنَّ وَعْدَ اللَّهِ حَقٌّ وَاسْتَغْفِرْ لِذَنْبِكَ وَسَبِّحْ بِحَمْدِ رَبِّكَ بِالْعَشِيِّ وَالْإِبْكَارِ",
               translation: "So be patient (O Muhammad صلى الله عليه وسلم). Verily, the Promise of Allâh is true, and ask forgiveness for your fault and glorify the praises of your Lord in the ‘Ashî (i.e. the time period after the midnoon till sunset) and in the Ibkâr (i.e. the time period from early morning or sunrise till before midnoon) [it is said that, that means the five compulsory congregational Salât (prayers) or the ‘Asr and Fajr prayers].",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5946,7 +5946,7 @@ Allah commands: "If two groups of believers fight, make peace between them" (Qur
             {
               kind: "quran",
               ref: "Quran 2:238",
-              arabic: "**Translation:** Guard strictly (five obligatory) As-Salawât (the prayers) especially the middle Salât (i.e. the best prayer - ‘Asr ). And stand before Allâh with obedience [and do not speak to others during the Salât (prayers)].",
+              arabic: "حَافِظُوا عَلَى الصَّلَوَاتِ وَالصَّلَاةِ الْوُسْطَىٰ وَقُومُوا لِلَّهِ قَانِتِينَ",
               translation: "Guard strictly (five obligatory) As-Salawât (the prayers) especially the middle Salât (i.e. the best prayer - ‘Asr ). And stand before Allâh with obedience [and do not speak to others during the Salât (prayers)].",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6564,7 +6564,7 @@ Individual initiative is good, but systemic care is better. Without a tracking s
             {
               kind: "quran",
               ref: "Quran 17:78",
-              arabic: "**Translation:** Perform As-Salât (Iqamât-as-Salât) from mid-day till the darkness of the night (i.e. the Zuhr, ‘Asr, Maghrib and ‘Ishâ’ prayers), and recite the Qur’ân in the early dawn (i.e. the morning prayer). Verily, the recitation of the Qur’ân in the early dawn is ever witnessed (attended by the angels in charge of mankind of the day and the night).",
+              arabic: "أَقِمِ الصَّلَاةَ لِدُلُوكِ الشَّمْسِ إِلَىٰ غَسَقِ اللَّيْلِ وَقُرْآنَ الْفَجْرِ ۖ إِنَّ قُرْآنَ الْفَجْرِ كَانَ مَشْهُودًا",
               translation: "Perform As-Salât (Iqamât-as-Salât) from mid-day till the darkness of the night (i.e. the Zuhr, ‘Asr, Maghrib and ‘Ishâ’ prayers), and recite the Qur’ân in the early dawn (i.e. the morning prayer). Verily, the recitation of the Qur’ân in the early dawn is ever witnessed (attended by the angels in charge of mankind of the day and the night).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -7202,7 +7202,7 @@ The Prophet (peace be upon him) constantly refined his approach based on the nee
             {
               kind: "quran",
               ref: "Quran 29:46",
-              arabic: "**Translation:** And dispute ye not with the People of the Book, except with means better (than mere disputation), unless it be with those of them who inflict wrong (and injury): but say, \"We believe in the revelation which has come down to us and in that which came down to you; Our Allah and your Allah is one; and it is to Him we bow (in Islam).",
+              arabic: "وَلَا تُجَادِلُوا أَهْلَ الْكِتَابِ إِلَّا بِالَّتِي هِيَ أَحْسَنُ إِلَّا الَّذِينَ ظَلَمُوا مِنْهُمْ ۖ وَقُولُوا آمَنَّا بِالَّذِي أُنْزِلَ إِلَيْنَا وَأُنْزِلَ إِلَيْكُمْ وَإِلَٰهُنَا وَإِلَٰهُكُمْ وَاحِدٌ وَنَحْنُ لَهُ مُسْلِمُونَ",
               translation: "And dispute ye not with the People of the Book, except with means better (than mere disputation), unless it be with those of them who inflict wrong (and injury): but say, \"We believe in the revelation which has come down to us and in that which came down to you; Our Allah and your Allah is one; and it is to Him we bow (in Islam).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -9243,7 +9243,7 @@ Individual goodwill without institutional channels is inefficient and often inef
             {
               kind: "quran",
               ref: "Quran 8:73",
-              arabic: "**Translation:** And those who disbelieve are allies of one another, (and) if you (Muslims of the whole world collectively) do not do so [i.e. become allies, as one united block under one Khalifah (a chief Muslim ruler for the whole Muslim world) to make victorious Allâh’s religion of Islâmic Monotheism], there will be Fitnah (wars, battles, polytheism) and oppression on the earth, and a great mischief and corruption (appearance of polytheism).",
+              arabic: "وَالَّذِينَ كَفَرُوا بَعْضُهُمْ أَوْلِيَاءُ بَعْضٍ ۚ إِلَّا تَفْعَلُوهُ تَكُنْ فِتْنَةٌ فِي الْأَرْضِ وَفَسَادٌ كَبِيرٌ",
               translation: "And those who disbelieve are allies of one another, (and) if you (Muslims of the whole world collectively) do not do so [i.e. become allies, as one united block under one Khalifah (a chief Muslim ruler for the whole Muslim world) to make victorious Allâh’s religion of Islâmic Monotheism], there will be Fitnah (wars, battles, polytheism) and oppression on the earth, and a great mischief and corruption (appearance of polytheism).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -10559,7 +10559,7 @@ Islam teaches that the best actions are those done consistently, even if small. 
             {
               kind: "quran",
               ref: "Quran 52:42",
-              arabic: "**Translation:** Or do they intend to plan to do harm (to the prophet)? Then the disbelievers themselves shall be harmed by the plan.",
+              arabic: "أَمْ يُرِيدُونَ كَيْدًا ۖ فَالَّذِينَ كَفَرُوا هُمُ الْمَكِيدُونَ",
               translation: "Or do they intend to plan to do harm (to the prophet)? Then the disbelievers themselves shall be harmed by the plan.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -10568,7 +10568,7 @@ Islam teaches that the best actions are those done consistently, even if small. 
             {
               kind: "quran",
               ref: "Quran 10:12",
-              arabic: "**Translation:** And when harm touches man, he invokes Us, lying on his side, or sitting or standing. But when We have removed his harm from him, he passes on as if he had never invoked Us for a harm that touched him! Thus it is made fair-seeming to the Musrifûn that which they used to do.",
+              arabic: "وَإِذَا مَسَّ الْإِنْسَانَ الضُّرُّ دَعَانَا لِجَنْبِهِ أَوْ قَاعِدًا أَوْ قَائِمًا فَلَمَّا كَشَفْنَا عَنْهُ ضُرَّهُ مَرَّ كَأَنْ لَمْ يَدْعُنَا إِلَىٰ ضُرٍّ مَسَّهُ ۚ كَذَٰلِكَ زُيِّنَ لِلْمُسْرِفِينَ مَا كَانُوا يَعْمَلُونَ",
               translation: "And when harm touches man, he invokes Us, lying on his side, or sitting or standing. But when We have removed his harm from him, he passes on as if he had never invoked Us for a harm that touched him! Thus it is made fair-seeming to the Musrifûn that which they used to do.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -19414,7 +19414,7 @@ Monthly reports and annual audits are essential but retrospective — they tell 
             {
               kind: "quran",
               ref: "Quran 3:104",
-              arabic: "**Translation:** Let there arise out of you a group of people inviting to all that is good (Islâm), enjoining Al-Ma‘rûf (i.e. Islâmic Monotheism and all that Islâm orders one to do) and forbidding Al-Munkar (polytheism and disbelief and all that Islâm has forbidden). And it is they who are the successful.",
+              arabic: "وَلْتَكُنْ مِنْكُمْ أُمَّةٌ يَدْعُونَ إِلَى الْخَيْرِ وَيَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنْكَرِ ۚ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ",
               translation: "Let there arise out of you a group of people inviting to all that is good (Islâm), enjoining Al-Ma‘rûf (i.e. Islâmic Monotheism and all that Islâm orders one to do) and forbidding Al-Munkar (polytheism and disbelief and all that Islâm has forbidden). And it is they who are the successful.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -19423,7 +19423,7 @@ Monthly reports and annual audits are essential but retrospective — they tell 
             {
               kind: "quran",
               ref: "Quran 46:29",
-              arabic: "**Translation:** We sent a group of jinn to you [Prophet] to listen to the Quran. When they heard it, they said to one another, ‘Be quiet!’ Then when it was finished they turned to their community and gave them warning.",
+              arabic: "وَإِذْ صَرَفْنَا إِلَيْكَ نَفَرًا مِنَ الْجِنِّ يَسْتَمِعُونَ الْقُرْآنَ فَلَمَّا حَضَرُوهُ قَالُوا أَنْصِتُوا ۖ فَلَمَّا قُضِيَ وَلَّوْا إِلَىٰ قَوْمِهِمْ مُنْذِرِينَ",
               translation: "We sent a group of jinn to you [Prophet] to listen to the Quran. When they heard it, they said to one another, ‘Be quiet!’ Then when it was finished they turned to their community and gave them warning.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -19699,7 +19699,7 @@ A shared calendar is the skeleton of communal life. Without it, families plan in
             {
               kind: "quran",
               ref: "Quran 17:78",
-              arabic: "**Translation:** Establish regular prayers - at the sun's decline till the darkness of the night, and the morning prayer and reading: for the prayer and reading in the morning carry their testimony.",
+              arabic: "أَقِمِ الصَّلَاةَ لِدُلُوكِ الشَّمْسِ إِلَىٰ غَسَقِ اللَّيْلِ وَقُرْآنَ الْفَجْرِ ۖ إِنَّ قُرْآنَ الْفَجْرِ كَانَ مَشْهُودًا",
               translation: "Establish regular prayers - at the sun's decline till the darkness of the night, and the morning prayer and reading: for the prayer and reading in the morning carry their testimony.",
               relevance: "direct",
               provenanceTier: "Bayyinah",

@@ -22,6 +22,8 @@ Project and task management with Kanban, List, and Gantt views. Uses dnd-kit for
 | FilterBar.css | Filter pill styles, active states |
 | TaskDetailPanel.jsx | Right-side panel for editing task details, subtasks, tags |
 | TaskDetailPanel.css | Side panel slide-in, field layouts |
+| ProjectSlideUp.jsx | Read-only project popup (Kanban-style snapshot) opened from Prophetic Path surfaces. Uses `useFocusTrap`; panel carries `pp-slideup__panel--wide`. Currently has no live UI trigger (the node popup's projects view was dropped) but stays wired via `onSelectProject` |
+| ProjectSlideUp.css | **The app-wide centered-popup chrome** — `.pp-slideup__root/backdrop/panel/header/…`. Root is centered flex (`justify-content/align-items: center`); panel is `width:min(92vw,620px)`, `height:auto; max-height:85vh`, radius 20, `pp-slideup-pop` entrance. `.pp-slideup__panel--wide` = `min(94vw,1100px)` × 88vh. Consumers: ProjectSlideUp, `islamic/SubmoduleSlideUp`, `islamic/NodePhaseSlideUp`, `orientation/OrientationSheet` — each layers overrides by importing its own CSS after this file |
 | PillarBoard.jsx | Board variant for pillar sub-pages (behind CeremonyGate) |
 | PillarBoard.css | Pillar board layout |
 | StageSidebar.jsx | Stage navigation sidebar for BBOS pipeline views |
@@ -62,6 +64,7 @@ StageSidebar (BBOS pipeline navigation)
 - Change column behavior → modify KanbanColumn (droppable) + KanbanBoard drag handlers
 
 ## Gotchas
+- `ProjectSlideUp.css` is shared chrome — geometry changes there move ALL four popups (see file inventory). Consumer overrides win by import order at equal specificity, so renaming/splitting selectors breaks them silently
 - Moving to "Done" column does NOT auto-set `completedAt` — component must handle this
 - Gantt undated tasks render at bottom without bars
 - View-only card opacity hardcoded to 0.55

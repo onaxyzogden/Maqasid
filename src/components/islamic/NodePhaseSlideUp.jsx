@@ -1,20 +1,23 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { X } from 'lucide-react';
+import { ArrowLeft, X } from 'lucide-react';
 import { useSettingsStore } from '@store/settings-store';
+import { useTaskStore } from '@store/task-store';
 import { useThresholdStore } from '@store/threshold-store';
 import { useFocusTrap } from '@hooks/useFocusTrap';
 import {
   buildTasksForNode,
-  buildUserProjectsForScope,
   getModuleGroups,
-  submodulesForNode,
+  LEVEL_FULL_LABEL,
 } from '@data/prophetic-path-submodules';
-import { getPillarSubmoduleIds } from '@data/submodule-registry';
+import { findNextEligibleSubtask, isSubtaskSatisfied } from '@data/orientation-selector';
 import { PRAYER_BOARD_PREFIX } from '@data/prayer-pillars';
+import { computeTodayKey } from '@/utils/islamic-day-key';
 import '@components/work/ProjectSlideUp.css';
 import CeremonySummary from './CeremonySummary';
 import PrayerHeroDuring from './PrayerHeroDuring';
+import SubtaskStepDetail from '../shared/SubtaskStepDetail';
+import OrientationActions from '../orientation/OrientationActions';
 import { MirrorCard, PPTaskCard } from './PropheticPathMirror';
 import { PRAYER_NODE_IDS, THRESHOLD_MODULE_BY_NODE } from './prophetic-path-constants';
 import './PropheticPath.css';
@@ -25,19 +28,28 @@ import './NodePhaseSlideUp.css';
 // currently active — so on most of the day's timeline the opening and closing
 // thresholds were unreachable.
 //
-// Before → opening threshold preview + that phase's tasks (prayer nodes: tasks only)
-// During → the node's content (MirrorCard), or the inline prayer guide (PrayerHeroDuring)
-// After  → closing threshold preview + that phase's tasks (prayer nodes: tasks only)
+// Non-prayer nodes:
+//   Before → opening threshold ceremony preview only (CeremonySummary)
+//   During → the node's content (MirrorCard) + ALL of the node's tasks
+//   After  → closing threshold ceremony preview only (CeremonySummary)
+// Prayer nodes:
+//   Before → that window's tasks · During → inline prayer guide (PrayerHeroDuring) · After → tasks
+//
+// Tasks for non-prayer nodes are deliberately consolidated onto During (the
+// whole node pool, phase-agnostic) so the Before/After tabs stay pure threshold
+// previews — see wiki decision 2026-07-25-milos-prayer-popup-consolidation.
+//
+// Tapping a task row drills into an inline Orientation-style step detail
+// (<SubtaskStepDetail> + the 3-action footer) INSIDE this popup — no hand-off
+// to TaskDetailPanel. The drill-in is keyed by { projectId, taskId } and every
+// row/subtask fact is re-derived live from phaseTasks each render, so store
+// mutations (mark done / doesn't apply / snooze) advance the Now step in place.
 
 const PHASES = [
   { id: 'before', label: 'Before' },
   { id: 'during', label: 'During' },
   { id: 'after', label: 'After' },
 ];
-
-// `buildTasksForNode` speaks the legacy slot vocabulary, where the node's own
-// window is 'main'.
-const SLOT_BY_PHASE = { before: 'before', during: 'main', after: 'after' };
 
 // For a prayer node the phase board IS the phase: `prayer_{id}_{before|during|
 // after}` is seeded per prayer per window, so read it directly instead of
@@ -81,7 +93,7 @@ export default function NodePhaseSlideUp({
   projects,
   tasksByProject,
   submoduleNameById,
-  onSelectTask,
+  maghribRaw,
   onSelectProject,
   onSelectSubmodule,
   onClose,
@@ -89,11 +101,24 @@ export default function NodePhaseSlideUp({
   const theme = useSettingsStore((s) => s.theme) ?? 'light';
   const setOpeningModuleId = useThresholdStore((s) => s.setOpeningModuleId);
   const setClosingModuleId = useThresholdStore((s) => s.setClosingModuleId);
+  const toggleSubtask = useTaskStore((s) => s.toggleSubtask);
+  const updateSubtask = useTaskStore((s) => s.updateSubtask);
 
   const [phase, setPhase] = useState('during');
   const moduleGroups = useMemo(() => getModuleGroups(node.id), [node.id]);
   const [moduleId, setModuleId] = useState(() => moduleGroups[0]?.id || null);
   const [viewMode, setViewMode] = useState('action');
+  // { projectId, taskId } of the row drilled into (null = task list). A key,
+  // not a snapshot — the row itself is re-found in phaseTasks each render.
+  const [detailKey, setDetailKey] = useState(null);
+
+  // Islamic-day key for snooze targeting + eligibility, computed in an effect
+  // so the wall-clock read stays out of render (react-hooks/purity) — same
+  // sanctioned pattern as Orientation.jsx.
+  const [todayKey, setTodayKey] = useState(null);
+  useEffect(() => {
+    setTodayKey(computeTodayKey(maghribRaw));
+  }, [maghribRaw]);
 
   const panelRef = useFocusTrap(true, onClose);
 
@@ -102,7 +127,6 @@ export default function NodePhaseSlideUp({
   // over the user-selected moduleGroup so the ceremony content matches the
   // node's covenant — moduleGroups still steer the task list.
   const thresholdModuleId = THRESHOLD_MODULE_BY_NODE[node.id] || moduleId || 'work';
-  const slot = SLOT_BY_PHASE[phase];
 
   const phaseTasks = useMemo(
     () => (isPrayerNode
@@ -113,26 +137,64 @@ export default function NodePhaseSlideUp({
         tasksByProject,
         submoduleNameById['faith-salah'] || 'Salah',
       )
+      // Non-prayer nodes surface their tasks only on During, so pull the whole
+      // node pool (phase: null skips the before/main/after split) and lift the
+      // limit so the merged Before+main+After set isn't truncated at 8.
       : buildTasksForNode(node.id, projects, tasksByProject, {
-        limit: 8,
+        limit: 20,
         submoduleNameById,
-        phase: slot,
+        phase: null,
         moduleId,
       })),
-    [isPrayerNode, node.id, phase, projects, tasksByProject, submoduleNameById, slot, moduleId],
+    [isPrayerNode, node.id, phase, projects, tasksByProject, submoduleNameById, moduleId],
   );
-
-  const showProjects = node.id === 'midday-labor' && phase === 'during' && viewMode === 'action';
-  const scopeProjects = useMemo(() => {
-    if (!showProjects) return [];
-    const pillarSubs = getPillarSubmoduleIds(moduleId);
-    const scopeIds = pillarSubs.length > 0 ? pillarSubs : submodulesForNode(node.id, moduleId);
-    return buildUserProjectsForScope(projects, scopeIds);
-  }, [showProjects, projects, node.id, moduleId]);
 
   const handleSelectTask = (taskId) => {
     const row = phaseTasks.find((r) => r.id === taskId);
-    if (row) onSelectTask(row);
+    if (row) setDetailKey({ projectId: row.projectId, taskId: row.id });
+  };
+
+  // Tab switches leave the drill-in — each tab is its own task pool, so a held
+  // detailKey would either dangle or point at a different window's task.
+  const selectPhase = (id) => {
+    setPhase(id);
+    setDetailKey(null);
+  };
+  const selectModuleId = (id) => {
+    setModuleId(id);
+    setDetailKey(null);
+  };
+
+  // Live derivation — no snapshots. The decorated row is re-found in the
+  // freshly-built phaseTasks each render, so a store mutation advances the Now
+  // subtask (or flips to the complete state) without any bookkeeping. If the
+  // row leaves the pool entirely, detailRow is null and the body falls back to
+  // the task list.
+  const detailRow = detailKey
+    ? phaseTasks.find((r) => r.id === detailKey.taskId) || null
+    : null;
+  const nowSubtask = detailRow ? findNextEligibleSubtask(detailRow, todayKey) : null;
+  const taskStats = detailRow
+    ? {
+      done: (detailRow.subtasks || []).filter(isSubtaskSatisfied).length,
+      total: (detailRow.subtasks || []).length,
+    }
+    : null;
+
+  // Same store actions as Orientation's sheet. toggleSubtask never sets task
+  // completedAt, so acting on the last step keeps the row in the pool — the
+  // drill-in stays put and shows the complete state (no auto-navigation).
+  const handleMarkDone = () => {
+    if (!detailRow || !nowSubtask) return;
+    toggleSubtask(detailRow.projectId, detailRow.id, nowSubtask.id);
+  };
+  const handleNotApplicable = () => {
+    if (!detailRow || !nowSubtask) return;
+    updateSubtask(detailRow.projectId, detailRow.id, nowSubtask.id, { notApplicable: true });
+  };
+  const handleNotToday = () => {
+    if (!detailRow || !nowSubtask) return;
+    updateSubtask(detailRow.projectId, detailRow.id, nowSubtask.id, { snoozedUntilDayKey: todayKey });
   };
 
   // Hand off to the globally-mounted ThresholdModal (AppShell) and step out of
@@ -154,7 +216,33 @@ export default function NodePhaseSlideUp({
   );
 
   let body;
-  if (phase === 'during') {
+  if (detailRow) {
+    // Drill-in: inline step detail replaces whichever task list the row was
+    // tapped in (prayer Before/After list or non-prayer During mirror list).
+    // PrayerHeroDuring and CeremonySummary never reach here — those surfaces
+    // have no task rows.
+    body = (
+      <div className="pp-phase-detail">
+        <button
+          type="button"
+          className="pp-phase-detail__back"
+          onClick={() => setDetailKey(null)}
+        >
+          <ArrowLeft size={16} aria-hidden="true" />
+          Back to tasks
+        </button>
+        <SubtaskStepDetail
+          crumbParts={[
+            detailRow._level != null ? LEVEL_FULL_LABEL[detailRow._level] : null,
+            detailRow._submoduleName,
+          ]}
+          task={detailRow}
+          subtask={nowSubtask}
+          taskStats={taskStats}
+        />
+      </div>
+    );
+  } else if (phase === 'during') {
     body = isPrayerNode ? (
       // The prayer itself — its own Before/During/After sunan surfaced inline
       // (rakaʿat, postures, adhkar) rather than a hand-off to a separate view.
@@ -163,7 +251,6 @@ export default function NodePhaseSlideUp({
       <MirrorCard
         node={node}
         tasks={phaseTasks}
-        projects={scopeProjects}
         onSelectTask={handleSelectTask}
         onSelectProject={onSelectProject}
         onSelectSubmodule={onSelectSubmodule}
@@ -172,27 +259,25 @@ export default function NodePhaseSlideUp({
         moduleGroups={moduleGroups}
         moduleId={moduleId}
         onViewMode={setViewMode}
-        onModuleId={setModuleId}
-        showProjects={showProjects}
+        onModuleId={selectModuleId}
+        showProjects={false}
       />
     );
   } else if (isPrayerNode) {
     // Prayer nodes: tasks only. The per-prayer Sunnah rawatib summary was
     // removed from this popup per user request; the tab label supplies the
-    // Before/After context. Rendered without the .pp-phase-tasks wrapper so
-    // its separator border-top isn't stranded at the top (the panel body has
-    // its own padding).
+    // Before/After context. Rendered as a bare list (no separator wrapper) so
+    // it sits flush against the panel body's own padding.
     body = taskList;
   } else {
+    // Non-prayer Before/After: threshold ceremony preview only. The task list
+    // now lives on During (see the phaseTasks note above).
     body = (
-      <>
-        <CeremonySummary
-          moduleId={thresholdModuleId}
-          type={phase === 'before' ? 'opening' : 'closing'}
-          onBegin={() => beginCeremony(phase === 'before' ? 'opening' : 'closing')}
-        />
-        <div className="pp-phase-tasks">{taskList}</div>
-      </>
+      <CeremonySummary
+        moduleId={thresholdModuleId}
+        type={phase === 'before' ? 'opening' : 'closing'}
+        onBegin={() => beginCeremony(phase === 'before' ? 'opening' : 'closing')}
+      />
     );
   }
 
@@ -238,7 +323,7 @@ export default function NodePhaseSlideUp({
                   aria-controls={`pp-phase-body-${p.id}`}
                   className="pp-pill-switch__btn"
                   data-active={phase === p.id || undefined}
-                  onClick={() => setPhase(p.id)}
+                  onClick={() => selectPhase(p.id)}
                 >
                   {p.label}
                 </button>
@@ -255,6 +340,16 @@ export default function NodePhaseSlideUp({
           >
             {body}
           </div>
+
+          {detailRow && nowSubtask && (
+            <div className="pp-phase-detail__footer">
+              <OrientationActions
+                onMarkDone={handleMarkDone}
+                onNotApplicable={handleNotApplicable}
+                onNotToday={handleNotToday}
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>,

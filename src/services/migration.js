@@ -1,8 +1,12 @@
 // Migration service — runs synchronously before React mounts
 // Schema version: 5.0 — unified contacts model
 
+import { listKeys } from './storage';
+import { repairBoardTasks } from './mojibake';
+
 const PREFIX = 'bbiz_';
 const SCHEMA_VERSION = '5.0';
+const MOJIBAKE_FLAG = 'mojibake_titles_repaired';
 
 function read(key) {
   try { return JSON.parse(localStorage.getItem(PREFIX + key)); }
@@ -39,7 +43,33 @@ function nanoidLite(len = 12) {
   return s;
 }
 
+// One-shot repair of cp1252-over-UTF-8 mojibake in persisted task/subtask
+// titles. The title is the join key that hydrates seed content by title, so a
+// stale corrupt title (saved before the seed files were repaired) orphans its
+// task from the now-clean seed — bare card, no sources, "Ungrounded". This
+// reverses the exact corruption in place so the join re-matches, deduping any
+// clean duplicate the idle backfill appended (never dropping a completion or
+// snooze). Gated by its own flag, independent of SCHEMA_VERSION, so it runs
+// once for existing 5.0 users without re-running the contacts migration.
+export function repairMojibakeTaskTitles() {
+  if (localStorage.getItem(PREFIX + MOJIBAKE_FLAG) === '1') return;
+  let boards = 0;
+  for (const key of listKeys('tasks_')) {
+    const tasks = read(key);
+    if (!Array.isArray(tasks) || tasks.length === 0) continue;
+    const boardId = key.slice('tasks_'.length);
+    const next = repairBoardTasks(tasks, boardId);
+    if (next !== tasks) { write(key, next); boards++; }
+  }
+  localStorage.setItem(PREFIX + MOJIBAKE_FLAG, '1');
+  if (boards) console.info(`[bbiz] mojibake title repair: ${boards} board(s) updated.`);
+}
+
 export function runMigrations() {
+  // Title repair first — before the SCHEMA_VERSION guard below returns early
+  // for already-migrated users, and before React mounts / any hydration reads.
+  repairMojibakeTaskTitles();
+
   const version = localStorage.getItem(PREFIX + 'schema_version');
   if (version === SCHEMA_VERSION) return; // already migrated
 

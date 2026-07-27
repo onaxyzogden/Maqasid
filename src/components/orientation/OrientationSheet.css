@@ -1,0 +1,73 @@
+/* Orientation sheet (centered popup) — extends the .pp-slideup__* chrome from
+   ProjectSlideUp.css. The only fixed element is that shared .pp-slideup__root;
+   every rule here styles content INSIDE the panel (no new position:fixed in
+   this module — see orientation/CONTEXT.md + project memory).
+   Colours are app design tokens throughout, so the sheet themes light/dark;
+   geometry follows the prototype. */
+
+/* Height / centring now come from the shared .pp-slideup__panel chrome; the
+   sheet only narrows the popup to a 520px reading column. Same class
+   specificity — wins by load order (this file imported after). */
+.os-sheet__panel {
+  max-width: 520px;
+}
+
+/* ---------- Header: bilingual pillar title ---------- */
+.os-sheet__swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-xs);
+}
+.os-sheet__ar {
+  font-family: var(--font-arabic);
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--text);
+}
+.os-sheet__en {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text2);
+}
+
+/* ---------- Body ---------- */
+.os-sheet__body {
+  padding: var(--space-4) var(--space-5) var(--space-6);
+  gap: var(--space-4);
+}
+
+/* The step-detail internals (crumb / task / tags / now / guide / clear blocks)
+   moved verbatim to shared/SubtaskStepDetail.css — the sheet renders them via
+   <SubtaskStepDetail>; class names kept. */
+
+/* ---------- Footer / actions ---------- */
+.os-sheet__footer {
+  flex-shrink: 0;
+  padding: var(--space-3) var(--space-5) calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+/* Primary spans the row; the two secondaries share the row below it. Works at
+   every width, so no separate mobile rule is needed. */
+.os-sheet__footer .orient-actions {
+  grid-template-columns: 1fr 1fr;
+}
+.os-sheet__footer .orient-actions__btn--primary {
+  grid-column: 1 / -1;
+}
+.os-sheet__footer--single {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 640px) {
+  .os-sheet__body {
+    padding: var(--space-4) var(--space-4) var(--space-6);
+  }
+  .os-sheet__footer {
+    padding: var(--space-3) var(--space-4) calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
+  }
+}

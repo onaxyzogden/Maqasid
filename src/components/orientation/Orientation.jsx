@@ -4,30 +4,17 @@ import { useProjectStore } from '../../store/project-store';
 import { useTaskStore } from '../../store/task-store';
 import { useSettingsStore } from '../../store/settings-store';
 import { usePrayerTimes } from '../../hooks/usePrayerTimes';
-import { currentIslamicDayKey } from '../../store/islamic-day-store';
-import { recommendOrientation } from '../../data/orientation-selector';
-import OrientationLadder from './OrientationLadder';
-import OrientationBalanceStrip from './OrientationBalanceStrip';
-import OrientationEvidence from './OrientationEvidence';
-import OrientationActions from './OrientationActions';
+import { useMobile } from '../../hooks/useMobile';
+import { computeTodayKey } from '../../utils/islamic-day-key';
+import { getPillarById, getPillarLabel } from '../../data/maqasid';
+import { buildOrientationCarousel } from '../../data/orientation-selector';
+import OrientationCarousel from './OrientationCarousel';
+import OrientationSpread from './OrientationSpread';
+import OrientationSheet from './OrientationSheet';
 import './Orientation.css';
 
-// Local copy of the "HH:MM (TZ)" → epoch-ms parser duplicated across the
-// codebase (usePrayerTimes.js, PropheticPath.jsx) rather than centralized —
-// following existing precedent, see orientation/CONTEXT.md Gotchas.
-function timeToMs(raw, dayStart) {
-  if (!raw) return null;
-  const clean = raw.replace(/\s*\(.*\)/, '');
-  const match = /^(\d{1,2}):(\d{2})/.exec(clean);
-  if (!match) return null;
-  const d = new Date(dayStart);
-  d.setHours(Number(match[1]), Number(match[2]), 0, 0);
-  return d.getTime();
-}
-
-function localDayKey() {
-  const d = new Date();
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+function lowerFirst(text) {
+  return text ? text.charAt(0).toLowerCase() + text.slice(1) : text;
 }
 
 export default function Orientation() {
@@ -35,43 +22,62 @@ export default function Orientation() {
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
   const toggleSubtask = useTaskStore((s) => s.toggleSubtask);
   const updateSubtask = useTaskStore((s) => s.updateSubtask);
+  const updateTask = useTaskStore((s) => s.updateTask);
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const { timings } = usePrayerTimes();
+  const maghribRaw = timings?.Maghrib ?? null;
+  const mobile = useMobile();
 
-  const todayKey = timings?.Maghrib
-    ? currentIslamicDayKey(Date.now(), timeToMs(timings.Maghrib, new Date())) || localDayKey()
-    : localDayKey();
-
-  // undefined = not yet computed (avoids an empty-state flash on first paint)
-  const [recommendation, setRecommendation] = useState(undefined);
-  const [pickerOpen, setPickerOpen] = useState(false);
+  // undefined = not yet computed (avoids an empty-state flash on first paint).
+  const [model, setModel] = useState(undefined);
+  const [openPillarId, setOpenPillarId] = useState(null);
+  const [focusPillarId, setFocusPillarId] = useState(null);
   const [ack, setAck] = useState(null);
 
-  // Continuity/override are refs, not state: they're read once per recompute
-  // and mutated by that same effect, never directly driving a render. Actions
-  // either mutate the store (which changes projects/tasksByProject and lets
-  // the effect below react) or bump `tick` to force a recompute with no
-  // store mutation (the "Something else" pillar pick).
-  const heldRef = useRef(null);
-  const overrideRef = useRef(null);
-  const [tick, setTick] = useState(0);
+  // Carries an action's intent across the store-driven recompute below. Set
+  // synchronously in a handler (before the store mutation re-renders us), read
+  // once in the effect, then cleared — never drives a render directly.
+  const pendingRef = useRef(null);
 
+  // The Islamic-day key the current model was built for. Handlers reuse it so a
+  // snooze targets the day the user is looking at — not a freshly-recomputed key
+  // if Maghrib happened to roll over between this render and the tap.
+  const dayKeyRef = useRef(null);
+
+  // Effect-driven recompute (not handler-driven): actions mutate the store,
+  // which changes projects/tasksByProject and lets this effect rebuild the
+  // carousel. Keeps the wall-clock read (computeTodayKey) out of render.
   useEffect(() => {
-    const usedOverride = overrideRef.current;
-    const rec = recommendOrientation({
+    dayKeyRef.current = computeTodayKey(maghribRaw);
+    const next = buildOrientationCarousel({
       projects,
       tasksByProject,
-      heldTaskKey: heldRef.current,
-      overridePillarId: usedOverride,
-      todayKey,
+      todayKey: dayKeyRef.current,
     });
-    overrideRef.current = null; // override is one-shot: consumed by this computation only
-    heldRef.current = rec ? { projectId: rec.project.id, taskId: rec.task.id } : null;
-    setRecommendation(rec);
-    if (usedOverride && rec?.wasSetAside) {
-      setAck({ tone: 'neutral', text: `Set aside — now showing ${rec.pillar.sidebarLabel}.` });
+    setModel(next);
+
+    const pending = pendingRef.current;
+    if (pending) {
+      pendingRef.current = null;
+      const card = next.cards.find((c) => c.pillar.id === pending.pillarId);
+      if (card?.hasEligible) {
+        // The pillar still has an actionable step, so the sheet stays open and
+        // advances in place. Either the same task rolled to its next subtask
+        // (ackSame), or that task cleared / was set aside and the board rolled to
+        // a different task — same board or a sibling board in the pillar (ackAdvance).
+        const sameTask = card.task?.id === pending.taskId;
+        setAck(sameTask ? pending.ackSame : pending.ackAdvance);
+      } else {
+        // Nothing actionable left in this pillar today (board complete, or the
+        // task was snoozed and no sibling board has its prerequisites met) — close
+        // the sheet and nudge toward whatever is now weakest (recommendedPillarId
+        // itself falls through cross-pillar).
+        setOpenPillarId(null);
+        setFocusPillarId(next.recommendedPillarId);
+        setAck(pending.ackClose);
+      }
     }
-  }, [projects, tasksByProject, todayKey, tick]);
+  }, [projects, tasksByProject, maghribRaw]);
 
   useEffect(() => {
     if (!ack) return undefined;
@@ -79,37 +85,63 @@ export default function Orientation() {
     return () => clearTimeout(t);
   }, [ack]);
 
+  const openCard = model && openPillarId
+    ? model.cards.find((c) => c.pillar.id === openPillarId) ?? null
+    : null;
+
+  // Acting on a pillar other than the recommended (weakest) one is fine — the
+  // carousel is a free picker — but the ack names what was set aside, so the
+  // nudge toward the weakest domain stays visible.
+  const buildAck = (tone, text) => {
+    const rec = model?.recommendedPillarId;
+    if (rec && openPillarId && openPillarId !== rec) {
+      const recLabel = getPillarLabel(getPillarById(rec), valuesLayer);
+      return { tone, text: `Set aside ${recLabel} — ${lowerFirst(text)}` };
+    }
+    return { tone, text };
+  };
+
+  // All three handlers act on the TRUE current step read off the card
+  // (openCard.task / openCard.subtask), never the previewed step — the sheet
+  // disables them while browsing ahead/back, and reading the current step here is
+  // the real guard behind that UI one.
   const handleMarkDone = () => {
-    if (!recommendation) return;
-    const { project, task, subtask } = recommendation;
+    if (!openCard?.subtask) return;
+    const { project, task, subtask } = openCard;
     toggleSubtask(project.id, task.id, subtask.id);
-    setAck({ tone: 'success', text: 'Marked done.' });
+    pendingRef.current = {
+      pillarId: openPillarId,
+      taskId: task.id,
+      ackSame: buildAck('success', 'Marked done.'),
+      ackAdvance: buildAck('success', 'Task complete.'),
+      ackClose: buildAck('success', 'Task complete.'),
+    };
   };
 
   const handleNotApplicable = () => {
-    if (!recommendation) return;
-    const { project, task, subtask } = recommendation;
+    if (!openCard?.subtask) return;
+    const { project, task, subtask } = openCard;
     updateSubtask(project.id, task.id, subtask.id, { notApplicable: true });
-    setAck({ tone: 'neutral', text: "Marked doesn't apply." });
+    const a = buildAck('neutral', "Marked doesn't apply.");
+    pendingRef.current = { pillarId: openPillarId, taskId: task.id, ackSame: a, ackAdvance: a, ackClose: a };
   };
 
+  // "Not today" sets the whole TASK aside for the day (task-level snooze), not a
+  // single subtask — the entire chain re-locks and the surface falls through to a
+  // sibling board or, failing that, another pillar (see recommendOrientation).
   const handleNotToday = () => {
-    if (!recommendation) return;
-    const { project, task, subtask } = recommendation;
-    updateSubtask(project.id, task.id, subtask.id, { snoozedUntilDayKey: todayKey });
-    setAck({ tone: 'neutral', text: 'Snoozed until tomorrow.' });
+    if (!openCard?.task) return;
+    const { project, task } = openCard;
+    updateTask(project.id, task.id, { snoozedUntilDayKey: dayKeyRef.current });
+    const a = buildAck('neutral', 'Snoozed until tomorrow.');
+    pendingRef.current = { pillarId: openPillarId, taskId: task.id, ackSame: a, ackAdvance: a, ackClose: a };
   };
 
-  const handleSelectPillar = (pillarId) => {
-    setPickerOpen(false);
-    heldRef.current = null;
-    overrideRef.current = pillarId;
-    setTick((t) => t + 1);
-  };
+  if (model === undefined) return null;
 
-  if (recommendation === undefined) return null;
+  const anyEligible = model.cards.some((c) => c.hasEligible);
 
-  if (!recommendation) {
+  if (!anyEligible) {
     return (
       <div className="orient-page orient-page--empty">
         <div className="orient-empty motif-soft-glass">
@@ -131,28 +163,43 @@ export default function Orientation() {
         </div>
       )}
 
-      <OrientationLadder recommendation={recommendation} valuesLayer={valuesLayer} />
+      <header className="orient-head">
+        <p className="orient-head__eyebrow">Orientation</p>
+        <h1 className="orient-head__title">What&apos;s next</h1>
+        <p className="orient-head__sub">
+          {mobile
+            ? <>Your weakest domain leads. Swipe through the seven &mdash; tap a card to open its next step.</>
+            : <>Your weakest domain leads. Pick a domain from the rail &mdash; tap the card to open its next step.</>}
+        </p>
+      </header>
 
-      <OrientationBalanceStrip
-        rankedPillars={recommendation.rankedPillars}
-        activePillarId={recommendation.pillar.id}
-        valuesLayer={valuesLayer}
-        pickerOpen={pickerOpen}
-        onSelectPillar={handleSelectPillar}
-      />
+      {mobile ? (
+        <OrientationCarousel
+          cards={model.cards}
+          valuesLayer={valuesLayer}
+          focusPillarId={focusPillarId}
+          onOpenCard={setOpenPillarId}
+        />
+      ) : (
+        <OrientationSpread
+          cards={model.cards}
+          valuesLayer={valuesLayer}
+          focusPillarId={focusPillarId}
+          onSelect={setFocusPillarId}
+          onOpenCard={setOpenPillarId}
+        />
+      )}
 
-      <div className="orient-now motif-soft-glass">
-        <h1 className="orient-now__title">{recommendation.subtask.title}</h1>
-        <OrientationEvidence subtask={recommendation.subtask} />
-      </div>
-
-      <OrientationActions
-        onMarkDone={handleMarkDone}
-        onNotApplicable={handleNotApplicable}
-        onSomethingElse={() => setPickerOpen((v) => !v)}
-        onNotToday={handleNotToday}
-        pickerOpen={pickerOpen}
-      />
+      {openCard && (
+        <OrientationSheet
+          card={openCard}
+          valuesLayer={valuesLayer}
+          onMarkDone={handleMarkDone}
+          onNotApplicable={handleNotApplicable}
+          onNotToday={handleNotToday}
+          onClose={() => setOpenPillarId(null)}
+        />
+      )}
     </div>
   );
 }

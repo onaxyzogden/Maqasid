@@ -1,19 +1,19 @@
-﻿// Niyyah Ad-lib â€” feeling vocabulary (á¸¥Äl al-qalb, states of the heart).
-// Rooted in Ê¿ilm al-nafs / tazkiyah. Islamic label is the primary surface
+// Niyyah Ad-lib — feeling vocabulary (ḥāl al-qalb, states of the heart).
+// Rooted in ʿilm al-nafs / tazkiyah. Islamic label is the primary surface
 // when settingsStore.valuesLayer === 'islamic'; otherwise the universal
 // label is shown.
 //
 // Schema:
-//   id               â€” stable key persisted to threshold-store
-//   arabic           â€” Arabic term (with á¸¥arakÄt where disambiguating)
-//   translit         â€” transliteration (ALA-LC style with macrons)
-//   englishIslamic   â€” primary English surface inside the Islamic layer
-//   universal        â€” surface for valuesLayer === 'universal'
-//   valence          â€” 'positive' | 'negative' (for UI ordering / tone)
-//   note             â€” one-line plain-English gloss (tooltip)
-//   grounding        â€” optional Quranic / classical reference (flag for
+//   id               — stable key persisted to threshold-store
+//   arabic           — Arabic term (with ḥarakāt where disambiguating)
+//   translit         — transliteration (ALA-LC style with macrons)
+//   englishIslamic   — primary English surface inside the Islamic layer
+//   universal        — surface for valuesLayer === 'universal'
+//   valence          — 'positive' | 'negative' (for UI ordering / tone)
+//   note             — one-line plain-English gloss (tooltip)
+//   grounding        — optional Quranic / classical reference (flag for
 //                      Muslim Scholar NotebookLM citation review before ship)
-//   pairsWellWith    â€” optional pillar ids that this feeling tends to
+//   pairsWellWith    — optional pillar ids that this feeling tends to
 //                      resonate with; used ONLY as a soft surface hint in
 //                      the submodule dropdown. Does not gate or exclude
 //                      any pillar (per "Never Blacklist Revelation" rule).
@@ -21,8 +21,8 @@
 export const NIYYAH_FEELINGS = [
   {
     id: 'sakinah',
-    arabic: "Ø³ÙŽÙƒÙÙŠÙ†ÙŽØ©",
-    translit: "SakÄ«nah",
+    arabic: "سَكِينَة",
+    translit: "Sakīnah",
     englishIslamic: 'Settled tranquility',
     universal: 'Calm',
     valence: 'positive',
@@ -32,8 +32,8 @@ export const NIYYAH_FEELINGS = [
   },
   {
     id: 'inshirah',
-    arabic: "Ø§ÙÙ†Ù’Ø´ÙØ±ÙŽØ§Ø­ Ø§Ù„ØµÙŽÙ‘Ø¯Ù’Ø±",
-    translit: "InshirÄá¸¥ aá¹£-á¹£adr",
+    arabic: "اِنْشِرَاح الصَّدْر",
+    translit: "Inshirāḥ aṣ-ṣadr",
     englishIslamic: 'Expanded chest',
     universal: 'Open',
     valence: 'positive',
@@ -43,8 +43,8 @@ export const NIYYAH_FEELINGS = [
   },
   {
     id: 'tumaninah',
-    arabic: "Ø·ÙÙ…ÙŽØ£Ù’Ù†ÙÙŠÙ†ÙŽØ©",
-    translit: "á¹¬umaÊ¾nÄ«nah",
+    arabic: "طُمَأْنِينَة",
+    translit: "Ṭumaʾnīnah",
     englishIslamic: 'Deep reassurance',
     universal: 'Grounded',
     valence: 'positive',
@@ -54,7 +54,7 @@ export const NIYYAH_FEELINGS = [
   },
   {
     id: 'shukr',
-    arabic: "Ø´ÙÙƒÙ’Ø±",
+    arabic: "شُكْر",
     translit: "Shukr",
     englishIslamic: 'Grateful',
     universal: 'Grateful',
@@ -65,8 +65,8 @@ export const NIYYAH_FEELINGS = [
   },
   {
     id: 'khushu',
-    arabic: "Ø®ÙØ´ÙÙˆØ¹",
-    translit: "KhushÅ«Ê¿",
+    arabic: "خُشُوع",
+    translit: "Khushūʿ",
     englishIslamic: 'Reverently focused',
     universal: 'Focused',
     valence: 'positive',
@@ -76,8 +76,8 @@ export const NIYYAH_FEELINGS = [
   },
   {
     id: 'raja',
-    arabic: "Ø±ÙŽØ¬ÙŽØ§Ø¡",
-    translit: "RajÄÊ¾",
+    arabic: "رَجَاء",
+    translit: "Rajāʾ",
     englishIslamic: 'Hopeful',
     universal: 'Hopeful',
     valence: 'positive',
@@ -87,7 +87,7 @@ export const NIYYAH_FEELINGS = [
   },
   {
     id: 'shawq',
-    arabic: "Ø´ÙŽÙˆÙ’Ù‚",
+    arabic: "شَوْق",
     translit: "Shawq",
     englishIslamic: 'Yearning',
     universal: 'Curious',
@@ -97,8 +97,8 @@ export const NIYYAH_FEELINGS = [
   },
   {
     id: 'qabd',
-    arabic: "Ù‚ÙŽØ¨Ù’Ø¶",
-    translit: "Qabá¸",
+    arabic: "قَبْض",
+    translit: "Qabḍ",
     englishIslamic: 'Contracted heart',
     universal: 'Restless',
     valence: 'negative',
@@ -107,8 +107,8 @@ export const NIYYAH_FEELINGS = [
   },
   {
     id: 'dayq',
-    arabic: "Ø¶ÙÙŠÙ‚ Ø§Ù„ØµÙŽÙ‘Ø¯Ù’Ø±",
-    translit: "á¸Œayq aá¹£-á¹£adr",
+    arabic: "ضِيق الصَّدْر",
+    translit: "Ḍayq aṣ-ṣadr",
     englishIslamic: 'Tightened chest',
     universal: 'Overwhelmed',
     valence: 'negative',
@@ -118,7 +118,7 @@ export const NIYYAH_FEELINGS = [
   },
   {
     id: 'ghaflah',
-    arabic: "ØºÙŽÙÙ’Ù„ÙŽØ©",
+    arabic: "غَفْلَة",
     translit: "Ghaflah",
     englishIslamic: 'Heedless / distant',
     universal: 'Distant',
@@ -129,8 +129,8 @@ export const NIYYAH_FEELINGS = [
   },
   {
     id: 'huzn',
-    arabic: "Ø­ÙØ²Ù’Ù†",
-    translit: "á¸¤uzn",
+    arabic: "حُزْن",
+    translit: "Ḥuzn",
     englishIslamic: 'Sorrowful',
     universal: 'Heavy',
     valence: 'negative',
@@ -139,8 +139,8 @@ export const NIYYAH_FEELINGS = [
   },
   {
     id: 'hayrah',
-    arabic: "Ø­ÙŽÙŠÙ’Ø±ÙŽØ©",
-    translit: "á¸¤ayrah",
+    arabic: "حَيْرَة",
+    translit: "Ḥayrah",
     englishIslamic: 'Bewildered',
     universal: 'Unsure',
     valence: 'negative',

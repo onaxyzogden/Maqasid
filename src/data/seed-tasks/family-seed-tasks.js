@@ -456,7 +456,7 @@ Just as the wife has rights over her husband, the husband has rights over his wi
             {
               kind: "quran",
               ref: "Quran 47:20",
-              arabic: "**Translation:** The believers used to say: “Why is a surah (that would ordain fighting) not revealed?” But when a definitive surah was revealed wherein fighting was mentioned, you saw that those in whose hearts there was a sickness looked at you as though they were about to faint at the approach of death. Pity on them!",
+              arabic: "وَيَقُولُ الَّذِينَ آمَنُوا لَوْلَا نُزِّلَتْ سُورَةٌ ۖ فَإِذَا أُنْزِلَتْ سُورَةٌ مُحْكَمَةٌ وَذُكِرَ فِيهَا الْقِتَالُ ۙ رَأَيْتَ الَّذِينَ فِي قُلُوبِهِمْ مَرَضٌ يَنْظُرُونَ إِلَيْكَ نَظَرَ الْمَغْشِيِّ عَلَيْهِ مِنَ الْمَوْتِ ۖ فَأَوْلَىٰ لَهُمْ",
               translation: "The believers used to say: “Why is a surah (that would ordain fighting) not revealed?” But when a definitive surah was revealed wherein fighting was mentioned, you saw that those in whose hearts there was a sickness looked at you as though they were about to faint at the approach of death. Pity on them!",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -816,7 +816,7 @@ Patterns of abuse — even "minor" verbal aggression — rarely resolve through 
             {
               kind: "quran",
               ref: "Quran 3:146",
-              arabic: "**Translation:** And many a Prophet (i.e. many from amongst the Prophets) fought (in Allâh’s Cause) and along with him (fought) large bands of religious learned men. But they never lost heart for that which did befall them in Allâh’s Way, nor did they weaken nor degrade themselves. And Allâh loves As-Sâbirûn (the patient).",
+              arabic: "وَكَأَيِّنْ مِنْ نَبِيٍّ قَاتَلَ مَعَهُ رِبِّيُّونَ كَثِيرٌ فَمَا وَهَنُوا لِمَا أَصَابَهُمْ فِي سَبِيلِ اللَّهِ وَمَا ضَعُفُوا وَمَا اسْتَكَانُوا ۗ وَاللَّهُ يُحِبُّ الصَّابِرِينَ",
               translation: "And many a Prophet (i.e. many from amongst the Prophets) fought (in Allâh’s Cause) and along with him (fought) large bands of religious learned men. But they never lost heart for that which did befall them in Allâh’s Way, nor did they weaken nor degrade themselves. And Allâh loves As-Sâbirûn (the patient).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -825,7 +825,7 @@ Patterns of abuse — even "minor" verbal aggression — rarely resolve through 
             {
               kind: "quran",
               ref: "Quran 33:53",
-              arabic: "**Translation:** Believers, do not enter the Prophet’s apartments for a meal unless you are given permission to do so; do not linger until [a meal] is ready. When you are invited, go in; then, when you have taken your meal, leave. Do not stay on and talk, for that would offend the Prophet, though he would shrink from asking you to leave. God does not shrink from the truth. When you ask his wives for something, do so from behind a screen: this is purer both for your hearts and for theirs. It is not right for you to offend God’s Messenger, just as you should never marry his wives after him: that would be grievous in God’s eyes.",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تَدْخُلُوا بُيُوتَ النَّبِيِّ إِلَّا أَنْ يُؤْذَنَ لَكُمْ إِلَىٰ طَعَامٍ غَيْرَ نَاظِرِينَ إِنَاهُ وَلَٰكِنْ إِذَا دُعِيتُمْ فَادْخُلُوا فَإِذَا طَعِمْتُمْ فَانْتَشِرُوا وَلَا مُسْتَأْنِسِينَ لِحَدِيثٍ ۚ إِنَّ ذَٰلِكُمْ كَانَ يُؤْذِي النَّبِيَّ فَيَسْتَحْيِي مِنْكُمْ ۖ وَاللَّهُ لَا يَسْتَحْيِي مِنَ الْحَقِّ ۚ وَإِذَا سَأَلْتُمُوهُنَّ مَتَاعًا فَاسْأَلُوهُنَّ مِنْ وَرَاءِ حِجَابٍ ۚ ذَٰلِكُمْ أَطْهَرُ لِقُلُوبِكُمْ وَقُلُوبِهِنَّ ۚ وَمَا كَانَ لَكُمْ أَنْ تُؤْذُوا رَسُولَ اللَّهِ وَلَا أَنْ تَنْكِحُوا أَزْوَاجَهُ مِنْ بَعْدِهِ أَبَدًا ۚ إِنَّ ذَٰلِكُمْ كَانَ عِنْدَ اللَّهِ عَظِيمًا",
               translation: "Believers, do not enter the Prophet’s apartments for a meal unless you are given permission to do so; do not linger until [a meal] is ready. When you are invited, go in; then, when you have taken your meal, leave. Do not stay on and talk, for that would offend the Prophet, though he would shrink from asking you to leave. God does not shrink from the truth. When you ask his wives for something, do so from behind a screen: this is purer both for your hearts and for theirs. It is not right for you to offend God’s Messenger, just as you should never marry his wives after him: that would be grievous in God’s eyes.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -1243,7 +1243,7 @@ The habit of shared learning is more valuable than any single book. Completing o
             {
               kind: "quran",
               ref: "Quran 33:55",
-              arabic: "**Translation:** The Prophet’s wives are not to blame [if they are seen by] their fathers, their sons, their brothers, their brothers’ sons, their sisters’ sons, their women, or their slaves. [Wives of the Prophet], be mindful of God. God observes everything.",
+              arabic: "لَا جُنَاحَ عَلَيْهِنَّ فِي آبَائِهِنَّ وَلَا أَبْنَائِهِنَّ وَلَا إِخْوَانِهِنَّ وَلَا أَبْنَاءِ إِخْوَانِهِنَّ وَلَا أَبْنَاءِ أَخَوَاتِهِنَّ وَلَا نِسَائِهِنَّ وَلَا مَا مَلَكَتْ أَيْمَانُهُنَّ ۗ وَاتَّقِينَ اللَّهَ ۚ إِنَّ اللَّهَ كَانَ عَلَىٰ كُلِّ شَيْءٍ شَهِيدًا",
               translation: "The Prophet’s wives are not to blame [if they are seen by] their fathers, their sons, their brothers, their brothers’ sons, their sisters’ sons, their women, or their slaves. [Wives of the Prophet], be mindful of God. God observes everything.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -1252,7 +1252,7 @@ The habit of shared learning is more valuable than any single book. Completing o
             {
               kind: "quran",
               ref: "Quran 33:50",
-              arabic: "**Translation:** Prophet, We have made lawful for you the wives whose bride gift you have paid, and any slaves God has assigned to you through war, and the daughters of your uncles and aunts on your father’s and mother’s sides, who migrated with you. Also any believing woman who has offered herself to the Prophet and whom the Prophet wishes to wed- this is only for you [Prophet] and not the rest of the believers: We know exactly what We have made obligatory for them concerning their wives and slave-girls- so you should not be blamed: God is most forgiving, most merciful.",
+              arabic: "يَا أَيُّهَا النَّبِيُّ إِنَّا أَحْلَلْنَا لَكَ أَزْوَاجَكَ اللَّاتِي آتَيْتَ أُجُورَهُنَّ وَمَا مَلَكَتْ يَمِينُكَ مِمَّا أَفَاءَ اللَّهُ عَلَيْكَ وَبَنَاتِ عَمِّكَ وَبَنَاتِ عَمَّاتِكَ وَبَنَاتِ خَالِكَ وَبَنَاتِ خَالَاتِكَ اللَّاتِي هَاجَرْنَ مَعَكَ وَامْرَأَةً مُؤْمِنَةً إِنْ وَهَبَتْ نَفْسَهَا لِلنَّبِيِّ إِنْ أَرَادَ النَّبِيُّ أَنْ يَسْتَنْكِحَهَا خَالِصَةً لَكَ مِنْ دُونِ الْمُؤْمِنِينَ ۗ قَدْ عَلِمْنَا مَا فَرَضْنَا عَلَيْهِمْ فِي أَزْوَاجِهِمْ وَمَا مَلَكَتْ أَيْمَانُهُمْ لِكَيْلَا يَكُونَ عَلَيْكَ حَرَجٌ ۗ وَكَانَ اللَّهُ غَفُورًا رَحِيمًا",
               translation: "Prophet, We have made lawful for you the wives whose bride gift you have paid, and any slaves God has assigned to you through war, and the daughters of your uncles and aunts on your father’s and mother’s sides, who migrated with you. Also any believing woman who has offered herself to the Prophet and whom the Prophet wishes to wed- this is only for you [Prophet] and not the rest of the believers: We know exactly what We have made obligatory for them concerning their wives and slave-girls- so you should not be blamed: God is most forgiving, most merciful.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2571,7 +2571,7 @@ Young children learn through sensory experience, repetition, and emotion — not
             {
               kind: "quran",
               ref: "Quran 3:48",
-              arabic: "**Translation:** And He (Allâh) will teach him [(‘Îsâ (Jesus)] the Book and Al-Hikmah (i.e. the Sunnah, the faultless speech of the Prophets, wisdom), (and) the Taurât (Torah) and the Injeel (Gospel).",
+              arabic: "وَيُعَلِّمُهُ الْكِتَابَ وَالْحِكْمَةَ وَالتَّوْرَاةَ وَالْإِنْجِيلَ",
               translation: "And He (Allâh) will teach him [(‘Îsâ (Jesus)] the Book and Al-Hikmah (i.e. the Sunnah, the faultless speech of the Prophets, wisdom), (and) the Taurât (Torah) and the Injeel (Gospel).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2580,7 +2580,7 @@ Young children learn through sensory experience, repetition, and emotion — not
             {
               kind: "quran",
               ref: "Quran 21:106",
-              arabic: "**Translation:** Verily, in this (the Qur’ân) there is a plain Message for people who worship Allâh (i.e. the true, real believers of Islâmic Monotheism who act practically on the Qur’ân and the Sunnah - legal ways of the Prophet صلى الله عليه وسلم).",
+              arabic: "إِنَّ فِي هَٰذَا لَبَلَاغًا لِقَوْمٍ عَابِدِينَ",
               translation: "Verily, in this (the Qur’ân) there is a plain Message for people who worship Allâh (i.e. the true, real believers of Islâmic Monotheism who act practically on the Qur’ân and the Sunnah - legal ways of the Prophet صلى الله عليه وسلم).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2589,7 +2589,7 @@ Young children learn through sensory experience, repetition, and emotion — not
             {
               kind: "quran",
               ref: "Quran 15:6",
-              arabic: "**Translation:** They say, ‘Receiver of this Quran! You are definitely mad.",
+              arabic: "وَقَالُوا يَا أَيُّهَا الَّذِي نُزِّلَ عَلَيْهِ الذِّكْرُ إِنَّكَ لَمَجْنُونٌ",
               translation: "They say, ‘Receiver of this Quran! You are definitely mad.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3095,7 +3095,7 @@ Goals without timelines are wishes. The Quran is a lifelong companion, but struc
             {
               kind: "quran",
               ref: "Quran 40:55",
-              arabic: "**Translation:** So be patient (O Muhammad صلى الله عليه وسلم). Verily, the Promise of Allâh is true, and ask forgiveness for your fault and glorify the praises of your Lord in the ‘Ashî (i.e. the time period after the midnoon till sunset) and in the Ibkâr (i.e. the time period from early morning or sunrise till before midnoon) [it is said that, that means the five compulsory congregational Salât (prayers) or the ‘Asr and Fajr prayers].",
+              arabic: "فَاصْبِرْ إِنَّ وَعْدَ اللَّهِ حَقٌّ وَاسْتَغْفِرْ لِذَنْبِكَ وَسَبِّحْ بِحَمْدِ رَبِّكَ بِالْعَشِيِّ وَالْإِبْكَارِ",
               translation: "So be patient (O Muhammad صلى الله عليه وسلم). Verily, the Promise of Allâh is true, and ask forgiveness for your fault and glorify the praises of your Lord in the ‘Ashî (i.e. the time period after the midnoon till sunset) and in the Ibkâr (i.e. the time period from early morning or sunrise till before midnoon) [it is said that, that means the five compulsory congregational Salât (prayers) or the ‘Asr and Fajr prayers].",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3104,7 +3104,7 @@ Goals without timelines are wishes. The Quran is a lifelong companion, but struc
             {
               kind: "quran",
               ref: "Quran 30:17",
-              arabic: "**Translation:** So glorify Allâh [above all that (evil) they associate with Him (O believers)] when you come up to the evening [i.e. offer the (Maghrib ) sunset and (‘Ishâ’) night prayers], and when you enter the morning [i.e. offer the (Fajr) morning prayer].",
+              arabic: "فَسُبْحَانَ اللَّهِ حِينَ تُمْسُونَ وَحِينَ تُصْبِحُونَ",
               translation: "So glorify Allâh [above all that (evil) they associate with Him (O believers)] when you come up to the evening [i.e. offer the (Maghrib ) sunset and (‘Ishâ’) night prayers], and when you enter the morning [i.e. offer the (Fajr) morning prayer].",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3233,7 +3233,7 @@ Progress without recognition leads to discouragement. Children need to see that 
             {
               kind: "quran",
               ref: "Quran 5:95",
-              arabic: "**Translation:** O ye who believe! Kill not game while in the sacred precincts or in pilgrim garb. If any of you doth so intentionally, the compensation is an offering, brought to the Ka'ba, of a domestic animal equivalent to the one he killed, as adjudged by two just men among you; or by way of atonement, the feeding of the indigent; or its equivalent in fasts: that he may taste of the penalty of his deed. Allah forgives what is past: for repetition Allah will exact from him the penalty. For Allah is Exalted, and Lord of Retribution.",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تَقْتُلُوا الصَّيْدَ وَأَنْتُمْ حُرُمٌ ۚ وَمَنْ قَتَلَهُ مِنْكُمْ مُتَعَمِّدًا فَجَزَاءٌ مِثْلُ مَا قَتَلَ مِنَ النَّعَمِ يَحْكُمُ بِهِ ذَوَا عَدْلٍ مِنْكُمْ هَدْيًا بَالِغَ الْكَعْبَةِ أَوْ كَفَّارَةٌ طَعَامُ مَسَاكِينَ أَوْ عَدْلُ ذَٰلِكَ صِيَامًا لِيَذُوقَ وَبَالَ أَمْرِهِ ۗ عَفَا اللَّهُ عَمَّا سَلَفَ ۚ وَمَنْ عَادَ فَيَنْتَقِمُ اللَّهُ مِنْهُ ۗ وَاللَّهُ عَزِيزٌ ذُو انْتِقَامٍ",
               translation: "O ye who believe! Kill not game while in the sacred precincts or in pilgrim garb. If any of you doth so intentionally, the compensation is an offering, brought to the Ka'ba, of a domestic animal equivalent to the one he killed, as adjudged by two just men among you; or by way of atonement, the feeding of the indigent; or its equivalent in fasts: that he may taste of the penalty of his deed. Allah forgives what is past: for repetition Allah will exact from him the penalty. For Allah is Exalted, and Lord of Retribution.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -3992,7 +3992,7 @@ A child dropped off at a service project alone receives the message that service
             {
               kind: "quran",
               ref: "Quran 7:153",
-              arabic: "**Translation:** But those who do ill-deeds and afterward repent and believe - lo! for them, afterward, Allah is Forgiving, Merciful.",
+              arabic: "وَالَّذِينَ عَمِلُوا السَّيِّئَاتِ ثُمَّ تَابُوا مِنْ بَعْدِهَا وَآمَنُوا إِنَّ رَبَّكَ مِنْ بَعْدِهَا لَغَفُورٌ رَحِيمٌ",
               translation: "But those who do ill-deeds and afterward repent and believe - lo! for them, afterward, Allah is Forgiving, Merciful.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4001,7 +4001,7 @@ A child dropped off at a service project alone receives the message that service
             {
               kind: "quran",
               ref: "Quran 39:21",
-              arabic: "**Translation:** Hast thou not seen how Allah hath sent down water from the sky and hath caused it to penetrate the earth as watersprings, and afterward thereby produceth crops of divers hues; and afterward they wither and thou seest them turn yellow; then He maketh them chaff. Lo! herein verily is a reminder for men of understanding.",
+              arabic: "أَلَمْ تَرَ أَنَّ اللَّهَ أَنْزَلَ مِنَ السَّمَاءِ مَاءً فَسَلَكَهُ يَنَابِيعَ فِي الْأَرْضِ ثُمَّ يُخْرِجُ بِهِ زَرْعًا مُخْتَلِفًا أَلْوَانُهُ ثُمَّ يَهِيجُ فَتَرَاهُ مُصْفَرًّا ثُمَّ يَجْعَلُهُ حُطَامًا ۚ إِنَّ فِي ذَٰلِكَ لَذِكْرَىٰ لِأُولِي الْأَلْبَابِ",
               translation: "Hast thou not seen how Allah hath sent down water from the sky and hath caused it to penetrate the earth as watersprings, and afterward thereby produceth crops of divers hues; and afterward they wither and thou seest them turn yellow; then He maketh them chaff. Lo! herein verily is a reminder for men of understanding.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4908,7 +4908,7 @@ This du'a — "My Lord, have mercy upon them as they raised me when I was small"
             {
               kind: "quran",
               ref: "Quran 2:196",
-              arabic: "**Translation:** And perform properly (i.e. all the ceremonies according to the ways of Prophet Muhammad صلى الله عليه وسلم), the Hajj and ‘Umrah (i.e. the pilgrimage to Makkah) for Allâh. But if you are prevented (from completing them), sacrifice a Hady (animal, i.e. a sheep, a cow, or a camel) such as you can afford, and do not shave your heads until the Hady reaches the place of sacrifice. And whosoever of you is ill or has an ailment in his scalp (necessitating shaving), he must pay a Fidyah (ransom) of either observing Saum (fasts) (three days) or giving Sadaqah (charity - feeding six poor persons) or offering sacrifice (one sheep). Then if you are in safety and whosoever performs the ‘Umrah in the months of Hajj before (performing) the Hajj, (i.e. Hajj-at-Tamattu‘ and Al-Qirân), he must slaughter a Hady such as he can afford, but if he cannot afford it, he should observe Saum (fasts) three days during the Hajj and seven days after his return (to his home), making ten days in all. This is for him whose family is not present at Al-Masjid-Al-Harâm (i.e. non-resident of Makkah). And fear Allâh much and know that Allâh is Severe in punishment.",
+              arabic: "وَأَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلَّهِ ۚ فَإِنْ أُحْصِرْتُمْ فَمَا اسْتَيْسَرَ مِنَ الْهَدْيِ ۖ وَلَا تَحْلِقُوا رُءُوسَكُمْ حَتَّىٰ يَبْلُغَ الْهَدْيُ مَحِلَّهُ ۚ فَمَنْ كَانَ مِنْكُمْ مَرِيضًا أَوْ بِهِ أَذًى مِنْ رَأْسِهِ فَفِدْيَةٌ مِنْ صِيَامٍ أَوْ صَدَقَةٍ أَوْ نُسُكٍ ۚ فَإِذَا أَمِنْتُمْ فَمَنْ تَمَتَّعَ بِالْعُمْرَةِ إِلَى الْحَجِّ فَمَا اسْتَيْسَرَ مِنَ الْهَدْيِ ۚ فَمَنْ لَمْ يَجِدْ فَصِيَامُ ثَلَاثَةِ أَيَّامٍ فِي الْحَجِّ وَسَبْعَةٍ إِذَا رَجَعْتُمْ ۗ تِلْكَ عَشَرَةٌ كَامِلَةٌ ۗ ذَٰلِكَ لِمَنْ لَمْ يَكُنْ أَهْلُهُ حَاضِرِي الْمَسْجِدِ الْحَرَامِ ۚ وَاتَّقُوا اللَّهَ وَاعْلَمُوا أَنَّ اللَّهَ شَدِيدُ الْعِقَابِ",
               translation: "And perform properly (i.e. all the ceremonies according to the ways of Prophet Muhammad صلى الله عليه وسلم), the Hajj and ‘Umrah (i.e. the pilgrimage to Makkah) for Allâh. But if you are prevented (from completing them), sacrifice a Hady (animal, i.e. a sheep, a cow, or a camel) such as you can afford, and do not shave your heads until the Hady reaches the place of sacrifice. And whosoever of you is ill or has an ailment in his scalp (necessitating shaving), he must pay a Fidyah (ransom) of either observing Saum (fasts) (three days) or giving Sadaqah (charity - feeding six poor persons) or offering sacrifice (one sheep). Then if you are in safety and whosoever performs the ‘Umrah in the months of Hajj before (performing) the Hajj, (i.e. Hajj-at-Tamattu‘ and Al-Qirân), he must slaughter a Hady such as he can afford, but if he cannot afford it, he should observe Saum (fasts) three days during the Hajj and seven days after his return (to his home), making ten days in all. This is for him whose family is not present at Al-Masjid-Al-Harâm (i.e. non-resident of Makkah). And fear Allâh much and know that Allâh is Severe in punishment.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5778,7 +5778,7 @@ An archive that only one person can access is a single point of failure. Making 
             {
               kind: "quran",
               ref: "Quran 8:72",
-              arabic: "**Translation:** Surely those who believed and migrated and strove hard in the way of Allah with their possessions and their lives, and those that sheltered and helped them - they alone are the true allies of one another. And those who believed but did not migrate (to Dar-al-Islam), you are under no obligation of alliance unless they migrate. And should they seek help from you in the matter of religion, it is incumbent on you to provide help unless it be against a people with whom you have a pact. Allah is cognizant of all that you do.",
+              arabic: "إِنَّ الَّذِينَ آمَنُوا وَهَاجَرُوا وَجَاهَدُوا بِأَمْوَالِهِمْ وَأَنْفُسِهِمْ فِي سَبِيلِ اللَّهِ وَالَّذِينَ آوَوْا وَنَصَرُوا أُولَٰئِكَ بَعْضُهُمْ أَوْلِيَاءُ بَعْضٍ ۚ وَالَّذِينَ آمَنُوا وَلَمْ يُهَاجِرُوا مَا لَكُمْ مِنْ وَلَايَتِهِمْ مِنْ شَيْءٍ حَتَّىٰ يُهَاجِرُوا ۚ وَإِنِ اسْتَنْصَرُوكُمْ فِي الدِّينِ فَعَلَيْكُمُ النَّصْرُ إِلَّا عَلَىٰ قَوْمٍ بَيْنَكُمْ وَبَيْنَهُمْ مِيثَاقٌ ۗ وَاللَّهُ بِمَا تَعْمَلُونَ بَصِيرٌ",
               translation: "Surely those who believed and migrated and strove hard in the way of Allah with their possessions and their lives, and those that sheltered and helped them - they alone are the true allies of one another. And those who believed but did not migrate (to Dar-al-Islam), you are under no obligation of alliance unless they migrate. And should they seek help from you in the matter of religion, it is incumbent on you to provide help unless it be against a people with whom you have a pact. Allah is cognizant of all that you do.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5787,7 +5787,7 @@ An archive that only one person can access is a single point of failure. Making 
             {
               kind: "quran",
               ref: "Quran 9:100",
-              arabic: "**Translation:** And the foremost to embrace Islâm of the Muhâjirûn (those who migrated from Makkah to Al-Madinah) and the Ansâr (the citizens of Al-Madinah who helped and gave aid to the Muhâjirûn ) and also those who followed them exactly (in Faith). Allâh is well-pleased with them as they are well-pleased with Him. He has prepared for them Gardens under which rivers flow (Paradise), to dwell therein forever. That is the supreme success.",
+              arabic: "وَالسَّابِقُونَ الْأَوَّلُونَ مِنَ الْمُهَاجِرِينَ وَالْأَنْصَارِ وَالَّذِينَ اتَّبَعُوهُمْ بِإِحْسَانٍ رَضِيَ اللَّهُ عَنْهُمْ وَرَضُوا عَنْهُ وَأَعَدَّ لَهُمْ جَنَّاتٍ تَجْرِي تَحْتَهَا الْأَنْهَارُ خَالِدِينَ فِيهَا أَبَدًا ۚ ذَٰلِكَ الْفَوْزُ الْعَظِيمُ",
               translation: "And the foremost to embrace Islâm of the Muhâjirûn (those who migrated from Makkah to Al-Madinah) and the Ansâr (the citizens of Al-Madinah who helped and gave aid to the Muhâjirûn ) and also those who followed them exactly (in Faith). Allâh is well-pleased with them as they are well-pleased with Him. He has prepared for them Gardens under which rivers flow (Paradise), to dwell therein forever. That is the supreme success.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6317,7 +6317,7 @@ Having the tools of worship readily accessible removes friction from the act of 
             {
               kind: "quran",
               ref: "Quran 2:144",
-              arabic: "**Translation:** We see the turning of thy face (for guidance to the heavens: now Shall We turn thee to a Qibla that shall please thee. Turn then Thy face in the direction of the sacred Mosque: Wherever ye are, turn your faces in that direction. The people of the Book know well that that is the truth from their Lord. Nor is Allah unmindful of what they do.",
+              arabic: "قَدْ نَرَىٰ تَقَلُّبَ وَجْهِكَ فِي السَّمَاءِ ۖ فَلَنُوَلِّيَنَّكَ قِبْلَةً تَرْضَاهَا ۚ فَوَلِّ وَجْهَكَ شَطْرَ الْمَسْجِدِ الْحَرَامِ ۚ وَحَيْثُ مَا كُنْتُمْ فَوَلُّوا وُجُوهَكُمْ شَطْرَهُ ۗ وَإِنَّ الَّذِينَ أُوتُوا الْكِتَابَ لَيَعْلَمُونَ أَنَّهُ الْحَقُّ مِنْ رَبِّهِمْ ۗ وَمَا اللَّهُ بِغَافِلٍ عَمَّا يَعْمَلُونَ",
               translation: "We see the turning of thy face (for guidance to the heavens: now Shall We turn thee to a Qibla that shall please thee. Turn then Thy face in the direction of the sacred Mosque: Wherever ye are, turn your faces in that direction. The people of the Book know well that that is the truth from their Lord. Nor is Allah unmindful of what they do.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6326,7 +6326,7 @@ Having the tools of worship readily accessible removes friction from the act of 
             {
               kind: "quran",
               ref: "Quran 2:145",
-              arabic: "**Translation:** Even if thou wert to bring to the people of the Book all the Signs (together), they would not follow Thy Qibla; nor art thou going to follow their Qibla; nor indeed will they follow each other's Qibla. If thou after the knowledge hath reached thee, Wert to follow their (vain) desires,-then wert thou Indeed (clearly) in the wrong.",
+              arabic: "وَلَئِنْ أَتَيْتَ الَّذِينَ أُوتُوا الْكِتَابَ بِكُلِّ آيَةٍ مَا تَبِعُوا قِبْلَتَكَ ۚ وَمَا أَنْتَ بِتَابِعٍ قِبْلَتَهُمْ ۚ وَمَا بَعْضُهُمْ بِتَابِعٍ قِبْلَةَ بَعْضٍ ۚ وَلَئِنِ اتَّبَعْتَ أَهْوَاءَهُمْ مِنْ بَعْدِ مَا جَاءَكَ مِنَ الْعِلْمِ ۙ إِنَّكَ إِذًا لَمِنَ الظَّالِمِينَ",
               translation: "Even if thou wert to bring to the people of the Book all the Signs (together), they would not follow Thy Qibla; nor art thou going to follow their Qibla; nor indeed will they follow each other's Qibla. If thou after the knowledge hath reached thee, Wert to follow their (vain) desires,-then wert thou Indeed (clearly) in the wrong.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -7084,7 +7084,7 @@ The Quran repeatedly draws attention to the natural world as a source of reflect
             {
               kind: "quran",
               ref: "Quran 80:33",
-              arabic: "**Translation:** At length, when there comes the Deafening Noise,-",
+              arabic: "فَإِذَا جَاءَتِ الصَّاخَّةُ",
               translation: "At length, when there comes the Deafening Noise,-",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -7299,7 +7299,7 @@ The first word revealed to the Prophet (peace be upon him) was "Iqra" — Read. 
             {
               kind: "quran",
               ref: "Quran 2:138",
-              arabic: "**Translation:** [Our Sibghah (religion) is] the Sibghah (Religion) of Allâh (Islâm) and which Sibghah (religion) can be better than Allâh’s? And we are His worshippers. [Tafsir Ibn Kathîr]",
+              arabic: "صِبْغَةَ اللَّهِ ۖ وَمَنْ أَحْسَنُ مِنَ اللَّهِ صِبْغَةً ۖ وَنَحْنُ لَهُ عَابِدُونَ",
               translation: "[Our Sibghah (religion) is] the Sibghah (Religion) of Allâh (Islâm) and which Sibghah (religion) can be better than Allâh’s? And we are His worshippers. [Tafsir Ibn Kathîr]",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -7539,7 +7539,7 @@ Children who participate in hosting learn generosity, social skills, and service
             {
               kind: "quran",
               ref: "Quran 73:4",
-              arabic: "**Translation:** Or add to it, and recite the Qur’ān with measured recitation.",
+              arabic: "أَوْ زِدْ عَلَيْهِ وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا",
               translation: "Or add to it, and recite the Qur’ān with measured recitation.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -7548,7 +7548,7 @@ Children who participate in hosting learn generosity, social skills, and service
             {
               kind: "quran",
               ref: "Quran 38:1",
-              arabic: "**Translation:** Sâd. [These letters (Sâd etc.) are one of the miracles of the Quran and none but Allah (Alone) knows their meanings]. By the Quran full of reminding.",
+              arabic: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ص ۚ وَالْقُرْآنِ ذِي الذِّكْرِ",
               translation: "Sâd. [These letters (Sâd etc.) are one of the miracles of the Quran and none but Allah (Alone) knows their meanings]. By the Quran full of reminding.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
