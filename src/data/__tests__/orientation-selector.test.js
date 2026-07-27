@@ -436,6 +436,7 @@ describe('buildOrientationCarousel', () => {
     const { cards } = buildOrientationCarousel({ projects, tasksByProject, todayKey: TODAY });
     const health = cards.find((c) => c.pillar.id === 'health');
     expect(health.hasEligible).toBe(true);
+    expect(health.seeded).toBe(true);
     expect(health.tier).toBe('core');
     expect(health.subtask.id).toBe('s2');
     // t-health-core: s1 done, s2 open, s3 snoozed(subtask) -> current is s2 (index 1)
@@ -455,12 +456,28 @@ describe('buildOrientationCarousel', () => {
     // family/wealth/environment/ummah have no seeded projects in the fixture
     const family = cards.find((c) => c.pillar.id === 'family');
     expect(family.hasEligible).toBe(false);
+    // No projects at all -> unseeded, so the card shows "no steps yet" rather
+    // than masquerading as a caught-up "nothing left for today".
+    expect(family.seeded).toBe(false);
     expect(family.board).toBeNull();
     expect(family.task).toBeNull();
     expect(family.subtask).toBeNull();
     expect(family.currentTaskIndex).toBe(-1);
     expect(family.steps).toEqual([]);
     expect(family.taskStats).toEqual({ done: 0, total: 0 });
+  });
+
+  it('a pillar whose seeded tasks are all complete stays seeded:true (caught up, not empty)', () => {
+    // One board, its only subtask done -> hasEligible:false but seeded:true, so
+    // the card renders "nothing left for today", not "no steps yet".
+    const projects = [project('health_physical_core')];
+    const tasksByProject = {
+      health_physical_core: [task('t1', [subtask('s1', { done: true })])],
+    };
+    const { cards } = buildOrientationCarousel({ projects, tasksByProject, todayKey: TODAY });
+    const health = cards.find((c) => c.pillar.id === 'health');
+    expect(health.hasEligible).toBe(false);
+    expect(health.seeded).toBe(true);
   });
 
   it('recommendedPillarId is null when nothing is actionable anywhere today', () => {

@@ -283,6 +283,12 @@
 .orient-card__clear-icon {
   color: var(--card-accent);
 }
+/* "No steps yet" (unseeded pillar) reads as dormant, not accomplished — mute
+   the icon to --text3 so it never looks like the accent-coloured "caught up"
+   check. */
+.orient-card__clear--empty .orient-card__clear-icon {
+  color: var(--text3);
+}
 .orient-card__clear-title {
   font-family: var(--font-body);
   font-size: 16px;

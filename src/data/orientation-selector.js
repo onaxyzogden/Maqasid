@@ -327,6 +327,8 @@ export function recommendOrientation({ projects, tasksByProject, heldTaskKey, ov
 //   subtask/currentSubtaskIndex — the current step within that task
 //   steps                 — [{ subtask, state }] for the current task
 //   taskStats             — done/total subtasks within the current task
+//   seeded                — pillar owns ≥1 subtask across any tier; false → the
+//                            card renders "no steps yet" instead of "caught up"
 //   hasEligible           — false → render the card's "nothing right now" state
 export function buildOrientationCarousel({ projects, tasksByProject, todayKey }) {
   const recommended = recommendOrientation({ projects, tasksByProject, todayKey });
@@ -352,12 +354,22 @@ export function buildOrientationCarousel({ projects, tasksByProject, todayKey })
     let taskDone = 0;
     for (const st of subtasks) if (isSubtaskSatisfied(st)) taskDone += 1;
 
+    // "Seeded" = the pillar owns at least one subtask across ANY tier. The
+    // active-tier `total` below can be 0 for a fully-complete pillar whose last
+    // tier was never populated, so it can't tell "no tasks seeded yet" apart
+    // from "all done" — this can. Drives the card's empty-vs-caught-up face so a
+    // never-populated pillar never masquerades as "Nothing left for today".
+    const seeded = TIERS.some(
+      (t) => getPillarTierSubtaskStats(pillar.id, t, projects, tasksByProject).total > 0,
+    );
+
     return {
       pillar,
       tier: active.tier,
       ratio: active.ratio,
       done: active.done,
       total: active.total,
+      seeded,
       submoduleId: seq?.submoduleId ?? task?.submoduleId ?? null,
       project,
       board: seq,

@@ -1,4 +1,4 @@
-import { Check } from 'lucide-react';
+import { Check, CircleDashed } from 'lucide-react';
 import { getPillarLabel, getSubmoduleLabel } from '../../data/maqasid';
 import { TIER_META } from '../../data/orientation-selector';
 
@@ -14,7 +14,7 @@ const PILL_PRIORITIES = new Set(['urgent', 'high']);
 // clamps, bar) mirrors the prototype; colours are app design tokens, so the
 // card themes light/dark with the rest of MILOS.
 export default function OrientationCard({ card, valuesLayer, onOpen, ref }) {
-  const { pillar, tier, done, total, submoduleId, task, subtask, taskStats, hasEligible, isRecommended } = card;
+  const { pillar, tier, done, total, seeded, submoduleId, task, subtask, taskStats, hasEligible, isRecommended } = card;
 
   const enLabel = getPillarLabel(pillar, valuesLayer);
   const tierLabel = TIER_META[tier]?.label ?? '';
@@ -25,7 +25,9 @@ export default function OrientationCard({ card, valuesLayer, onOpen, ref }) {
 
   const ariaLabel = hasEligible
     ? `${enLabel}. Now: ${subtask.title}. Tap to open the full task.`
-    : `${enLabel}. Nothing left for today. Tap to open.`;
+    : seeded
+      ? `${enLabel}. Nothing left for today. Tap to open.`
+      : `${enLabel}. No steps set up yet. Tap to open.`;
 
   return (
     <button
@@ -48,7 +50,7 @@ export default function OrientationCard({ card, valuesLayer, onOpen, ref }) {
           <span className="orient-card__ar" dir="rtl" lang="ar">{pillar.arabicRootAr}</span>
           <span className="orient-card__en">{enLabel}</span>
         </span>
-        <span className="orient-card__frac">{done}/{total}</span>
+        {seeded && <span className="orient-card__frac">{done}/{total}</span>}
       </span>
 
       {hasEligible ? (
@@ -70,11 +72,17 @@ export default function OrientationCard({ card, valuesLayer, onOpen, ref }) {
           </span>
           <span className="orient-card__cue">Tap to open &rarr;</span>
         </>
-      ) : (
+      ) : seeded ? (
         <span className="orient-card__clear">
           <Check size={20} className="orient-card__clear-icon" aria-hidden="true" />
           <span className="orient-card__clear-title">Nothing left for today</span>
           <span className="orient-card__clear-sub">Come back after Maghrib for a fresh day.</span>
+        </span>
+      ) : (
+        <span className="orient-card__clear orient-card__clear--empty">
+          <CircleDashed size={20} className="orient-card__clear-icon" aria-hidden="true" />
+          <span className="orient-card__clear-title">No steps yet</span>
+          <span className="orient-card__clear-sub">Open this domain to set up its first steps.</span>
         </span>
       )}
     </button>

@@ -62,6 +62,15 @@ export default function AppShell() {
   const projects = useProjectStore((s) => s.projects);
   const loadTasks = useTaskStore((s) => s.loadTasks);
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
+  // Per-pillar board seeders — invoked once at app-startup (effect below) so
+  // every Maqasid pillar exists before any cross-pillar surface reads it.
+  const ensureFaithProjects = useProjectStore((s) => s.ensureFaithProjects);
+  const ensureHealthProjects = useProjectStore((s) => s.ensureHealthProjects);
+  const ensureIntellectProjects = useProjectStore((s) => s.ensureIntellectProjects);
+  const ensureFamilyProjects = useProjectStore((s) => s.ensureFamilyProjects);
+  const ensureWealthProjects = useProjectStore((s) => s.ensureWealthProjects);
+  const ensureEnvironmentProjects = useProjectStore((s) => s.ensureEnvironmentProjects);
+  const ensureUmmahProjects = useProjectStore((s) => s.ensureUmmahProjects);
 
   // Presence awareness state
   const completedOpening = useThresholdStore((s) => s.completedOpening);
@@ -160,6 +169,26 @@ export default function AppShell() {
     // reason: setActiveModule is a stable store action; only react to URL changes
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
+
+  // Seed every Maqasid pillar's boards + tasks once, at app-startup, instead of
+  // lazily when each pillar's dashboard is first opened. Without this, a pillar
+  // the operator has never visited has zero boards, so cross-pillar surfaces
+  // (the Orientation carousel, the balance strip) render it as a bare "0/0".
+  // Each ensure*Projects is idempotent — it creates only missing boards and its
+  // task seeding early-returns on already-seeded boards — so this is a no-op on
+  // every boot after the first. Appending the new boards grows projects.length,
+  // which fires the bulk task-loader below to hydrate them into tasksByProject.
+  useEffect(() => {
+    ensureFaithProjects();
+    ensureHealthProjects();
+    ensureIntellectProjects();
+    ensureFamilyProjects();
+    ensureWealthProjects();
+    ensureEnvironmentProjects();
+    ensureUmmahProjects();
+    // reason: run once on mount; ensure*Projects are stable store actions
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Preload all project tasks so cross-project search works
   useEffect(() => {
