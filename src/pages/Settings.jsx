@@ -11,7 +11,7 @@ import { usePrayerTimes } from '../hooks/usePrayerTimes';
 import { isTashreeq, isRamadan } from '../data/prophetic-path-submodules';
 import { exportAll, importAll, clearAll, validateImport, createBackup, restoreBackup, hasBackup } from '../services/storage';
 import { AI_PROVIDERS } from '../services/ai/ai-settings';
-import { isSupabaseConfigured } from '../services/supabase';
+import { cloudAccountsEnabled } from '../services/supabase';
 
 export default function Settings() {
   const navigate = useNavigate();
@@ -599,9 +599,9 @@ function AccountSyncSection() {
   const supabaseSession = useAuthStore((s) => s.supabaseSession);
   const lastSyncedAt = useAuthStore((s) => s.lastSyncedAt);
   const signOut = useAuthStore((s) => s.signOut);
-  // isSupabaseConfigured is imported at the top of the file
+  // cloudAccountsEnabled is imported at the top of the file
 
-  if (!isSupabaseConfigured) return null;
+  if (!cloudAccountsEnabled) return null;
 
   const email = supabaseSession?.user?.email;
 

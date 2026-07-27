@@ -24,6 +24,8 @@ Reusable UI components used across multiple modules: search, labels, tables, too
 | PillarHeader.css | Pillar header layout, accent color cascading | Module page headers |
 | ViewToggle.jsx | Two-button toggle (Overview/Framework); role="tablist" with aria-selected | Pages with dual views |
 | ViewToggle.css | Toggle button styles, active/inactive states | Pages with dual views |
+| SyncStatusChip.jsx | **DORMANT.** Cloud sync status pill in the sidebar footer. Returns `null` unless `authStatus === 'authenticated'` | Sidebar (renders nothing) |
+| FirstLoginModal.jsx | **DORMANT.** Resolves the first-login local-vs-cloud data conflict (keep local / use cloud / keep local without pushing) | AppShell (never triggered) |
 
 ## Store Dependencies
 - **app-store** (SearchPalette): `searchOpen`, `setSearchOpen`
@@ -33,6 +35,7 @@ Reusable UI components used across multiple modules: search, labels, tables, too
 - **office-store** (SearchPalette): `events[]` for event search
 - **settings-store** (PillarHeader): `valuesLayer`
 - **data/modules.js** (SearchPalette): `MODULES` for module search
+- **auth-store** (SyncStatusChip, FirstLoginModal): `authStatus`, `syncStatus`, `firstLoginConflict` — all dormant; `authStatus` is frozen at `'guest'` while `CLOUD_ACCOUNTS_ENABLED = false` (`services/supabase.js`), so both components render nothing. See `wiki/decisions/2026-07-27-milos-disable-online-accounts.md`
 
 ## Key Patterns
 - **Portal components**: IslamicTerm, SearchPalette use React portal to escape `overflow:hidden`

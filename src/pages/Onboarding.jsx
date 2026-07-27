@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { isSupabaseConfigured } from '../services/supabase';
+import { cloudAccountsEnabled } from '../services/supabase';
 import {
   ArrowRight, ArrowLeft,
   Moon, Sun, Briefcase,
@@ -17,7 +17,7 @@ import '../styles/landing.css';
 const PILLAR_ICON_MAP = ICON_REGISTRY;
 
 // Steps: 0=Welcome, 1=Profile, 2=Values, and optionally 3=Sync (when Supabase configured)
-const STEPS = isSupabaseConfigured
+const STEPS = cloudAccountsEnabled
   ? ['Welcome', 'Profile', 'Values', 'Sync']
   : ['Welcome', 'Profile', 'Values'];
 
@@ -61,7 +61,7 @@ export default function Onboarding() {
     // No pillar selection in onboarding — mark Niyyah as skipped so user
     // isn't blocked by a second ceremony on first dashboard visit.
     skipNiyyah();
-    if (skipToSync && isSupabaseConfigured) {
+    if (skipToSync && cloudAccountsEnabled) {
       navigate(`/auth?mode=signup&prefill_name=${encodeURIComponent(trimmedName)}`);
     } else {
       navigate('/app');
@@ -288,7 +288,7 @@ export default function Onboarding() {
           )}
 
           {/* ── Step 3: Sync (only when Supabase configured) ── */}
-          {isSupabaseConfigured && step === 3 && (
+          {cloudAccountsEnabled && step === 3 && (
             <div className="fade-in" style={{ textAlign: 'center' }}>
               <div style={{ fontSize: '2.5rem', marginBottom: 'var(--space-3)' }}>☁️</div>
               <h2 style={{ marginBottom: 'var(--space-2)' }}>Continue anywhere</h2>
@@ -318,7 +318,7 @@ export default function Onboarding() {
           )}
 
           {/* ── Navigation ── */}
-          {step > 0 && !(isSupabaseConfigured && step === 3) && (
+          {step > 0 && !(cloudAccountsEnabled && step === 3) && (
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'center',
               marginTop: 'var(--space-8)', gap: 'var(--space-3)',
@@ -347,7 +347,7 @@ export default function Onboarding() {
             </div>
           )}
           {/* Back button on sync step */}
-          {isSupabaseConfigured && step === 3 && (
+          {cloudAccountsEnabled && step === 3 && (
             <button className="btn btn-ghost" style={{ marginTop: 'var(--space-4)', display: 'block', margin: '1rem auto 0' }} onClick={() => setStep(step - 1)}>
               <ArrowLeft size={16} /> Back
             </button>
