@@ -8,6 +8,7 @@ export const UMMAH_SEED_TASKS = {
   // ── CORE: Foundational Obligations ──
   ummah_collective_core: [
     {
+      seq: 0,
       title: "Sustain daily du'a for the global ummah's oppressed and afflicted",
       priority: 'urgent', tags: ['dua', 'global-ummah', 'foundation'],
       description: "The ummah is one body; when any part suffers the whole must respond. Before hands can act or wealth can flow, the heart must turn to Allah on behalf of the Muslims suffering in every region of the earth. This task establishes du'a for the global ummah as a fixed daily act of worship — not an emotional reaction to headlines.",
@@ -262,6 +263,7 @@ Du'a without presence of heart is a body without a soul. The Prophet (peace be u
       ],
     },
     {
+      seq: 1,
       title: "Maintain informed awareness of major ummah afflictions",
       priority: 'urgent', tags: ['awareness', 'global-ummah', 'crisis-literacy'],
       description: "A Muslim cannot weep, give, boycott, or bear witness for what they do not know. Strategic ignorance of the ummah's wounds is not neutrality — it is abandonment. This task establishes a disciplined, sustainable practice of staying informed about major afflictions against Muslims worldwide, without falling into doomscrolling, despair, or propaganda capture.",
@@ -471,6 +473,7 @@ Allah forbids despair of His mercy and categorises it with kufr (12:87). Yet a s
       ],
     },
     {
+      seq: 3,
       title: "Direct a standing portion of sadaqah and cross-border zakat to the global ummah",
       priority: 'urgent', tags: ['sadaqah', 'zakat', 'global-aid', 'solidarity'],
       description: "Du'a and awareness are incomplete without material flow. The wealth of the ummah must reach the parts of it that bleed. This task establishes an intentional, ongoing financial pipeline — distinct from ad-hoc emotional giving — that channels a fixed portion of sadaqah and zakat across borders to the Muslims most afflicted by war, famine, displacement, and persecution.",
@@ -662,6 +665,7 @@ The Prophet (peace be upon him) taught that the one who points the way to good s
       ],
     },
     {
+      seq: 2,
       title: "Refuse material participation in clear oppression of the ummah",
       priority: 'high', tags: ['boycott', 'wara', 'witness', 'consumption'],
       description: "Every purchase is a vote and a sadaqah of its opposite. When companies and industries directly fund weapons, settlements, or regimes visibly oppressing Muslims, continuing to hand them money is not a neutral economic act — it is material participation in wrongdoing. This task establishes a disciplined, sustained refusal to finance clear oppression of the ummah through one's consumption.",
@@ -880,6 +884,7 @@ Boycotts that collapse after a news cycle embolden the targets and teach the mar
       ],
     },
     {
+      seq: 4,
       title: "Bear public witness when the ummah is attacked",
       priority: 'high', tags: ['witness', 'amr-bil-maruf', 'tongue', 'haqq'],
       description: "Silence before clear oppression is a spiritual failure with a cost on the Day of Judgement. The Prophet (peace be upon him) ranked speaking the truth against a tyrant among the greatest jihads. This task establishes the habit of public witness — in speech, in writing, in presence — when Muslims are attacked, without descending into reckless speech or empty performance.",
@@ -4838,6 +4843,7 @@ The Prophet (peace be upon him) noticed when regular community members were abse
   // ── CORE — Fulfil basic community obligations ──
   ummah_community_core: [
     {
+      seq: 5,
       title: "Establish regular congregational prayer in your locality",
       priority: 'urgent', tags: ['jamaah', 'salah', 'foundation'],
       description: "Congregational prayer is the visible heartbeat of the Muslim community. Without a functioning jamaah, the collective identity of Muslims in a locality dissolves into isolated individuals. This task establishes or strengthens the weekly and daily congregational prayer presence where you live.",
@@ -5083,6 +5089,7 @@ The Prophet (peace be upon him) described the believers as "one body — if one 
       ],
     },
     {
+      seq: 7,
       title: "Implement shura (mutual consultation) for community decisions",
       priority: 'urgent', tags: ['shura', 'governance'],
       description: "Allah describes the believers as those whose affairs are conducted by shura among them (Quran 42:38). This task establishes a functional consultation process so that community decisions are made collectively, transparently, and in accordance with the Prophetic model of governance.",
@@ -5274,6 +5281,7 @@ Shura is not merely a leadership exercise — it is the right of the entire umma
       ],
     },
     {
+      seq: 8,
       title: "Build a basic mutual aid system for community members in need",
       priority: 'urgent', tags: ['mutual-aid', 'takaful', 'brotherhood'],
       description: "The believers are described as allies of one another (Quran 9:71). This task creates a structured system for identifying and responding to the material needs of community members — food, shelter, financial emergencies, and practical help — so that no Muslim in your locality suffers alone.",
@@ -5465,6 +5473,7 @@ The Prophet (peace be upon him) paired the Muhajirun with the Ansar — every ne
       ],
     },
     {
+      seq: 9,
       title: "Establish a visible Islamic presence in your locality",
       priority: 'high', tags: ['dawah', 'presence', 'identity'],
       description: "Islam is not meant to be hidden. The Prophet (peace be upon him) established the adhan, built the masjid, and made the Muslim community visible and recognisable in Madinah from the first day. This task ensures that Muslims in your area are known, respected, and accessible to their neighbours.",
@@ -5674,6 +5683,7 @@ The Prophet (peace be upon him) participated in the Hilf al-Fudul (Pact of the V
       ],
     },
     {
+      seq: 6,
       title: "Unite the community around shared fundamentals of faith and practice",
       priority: 'high', tags: ['unity', 'ukhuwwah', 'aqidah'],
       description: "The Prophet (peace be upon him) said: 'The Muslim ummah is one body.' Sectarian division and petty disagreement weaken the community from within. This task focuses on identifying, articulating, and rallying around the non-negotiable fundamentals that all Muslims share, while establishing healthy norms for handling legitimate differences.",
@@ -5919,6 +5929,7 @@ Allah commands: "If two groups of believers fight, make peace between them" (Qur
       ],
     },
     {
+      seq: 0,
       title: 'Attend congregational prayers consistently — prioritise Fajr, Isha, and Jumu\'ah',
       priority: 'urgent', tags: ['salah', 'jama\'ah'],
       description: 'Congregational prayer is the heartbeat of Muslim community life. The Prophet (peace be upon him) said the prayer in congregation is twenty-seven times superior to the prayer offered alone. Establishing consistency in jama\'ah — especially Fajr, Isha, and Jumu\'ah — anchors your presence in the community and fulfils one of the most emphasised communal obligations in Islam.',
@@ -6155,6 +6166,7 @@ The Prophet (peace be upon him) said, "Whoever prays Isha in jama'ah, it is as i
       ],
     },
     {
+      seq: 1,
       title: 'Resolve disputes and maintain brotherhood — no estrangement beyond three days',
       priority: 'urgent', tags: ['ukhuwwah', 'sulh'],
       description: 'The Prophet (peace be upon him) said, "It is not permissible for a Muslim to forsake his brother for more than three days" (Bukhari and Muslim). Unresolved conflicts tear the communal fabric and nullify the spiritual benefits of congregational life. This task establishes the discipline of rapid reconciliation as a non-negotiable community obligation.',
@@ -6364,6 +6376,7 @@ The Quran says, "There is no good in most of their secret counsels except the on
       ],
     },
     {
+      seq: 2,
       title: 'Visit the sick in your community — fulfil the rights of Muslim upon Muslim',
       priority: 'urgent', tags: ['visiting-sick', 'huquq'],
       description: 'The Prophet (peace be upon him) listed visiting the sick as one of the five rights every Muslim has over another (Bukhari). Visiting the sick is not merely a kind gesture — it is an obligation that maintains the social safety net of the ummah and reminds both the visitor and the visited of Allah\'s power over health and life.',
@@ -6555,6 +6568,7 @@ Individual initiative is good, but systemic care is better. Without a tracking s
       ],
     },
     {
+      seq: 3,
       title: 'Attend funerals (janazah) — fulfil the communal obligation and support the bereaved',
       priority: 'urgent', tags: ['janazah', 'huquq'],
       description: 'Attending the janazah prayer and burial is a fard kifayah (communal obligation) — if no one fulfils it, the entire community is sinful. The Prophet (peace be upon him) promised the reward of a qirat (a mountain of reward) for attending the prayer and another for staying until burial. Beyond reward, funeral attendance holds the community together through its most vulnerable moments.',
@@ -6764,6 +6778,7 @@ Washing the deceased is one of the most intimate and sacred acts of service in I
       ],
     },
     {
+      seq: 4,
       title: 'Support mutual financial assistance — distribute sadaqah and zakat within your community',
       priority: 'urgent', tags: ['sadaqah', 'zakat', 'infaq'],
       description: 'Financial solidarity is a pillar of ummah life. The Quran commands, "And in their wealth is a known right for the one who asks and the one who is deprived" (70:24-25). Beyond the obligatory zakat, regular sadaqah and mutual aid within the community prevent the kind of poverty and desperation that fragment communities and push people away from the masjid.',
@@ -9975,6 +9990,7 @@ The Prophet (peace be upon him) said: "Actions are judged by intentions" (Bukhar
   // ── CORE: Not Harming, Greeting, Basic Care ──
   ummah_neighbors_core: [
     {
+      seq: 1,
       title: "Learn every immediate neighbor's name, household composition, and basic needs",
       priority: 'urgent', tags: ['haqq-al-jar', 'awareness'],
       description: "You cannot fulfil the rights of someone you do not know. This task establishes the foundational awareness required to honour those rights — begin by learning who lives beside you.",
@@ -10164,6 +10180,7 @@ Identifying harm without acting on it is worse than ignorance, because it adds t
       ],
     },
     {
+      seq: 0,
       title: "Protect your neighbors' property and privacy as you would your own",
       priority: 'urgent', tags: ['haqq-al-jar', 'amanah'],
       description: "The right of the neighbor includes safeguarding their property when they are absent and never violating their privacy. The Prophet (peace be upon him) listed the rights of the neighbor to include protecting their home in their absence and lowering your gaze from their private spaces. This task ensures you actively honour these trust-based obligations.",
@@ -10362,6 +10379,7 @@ The neighborly relationship must have practical infrastructure, not just goodwil
       ],
     },
     {
+      seq: 2,
       title: "Remove harm from shared spaces — keep communal areas clean, safe, and unobstructed",
       priority: 'high', tags: ['haqq-al-jar', 'shared-spaces'],
       description: " Shared hallways, stairwells, driveways, and communal gardens are the 'paths' of your neighborhood. This task applies the prophetic principle directly to communal spaces where your neighbors walk daily.",
@@ -10550,6 +10568,7 @@ Islam teaches that the best actions are those done consistently, even if small. 
       ],
     },
     {
+      seq: 3,
       title: "Handle neighbor conflicts with patience, direct communication, and sabr",
       priority: 'medium', tags: ['haqq-al-jar', 'conflict', 'sabr'],
       description: "Disagreements with neighbors are inevitable — noise disputes, parking issues, boundary questions. Islam provides a clear framework: address issues directly and kindly, exercise patience, and never respond to harm with harm.",
@@ -10749,6 +10768,7 @@ The Quran instructs: "If two parties among the believers fall into a dispute, ma
       ],
     },
     {
+      seq: 4,
       title: "Fulfil the basic needs of vulnerable neighbors — elderly, sick, alone, or in hardship",
       priority: 'high', tags: ['haqq-al-jar', 'vulnerable', 'care'],
       description: " Vulnerable neighbors — the elderly, the sick, those living alone, recent arrivals, or families facing hardship — have an amplified right to your attention. This task ensures you identify and actively care for those in your vicinity who need it most.",
@@ -10939,6 +10959,7 @@ Emergencies do not announce themselves. A power outage, a water main break, a fa
       ],
     },
     {
+      seq: 6,
       title: 'Institutionalise amr bil-ma\'ruf wa nahi \'anil-munkar — commanding good and forbidding evil as a community practice',
       priority: 'medium', tags: ['amr-bil-maruf', 'hisbah', 'accountability'],
       description: 'Allah says, "You are the best community singled out for people: you command what is right, forbid what is wrong, and believe in Allah" (Quran 3:110). This is not optional — it is the defining characteristic of the ummah. Institutionalising this practice means moving beyond individual advice-giving to a community-wide culture of mutual accountability, done with wisdom, gentleness, and due process.',
@@ -11165,6 +11186,7 @@ Amr bil-ma'ruf cannot function if people are afraid to speak. Many community mem
       ],
     },
     {
+      seq: 5,
       title: 'Build interfaith bridges — represent Islam authentically while fostering cooperation with neighbours of other faiths',
       priority: 'medium', tags: ['interfaith', 'da\'wah', 'coexistence'],
       description: 'The Quran says, "O humanity, We created you from a male and a female and made you peoples and tribes that you may know one another" (49:13). Interfaith engagement is not compromise — it is the Quranic mandate to make ourselves known, to cooperate on shared values, and to represent Islam with excellence. The Prophet (peace be upon him) maintained relationships with Jewish and Christian neighbours, participated in shared civic life, and was known for his integrity by people of all faiths.',
@@ -11382,6 +11404,7 @@ In the age of social media and 24-hour news, communities that do not tell their 
       ],
     },
     {
+      seq: 9,
       title: 'Launch global ummah solidarity projects — connect local effort to worldwide Muslim concerns',
       priority: 'medium', tags: ['global-solidarity', 'ummah', 'international'],
       description: ' A community that only looks inward is not living up to the ummah ideal. Global solidarity projects connect your local community to the broader body of believers, channelling resources, prayer, and advocacy to where they are needed most.',
@@ -11600,6 +11623,7 @@ Financial support and du'a address symptoms; advocacy addresses root causes. The
       ],
     },
     {
+      seq: 8,
       title: 'Develop a community replication model — document your community\'s best practices so others can learn from them',
       priority: 'medium', tags: ['replication', 'scaling', 'documentation'],
       description: 'The best community is not one that hoards its success but one that enables others to replicate it. The Prophet (peace be upon him) said, "Convey from me, even if it is one ayah" (Bukhari). Documenting your community\'s successful programmes, governance structures, and lessons learned creates a blueprint that other Muslim communities — especially newer or smaller ones — can adapt and implement.',
@@ -11818,6 +11842,7 @@ Sharing directly with a few communities is valuable; publishing or presenting re
       ],
     },
     {
+      seq: 7,
       title: 'Build intergenerational knowledge transfer — ensure community wisdom passes to the next generation',
       priority: 'medium', tags: ['intergenerational', 'legacy', 'knowledge-transfer'],
       description: 'Every generation of Muslims has a responsibility to pass on what it learned to the next. Intergenerational knowledge transfer goes beyond Quran — it includes community building wisdom, lived Islamic experience, professional skills, and the stories of struggle and triumph that give a community its identity and resilience.',
@@ -12049,6 +12074,7 @@ A legacy document is the community's letter to its own future. It captures not j
 
   "ummah_moontrance-land_core": [
     {
+      seq: 1,
       title: 'Conduct a comprehensive soil assessment — map soil types, pH, organic matter, and contamination across the entire land parcel',
       priority: 'urgent', tags: ['soil', 'khilafah-al-ard'],
       description: 'Before any planting or building can begin, you must know exactly what the soil holds and what it lacks. Allah placed us as khulafa (stewards) on this earth (Quran 2:30), and a steward who acts without knowledge of what they tend is negligent. This assessment provides the baseline truth about the land\'s condition.',
@@ -12276,6 +12302,7 @@ Restoration is not a one-time event but a living process that must be tracked. W
       ],
     },
     {
+      seq: 2,
       title: 'Design a water systems plan — map sources, drainage, and irrigation needs for the entire land parcel',
       priority: 'urgent', tags: ['water', 'nizam-al-miyah'],
       description: 'Water is the lifeblood of any land. Allah says He laid out the earth for His creatures with fruit-laden palms and husked grain (Quran 55:10-12), but none of this grows without intentional water management. This task designs the complete water architecture before a single pipe is laid or swale is dug.',
@@ -12503,6 +12530,7 @@ Harvesting water that falls freely from the sky is one of the most direct expres
       ],
     },
     {
+      seq: 0,
       title: 'Establish the legal land trust and Islamic covenant — protect the land from sale, speculation, and misuse',
       priority: 'urgent', tags: ['waqf', 'amanah', 'legal'],
       description: 'Land in Islam is amanah (trust), not a commodity for speculation. Without a legal structure that enshrines stewardship, future generations or external pressures could convert this sacred trust into a market asset. This task creates the legal and covenantal framework that protects the land in perpetuity.',
@@ -12720,6 +12748,7 @@ A trust held in secret serves no communal purpose. Publicly declaring the land c
       ],
     },
     {
+      seq: 4,
       title: 'Develop the initial planting plan — select species, map zones, and plant the first season',
       priority: 'urgent', tags: ['planting', 'sadaqah-jariyah'],
       description: 'The Prophet (peace be upon him) said: "If a Muslim plants a tree or sows seeds, and then a bird, or a person, or an animal eats from it, it is regarded as a charitable gift (sadaqah) for him" (Bukhari). This task translates that hadith into a practical, soil-appropriate planting plan for the first growing season.',
@@ -12938,6 +12967,7 @@ This is the moment where planning becomes reality and the first sadaqah jariyah 
       ],
     },
     {
+      seq: 3,
       title: 'Build safety and access infrastructure — fencing, paths, signage, and emergency provisions',
       priority: 'urgent', tags: ['infrastructure', 'safety'],
       description: 'A land stewardship project that people cannot safely access or navigate will fail before it starts. Fencing protects plantings and marks boundaries, paths channel foot traffic away from sensitive areas, signage educates visitors, and emergency provisions protect workers. This is the infrastructure of amanah — making the land safe for everyone who enters it.',
@@ -15273,6 +15303,7 @@ The land itself is the ultimate witness to the quality of stewardship it has rec
   // ── CORE — Establish seasonal calendar and foundational programming ──
   "ummah_moontrance-seasonal_core": [
     {
+      seq: 0,
       title: 'Establish a four-season calendar aligned with agricultural and Islamic cycles',
       priority: 'urgent', tags: ['calendar', 'seasons', 'planning'],
       description: 'Map the four MTC seasons — Ghars (Spring/Planting), Ri\'ayah (Summer/Tending), Hisab (Autumn/Harvest), and Sukun (Winter/Stillness) — onto the local growing calendar and anchor each with its Islamic spiritual themes. This calendar becomes the master schedule for every programme, event, and resource allocation across the year.',
@@ -15500,6 +15531,7 @@ Each season demands different tools, supplies, and human capacity. Without a mas
       ],
     },
     {
+      seq: 1,
       title: 'Launch the Ghars (Spring/Planting) programme — seed selection, soil prep, and planting as sadaqah jariyah',
       priority: 'urgent', tags: ['ghars', 'spring', 'planting', 'sadaqah-jariyah'],
       description: 'Design and execute the spring planting programme grounded in the hadith that planting a tree from which others eat is sadaqah jariyah (Bukhari 2320). This covers seed selection for local conditions, soil preparation, water system installation, and communal planting days that transform agricultural work into ongoing charity.',
@@ -15682,6 +15714,7 @@ Documentation transforms a single season's effort into repeatable knowledge. Wit
       ],
     },
     {
+      seq: 2,
       title: 'Build the Ri\'ayah (Summer/Tending) schedule — daily care, hospitality, and tarbiyah programming',
       priority: 'urgent', tags: ['riyayah', 'summer', 'tending', 'tarbiyah'],
       description: 'Establish the summer tending schedule that balances daily crop care with community engagement, hospitality, and educational programming. Ri\'ayah means care and stewardship — this season teaches participants that consistent, patient tending is both an agricultural necessity and a spiritual practice of trust in Allah\'s timing.',
@@ -15843,6 +15876,7 @@ Summer heat, pests, and disease pressure test every planting decision made in sp
       ],
     },
     {
+      seq: 3,
       title: 'Execute the Hisab (Autumn/Harvest) programme — main harvest, seed-saving, and community assessment',
       priority: 'urgent', tags: ['hisab', 'autumn', 'harvest', 'shura'],
       description: 'Coordinate the main harvest season with an emphasis on gratitude, accountability, and forward planning. Hisab means accounting — this season is about gathering the fruits of the year\'s labour, preserving food and seeds for the future, and conducting an honest community assessment of what worked and what needs to change.',
@@ -16024,6 +16058,7 @@ Data without archiving is lost knowledge. Every measurement, observation, and de
       ],
     },
     {
+      seq: 4,
       title: 'Plan the Sukun (Winter/Stillness) season — rest, study circles, maintenance, and next-year preparation',
       priority: 'urgent', tags: ['sukun', 'winter', 'rest', 'planning'],
       description: 'Design the winter programme around the Quranic concept of sukun (tranquillity, 30:21) — a season of intentional rest, deep learning, infrastructure maintenance, and strategic planning. Sukun is not idleness but purposeful stillness, like the earth resting before it brings forth life again in spring.',
@@ -17848,6 +17883,7 @@ Knowledge that is not archived is knowledge at risk. Digital files corrupt, webs
   // ── CORE ── foundational acts of community formation
   "ummah_moontrance-residency_core": [
     {
+      seq: 0,
       title: "Draft the community covenant (Mithaq) — a binding agreement of mutual rights, duties, and Islamic governance principles",
       priority: 'urgent', tags: ['covenant', 'mithaq', 'governance'],
       description: "The Mithaq is the foundational social contract of the community, modelled on the Prophet's Charter of Madinah. It establishes shared commitments to Islamic governance, mutual aid, conflict resolution, and stewardship of common resources. Without a written covenant, communal life drifts toward informal power structures and unspoken expectations that fracture trust.",
@@ -18084,6 +18120,7 @@ A covenant that exists only as a discussion or digital draft lacks the weight of
       ],
     },
     {
+      seq: 1,
       title: "Establish the shura governance structure — roles, council formation, and decision-making processes",
       priority: 'urgent', tags: ['shura', 'governance', 'hukm'],
       description: "Governance built on shura (mutual consultation) is a Quranic mandate (42:38), not an optional enhancement. This task creates the institutional architecture for collective decision-making: who sits on the shura council, how they are selected, what authority they hold, and how decisions are made and communicated. Without formal governance, communities default to charismatic authority or wealth-based power.",
@@ -18293,6 +18330,7 @@ The first shura meeting sets the tone and precedent for all governance to come. 
       ],
     },
     {
+      seq: 2,
       title: "Recruit and vet founding families — the Ansar-Muhajirun model of intentional community formation",
       priority: 'urgent', tags: ['hijrah', 'recruitment', 'ansar-muhajirun'],
       description: "The community is built on the quality and commitment of its founding families, not on rapid growth. The Prophetic model paired Muhajirun (those who migrated) with Ansar (those who hosted), creating bonds of mutual obligation that transcended tribal identity. Recruitment must be intentional, transparent, and grounded in shared values — not in marketing or desperation to fill land.",
@@ -18430,6 +18468,7 @@ The bay'ah is the moment when individual interest becomes collective commitment.
       ],
     },
     {
+      seq: 3,
       title: "Establish basic infrastructure — housing, worship space, water, and food systems for founding families",
       priority: 'urgent', tags: ['infrastructure', 'land', 'tamkin'],
       description: "A community cannot form without the physical conditions for dignified life. Before families commit to relocation, the land must provide — at minimum — shelter, clean water, a designated prayer space, and a pathway to food production. This task prioritises function over aesthetics: the goal is habitable, safe, and Shariah-compliant infrastructure that allows families to live, worship, and eat while permanent structures are planned.",
@@ -18646,6 +18685,7 @@ Food security is both a practical necessity and a spiritual aspiration. Even at 
       ],
     },
     {
+      seq: 4,
       title: "Build the newcomer onboarding process — from first inquiry to full integration",
       priority: 'urgent', tags: ['onboarding', 'integration', 'ta\'aruf'],
       description: "A community that cannot onboard new members effectively will either stagnate or fracture as unprepared newcomers collide with established norms. The onboarding process must systematically move a family from initial curiosity through informed commitment to genuine belonging. This is the community's immune system and its hospitality in one system — filtering for fit while welcoming with open arms those who belong.",

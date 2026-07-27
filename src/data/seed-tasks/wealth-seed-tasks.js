@@ -6,6 +6,7 @@ export const WEALTH_SEED_TASKS = {
   // ── EARNING & PROVISION (RIZQ) ──
   wealth_earning_core: [
     {
+      seq: 1,
       title: 'Audit all income sources — confirm each is free from riba, haram industries, and deception',
       priority: 'urgent', tags: ['halal-income', 'audit'],
       description: 'Conduct a thorough review of every stream of income you receive — salary, freelance, investments, side ventures — and verify that none involve interest (riba), prohibited industries (alcohol, gambling, conventional insurance), or deceptive practices. This is the foundational step in purifying your wealth.',
@@ -223,6 +224,7 @@ Completion indicator: a written action plan with specific deadlines, assigned to
       ],
     },
     {
+      seq: 2,
       title: 'Identify and exit any employment, contract, or investment that involves haram activity',
       priority: 'urgent', tags: ['halal-income', 'action'],
       description: 'Once haram income sources have been identified through your audit, take concrete steps to exit them. This may involve resigning from a position, terminating a contract, or liquidating an investment. Prioritise urgency while planning a realistic transition so you do not leave your dependants without provision.',
@@ -410,6 +412,7 @@ Completion indicator: every replacement income source has been vetted through th
       ],
     },
     {
+      seq: 0,
       title: 'Learn the Islamic conditions for halal earnings — avoid riba, gharar, maysir, and oppression',
       priority: 'high', tags: ['fiqh', 'halal-income'],
       description: 'Study the foundational fiqh of earning in Islam so you can independently evaluate whether a transaction or business model is permissible. Understanding the prohibitions of riba (interest), gharar (excessive uncertainty), maysir (gambling), and zulm (oppression) equips you to make informed financial decisions for life.',
@@ -621,6 +624,7 @@ Completion indicator: a completed, printed or easily accessible reference docume
       ],
     },
     {
+      seq: 3,
       title: 'Ensure your income consistently covers the fard needs of your dependants (nafaqah)',
       priority: 'high', tags: ['provision', 'obligation'],
       description: 'Nafaqah — providing food, shelter, clothing, and essential needs for your family — is a religious obligation before any discretionary spending or saving. Assess whether your current income reliably meets these baseline needs and identify any shortfalls that must be addressed immediately.',
@@ -771,6 +775,7 @@ Completion indicator: a documented action plan addressing the income-nafaqah gap
       ],
     },
     {
+      seq: 4,
       title: 'Make tawbah and resolve any past haram earnings — consult a scholar if needed',
       priority: 'medium', tags: ['tawbah', 'purification'],
       description: 'If you have earned haram income in the past, sincere repentance (tawbah) is required alongside practical steps to purify your wealth. Scholars generally advise donating the haram portion to charity (not as sadaqah for reward, but to remove the impermissible funds). Seek specific guidance for your situation.',
@@ -2239,6 +2244,7 @@ Completion indicator: an active mentorship relationship with at least one person
 // ── FINANCIAL LITERACY & MANAGEMENT ──
   wealth_financial_core: [
     {
+      seq: 0,
       title: 'Close all interest-bearing (riba) accounts and migrate to Islamic or interest-free alternatives',
       priority: 'urgent', tags: ['riba', 'banking'],
       description: 'Riba is among the most severely prohibited transactions in Islam — Allah and His Messenger declared war against it (Quran 2:279). Audit every bank account, credit card, and financial product you hold, and migrate to Shariah-compliant or at minimum interest-free alternatives as urgently as possible.',
@@ -2457,6 +2463,7 @@ The migration is not truly complete until your entire financial ecosystem — in
       ],
     },
     {
+      seq: 1,
       title: 'List all debts — prioritise eliminating high-interest consumer debt immediately',
       priority: 'urgent', tags: ['debt', 'riba'],
       description: 'Debt — especially interest-bearing debt — is a burden the Prophet (peace be upon him) sought refuge from. Create a complete inventory of all debts, then prioritise paying off the ones carrying the highest interest first, as continuing to pay riba compounds both the financial and spiritual harm.',
@@ -2637,6 +2644,7 @@ A goal without a deadline is just a wish. Setting a specific target date for bec
       ],
     },
     {
+      seq: 2,
       title: 'Create a written monthly budget — income, fixed expenses, zakah allocation, and savings',
       priority: 'high', tags: ['budgeting', 'planning'],
       description: 'A written budget transforms vague financial intentions into a concrete plan. By explicitly allocating for zakah, debt repayment, essential expenses, and savings before discretionary spending, you ensure that your obligations to Allah and your family are met first.',
@@ -2855,6 +2863,7 @@ A budget that exists only in your head is not a budget — it is a vague intenti
       ],
     },
     {
+      seq: 4,
       title: 'Learn the basics of Islamic finance — riba prohibition, murabaha, musharakah, and ijara',
       priority: 'high', tags: ['islamic-finance', 'study'],
       description: 'Understanding Islamic financial instruments empowers you to make informed decisions about banking, investing, and purchasing. Learn how murabaha (cost-plus sale), musharakah (partnership), and ijara (leasing) provide halal alternatives to conventional interest-based products.',
@@ -3068,6 +3077,7 @@ Theory without application is incomplete. Comparing real Islamic financial produ
       ],
     },
     {
+      seq: 3,
       title: 'Build a 1-month emergency cash buffer as a starting safety net',
       priority: 'high', tags: ['emergency-fund', 'savings'],
       description: 'Having at least one month of essential expenses set aside protects you from being forced into haram borrowing during an unexpected hardship. This small buffer is the first step toward financial resilience and tawakkul grounded in practical preparation.',
@@ -4479,6 +4489,7 @@ Financial independence is not the destination — it is the vehicle that enables
 // ── OWNERSHIP & RIGHTS ──
   wealth_ownership_core: [
     {
+      seq: 3,
       title: 'Draft an Islamic Will (Wasiyyah) — ensure your estate distributes according to Quran 4:11–12',
       priority: 'urgent', tags: ['wasiyyah', 'estate'],
       description: 'Every Muslim with assets must have a valid Islamic will. Without one, secular probate law may distribute your estate in a way that violates the Quranic inheritance shares (fara\'id). A wasiyyah ensures your wealth passes to the right people in the right proportions as commanded by Allah.',
@@ -4694,6 +4705,7 @@ A perfectly drafted wasiyyah is useless if no one can find it when it is needed.
       ],
     },
     {
+      seq: 1,
       title: 'Confirm all major assets (property, vehicles, accounts) have clear, legitimate title in your name',
       priority: 'high', tags: ['ownership', 'legal'],
       description: 'Clear ownership is a prerequisite for Islamic inheritance, zakah calculation, and lawful transaction. Verify that the title or registration for every major asset you own is properly documented, legally valid, and free from disputes or ambiguity.',
@@ -4827,6 +4839,7 @@ Identifying unclear ownership is only half the work — the other half is resolv
       ],
     },
     {
+      seq: 0,
       title: 'Learn the Islamic rules of ownership — what you can and cannot own, and your obligations as an owner',
       priority: 'high', tags: ['fiqh', 'ownership'],
       description: 'In Islam, ownership is a trust (amanah) — you are a steward, not an absolute owner. Study what categories of property and assets can be privately owned, the rights of others upon your wealth (zakah, nafaqah, community dues), and the prohibitions against hoarding (kanz) and monopoly (ihtikar).',
@@ -5031,6 +5044,7 @@ Knowledge that is not consolidated is easily forgotten. After studying the vario
       ],
     },
     {
+      seq: 2,
       title: 'Identify any property or assets obtained through unclear or disputed means — resolve them',
       priority: 'high', tags: ['ownership', 'integrity'],
       description: 'Assets acquired through ambiguous transactions, family disputes, or informal arrangements may not be rightfully yours in the eyes of Shariah. Identify any such assets and take steps to clarify ownership — even if it means returning something to its rightful owner — as clean ownership is essential for barakah.',
@@ -5182,6 +5196,7 @@ The resolution determined in the previous step must be acted upon — not merely
       ],
     },
     {
+      seq: 4,
       title: 'Ensure all contracts you have signed are free from gharar (ambiguity) and zulm (injustice)',
       priority: 'medium', tags: ['contracts', 'fiqh'],
       description: 'Islam requires that contracts be clear, fair, and free from excessive uncertainty. Review your active contracts — employment agreements, leases, business partnerships, service agreements — to ensure they do not contain hidden terms, unjust clauses, or ambiguity that could harm either party.',
@@ -6625,6 +6640,7 @@ The waqf deed (waqfiyyah) is the founding document that defines everything: the 
 // ── CIRCULATION & IMPACT ──
   wealth_circulation_core: [
     {
+      seq: 0,
       title: 'Calculate your zakah precisely — nisab, hawl, and applicable categories (cash, gold, trade goods)',
       priority: 'urgent', tags: ['zakah', 'fard'],
       description: 'Zakah is the third pillar of Islam and a fard obligation on every Muslim whose wealth exceeds the nisab threshold for one lunar year (hawl). Calculating it precisely — across all zakatable assets including cash, gold, silver, trade inventory, and investments — ensures you fulfil this pillar correctly.',
@@ -6802,6 +6818,7 @@ The hawl — the lunar year that must pass over wealth exceeding the nisab — i
       ],
     },
     {
+      seq: 2,
       title: 'Distribute zakah to eligible recipients immediately — do not delay beyond the hawl date',
       priority: 'urgent', tags: ['zakah', 'obligation'],
       description: 'Once your hawl date arrives and zakah is due, it must be distributed without unnecessary delay. The poor and needy have a right (haqq) to this portion of your wealth — withholding it is a serious sin. Identify eligible recipients and ensure the funds reach them promptly.',
@@ -6988,6 +7005,7 @@ Zakah is an act of worship, not merely a financial transaction. Like salah and f
       ],
     },
     {
+      seq: 3,
       title: 'Pay any outstanding zakah from previous years — make up missed obligations with a scholar\'s guidance',
       priority: 'urgent', tags: ['zakah', 'qada'],
       description: 'If you have missed zakah payments from previous years — whether due to ignorance, negligence, or miscalculation — the obligation remains as a debt to Allah. Calculate the estimated shortfall for each missed year and pay it as soon as possible, consulting a scholar for guidance on complex situations.',
@@ -7185,6 +7203,7 @@ Planning without action is meaningless — the obligation is not fulfilled until
       ],
     },
     {
+      seq: 4,
       title: 'Establish a dedicated zakah account or envelope — separate and earmark zakah funds before spending',
       priority: 'high', tags: ['zakah', 'planning'],
       description: 'Mixing zakah funds with personal spending money risks accidental misuse. Set up a dedicated account, envelope, or digital category that holds your zakah funds separately. This makes distribution easier, tracking clearer, and ensures the funds are protected from personal spending.',
@@ -7323,6 +7342,7 @@ A zakah fund that runs on autopilot without periodic review may drift out of ali
       ],
     },
     {
+      seq: 1,
       title: 'Learn the eight eligible recipients of zakah (Surah At-Tawbah 9:60) and identify local options',
       priority: 'medium', tags: ['zakah', 'fiqh'],
       description: 'Allah specified exactly eight categories of people eligible to receive zakah in Surah At-Tawbah 9:60. Knowing these categories — the poor, the needy, zakah administrators, those whose hearts are to be reconciled, slaves seeking freedom, debtors, in the cause of Allah, and the wayfarer — ensures your zakah reaches those truly entitled to it.',

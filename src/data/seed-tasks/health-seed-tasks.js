@@ -6,6 +6,7 @@ export const HEALTH_SEED_TASKS = {
   // ── PHYSICAL HEALTH ──
   health_physical_core: [
     {
+      seq: 1,
       title: 'Audit your diet — eliminate haram and doubtful (mashbuh) consumables',
       priority: 'urgent', tags: ['diet', 'halal'],
       description: 'Conduct a thorough review of everything you consume — food, drink, supplements, and medications — to ensure nothing haram or doubtful enters your body.',
@@ -155,6 +156,7 @@ Rewrite your standard grocery list, replacing any removed items with their halal
       ],
     },
     {
+      seq: 2,
       title: 'Establish a consistent sleep schedule of 7–8 hours aligned with Fajr',
       priority: 'high', tags: ['sleep', 'sunnah'],
       description: 'Design your sleep rhythm around the Prophetic pattern — early to bed after Isha, rising before Fajr. Consistent sleep is the single most impactful health habit, affecting mood, cognitive function, immune strength, and spiritual energy for ibadah.',
@@ -343,6 +345,7 @@ Use a simple sleep log — note your bedtime, wake time, and how rested you feel
       ],
     },
     {
+      seq: 3,
       title: 'Begin a daily walk after Fajr or Asr (minimum 20 minutes)',
       priority: 'high', tags: ['exercise', 'sunnah'],
       description: 'Walking is the most accessible form of movement and carries immense physical and mental benefit. Scheduling it after Fajr or Asr ties it to an existing anchor, builds consistency, and provides time for reflection, dhikr, or beneficial audio content.',
@@ -519,6 +522,7 @@ Use a simple habit tracker — a checkbox on your calendar, a streak app, or a t
       ],
     },
     {
+      seq: 4,
       title: 'Book an annual comprehensive health screening',
       priority: 'high', tags: ['health', 'prevention'],
       description: 'The body is an amanah (trust) from Allah. Preventive health screenings catch issues early when they are most treatable. A comprehensive check-up covers blood work, cardiovascular markers, vision, dental health, and age-appropriate screenings.',
@@ -663,6 +667,7 @@ Schedule a follow-up consultation (in-person or phone) to review the results wit
       ],
     },
     {
+      seq: 0,
       title: 'Identify and remove harmful substances — tobacco, alcohol, processed foods',
       priority: 'urgent', tags: ['diet', 'tayyib'],
       description: 'Allah commands us to consume what is tayyib (pure and wholesome) and forbids what harms. Tobacco, alcohol, and heavily processed foods damage the body and dull the mind. Removing them is both a health imperative and an act of obedience.',
@@ -1917,6 +1922,7 @@ At day 45, review all your data: compare your current measurements and photos to
   // ── MENTAL WELL-BEING ──
   health_mental_core: [
     {
+      seq: 2,
       title: 'Establish a morning routine: Fajr → Quran (minimum 1 page) → morning adhkar → journal',
       priority: 'urgent', tags: ['routine', 'adhkar'],
       description: 'How you start your morning determines the quality of your entire day. This Prophetic morning sequence — prayer, Quran, remembrance of Allah, and self-reflection — anchors your mind in purpose and protects against anxiety and aimlessness.',
@@ -2088,6 +2094,7 @@ Use a simple habit tracker — a printed calendar on the wall, a checklist in yo
       ],
     },
     {
+      seq: 0,
       title: 'Identify sources of haram media (music, content) and set firm boundaries',
       priority: 'high', tags: ['media', 'protection'],
       description: 'The eyes, ears, and heart are all accountable before Allah. Haram media — whether explicit content, idle entertainment that wastes time, or music that hardens the heart — erodes spiritual sensitivity and mental clarity. Setting boundaries is an act of self-preservation.',
@@ -2250,6 +2257,7 @@ Sit down with your spouse and agree on clear rules: what devices are allowed, wh
       ],
     },
     {
+      seq: 3,
       title: 'Practise daily dhikr for anxiety — recite Ayat al-Kursi, last two ayat of Al-Baqarah',
       priority: 'high', tags: ['dhikr', 'mental-health'],
       description: 'Allah says: "Verily, in the remembrance of Allah do hearts find rest" (13:28). Specific adhkar have been prescribed by the Prophet (SAW) for protection and tranquillity. Making these a non-negotiable daily practice builds a spiritual shield against anxiety and intrusive thoughts.',
@@ -2455,6 +2463,7 @@ Each evening, rate your anxiety on a simple 1-10 scale in your journal. Note whe
       ],
     },
     {
+      seq: 1,
       title: 'Limit social media use to defined time windows — set screen-time limits',
       priority: 'high', tags: ['digital-detox', 'focus'],
       description: 'Uncontrolled social media use fragments attention, feeds comparison, and steals hours that could be spent in worship, learning, or meaningful connection. Setting firm time windows turns a passive habit into a controlled, intentional tool.',
@@ -2599,6 +2608,7 @@ Identify your top 3 idle scrolling triggers (e.g., waiting for food, riding the 
       ],
     },
     {
+      seq: 4,
       title: 'Seek Islamic counselling or therapy if experiencing persistent anxiety or depression',
       priority: 'medium', tags: ['mental-health', 'help'],
       description: 'Seeking help is a sign of strength, not weakness.',
@@ -3719,6 +3729,7 @@ Choose someone you deeply trust — your spouse, a close friend, a mentor, or a 
   // ── SAFETY & SECURITY ──
   health_safety_core: [
     {
+      seq: 1,
       title: 'Confirm stable, secure, and dignified housing for your household',
       priority: 'urgent', tags: ['housing', 'security'],
       description: 'Shelter is one of the most fundamental human needs and a prerequisite for stability in every other area of life. Dignified housing means a space that is safe, clean, adequately sized, and free from threats — a foundation upon which spiritual and professional life can be built.',
@@ -3854,6 +3865,7 @@ Define what "stable housing" looks like for your family — location, size, cost
       ],
     },
     {
+      seq: 0,
       title: 'Verify that all basic needs (food, clothing, shelter) are covered by halal income',
       priority: 'urgent', tags: ['provision', 'halal'],
       description: ' Ensuring these essentials are covered by halal income is both a spiritual obligation and the foundation of financial peace. Any haram source taints everything built upon it.',
@@ -3988,6 +4000,7 @@ For each haram income source identified, create an exit plan with a timeline. If
       ],
     },
     {
+      seq: 3,
       title: 'Build a 3-month emergency fund in a halal savings vehicle',
       priority: 'high', tags: ['finance', 'emergency'],
       description: 'An emergency fund provides a buffer against unexpected job loss, medical expenses, or urgent needs — reducing the temptation to take on riba-based debt in a crisis. Three months of essential expenses, held in a halal account, is the minimum safety net every Muslim household should have.',
@@ -4132,6 +4145,7 @@ Set a monthly reminder to check your emergency fund balance. Record the balance 
       ],
     },
     {
+      seq: 4,
       title: 'Obtain basic first aid and CPR certification',
       priority: 'high', tags: ['first-aid', 'preparation'],
       description: 'Knowing how to respond in a medical emergency can save a life — a family member, a colleague, or a stranger. First aid and CPR certification equips you with practical skills that fulfil the Islamic duty of preserving life (hifz al-nafs) in its most direct form.',
@@ -4236,6 +4250,7 @@ Note your certification expiry date and set a calendar reminder two months befor
       ],
     },
     {
+      seq: 2,
       title: 'Document an emergency contact plan — phone numbers, meeting point, exit routes',
       priority: 'medium', tags: ['emergency', 'planning'],
       description: 'In an emergency — fire, natural disaster, or security threat — panic is the enemy. A pre-documented plan with clear contacts, meeting points, and exit routes ensures your family can act quickly and reunite safely. Tawakkul in Allah does not negate taking practical precautions.',
@@ -5463,6 +5478,7 @@ Identify 3-5 community members who showed interest during events or training. In
   // ── SOCIAL CHARACTER ──
   health_social_core: [
     {
+      seq: 1,
       title: 'Master the Islamic greeting — give salam freely and respond completely',
       priority: 'high', tags: ['adab', 'sunnah'],
       description: ' Shall I not tell you of something that if you do it, you will love one another? Spread the salam amongst yourselves." The greeting of peace is the simplest, most powerful tool for building Muslim brotherhood.',
@@ -5594,6 +5610,7 @@ Model the behaviour — greet everyone with salam in front of your children and 
       ],
     },
     {
+      seq: 4,
       title: 'Fulfil social obligations consistently — attend weddings, funerals, and visit the sick',
       priority: 'high', tags: ['adab', 'community'],
       description: 'The Prophet (SAW) outlined five rights of a Muslim upon another Muslim, including visiting the sick, attending funerals, and accepting invitations. These are not optional courtesies — they are obligations that maintain the social fabric of the ummah and earn immense reward.',
@@ -5772,6 +5789,7 @@ After visiting the sick, attending a funeral, or going to a wedding, send a brie
       ],
     },
     {
+      seq: 0,
       title: 'Audit your speech — eliminate backbiting (gheebah), slander (buhtan), and lying',
       priority: 'urgent', tags: ['adab', 'character'],
       description: 'Allah compares backbiting to eating the flesh of your dead brother (49:12). The tongue is the most dangerous limb — it can destroy relationships, reputations, and your own akhirah. An honest audit of your speech habits is the starting point for purifying your social character.',
@@ -5934,6 +5952,7 @@ Choose a trusted friend, spouse, or colleague and explain your goal. Ask them to
       ],
     },
     {
+      seq: 3,
       title: 'Practise positive body language — eye contact, open posture, and full presence in conversations',
       priority: 'medium', tags: ['adab', 'communication'],
       description: ' Positive body language — eye contact, leaning in, putting down your phone — communicates respect and builds trust in every interaction.',
@@ -6047,6 +6066,7 @@ After practising the previous subtasks for two weeks, start paying attention to 
       ],
     },
     {
+      seq: 2,
       title: 'Respond to wrongdoing with patience (hilm) — implement a 24-hour rule before reacting',
       priority: 'medium', tags: ['character', 'patience'],
       description: '',

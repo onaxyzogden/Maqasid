@@ -9,6 +9,8 @@ import {
   findCurrentSubtaskIndex,
   taskPillState,
   subtaskChipState,
+  orderBoardTasks,
+  decorateTaskChain,
   deriveBoardSequence,
   deriveSubtaskSteps,
   getPillarTierSubtaskStats,
@@ -223,6 +225,65 @@ describe('deriveBoardSequence', () => {
     const seq = deriveBoardSequence(p, [task('t', [subtask('a', { done: true })])], TODAY);
     expect(seq.currentTaskIndex).toBe(-1);
     expect(seq.actionable).toBe(false);
+  });
+});
+
+describe('orderBoardTasks (curated seed order)', () => {
+  it('sorts a board by seedOrder, not by persisted array position', () => {
+    const tasks = [
+      task('t-third', [subtask('a')], { seedOrder: 2 }),
+      task('t-first', [subtask('b')], { seedOrder: 0 }),
+      task('t-second', [subtask('c')], { seedOrder: 1 }),
+    ];
+    expect(orderBoardTasks(tasks).map((t) => t.id)).toEqual(['t-first', 't-second', 't-third']);
+  });
+
+  it('keeps array order when no task carries a seedOrder (uncurated board)', () => {
+    const tasks = [task('t-a', [subtask('a')]), task('t-b', [subtask('b')]), task('t-c', [subtask('c')])];
+    expect(orderBoardTasks(tasks).map((t) => t.id)).toEqual(['t-a', 't-b', 't-c']);
+  });
+
+  it('places user-created tasks (no seedOrder) after the whole curated seed chain', () => {
+    const tasks = [
+      task('t-user-early', [subtask('a')], { order: 0 }),
+      task('t-seed-last', [subtask('b')], { seedOrder: 9 }),
+      task('t-user-late', [subtask('c')], { order: 1 }),
+      task('t-seed-first', [subtask('d')], { seedOrder: 0 }),
+    ];
+    expect(orderBoardTasks(tasks).map((t) => t.id))
+      .toEqual(['t-seed-first', 't-seed-last', 't-user-early', 't-user-late']);
+  });
+
+  it('is stable for equal keys and tolerates a null list', () => {
+    const tasks = [
+      task('t-a', [subtask('a')], { seedOrder: 1 }),
+      task('t-b', [subtask('b')], { seedOrder: 1 }),
+    ];
+    expect(orderBoardTasks(tasks).map((t) => t.id)).toEqual(['t-a', 't-b']);
+    expect(orderBoardTasks(null)).toEqual([]);
+  });
+
+  it('deriveBoardSequence walks the curated order — the current step follows seedOrder', () => {
+    const p = project('health_physical_core');
+    const tasks = [
+      // Persisted array order says this open task is first; curation says it is third.
+      task('t-late', [subtask('a')], { seedOrder: 2 }),
+      task('t-early', [subtask('b')], { seedOrder: 0 }),
+      task('t-mid', [subtask('c')], { seedOrder: 1 }),
+    ];
+    const seq = deriveBoardSequence(p, tasks, TODAY);
+    expect(seq.tasks.map((t) => t.task.id)).toEqual(['t-early', 't-mid', 't-late']);
+    expect(seq.currentTaskIndex).toBe(0);
+    expect(seq.tasks[0].task.id).toBe('t-early');
+    expect(seq.tasks.map((t) => t.state)).toEqual(['current', 'locked', 'locked']);
+  });
+
+  it('decorateTaskChain stays unsorted — the cross-project popup pool keeps its build order', () => {
+    const pool = [
+      task('t-b', [subtask('a')], { seedOrder: 5 }),
+      task('t-a', [subtask('b')], { seedOrder: 0 }),
+    ];
+    expect(decorateTaskChain(pool, TODAY).items.map((i) => i.task.id)).toEqual(['t-b', 't-a']);
   });
 });
 

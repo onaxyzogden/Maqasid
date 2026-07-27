@@ -8,9 +8,10 @@
 // Within a pillar+tier, work is SEQUENTIALLY LOCKED: a board (project) holds an
 // ordered list of tasks, each an ordered list of subtasks, and only the first
 // not-yet-complete task — and within it the first not-yet-satisfied subtask — is
-// actionable. Everything else is visible but locked. Order is ARRAY ORDER of
-// `tasksByProject[boardId]`; the display label `task.n` is never consulted for
-// sequencing. "Not today" snoozes the whole current task, so its board drops out
+// actionable. Everything else is visible but locked. Chain order is the CURATED
+// SEED ORDER (`task.seedOrder`, see orderBoardTasks), falling back to persisted
+// array order for tasks that have none; the display label `task.n` is never
+// consulted for sequencing. "Not today" snoozes the whole current task, so its board drops out
 // for the day and selection falls through to the next actionable board in the
 // pillar, then to the next pillar.
 //
@@ -99,9 +100,41 @@ function taskLetter(index) {
   return out;
 }
 
+// Sort key floor for tasks with no `seedOrder` (user-created tasks on a pillar
+// board). Curated seed chain first, user additions after, each group keeping
+// its own relative order.
+const USER_TASK_ORDER_FLOOR = 1e6;
+
+// Canonical chain order for ONE board. `seedOrder` is the curated seed index —
+// written at seed time from the seed task's `seq` (falling back to its array
+// position) and reconciled on every boot by project-store's backfill, so a
+// curated re-order reaches boards that already exist in localStorage. Tasks
+// without it (user-created) sort after the whole seed chain. Ties keep array
+// order: Array.prototype.sort is stable, and the explicit index tiebreak makes
+// that guarantee local rather than implied.
+//
+// Board-scoped ON PURPOSE — a merged cross-project pool (the Prophetic Path
+// node popup) must keep its build order, since `seedOrder` is only meaningful
+// within one board. See decorateTaskChain below.
+export function orderBoardTasks(tasks) {
+  const list = tasks ?? [];
+  return list
+    .map((task, index) => ({
+      task,
+      index,
+      key: typeof task?.seedOrder === 'number'
+        ? task.seedOrder
+        : USER_TASK_ORDER_FLOOR + (typeof task?.order === 'number' ? task.order : index),
+    }))
+    .sort((a, b) => a.key - b.key || a.index - b.index)
+    .map((row) => row.task);
+}
+
 // Decorate an ordered task list with stepper display state + letter labels —
-// the [{ task, state, letter }] shape TaskStepper renders. Board-free so a
-// merged cross-project pool (Prophetic Path node popup) can use it too.
+// the [{ task, state, letter }] shape TaskStepper renders. Takes the list in
+// the order it is given (callers that own a single board pass it through
+// orderBoardTasks first). Board-free so a merged cross-project pool (Prophetic
+// Path node popup) can use it too.
 export function decorateTaskChain(tasks, todayKey) {
   const list = tasks ?? [];
   const currentTaskIndex = findCurrentTaskIndex(list);
@@ -119,7 +152,7 @@ export function decorateTaskChain(tasks, todayKey) {
 // display state + letter label. `actionable` is true only when the board has a
 // current task that is NOT snoozed today — i.e. there is a step to act on now.
 export function deriveBoardSequence(project, tasks, todayKey) {
-  const list = tasks ?? [];
+  const list = orderBoardTasks(tasks);
   const { currentTaskIndex, items } = decorateTaskChain(list, todayKey);
   const currentTask = currentTaskIndex >= 0 ? list[currentTaskIndex] : null;
   const actionable = currentTaskIndex >= 0 && !isTaskSnoozedToday(currentTask, todayKey);

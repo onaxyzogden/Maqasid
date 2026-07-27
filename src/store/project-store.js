@@ -45,6 +45,16 @@ function seedBbosTasks(projectId, todoColumnId) {
   return safeSet(storageKey, seeded);
 }
 
+// The curated chain position of a seed task. `seq` is the deliberate order an
+// author assigns (see wiki/decisions/2026-07-27-milos-seed-order-curation.md);
+// a board that has not been curated yet falls back to its array position, which
+// is what every board used before curation existed. Persisted onto the task as
+// `seedOrder` and reconciled on every boot by backfillAndStripSeeds, so editing
+// `seq` in a seed file re-orders boards that already live in localStorage.
+function seedChainOrder(seedTask, arrayIndex) {
+  return typeof seedTask?.seq === 'number' ? seedTask.seq : arrayIndex;
+}
+
 function seedTasks(boardId) {
   const tasks = getBoardSeeds(boardId);
   if (!tasks || tasks.length === 0) return;
@@ -56,6 +66,9 @@ function seedTasks(boardId) {
   // Slim shape: description/sources are static reference data, hydrated at read time
   // from the bundled seed (see src/services/seed-hydrator.js). Persisting them would
   // blow the localStorage quota (~8 MB across 1,500+ subtasks).
+  //
+  // `seedOrder` carries the CURATED chain order (see seedChainOrder): the board's
+  // sequential-locking chain, and every kanban/list surface, sort by it.
   const seeded = tasks.map((t, i) => ({
     id: genTaskId(),
     projectId: boardId,
@@ -67,7 +80,7 @@ function seedTasks(boardId) {
     subtasks: (t.subtasks || []).map((s) => ({ id: genSubtaskId(), title: s.title, done: s.done ?? false })),
     checklist: [],
     order: i,
-    seedOrder: i,
+    seedOrder: seedChainOrder(t, i),
     createdAt: now,
     updatedAt: now,
     completedAt: null,
@@ -110,7 +123,7 @@ async function backfillAndStripSeeds() {
     if (tasks.length === 0) return;
     const seeds = ALL_SEEDS[boardId];
     const seedMap = {};
-    seeds.forEach((s, i) => { seedMap[s.title] = { ...s, _seedIndex: i }; });
+    seeds.forEach((s, i) => { seedMap[s.title] = { ...s, _seedIndex: seedChainOrder(s, i) }; });
     let changed = false;
     const beforeSize = firstRun ? JSON.stringify(tasks).length : 0;
 
@@ -134,7 +147,7 @@ async function backfillAndStripSeeds() {
         subtasks: (s.subtasks || []).map((st) => ({ id: genSubtaskId(), title: st.title, done: st.done ?? false })),
         checklist: [],
         order: maxOrder + 1 + newSeedTasks.length,
-        seedOrder: i,
+        seedOrder: seedChainOrder(s, i),
         createdAt: nowIso,
         updatedAt: nowIso,
         completedAt: null,
@@ -147,8 +160,14 @@ async function backfillAndStripSeeds() {
       if (!seed) return t;
       const patch = {};
 
-      // Structural: set seedOrder if missing
-      if (t.seedOrder === undefined) patch.seedOrder = seed._seedIndex;
+      // Structural: RECONCILE seedOrder to the seed's curated chain position on
+      // every boot (same contract as backfillBbosOrder below). Filling it only
+      // when missing would strand every already-seeded board on the order it
+      // happened to be authored in, so curating a seed file would reach fresh
+      // installs and nothing else. Non-destructive: one integer, no title,
+      // subtask, completion, or snooze data is touched — see
+      // stages/implement-seed-order-reconciliation-review.md.
+      if (t.seedOrder !== seed._seedIndex) patch.seedOrder = seed._seedIndex;
 
       // Structural: add any new subtasks introduced by seed updates (slim shape — no description/sources)
       const seedSubs = seed.subtasks || [];

@@ -6,6 +6,7 @@ export const FAMILY_SEED_TASKS = {
   // ── FOUNDATIONS OF MARRIAGE ──
   family_marriage_core: [
     {
+      seq: 0,
       title: 'Verify your marriage contract (nikah) is valid — confirm witnesses, mahr, and wali were present',
       priority: 'urgent', tags: ['nikah', 'fiqh'],
       description: 'The nikah contract is the legal and spiritual foundation of your marriage. Verifying its validity ensures your union meets the conditions set by the Shariah — proper wali (guardian), two Muslim witnesses, and an agreed-upon mahr. Without these, the marriage may be void or deficient in the eyes of Allah.',
@@ -179,6 +180,7 @@ Living in a marriage whose validity is uncertain is a serious matter in Islam �
       ],
     },
     {
+      seq: 4,
       title: 'Establish daily check-ins with your spouse — minimum 10 minutes of undivided attention',
       priority: 'high', tags: ['marriage', 'connection'],
       description: 'The Prophet (peace be upon him) was attentive and present with his wives despite immense responsibilities. A daily check-in — free from screens and distractions — builds emotional safety, prevents resentment from accumulating, and keeps the marital bond alive through consistent small investments.',
@@ -317,6 +319,7 @@ Research and Islamic wisdom both affirm that consistency is what produces lastin
       ],
     },
     {
+      seq: 2,
       title: 'Learn the mutual rights and obligations of spouses in Islam (nafaqah, kindness, intimacy)',
       priority: 'high', tags: ['fiqh', 'marriage'],
       description: 'Islam assigns clear, reciprocal rights to both husband and wife — from financial provision (nafaqah) to emotional kindness (mu\'ashara bil-ma\'ruf) to physical intimacy. Understanding these rights prevents injustice and transforms the marriage from a cultural arrangement into an act of worship.',
@@ -543,6 +546,7 @@ Knowledge without application is a proof against you, not for you. The purpose o
       ],
     },
     {
+      seq: 3,
       title: 'Ensure your spouse\'s basic needs — financial, emotional, and physical — are consistently met',
       priority: 'urgent', tags: ['marriage', 'obligation'],
       description: 'Meeting your spouse\'s fundamental needs is not generosity — it is an obligation (wajib).',
@@ -698,6 +702,7 @@ Awareness without action is negligence. Once you have identified that a need is 
       ],
     },
     {
+      seq: 1,
       title: 'Eliminate all forms of abuse — verbal, emotional, and physical — from the marital relationship',
       priority: 'urgent', tags: ['character', 'marriage'],
       description: 'Abuse in any form is categorically haram and a betrayal of the trust (amanah) that marriage represents. The Prophet (peace be upon him) never struck a woman and condemned those who did. This task demands honest self-examination and, where patterns of harm exist, seeking professional and scholarly intervention immediately.',
@@ -2166,6 +2171,7 @@ Your personal recommendations carry weight that generic advice does not. When yo
   // ── PARENTING & MENTORSHIP ──
   family_parenting_core: [
     {
+      seq: 0,
       title: 'Ensure children have consistent halal provision — food, clothing, shelter, and safety',
       priority: 'urgent', tags: ['parenting', 'provision'],
       description: 'Providing for your children\'s material needs from halal sources is the baseline obligation of parenthood.',
@@ -2334,6 +2340,7 @@ Consistency is the hallmark of trustworthy stewardship. A monthly checklist tran
       ],
     },
     {
+      seq: 3,
       title: 'Establish daily Islamic bedtime routine — du\'a, Ayat al-Kursi, and a brief story from seerah',
       priority: 'high', tags: ['parenting', 'tarbiyah'],
       description: 'The last moments before sleep are powerful for imprinting faith into a child\'s heart.',
@@ -2502,6 +2509,7 @@ When only one parent handles bedtime, children bond with that parent around fait
       ],
     },
     {
+      seq: 2,
       title: 'Teach children the six pillars of Iman and five pillars of Islam at age-appropriate levels',
       priority: 'high', tags: ['tarbiyah', 'aqidah'],
       description: 'Every Muslim child must understand what they believe and what they practise before they reach the age of responsibility.',
@@ -2696,6 +2704,7 @@ Knowledge that is never recalled fades. Regular, gentle review ensures that what
       ],
     },
     {
+      seq: 1,
       title: 'Model the character (akhlaq) you want your children to inherit — they observe everything',
       priority: 'urgent', tags: ['parenting', 'character'],
       description: 'Children absorb character through observation far more than instruction.',
@@ -2855,6 +2864,7 @@ Self-assessment has blind spots. Your spouse sees you in moments you may not rem
       ],
     },
     {
+      seq: 4,
       title: 'Set clear, consistent, and compassionate household boundaries and expectations',
       priority: 'high', tags: ['parenting', 'discipline'],
       description: 'Children thrive with structure. Clear boundaries — communicated with love and enforced with consistency — provide the safety children need to grow.',
@@ -4213,6 +4223,7 @@ The timing of receiving a letter matters as much as its content. A letter given 
   // ── EXTENDED FAMILY (KINSHIP) ──
   family_kinship_core: [
     {
+      seq: 3,
       title: 'Make contact with parents and close relatives at least once per week — call, visit, or message',
       priority: 'urgent', tags: ['silat-al-rahim', 'parents'],
       description: 'Silat al-rahim (maintaining family ties) is a fundamental obligation in Islam.',
@@ -4372,6 +4383,7 @@ Physical presence carries a weight that no phone call or message can replicate. 
       ],
     },
     {
+      seq: 2,
       title: 'Identify any severed family ties (qat al-rahim) and take the first step to reconcile',
       priority: 'urgent', tags: ['silat-al-rahim', 'reconciliation'],
       description: 'Severed family ties are among the gravest sins in Islam.',
@@ -4558,6 +4570,7 @@ Some family rifts are too deep or too tangled for direct reconciliation. Attempt
       ],
     },
     {
+      seq: 0,
       title: 'Learn the Islamic rulings on silat al-rahim — rights of parents, relatives, and in-laws',
       priority: 'high', tags: ['fiqh', 'silat-al-rahim'],
       description: 'Many Muslims practise kinship ties based on culture rather than knowledge.',
@@ -4807,6 +4820,7 @@ Islam commands maintaining ties, but it does not command submitting to abuse. So
       ],
     },
     {
+      seq: 1,
       title: 'Fulfil obligations to parents — obedience, service, and du\'a for them (in life and after death)',
       priority: 'urgent', tags: ['parents', 'birr-al-walidayn'],
       description: 'Birr al-walidayn (honouring parents) is the second most emphasised obligation in the Quran after tawhid.',
@@ -4966,6 +4980,7 @@ The Quran does not merely prohibit shouting at parents — it prohibits even the
       ],
     },
     {
+      seq: 4,
       title: 'Attend family occasions — births, weddings, illnesses, and funerals — as a duty of kinship',
       priority: 'high', tags: ['silat-al-rahim', 'community'],
       description: 'Being present for family milestones is how kinship bonds are maintained in practice.',
@@ -6205,6 +6220,7 @@ A family coordinator who does not train a successor is building on sand. You wil
   // ── HOME ENVIRONMENT ──
   family_home_core: [
     {
+      seq: 1,
       title: 'Establish the home as a place of prayer — designate a clean prayer space with qibla direction',
       priority: 'urgent', tags: ['home', 'salah'],
       description: '',
@@ -6398,6 +6414,7 @@ Guests and young children should not have to ask or guess which direction to fac
       ],
     },
     {
+      seq: 0,
       title: 'Remove all haram objects and content from the home — images of animate beings (on walls), music players, alcohol',
       priority: 'urgent', tags: ['home', 'halal'],
       description: 'The angels do not enter a house that contains images of animate beings, dogs kept without necessity, or haram items.',
@@ -6542,6 +6559,7 @@ Islam does not seek to create a barren, joyless home. The Prophet's (peace be up
       ],
     },
     {
+      seq: 2,
       title: 'Ensure the home is clean, organised, and maintained as a dignified space',
       priority: 'high', tags: ['home', 'cleanliness'],
       description: 'Islam elevates cleanliness to half of faith (shattr al-iman).',
@@ -6689,6 +6707,7 @@ Disorder is the enemy of efficiency, peace, and dignity. When every item in the 
       ],
     },
     {
+      seq: 3,
       title: 'Begin and end each day in the home with Islamic adhkar — morning/evening supplications',
       priority: 'high', tags: ['home', 'adhkar'],
       description: 'The morning and evening adhkar are a shield for the household.',
@@ -6839,6 +6858,7 @@ Research on habit formation consistently shows that tracking accelerates consist
       ],
     },
     {
+      seq: 4,
       title: 'Establish household rules — screen time limits, guest etiquette, and shared responsibilities',
       priority: 'medium', tags: ['home', 'discipline'],
       description: 'A well-run household operates on shared agreements, not constant policing.',
