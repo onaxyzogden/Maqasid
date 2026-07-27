@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { safeGetJSON, safeGet, safeSet, safeRemove, listKeys } from '../services/storage';
-import { supabase, isSupabaseConfigured } from '../services/supabase';
+import { supabase, cloudAccountsEnabled } from '../services/supabase';
 import { pullSnapshot, pushSnapshot, detectConflict, applyPull, initSync, teardownSync } from '../services/sync-service';
 
 // ─── Local user profile helpers ─────────────────────────────────────────────
@@ -61,8 +61,11 @@ export const useAuthStore = create((set, get) => ({
   /** Initialise Supabase session and subscribe to auth changes.
    *  Call once on app mount (App.jsx useEffect). */
   initAuth: async () => {
-    if (!isSupabaseConfigured || !supabase) {
-      // No Supabase credentials — stay in guest mode immediately
+    if (!cloudAccountsEnabled || !supabase) {
+      // Online accounts disabled (or no credentials) — stay in guest mode.
+      // authStatus can never reach 'authenticated', which is what keeps
+      // SyncStatusChip, FirstLoginModal, useSyncObserver and the Settings
+      // Account & Sync panel from rendering.
       set({ authStatus: 'guest' });
       return;
     }

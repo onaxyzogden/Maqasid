@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { isSupabaseConfigured } from '../services/supabase';
+import { cloudAccountsEnabled } from '../services/supabase';
 import { ChevronDown, ArrowRight, Star, LogIn, X, Moon, Check, BookOpen, Shield, Sparkles } from 'lucide-react';
 import { MAQASID_PILLARS, MAQASID_CORE_PILLARS } from '../data/maqasid';
 import { ICON_REGISTRY, getIcon } from '../data/icon-registry';
@@ -279,7 +279,7 @@ export default function Landing() {
             </Link>
           ) : (
             <>
-              {isSupabaseConfigured ? (
+              {cloudAccountsEnabled ? (
                 <Link to="/auth" className="btn btn-ghost" style={{ fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
                   <LogIn size={16} /> Sign In
                 </Link>
@@ -304,7 +304,7 @@ export default function Landing() {
             </div>
             <div className="expense-form-body">
               <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: 1.5, marginBottom: '1rem', marginTop: '-0.25rem' }}>
-                Your data stays on this device only. To sync across devices, create a free account.
+                Your data stays on this device only. You can export a full backup any time from Settings.
               </p>
               <div className="expense-form-field">
                 <label>Name *</label>
@@ -320,7 +320,7 @@ export default function Landing() {
               </div>
             </div>
             <div className="expense-form-footer">
-              {isSupabaseConfigured ? (
+              {cloudAccountsEnabled ? (
                 <Link to="/auth?mode=signup" className="btn btn-ghost" onClick={() => setShowLogin(false)}>
                   Create account
                 </Link>

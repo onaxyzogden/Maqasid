@@ -113,8 +113,10 @@ const UmmahDashboard = lazy(() => import('@pages/ummah/UmmahDashboard'));
 const MoontraceDashboard = lazy(() => import('@pages/moontrance/MoontraceDashboard'));
 
 const Settings = lazy(() => import('@pages/Settings'));
-const AccountPage = lazy(() => import('@pages/AccountPage'));
-const AuthPage = lazy(() => import('@pages/AuthPage'));
+// AccountPage / AuthPage are intentionally NOT imported — online accounts are
+// disabled (see CLOUD_ACCOUNTS_ENABLED in @services/supabase). The files remain
+// on disk; restoring the feature means re-adding these two lazy imports and the
+// two routes below.
 const ModulePlaceholder = lazy(() => import('@pages/ModulePlaceholder'));
 const PropheticPathPage = lazy(() => import('@pages/PropheticPathPage'));
 const OrientationPage = lazy(() => import('@pages/OrientationPage'));
@@ -179,7 +181,9 @@ export default function App() {
     <Suspense fallback={<RouteSpinner />}>
     <Routes>
       <Route path="/" element={<Landing />} />
-      <Route path="/auth" element={<AuthPage />} />
+      {/* Online accounts disabled — keep the path alive so old links/bookmarks
+          land somewhere useful instead of a blank page (there is no 404 route). */}
+      <Route path="/auth" element={<Navigate to="/get-started" replace />} />
       <Route path="/get-started" element={<Onboarding />} />
       <Route path="/present/ogden" element={<OgdenPresentationPage />} />
       <Route
@@ -276,7 +280,8 @@ export default function App() {
         <Route path="pillar/moontrance" element={<MoontraceDashboard />} />
         <Route path="pillar/:pillarId" element={<CeremonyGuardDynamic paramKey="pillarId"><PillarDashboard /></CeremonyGuardDynamic>} />
         <Route path="settings" element={<Settings />} />
-        <Route path="account" element={<AccountPage />} />
+        {/* Online accounts disabled — send stale links to Settings. */}
+        <Route path="account" element={<Navigate to="/app/settings" replace />} />
         <Route path="prophetic-path" element={<PropheticPathPage />} />
         <Route path="prophetic-path-test" element={<Navigate to="/app/prophetic-path" replace />} />
         <Route path="orientation" element={<OrientationPage />} />
