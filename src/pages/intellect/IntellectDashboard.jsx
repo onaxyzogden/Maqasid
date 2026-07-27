@@ -83,10 +83,10 @@ export default function IntellectDashboard() {
       {/* ── Pillars Bento Grid ── */}
       <section className="intellect-pillars">
 
-        {/* Level 1: Core Pillars */}
+        {/* Level 1: Core */}
         <div className="intellect-core-card">
-          <span className="intellect-badge intellect-badge--dark">LEVEL 1: NECESSITIES</span>
-          <h3 className="intellect-core-card__title">Core Pillars</h3>
+          <span className="intellect-badge intellect-badge--dark">LEVEL 1: CORE</span>
+          <h3 className="intellect-core-card__title">Core</h3>
           <p className="intellect-core-card__desc">
             Foundational elements required for cognitive integrity and literacy.
           </p>
@@ -124,10 +124,10 @@ export default function IntellectDashboard() {
         {/* Level 2 + 3 sub-grid */}
         <div className="intellect-pillars__right">
 
-          {/* Level 2: Growth Space */}
+          {/* Level 2: Growth */}
           <div className="intellect-needs-card">
-            <span className="intellect-badge intellect-badge--secondary">LEVEL 2: NEEDS</span>
-            <h3 className="intellect-needs-card__title">Growth Space</h3>
+            <span className="intellect-badge intellect-badge--secondary">LEVEL 2: GROWTH</span>
+            <h3 className="intellect-needs-card__title">Growth</h3>
             <p className="intellect-needs-card__desc">
               Expansions of the mind through structured study and engagement.
             </p>
@@ -162,10 +162,10 @@ export default function IntellectDashboard() {
             </div>
           </div>
 
-          {/* Level 3: Embellishments */}
+          {/* Level 3: Excellence */}
           <div className="intellect-excellence-card">
             <span className="intellect-badge intellect-badge--tertiary">LEVEL 3: EXCELLENCE</span>
-            <h3 className="intellect-excellence-card__title">Embellishments</h3>
+            <h3 className="intellect-excellence-card__title">Excellence</h3>
             <p className="intellect-excellence-card__desc">
               The refinement of scholarly pursuit into professional mastery.
             </p>

@@ -1,7 +1,7 @@
 # Orientation Module — CONTEXT.md
 
 ## Purpose
-Single-recommendation "what to do next" screen at `/app/orientation`. Surfaces exactly one subtask (never a list), ranked by necessity tier (Daruriyyat → Hajiyat → Tahsiniyat) across all seven Maqasid pillars, with a breadcrumb ladder, inline grounding evidence, and four non-punitive exits (Mark done / Doesn't apply / Something else / Not today).
+Single-recommendation "what to do next" screen at `/app/orientation`. Surfaces exactly one subtask (never a list), ranked by necessity tier (Daruriyyat → Hajiyyat → Tahsiniyyat) across all seven Maqasid pillars, with a breadcrumb ladder, inline grounding evidence, and four non-punitive exits (Mark done / Doesn't apply / Something else / Not today).
 
 ## File Inventory
 | File | Description |

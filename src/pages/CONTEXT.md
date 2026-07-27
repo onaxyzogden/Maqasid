@@ -24,7 +24,7 @@
 - `Landing.jsx` — Public landing page
 - `Onboarding.jsx` — New user onboarding
 - `Settings.jsx` — App settings
-- `PillarDashboard.jsx` + `.css` — Generic pillar reference table (4-column: Aspect | Necessities | Needs | Embellishments)
+- `PillarDashboard.jsx` + `.css` — Generic pillar reference table (4-column: Aspect | Core | Growth | Excellence)
 - `ModulePlaceholder.jsx` — Catch-all for unknown module routes
 
 ## Routing (defined in App.jsx)
@@ -40,7 +40,7 @@
 All pillar dashboards share identical structure:
 1. **Header**: Module badge, title with `<IslamicTerm>`, Quranic verse, progress bar
 2. **Hero card**: Background image, gradient, CTA button
-3. **Three-tier bento grid**: Necessities (left) | Needs (top-right) | Excellence (bottom-right)
+3. **Three-tier bento grid**: Core (left) | Growth (top-right) | Excellence (bottom-right)
 4. **Footer**: Copyright, decorative icons
 
 ## Store Dependencies

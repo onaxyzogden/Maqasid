@@ -472,7 +472,7 @@
   gap: 2rem;
 }
 
-/* ── Growth Space (Level 2) ── */
+/* ── Growth (Level 2) ── */
 .wealth-needs-card {
   background: var(--faith-surface-container-low);
   border-radius: 1.5rem;
@@ -575,7 +575,7 @@
   color: var(--faith-outline-variant);
 }
 
-/* ── Embellishments (Level 3) ── */
+/* ── Excellence (Level 3) ── */
 .wealth-excellence-card {
   background: var(--faith-surface-container-low);
   border-radius: 1.5rem;

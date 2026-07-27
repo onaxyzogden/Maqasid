@@ -1,6 +1,6 @@
 // Orientation screen selector — picks the single next subtask to recommend.
 //
-// Ranking respects necessity tier (Daruriyyat/Hajiyat/Tahsiniyat): each pillar
+// Ranking respects necessity tier (Daruriyyat/Hajiyyat/Tahsiniyyat): each pillar
 // is ranked by its OWN first-incomplete tier ratio, never a cross-tier blend.
 // A pillar's core work must be exhausted before its growth work counts toward
 // ranking, and growth before excellence. Pillars are then ranked ascending by
@@ -16,9 +16,9 @@ import { getProjectLevel } from '../store/task-store';
 export const TIERS = ['core', 'growth', 'excellence'];
 
 export const TIER_META = {
-  core: { label: 'Necessities', ar: 'Daruriyyat' },
-  growth: { label: 'Needs', ar: 'Hajiyat' },
-  excellence: { label: 'Excellence', ar: 'Tahsiniyat' },
+  core: { label: 'Core', ar: 'Daruriyyat' },
+  growth: { label: 'Growth', ar: 'Hajiyyat' },
+  excellence: { label: 'Excellence', ar: 'Tahsiniyyat' },
 };
 
 export function isSubtaskSatisfied(subtask) {
@@ -85,8 +85,8 @@ const TIER_RANK = { core: 0, growth: 1, excellence: 2 };
 
 // Necessities-first, system-wide: every pillar still working through its own
 // core tier outranks every pillar that has moved on to growth, which in turn
-// outranks excellence — this is the fiqh triage (Daruriyyat > Hajiyat >
-// Tahsiniyat), not just "don't blend tiers within one pillar". Ties within a
+// outranks excellence — this is the fiqh triage (Daruriyyat > Hajiyyat >
+// Tahsiniyyat), not just "don't blend tiers within one pillar". Ties within a
 // tier break by ratio ascending (least-progressed pillar first).
 function rankPillars(projects, tasksByProject) {
   return MAQASID_CORE_PILLARS

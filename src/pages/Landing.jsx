@@ -21,7 +21,7 @@ const PILLAR_FEATURES = {
       { title: 'Five Pillars Boards', desc: 'Dedicated Kanban boards for Shahada, Salah, Zakah, Siyam, and Hajj' },
       { title: 'Primary Sources', desc: "Integrated Qur\u2019an study, Hadith collections, and Islamic knowledge" },
       { title: 'Spiritual Readiness', desc: 'Quranic grounding checks before every task to align intention with action' },
-      { title: 'Three-Tier Growth', desc: 'Progress through Necessities, Needs, and Excellence in your faith journey' },
+      { title: 'Three-Tier Growth', desc: 'Progress through Core, Growth, and Excellence in your faith journey' },
     ],
   },
   health: {
@@ -143,7 +143,7 @@ function PillarMockup({ pillar }) {
       <div className="pm-header">
         <div className="pm-header-icon">{Icon && <Icon size={14} />}</div>
         <span className="pm-header-name">{pillar.sidebarLabel}</span>
-        <span className="pm-header-level">Level 1 · Necessities</span>
+        <span className="pm-header-level">Level 1 · Core</span>
       </div>
       {/* Kanban columns */}
       <div className="pm-board">
@@ -181,13 +181,13 @@ function PillarMockup({ pillar }) {
 const HOW_IT_WORKS = [
   { step: '01', title: 'Choose Your Path', desc: 'Select the Islamic values layer or universal ethics during onboarding. Set your name and preferences. No account required.', icon: ICON_REGISTRY.Compass },
   { step: '02', title: 'Take the Next Step', desc: 'Open Orientation. It names one subtask, shows the ladder it came from, and shows the evidence behind it.', icon: BookOpen },
-  { step: '03', title: 'Grow Through the Tiers', desc: 'Work up from Daruriyyat (necessities) to Hajiyyat (needs) to Tahsiniyyat (excellence) across every dimension of your life.', icon: Sparkles },
+  { step: '03', title: 'Grow Through the Tiers', desc: 'Work up from Core (Daruriyyat) to Growth (Hajiyyat) to Excellence (Tahsiniyyat) across every dimension of your life.', icon: Sparkles },
 ];
 
 const ORIENTATION_POINTS = [
   {
     Icon: ICON_REGISTRY.Compass,
-    title: 'Necessities before refinements',
+    title: 'Core before Excellence',
     desc: 'Ranking is gated by tier, never blended. An objective still missing its Daruriyyat surfaces before one polishing its Tahsiniyyat.',
   },
   {
@@ -474,7 +474,7 @@ export default function Landing() {
         <p className="section-label">Orientation</p>
         <h2 className="section-title">One next step. Never a backlog.</h2>
         <p className="section-subtitle">
-          Open MIOS and it names a single subtask — the one your necessities are missing first. Not a list to triage. One thing, with the trail that led to it.
+          Open MIOS and it names a single subtask — the one your Core tier is missing first. Not a list to triage. One thing, with the trail that led to it.
         </p>
 
         <div className="feature-content">
@@ -482,7 +482,7 @@ export default function Landing() {
             <div className="orient-ladder">
               <span style={{ color: '#AD6E9E' }}>Family</span>
               <span className="orient-ladder-sep">&rsaquo;</span>
-              <span>Necessities</span>
+              <span>Core</span>
               <span className="orient-ladder-sep">&rsaquo;</span>
               <span>Extended Family</span>
               <span className="orient-ladder-sep">&rsaquo;</span>
@@ -613,7 +613,7 @@ export default function Landing() {
         <p className="section-label">The Seven Maqasid</p>
         <h2 className="section-title">Underneath all of it — seven higher objectives.</h2>
         <p className="section-subtitle">
-          The Maqasid al-Shari&rsquo;ah give the structure. Each objective has its own dashboard, its sub-modules, and three tiers: Daruriyyat (necessities), Hajiyyat (needs), Tahsiniyyat (excellence).
+          The Maqasid al-Shari&rsquo;ah give the structure. Each objective has its own dashboard, its sub-modules, and three tiers: Core (Daruriyyat), Growth (Hajiyyat), Excellence (Tahsiniyyat).
         </p>
 
         <div className="feature-tabs">

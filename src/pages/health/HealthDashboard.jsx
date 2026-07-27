@@ -84,8 +84,8 @@ export default function HealthDashboard() {
 
         {/* Level 1: Core */}
         <div className="life-core-card">
-          <span className="life-badge life-badge--dark">LEVEL 1: NECESSITIES</span>
-          <h3 className="life-core-card__title">Core Pillars</h3>
+          <span className="life-badge life-badge--dark">LEVEL 1: CORE</span>
+          <h3 className="life-core-card__title">Core</h3>
           <p className="life-core-card__desc">
             Foundational elements required for the preservation of life and
             dignity.
@@ -126,8 +126,8 @@ export default function HealthDashboard() {
 
           {/* Level 2: Growth */}
           <div className="life-needs-card">
-            <span className="life-badge life-badge--secondary">LEVEL 2: NEEDS</span>
-            <h3 className="life-needs-card__title">Growth Space</h3>
+            <span className="life-badge life-badge--secondary">LEVEL 2: GROWTH</span>
+            <h3 className="life-needs-card__title">Growth</h3>
             <p className="life-needs-card__desc">
               Comforts and expansions that make life easier and more expansive.
             </p>
@@ -165,7 +165,7 @@ export default function HealthDashboard() {
           {/* Level 3: Excellence */}
           <div className="life-excellence-card">
             <span className="life-badge life-badge--tertiary">LEVEL 3: EXCELLENCE</span>
-            <h3 className="life-excellence-card__title">Embellishments</h3>
+            <h3 className="life-excellence-card__title">Excellence</h3>
             <p className="life-excellence-card__desc">
               The refinement of character and social presence into a form of art.
             </p>
