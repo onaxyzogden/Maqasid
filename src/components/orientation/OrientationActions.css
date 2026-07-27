@@ -36,3 +36,17 @@
 .orient-actions__btn--ghost {
   color: var(--text2);
 }
+
+/* Disabled = the host is previewing a locked or completed step. Dim all three
+   and neutralise hover; the primary keeps its fill so a "Completed" label still
+   reads as a done state rather than a dead grey button. */
+.orient-actions__btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.orient-actions__btn:disabled:hover {
+  background: var(--surface);
+}
+.orient-actions__btn--primary:disabled:hover {
+  background: var(--primary);
+}

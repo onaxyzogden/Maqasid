@@ -1,0 +1,97 @@
+/* ---------- Sequential-locking steppers ---------- */
+/* Task pills (lettered) + subtask chips (numbered). Both are horizontal rails
+   that wrap; state colours come entirely from design tokens (tokens.css defines
+   light + dark for each, so these are theme-safe). No inline hex. */
+
+.os-stepper,
+.os-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Shared item base — pills are a touch larger (lettered) than chips (numbered),
+   but share sizing, border, and interaction. */
+.os-stepper__pill,
+.os-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  box-sizing: border-box;
+  height: 1.75rem;
+  min-width: 1.75rem;
+  padding: 0 var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  color: var(--text2);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+}
+.os-chip {
+  height: 1.6rem;
+  min-width: 1.6rem;
+}
+.os-step__label {
+  letter-spacing: 0.02em;
+}
+.os-step__lock {
+  opacity: 0.8;
+}
+
+/* done — behind you: soft success, checked */
+.os-stepper__pill--done,
+.os-chip--done {
+  background: var(--success-bg);
+  border-color: var(--success-border);
+  color: var(--success);
+}
+
+/* current — the one actionable step: primary fill treatment */
+.os-stepper__pill--current,
+.os-chip--current {
+  background: var(--primary-bg2);
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* locked — ahead of you: muted, dashed, previewable */
+.os-stepper__pill--locked,
+.os-chip--locked {
+  background: var(--surface);
+  border-style: dashed;
+  border-color: var(--border);
+  color: var(--text3);
+}
+
+/* snoozed — a whole task set aside today (task rail only) */
+.os-stepper__pill--snoozed {
+  background: var(--warning-bg);
+  border-color: var(--warning-border);
+  color: var(--warning);
+}
+
+.os-stepper__pill:hover,
+.os-chip:hover {
+  border-color: var(--primary-border);
+}
+
+/* previewing — the step currently shown in the sheet body. A ring distinguishes
+   "what I'm looking at" from "the true current step" (they coincide by default,
+   diverge while browsing). */
+.os-stepper__pill--previewing,
+.os-chip--previewing {
+  box-shadow: 0 0 0 2px var(--primary-border);
+}
+
+.os-stepper__pill:focus-visible,
+.os-chip:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}

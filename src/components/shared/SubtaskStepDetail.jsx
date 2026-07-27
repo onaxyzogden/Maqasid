@@ -117,7 +117,14 @@ function DetailSection({ label, children }) {
 //
 // `subtask == null` means the task has no eligible step left today (all done,
 // snoozed, or set aside) — rendered as a calm complete state, not an error.
-export default function SubtaskStepDetail({ crumbParts = [], task, subtask, taskStats }) {
+export default function SubtaskStepDetail({
+  crumbParts = [],
+  task,
+  subtask,
+  taskStats,
+  taskStepper = null,
+  subtaskStepper = null,
+}) {
   if (!subtask) {
     return (
       <div className="os-sheet__clear">
@@ -147,6 +154,8 @@ export default function SubtaskStepDetail({ crumbParts = [], task, subtask, task
         </p>
       )}
 
+      {taskStepper}
+
       <h3 className="os-sheet__task">
         <span className="os-sheet__task-title">{task.title}</span>
         {taskStats && (
@@ -163,6 +172,8 @@ export default function SubtaskStepDetail({ crumbParts = [], task, subtask, task
           {grounded ? 'Grounded' : 'Ungrounded'}
         </span>
       </div>
+
+      {subtaskStepper}
 
       <div className="os-sheet__now">
         <span className="os-sheet__now-label">Now</span>

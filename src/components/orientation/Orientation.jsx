@@ -22,6 +22,7 @@ export default function Orientation() {
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
   const toggleSubtask = useTaskStore((s) => s.toggleSubtask);
   const updateSubtask = useTaskStore((s) => s.updateSubtask);
+  const updateTask = useTaskStore((s) => s.updateTask);
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const { timings } = usePrayerTimes();
   const maghribRaw = timings?.Maghrib ?? null;
@@ -59,16 +60,21 @@ export default function Orientation() {
     if (pending) {
       pendingRef.current = null;
       const card = next.cards.find((c) => c.pillar.id === pending.pillarId);
-      // Held-task continuity: while the acted-on task still surfaces an eligible
-      // subtask it stays the pillar's pick (same priority/order), so the sheet
-      // advances in place. Once it drops out, the task is done for today.
-      const sameTaskContinues = card?.hasEligible && card.task?.id === pending.taskId;
-      if (sameTaskContinues) {
-        setAck(pending.ack);
+      if (card?.hasEligible) {
+        // The pillar still has an actionable step, so the sheet stays open and
+        // advances in place. Either the same task rolled to its next subtask
+        // (ackSame), or that task cleared / was set aside and the board rolled to
+        // a different task — same board or a sibling board in the pillar (ackAdvance).
+        const sameTask = card.task?.id === pending.taskId;
+        setAck(sameTask ? pending.ackSame : pending.ackAdvance);
       } else {
+        // Nothing actionable left in this pillar today (board complete, or the
+        // task was snoozed and no sibling board has its prerequisites met) — close
+        // the sheet and nudge toward whatever is now weakest (recommendedPillarId
+        // itself falls through cross-pillar).
         setOpenPillarId(null);
         setFocusPillarId(next.recommendedPillarId);
-        setAck(pending.doneAck);
+        setAck(pending.ackClose);
       }
     }
   }, [projects, tasksByProject, maghribRaw]);
@@ -95,6 +101,10 @@ export default function Orientation() {
     return { tone, text };
   };
 
+  // All three handlers act on the TRUE current step read off the card
+  // (openCard.task / openCard.subtask), never the previewed step — the sheet
+  // disables them while browsing ahead/back, and reading the current step here is
+  // the real guard behind that UI one.
   const handleMarkDone = () => {
     if (!openCard?.subtask) return;
     const { project, task, subtask } = openCard;
@@ -102,8 +112,9 @@ export default function Orientation() {
     pendingRef.current = {
       pillarId: openPillarId,
       taskId: task.id,
-      ack: buildAck('success', 'Marked done.'),
-      doneAck: buildAck('success', 'Task complete.'),
+      ackSame: buildAck('success', 'Marked done.'),
+      ackAdvance: buildAck('success', 'Task complete.'),
+      ackClose: buildAck('success', 'Task complete.'),
     };
   };
 
@@ -112,15 +123,18 @@ export default function Orientation() {
     const { project, task, subtask } = openCard;
     updateSubtask(project.id, task.id, subtask.id, { notApplicable: true });
     const a = buildAck('neutral', "Marked doesn't apply.");
-    pendingRef.current = { pillarId: openPillarId, taskId: task.id, ack: a, doneAck: a };
+    pendingRef.current = { pillarId: openPillarId, taskId: task.id, ackSame: a, ackAdvance: a, ackClose: a };
   };
 
+  // "Not today" sets the whole TASK aside for the day (task-level snooze), not a
+  // single subtask — the entire chain re-locks and the surface falls through to a
+  // sibling board or, failing that, another pillar (see recommendOrientation).
   const handleNotToday = () => {
-    if (!openCard?.subtask) return;
-    const { project, task, subtask } = openCard;
-    updateSubtask(project.id, task.id, subtask.id, { snoozedUntilDayKey: dayKeyRef.current });
+    if (!openCard?.task) return;
+    const { project, task } = openCard;
+    updateTask(project.id, task.id, { snoozedUntilDayKey: dayKeyRef.current });
     const a = buildAck('neutral', 'Snoozed until tomorrow.');
-    pendingRef.current = { pillarId: openPillarId, taskId: task.id, ack: a, doneAck: a };
+    pendingRef.current = { pillarId: openPillarId, taskId: task.id, ackSame: a, ackAdvance: a, ackClose: a };
   };
 
   if (model === undefined) return null;
