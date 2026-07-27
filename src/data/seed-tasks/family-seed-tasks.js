@@ -911,6 +911,7 @@ A spoken commitment fades; a written, revisited agreement creates accountability
 
   family_marriage_growth: [
     {
+      seq: 2,
       title: 'Schedule a weekly marriage meeting — review the week, express gratitude, plan ahead together',
       priority: 'high', tags: ['marriage', 'planning'],
       description: 'A structured weekly sit-down prevents small issues from becoming major conflicts. This meeting is your shared command centre — a time to express appreciation, surface concerns early, coordinate schedules, and make joint decisions. Consistency here builds the shura (consultation) that Islam expects between spouses.',
@@ -1064,6 +1065,7 @@ Du'a is the weapon of the believer, and a du'a made together as a couple carries
       ],
     },
     {
+      seq: 4,
       title: 'Read a book on Islamic marriage together — e.g., "Like a Garment" by Yasir Qadhi',
       priority: 'medium', tags: ['study', 'marriage'],
       description: 'Shared learning strengthens the intellectual and spiritual bond between spouses. Reading an Islamic marriage book together creates a common vocabulary for discussing sensitive topics — intimacy, conflict, finances — within a framework rooted in Quran and Sunnah rather than cultural assumptions.',
@@ -1236,6 +1238,7 @@ The habit of shared learning is more valuable than any single book. Completing o
       ],
     },
     {
+      seq: 0,
       title: 'Learn and practise conflict resolution from the Sunnah — no contempt, no stonewalling, always reconcile before sleep',
       priority: 'high', tags: ['marriage', 'adab'],
       description: 'The Prophet (peace be upon him) modelled patience, restraint, and reconciliation in marital disagreements. Contempt, stonewalling, and harboured resentment are among the greatest destroyers of marriage. Learning Sunnah-based conflict resolution means replacing ego with humility, anger with silence, and grudges with forgiveness.',
@@ -1453,6 +1456,7 @@ Knowing the right thing to do and being able to do it under pressure are vastly 
       ],
     },
     {
+      seq: 3,
       title: 'Identify and speak each other\'s love language — express appreciation in ways your spouse receives it',
       priority: 'medium', tags: ['marriage', 'connection'],
       description: 'People give and receive love differently — through words, service, gifts, time, or touch. Understanding your spouse\'s primary love language means your efforts land where they matter most, preventing the common frustration of "I do so much but they never notice." The Prophet expressed love in all five languages across his marriages.',
@@ -1591,6 +1595,7 @@ Effort without feedback is guesswork. After two weeks of intentional love-langua
       ],
     },
     {
+      seq: 1,
       title: "Return to family after Asr — restore the prophetic evening presence",
       priority: "high", tags: ["marriage", "parenting", "sunnah", "transition:after-asr"],
       description: "The Prophet (SAW) had a daily routine of visiting each of his wives after Asr. He inquired about their state, ate with them, and was fully present — not as a transactional check-in but as a deliberate transition from public work to family life. Recovering this rhythm is the single highest-leverage move available for marriages and parent-child relationships in an attention-fragmented age.",
@@ -1708,6 +1713,7 @@ Sakinah is the Quranic word for the calm presence Allah designed marriage to pro
 
   family_marriage_excellence: [
     {
+      seq: 1,
       title: 'Undertake a joint spiritual project — Quran khatm together, Umrah, or a shared community service',
       priority: 'medium', tags: ['marriage', 'spirituality'],
       description: 'The strongest marriages are built on a shared relationship with Allah. A joint spiritual project — completing the Quran together, performing Umrah, or serving the community side by side — elevates the marriage from a domestic arrangement to a partnership in akhirah.',
@@ -1877,6 +1883,7 @@ Completion without celebration is a missed opportunity for gratitude. Acknowledg
       ],
     },
     {
+      seq: 0,
       title: 'Write a marriage vision statement — your shared values, goals, and legacy as a couple',
       priority: 'low', tags: ['marriage', 'legacy'],
       description: 'A marriage vision statement is a written declaration of who you are as a couple, what you stand for, and what you are building together for the sake of Allah. It serves as a compass during difficult seasons and a reminder of your shared covenant.',
@@ -2031,6 +2038,7 @@ A vision statement filed away in a drawer is a forgotten promise. Displaying it 
       ],
     },
     {
+      seq: 2,
       title: 'Mentor an engaged or newly married couple through premarital or early marital guidance',
       priority: 'low', tags: ['marriage', 'dawah'],
       description: 'Once you have built a strong marriage, sharing that wisdom is sadaqah jariyah. Many young Muslims enter marriage with unrealistic expectations shaped by culture or social media. Mentoring a couple through their early years can save a marriage before it fractures.',
@@ -3027,6 +3035,7 @@ Children grow, and rules that were appropriate for a six-year-old may be patroni
 
   family_parenting_growth: [
     {
+      seq: 0,
       title: 'Implement a structured Quran and Islamic studies schedule for each child',
       priority: 'high', tags: ['tarbiyah', 'quran'],
       description: 'A structured schedule ensures steady progress and builds a lifelong relationship with the Book of Allah.',
@@ -3230,6 +3239,7 @@ Progress without recognition leads to discouragement. Children need to see that 
       ],
     },
     {
+      seq: 2,
       title: 'Learn an Islamic parenting framework — study Ibn al-Qayyim\'s "Tuhfat al-Mawdud" or equivalent',
       priority: 'medium', tags: ['study', 'parenting'],
       description: 'Parenting without a framework is parenting by reaction. Classical Islamic scholars wrote extensively on child-rearing.',
@@ -3386,6 +3396,7 @@ A book read without implementation is entertainment, not education. The scholars
       ],
     },
     {
+      seq: 1,
       title: 'Hold weekly one-on-one "mentorship time" with each child — listen deeply, guide gently',
       priority: 'high', tags: ['parenting', 'mentorship'],
       description: 'Every child needs to feel individually seen and valued — not just as part of the family unit.',
@@ -3550,6 +3561,7 @@ Memory is unreliable, especially when you are parenting multiple children. A pri
       ],
     },
     {
+      seq: 3,
       title: 'Teach practical life skills — cooking, budgeting, household responsibility — alongside Islamic values',
       priority: 'medium', tags: ['parenting', 'life-skills'],
       description: 'A child who memorises Quran but cannot cook, clean, or manage money is not fully prepared for life.',
@@ -3720,6 +3732,7 @@ Children who are praised only for outcomes learn to fear failure. Children who a
 
   family_parenting_excellence: [
     {
+      seq: 0,
       title: 'Design a personalised tarbiyah plan for each child based on their temperament and gifts',
       priority: 'medium', tags: ['tarbiyah', 'planning'],
       description: 'No two children are alike, and cookie-cutter tarbiyah produces mediocre results.',
@@ -3892,6 +3905,7 @@ A plan that lives only in your head is incomplete and unshared. Writing it down 
       ],
     },
     {
+      seq: 2,
       title: 'Facilitate your child\'s first experience of service — volunteering, charity, or community contribution',
       priority: 'medium', tags: ['parenting', 'community'],
       description: 'Service transforms a child from a consumer into a contributor.',
@@ -4069,6 +4083,7 @@ A single service experience is a memory. Regular service is a character trait. W
       ],
     },
     {
+      seq: 1,
       title: 'Write letters to each child recording your du\'as, hopes, and wisdom for them to read when older',
       priority: 'low', tags: ['parenting', 'legacy'],
       description: 'A handwritten letter from a parent is one of the most powerful legacies you can leave.',
@@ -5125,6 +5140,7 @@ Geography is a real constraint, but it is not an excuse for silence. When you ca
 
   family_kinship_growth: [
     {
+      seq: 1,
       title: 'Organise a regular family gathering — monthly meal, annual trip, or online meeting',
       priority: 'medium', tags: ['family', 'connection'],
       description: 'Family ties weaken without structure.',
@@ -5284,6 +5300,7 @@ Between gatherings, silence erodes momentum. A family group chat or shared calen
       ],
     },
     {
+      seq: 3,
       title: 'Establish a family support fund or informal network for relatives facing hardship',
       priority: 'medium', tags: ['sadaqah', 'family'],
       description: 'Charity given to a relative is both sadaqah and silat al-rahim — a double reward.',
@@ -5407,6 +5424,7 @@ Not every family is ready for a formal fund — and that is perfectly fine. An i
       ],
     },
     {
+      seq: 2,
       title: 'Learn the history of your lineage — document names, stories, and origins at least 3 generations back',
       priority: 'low', tags: ['family', 'heritage'],
       description: '',
@@ -5557,6 +5575,7 @@ Physical artefacts — photographs, handwritten letters, old documents — carry
       ],
     },
     {
+      seq: 0,
       title: 'Be proactively generous with in-laws — treat them with the same care as your own parents',
       priority: 'high', tags: ['in-laws', 'adab'],
       description: 'Islam calls for ihsan (excellence) toward all relatives by marriage.',
@@ -5701,6 +5720,7 @@ Using your spouse as a go-between for in-law conflicts puts them in an impossibl
 
   family_kinship_excellence: [
     {
+      seq: 0,
       title: 'Document your family\'s history, values, and legacy in a written or digital archive',
       priority: 'low', tags: ['heritage', 'legacy'],
       description: 'A family archive is a gift to future generations.',
@@ -5861,6 +5881,7 @@ An archive without a custodian is an archive with an expiry date. Someone must t
       ],
     },
     {
+      seq: 2,
       title: 'Establish a family waqf or ongoing sadaqah jariyah dedicated to the lineage',
       priority: 'low', tags: ['waqf', 'sadaqah-jariyah'],
       description: 'A family waqf is an endowment whose benefits flow perpetually to your descendants and the ummah.',
@@ -6057,6 +6078,7 @@ A waqf is meant to last forever — but its management is handled by mortal huma
       ],
     },
     {
+      seq: 1,
       title: 'Take on the role of family elder or coordinator — be the one who keeps the family united',
       priority: 'medium', tags: ['leadership', 'family'],
       description: 'Every extended family needs someone who takes responsibility for its unity.',
@@ -7003,6 +7025,7 @@ Families evolve — children grow, circumstances change, and rules that were app
 
   family_home_growth: [
     {
+      seq: 1,
       title: 'Curate the home aesthetic — add calligraphy, remove distracting decor, create a peaceful atmosphere',
       priority: 'medium', tags: ['home', 'environment'],
       description: 'Your home\'s atmosphere shapes your family\'s emotional and spiritual state.',
@@ -7150,6 +7173,7 @@ A home is not one person's project — it is a shared space where every member s
       ],
     },
     {
+      seq: 0,
       title: 'Establish a family media policy — approved content only, devices out of bedrooms at night',
       priority: 'high', tags: ['home', 'protection'],
       description: 'Unrestricted media access is the single greatest threat to a Muslim home\'s spiritual integrity.',
@@ -7283,6 +7307,7 @@ Hypocrisy is the fastest way to destroy credibility with your children. If you e
       ],
     },
     {
+      seq: 2,
       title: 'Create a dedicated home learning space — books, Quran, and educational resources accessible to all',
       priority: 'medium', tags: ['home', 'learning'],
       description: 'A home with a visible, accessible learning space sends a powerful message: this family values knowledge.',
@@ -7439,6 +7464,7 @@ A static bookshelf becomes invisible over time — the same spines facing out ev
       ],
     },
     {
+      seq: 3,
       title: 'Host a monthly gathering for friends, neighbours, or community — practise the Sunnah of hospitality',
       priority: 'medium', tags: ['home', 'hospitality'],
       description: 'Hospitality (diyafah) is a prophetic practice and a right of the neighbour in Islam.',
@@ -7615,6 +7641,7 @@ A gathering without any remembrance of Allah is described in hadith as one that 
 
   family_home_excellence: [
     {
+      seq: 2,
       title: 'Transform the home into a community hub — regular halaqah, iftar gatherings, or skills workshops',
       priority: 'low', tags: ['home', 'community'],
       description: 'The homes of the Sahabah were centres of learning, worship, and community support.',
@@ -7758,6 +7785,7 @@ A programme that depends on one person is fragile; a programme that is a family 
       ],
     },
     {
+      seq: 1,
       title: 'Design a home environment intentionally — every room serves a purposeful, value-aligned function',
       priority: 'low', tags: ['home', 'design'],
       description: 'An intentionally designed home is not about luxury — it is about alignment.',
@@ -7911,6 +7939,7 @@ A home that served a couple perfectly will not suit a family of five without ada
       ],
     },
     {
+      seq: 0,
       title: 'Document a "Home Charter" — written values, routines, and vision for what your household stands for',
       priority: 'low', tags: ['home', 'legacy'],
       description: 'A Home Charter is a written constitution for your household.',

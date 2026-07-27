@@ -878,6 +878,7 @@ A goal without a number is a wish. Setting a specific, time-bound reduction targ
   ],
   environment_resource_growth: [
     {
+      seq: 1,
       title: 'Replace all incandescent bulbs with LED equivalents throughout the home',
       priority: 'high', tags: ['energy', 'efficiency'],
       description: 'LED bulbs use up to 80% less energy and last 15-25 times longer than incandescent bulbs. This single change can meaningfully reduce your electricity footprint and is one of the highest-return environmental investments for any household.',
@@ -1033,6 +1034,7 @@ Measuring the actual impact of the LED upgrade closes the feedback loop between 
       ],
     },
     {
+      seq: 2,
       title: 'Install water-saving aerators or low-flow showerheads in all taps and showers',
       priority: 'high', tags: ['water', 'efficiency'],
       description: 'Aerators mix air into the water stream, reducing flow by 30-50% without noticeably affecting water pressure. This is a low-cost, high-impact upgrade that directly reduces water waste in line with the khalifah responsibility over natural resources.',
@@ -1171,6 +1173,7 @@ Verification closes the loop — confirming that the installed fittings are actu
       ],
     },
     {
+      seq: 0,
       title: 'Set a household water and energy reduction target — aim for 20% less than current baseline',
       priority: 'medium', tags: ['planning', 'goals'],
       description: 'A clear, shared target turns individual conservation habits into a household commitment. The 20% target is ambitious but achievable for most homes through the combined effect of behavioural changes and efficiency upgrades already underway.',
@@ -1353,6 +1356,7 @@ Celebration reinforces positive behaviour and builds intrinsic motivation for co
       ],
     },
     {
+      seq: 3,
       title: 'Research government rebates or community programmes for energy-efficient home upgrades',
       priority: 'low', tags: ['energy', 'planning'],
       description: 'Many governments and utility companies offer rebates, grants, or interest-free financing for energy-efficient appliances, insulation, and solar installations. Taking advantage of these programmes makes larger environmental investments financially accessible.',
@@ -1475,6 +1479,7 @@ Not all efficiency upgrades deliver equal value — some save more energy per do
   ],
   environment_resource_excellence: [
     {
+      seq: 1,
       title: 'Install solar panels or transition to a renewable energy provider for your home',
       priority: 'medium', tags: ['renewable', 'solar'],
       description: 'Transitioning to renewable energy is one of the most significant steps a household can take toward environmental stewardship. Solar panels also provide long-term financial savings and energy independence, aligning the maqasid of wealth preservation with environmental care.',
@@ -1621,6 +1626,7 @@ This is the culmination of all the research and planning — the step where clea
       ],
     },
     {
+      seq: 0,
       title: 'Install a rainwater harvesting system for garden and non-potable household use',
       priority: 'low', tags: ['water', 'renewable'],
       description: 'Rainwater harvesting captures a free, clean resource that would otherwise run off into drains. Using collected rainwater for gardens, toilets, and laundry can reduce mains water consumption by 30-50%, embodying the khalifah principle of working with natural cycles rather than against them.',
@@ -1767,6 +1773,7 @@ Measuring the actual displacement of mains water by rainwater quantifies the ret
       ],
     },
     {
+      seq: 2,
       title: 'Achieve net-zero or carbon-neutral household energy consumption — document and share your journey',
       priority: 'low', tags: ['net-zero', 'legacy'],
       description: 'Net-zero means your home generates as much clean energy as it consumes over a year. Documenting and sharing this journey creates a replicable model for other Muslim households and demonstrates that Islamic environmental stewardship is practical, not just aspirational.',
@@ -2749,6 +2756,7 @@ Even after planning, storing, and cooking creatively, some food waste is genuine
   ],
   environment_waste_growth: [
     {
+      seq: 0,
       title: 'Eliminate single-use plastics — replace with reusable bags, bottles, containers, and cutlery',
       priority: 'high', tags: ['plastic', 'waste'],
       description: 'Single-use plastics persist in the environment for hundreds of years, harming wildlife and contaminating water. Switching to reusable alternatives is a practical expression of the khalifah principle — leaving the earth better than you found it.',
@@ -2924,6 +2932,7 @@ Cling wrap (plastic film) is one of the most insidious single-use plastics — i
       ],
     },
     {
+      seq: 3,
       title: 'Start a home composting system for organic kitchen and garden waste',
       priority: 'medium', tags: ['composting', 'waste'],
       description: 'Composting transforms organic waste into nutrient-rich soil, closing the loop between consumption and regeneration. It reduces methane emissions from landfill and produces a valuable resource for gardens — turning waste into provision, a reflection of divine resourcefulness.',
@@ -3092,6 +3101,7 @@ Composting is a cycle, not a one-way disposal mechanism. The end product — ric
       ],
     },
     {
+      seq: 1,
       title: 'Adopt a "buy less, buy better" purchasing philosophy — quality over quantity',
       priority: 'medium', tags: ['consumption', 'mindfulness'],
       description: 'Overconsumption is a root cause of waste. The Islamic principle of iqtisad (moderation in spending) encourages purchasing fewer, higher-quality items that last longer — reducing waste, saving money, and breaking the cycle of disposable culture.',
@@ -3223,6 +3233,7 @@ Self-awareness is the prerequisite for change. Most people significantly underes
       ],
     },
     {
+      seq: 2,
       title: 'Donate or responsibly rehome unwanted items instead of discarding them',
       priority: 'medium', tags: ['donation', 'circular'],
       description: 'Items you no longer need may still have years of useful life for someone else. Donating clothes, furniture, electronics, and household items extends their lifespan and benefits those in need — combining waste reduction with sadaqah.',
@@ -3382,6 +3393,7 @@ A one-time declutter is valuable but insufficient — possessions accumulate con
   ],
   environment_waste_excellence: [
     {
+      seq: 0,
       title: 'Achieve a near-zero waste household — measure and document monthly waste output',
       priority: 'medium', tags: ['zero-waste', 'measurement'],
       description: 'Near-zero waste means diverting 90%+ of household waste from landfill through reduction, reuse, recycling, and composting. Measuring your actual waste output creates accountability and reveals where the last stubborn waste streams originate.',
@@ -3551,6 +3563,7 @@ Your near-zero waste journey — including the struggles, failures, and creative
       ],
     },
     {
+      seq: 1,
       title: 'Advocate for better waste management in your workplace, masjid, or community organisation',
       priority: 'low', tags: ['advocacy', 'community'],
       description: 'Individual household changes are important but limited in scale. Advocating for systemic waste management improvements in organisations you belong to multiplies your impact and models Islamic environmental leadership in communal spaces.',
@@ -3711,6 +3724,7 @@ Tracking results closes the loop on your advocacy — it proves that the changes
       ],
     },
     {
+      seq: 2,
       title: 'Launch or join a community clean-up initiative — model Islamic environmental stewardship publicly',
       priority: 'low', tags: ['community', 'dawah'],
       description: 'Organising or joining community clean-ups is both an environmental act and a form of dawah — demonstrating that Islamic values produce people who care for public spaces. It builds bridges with neighbours and makes faith visible through service.',
@@ -4864,6 +4878,7 @@ The illegal wildlife trade is the fourth largest criminal enterprise globally, w
   ],
   environment_ecosystem_growth: [
     {
+      seq: 1,
       title: 'Plant native species in your garden, balcony, or community space to support local pollinators',
       priority: 'high', tags: ['planting', 'biodiversity'],
       description: 'Native plants provide the food and habitat that local pollinators — bees, butterflies, and birds — depend on. Exotic ornamentals often offer little ecological value. Choosing native species transforms your garden from a decorative space into a functioning ecosystem.',
@@ -5035,6 +5050,7 @@ It is a contradiction to plant flowers for pollinators while simultaneously spra
       ],
     },
     {
+      seq: 2,
       title: 'Reduce or eliminate red meat consumption 2–3 days per week — lower your land and water footprint',
       priority: 'medium', tags: ['diet', 'ecology'],
       description: 'Livestock farming is one of the largest drivers of deforestation, water use, and greenhouse gas emissions. The Prophet (peace be upon him) ate meat sparingly. Reducing red meat consumption honours the Sunnah of moderation while significantly lowering your environmental footprint.',
@@ -5214,6 +5230,7 @@ Perception and reality rarely match when it comes to dietary habits. People cons
       ],
     },
     {
+      seq: 3,
       title: 'Participate in a local tree-planting, park restoration, or rewilding initiative',
       priority: 'medium', tags: ['restoration', 'community'],
       description: 'Joining organised restoration projects multiplies your impact far beyond what individual planting can achieve. These initiatives restore degraded land, sequester carbon, and rebuild ecosystems — and volunteering alongside others builds community bonds rooted in shared stewardship.',
@@ -5419,6 +5436,7 @@ One-off participation is valuable, but regular commitment transforms you from a 
       ],
     },
     {
+      seq: 0,
       title: 'Learn about your local ecosystem — identify native species of birds, plants, and insects in your area',
       priority: 'low', tags: ['awareness', 'biodiversity'],
       description: 'You cannot protect what you do not know. Learning to identify the birds, plants, and insects around you builds ecological literacy and deepens your connection to the land you inhabit. The Quran repeatedly draws attention to the signs (ayat) in creation.',
@@ -5564,6 +5582,7 @@ Nature reserves and botanical gardens are curated environments where ecological 
   ],
   environment_ecosystem_excellence: [
     {
+      seq: 2,
       title: 'Fund or actively participate in a large-scale land rehabilitation or carbon sequestration project',
       priority: 'medium', tags: ['restoration', 'carbon'],
       description: 'Large-scale land rehabilitation — reforestation, wetland restoration, regenerative agriculture — sequesters significant carbon while rebuilding ecosystems. Contributing financially or physically to these projects extends your khalifah impact beyond your immediate surroundings to landscape-level restoration.',
@@ -5752,6 +5771,7 @@ Seeing a restored ecosystem in person transforms abstract data into lived experi
       ],
     },
     {
+      seq: 0,
       title: 'Establish a community food garden or urban farm on underused land',
       priority: 'low', tags: ['food-security', 'community'],
       description: 'Community food gardens transform neglected urban land into productive, biodiverse spaces that provide fresh food, build community, and reconnect people with the earth.',
@@ -5986,6 +6006,7 @@ The excitement of a launch day fades within weeks. What sustains a community gar
       ],
     },
     {
+      seq: 1,
       title: 'Develop an Islamic environmental education programme for your masjid or school',
       priority: 'low', tags: ['education', 'dawah'],
       description: 'Most Islamic education programmes do not yet integrate environmental stewardship despite its strong Quranic and Prophetic foundations. Creating a structured programme fills this gap, raising a generation that sees caring for the earth as inseparable from their deen.',
@@ -7106,6 +7127,7 @@ Benchmark: Share your ethical swap findings with at least 3-5 people or one comm
   ],
   environment_sourcing_growth: [
     {
+      seq: 0,
       title: 'Shift grocery shopping toward local farmers\' markets, halal organic suppliers, or community-supported agriculture',
       priority: 'high', tags: ['local', 'food'],
       description: 'Buying local reduces transport emissions, supports small-scale farmers, and gives you direct knowledge of how your food is produced. Community-supported agriculture (CSA) models create direct farmer-consumer relationships rooted in mutual benefit and trust — values deeply aligned with Islamic commerce ethics.',
@@ -7269,6 +7291,7 @@ Benchmark: A meal plan that rotates with the seasons, featuring primarily locall
       ],
     },
     {
+      seq: 3,
       title: 'Research and adopt a Shariah-compatible ethical investment screen — exclude harmful industries',
       priority: 'medium', tags: ['investing', 'ethics'],
       description: 'Ethical investment screening ensures your wealth does not fund industries that cause environmental destruction, exploit workers, or violate Islamic prohibitions. Combining Shariah compliance (no riba, gambling, alcohol) with environmental screening (no fossil fuels, deforestation, pollution) creates a comprehensive ethical framework.',
@@ -7415,6 +7438,7 @@ Benchmark: Annual investment review completed consistently, with documented asse
       ],
     },
     {
+      seq: 2,
       title: 'Build a capsule wardrobe — buy fewer, higher-quality, ethically made garments that last',
       priority: 'medium', tags: ['fashion', 'mindfulness'],
       description: 'A capsule wardrobe consists of a small number of versatile, high-quality pieces that mix and match across seasons. This approach reduces textile waste, saves money long-term, and frees mental energy from the cycle of trend-chasing — embodying the Prophetic simplicity in dress.',
@@ -7604,6 +7628,7 @@ Benchmark: Six consecutive months of maintaining the one-in-one-out rule with no
       ],
     },
     {
+      seq: 1,
       title: 'Prioritise repair over replacement — fix electronics, clothing, and furniture before discarding',
       priority: 'medium', tags: ['repair', 'circular'],
       description: 'The throwaway culture encourages replacing items at the first sign of wear. Repairing extends product life, reduces waste, and saves money. The early Muslims were known for mending their clothing and maintaining their possessions with care — repair is a Sunnah-aligned habit.',
@@ -7734,6 +7759,7 @@ Benchmark: Attend at least one repair cafe (or complete at least 3 tutorial-guid
   ],
   environment_sourcing_excellence: [
     {
+      seq: 2,
       title: 'Invest in or co-found a business built on circular economy principles — closed-loop, zero-waste by design',
       priority: 'low', tags: ['circular-economy', 'business'],
       description: 'A circular economy business designs waste out of the system entirely — products are made to be reused, repaired, or recycled back into production. This represents the highest expression of Islamic environmental stewardship applied to commerce: generating halal profit while regenerating rather than depleting the earth.',
@@ -7971,6 +7997,7 @@ Benchmark: A documented dual-compliance assessment showing the business model pa
       ],
     },
     {
+      seq: 1,
       title: 'Build a community purchasing collective to negotiate with ethical suppliers at scale',
       priority: 'low', tags: ['community', 'impact'],
       description: 'Individual ethical purchasing has limited negotiating power. A community purchasing collective pools buying power to access wholesale pricing from ethical suppliers, making halal-tayyib products affordable for everyone. This is a modern application of the Islamic principle of ta\'awun (mutual cooperation).',
@@ -8146,6 +8173,7 @@ Benchmark: Sustained operation for at least 6 months with stable membership, at 
       ],
     },
     {
+      seq: 0,
       title: 'Publish a sourcing guide for your community — halal, tayyib, and environmentally responsible options',
       priority: 'low', tags: ['dawah', 'legacy'],
       description: 'A community sourcing guide compiles the research you have done into a shareable resource that helps others make ethical purchasing decisions without starting from scratch. This is sadaqah jariyah — ongoing charity through knowledge that continues to benefit others long after publication.',

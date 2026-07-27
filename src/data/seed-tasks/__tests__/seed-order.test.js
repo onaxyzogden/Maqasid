@@ -5,8 +5,10 @@
 // which orientation-selector.orderBoardTasks sorts by. A board with partial,
 // duplicated, or out-of-range `seq` values would silently mis-order the chain —
 // the operator would be locked out of a step for no legible reason. So the
-// invariant is strict: a board either has NO `seq` at all (not yet curated,
-// falls back to array order) or a COMPLETE permutation of 0..n-1.
+// invariant is strict: a board either has NO `seq` at all (the mechanism falls
+// back to array order) or a COMPLETE permutation of 0..n-1. Since 2026-07-27 the
+// ratchet below closes the first option off for this repo: every hand-authored
+// board across all three tiers is curated, and a new one must arrive curated.
 //
 // Rubric + rationale: wiki/decisions/2026-07-27-milos-seed-order-curation.md
 
@@ -70,9 +72,8 @@ describe('curated seed order (`seq`)', () => {
         expect(broken).toEqual([]);
       });
 
-      it('every core-tier board is curated (curation ratchet — core is the tier orientation surfaces first)', () => {
+      it('every board is curated (curation ratchet — all three tiers are ordered; a new board must be too)', () => {
         const uncurated = boardsOf(data)
-          .filter(([boardKey]) => boardKey.endsWith('_core'))
           .filter(([boardKey, tasks]) => !seqReport(boardKey, tasks).curated)
           .map(([boardKey]) => boardKey);
         expect(uncurated).toEqual([]);

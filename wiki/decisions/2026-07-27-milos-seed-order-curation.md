@@ -128,10 +128,51 @@ Representative outcomes:
 discharges obligations before recommendations; no fiqh is authored, no revelation text touched, no
 capital surface. Itqan: the order is governed by a written rubric rather than authoring accident.
 
+## Addendum — 2026-07-27, same day: growth + excellence curated, ratchet widened to all boards
+
+The deferral below was closed in a follow-up session rather than a later one. Measured inventory
+corrected the deferral's figure: **62 boards / 251 tasks**, not 59 — faith 10, health 8, intellect 8,
+family 8, wealth 8, environment 8, ummah 12. Every suffix is `growth` or `excellence`; there is no
+third uncurated tier.
+
+- **Same rubric, no amendments.** No new rule was needed for the higher tiers; the rubric's five
+  rules resolved all 62 boards. Rule 5 (keep authored order) decided 8 boards outright, which now
+  carry an explicit identity permutation — "already correct" is recorded, not merely assumed.
+- **Representative outcomes.** `ummah_neighbors_growth` — *never gossip about your neighbour* (rule 2,
+  harm removal) moves ahead of *share food*, which is urgent but a positive practice.
+  `family_marriage_growth` — *conflict resolution from the Sunnah* then *return to family after Asr*
+  precede the weekly marriage meeting and the shared book (rules 2 → 4). `environment_ecosystem_growth`
+  — *learn your local ecosystem* moves first as a genuine precondition for *plant native species*
+  (rule 1). `intellect_cognitive_growth` — habit-formation science first (precondition), then Quran
+  memorisation ahead of Deep Work blocks (rule 2 outranking rule 4). `ummah_moontrance-land_growth` —
+  water → soil → planting → habitat → community work days, the permaculture dependency chain (rule 1).
+  `ummah_community_growth` (10) — sulh before institution-building; its **four duplicated task pairs**
+  were kept adjacent rather than silently deduplicated (see deferred, below).
+- **The ratchet now covers every board, not just core.** `seed-order.test.js`'s second test dropped
+  its `_core` filter: any hand-authored board across all three tiers that lacks `seq` fails the
+  suite, so **a new board must arrive curated**. The permutation test is unchanged.
+- **Verification.** `npm test` 163/163; `npm run lint` composite green (inline-refs `0 ≤ 0`, glyphs
+  up to date); `npm run build` ✓. Seed-file diff is **+251 insertions / 0 deletions, every added line
+  a `seq:` line** (verified by filtering the diff for non-`seq` additions — none). Migration
+  re-verified at runtime: all 62 growth/excellence boards were already in `localStorage` with
+  `seedOrder` = array order; after one reload `family_marriage_growth` read `2,4,0,3,1` and
+  `ummah_community_growth`, `faith_salah_growth`, `environment_sourcing_growth`,
+  `intellect_cognitive_growth` all matched their curated mappings exactly. `orderBoardTasks`, invoked
+  live in the running app against real stored data, returned the curated chain for
+  `family_marriage_growth`. **No screenshot this pass** — the Browser pane was not displayed, so the
+  screenshot tool timed out; verification is runtime/DOM-level, and the rendering path itself is
+  unchanged code already screenshot-verified on core boards above.
+- **Not a defect, worth recording:** the LevelNavigator segment bar (`fln__subseg`) groups by tag and
+  sorts by priority — it is *not* a chain surface and deliberately does not follow `seq`.
+
+Board totals after this addendum: **90 hand-authored boards curated** (28 core + 62 growth/excellence).
+
 ## Deferred (named, not done)
 
-- **Growth + excellence boards (59)** — same rubric, follow-up session. They are uncurated and
-  therefore still array-ordered, which the conformance test permits by design.
+- ~~**Growth + excellence boards (59)**~~ — **closed by the addendum above** (62 boards, same day).
+- **`ummah_community_growth` carries four duplicated task pairs** (education, sulh, youth, treasury)
+  and `ummah_moontrance-land_excellence` two (replicable stewardship model). Curation kept each pair
+  adjacent so the redundancy is visible; **deduplication is a content change and was not made.**
 - **Prayer-board ordering** — prayer boards are *generated* from `FAITH_SEED_TASKS`; their order
   comes from the generator, not a hand-authored array.
 - **Pre-existing wart:** drag-reordering a *seeded* task on the kanban writes `order`, but seeded
