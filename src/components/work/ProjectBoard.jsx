@@ -6,6 +6,7 @@ import { useAppStore } from '../../store/app-store';
 import { useProjectStore } from '../../store/project-store';
 import BbosRolePicker from '../bbos/BbosRolePicker';
 import { PROJECT_COLORS } from '../../data/modules';
+import { orderBoardTasks } from '@data/orientation-selector';
 import { getBbosTaskDefsByStage } from '@data/bbos/bbos-task-definitions';
 import { BBOS_NAV_LEVELS, BBOS_LAYERS, BBOS_STAGES, BBOS_PATCH_STAGES, getBbosNavPillars, getLayerForStage } from '@data/bbos/bbos-pipeline';
 import { downloadStageBundleTemplate, validateStageBundleTemplate, importStageBundleTemplate } from '@services/bbos-template';
@@ -104,9 +105,9 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
     const result = {};
     for (const p of activePillars) {
       const validIds = new Set(getBbosTaskDefsByStage(p.id).map((d) => d.id));
-      result[p.id] = tasks
-        .filter((t) => t.bbosTaskType && validIds.has(t.bbosTaskType))
-        .sort((a, b) => (a.seedOrder ?? 999) - (b.seedOrder ?? 999));
+      result[p.id] = orderBoardTasks(
+        tasks.filter((t) => t.bbosTaskType && validIds.has(t.bbosTaskType))
+      );
     }
     return result;
   }, [projectTasks, activePillars, isBbos]);

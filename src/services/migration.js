@@ -2,11 +2,29 @@
 // Schema version: 5.0 — unified contacts model
 
 import { listKeys } from './storage';
-import { repairBoardTasks } from './mojibake';
+import { repairBoardTasks, taskHasState } from './mojibake';
 
 const PREFIX = 'bbiz_';
 const SCHEMA_VERSION = '5.0';
 const MOJIBAKE_FLAG = 'mojibake_titles_repaired';
+const DEDUPE_FLAG = 'seed_dedupe_v1';
+
+// Tasks deleted from the seed files on 2026-07-27 as duplicates of a sibling on
+// the same board. Titles are byte-for-byte copies taken from the seed file
+// BEFORE deletion — the seed<->storage join is exact title equality, so these
+// strings are the only handle on the stored rows.
+// See wiki/decisions/2026-07-27-milos-ummah-task-dedupe.md
+const REMOVED_SEED_TASKS = {
+  ummah_community_growth: [
+    'Build a community dispute resolution (sulh) mechanism',
+    'Establish a community education institution (halaqa or weekend school)',
+    'Build a youth mentorship programme — invest in the next generation of community leaders',
+    'Establish a community treasury or waqf — build institutional financial sustainability',
+  ],
+  'ummah_moontrance-land_excellence': [
+    'Develop a replicable Islamic land stewardship model — document, teach, and support new projects',
+  ],
+};
 
 function read(key) {
   try { return JSON.parse(localStorage.getItem(PREFIX + key)); }
@@ -65,10 +83,67 @@ export function repairMojibakeTaskTitles() {
   if (boards) console.info(`[bbiz] mojibake title repair: ${boards} board(s) updated.`);
 }
 
+// Remove tasks whose seed entry was deleted as a duplicate. Pure: returns the
+// same array reference when nothing is pruned, so callers can skip the write.
+//
+// Without this, a de-duplicated seed entry leaves a permanent orphan — the boot
+// backfill skips any stored task with no title match (`if (!seed) return t`) and
+// nothing anywhere prunes it. The orphan keeps its numeric `seedOrder`, so it
+// holds a slot in the curated chain and still blocks sequential locking, while
+// rendering bare: description/sources/tier live only in the bundle and can no
+// longer be hydrated.
+//
+// A task the operator has worked on is NEVER deleted — `taskHasState` is the
+// same predicate the mojibake dedup uses to pick a survivor. A kept duplicate
+// becomes a bare orphan they can delete by hand; losing their work silently is
+// the worse failure.
+export function pruneRemovedSeedTasks(tasks, removedTitles, boardId) {
+  if (!Array.isArray(tasks) || !removedTitles?.length) return { next: tasks, removed: [], kept: [] };
+  const doomed = new Set(removedTitles);
+  const removed = [];
+  const kept = [];
+  const next = tasks.filter((t) => {
+    if (!doomed.has(t?.title)) return true;
+    if (taskHasState(t, boardId)) { kept.push(t.title); return true; }
+    removed.push(t.title);
+    return false;
+  });
+  return { next: removed.length > 0 ? next : tasks, removed, kept };
+}
+
+// One-shot prune of the five duplicated Ummah tasks removed from the seed files
+// on 2026-07-27. Runs after the mojibake repair so corrupted titles have already
+// been restored to the exact strings this table matches on.
+// Approval gate: stages/implement-ummah-dedupe-review.md
+export function pruneDedupedSeedTasks() {
+  if (localStorage.getItem(PREFIX + DEDUPE_FLAG) === '1') return;
+  let removedCount = 0;
+  const keptTitles = [];
+  for (const [boardId, titles] of Object.entries(REMOVED_SEED_TASKS)) {
+    const key = `tasks_${boardId}`;
+    const tasks = read(key);
+    if (!Array.isArray(tasks) || tasks.length === 0) continue;
+    const { next, removed, kept } = pruneRemovedSeedTasks(tasks, titles, boardId);
+    keptTitles.push(...kept);
+    if (removed.length > 0) { write(key, next); removedCount += removed.length; }
+  }
+  localStorage.setItem(PREFIX + DEDUPE_FLAG, '1');
+  if (removedCount) console.info(`[bbiz] Seed dedupe: ${removedCount} duplicate task(s) removed.`);
+  if (keptTitles.length) {
+    console.info(
+      `[bbiz] Seed dedupe: ${keptTitles.length} duplicate task(s) kept because they carry your progress — ` +
+      `delete them by hand if you no longer want them: ${keptTitles.map((t) => `"${t}"`).join(', ')}`
+    );
+  }
+}
+
 export function runMigrations() {
   // Title repair first — before the SCHEMA_VERSION guard below returns early
   // for already-migrated users, and before React mounts / any hydration reads.
   repairMojibakeTaskTitles();
+  // Then prune de-duplicated seed tasks: same reasoning (must precede hydration),
+  // and it depends on the repair above having restored exact titles.
+  pruneDedupedSeedTasks();
 
   const version = localStorage.getItem(PREFIX + 'schema_version');
   if (version === SCHEMA_VERSION) return; // already migrated

@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { Inbox } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { BBOS_STAGES } from '../../data/bbos/bbos-pipeline';
+import { orderBoardTasks } from '../../data/orientation-selector';
 import './StageSidebar.css';
 
 const PRI_COLORS = {
@@ -16,9 +17,7 @@ export default function StageSidebar({ projectId, project, stageId, selectedTask
 
   const tasks = useMemo(() => {
     const all = tasksByProject[projectId] || [];
-    return all
-      .filter((t) => t.bbosStage === stageId)
-      .sort((a, b) => (a.seedOrder ?? a.order ?? 0) - (b.seedOrder ?? b.order ?? 0));
+    return orderBoardTasks(all.filter((t) => t.bbosStage === stageId));
   }, [tasksByProject, projectId, stageId]);
 
   const stage = useMemo(

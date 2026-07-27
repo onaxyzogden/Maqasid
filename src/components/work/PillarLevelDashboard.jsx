@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { PRIORITIES } from '../../data/modules';
+import { orderBoardTasks } from '../../data/orientation-selector';
 import DashboardTaskCard from '../shared/DashboardTaskCard';
 import ChartTooltip from '../shared/ChartTooltip';
 import { statusFromColumnId, statusLabel, formatDue } from './dashboard-card-helpers';
@@ -388,8 +389,7 @@ export default function PillarLevelDashboard({ project, onSelectTask, selectedTa
   return (
     <div className="pld">
       <div className="pld__list">
-        {[...tasks]
-          .sort((a, b) => (a.seedOrder ?? a.order) - (b.seedOrder ?? b.order))
+        {orderBoardTasks(tasks)
           .map((task, i) => {
             const status = statusFromColumnId(task.columnId);
             const priority = PRIORITIES.find((p) => p.id === task.priority);

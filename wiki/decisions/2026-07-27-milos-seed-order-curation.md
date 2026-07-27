@@ -170,10 +170,17 @@ Board totals after this addendum: **90 hand-authored boards curated** (28 core +
 ## Deferred (named, not done)
 
 - ~~**Growth + excellence boards (59)**~~ — **closed by the addendum above** (62 boards, same day).
-- **`ummah_community_growth` carries four duplicated task pairs** (education, sulh, youth, treasury)
-  and `ummah_moontrance-land_excellence` two (replicable stewardship model). Curation kept each pair
-  adjacent so the redundancy is visible; **deduplication is a content change and was not made.**
+- ~~**`ummah_community_growth` carries four duplicated task pairs** (education, sulh, youth, treasury)
+  and `ummah_moontrance-land_excellence` two (replicable stewardship model)~~ — **closed same day** by
+  [[2026-07-27-milos-ummah-task-dedupe]]. Note the count recorded here was wrong:
+  `moontrance-land_excellence` carries **one** pair, not two, so the honest figure is **5 removals
+  across 10 tasks**, not six.
 - **Prayer-board ordering** — prayer boards are *generated* from `FAITH_SEED_TASKS`; their order
   comes from the generator, not a hand-authored array.
-- **Pre-existing wart:** drag-reordering a *seeded* task on the kanban writes `order`, but seeded
-  boards sort by `seedOrder`, so the drag has no lasting effect. Untouched; flagged only.
+- ~~**Pre-existing wart:** drag-reordering a *seeded* task on the kanban writes `order`, but seeded
+  boards sort by `seedOrder`, so the drag has no lasting effect~~ — **closed same day** by
+  [[2026-07-27-milos-board-order-single-authority]], which also found that the claim above ("every
+  kanban/list/dashboard surface already sorted by `seedOrder ?? order`" → *the chain and the boards
+  now agree*) held on **one** surface only: six component copies used `seedOrder ?? order` while
+  `orderBoardTasks` uses `seedOrder ?? 1e6 + order`, so **user-created** tasks still sorted before the
+  curated chain on the boards and after it in the chain.

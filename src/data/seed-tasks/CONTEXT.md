@@ -35,6 +35,26 @@ Rules (enforced by `__tests__/seed-order.test.js`, so a violation fails `npm tes
   boards that already exist in `localStorage`, because `backfillAndStripSeeds()` reconciles
   `seedOrder` on every boot.
 
+## Gotcha — the seed↔storage join is the exact `title` string
+
+`backfillAndStripSeeds()` ([project-store.js](../../store/project-store.js)) and
+`hydrateTask`/`stripSeedFields` ([seed-hydrator.js](../../services/seed-hydrator.js)) all key on
+`title`; task `id` is random (`genTaskId()`). Two consequences that bite:
+
+- **Renaming a seed task orphans its stored row** and appends a duplicate on the next boot. Fix a
+  typo only with a migration that rewrites the stored title too (see `repairMojibakeTaskTitles`).
+- **Deleting a seed task leaves a permanent orphan** — the backfill does `if (!seed) return t;` and
+  there is no prune. The orphan keeps its numeric `seedOrder`, so it holds a stale slot in the
+  curated chain, still **blocks sequential locking** if incomplete, and renders **bare** (its
+  `description`/`sources`/`tier` were stripped from storage and can no longer be re-hydrated).
+  A removal therefore needs a one-shot prune in [migration.js](../../services/migration.js) — see
+  `REMOVED_SEED_TASKS` / `pruneRemovedSeedTasks`, which deletes a row only when `taskHasState()` says
+  the operator never touched it, and the ADR
+  [2026-07-27-milos-ummah-task-dedupe](../../../wiki/decisions/2026-07-27-milos-ummah-task-dedupe.md).
+
+Board task counts after the 2026-07-27 dedupe: `ummah_community_growth` **6**,
+`ummah_moontrance-land_excellence` **4**.
+
 ## Subtask Schema
 Each subtask may carry:
 - `title` (string, required)
