@@ -10,14 +10,6 @@
   gap: var(--space-2);
 }
 
-.rc-frame {
-  font-size: var(--text-sm-plus);
-  font-style: italic;
-  color: var(--text3);
-  line-height: 1.6;
-  margin-bottom: var(--space-1);
-}
-
 /* Paired row layout */
 .rc-paired {
   display: flex;
@@ -75,15 +67,6 @@
   opacity: 0.75;
   font-style: italic;
   line-height: 1.5;
-  margin: 0;
-}
-
-/* Top-level reflection frame (mirrors .rc-frame from display mode). */
-.rc-card-wizard__frame {
-  font-size: var(--text-sm-plus);
-  font-style: italic;
-  color: var(--text3);
-  line-height: 1.6;
   margin: 0;
 }
 

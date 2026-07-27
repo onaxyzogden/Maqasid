@@ -40,36 +40,15 @@
   margin-top: 0;
 }
 
-/* ---------- Drill-in: inline step detail ---------- */
+/* ---------- Inline step flow (SequentialStepFlow) ---------- */
 /* <SubtaskStepDetail> renders a Fragment — this wrapper supplies the flex
-   column + gap its sections expect (mirrors .os-sheet__body's gap). */
+   column + gap its sections expect (mirrors .os-sheet__body's gap). Used by
+   both stepper shells: prayer Before/After (inside the tabpanel) and the
+   During MirrorCard's Action view. */
 .pp-phase-detail {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-}
-
-.pp-phase-detail__back {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  align-self: flex-start;
-  padding: var(--space-1) var(--space-2);
-  margin-left: calc(-1 * var(--space-2));
-  border: none;
-  border-radius: var(--radius-sm);
-  background: transparent;
-  color: var(--text2);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-.pp-phase-detail__back:hover {
-  color: var(--text);
-  background: var(--surface-2);
 }
 
 /* Sits after the scrolling body inside the panel, like .os-sheet__footer. */
@@ -85,6 +64,38 @@
 }
 .pp-phase-detail__footer .orient-actions__btn--primary {
   grid-column: 1 / -1;
+}
+
+/* Inline variant — the During tab's stepper renders inside the MirrorCard, so
+   its actions sit at the end of the card content instead of pinned to the
+   panel edge. Keep the separator, drop the panel-edge padding/backdrop.
+   Double-class keeps it above the base rule's mobile override below. */
+.pp-phase-detail__footer.pp-phase-detail__footer--inline {
+  padding: var(--space-3) 0 0;
+  background: transparent;
+}
+
+/* ---------- Inline ceremony (CeremonyFlow) ---------- */
+/* The .thr-* rules were written for the modal: --space-6 horizontal padding
+   and a flex-column host where .thr-body owns the scroll. Embedded in the
+   Before/After tabpanel, the tabpanel already pads and scrolls — so drop the
+   horizontal padding (keep the step/footer separator borders) and let the
+   body flow at natural height instead of nesting a second scrollbar. */
+.pp-ceremony-embed .thr-steps,
+.pp-ceremony-embed .thr-body,
+.pp-ceremony-embed .thr-footer {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.pp-ceremony-embed .thr-body {
+  flex: none;
+  overflow-y: visible;
+}
+
+/* Footer buttons may crowd on narrow popups — let the row wrap. */
+.pp-ceremony-embed .thr-footer {
+  flex-wrap: wrap;
 }
 
 @media (max-width: 640px) {

@@ -99,12 +99,28 @@ function taskLetter(index) {
   return out;
 }
 
+// Decorate an ordered task list with stepper display state + letter labels —
+// the [{ task, state, letter }] shape TaskStepper renders. Board-free so a
+// merged cross-project pool (Prophetic Path node popup) can use it too.
+export function decorateTaskChain(tasks, todayKey) {
+  const list = tasks ?? [];
+  const currentTaskIndex = findCurrentTaskIndex(list);
+  return {
+    currentTaskIndex,
+    items: list.map((task, i) => ({
+      task,
+      state: taskPillState(i, currentTaskIndex, task, todayKey),
+      letter: taskLetter(i),
+    })),
+  };
+}
+
 // The full ordered task chain for one board, each task carrying its stepper
 // display state + letter label. `actionable` is true only when the board has a
 // current task that is NOT snoozed today — i.e. there is a step to act on now.
 export function deriveBoardSequence(project, tasks, todayKey) {
   const list = tasks ?? [];
-  const currentTaskIndex = findCurrentTaskIndex(list);
+  const { currentTaskIndex, items } = decorateTaskChain(list, todayKey);
   const currentTask = currentTaskIndex >= 0 ? list[currentTaskIndex] : null;
   const actionable = currentTaskIndex >= 0 && !isTaskSnoozedToday(currentTask, todayKey);
   const { submoduleId } = resolveSubmoduleFromProject(project);
@@ -113,11 +129,7 @@ export function deriveBoardSequence(project, tasks, todayKey) {
     submoduleId: submoduleId ?? null,
     currentTaskIndex,
     actionable,
-    tasks: list.map((task, i) => ({
-      task,
-      state: taskPillState(i, currentTaskIndex, task, todayKey),
-      letter: taskLetter(i),
-    })),
+    tasks: items,
   };
 }
 
