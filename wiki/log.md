@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-07-26] housekeeping | MILOS — PR #27 closed as superseded (prayer banner already on main)
+
+PR #27 (`feat/prayer-banner-dismissible`) sat `CONFLICTING` / `DIRTY` on GitHub and was raised for conflict resolution. Investigation showed there was nothing to resolve: its single commit `00f5798` is a cherry-pick of `e4302ce`, already an ancestor of `main` via #28 (merge `5739147`), and the governing ADR [[2026-07-09-milos-prayer-banner-non-blocking]] is on `main` too. Repo housekeeping only — **zero code change to `main`** (still `47d3ae5`).
+
+**Amanah gate:** neutral — branch/PR cleanup, no covenant, revelation, or capital surface touched.
+
+- **3 of 5 PR files already landed byte-identically** — `PrayerOverlay.css`, `PrayerWarning.jsx`, `AppShell.jsx` diff clean against `main`.
+- **Both conflicts were `main` moving ahead, and `main` wins each.** `PrayerOverlay.jsx`: the PR carries the redesign's copy (`"It's almost time for {prayer}."` / `"It's time for {prayer} — pray when you're able."`) that `59124d2` **deliberately reverted** to `"{prayer} is approaching."` / `"It is time for {prayer}."` on operator preference — merging would have undone that 2026-07-10 call. `CONTEXT.md`: `main` gained 53 lines documenting the Prophetic Path node popup (`NodePhaseSlideUp`, `CeremonySummary`, `PropheticPathMirror`, `prophetic-path-constants.js`, `PrayerHeroDuring`) that the PR branch predates — merging would have deleted current docs.
+- **Decisive test:** resolving both conflicts to the correct side yields a tree **identical to `main`** — a merge with an empty net diff. Hence closed, not merged.
+- **Cleanup:** closed with an explanatory comment; remote branch deleted (`gh --delete-branch` aborted after the local delete hit the worktree, so the remote was removed with `git push --delete` and the tracking ref pruned); local branch `-d` deleted; the clean, zero-ahead worktree at `C:\Users\MY OWN AXIS\mwt\prayer-banner` removed. No open PRs remain.
+- **Pages touched:** wiki/log.md.
+
 ## [2026-07-26] session | MILOS — orientation content repaired (persisted-title mojibake migration) + uniform DM-Sans font + Why/How split
 
 Operator-approved three-fix session on `/app/orientation` (screenshot: a step showing garbled title `Fajr â†' Quran`, empty "Why & how", "No sources available", "Ungrounded"). Root-caused as **one** bug: seed static content (`description`/`sources`/`tier`/`why`/`how`) is title-joined at hydrate time and never persisted, so the OLD corrupt persisted title — saved before this branch's seed-file repair — misses the now-clean seed → the task is served bare (all four symptoms at once) and the idle backfill appends a clean duplicate. Resolves the **persisted-title / display dimension** of [[project-seed-mojibake]] the seed-file repair could not reach. Full record: [[2026-07-26-milos-orientation-title-repair-font-split]].
