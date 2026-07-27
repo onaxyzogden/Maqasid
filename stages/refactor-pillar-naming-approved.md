@@ -1,12 +1,15 @@
 ---
 phase: refactor
 slug: pillar-naming
-status: review
-amanah: pending
+status: approved
+amanah: complete
 created: 2026-07-27
+decided: 2026-07-27
 ---
 
 # Review Gate: refactor — pillar-naming
+
+> **APPROVED 2026-07-27.** Items 1 and 2 applied; items 3 and 4 confirmed left as recommended. See [Decision](#decision).
 
 ## Summary
 
@@ -18,29 +21,32 @@ Two of the four items carry a **recommendation to leave as-is**, stated explicit
 
 ## Files Modified
 
-None by me. This document proposes edits to files I may not write.
+- [references/voice-and-tone.md](../references/voice-and-tone.md) — lines 23 and 28 (item 1)
+- Root [CLAUDE.md](../CLAUDE.md) — line 3 (item 2)
+
+Applied on approval. Before that, none: this document proposed edits to files I may not write unprompted.
 
 ## Proposed edits
 
-### 1. `references/voice-and-tone.md` — lines 22 and 28 — **recommend applying**
+### 1. `references/voice-and-tone.md` — lines 23 and 28 — **recommend applying** ✅ applied
 
 The "Seven Maqasid (Pillar Names)" list is the authority other copy is written against, so a stale entry here propagates. The Arabic on both lines is correct and does not change.
 
 | Line | Current | Change to |
 |---|---|---|
-| 22 | `2. **Life** (حفظ النفس — Hifz al-Nafs)` | `2. **Health** (حفظ النفس — Hifz al-Nafs)` |
+| 23 | `2. **Life** (حفظ النفس — Hifz al-Nafs)` | `2. **Health** (حفظ النفس — Hifz al-Nafs)` |
 | 28 | `7. **Ummah** (حفظ الأمة — Hifz al-Ummah)` | `7. **Community** (حفظ الأمة — Hifz al-Ummah)` |
 
 The Arabic roots `Hifz al-Nafs` / `Hifz al-Ummah` are the classical framing and are preserved by the rename decision. Only the English UI label moves.
 
-### 2. Root `CLAUDE.md` — line 3 — **recommend applying**
+### 2. Root `CLAUDE.md` — line 3 — **recommend applying** ✅ applied
 
 This line is loaded into context at the start of every session, so a stale pillar list here actively teaches the wrong names to every future session.
 
 - **Current:** `…across the Seven Maqasid (Faith, Life, Intellect, Family, Wealth, Environment, Ummah).`
 - **Change to:** `…across the Seven Maqasid (Faith, Health, Intellect, Family, Wealth, Environment, Community).`
 
-### 3. `docs/grounding-runtime-prompt.md` — lines 97 and 100 — **recommend leaving as-is**
+### 3. `docs/grounding-runtime-prompt.md` — lines 97 and 100 — **recommend leaving as-is** ✅ confirmed, not touched
 
 These are rows in a historical work-plan table (batch number, pillar, subtask count, session estimate) recording how the grounding backfill was actually scheduled:
 
@@ -53,7 +59,7 @@ This is the same class as the wiki decision records the rename deliberately excl
 
 **If you disagree:** change `Life` → `Health` and `Ummah` → `Community` on those two lines only; nothing else in the file depends on them.
 
-### 4. `website/` marketing pages — **recommend a separate pass, not this gate**
+### 4. `website/` marketing pages — **recommend a separate pass, not this gate** ✅ confirmed, not touched
 
 Read-only for AI, no build system, and a different audience and review standard from the app. Bundling them here would mix two unrelated review judgments. The stale labels, for the record:
 
@@ -72,7 +78,7 @@ The adjacent `stage-attr` lines (`Hifz al-Nafs`, `Hifz al-Ummah`) are correct an
 
 - [x] Halal purpose confirmed — corrects labels to match the covenant-grounded naming already decided
 - [x] No riba/gharar concerns — copy-only, no transactional surface
-- [ ] Itqan standard met — pending your review of the two "leave as-is" recommendations
+- [x] Itqan standard met — both "leave as-is" recommendations reviewed and confirmed
 - [x] Existing tests still pass — no test asserts on these strings; none of these files are imported by the app
 
 ## Key Decisions
@@ -83,8 +89,8 @@ The adjacent `stage-attr` lines (`Hifz al-Nafs`, `Hifz al-Ummah`) are correct an
 
 ## Open Questions
 
-1. Do you agree with leaving `docs/grounding-runtime-prompt.md` as a historical record? (My recommendation: yes.)
-2. Should `website/` get its own gate doc, or do you want to just apply those four lines directly? (My recommendation: separate pass.)
+1. ~~Do you agree with leaving `docs/grounding-runtime-prompt.md` as a historical record?~~ **Yes** — closed 2026-07-27.
+2. ~~Should `website/` get its own gate doc, or do you want to just apply those four lines directly?~~ **Separate pass** — closed 2026-07-27. The four lines remain outstanding and are the natural scope of that pass.
 
 ## Reviewer Notes
 
@@ -92,6 +98,8 @@ _[Space for human reviewer to annotate]_
 
 ## Decision
 
-- [ ] **Approved** — apply items 1 and 2; items 3 and 4 left as recommended
+- [x] **Approved** — apply items 1 and 2; items 3 and 4 left as recommended
 - [ ] **Approved with changes** — see notes above
 - [ ] **Rejected** — rework needed
+
+Approved by Yousef in-session on 2026-07-27, with the reach explicitly limited to items 1 and 2. Items 1 and 2 were applied in the same pass, so the `-review` → `-approved` rename was performed by me rather than by hand; [stages/CONTEXT.md](CONTEXT.md) nominally assigns that rename to the human reviewer.

@@ -1,6 +1,6 @@
 # MILOS V2.1
 
-Islamic life operating system — manage work, money, people, and operations across the Seven Maqasid (Faith, Life, Intellect, Family, Wealth, Environment, Ummah).
+Islamic life operating system — manage work, money, people, and operations across the Seven Maqasid (Faith, Health, Intellect, Family, Wealth, Environment, Community).
 React 19 SPA · Zustand 5 · React Router 7 · Vite 8 · dnd-kit · Lucide icons · date-fns
 
 ## Platform
