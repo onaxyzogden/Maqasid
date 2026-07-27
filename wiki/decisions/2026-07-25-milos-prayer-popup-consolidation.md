@@ -44,6 +44,8 @@ body = isPrayerNode
 - **Before/After** on prayer nodes is the bare `taskList`. No `.pp-phase-tasks` wrapper — its separator `border-top` would be stranded at the top of the panel (the body has its own padding). The tab label alone supplies before/after context.
 - **During** on prayer nodes is `<PrayerHeroDuring>` inline, replacing the hand-off. Non-prayer nodes keep `MirrorCard` on During and `CeremonySummary` + task divider on Before/After — fully untouched.
 
+> **Amended 2026-07-25 (same day):** the "non-prayer nodes … fully untouched" carve-out above was itself reversed hours later by [[2026-07-25-milos-nonprayer-tasks-to-during]] — non-prayer tasks moved onto During, Before/After reduced to `CeremonySummary` only (no task divider), and the `showProjects` view dropped. The prayer-node behavior recorded here is unchanged.
+
 ### Deletion cascade (operator-approved: *"Delete it"*)
 
 Removing the hand-off orphaned a chain. Six files deleted after grepping each for other importers:
@@ -83,7 +85,7 @@ Removing the hand-off orphaned a chain. Six files deleted after grepping each fo
   - **Fajr Before** → task list only ("No tasks queued for this window." in this empty guest store), **no rawātib/Sunnah card**.
   - **Fajr During** → the inline `PrayerHeroDuring` guide ("How to pray Fajr Fard (2 rakʿāt)", Rakʿah 1, opening takbīr with Arabic); **Begin Pray-Along** renders the swipeable posture cards *inside* the panel without viewport overflow, with working Switch-to-Reference / Exit / Prev-Next controls.
   - **Fajr After** → task list only.
-  - **Dhuhr During** → `PrayerHeroDuring`'s coming-soon card ("A guided illustration for praying Dhuhr is coming soon. Isha is available today.").
+  - **Dhuhr During** → at the time of this session, `PrayerHeroDuring`'s coming-soon card ("A guided illustration for praying Dhuhr is coming soon. Isha is available today."). **Amended 2026-07-25 ([[2026-07-25-milos-prayer-during-guides-all-nodes]]): Dhuhr — with Asr, Maghrib, and Tahajjud — now renders a full During guide; the coming-soon shell is no longer reached by any prayer node, and the stale "Isha is available today" copy was removed.**
   - **Midday Labor (non-prayer)** → During still `MirrorCard`; Before still `CeremonySummary` (du'a + Surah Al-Ahzab 33:3). Non-regression confirmed.
   - Closing the popup mid-Pray-Along was clean — no Escape double-fire between PrayAlong's exit and the popup's focus-trap `onClose`.
 
@@ -98,4 +100,6 @@ Uncommitted at time of filing on `feat/desktop-pillar-glyphs`; commit operator-g
 - [[2026-07-23-milos-prayer-node-sunnah-tabs]] — superseded: its `PrayerSunnahSummary` on Before/After is removed
 - [[2026-04-21-prayer-slide-up-fln]] — partially superseded: its cloned `PrayerSlideUp`/`PrayerLevelPage`/`PrayerLevelNavigator` are deleted; its 18 boards + seed model survive
 - [[2026-07-23-milos-prayer-phase-task-boards]] — the direct-board read the tasks-only tabs still rely on
+- [[2026-07-25-milos-nonprayer-tasks-to-during]] — the non-prayer complement filed the same day; reverses this doc's "non-prayer untouched" carve-out
+- [[2026-07-25-milos-prayer-during-guides-all-nodes]] — completes the During tab this inlined: the four prayers that still fell through to the coming-soon shell (Dhuhr/Asr/Maghrib/Tahajjud) now render a full guide
 - [[covenant-architecture]] — the During guide, inlined, keeps the prayer itself at the center of its node

@@ -13,10 +13,8 @@
   min-height: 0;
 }
 
-.pp-phase-panel {
-  height: auto;
-  max-height: 88vh;
-}
+/* Panel geometry (height auto / max-height / centered) now comes entirely from
+   the shared .pp-slideup__panel chrome — no local override needed. */
 
 .pp-phase-panel__tabs {
   display: flex;
@@ -42,22 +40,63 @@
   margin-top: 0;
 }
 
-.pp-phase-tasks {
-  margin-top: 16px;
-  padding-top: 14px;
-  border-top: 1px solid var(--border, rgba(0, 0, 0, 0.08));
+/* ---------- Drill-in: inline step detail ---------- */
+/* <SubtaskStepDetail> renders a Fragment — this wrapper supplies the flex
+   column + gap its sections expect (mirrors .os-sheet__body's gap). */
+.pp-phase-detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.pp-phase-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  align-self: flex-start;
+  padding: var(--space-1) var(--space-2);
+  margin-left: calc(-1 * var(--space-2));
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text2);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.pp-phase-detail__back:hover {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+/* Sits after the scrolling body inside the panel, like .os-sheet__footer. */
+.pp-phase-detail__footer {
+  flex-shrink: 0;
+  padding: var(--space-3) var(--space-5) calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+/* Primary spans the row; the two secondaries share the row below it. */
+.pp-phase-detail__footer .orient-actions {
+  grid-template-columns: 1fr 1fr;
+}
+.pp-phase-detail__footer .orient-actions__btn--primary {
+  grid-column: 1 / -1;
 }
 
 @media (max-width: 640px) {
-  .pp-phase-panel {
-    max-height: 92vh;
-  }
-
   .pp-phase-panel__body {
     padding: 12px 14px 24px;
   }
 
   .pp-phase-panel__tabs {
     padding: 12px 14px 4px;
+  }
+
+  .pp-phase-detail__footer {
+    padding: var(--space-3) var(--space-4) calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
   }
 }

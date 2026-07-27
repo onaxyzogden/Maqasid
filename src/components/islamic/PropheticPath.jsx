@@ -39,12 +39,10 @@ import {
   formatHijriLong,
   formatGregorianLong,
 } from '@data/prophetic-path-submodules';
-import TaskDetailPanel from '@components/work/TaskDetailPanel';
 import ProjectSlideUp from '@components/work/ProjectSlideUp';
 import SubmoduleSlideUp from './SubmoduleSlideUp';
 import NodePhaseSlideUp from './NodePhaseSlideUp';
 import PropheticPathBanner from './PropheticPathBanner';
-import { LEVEL_COLOR } from './prophetic-path-constants';
 import './PropheticPath.css';
 
 // Resolve a pillar-chip label to its canonical Maqasid accent color.
@@ -800,8 +798,6 @@ export default function PropheticPath({ variant }) {
 
   // nodeId whose Before/During/After popup is open (null = closed)
   const [phaseNodeId, setPhaseNodeId] = useState(null);
-  // { taskId, project, projectId, levelColor } | null
-  const [selectedTask, setSelectedTask] = useState(null);
   // projectId for the slide-up overlay (null = closed)
   const [slideUpProjectId, setSlideUpProjectId] = useState(null);
   // { id, label } for the submodule slide-up overlay (null = closed)
@@ -827,16 +823,6 @@ export default function PropheticPath({ variant }) {
     () => [...eventNodes, ...orderedNodes].find((n) => n.id === phaseNodeId) || null,
     [eventNodes, orderedNodes, phaseNodeId],
   );
-
-  const openTask = (row) => {
-    if (!row) { setSelectedTask(null); return; }
-    setSelectedTask({
-      taskId: row.id,
-      project: row._project,
-      projectId: row.projectId,
-      levelColor: LEVEL_COLOR[row._level] || LEVEL_COLOR[3],
-    });
-  };
 
   return (
     <div className="prophetic-path" data-theme={theme}>
@@ -964,20 +950,10 @@ export default function PropheticPath({ variant }) {
           projects={projects}
           tasksByProject={tasksByProject}
           submoduleNameById={submoduleNameById}
-          onSelectTask={openTask}
+          maghribRaw={timings?.Maghrib ?? null}
           onSelectProject={setSlideUpProjectId}
           onSelectSubmodule={(id, label) => setSlideUpSubmodule({ id, label })}
           onClose={() => setPhaseNodeId(null)}
-        />
-      )}
-      {selectedTask?.project && (
-        <TaskDetailPanel
-          project={selectedTask.project}
-          projectId={selectedTask.projectId}
-          taskId={selectedTask.taskId}
-          onClose={() => setSelectedTask(null)}
-          bbosRole={selectedTask.project.bbosRole || 'all'}
-          accentColor={selectedTask.levelColor}
         />
       )}
       {slideUpProjectId && (

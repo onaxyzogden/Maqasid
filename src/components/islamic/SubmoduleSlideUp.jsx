@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import PillarLevelPage from '@pages/shared/PillarLevelPage';
@@ -7,15 +6,11 @@ import {
   getSubmodulePillarColor,
   getSubmoduleDisplayLabel,
 } from '@data/submodule-registry';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
 import '@components/work/ProjectSlideUp.css';
 
 export default function SubmoduleSlideUp({ submoduleId, fallbackLabel, onClose }) {
-  useEffect(() => {
-    if (!submoduleId) return undefined;
-    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [submoduleId, onClose]);
+  const trapRef = useFocusTrap(!!submoduleId, onClose);
 
   if (!submoduleId) return null;
 
@@ -31,7 +26,7 @@ export default function SubmoduleSlideUp({ submoduleId, fallbackLabel, onClose }
         aria-label="Close"
         onClick={onClose}
       />
-      <div className="pp-slideup__panel" role="document">
+      <div className="pp-slideup__panel pp-slideup__panel--wide" role="document" ref={trapRef}>
         <header className="pp-slideup__header">
           <div className="pp-slideup__title-wrap">
             <span className="pp-slideup__swatch" style={{ background: color }} aria-hidden="true" />

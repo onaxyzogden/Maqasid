@@ -26,6 +26,8 @@
 - `Settings.jsx` — App settings
 - `PillarDashboard.jsx` + `.css` — Generic pillar reference table (4-column: Aspect | Core | Growth | Excellence)
 - `ModulePlaceholder.jsx` — Catch-all for unknown module routes
+- `AuthPage.jsx` — **DORMANT.** Supabase sign-in / sign-up / magic-link form. Not imported by `App.jsx`; `/auth` redirects to `/get-started`
+- `AccountPage.jsx` — **DORMANT.** Cloud account + sync management. Not imported by `App.jsx`; `/app/account` redirects to `/app/settings`
 
 ## Routing (defined in App.jsx)
 - All app routes nested under `/app` (wrapped in AppShell + ProtectedRoute)
@@ -35,6 +37,10 @@
 - Project sub-routes: `/app/work/:projectId` with nested tabs
 - Catch-all: `/app/pillar/:pillarId` → PillarDashboard
 - Fallback: `/:moduleId` → ModulePlaceholder
+- **There is no `*` 404 route.** An unmatched top-level path renders a blank white page — this is why the dormant `/auth` and `/app/account` paths use `<Navigate replace>` instead of being deleted outright
+
+## Dormant: online accounts
+`AuthPage` / `AccountPage` and the whole Supabase cloud-sync surface are switched off behind `CLOUD_ACCOUNTS_ENABLED = false` (`src/services/supabase.js`) — the backend isn't ready. `Landing.jsx`, `Onboarding.jsx` and `Settings.jsx` all branch on `cloudAccountsEnabled` (**not** `isSupabaseConfigured`, which now means "creds present" only and is never the right guard). Onboarding is 3 steps while off, 4 while on. Restore path and the full sync design: `wiki/decisions/2026-07-27-milos-disable-online-accounts.md`.
 
 ## Common Dashboard Pattern
 All pillar dashboards share identical structure:

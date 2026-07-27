@@ -3,22 +3,18 @@ import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import { useProjectStore } from '@store/project-store';
 import { useTaskStore } from '@store/task-store';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
 import ProjectBoard from './ProjectBoard';
 import './ProjectSlideUp.css';
 
 export default function ProjectSlideUp({ projectId, onClose }) {
   const project = useProjectStore((s) => s.getProject(projectId));
   const loadTasks = useTaskStore((s) => s.loadTasks);
+  const trapRef = useFocusTrap(!!project, onClose);
 
   useEffect(() => {
     if (projectId) loadTasks(projectId);
   }, [projectId, loadTasks]);
-
-  useEffect(() => {
-    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [onClose]);
 
   if (!project) return null;
 
@@ -30,7 +26,7 @@ export default function ProjectSlideUp({ projectId, onClose }) {
         aria-label="Close project"
         onClick={onClose}
       />
-      <div className="pp-slideup__panel" role="document">
+      <div className="pp-slideup__panel pp-slideup__panel--wide" role="document" ref={trapRef}>
         <header className="pp-slideup__header">
           <div className="pp-slideup__title-wrap">
             <span className="pp-slideup__swatch" style={{ background: project.color || '#70d8c8' }} aria-hidden="true" />

@@ -3,12 +3,22 @@ import {
   isSubtaskSatisfied,
   isSubtaskEligible,
   isSubtaskSnoozedToday,
+  isTaskComplete,
+  isTaskSnoozedToday,
+  findCurrentTaskIndex,
+  findCurrentSubtaskIndex,
+  taskPillState,
+  subtaskChipState,
+  deriveBoardSequence,
+  deriveSubtaskSteps,
   getPillarTierSubtaskStats,
   getPillarActiveTierRatio,
-  findFirstEligibleInPillarTier,
+  findActiveBoardInPillarTier,
   findNextEligibleSubtask,
   recommendOrientation,
+  buildOrientationCarousel,
 } from '../orientation-selector';
+import { MAQASID_CORE_PILLARS } from '../maqasid';
 
 const TODAY = '2026-07-23';
 
@@ -81,6 +91,79 @@ describe('subtask eligibility predicates', () => {
   });
 });
 
+describe('task-level predicates (sequential locking)', () => {
+  it('isTaskComplete is true only when every subtask is satisfied', () => {
+    expect(isTaskComplete(task('t', [subtask('a', { done: true }), subtask('b', { notApplicable: true })]))).toBe(true);
+    expect(isTaskComplete(task('t', [subtask('a', { done: true }), subtask('b')]))).toBe(false);
+    // A subtask-level snooze does NOT satisfy — the task is still incomplete.
+    expect(isTaskComplete(task('t', [subtask('a', { snoozedUntilDayKey: TODAY })]))).toBe(false);
+  });
+
+  it('a task with no subtasks is treated as complete (nothing to do — walk past it)', () => {
+    expect(isTaskComplete(task('t', []))).toBe(true);
+  });
+
+  it('isTaskSnoozedToday tracks the task-level snooze key against today', () => {
+    expect(isTaskSnoozedToday(task('t', [subtask('a')], { snoozedUntilDayKey: TODAY }), TODAY)).toBe(true);
+    expect(isTaskSnoozedToday(task('t', [subtask('a')], { snoozedUntilDayKey: '2026-07-22' }), TODAY)).toBe(false);
+    expect(isTaskSnoozedToday(task('t', [subtask('a')]), TODAY)).toBe(false);
+  });
+});
+
+describe('current-step finders (array order, never priority/n)', () => {
+  it('findCurrentTaskIndex returns the first not-complete task in ARRAY order', () => {
+    const tasks = [
+      task('t-a', [subtask('a', { done: true })]), // complete
+      task('t-b', [subtask('b')]),                 // current
+      task('t-c', [subtask('c')]),                 // locked
+    ];
+    expect(findCurrentTaskIndex(tasks)).toBe(1);
+  });
+
+  it('ignores priority and n — order is purely positional', () => {
+    const tasks = [
+      task('t-low', [subtask('low1')], { priority: 'low', n: 3 }),
+      task('t-urgent', [subtask('urg1')], { priority: 'urgent', n: 1 }),
+    ];
+    // Old behaviour surfaced the urgent task; sequential locking surfaces index 0.
+    expect(findCurrentTaskIndex(tasks)).toBe(0);
+  });
+
+  it('findCurrentTaskIndex returns -1 when every task is complete', () => {
+    expect(findCurrentTaskIndex([task('t', [subtask('a', { done: true })])])).toBe(-1);
+  });
+
+  it('findCurrentSubtaskIndex returns the first not-satisfied subtask; -1 when all satisfied', () => {
+    expect(findCurrentSubtaskIndex(task('t', [subtask('a', { done: true }), subtask('b'), subtask('c')]))).toBe(1);
+    expect(findCurrentSubtaskIndex(task('t', [subtask('a', { done: true }), subtask('b', { notApplicable: true })]))).toBe(-1);
+  });
+});
+
+describe('stepper display-state helpers', () => {
+  it('taskPillState: done before current, current at, locked after', () => {
+    const t = task('t', [subtask('a')]);
+    expect(taskPillState(0, 1, t, TODAY)).toBe('done');
+    expect(taskPillState(1, 1, t, TODAY)).toBe('current');
+    expect(taskPillState(2, 1, t, TODAY)).toBe('locked');
+  });
+
+  it('taskPillState: the current task reads snoozed when snoozed today', () => {
+    const snoozed = task('t', [subtask('a')], { snoozedUntilDayKey: TODAY });
+    expect(taskPillState(1, 1, snoozed, TODAY)).toBe('snoozed');
+  });
+
+  it('taskPillState: a complete board (currentTaskIndex -1) marks every pill done', () => {
+    expect(taskPillState(0, -1, task('t', []), TODAY)).toBe('done');
+  });
+
+  it('subtaskChipState: done / current / locked by position', () => {
+    expect(subtaskChipState(0, 1)).toBe('done');
+    expect(subtaskChipState(1, 1)).toBe('current');
+    expect(subtaskChipState(2, 1)).toBe('locked');
+    expect(subtaskChipState(0, -1)).toBe('done'); // task complete → all done
+  });
+});
+
 describe('getPillarTierSubtaskStats / getPillarActiveTierRatio', () => {
   it('aggregates done/total across a pillar tier, snoozed subtasks still count toward total', () => {
     const { projects, tasksByProject } = buildFixture();
@@ -111,19 +194,97 @@ describe('getPillarTierSubtaskStats / getPillarActiveTierRatio', () => {
   });
 });
 
-describe('findFirstEligibleInPillarTier / findNextEligibleSubtask', () => {
-  it('skips snoozed-today subtasks and returns the next eligible one', () => {
-    const { projects, tasksByProject } = buildFixture();
-    const found = findFirstEligibleInPillarTier('health', 'core', projects, tasksByProject, TODAY);
-    expect(found.subtask.id).toBe('s2');
+describe('deriveBoardSequence', () => {
+  it('labels each task with its state + letter and flags the board actionable', () => {
+    const p = project('wealth_earning_core');
+    const tasks = [
+      task('t-a', [subtask('a', { done: true })]), // complete → done
+      task('t-b', [subtask('b')]),                 // current
+      task('t-c', [subtask('c')]),                 // locked
+    ];
+    const seq = deriveBoardSequence(p, tasks, TODAY);
+    expect(seq.projectId).toBe('wealth_earning_core');
+    expect(seq.currentTaskIndex).toBe(1);
+    expect(seq.actionable).toBe(true);
+    expect(seq.tasks.map((t) => t.state)).toEqual(['done', 'current', 'locked']);
+    expect(seq.tasks.map((t) => t.letter)).toEqual(['A', 'B', 'C']);
   });
 
-  it('returns null when the only remaining subtask is snoozed today', () => {
-    const projects = [project('health_physical_core')];
+  it('is not actionable when the current task is snoozed today', () => {
+    const p = project('wealth_earning_core');
+    const seq = deriveBoardSequence(p, [task('t', [subtask('a')], { snoozedUntilDayKey: TODAY })], TODAY);
+    expect(seq.currentTaskIndex).toBe(0);
+    expect(seq.actionable).toBe(false);
+    expect(seq.tasks[0].state).toBe('snoozed');
+  });
+
+  it('a fully-complete board has currentTaskIndex -1 and is not actionable', () => {
+    const p = project('wealth_earning_core');
+    const seq = deriveBoardSequence(p, [task('t', [subtask('a', { done: true })])], TODAY);
+    expect(seq.currentTaskIndex).toBe(-1);
+    expect(seq.actionable).toBe(false);
+  });
+});
+
+describe('deriveSubtaskSteps', () => {
+  it('marks done/current/locked chips and reports the current index', () => {
+    const t = task('t', [subtask('x', { done: true }), subtask('y'), subtask('z')]);
+    const { currentSubtaskIndex, steps } = deriveSubtaskSteps(t);
+    expect(currentSubtaskIndex).toBe(1);
+    expect(steps.map((s) => s.state)).toEqual(['done', 'current', 'locked']);
+    expect(steps.map((s) => s.subtask.id)).toEqual(['x', 'y', 'z']);
+  });
+});
+
+describe('findActiveBoardInPillarTier / findNextEligibleSubtask', () => {
+  it('returns the pillar+tier board whose current task is actionable', () => {
+    const { projects, tasksByProject } = buildFixture();
+    const found = findActiveBoardInPillarTier('health', 'core', projects, tasksByProject, TODAY);
+    expect(found.project.id).toBe('health_physical_core');
+    expect(found.seq.actionable).toBe(true);
+    expect(found.seq.currentTaskIndex).toBe(0);
+  });
+
+  it('skips a fully-complete board and returns the next incomplete one (cross-board)', () => {
+    const projects = [project('wealth_earning_core'), project('wealth_saving_core')];
     const tasksByProject = {
-      health_physical_core: [task('t1', [subtask('s1', { snoozedUntilDayKey: TODAY })])],
+      // 'earning' sorts before 'saving' but is complete → skipped.
+      wealth_earning_core: [task('t-done', [subtask('a', { done: true })])],
+      wealth_saving_core: [task('t-open', [subtask('b')])],
     };
-    expect(findFirstEligibleInPillarTier('health', 'core', projects, tasksByProject, TODAY)).toBeNull();
+    const found = findActiveBoardInPillarTier('wealth', 'core', projects, tasksByProject, TODAY);
+    expect(found.project.id).toBe('wealth_saving_core');
+    expect(found.seq.actionable).toBe(true);
+  });
+
+  it('skips a board whose current task is snoozed and returns an actionable sibling board', () => {
+    const projects = [project('wealth_earning_core'), project('wealth_saving_core')];
+    const tasksByProject = {
+      wealth_earning_core: [task('t-snoozed', [subtask('a')], { snoozedUntilDayKey: TODAY })],
+      wealth_saving_core: [task('t-open', [subtask('b')])],
+    };
+    const found = findActiveBoardInPillarTier('wealth', 'core', projects, tasksByProject, TODAY);
+    expect(found.project.id).toBe('wealth_saving_core');
+    expect(found.seq.actionable).toBe(true);
+  });
+
+  it('when every incomplete board is snoozed, returns the first as a non-actionable display fallback', () => {
+    const projects = [project('wealth_earning_core'), project('wealth_saving_core')];
+    const tasksByProject = {
+      wealth_earning_core: [task('t1', [subtask('a')], { snoozedUntilDayKey: TODAY })],
+      wealth_saving_core: [task('t2', [subtask('b')], { snoozedUntilDayKey: TODAY })],
+    };
+    const found = findActiveBoardInPillarTier('wealth', 'core', projects, tasksByProject, TODAY);
+    expect(found.project.id).toBe('wealth_earning_core');
+    expect(found.seq.actionable).toBe(false);
+  });
+
+  it('returns null when the pillar+tier has no incomplete board', () => {
+    const projects = [project('wealth_earning_core')];
+    const tasksByProject = {
+      wealth_earning_core: [task('t', [subtask('a', { done: true })])],
+    };
+    expect(findActiveBoardInPillarTier('wealth', 'core', projects, tasksByProject, TODAY)).toBeNull();
   });
 
   it('findNextEligibleSubtask finds another eligible subtask within the same task', () => {
@@ -137,8 +298,8 @@ describe('findFirstEligibleInPillarTier / findNextEligibleSubtask', () => {
   });
 });
 
-describe('recommendOrientation', () => {
-  it('ranks the least-progressed pillar first (health at 1/3 beats faith which just fell through to growth 0/1, and intellect at ratio 1)', () => {
+describe('recommendOrientation — sequential selection', () => {
+  it('ranks the least-progressed pillar first and surfaces its current step', () => {
     const { projects, tasksByProject } = buildFixture();
     const rec = recommendOrientation({ projects, tasksByProject, todayKey: TODAY });
     expect(rec.reason).toBe('ranked');
@@ -146,6 +307,48 @@ describe('recommendOrientation', () => {
     expect(rec.tier).toBe('core');
     expect(rec.subtask.id).toBe('s2');
     expect(rec.wasSetAside).toBe(false);
+  });
+
+  it('surfaces the FIRST task in array order, not the most-urgent (behaviour change)', () => {
+    const projects = [project('wealth_earning_core')];
+    const tasksByProject = {
+      wealth_earning_core: [
+        task('t-low', [subtask('low1')], { order: 0, priority: 'low' }),
+        task('t-urgent', [subtask('urg1')], { order: 5, priority: 'urgent' }),
+        task('t-high', [subtask('hi1')], { order: 1, priority: 'high' }),
+      ],
+    };
+    const rec = recommendOrientation({ projects, tasksByProject, todayKey: TODAY });
+    expect(rec.task.id).toBe('t-low'); // array index 0 wins; priority is ignored
+    expect(rec.subtask.id).toBe('low1');
+  });
+
+  it('advances to the next task in the chain once the current task is complete', () => {
+    const projects = [project('wealth_earning_core')];
+    const tasksByProject = {
+      wealth_earning_core: [
+        task('t-a', [subtask('a1', { done: true })]), // complete
+        task('t-b', [subtask('b1'), subtask('b2')]),  // current
+      ],
+    };
+    const rec = recommendOrientation({ projects, tasksByProject, todayKey: TODAY });
+    expect(rec.task.id).toBe('t-b');
+    expect(rec.subtask.id).toBe('b1');
+  });
+
+  it('task-level snooze on the top-ranked pillar falls through to the next pillar', () => {
+    const projects = [project('wealth_earning_core'), project('faith_salah_core')];
+    const tasksByProject = {
+      // wealth is least-progressed (0/2 → ratio 0) so it ranks first, but its
+      // only current task is snoozed today → no actionable board in the pillar.
+      wealth_earning_core: [task('t-w', [subtask('w1'), subtask('w2')], { snoozedUntilDayKey: TODAY })],
+      // faith core is 1/2 (ratio 0.5) and actionable.
+      faith_salah_core: [task('t-f', [subtask('f1', { done: true }), subtask('f2')])],
+    };
+    const rec = recommendOrientation({ projects, tasksByProject, todayKey: TODAY });
+    expect(rec.pillar.id).toBe('faith');
+    expect(rec.subtask.id).toBe('f2');
+    expect(rec.reason).toBe('ranked');
   });
 
   it('held-task continuity stays on the same task while it has more eligible subtasks', () => {
@@ -175,7 +378,7 @@ describe('recommendOrientation', () => {
     expect(rec.pillar.id).toBe('health');
   });
 
-  it('pillar override ("something else") targets that pillar and flags wasSetAside when it is not the top-ranked one', () => {
+  it('pillar override targets that pillar and flags wasSetAside when it is not top-ranked', () => {
     const { projects, tasksByProject } = buildFixture();
     const rec = recommendOrientation({
       projects,
@@ -201,11 +404,72 @@ describe('recommendOrientation', () => {
     expect(rec.wasSetAside).toBe(false);
   });
 
-  it('returns null when nothing is eligible anywhere today', () => {
+  it('returns null when nothing is actionable anywhere today', () => {
     const projects = [project('health_physical_core')];
     const tasksByProject = {
       health_physical_core: [task('t1', [subtask('s1', { done: true })])],
     };
     expect(recommendOrientation({ projects, tasksByProject, todayKey: TODAY })).toBeNull();
+  });
+});
+
+describe('buildOrientationCarousel', () => {
+  it('returns one card per core pillar, in canonical order', () => {
+    const { projects, tasksByProject } = buildFixture();
+    const { cards } = buildOrientationCarousel({ projects, tasksByProject, todayKey: TODAY });
+    expect(cards).toHaveLength(MAQASID_CORE_PILLARS.length);
+    expect(cards.map((c) => c.pillar.id)).toEqual(MAQASID_CORE_PILLARS.map((p) => p.id));
+  });
+
+  it('flags exactly the pillar recommendOrientation would surface', () => {
+    const { projects, tasksByProject } = buildFixture();
+    const { cards, recommendedPillarId } = buildOrientationCarousel({ projects, tasksByProject, todayKey: TODAY });
+    const rec = recommendOrientation({ projects, tasksByProject, todayKey: TODAY });
+    expect(recommendedPillarId).toBe(rec.pillar.id); // 'health'
+    const flagged = cards.filter((c) => c.isRecommended);
+    expect(flagged).toHaveLength(1);
+    expect(flagged[0].pillar.id).toBe('health');
+  });
+
+  it('recommended card carries the board sequence, current indices, steps and progress', () => {
+    const { projects, tasksByProject } = buildFixture();
+    const { cards } = buildOrientationCarousel({ projects, tasksByProject, todayKey: TODAY });
+    const health = cards.find((c) => c.pillar.id === 'health');
+    expect(health.hasEligible).toBe(true);
+    expect(health.tier).toBe('core');
+    expect(health.subtask.id).toBe('s2');
+    // t-health-core: s1 done, s2 open, s3 snoozed(subtask) -> current is s2 (index 1)
+    expect(health.currentTaskIndex).toBe(0);
+    expect(health.currentSubtaskIndex).toBe(1);
+    expect(health.board.currentTaskIndex).toBe(0);
+    expect(health.board.tasks[0].letter).toBe('A');
+    expect(health.board.tasks[0].state).toBe('current');
+    // subtask-level snooze is inert now: s3 shows as a locked step, not skipped
+    expect(health.steps.map((s) => s.state)).toEqual(['done', 'current', 'locked']);
+    expect(health.taskStats).toEqual({ done: 1, total: 3 });
+  });
+
+  it('pillars with no actionable work carry hasEligible:false and null board/task/subtask', () => {
+    const { projects, tasksByProject } = buildFixture();
+    const { cards } = buildOrientationCarousel({ projects, tasksByProject, todayKey: TODAY });
+    // family/wealth/environment/ummah have no seeded projects in the fixture
+    const family = cards.find((c) => c.pillar.id === 'family');
+    expect(family.hasEligible).toBe(false);
+    expect(family.board).toBeNull();
+    expect(family.task).toBeNull();
+    expect(family.subtask).toBeNull();
+    expect(family.currentTaskIndex).toBe(-1);
+    expect(family.steps).toEqual([]);
+    expect(family.taskStats).toEqual({ done: 0, total: 0 });
+  });
+
+  it('recommendedPillarId is null when nothing is actionable anywhere today', () => {
+    const projects = [project('health_physical_core')];
+    const tasksByProject = {
+      health_physical_core: [task('t1', [subtask('s1', { done: true })])],
+    };
+    const { cards, recommendedPillarId } = buildOrientationCarousel({ projects, tasksByProject, todayKey: TODAY });
+    expect(recommendedPillarId).toBeNull();
+    expect(cards.every((c) => !c.isRecommended)).toBe(true);
   });
 });

@@ -1,9 +1,16 @@
+/* Mobile: centred ~520px column with the swipe carousel. Desktop (>767px,
+   useMobile gate): wider page with the focused card large in a stage and all
+   seven pillars as a compact side rail (.orient-spread / .orient-rail, end of
+   file). Colours are app design tokens throughout so the surface themes
+   light/dark. No position:fixed in this module (see CONTEXT.md + project
+   memory) — the only fixed element is the shared popup chrome the sheet
+   reuses. */
 .orient-page {
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
   width: 100%;
-  max-width: 48rem;
+  max-width: 520px;
   margin: 0 auto;
   padding: var(--space-6) var(--space-4) var(--space-12);
 }
@@ -29,185 +36,302 @@
   color: var(--primary);
 }
 
-/* ---------- Ladder ---------- */
-.orient-ladder {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-1);
-  font-size: var(--text-xs);
-  color: var(--text2);
-}
-.orient-ladder__rung {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-1);
-  white-space: nowrap;
-}
-.orient-ladder__chevron {
-  color: var(--text3);
-  flex-shrink: 0;
-}
-.orient-ladder__text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 12rem;
-}
-.orient-ladder__rung--now .orient-ladder__now-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-1);
-  padding: 2px var(--space-2);
-  border-radius: var(--radius-full);
-  background: color-mix(in srgb, var(--ladder-color, var(--primary)) 14%, transparent);
-  color: var(--ladder-color, var(--primary));
-  font-weight: 600;
-}
-.orient-ladder__now-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: var(--radius-full);
-  background: currentColor;
-}
-
-/* ---------- Balance strip ---------- */
-.orient-strip {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: var(--space-2);
-}
-@media (max-width: 640px) {
-  .orient-strip {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-.orient-strip__item {
+/* ---------- Header ---------- */
+/* Minimal orienting header — eyebrow, title, one line of intent. Deliberately
+   no streak / date / greeting (deferred; conflicts with the locked "no streak
+   or guilt mechanic" decision). */
+.orient-head {
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
-  padding: var(--space-2);
-  border-radius: var(--radius-sm);
-  border: 1px solid transparent;
-  background: none;
-  font: inherit;
-  text-align: left;
-  cursor: default;
 }
-.orient-strip__item--active {
-  border-color: color-mix(in srgb, var(--strip-color) 40%, transparent);
-  background: color-mix(in srgb, var(--strip-color) 8%, transparent);
-}
-.orient-strip__item--pickable {
-  cursor: pointer;
-}
-.orient-strip__item--pickable:hover {
-  background: color-mix(in srgb, var(--strip-color) 12%, transparent);
-}
-.orient-strip__label {
+.orient-head__eyebrow {
+  margin: 0;
+  font-family: var(--font-mono);
   font-size: var(--text-2xs);
-  color: var(--text2);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.orient-strip__bar-track {
-  height: 4px;
-  border-radius: var(--radius-full);
-  background: var(--border);
-  overflow: hidden;
-}
-.orient-strip__bar-fill {
-  height: 100%;
-  border-radius: var(--radius-full);
-  background: var(--strip-color);
-}
-.orient-strip__tier {
-  font-size: var(--text-2xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--text3);
 }
-
-/* ---------- Now card ---------- */
-.orient-now {
-  border-radius: var(--radius-lg);
-  padding: var(--space-6);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-.orient-now__title {
+.orient-head__title {
+  margin: 0;
+  font-family: var(--font-body);
   font-size: var(--text-2xl);
   font-weight: 600;
   color: var(--text);
+}
+.orient-head__sub {
   margin: 0;
+  font-size: var(--text-sm-plus);
+  line-height: 1.5;
+  color: var(--text2);
 }
 
-/* ---------- Evidence accordion ---------- */
-.orient-evidence__toggle {
+/* The evidence-accordion shell (.orient-evidence__*) moved to
+   shared/SubtaskStepDetail.css and the action row (.orient-actions*) to
+   OrientationActions.css — both now shared with the Prophetic Path node popup;
+   class names kept. */
+
+/* ---------- Carousel ---------- */
+/* Horizontal scroll-snap track; one card centred, ~11% of each neighbour
+   peeking. Geometry mirrors the prototype; colours are app tokens so the
+   surface themes light/dark. Scrollbar hidden (position is shown by the dots). */
+.orient-carousel {
   display: flex;
-  align-items: center;
+  gap: var(--space-3);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  /* Top padding must contain the __flag overhang (top:-9px + 1px border):
+     overflow-x:auto forces overflow-y to computed auto, so anything above the
+     scrollport is clipped — shrinking this re-clips the badge. */
+  padding: var(--space-3) 11% 6px;
+  scroll-padding-inline: 11%;
+  scrollbar-width: none;
+}
+.orient-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- Domain card ---------- */
+.orient-card {
+  flex: 0 0 78%;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 272px;
+  padding: var(--space-4) var(--space-4) 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  transition:
+    border-color var(--duration) var(--ease),
+    opacity var(--duration) var(--ease),
+    transform var(--duration-sm) var(--ease);
+}
+.orient-card:active {
+  transform: scale(0.98);
+}
+.orient-card--rec {
+  border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+.orient-card__flag {
+  position: absolute;
+  top: -9px;
+  left: 14px;
+  padding: 3px var(--space-2);
+  border-radius: 5px;
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.orient-card__top {
+  display: flex;
   justify-content: space-between;
-  width: 100%;
-  padding: var(--space-2) 0;
+  align-items: flex-start;
+  margin-bottom: 9px;
+}
+.orient-card__name {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.orient-card__ar {
+  font-family: var(--font-arabic);
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--card-accent);
+}
+.orient-card__en {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text2);
+}
+.orient-card__frac {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text3);
+  text-align: right;
+  white-space: nowrap;
+  padding-top: 2px;
+}
+
+.orient-card__crumb {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 7px;
+}
+.orient-card__crumb b {
+  color: var(--text2);
+  font-weight: 400;
+}
+
+.orient-card__task {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1.32;
+  color: var(--text);
+  margin-bottom: var(--space-2);
+}
+
+.orient-card__pri {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+  margin-bottom: 10px;
+  border: 1px solid transparent;
+}
+.orient-card__pri--urgent {
+  color: var(--pri-urgent);
+  border-color: color-mix(in srgb, var(--pri-urgent) 40%, transparent);
+}
+.orient-card__pri--high {
+  color: var(--pri-high);
+  border-color: color-mix(in srgb, var(--pri-high) 40%, transparent);
+}
+
+.orient-card__now {
+  margin-top: auto;
+  border-top: 1px solid var(--border);
+  padding-top: 9px;
+}
+.orient-card__now-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--card-accent);
+  margin-bottom: var(--space-1);
+}
+.orient-card__now-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 39px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.32;
+  color: var(--text);
+}
+.orient-card__bar {
+  display: block;
+  height: 2px;
+  margin-top: 9px;
+  border-radius: 1px;
+  background: var(--border);
+  overflow: hidden;
+}
+.orient-card__bar-fill {
+  display: block;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--card-accent);
+}
+.orient-card--rec .orient-card__bar-fill {
+  background: var(--accent);
+}
+.orient-card__cue {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.06em;
+  color: var(--text3);
+  text-align: right;
+  margin-top: var(--space-2);
+}
+
+/* Per-card "nothing eligible today" state (all done / snoozed / not-applicable
+   at this pillar's active tier). Full-opacity, calm — not a disabled look. */
+.orient-card__clear {
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+}
+.orient-card__clear-icon {
+  color: var(--card-accent);
+}
+.orient-card__clear-title {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text);
+}
+.orient-card__clear-sub {
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text3);
+  max-width: 24ch;
+}
+
+/* ---------- Dots (position indicator + recommended marker) ---------- */
+.orient-dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  padding: 2px 0 14px;
+}
+.orient-dots__wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: var(--space-1);
   background: none;
   border: none;
-  border-top: 1px solid var(--border);
-  color: var(--text2);
-  font-size: var(--text-sm-plus);
-  font-weight: 500;
   cursor: pointer;
 }
-.orient-evidence__chevron {
-  transition: transform 0.15s ease;
+.orient-dots__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--border);
+  transition: background var(--duration) var(--ease), transform var(--duration) var(--ease);
 }
-.orient-evidence__chevron--open {
-  transform: rotate(180deg);
+.orient-dots__dot--cur {
+  background: var(--text);
+  transform: scale(1.3);
 }
-.orient-evidence__body {
-  padding-top: var(--space-2);
+.orient-dots__mark {
+  width: 3px;
+  height: 3px;
+  border-radius: var(--radius-full);
+  background: var(--accent);
 }
-
-/* ---------- Actions ---------- */
-.orient-actions {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-2);
-}
-@media (max-width: 640px) {
-  .orient-actions {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-.orient-actions__btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  padding: var(--space-3);
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text);
-  font-size: var(--text-sm-plus);
-  font-weight: 500;
-  cursor: pointer;
-}
-.orient-actions__btn:hover {
-  background: var(--surface-hover);
-}
-.orient-actions__btn--primary {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: #fff;
-}
-.orient-actions__btn--primary:hover {
-  background: color-mix(in srgb, var(--primary) 88%, #000);
-}
-.orient-actions__btn--ghost {
-  color: var(--text2);
-}
-.orient-actions__btn--active {
-  border-color: var(--primary);
-  color: var(--primary);
+.orient-dots__mark--hide {
+  background: transparent;
 }
 
 /* ---------- Empty state ---------- */
@@ -240,4 +364,146 @@
   font-size: var(--text-sm-plus);
   color: var(--text2);
   margin: 0;
+}
+
+/* ---------- Desktop spread (rendered only >767px via the useMobile gate) ----------
+   The focused card large in a stage + all seven pillars as a compact rail.
+   768–1023 the rail wraps beneath the stage as chips (the content column can
+   be as narrow as ~420px with both side panels open); ≥1024 it becomes a
+   vertical column beside the stage. */
+@media (min-width: 768px) {
+  .orient-page {
+    max-width: 860px;
+  }
+}
+
+.orient-spread {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+  align-items: start;
+}
+@media (min-width: 1024px) {
+  .orient-spread {
+    grid-template-columns: minmax(0, 1fr) 236px;
+    gap: var(--space-6);
+  }
+}
+
+/* Stage: same headroom rhythm as the mobile track (no clipping container here,
+   the padding just keeps the flag's overhang from crowding the header). */
+.orient-spread__stage {
+  padding-top: var(--space-3);
+}
+.orient-spread__stage .orient-card {
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  height: 300px;
+}
+.orient-spread__stage .orient-card__ar {
+  font-size: 26px;
+}
+.orient-spread__stage .orient-card__now-text {
+  font-size: 16px;
+  height: 42px;
+}
+
+/* Rail — all seven pillars, canonical order (stable DOM: removing the clicked
+   row would unmount the focused button). Selected row wears the pillar accent. */
+.orient-rail {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-2);
+}
+@media (min-width: 1024px) {
+  .orient-rail {
+    grid-template-columns: 1fr;
+    align-content: start;
+    padding-top: var(--space-3);
+  }
+}
+.orient-rail__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--duration) var(--ease), background var(--duration) var(--ease);
+}
+.orient-rail__item:hover {
+  background: var(--surface-hover);
+}
+.orient-rail__item--cur {
+  border-color: color-mix(in srgb, var(--card-accent) 55%, transparent);
+  background: color-mix(in srgb, var(--card-accent) 6%, var(--surface));
+}
+.orient-rail__glyph {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--card-accent);
+}
+.orient-rail__name {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.orient-rail__ar {
+  font-family: var(--font-arabic);
+  font-size: 15px;
+  line-height: 1.15;
+  color: var(--card-accent);
+}
+.orient-rail__en {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.orient-rail__meta {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.orient-rail__frac {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text3);
+  white-space: nowrap;
+}
+.orient-rail__pri {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+}
+.orient-rail__pri--urgent {
+  background: var(--pri-urgent);
+}
+.orient-rail__pri--high {
+  background: var(--pri-high);
+}
+.orient-rail__check {
+  color: var(--text3);
+}
+.orient-rail__rec {
+  width: 5px;
+  height: 5px;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+}
+.orient-rail__item--clear .orient-rail__ar,
+.orient-rail__item--clear .orient-rail__en {
+  color: var(--text3);
 }

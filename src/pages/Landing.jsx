@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { isSupabaseConfigured } from '../services/supabase';
+import { cloudAccountsEnabled } from '../services/supabase';
 import { ChevronDown, ArrowRight, Star, LogIn, X, Moon, Check, BookOpen, Shield, Sparkles } from 'lucide-react';
 import { MAQASID_CORE_PILLARS } from '../data/maqasid';
 import { ICON_REGISTRY, getIcon } from '../data/icon-registry';
@@ -104,8 +104,8 @@ const FAQS = [
   {
     q: 'Where does my data live?',
     a: [
-      "On your device, by default. MIOS keeps everything in your browser\u2019s local storage, works with no account at all, and can export the whole dataset as JSON from Settings at any time.",
-      "Three things reach the network, and only when you use them. Sync: if you create an account and turn it on, MIOS uploads a snapshot of your data to Supabase so another device can pick it up \u2014 no account, no upload. Prayer times: the Aladhan API receives your coordinates to return today\u2019s timings and the Hijri date, OpenStreetMap\u2019s Nominatim receives them to name your city, and if your browser refuses location MIOS falls back to an IP lookup at ipapi.co. Qur\u2019an reader: the sources panel embeds the reader from quran.com.",
+      "On your device. MIOS keeps everything in your browser\u2019s local storage, runs with no account at all, and can export the whole dataset as JSON from Settings at any time. Online accounts and cross-device sync are switched off while that backend is unfinished, so nothing you write is uploaded anywhere.",
+      "Two things reach the network, and only when you use them. Prayer times: the Aladhan API receives your coordinates to return today\u2019s timings and the Hijri date, OpenStreetMap\u2019s Nominatim receives them to name your city, and if your browser refuses location MIOS falls back to an IP lookup at ipapi.co. Qur\u2019an reader: the sources panel embeds the reader from quran.com.",
       "There are no analytics, trackers, or advertising scripts anywhere in MIOS.",
     ],
   },
@@ -374,7 +374,7 @@ export default function Landing() {
             </Link>
           ) : (
             <>
-              {isSupabaseConfigured ? (
+              {cloudAccountsEnabled ? (
                 <Link to="/auth" className="btn btn-ghost" style={{ fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
                   <LogIn size={16} /> Sign In
                 </Link>
@@ -399,7 +399,7 @@ export default function Landing() {
             </div>
             <div className="expense-form-body">
               <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: 1.5, marginBottom: '1rem', marginTop: '-0.25rem' }}>
-                Your data stays on this device only. To sync across devices, create a free account.
+                Your data stays on this device only. You can export a full backup any time from Settings.
               </p>
               <div className="expense-form-field">
                 <label>Name *</label>
@@ -415,7 +415,7 @@ export default function Landing() {
               </div>
             </div>
             <div className="expense-form-footer">
-              {isSupabaseConfigured ? (
+              {cloudAccountsEnabled ? (
                 <Link to="/auth?mode=signup" className="btn btn-ghost" onClick={() => setShowLogin(false)}>
                   Create account
                 </Link>
@@ -767,7 +767,7 @@ export default function Landing() {
               {user
                 ? <li><Link to="/app/orientation">Open Orientation</Link></li>
                 : <li><button type="button" className="footer-link-btn" onClick={() => setShowLogin(true)}>Continue locally</button></li>}
-              {isSupabaseConfigured && <li><Link to="/auth">Sign in</Link></li>}
+              {cloudAccountsEnabled && <li><Link to="/auth">Sign in</Link></li>}
             </ul>
           </div>
         </div>

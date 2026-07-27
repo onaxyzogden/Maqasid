@@ -187,7 +187,7 @@ Without a measured baseline, conservation efforts become guesswork. Recording yo
             {
               kind: "quran",
               ref: "Quran 72:16",
-              arabic: "**Translation:** If they (non-Muslims) had believed in Allâh, and went on the Right Way (i.e. Islâm) We would surely have bestowed on them water (rain) in abundance.",
+              arabic: "وَأَنْ لَوِ اسْتَقَامُوا عَلَى الطَّرِيقَةِ لَأَسْقَيْنَاهُمْ مَاءً غَدَقًا",
               translation: "If they (non-Muslims) had believed in Allâh, and went on the Right Way (i.e. Islâm) We would surely have bestowed on them water (rain) in abundance.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -524,7 +524,7 @@ Heating and cooling represent the largest share of household energy consumption 
             {
               kind: "quran",
               ref: "Quran 22:32",
-              arabic: "**Translation:** Thus it is [what has been mentioned in the above said Verses (27, 28, 29, 30, 31) is an obligation that mankind owes to Allâh] and whosoever honours the Symbols of Allâh, then it is truly from the piety of the hearts.",
+              arabic: "ذَٰلِكَ وَمَنْ يُعَظِّمْ شَعَائِرَ اللَّهِ فَإِنَّهَا مِنْ تَقْوَى الْقُلُوبِ",
               translation: "Thus it is [what has been mentioned in the above said Verses (27, 28, 29, 30, 31) is an obligation that mankind owes to Allâh] and whosoever honours the Symbols of Allâh, then it is truly from the piety of the hearts.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -533,7 +533,7 @@ Heating and cooling represent the largest share of household energy consumption 
             {
               kind: "quran",
               ref: "Quran 9:17",
-              arabic: "**Translation:** [9:17] It does not become those who associate others with Allah in His Divinity to visit and tend Allah's mosques while they bear witness of unbelief against themselves. All their works have gone to waste. They shall abide in the Fire.",
+              arabic: "مَا كَانَ لِلْمُشْرِكِينَ أَنْ يَعْمُرُوا مَسَاجِدَ اللَّهِ شَاهِدِينَ عَلَىٰ أَنْفُسِهِمْ بِالْكُفْرِ ۚ أُولَٰئِكَ حَبِطَتْ أَعْمَالُهُمْ وَفِي النَّارِ هُمْ خَالِدُونَ",
               translation: "[9:17] It does not become those who associate others with Allah in His Divinity to visit and tend Allah's mosques while they bear witness of unbelief against themselves. All their works have gone to waste. They shall abide in the Fire.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -2528,7 +2528,7 @@ This foundational hadith (reported in Sahih Muslim) establishes cleanliness as n
             {
               kind: "quran",
               ref: "Quran 3:104",
-              arabic: "**Translation:** Let there arise out of you a group of people inviting to all that is good (Islâm), enjoining Al-Ma‘rûf (i.e. Islâmic Monotheism and all that Islâm orders one to do) and forbidding Al-Munkar (polytheism and disbelief and all that Islâm has forbidden). And it is they who are the successful.",
+              arabic: "وَلْتَكُنْ مِنْكُمْ أُمَّةٌ يَدْعُونَ إِلَى الْخَيْرِ وَيَأْمُرُونَ بِالْمَعْرُوفِ وَيَنْهَوْنَ عَنِ الْمُنْكَرِ ۚ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ",
               translation: "Let there arise out of you a group of people inviting to all that is good (Islâm), enjoining Al-Ma‘rûf (i.e. Islâmic Monotheism and all that Islâm orders one to do) and forbidding Al-Munkar (polytheism and disbelief and all that Islâm has forbidden). And it is they who are the successful.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4224,7 +4224,7 @@ The Prophet (peace be upon him) said: "Whoever among you sees a wrong, let him c
             {
               kind: "quran",
               ref: "Quran 5:54",
-              arabic: "**Translation:** O you who believe! Whoever from among you turns back from his religion (Islâm), Allâh will bring a people whom He will love and they will love Him; humble towards the believers, stern towards the disbelievers, fighting in the Way of Allâh, and never fear of the blame of the blamers. That is the Grace of Allâh which He bestows on whom He wills. And Allâh is All-Sufficient for His creatures’ needs, All-Knower.",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا مَنْ يَرْتَدَّ مِنْكُمْ عَنْ دِينِهِ فَسَوْفَ يَأْتِي اللَّهُ بِقَوْمٍ يُحِبُّهُمْ وَيُحِبُّونَهُ أَذِلَّةٍ عَلَى الْمُؤْمِنِينَ أَعِزَّةٍ عَلَى الْكَافِرِينَ يُجَاهِدُونَ فِي سَبِيلِ اللَّهِ وَلَا يَخَافُونَ لَوْمَةَ لَائِمٍ ۚ ذَٰلِكَ فَضْلُ اللَّهِ يُؤْتِيهِ مَنْ يَشَاءُ ۚ وَاللَّهُ وَاسِعٌ عَلِيمٌ",
               translation: "O you who believe! Whoever from among you turns back from his religion (Islâm), Allâh will bring a people whom He will love and they will love Him; humble towards the believers, stern towards the disbelievers, fighting in the Way of Allâh, and never fear of the blame of the blamers. That is the Grace of Allâh which He bestows on whom He wills. And Allâh is All-Sufficient for His creatures’ needs, All-Knower.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4233,7 +4233,7 @@ The Prophet (peace be upon him) said: "Whoever among you sees a wrong, let him c
             {
               kind: "quran",
               ref: "Quran 22:41",
-              arabic: "**Translation:** Those (Muslim rulers) who, if We give them power in the land, (they) enjoin Iqamat-as-Salât [i.e. to perform the five compulsory congregational Salât (prayers) (the males in mosques)], to pay the Zakât and they enjoin Al-Ma‘rûf (i.e. Islâmic Monotheism and all that Islâm orders one to do), and forbid Al-Munkar (i.e. disbelief, polytheism and all that Islâm has forbidden) [i.e. they make the Qur’ân as the law of their country in all the spheres of life]. And with Allâh rests the end of (all) matters (of creatures).",
+              arabic: "الَّذِينَ إِنْ مَكَّنَّاهُمْ فِي الْأَرْضِ أَقَامُوا الصَّلَاةَ وَآتَوُا الزَّكَاةَ وَأَمَرُوا بِالْمَعْرُوفِ وَنَهَوْا عَنِ الْمُنْكَرِ ۗ وَلِلَّهِ عَاقِبَةُ الْأُمُورِ",
               translation: "Those (Muslim rulers) who, if We give them power in the land, (they) enjoin Iqamat-as-Salât [i.e. to perform the five compulsory congregational Salât (prayers) (the males in mosques)], to pay the Zakât and they enjoin Al-Ma‘rûf (i.e. Islâmic Monotheism and all that Islâm orders one to do), and forbid Al-Munkar (i.e. disbelief, polytheism and all that Islâm has forbidden) [i.e. they make the Qur’ân as the law of their country in all the spheres of life]. And with Allâh rests the end of (all) matters (of creatures).",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4242,7 +4242,7 @@ The Prophet (peace be upon him) said: "Whoever among you sees a wrong, let him c
             {
               kind: "quran",
               ref: "Quran 3:83",
-              arabic: "**Translation:** Do they seek for other than the Religion of Allah?-while all creatures in the heavens and on earth have, willing or unwilling, bowed to His Will (Accepted Islam), and to Him shall they all be brought back.",
+              arabic: "أَفَغَيْرَ دِينِ اللَّهِ يَبْغُونَ وَلَهُ أَسْلَمَ مَنْ فِي السَّمَاوَاتِ وَالْأَرْضِ طَوْعًا وَكَرْهًا وَإِلَيْهِ يُرْجَعُونَ",
               translation: "Do they seek for other than the Religion of Allah?-while all creatures in the heavens and on earth have, willing or unwilling, bowed to His Will (Accepted Islam), and to Him shall they all be brought back.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4509,7 +4509,7 @@ Every act of the Muslim begins and ends with Allah. Planting a tree is a physica
             {
               kind: "quran",
               ref: "Quran 59:21",
-              arabic: "**Translation:** If We had sent this Quran down to a mountain, you [Prophet] would have seen it humbled and split apart in its awe of God: We offer people such illustrations so that they may reflect.",
+              arabic: "لَوْ أَنْزَلْنَا هَٰذَا الْقُرْآنَ عَلَىٰ جَبَلٍ لَرَأَيْتَهُ خَاشِعًا مُتَصَدِّعًا مِنْ خَشْيَةِ اللَّهِ ۚ وَتِلْكَ الْأَمْثَالُ نَضْرِبُهَا لِلنَّاسِ لَعَلَّهُمْ يَتَفَكَّرُونَ",
               translation: "If We had sent this Quran down to a mountain, you [Prophet] would have seen it humbled and split apart in its awe of God: We offer people such illustrations so that they may reflect.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -4581,7 +4581,7 @@ These three verses form the theological foundation for humanity's relationship w
             {
               kind: "quran",
               ref: "Quran 2:132",
-              arabic: "**Translation:** And this (submission to Allâh, Islâm) was enjoined by Ibrâhîm (Abraham) upon his sons and by Ya‘qûb (Jacob) (saying), \"O my sons! Allâh has chosen for you the (true) religion, then die not except in the Faith of Islâm (as Muslims - Islâmic Monotheism).\"",
+              arabic: "وَوَصَّىٰ بِهَا إِبْرَاهِيمُ بَنِيهِ وَيَعْقُوبُ يَا بَنِيَّ إِنَّ اللَّهَ اصْطَفَىٰ لَكُمُ الدِّينَ فَلَا تَمُوتُنَّ إِلَّا وَأَنْتُمْ مُسْلِمُونَ",
               translation: "And this (submission to Allâh, Islâm) was enjoined by Ibrâhîm (Abraham) upon his sons and by Ya‘qûb (Jacob) (saying), \"O my sons! Allâh has chosen for you the (true) religion, then die not except in the Faith of Islâm (as Muslims - Islâmic Monotheism).\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5110,7 +5110,7 @@ The most common reason people abandon reduced-meat eating is that they find plan
             {
               kind: "quran",
               ref: "Quran 5:4",
-              arabic: "**Translation:** They ask you (O Muhammad صلى الله عليه وسلم) what is lawful for them (as food). Say: \"Lawful unto you are At-Tayyibât [all kind of Halâl (lawful-good) foods which Allâh has made lawful (meat of slaughtered eatable animals, milk products, fats, vegetables and fruits)]. And those beasts and birds of prey which you have trained as hounds, training and teaching them (to catch) in the manner as directed to you by Allâh; so eat of what they catch for you, but pronounce the Name of Allâh over it, and fear Allâh. Verily, Allâh is Swift in reckoning.\"",
+              arabic: "يَسْأَلُونَكَ مَاذَا أُحِلَّ لَهُمْ ۖ قُلْ أُحِلَّ لَكُمُ الطَّيِّبَاتُ ۙ وَمَا عَلَّمْتُمْ مِنَ الْجَوَارِحِ مُكَلِّبِينَ تُعَلِّمُونَهُنَّ مِمَّا عَلَّمَكُمُ اللَّهُ ۖ فَكُلُوا مِمَّا أَمْسَكْنَ عَلَيْكُمْ وَاذْكُرُوا اسْمَ اللَّهِ عَلَيْهِ ۖ وَاتَّقُوا اللَّهَ ۚ إِنَّ اللَّهَ سَرِيعُ الْحِسَابِ",
               translation: "They ask you (O Muhammad صلى الله عليه وسلم) what is lawful for them (as food). Say: \"Lawful unto you are At-Tayyibât [all kind of Halâl (lawful-good) foods which Allâh has made lawful (meat of slaughtered eatable animals, milk products, fats, vegetables and fruits)]. And those beasts and birds of prey which you have trained as hounds, training and teaching them (to catch) in the manner as directed to you by Allâh; so eat of what they catch for you, but pronounce the Name of Allâh over it, and fear Allâh. Verily, Allâh is Swift in reckoning.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -5119,7 +5119,7 @@ The most common reason people abandon reduced-meat eating is that they find plan
             {
               kind: "quran",
               ref: "Quran 23:51",
-              arabic: "**Translation:** O (you) Messengers! Eat of the Tayyibât [all kinds of Halâl foods which Allâh has made lawful (meat of slaughtered eatable animals, milk products, fats, vegetables, fruits, etc.] and do righteous deeds. Verily! I am Well-Acquainted with what you do.",
+              arabic: "يَا أَيُّهَا الرُّسُلُ كُلُوا مِنَ الطَّيِّبَاتِ وَاعْمَلُوا صَالِحًا ۖ إِنِّي بِمَا تَعْمَلُونَ عَلِيمٌ",
               translation: "O (you) Messengers! Eat of the Tayyibât [all kinds of Halâl foods which Allâh has made lawful (meat of slaughtered eatable animals, milk products, fats, vegetables, fruits, etc.] and do righteous deeds. Verily! I am Well-Acquainted with what you do.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6660,7 +6660,7 @@ Benchmark: Be able to independently sew a button, hem a garment, and patch a sma
             {
               kind: "quran",
               ref: "Quran 27:92",
-              arabic: "**Translation:** I am commanded to recite the Quran.’ Whoever chooses to follow the right path does so for his own good. Say to whoever deviates from it, ‘I am only here to warn.’",
+              arabic: "وَأَنْ أَتْلُوَ الْقُرْآنَ ۖ فَمَنِ اهْتَدَىٰ فَإِنَّمَا يَهْتَدِي لِنَفْسِهِ ۖ وَمَنْ ضَلَّ فَقُلْ إِنَّمَا أَنَا مِنَ الْمُنْذِرِينَ",
               translation: "I am commanded to recite the Quran.’ Whoever chooses to follow the right path does so for his own good. Say to whoever deviates from it, ‘I am only here to warn.’",
               relevance: "direct",
               provenanceTier: "Bayyinah",
@@ -6669,7 +6669,7 @@ Benchmark: Be able to independently sew a button, hem a garment, and patch a sma
             {
               kind: "quran",
               ref: "Quran 6:153",
-              arabic: "**Translation:** \"And verily, this (i.e. Allâh’s Commandments mentioned in the above two Verses 151 and 152) is My Straight Path, so follow it, and follow not (other) paths, for they will separate you away from His Path. This He has ordained for you that you may become Al-Muttaqûn (the pious - see V.2:2).\"",
+              arabic: "وَأَنَّ هَٰذَا صِرَاطِي مُسْتَقِيمًا فَاتَّبِعُوهُ ۖ وَلَا تَتَّبِعُوا السُّبُلَ فَتَفَرَّقَ بِكُمْ عَنْ سَبِيلِهِ ۚ ذَٰلِكُمْ وَصَّاكُمْ بِهِ لَعَلَّكُمْ تَتَّقُونَ",
               translation: "And verily, this (i.e. Allâh’s Commandments mentioned in the above two Verses 151 and 152) is My Straight Path, so follow it, and follow not (other) paths, for they will separate you away from His Path. This He has ordained for you that you may become Al-Muttaqûn (the pious - see V.2:2).\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
