@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 
 /**
  * Scroll hooks shared by the landing page and its embedded previews.
@@ -98,6 +98,24 @@ export function useFirstReveal(ref) {
     };
   }, [ref, revealed]);
   return revealed;
+}
+
+/**
+ * True once the page has scrolled past `threshold` pixels.
+ *
+ * useSyncExternalStore rather than useState + useEffect: it reads the scroll
+ * position during render, so the very first paint after a reload already has
+ * the right answer instead of flashing the tall nav for a frame.
+ */
+export function useScrolledPast(threshold) {
+  return useSyncExternalStore(
+    (onChange) => {
+      window.addEventListener('scroll', onChange, { passive: true });
+      return () => window.removeEventListener('scroll', onChange);
+    },
+    () => window.scrollY > threshold,
+    () => false,
+  );
 }
 
 /**

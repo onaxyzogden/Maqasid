@@ -1,7 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { cloudAccountsEnabled } from '../services/supabase';
-import { ChevronDown, ArrowRight, Star, LogIn, X, Moon, BookOpen, Shield, Sparkles } from 'lucide-react';
+import {
+  ChevronDown, ArrowRight, Star, LogIn, X, Moon, BookOpen, Shield, Sparkles,
+  Menu, Compass, Sunrise, HelpCircle,
+} from 'lucide-react';
 import { MAQASID_CORE_PILLARS } from '../data/maqasid';
 import { ICON_REGISTRY, getIcon } from '../data/icon-registry';
 import { AMANAH_TIERS } from '../data/config/amanah-tiers';
@@ -10,8 +13,19 @@ import { useAuthStore } from '../store/auth-store';
 import { genUserId } from '../services/id';
 import MaqasidComparisonWheel from '../components/faith/MaqasidComparisonWheel';
 import PropheticPathPreview from '../components/landing/PropheticPathPreview';
-import { useRevealSection } from '../components/landing/use-landing-scroll';
+import { useRevealSection, useScrolledPast } from '../components/landing/use-landing-scroll';
 import '../styles/landing.css';
+
+// One source for both navs. The bar shows the first three; the mobile sheet
+// shows all six with their icons, which is what makes it worth opening.
+const NAV_LINKS = [
+  { href: '#orientation', label: 'Orientation', Icon: Compass },
+  { href: '#evidence', label: 'Evidence', Icon: Shield },
+  { href: '#prophetic-path', label: 'The Day', Icon: Sunrise },
+  { href: '#sunnah', label: 'Sunnah Mode', Icon: Moon },
+  { href: '#how-it-works', label: 'How It Works', Icon: Sparkles },
+  { href: '#faq', label: 'FAQ', Icon: HelpCircle },
+];
 
 // `a` may be a string or an array of paragraphs (see the FAQ renderer below).
 const FAQS = [
@@ -218,6 +232,28 @@ export default function Landing() {
   const [showLogin, setShowLogin] = useState(false);
   const [loginName, setLoginName] = useState('');
   const [loginEmail, setLoginEmail] = useState('');
+  const [menuOpen, setMenuOpen] = useState(false);
+  const compact = useScrolledPast(40);
+  const menuBtnRef = useRef(null);
+  const sheetRef = useRef(null);
+
+  // While the sheet is open: Escape closes it, the page behind it cannot
+  // scroll, and focus moves inside. Closing hands focus back to the button
+  // that opened it, so keyboard users don't get dropped at the top of the DOM.
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    const onKeyDown = (e) => { if (e.key === 'Escape') setMenuOpen(false); };
+    const trigger = menuBtnRef.current; // same node at cleanup; captured to satisfy the lint rule
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', onKeyDown);
+    sheetRef.current?.querySelector('a')?.focus();
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = prevOverflow;
+      trigger?.focus();
+    };
+  }, [menuOpen]);
 
   // Warm the authenticated-shell chunks during idle so the first /app
   // navigation doesn't pay a cold fetch. import() is deduped against the
@@ -254,7 +290,7 @@ export default function Landing() {
   const activeVariant = DAY_VARIANTS.find((v) => v.id === activeDay);
 
   return (
-    <div className="landing">
+    <div className={`landing${compact ? ' is-compact' : ''}${menuOpen ? ' is-menu-open' : ''}`}>
       {/* Nav */}
       <nav className="landing-nav">
         <Link to="/" className="landing-logo">
@@ -262,10 +298,21 @@ export default function Landing() {
           MIOS
         </Link>
         <ul className="landing-nav-links">
-          <li><a href="#orientation">Orientation</a></li>
-          <li><a href="#evidence">Evidence</a></li>
-          <li><a href="#prophetic-path">The Day</a></li>
+          {NAV_LINKS.slice(0, 3).map((l) => (
+            <li key={l.href}><a href={l.href}>{l.label}</a></li>
+          ))}
         </ul>
+        <button
+          type="button"
+          ref={menuBtnRef}
+          className="landing-nav-toggle"
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          aria-controls="landing-mobile-nav"
+          onClick={() => setMenuOpen((v) => !v)}
+        >
+          {menuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
         <div className="landing-nav-actions">
           {user ? (
             <Link to="/app" className="btn btn-primary">
@@ -287,6 +334,52 @@ export default function Landing() {
           )}
         </div>
       </nav>
+
+      {/* Mobile sheet. Anchored under the nav and pulled up out of sight when
+          closed — never pinned to the bottom edge, which is the failure mode
+          the in-app MobileNav keeps hitting. `inert` keeps the closed sheet out
+          of the tab order while still letting it transition. */}
+      <div
+        className="landing-sheet-backdrop"
+        onClick={() => setMenuOpen(false)}
+        aria-hidden="true"
+      />
+      <div
+        id="landing-mobile-nav"
+        ref={sheetRef}
+        className="landing-sheet"
+        inert={!menuOpen || undefined}
+      >
+        <ul className="landing-sheet-links">
+          {NAV_LINKS.map((l, i) => (
+            <li key={l.href} style={{ '--i': i }}>
+              <a href={l.href} onClick={() => setMenuOpen(false)}>
+                <span className="landing-sheet-icon"><l.Icon size={18} /></span>
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        {/* The bar has no room for a second button at 375px, so the sign-in
+            route lives here instead. The primary CTA stays in the bar. */}
+        {!user && (
+          <div className="landing-sheet-actions">
+            {cloudAccountsEnabled ? (
+              <Link to="/auth" className="btn btn-secondary" onClick={() => setMenuOpen(false)}>
+                <LogIn size={16} /> Sign In
+              </Link>
+            ) : (
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={() => { setMenuOpen(false); setShowLogin(true); }}
+              >
+                <LogIn size={16} /> Enter MIOS
+              </button>
+            )}
+          </div>
+        )}
+      </div>
 
       {/* Login Modal */}
       {showLogin && (
