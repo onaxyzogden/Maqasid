@@ -451,7 +451,7 @@ export default function Landing() {
             {[...Array(2)].map((_, dup) => (
               <div key={dup} className="hero-marquee-group">
                 <span className="hero-marquee-item">Grounded in the Maqasid al-Shari'ah</span>
-                <span className="hero-marquee-item">Local-first · sync only if you ask</span>
+                <span className="hero-marquee-item">Local-first · nothing leaves your device</span>
                 <span className="hero-marquee-item">Zero tracking · zero ads</span>
                 <span className="hero-marquee-item">Every task carries its evidence</span>
                 <span className="hero-marquee-item">Free — no paywalls, no tiers</span>
@@ -638,7 +638,7 @@ export default function Landing() {
             <p className="section-label">How It Works</p>
             <h2 className="section-title">Three steps to a purposeful life</h2>
           </div>
-          <p className="section-subtitle">Get started in under a minute. No account required — everything runs on your device until you choose to sync.</p>
+          <p className="section-subtitle">Set up in under a minute. No account, and nothing leaves your device — export the whole thing as JSON whenever you want.</p>
         </div>
 
         <div className="how-steps">
