@@ -82,10 +82,10 @@ export default function EnvironmentDashboard() {
       {/* ── Pillars Bento Grid ── */}
       <section className="env-pillars">
 
-        {/* Level 1: Core Pillars */}
+        {/* Level 1: Core */}
         <div className="env-core-card">
-          <span className="env-badge env-badge--dark">LEVEL 1: NECESSITIES</span>
-          <h3 className="env-core-card__title">Core Pillars</h3>
+          <span className="env-badge env-badge--dark">LEVEL 1: CORE</span>
+          <h3 className="env-core-card__title">Core</h3>
           <p className="env-core-card__desc">
             Foundational elements required for ecological stewardship and balance.
           </p>
@@ -123,10 +123,10 @@ export default function EnvironmentDashboard() {
         {/* Level 2 + 3 sub-grid */}
         <div className="env-pillars__right">
 
-          {/* Level 2: Growth Space */}
+          {/* Level 2: Growth */}
           <div className="env-needs-card">
-            <span className="env-badge env-badge--secondary">LEVEL 2: NEEDS</span>
-            <h3 className="env-needs-card__title">Growth Space</h3>
+            <span className="env-badge env-badge--secondary">LEVEL 2: GROWTH</span>
+            <h3 className="env-needs-card__title">Growth</h3>
             <p className="env-needs-card__desc">
               Deepening ecological awareness through study and conscious practice.
             </p>
@@ -161,10 +161,10 @@ export default function EnvironmentDashboard() {
             </div>
           </div>
 
-          {/* Level 3: Embellishments */}
+          {/* Level 3: Excellence */}
           <div className="env-excellence-card">
             <span className="env-badge env-badge--tertiary">LEVEL 3: EXCELLENCE</span>
-            <h3 className="env-excellence-card__title">Embellishments</h3>
+            <h3 className="env-excellence-card__title">Excellence</h3>
             <p className="env-excellence-card__desc">
               The refinement of environmental stewardship into a lived practice of khalifah.
             </p>

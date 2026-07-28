@@ -9,13 +9,13 @@ sources: 0
 
 # MILOS
 
-MILOS V2.1 is an Islamic life operating system built as a React 19 single-page application with Zustand 5 state management, React Router 7 navigation, and Vite 8 bundling. It manages work, money, people, and operations across Eight Maqasid-derived pillars — Faith, Life, Intellect, Family, Wealth, Environment, Ummah, and Moontrance — providing module dashboards with a three-tier detail design, [[bbos-pipeline]] integration, and Islamic UI components such as CeremonyGate, ReadinessCheck, and PrayerOverlay. The project uses a CONTEXT.md routing hierarchy for developer orientation and is deployed via GitHub Pages. The monorepo now includes `website/` ([[ogden-hub]] subtree) and `atlas/` ([[olos]] git submodule). Its knowledge graph, built via [[graphify]], contains 1,012 nodes, 1,517 edges, and 126 communities.
+MILOS V2.1 is an Islamic life operating system built as a React 19 single-page application with Zustand 5 state management, React Router 7 navigation, and Vite 8 bundling. It manages work, money, people, and operations across Eight Maqasid-derived pillars — Faith, Health, Intellect, Family, Wealth, Environment, Community, and Moontrance — providing module dashboards with a three-tier detail design, [[bbos-pipeline]] integration, and Islamic UI components such as CeremonyGate, ReadinessCheck, and PrayerOverlay. The project uses a CONTEXT.md routing hierarchy for developer orientation and is deployed via GitHub Pages. The monorepo now includes `website/` ([[ogden-hub]] subtree) and `atlas/` ([[olos]] git submodule). Its knowledge graph, built via [[graphify]], contains 1,012 nodes, 1,517 edges, and 126 communities.
 
 ## Key Facts
 
 - **Stack:** React 19 + Zustand 5 + React Router 7 + Vite 8 + dnd-kit + Lucide icons + date-fns
 - **Architecture:** SPA with module dashboards, three-tier detail design (overview / detail / action)
-- **Modules:** Faith, Life, Intellect, Family, Wealth, Environment, Ummah, Moontrance, plus BBOS, Money, People, CRM
+- **Modules:** Faith, Health, Intellect, Family, Wealth, Environment, Community, Moontrance, plus BBOS, Money, People, CRM (pillar ids in code: `health`, `ummah`)
 - **Islamic UI components:** CeremonyGate, ReadinessCheck, PrayerOverlay, ThresholdModal, ResumeOverlay
 - **Context system:** CONTEXT.md routing hierarchy — root routes to domain-level files before source is touched
 - **Deployment:** GitHub Pages

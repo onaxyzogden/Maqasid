@@ -65,9 +65,9 @@ export default function PillarDashboard() {
           <thead>
             <tr>
               <th className="pd-th pd-th--aspect">Aspect (Submodule)</th>
-              <th className="pd-th pd-th--necessities">NECESSITIES</th>
-              <th className="pd-th pd-th--needs">NEEDS</th>
-              <th className="pd-th pd-th--embelishments">EMBELISHMENTS</th>
+              <th className="pd-th pd-th--necessities">CORE</th>
+              <th className="pd-th pd-th--needs">GROWTH</th>
+              <th className="pd-th pd-th--embelishments">EXCELLENCE</th>
             </tr>
           </thead>
           <tbody>

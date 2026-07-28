@@ -24,7 +24,7 @@
 - `Landing.jsx` — Public landing page
 - `Onboarding.jsx` — New user onboarding
 - `Settings.jsx` — App settings
-- `PillarDashboard.jsx` + `.css` — Generic pillar reference table (4-column: Aspect | Necessities | Needs | Embellishments)
+- `PillarDashboard.jsx` + `.css` — Generic pillar reference table (4-column: Aspect | Core | Growth | Excellence)
 - `ModulePlaceholder.jsx` — Catch-all for unknown module routes
 - `AuthPage.jsx` — **DORMANT.** Supabase sign-in / sign-up / magic-link form. Not imported by `App.jsx`; `/auth` redirects to `/get-started`
 - `AccountPage.jsx` — **DORMANT.** Cloud account + sync management. Not imported by `App.jsx`; `/app/account` redirects to `/app/settings`
@@ -46,7 +46,7 @@
 All pillar dashboards share identical structure:
 1. **Header**: Module badge, title with `<IslamicTerm>`, Quranic verse, progress bar
 2. **Hero card**: Background image, gradient, CTA button
-3. **Three-tier bento grid**: Necessities (left) | Needs (top-right) | Excellence (bottom-right)
+3. **Three-tier bento grid**: Core (left) | Growth (top-right) | Excellence (bottom-right)
 4. **Footer**: Copyright, decorative icons
 
 ## Store Dependencies

@@ -24,10 +24,14 @@ import { getGlossaryEntry } from '@data/islamic/islamic-glossary';
 const NOOP = () => {};
 const PRIORITY_ORDER = { urgent: 0, high: 1, medium: 2, low: 3 };
 
+// Canonical tier vocabulary for MILOS: the English `title` is identical to the
+// persisted key (`core` | `growth` | `excellence`), so a label can never drift
+// from the id it names. Forwarded to the package as `levels` below, which
+// overrides its own built-in defaults.
 const DEFAULT_LEVELS = [
-  { key: 'core',       label: 'LEVEL 1', subtitle: '(DARURIYYAT)',  title: 'Core Higher Objectives', desc: 'Foundational obligations — the essential duties that must be established before all else.', color: '#C8A96E', routeSuffix: 'core' },
-  { key: 'growth',     label: 'LEVEL 2', subtitle: '(HAJIYYAT)',    title: 'Growth Space',           desc: 'Development needs — structured progression that deepens practice and knowledge.',          color: '#4ab8a8', routeSuffix: 'growth' },
-  { key: 'excellence', label: 'LEVEL 3', subtitle: '(TAHSINIYYAT)', title: 'Embellishments',         desc: 'Refinement pursuits — aspirational mastery that elevates and perfects.',                  color: '#8b5cf6', routeSuffix: 'excellence' },
+  { key: 'core',       label: 'LEVEL 1', subtitle: '(DARURIYYAT)',  title: 'Core',       desc: 'Foundational obligations — the essential duties that must be established before all else.', color: '#C8A96E', routeSuffix: 'core' },
+  { key: 'growth',     label: 'LEVEL 2', subtitle: '(HAJIYYAT)',    title: 'Growth',     desc: 'Development needs — structured progression that deepens practice and knowledge.',          color: '#4ab8a8', routeSuffix: 'growth' },
+  { key: 'excellence', label: 'LEVEL 3', subtitle: '(TAHSINIYYAT)', title: 'Excellence', desc: 'Refinement pursuits — aspirational mastery that elevates and perfects.',                  color: '#8b5cf6', routeSuffix: 'excellence' },
 ];
 
 export default function LevelNavigator({
@@ -125,7 +129,7 @@ export default function LevelNavigator({
       pillarTasks={derivedPillarTasks}
       controlledLevel={activeLevelKey}
       onLevelChange={handleLevelChange}
-      levels={customLevels}
+      levels={baseLevels}
       gateIndicators={gateIndicators}
       onSegmentClick={decoratedOnSegmentClick}
       {...rest}

@@ -29,15 +29,15 @@ Contemporary scholars have expanded the operative verb from mere "protection" (h
 
 ### The Seven Pillars in MILOS
 
-In [[milos]], the classical five are extended to seven pillars, adding Environment (bi'ah) and Ummah (community) to reflect a holistic view of human flourishing. These seven pillars form the information architecture of the entire system:
+In [[milos]], the classical five are extended to seven pillars, adding Environment (bi'ah) and Community (ummah) to reflect a holistic view of human flourishing. These seven pillars form the information architecture of the entire system. The English labels below are the UI names; the pillar ids in code remain `health` and `ummah` respectively:
 
 1. **Faith** -- Hifz al-Din
-2. **Life** -- Hifz al-Nafs
+2. **Health** -- Hifz al-Nafs
 3. **Intellect** -- Hifz al-Aql
 4. **Family** -- Hifz al-Nasl
 5. **Wealth** -- Hifz al-Mal
 6. **Environment** -- Hifz al-Bi'ah
-7. **Ummah** -- Hifz al-Ummah
+7. **Community** -- Hifz al-Ummah
 
 ## Jasser Auda's Six Systems Features
 

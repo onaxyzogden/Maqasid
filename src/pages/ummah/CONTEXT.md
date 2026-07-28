@@ -1,7 +1,9 @@
 # Ummah Pages — CONTEXT.md
 
 ## Purpose
-Ummah pillar pages (pillar 7 — Hifz al-Ummah). UmmahDashboard is the pillar entry at `/app/pillar/ummah`
+Ummah pillar pages (pillar 7 — Hifz al-Ummah). **The UI label is "Community"** (`sidebarLabel` in
+`src/data/maqasid.js`); `ummah` remains the pillar id, directory name, and route segment — so this file
+uses "Ummah" throughout for code identity. UmmahDashboard is the pillar entry at `/app/pillar/ummah`
 and shows the three social sub-modules: Collective, Neighbors, Community. The Moontrance sub-pages
 (MoontraceLandPage, MoontranceSeasonalPage, MoontranceResidencyPage) live here as a **legacy location**
 after the Ummah→Moontrance split (2026-04-19); their routes and pillar are now under the Moontrance pillar.
