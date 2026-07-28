@@ -373,8 +373,8 @@ html.reduce-motion:has(.landing) { scroll-behavior: auto; }
   display: inline-flex;
   align-items: baseline;
   gap: var(--space-1);
-  padding: 2px 10px;
-  border-radius: 999px;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
   border: 1px solid color-mix(in srgb, var(--card-accent) 35%, transparent);
   background: color-mix(in srgb, var(--card-accent) 8%, transparent);
   cursor: pointer;
@@ -394,7 +394,9 @@ html.reduce-motion:has(.landing) { scroll-behavior: auto; }
   padding: var(--space-4) var(--space-5);
   background: var(--surface);
   border: 1px solid color-mix(in srgb, var(--card-accent) 30%, var(--border));
-  border-radius: var(--radius-lg);
+  /* --radius-xl, matching .orient-card / .evidence-bento-card / .day-panel.
+     It was the only bordered surface panel on the page still at --radius-lg. */
+  border-radius: var(--radius-xl);
   box-shadow: 0 10px 30px -22px color-mix(in srgb, var(--card-accent) 60%, transparent);
   text-align: left;
 }
@@ -450,6 +452,13 @@ html.reduce-motion:has(.landing) { scroll-behavior: auto; }
   max-width: 860px; margin-bottom: var(--space-6);
 }
 
+/* Above 1024px the clamp is at its 68px ceiling, which is where the tracking
+   has to come in further to stop the words drifting apart. The base stays at
+   -0.02em -- at the 44px small end, -0.03em would already be too tight. */
+@media (min-width: 1025px) {
+  .hero-title { letter-spacing: -0.03em; line-height: 1.12; }
+}
+
 .hero-title .highlight {
   background: linear-gradient(135deg, var(--primary), var(--accent));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -490,6 +499,12 @@ html.reduce-motion:has(.landing) { scroll-behavior: auto; }
   width: max-content;
   animation: hero-marquee 40s linear infinite;
 }
+/* The track holds two identical groups so the -50% translate loops seamlessly;
+   each group carries the same internal gap as the track itself. */
+.hero-marquee-group {
+  display: flex;
+  gap: var(--space-10);
+}
 .hero-marquee-item {
   display: inline-flex; align-items: center; gap: var(--space-2);
   font-size: var(--text-sm-plus);
@@ -523,6 +538,8 @@ html.reduce-motion:has(.landing) { scroll-behavior: auto; }
 
 .section-title {
   text-align: center; font-size: clamp(1.8rem, 4vw, 2.5rem);
+  /* Reaches 40px and carried no tracking at all until now. */
+  letter-spacing: -0.015em;
   margin-bottom: var(--space-3);
 }
 
@@ -578,9 +595,12 @@ html.reduce-motion:has(.landing) { scroll-behavior: auto; }
   display: flex; align-items: center; gap: var(--space-2);
 }
 .feature-tab:hover { color: var(--text); background: var(--bg3); }
+/* --tab-accent is the variant's own colour, set per button. Only the active tab
+   wears it; the rest carry it silently so there is no conditional inline style. */
 .feature-tab.active {
-  background: var(--surface); color: var(--text);
-  border-color: var(--border); box-shadow: var(--shadow-sm);
+  background: var(--surface); box-shadow: var(--shadow-sm);
+  color: var(--tab-accent, var(--text));
+  border-color: var(--tab-accent, var(--border));
 }
 
 .feature-content {
@@ -606,7 +626,7 @@ html.reduce-motion:has(.landing) { scroll-behavior: auto; }
   color: var(--primary);
 }
 
-.feature-item h4 { font-size: var(--text-md); margin-bottom: 2px; }
+.feature-item h4 { font-size: var(--text-md); margin-bottom: var(--space-1); }
 .feature-item p { font-size: var(--text-base); color: var(--text2); line-height: 1.5; }
 
 /* Tinted band shared by Evidence and How It Works */
@@ -731,6 +751,7 @@ html.reduce-motion:has(.landing) { scroll-behavior: auto; }
   gap: var(--space-8); margin-bottom: var(--space-8);
 }
 
+.footer-brand .landing-logo { margin-bottom: var(--space-3); }
 .footer-brand p { color: var(--text2); font-size: var(--text-base); margin-top: var(--space-2); }
 
 .footer-col h6 {
@@ -815,7 +836,9 @@ html.reduce-motion:has(.landing) { scroll-behavior: auto; }
   transform: rotate(5deg) translate(var(--space-10), var(--space-8));
 }
 
-.orient-ladder-pillar { font-weight: 700; }
+/* Inherits --motif-tint from .orient-card--front, which already sets it for the
+   halo — no second copy of the pillar colour on the element itself. */
+.orient-ladder-pillar { font-weight: 700; color: var(--motif-tint, inherit); }
 
 .orient-ladder {
   display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2);
@@ -940,9 +963,12 @@ html.reduce-motion:has(.landing) { scroll-behavior: auto; }
 }
 
 /* Sunnah Mode — day-variant detail panel */
+/* --day-accent is the active variant's colour, supplied by the component. The
+   border takes 25% of it, which is what the inline `${accent}40` was writing. */
 .day-panel {
   max-width: 720px; margin: var(--space-6) auto 0;
-  border: 1px solid var(--border); border-radius: var(--radius-xl);
+  border: 1px solid color-mix(in srgb, var(--day-accent, var(--text2)) 25%, transparent);
+  border-radius: var(--radius-xl);
   background: var(--surface); padding: var(--space-6);
   text-align: left;
 }
@@ -950,6 +976,7 @@ html.reduce-motion:has(.landing) { scroll-behavior: auto; }
 .day-panel-headline {
   font-size: var(--text-sm-plus); font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--day-accent, var(--text));
   margin: 0 0 var(--space-3);
 }
 
@@ -963,6 +990,39 @@ html.reduce-motion:has(.landing) { scroll-behavior: auto; }
 /* FAQ multi-paragraph answers */
 .faq-para { margin: 0 0 var(--space-3); }
 .faq-para:last-child { margin-bottom: 0; }
+
+/* ── Local-continue modal ────────────────────────────────────────────────────
+   Reuses the app's .expense-form-* shell; these three classes are the deltas the
+   landing page needs from it.
+
+   All four rules below are scoped under `.landing` purely for weight. main.jsx
+   imports App before global.css, so global.css evaluates last and a bare
+   `.landing-login-modal` would lose the tie to `.expense-form-modal`. */
+
+/* Above the fixed nav (100) and the sheet (95), and deliberately well below the
+   shell's own 9000 — nothing on this page needs to stack over it. */
+.landing .landing-login-overlay { z-index: 300; }
+
+/* Narrower than the shell's 520px: one field and two buttons. */
+.landing .landing-login-modal { max-width: 400px; }
+
+/* The inline rule this replaces asked for `var(--text-muted)`, which is not a
+   token that exists — the declaration was invalid and the note has been
+   inheriting body colour. --text2 is the muted variant it was reaching for. */
+.landing .landing-login-note {
+  font-size: var(--text-sm-plus);
+  color: var(--text2);
+  line-height: 1.5;
+  /* Pulled up under the heading it qualifies. */
+  margin-top: calc(var(--space-1) * -1);
+  margin-bottom: var(--space-4);
+}
+
+/* Sits beside the primary CTA in the bar, so it runs a step smaller than .btn. */
+.landing .landing-nav-signin {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  font-size: var(--text-base);
+}
 
 /* Footer action that opens the local-continue modal */
 .footer-link-btn {
@@ -1035,8 +1095,8 @@ html.reduce-motion:has(.landing) { scroll-behavior: auto; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: clamp(24px, 6vw, 80px);
-  padding: 0 clamp(24px, 6vw, 96px);
+  gap: clamp(var(--space-6), 6vw, 80px);
+  padding: 0 clamp(var(--space-6), 6vw, 96px);
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -1044,7 +1104,7 @@ html.reduce-motion:has(.landing) { scroll-behavior: auto; }
 .prophetic-preview-copy {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-4);
   text-align: left;
 }
 
@@ -1070,8 +1130,8 @@ html.reduce-motion:has(.landing) { scroll-behavior: auto; }
   .prophetic-preview-sticky {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
-    gap: 24px;
-    padding: 32px 20px;
+    gap: var(--space-6);
+    padding: var(--space-8) var(--space-5);
     align-items: start;
     justify-items: center;
   }

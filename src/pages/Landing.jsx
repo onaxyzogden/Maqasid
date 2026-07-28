@@ -321,11 +321,11 @@ export default function Landing() {
           ) : (
             <>
               {cloudAccountsEnabled ? (
-                <Link to="/auth" className="btn btn-ghost" style={{ fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
+                <Link to="/auth" className="btn btn-ghost landing-nav-signin">
                   <LogIn size={16} /> Sign In
                 </Link>
               ) : (
-                <button className="btn btn-ghost" onClick={() => setShowLogin(true)} style={{ fontSize: '0.9rem' }}>
+                <button className="btn btn-ghost landing-nav-signin" onClick={() => setShowLogin(true)}>
                   <LogIn size={16} /> Enter MIOS
                 </button>
               )}
@@ -383,14 +383,14 @@ export default function Landing() {
 
       {/* Login Modal */}
       {showLogin && (
-        <div className="expense-form-overlay" style={{ zIndex: 300 }}>
-          <div className="expense-form-modal" style={{ maxWidth: 400 }}>
+        <div className="expense-form-overlay landing-login-overlay">
+          <div className="expense-form-modal landing-login-modal">
             <div className="expense-form-header">
               <h3>Continue locally</h3>
               <button className="expense-form-close" onClick={() => setShowLogin(false)}><X size={18} /></button>
             </div>
             <div className="expense-form-body">
-              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: 1.5, marginBottom: '1rem', marginTop: '-0.25rem' }}>
+              <p className="landing-login-note">
                 Your data stays on this device only. You can export a full backup any time from Settings.
               </p>
               <div className="expense-form-field">
@@ -414,8 +414,7 @@ export default function Landing() {
               ) : (
                 <button className="btn btn-ghost" onClick={() => setShowLogin(false)}>Cancel</button>
               )}
-              <button className="btn btn-primary" onClick={handleLogin} disabled={!loginName.trim()}
-                style={{ opacity: loginName.trim() ? 1 : 0.4 }}>
+              <button className="btn btn-primary" onClick={handleLogin} disabled={!loginName.trim()}>
                 Continue <ArrowRight size={14} />
               </button>
             </div>
@@ -450,7 +449,7 @@ export default function Landing() {
         <div className="hero-marquee" aria-hidden="true">
           <div className="hero-marquee-track">
             {[...Array(2)].map((_, dup) => (
-              <div key={dup} style={{ display: 'flex', gap: 'var(--space-10)' }}>
+              <div key={dup} className="hero-marquee-group">
                 <span className="hero-marquee-item">Grounded in the Maqasid al-Shari'ah</span>
                 <span className="hero-marquee-item">Local-first · sync only if you ask</span>
                 <span className="hero-marquee-item">Zero tracking · zero ads</span>
@@ -484,9 +483,8 @@ export default function Landing() {
               style={{ '--motif-tint': ORIENT_PILLAR.accentColor }}
             >
               <div className="orient-ladder">
-                <span className="orient-ladder-pillar" style={{ color: ORIENT_PILLAR.accentColor }}>
-                  {ORIENT_PILLAR.sidebarLabel}
-                </span>
+                {/* Tinted off the --motif-tint the card above already carries. */}
+                <span className="orient-ladder-pillar">{ORIENT_PILLAR.sidebarLabel}</span>
                 <span className="orient-ladder-sep">&rsaquo;</span>
                 <span>Core</span>
                 <span className="orient-ladder-sep">&rsaquo;</span>
@@ -617,7 +615,7 @@ export default function Landing() {
               key={v.id}
               className={`feature-tab ${activeDay === v.id ? 'active' : ''}`}
               onClick={() => setActiveDay(v.id)}
-              style={activeDay === v.id ? { borderColor: v.accent, color: v.accent } : undefined}
+              style={{ '--tab-accent': v.accent }}
             >
               {v.label}
             </button>
@@ -625,8 +623,8 @@ export default function Landing() {
         </div>
 
         {activeVariant && (
-          <div className="day-panel" style={{ borderColor: `${activeVariant.accent}40` }} aria-live="polite">
-            <p className="day-panel-headline" style={{ color: activeVariant.accent }}>{activeVariant.headline}</p>
+          <div className="day-panel" style={{ '--day-accent': activeVariant.accent }} aria-live="polite">
+            <p className="day-panel-headline">{activeVariant.headline}</p>
             <p className="day-panel-quote">{activeVariant.quote}</p>
             <p className="day-panel-shift">{activeVariant.shift}</p>
           </div>
@@ -698,7 +696,7 @@ export default function Landing() {
       <footer className="landing-footer">
         <div className="footer-grid">
           <div className="footer-brand">
-            <div className="landing-logo" style={{ marginBottom: 'var(--space-3)' }}>
+            <div className="landing-logo">
               <div className="logo-icon"><Moon size={16} /></div>
               MIOS
             </div>
