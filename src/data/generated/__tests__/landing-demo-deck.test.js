@@ -21,8 +21,8 @@ const TIER_IDS = new Set(AMANAH_TIERS.map((t) => t.id));
 const TIER_LABELS = new Set(AMANAH_TIERS.map((t) => t.label));
 const RELEVANCE_IDS = new Set(RELEVANCE_CHIPS.map((c) => c.id));
 
-// The deck is the hero's "Seven objectives. One next step." made concrete, so
-// a missing or duplicated objective is a bug, not a style choice.
+// The deck is the hero's "MIOS names seven, sorts your whole life under them"
+// made concrete, so a missing or duplicated objective is a bug, not a style choice.
 const CORE_PILLAR_IDS = MAQASID_CORE_PILLARS.slice(0, 7).map((p) => p.id);
 
 describe('landing demo deck', () => {
