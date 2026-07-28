@@ -9,6 +9,7 @@ import { MAQASID_CORE_PILLARS } from '../data/maqasid';
 import { ICON_REGISTRY, getIcon } from '../data/icon-registry';
 import { AMANAH_TIERS } from '../data/config/amanah-tiers';
 import { RELEVANCE_CHIPS } from '../data/config/relevance-chips';
+import { LANDING_DEMO_DECK } from '../data/generated/landing-demo-deck';
 import { useAuthStore } from '../store/auth-store';
 import { genUserId } from '../services/id';
 import MaqasidComparisonWheel from '../components/faith/MaqasidComparisonWheel';
@@ -89,11 +90,13 @@ const ORIENTATION_POINTS = [
 
 const ORIENTATION_EXITS = ['Mark done', 'Doesn\u2019t apply', 'Something else', 'Not today'];
 
-// The demo card's provenance badge and pillar tint. Read from the canonical
-// data rather than typed out, so the badge, its tooltip, and the Family accent
-// stay identical to their sources.
-const ORIENT_TIER = AMANAH_TIERS.find((t) => t.id === 'T2');
-const ORIENT_PILLAR = MAQASID_CORE_PILLARS.find((p) => p.id === 'family');
+// Everything the demo card renders comes from LANDING_DEMO_DECK, which is
+// generated out of the seed files by scripts/generate-landing-demo.mjs and
+// gated by `npm run lint`. Never hand-write a task, ladder segment, tier, or
+// citation here: the card used to be typed out and drifted into fiction, which
+// is the one thing a page about evidence cannot afford. Badge colours and the
+// pillar tint are looked up from the same config the app uses.
+const byId = (list, id) => list.find((e) => e.id === id) || null;
 
 // Day-variant copy. Every `quote` is reproduced character-for-character from
 // SPECIAL_DAY_RESOLVERS in src/data/prophetic-path-submodules.js (or, for
@@ -218,6 +221,120 @@ function HeroWheel() {
             <span className="hero-wheel-legend-ar">{p.arabicRootAr}</span>
           </button>
         ))}
+      </div>
+    </div>
+  );
+}
+
+// The Orientation demo, playable. Every exit advances to the next card, which
+// is what the live app does — none of the four is a dead end. `Why & how`
+// expands to the real citations for the task on screen.
+function OrientationDemo() {
+  const [index, setIndex] = useState(0);
+  const [expanded, setExpanded] = useState(false);
+
+  const card = LANDING_DEMO_DECK[index];
+  const pillar = byId(MAQASID_CORE_PILLARS, card.pillarId);
+  const tier = byId(AMANAH_TIERS, card.tierId);
+
+  // Any exit surfaces the next task and closes the trail behind it.
+  const advance = () => {
+    setIndex((i) => (i + 1) % LANDING_DEMO_DECK.length);
+    setExpanded(false);
+  };
+
+  return (
+    <div className="orient-deck">
+      <div className="orient-card orient-card--stacked orient-card--back" aria-hidden="true" />
+      <div className="orient-card orient-card--stacked orient-card--mid" aria-hidden="true" />
+      <div
+        className="orient-card orient-card--front motif-halo"
+        style={{ '--motif-tint': pillar?.accentColor }}
+      >
+        <div className="orient-live" aria-live="polite">
+          <div className="orient-ladder">
+            {/* Tinted off the --motif-tint the card above already carries. */}
+            <span className="orient-ladder-pillar">{pillar?.sidebarLabel}</span>
+            <span className="orient-ladder-sep">&rsaquo;</span>
+            <span>{card.level}</span>
+            <span className="orient-ladder-sep">&rsaquo;</span>
+            <span>{card.moduleLabel}</span>
+          </div>
+          <p className="orient-task">{card.subtask}</p>
+        </div>
+        <div className="orient-meta">
+          {tier && (
+            <span
+              className="orient-badge"
+              data-tip={tier.description}
+              style={{ '--badge-color': tier.color, '--badge-bg': tier.bg }}
+            >
+              {tier.id} · {tier.label.toUpperCase()}
+            </span>
+          )}
+          <button
+            type="button"
+            className="orient-why"
+            aria-expanded={expanded}
+            aria-controls="orient-evidence"
+            onClick={() => setExpanded((v) => !v)}
+          >
+            Why &amp; how
+            <ChevronDown size={15} className={expanded ? 'is-open' : ''} aria-hidden="true" />
+          </button>
+        </div>
+
+        {/* Conditional render, never a keyframe on an opacity:0 resting state —
+            .reduce-motion clamps durations but not delays, so an animated
+            reveal would render permanently blank for reduced-motion users. */}
+        {expanded && (
+          <div className="orient-evidence" id="orient-evidence">
+            <p className="orient-from">From: {card.project}</p>
+            {card.sources.map((s) => {
+              const chip = byId(RELEVANCE_CHIPS, s.relevance);
+              // Per-source, not the card's tier: the card wears its strongest,
+              // but each citation is labelled with its own provenance.
+              const prov = AMANAH_TIERS.find((t) => t.label === s.provenanceTier);
+              return (
+                <div key={s.ref} className="orient-source">
+                  <p className="orient-source-ref">
+                    {s.ref}
+                    {s.hadithGrade ? ` · ${s.hadithGrade}` : ''}
+                  </p>
+                  <p className="orient-source-text">{s.translation}</p>
+                  <div className="orient-source-axes">
+                    {prov && (
+                      <span
+                        className="orient-badge"
+                        data-tip={prov.description}
+                        style={{ '--badge-color': prov.color, '--badge-bg': prov.bg }}
+                      >
+                        {prov.label}
+                      </span>
+                    )}
+                    {chip && (
+                      <span
+                        className="orient-badge"
+                        data-tip={chip.description}
+                        style={{ '--badge-color': chip.color, '--badge-bg': chip.bg }}
+                      >
+                        {chip.label}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        <div className="orient-exits">
+          {ORIENTATION_EXITS.map((label) => (
+            <button key={label} type="button" className="orient-exit" onClick={advance}>
+              {label}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -470,46 +587,12 @@ export default function Landing() {
             <h2 className="section-title">It names one thing. That&rsquo;s the whole screen.</h2>
           </div>
           <p className="section-subtitle">
-            Open MIOS and it names a single subtask — the one your Core tier is missing first. Not a list to triage. One thing, with the trail that led to it.
+            Open MIOS and it names a single subtask — the one your Core tier is missing first. Not a list to triage. One thing, with the trail that led to it. The card below is real: take an exit and see what comes next.
           </p>
         </div>
 
         <div className="feature-content">
-          <div className="orient-deck">
-            <div className="orient-card orient-card--stacked orient-card--back" aria-hidden="true" />
-            <div className="orient-card orient-card--stacked orient-card--mid" aria-hidden="true" />
-            <div
-              className="orient-card orient-card--front motif-halo"
-              style={{ '--motif-tint': ORIENT_PILLAR.accentColor }}
-            >
-              <div className="orient-ladder">
-                {/* Tinted off the --motif-tint the card above already carries. */}
-                <span className="orient-ladder-pillar">{ORIENT_PILLAR.sidebarLabel}</span>
-                <span className="orient-ladder-sep">&rsaquo;</span>
-                <span>Core</span>
-                <span className="orient-ladder-sep">&rsaquo;</span>
-                <span>Extended Family</span>
-                <span className="orient-ladder-sep">&rsaquo;</span>
-                <span>Silat al-Rahim</span>
-              </div>
-              <p className="orient-task">Call one relative you haven&rsquo;t spoken to this month.</p>
-              <div className="orient-meta">
-                <span
-                  className="orient-badge"
-                  data-tip={ORIENT_TIER.description}
-                  style={{ '--badge-color': ORIENT_TIER.color, '--badge-bg': ORIENT_TIER.bg }}
-                >
-                  {ORIENT_TIER.id} · {ORIENT_TIER.label.toUpperCase()}
-                </span>
-                <span className="orient-why">Why &amp; how</span>
-              </div>
-              <div className="orient-exits">
-                {ORIENTATION_EXITS.map((label) => (
-                  <span key={label} className="orient-exit">{label}</span>
-                ))}
-              </div>
-            </div>
-          </div>
+          <OrientationDemo />
           <div className="feature-list">
             {ORIENTATION_POINTS.map((f, i) => (
               <div key={f.title} className="feature-item reveal-stagger" style={{ '--i': i }}>
