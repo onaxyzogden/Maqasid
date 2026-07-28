@@ -2,11 +2,83 @@
 // Schema version: 5.0 — unified contacts model
 
 import { listKeys } from './storage';
-import { repairBoardTasks } from './mojibake';
+import { repairBoardTasks, taskHasState } from './mojibake';
+import { genSubtaskId } from './id';
 
 const PREFIX = 'bbiz_';
 const SCHEMA_VERSION = '5.0';
 const MOJIBAKE_FLAG = 'mojibake_titles_repaired';
+const DEDUPE_FLAG = 'seed_dedupe_v1';
+const FOLDIN_FLAG = 'seed_subtask_foldin_v1';
+
+// Tasks deleted from the seed files on 2026-07-27 as duplicates of a sibling on
+// the same board. Titles are byte-for-byte copies taken from the seed file
+// BEFORE deletion — the seed<->storage join is exact title equality, so these
+// strings are the only handle on the stored rows.
+// See wiki/decisions/2026-07-27-milos-ummah-task-dedupe.md
+const REMOVED_SEED_TASKS = {
+  ummah_community_growth: [
+    'Build a community dispute resolution (sulh) mechanism',
+    'Establish a community education institution (halaqa or weekend school)',
+    'Build a youth mentorship programme — invest in the next generation of community leaders',
+    'Establish a community treasury or waqf — build institutional financial sustainability',
+  ],
+  'ummah_moontrance-land_excellence': [
+    'Develop a replicable Islamic land stewardship model — document, teach, and support new projects',
+  ],
+};
+
+// Curated subtask order for the four tasks that received a subtask folded back
+// in from the removed duplicates above. The boot backfill already DELIVERS a new
+// seed subtask by title (project-store.js), but it appends at the END and runs on
+// requestIdleCallback after mount — so on an existing board the folded rows would
+// land last and stay there, and a migration that only re-ordered would be undone
+// by that append. This one-shot therefore performs the insertion itself, in seed
+// order, before React mounts; afterwards the backfill's set difference is empty.
+//
+// Hardcoded rather than derived from the seed file on purpose: the seed modules
+// are lazy-loaded (seed-hydrator.js) and runMigrations() sits on the pre-mount
+// boot path, so importing the 14k-line Ummah seed here would regress d9ca679.
+// The drift guard in src/data/seed-tasks/__tests__/subtask-foldin.test.js
+// deep-equals this table against the seed so it cannot silently diverge.
+// Approval gate: stages/implement-subtask-foldin-review.md
+export const FOLDED_SUBTASK_ORDER = {
+  ummah_community_growth: {
+    'Establish a community dispute resolution (sulh) process — prevent conflicts from escalating': [
+      'Identify 2-3 respected, neutral community members to serve as sulh mediators',
+      'Draft a simple sulh process document — how disputes are reported, mediated, and resolved',
+      "Establish a referral network for cases beyond the community's capacity",
+      'Present the sulh process to the community and gain buy-in from leadership',
+      'Handle the first dispute through the sulh process — learn from the experience',
+      'Train additional mediators and establish an annual rotation to prevent burnout',
+    ],
+    'Establish community education — launch a regular halaqa or weekend Islamic school programme': [
+      'Assess the educational gaps in your community — survey members on what they want to learn',
+      'Recruit a qualified teacher or scholar to lead the educational programme',
+      'Design a structured curriculum with clear learning outcomes',
+      'Secure a venue and set a consistent weekly schedule for the halaqa or school',
+      'Launch the first session and establish a welcoming, structured learning environment',
+      'Collect feedback after the first month and adjust the programme based on community input',
+    ],
+    'Develop a comprehensive youth programme rooted in Islamic identity': [
+      'Survey youth to understand their actual needs, struggles, and aspirations',
+      'Recruit and train youth mentors from within the community',
+      'Launch a biweekly youth halaqa addressing real-life challenges',
+      'Integrate sports, social activities, and creative outlets into the youth programme',
+      'Create a youth leadership pipeline — identify, develop, and deploy young leaders',
+      'Review the programme after three months — assess impact and refine the approach',
+    ],
+    'Establish a community treasury (bayt al-mal) for collective financial strength': [
+      'Audit current community finances — income, expenses, and gaps',
+      'Establish separate funds for operations, emergency aid, and development',
+      'Implement transparent financial reporting to the community',
+      'Launch a regular giving programme to build sustainable income',
+      'Explore establishing a community waqf (endowment) for long-term sustainability',
+      'Form a waqf committee with financial, legal, and community representation',
+      'Draft the waqf deed — define the purpose, beneficiaries, and management structure',
+    ],
+  },
+};
 
 function read(key) {
   try { return JSON.parse(localStorage.getItem(PREFIX + key)); }
@@ -65,10 +137,140 @@ export function repairMojibakeTaskTitles() {
   if (boards) console.info(`[bbiz] mojibake title repair: ${boards} board(s) updated.`);
 }
 
+// Remove tasks whose seed entry was deleted as a duplicate. Pure: returns the
+// same array reference when nothing is pruned, so callers can skip the write.
+//
+// Without this, a de-duplicated seed entry leaves a permanent orphan — the boot
+// backfill skips any stored task with no title match (`if (!seed) return t`) and
+// nothing anywhere prunes it. The orphan keeps its numeric `seedOrder`, so it
+// holds a slot in the curated chain and still blocks sequential locking, while
+// rendering bare: description/sources/tier live only in the bundle and can no
+// longer be hydrated.
+//
+// A task the operator has worked on is NEVER deleted — `taskHasState` is the
+// same predicate the mojibake dedup uses to pick a survivor. A kept duplicate
+// becomes a bare orphan they can delete by hand; losing their work silently is
+// the worse failure.
+export function pruneRemovedSeedTasks(tasks, removedTitles, boardId) {
+  if (!Array.isArray(tasks) || !removedTitles?.length) return { next: tasks, removed: [], kept: [] };
+  const doomed = new Set(removedTitles);
+  const removed = [];
+  const kept = [];
+  const next = tasks.filter((t) => {
+    if (!doomed.has(t?.title)) return true;
+    if (taskHasState(t, boardId)) { kept.push(t.title); return true; }
+    removed.push(t.title);
+    return false;
+  });
+  return { next: removed.length > 0 ? next : tasks, removed, kept };
+}
+
+// One-shot prune of the five duplicated Ummah tasks removed from the seed files
+// on 2026-07-27. Runs after the mojibake repair so corrupted titles have already
+// been restored to the exact strings this table matches on.
+// Approval gate: stages/implement-ummah-dedupe-review.md
+export function pruneDedupedSeedTasks() {
+  if (localStorage.getItem(PREFIX + DEDUPE_FLAG) === '1') return;
+  let removedCount = 0;
+  const keptTitles = [];
+  for (const [boardId, titles] of Object.entries(REMOVED_SEED_TASKS)) {
+    const key = `tasks_${boardId}`;
+    const tasks = read(key);
+    if (!Array.isArray(tasks) || tasks.length === 0) continue;
+    const { next, removed, kept } = pruneRemovedSeedTasks(tasks, titles, boardId);
+    keptTitles.push(...kept);
+    if (removed.length > 0) { write(key, next); removedCount += removed.length; }
+  }
+  localStorage.setItem(PREFIX + DEDUPE_FLAG, '1');
+  if (removedCount) console.info(`[bbiz] Seed dedupe: ${removedCount} duplicate task(s) removed.`);
+  if (keptTitles.length) {
+    console.info(
+      `[bbiz] Seed dedupe: ${keptTitles.length} duplicate task(s) kept because they carry your progress — ` +
+      `delete them by hand if you no longer want them: ${keptTitles.map((t) => `"${t}"`).join(', ')}`
+    );
+  }
+}
+
+// Rebuild each listed task's `subtasks` to the curated seed order. Pure: returns
+// the same array reference when nothing changes, so callers can skip the write.
+//
+// A stored row is REUSED where its title matches — keeping its `id` and its
+// `done` flag — and a row is created only for a title with no stored match. A
+// stored subtask absent from the order list is user-created: it is appended at
+// the end, in its stored order. Nothing is ever dropped, including duplicate
+// titles (each ordered slot consumes at most one stored row; leftovers survive
+// as trailing rows).
+//
+// Guard: a task carrying ANY completed subtask is skipped whole. `done` travels
+// with the title through the rebuild so a re-order cannot lose progress — this
+// is belt-and-braces, and a skipped task still receives the folded rows from the
+// boot backfill (appended at the end), so content arrives either way.
+export function alignSubtaskOrder(tasks, orderTable) {
+  if (!Array.isArray(tasks) || !orderTable) return { next: tasks, aligned: [], skipped: [] };
+  const aligned = [];
+  const skipped = [];
+  const next = tasks.map((t) => {
+    const order = orderTable[t?.title];
+    if (!order?.length) return t;
+    const stored = Array.isArray(t.subtasks) ? t.subtasks : [];
+    if (stored.some((s) => s?.done === true)) { skipped.push(t.title); return t; }
+
+    const taken = new Array(stored.length).fill(false);
+    const rebuilt = order.map((title) => {
+      const i = stored.findIndex((s, idx) => !taken[idx] && s?.title === title);
+      if (i === -1) return { id: genSubtaskId(), title, done: false };
+      taken[i] = true;
+      return stored[i];
+    });
+    stored.forEach((s, i) => { if (!taken[i]) rebuilt.push(s); });
+
+    const unchanged = rebuilt.length === stored.length && rebuilt.every((s, i) => s === stored[i]);
+    if (unchanged) return t;
+    aligned.push(t.title);
+    return { ...t, subtasks: rebuilt };
+  });
+  return { next: aligned.length > 0 ? next : tasks, aligned, skipped };
+}
+
+// One-shot fold-in of the subtasks that lived only on the tasks pruned above.
+// Runs after pruneDedupedSeedTasks so the removed tasks are gone and titles have
+// already been mojibake-repaired to the exact strings this table matches on.
+// Approval gate: stages/implement-subtask-foldin-review.md
+export function foldInSeedSubtasks() {
+  if (localStorage.getItem(PREFIX + FOLDIN_FLAG) === '1') return;
+  let alignedCount = 0;
+  const skippedTitles = [];
+  for (const [boardId, orderTable] of Object.entries(FOLDED_SUBTASK_ORDER)) {
+    const key = `tasks_${boardId}`;
+    const tasks = read(key);
+    if (!Array.isArray(tasks) || tasks.length === 0) continue;
+    const { next, aligned, skipped } = alignSubtaskOrder(tasks, orderTable);
+    skippedTitles.push(...skipped);
+    if (next !== tasks) { write(key, next); alignedCount += aligned.length; }
+  }
+  localStorage.setItem(PREFIX + FOLDIN_FLAG, '1');
+  if (alignedCount) console.info(`[bbiz] Seed subtask fold-in: ${alignedCount} task(s) re-ordered.`);
+  if (skippedTitles.length) {
+    console.info(
+      `[bbiz] Seed subtask fold-in: ${skippedTitles.length} task(s) left in their stored order because ` +
+      `they carry completed subtasks — the new steps will be appended at the end instead: ` +
+      `${skippedTitles.map((t) => `"${t}"`).join(', ')}`
+    );
+  }
+}
+
 export function runMigrations() {
   // Title repair first — before the SCHEMA_VERSION guard below returns early
   // for already-migrated users, and before React mounts / any hydration reads.
   repairMojibakeTaskTitles();
+  // Then prune de-duplicated seed tasks: same reasoning (must precede hydration),
+  // and it depends on the repair above having restored exact titles.
+  pruneDedupedSeedTasks();
+  // Then fold the orphaned subtasks back onto their surviving siblings, in the
+  // curated seed order. Must follow the prune (the duplicates it deletes are the
+  // rows these subtasks came from) and must precede mount, because the boot
+  // backfill would otherwise append them at the end of the array.
+  foldInSeedSubtasks();
 
   const version = localStorage.getItem(PREFIX + 'schema_version');
   if (version === SCHEMA_VERSION) return; // already migrated

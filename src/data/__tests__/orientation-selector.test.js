@@ -9,6 +9,8 @@ import {
   findCurrentSubtaskIndex,
   taskPillState,
   subtaskChipState,
+  orderBoardTasks,
+  decorateTaskChain,
   deriveBoardSequence,
   deriveSubtaskSteps,
   getPillarTierSubtaskStats,
@@ -226,6 +228,65 @@ describe('deriveBoardSequence', () => {
   });
 });
 
+describe('orderBoardTasks (curated seed order)', () => {
+  it('sorts a board by seedOrder, not by persisted array position', () => {
+    const tasks = [
+      task('t-third', [subtask('a')], { seedOrder: 2 }),
+      task('t-first', [subtask('b')], { seedOrder: 0 }),
+      task('t-second', [subtask('c')], { seedOrder: 1 }),
+    ];
+    expect(orderBoardTasks(tasks).map((t) => t.id)).toEqual(['t-first', 't-second', 't-third']);
+  });
+
+  it('keeps array order when no task carries a seedOrder (uncurated board)', () => {
+    const tasks = [task('t-a', [subtask('a')]), task('t-b', [subtask('b')]), task('t-c', [subtask('c')])];
+    expect(orderBoardTasks(tasks).map((t) => t.id)).toEqual(['t-a', 't-b', 't-c']);
+  });
+
+  it('places user-created tasks (no seedOrder) after the whole curated seed chain', () => {
+    const tasks = [
+      task('t-user-early', [subtask('a')], { order: 0 }),
+      task('t-seed-last', [subtask('b')], { seedOrder: 9 }),
+      task('t-user-late', [subtask('c')], { order: 1 }),
+      task('t-seed-first', [subtask('d')], { seedOrder: 0 }),
+    ];
+    expect(orderBoardTasks(tasks).map((t) => t.id))
+      .toEqual(['t-seed-first', 't-seed-last', 't-user-early', 't-user-late']);
+  });
+
+  it('is stable for equal keys and tolerates a null list', () => {
+    const tasks = [
+      task('t-a', [subtask('a')], { seedOrder: 1 }),
+      task('t-b', [subtask('b')], { seedOrder: 1 }),
+    ];
+    expect(orderBoardTasks(tasks).map((t) => t.id)).toEqual(['t-a', 't-b']);
+    expect(orderBoardTasks(null)).toEqual([]);
+  });
+
+  it('deriveBoardSequence walks the curated order — the current step follows seedOrder', () => {
+    const p = project('health_physical_core');
+    const tasks = [
+      // Persisted array order says this open task is first; curation says it is third.
+      task('t-late', [subtask('a')], { seedOrder: 2 }),
+      task('t-early', [subtask('b')], { seedOrder: 0 }),
+      task('t-mid', [subtask('c')], { seedOrder: 1 }),
+    ];
+    const seq = deriveBoardSequence(p, tasks, TODAY);
+    expect(seq.tasks.map((t) => t.task.id)).toEqual(['t-early', 't-mid', 't-late']);
+    expect(seq.currentTaskIndex).toBe(0);
+    expect(seq.tasks[0].task.id).toBe('t-early');
+    expect(seq.tasks.map((t) => t.state)).toEqual(['current', 'locked', 'locked']);
+  });
+
+  it('decorateTaskChain stays unsorted — the cross-project popup pool keeps its build order', () => {
+    const pool = [
+      task('t-b', [subtask('a')], { seedOrder: 5 }),
+      task('t-a', [subtask('b')], { seedOrder: 0 }),
+    ];
+    expect(decorateTaskChain(pool, TODAY).items.map((i) => i.task.id)).toEqual(['t-b', 't-a']);
+  });
+});
+
 describe('deriveSubtaskSteps', () => {
   it('marks done/current/locked chips and reports the current index', () => {
     const t = task('t', [subtask('x', { done: true }), subtask('y'), subtask('z')]);
@@ -436,6 +497,7 @@ describe('buildOrientationCarousel', () => {
     const { cards } = buildOrientationCarousel({ projects, tasksByProject, todayKey: TODAY });
     const health = cards.find((c) => c.pillar.id === 'health');
     expect(health.hasEligible).toBe(true);
+    expect(health.seeded).toBe(true);
     expect(health.tier).toBe('core');
     expect(health.subtask.id).toBe('s2');
     // t-health-core: s1 done, s2 open, s3 snoozed(subtask) -> current is s2 (index 1)
@@ -455,12 +517,28 @@ describe('buildOrientationCarousel', () => {
     // family/wealth/environment/ummah have no seeded projects in the fixture
     const family = cards.find((c) => c.pillar.id === 'family');
     expect(family.hasEligible).toBe(false);
+    // No projects at all -> unseeded, so the card shows "no steps yet" rather
+    // than masquerading as a caught-up "nothing left for today".
+    expect(family.seeded).toBe(false);
     expect(family.board).toBeNull();
     expect(family.task).toBeNull();
     expect(family.subtask).toBeNull();
     expect(family.currentTaskIndex).toBe(-1);
     expect(family.steps).toEqual([]);
     expect(family.taskStats).toEqual({ done: 0, total: 0 });
+  });
+
+  it('a pillar whose seeded tasks are all complete stays seeded:true (caught up, not empty)', () => {
+    // One board, its only subtask done -> hasEligible:false but seeded:true, so
+    // the card renders "nothing left for today", not "no steps yet".
+    const projects = [project('health_physical_core')];
+    const tasksByProject = {
+      health_physical_core: [task('t1', [subtask('s1', { done: true })])],
+    };
+    const { cards } = buildOrientationCarousel({ projects, tasksByProject, todayKey: TODAY });
+    const health = cards.find((c) => c.pillar.id === 'health');
+    expect(health.hasEligible).toBe(false);
+    expect(health.seeded).toBe(true);
   });
 
   it('recommendedPillarId is null when nothing is actionable anywhere today', () => {

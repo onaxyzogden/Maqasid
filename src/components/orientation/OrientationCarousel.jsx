@@ -102,13 +102,19 @@ export default function OrientationCarousel({ cards, valuesLayer, focusPillarId,
         ))}
       </div>
 
-      <div className="orient-dots">
+      {/* With the desktop rail retired this row is the only jump nav at every
+          width, so it is labelled as a group and the gold recommended marker —
+          aria-hidden, sighted-only — is folded into the button's own name. */}
+      <div className="orient-dots" role="group" aria-label="Jump to a domain">
         {cards.map((card, i) => (
           <button
             key={card.pillar.id}
             type="button"
             className="orient-dots__wrap"
-            aria-label={getPillarLabel(card.pillar, valuesLayer)}
+            aria-label={
+              getPillarLabel(card.pillar, valuesLayer)
+              + (i === recIndex ? ' (weakest, recommended)' : '')
+            }
             aria-current={i === viewIndex ? 'true' : undefined}
             onClick={() => centerEl(cardRefs.current[i], 'smooth')}
           >

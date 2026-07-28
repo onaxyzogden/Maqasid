@@ -12,6 +12,77 @@ Initial task templates seeded when a pillar project is created. Each file export
 | intellect-seed-tasks.js | Starter tasks for Intellect (Aql) pillar projects |
 | wealth-seed-tasks.js | Starter tasks for Wealth (Mal) pillar projects |
 | environment-seed-tasks.js | Starter tasks for Environment pillar projects |
+| ummah-seed-tasks.js | Starter tasks for Ummah pillar projects (incl. Moontrance boards) |
+| prayer-seed-tasks.js | Prayer boards — **generated** from `FAITH_SEED_TASKS`, not hand-authored |
+| weekly-seed-tasks.js | `weekly_{moduleId}` planning boards (not pillar tiers; outside the `seq` ratchet) |
+
+## Task Schema — `seq` (curated chain order)
+A seed task may carry `seq` (integer). It is the **deliberate chain position** of that task on its
+board: `project-store.seedChainOrder()` turns it into the persisted `seedOrder`, which the
+orientation sequential-locking chain (`orientation-selector.orderBoardTasks`) and every
+kanban/list/dashboard surface sort by. A board without any `seq` falls back to array order.
+
+Rules (enforced by `__tests__/seed-order.test.js`, so a violation fails `npm test`):
+- A board either has **no `seq` at all**, or **every** task has one forming a complete permutation of
+  `0..n-1` — no gaps, no duplicates, no partial coverage. **Adding a task to a curated board means
+  giving it a `seq` and renumbering.**
+- **All 108 boards are curated and ratcheted** — 90 hand-authored (28 core + 62 growth/excellence)
+  plus the **18 generated prayer boards** (2026-07-27). No board may regress to uncurated, and a
+  **new board must arrive with `seq` already assigned**.
+- **Prayer boards are generated but not exempt.** They are copied out of `FAITH_SEED_TASKS` by
+  `prayer-seed-tasks.js`, and the spread used to carry each task's *source-board* `seq` — meaningless
+  on a 1–3 task board, and duplicated/inverted in practice. `curateBoardOrder()` now runs as the
+  **last** step of `buildPrayerSeedTasks()` and overwrites it with the board's own `0..n-1` position;
+  the default is emission order (tier-ascending, since `SALAH_SOURCES` runs core → growth →
+  excellence) with three clock overrides in the exported `PRAYER_ORDER_OVERRIDES`. Those override
+  entries are literal titles pinned to the seed by a set-equality drift guard in
+  `__tests__/prayer-order.test.js` — **retitling or retagging a `faith_salah_*` task fails that
+  test.** See [2026-07-27-milos-prayer-board-ordering](wiki/decisions/2026-07-27-milos-prayer-board-ordering.md).
+- Curation rubric, rationale and per-board reasoning:
+  [2026-07-27-milos-seed-order-curation](wiki/decisions/2026-07-27-milos-seed-order-curation.md).
+- `seq` is **not** persisted onto the task; only the derived `seedOrder` is. Editing `seq` re-orders
+  boards that already exist in `localStorage`, because `backfillAndStripSeeds()` reconciles
+  `seedOrder` on every boot.
+
+## Gotcha — the seed↔storage join is the exact `title` string
+
+`backfillAndStripSeeds()` ([project-store.js](../../store/project-store.js)) and
+`hydrateTask`/`stripSeedFields` ([seed-hydrator.js](../../services/seed-hydrator.js)) all key on
+`title`; task `id` is random (`genTaskId()`). Two consequences that bite:
+
+- **Renaming a seed task orphans its stored row** and appends a duplicate on the next boot. Fix a
+  typo only with a migration that rewrites the stored title too (see `repairMojibakeTaskTitles`).
+- **Deleting a seed task leaves a permanent orphan** — the backfill does `if (!seed) return t;` and
+  there is no prune. The orphan keeps its numeric `seedOrder`, so it holds a stale slot in the
+  curated chain, still **blocks sequential locking** if incomplete, and renders **bare** (its
+  `description`/`sources`/`tier` were stripped from storage and can no longer be re-hydrated).
+  A removal therefore needs a one-shot prune in [migration.js](../../services/migration.js) — see
+  `REMOVED_SEED_TASKS` / `pruneRemovedSeedTasks`, which deletes a row only when `taskHasState()` says
+  the operator never touched it, and the ADR
+  [2026-07-27-milos-ummah-task-dedupe](../../../wiki/decisions/2026-07-27-milos-ummah-task-dedupe.md).
+
+Board task counts after the 2026-07-27 dedupe: `ummah_community_growth` **6**,
+`ummah_moontrance-land_excellence` **4**.
+
+## Adding a subtask to an existing seed task
+
+Unlike tasks, **new seed subtasks do reach already-seeded boards** — `backfillAndStripSeeds()`
+computes the set difference by title and appends what storage lacks, every boot. Two catches:
+
+- **It appends at the END**, ignoring seed position, and it runs on `requestIdleCallback` *after*
+  mount. If the subtask's position matters (a sequentially-locked chain — e.g. designing a curriculum
+  must not land after collecting first-month feedback), the seed edit alone is not enough: it needs a
+  one-shot in [migration.js](../../services/migration.js) that performs the **insertion** itself
+  pre-mount. See `FOLDED_SUBTASK_ORDER` / `alignSubtaskOrder` / `foldInSeedSubtasks`, whose order
+  table is a **literal** (seeds are lazy-loaded; `runMigrations()` is pre-mount) pinned to this
+  directory by the drift-guard test in `__tests__/subtask-foldin.test.js`. **If you re-order or
+  rename a subtask on a task listed in that table, update the table — the test will tell you.**
+- **Appending to a *completed* task re-opens it** in the orientation chain: `isTaskComplete` is pure
+  `subtasks.every(satisfied)`.
+
+Subtask counts on the four `ummah_community_growth` tasks changed by the 2026-07-27 fold-in:
+sulh **6**, education **6**, youth **6**, bayt al-mal **7**
+([2026-07-27-milos-subtask-foldin](../../../wiki/decisions/2026-07-27-milos-subtask-foldin.md)).
 
 ## Subtask Schema
 Each subtask may carry:

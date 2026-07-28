@@ -45,6 +45,16 @@ function seedBbosTasks(projectId, todoColumnId) {
   return safeSet(storageKey, seeded);
 }
 
+// The curated chain position of a seed task. `seq` is the deliberate order an
+// author assigns (see wiki/decisions/2026-07-27-milos-seed-order-curation.md);
+// a board that has not been curated yet falls back to its array position, which
+// is what every board used before curation existed. Persisted onto the task as
+// `seedOrder` and reconciled on every boot by backfillAndStripSeeds, so editing
+// `seq` in a seed file re-orders boards that already live in localStorage.
+function seedChainOrder(seedTask, arrayIndex) {
+  return typeof seedTask?.seq === 'number' ? seedTask.seq : arrayIndex;
+}
+
 function seedTasks(boardId) {
   const tasks = getBoardSeeds(boardId);
   if (!tasks || tasks.length === 0) return;
@@ -56,6 +66,9 @@ function seedTasks(boardId) {
   // Slim shape: description/sources are static reference data, hydrated at read time
   // from the bundled seed (see src/services/seed-hydrator.js). Persisting them would
   // blow the localStorage quota (~8 MB across 1,500+ subtasks).
+  //
+  // `seedOrder` carries the CURATED chain order (see seedChainOrder): the board's
+  // sequential-locking chain, and every kanban/list surface, sort by it.
   const seeded = tasks.map((t, i) => ({
     id: genTaskId(),
     projectId: boardId,
@@ -67,7 +80,7 @@ function seedTasks(boardId) {
     subtasks: (t.subtasks || []).map((s) => ({ id: genSubtaskId(), title: s.title, done: s.done ?? false })),
     checklist: [],
     order: i,
-    seedOrder: i,
+    seedOrder: seedChainOrder(t, i),
     createdAt: now,
     updatedAt: now,
     completedAt: null,
@@ -110,7 +123,7 @@ async function backfillAndStripSeeds() {
     if (tasks.length === 0) return;
     const seeds = ALL_SEEDS[boardId];
     const seedMap = {};
-    seeds.forEach((s, i) => { seedMap[s.title] = { ...s, _seedIndex: i }; });
+    seeds.forEach((s, i) => { seedMap[s.title] = { ...s, _seedIndex: seedChainOrder(s, i) }; });
     let changed = false;
     const beforeSize = firstRun ? JSON.stringify(tasks).length : 0;
 
@@ -134,7 +147,7 @@ async function backfillAndStripSeeds() {
         subtasks: (s.subtasks || []).map((st) => ({ id: genSubtaskId(), title: st.title, done: st.done ?? false })),
         checklist: [],
         order: maxOrder + 1 + newSeedTasks.length,
-        seedOrder: i,
+        seedOrder: seedChainOrder(s, i),
         createdAt: nowIso,
         updatedAt: nowIso,
         completedAt: null,
@@ -147,19 +160,26 @@ async function backfillAndStripSeeds() {
       if (!seed) return t;
       const patch = {};
 
-      // Structural: set seedOrder if missing
-      if (t.seedOrder === undefined) patch.seedOrder = seed._seedIndex;
+      // Structural: RECONCILE seedOrder to the seed's curated chain position on
+      // every boot (same contract as backfillBbosOrder below). Filling it only
+      // when missing would strand every already-seeded board on the order it
+      // happened to be authored in, so curating a seed file would reach fresh
+      // installs and nothing else. Non-destructive: one integer, no title,
+      // subtask, completion, or snooze data is touched — see
+      // stages/implement-seed-order-reconciliation-review.md.
+      if (t.seedOrder !== seed._seedIndex) patch.seedOrder = seed._seedIndex;
 
-      // Structural: add any new subtasks introduced by seed updates (slim shape — no description/sources)
+      // Structural: add any new subtasks introduced by seed updates (slim shape — no description/sources).
+      // Gated on the set difference alone, NOT on array length: a task where the
+      // user added a subtask of their own has stored length >= seed length, and a
+      // length gate would silently starve it of every future seed subtask.
       const seedSubs = seed.subtasks || [];
       const storedSubs = t.subtasks || [];
-      if (seedSubs.length > storedSubs.length) {
-        const storedTitles = new Set(storedSubs.map((s) => s.title));
-        const newSubs = seedSubs
-          .filter((s) => !storedTitles.has(s.title))
-          .map((s) => ({ id: genSubtaskId(), title: s.title, done: false }));
-        if (newSubs.length > 0) patch.subtasks = [...storedSubs, ...newSubs];
-      }
+      const storedTitles = new Set(storedSubs.map((s) => s.title));
+      const newSubs = seedSubs
+        .filter((s) => !storedTitles.has(s.title))
+        .map((s) => ({ id: genSubtaskId(), title: s.title, done: false }));
+      if (newSubs.length > 0) patch.subtasks = [...storedSubs, ...newSubs];
 
       // Strip: remove description/sources when a seed match exists.
       // These fields are read-only reference data in the UI — never user-edited —
@@ -1196,5 +1216,45 @@ export const useProjectStore = create((set, get) => ({
       persistProjects(projects);
       return { projects };
     });
+  },
+
+  // Startup pass: seed the boards + tasks of every Maqasid pillar, so
+  // cross-pillar surfaces (the Orientation carousel, the balance strip,
+  // search) never read a pillar the operator simply has not visited yet.
+  //
+  // Boot-cost guard: a pillar whose boards all exist has nothing left for its
+  // seeder to do, so skip it. What that saves is the seven redundant passes —
+  // each diffs every project and calls seedTasks() on every board, i.e. a
+  // localStorage read plus a JSON.parse of each board's task array.
+  //
+  // It does NOT save the seed-chunk downloads, despite each ensure*Projects
+  // opening with preloadPillarSeeds(). Measured: a second boot still fetches
+  // all seven. task-store's loadTasks awaits preloadBoardSeeds() per project
+  // and AppShell bulk-loads every project, because stripSeedFields() keeps
+  // description/sources out of localStorage and re-hydrates them from the
+  // bundle at read time. The chunks are a read-time dependency, not a
+  // seeding-time one, so no guard here can remove them.
+  //
+  // A pillar missing even ONE board still runs in full — that is how boards
+  // added by a future seed release get created. The per-pillar dashboards
+  // also still call their own ensure*Projects unguarded, so that remains the
+  // repair path for a pillar whose boards exist but whose task storage is
+  // empty (e.g. a quota-failed write).
+  ensureAllPillarProjects: async () => {
+    const existing = get().projects;
+    const missingAny = (boards) =>
+      boards.some((b) => !existing.some((p) => p.id === b.id));
+    const s = get();
+
+    const pending = [];
+    if (missingAny(FAITH_BOARDS)) pending.push(s.ensureFaithProjects());
+    if (missingAny(HEALTH_BOARDS)) pending.push(s.ensureHealthProjects());
+    if (missingAny(INTELLECT_BOARDS)) pending.push(s.ensureIntellectProjects());
+    if (missingAny(FAMILY_BOARDS)) pending.push(s.ensureFamilyProjects());
+    if (missingAny(WEALTH_BOARDS)) pending.push(s.ensureWealthProjects());
+    if (missingAny(ENVIRONMENT_BOARDS)) pending.push(s.ensureEnvironmentProjects());
+    if (missingAny(UMMAH_BOARDS)) pending.push(s.ensureUmmahProjects());
+
+    await Promise.all(pending);
   },
 }));

@@ -1025,6 +1025,9 @@ export function buildTasksForNode(nodeId, projects, tasksByProject, options = {}
         columnId: t.columnId,
         subtasks: t.subtasks || [],
         tags: t.tags || [],
+        // Carried so the node popup's stepper can show the snoozed (moon) pill
+        // state after a task-level "Not now" (see decorateTaskChain).
+        snoozedUntilDayKey: t.snoozedUntilDayKey || null,
         _level: levelFromProjectId(project.id),
         _submoduleId: canonical,
         _submoduleName: submoduleNameById[canonical] || canonical,

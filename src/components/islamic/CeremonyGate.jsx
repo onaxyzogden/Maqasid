@@ -32,7 +32,7 @@ export default function CeremonyGate({ moduleId }) {
         <h2 className="ceremony-gate-title">Are you sure you want to skip this part?</h2>
 
         <p className="ceremony-gate-sub">
-          You can return to this anytime by clicking the Opening Threshold button on the right sidebar.
+          You can return to this anytime by clicking the Opening Ceremony button on the right sidebar.
         </p>
 
         <div className="ceremony-gate-actions">
@@ -64,10 +64,10 @@ export default function CeremonyGate({ moduleId }) {
       <h2 className="ceremony-gate-title">
         {isDeferred
           ? (isIslamic
-            ? `You deferred this module\u2019s opening. When you are ready, the threshold is here.`
+            ? `You deferred this module\u2019s opening. When you are ready, the ceremony is here.`
             : `You deferred setting your intention. When you are ready, it is here.`)
           : (isIslamic
-            ? `This module begins with an opening threshold`
+            ? `This module begins with an opening ceremony`
             : `This module begins with setting an intention`)
         }
       </h2>

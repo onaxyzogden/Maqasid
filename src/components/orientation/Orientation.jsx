@@ -4,12 +4,10 @@ import { useProjectStore } from '../../store/project-store';
 import { useTaskStore } from '../../store/task-store';
 import { useSettingsStore } from '../../store/settings-store';
 import { usePrayerTimes } from '../../hooks/usePrayerTimes';
-import { useMobile } from '../../hooks/useMobile';
 import { computeTodayKey } from '../../utils/islamic-day-key';
 import { getPillarById, getPillarLabel } from '../../data/maqasid';
 import { buildOrientationCarousel } from '../../data/orientation-selector';
 import OrientationCarousel from './OrientationCarousel';
-import OrientationSpread from './OrientationSpread';
 import OrientationSheet from './OrientationSheet';
 import './Orientation.css';
 
@@ -26,7 +24,6 @@ export default function Orientation() {
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const { timings } = usePrayerTimes();
   const maghribRaw = timings?.Maghrib ?? null;
-  const mobile = useMobile();
 
   // undefined = not yet computed (avoids an empty-state flash on first paint).
   const [model, setModel] = useState(undefined);
@@ -137,6 +134,25 @@ export default function Orientation() {
     pendingRef.current = { pillarId: openPillarId, taskId: task.id, ackSame: a, ackAdvance: a, ackClose: a };
   };
 
+  // Revert is the one action that DOES act on the previewed step — the sheet
+  // passes the browsed-back task/subtask (both belong to the open card's board).
+  // Un-doing a done step routes through toggleSubtask so a Done-column task also
+  // travels back to its previous column; a "doesn't apply" step just clears the
+  // flag. The recompute + preview resync snap current back to the reopened step.
+  const handleRevert = (task, subtask) => {
+    if (!openCard?.project || !task || !subtask) return;
+    const projectId = openCard.project.id;
+    if (subtask.done) {
+      toggleSubtask(projectId, task.id, subtask.id);
+    } else if (subtask.notApplicable) {
+      updateSubtask(projectId, task.id, subtask.id, { notApplicable: false });
+    } else {
+      return;
+    }
+    const a = buildAck('neutral', 'Step reopened.');
+    pendingRef.current = { pillarId: openPillarId, taskId: task.id, ackSame: a, ackAdvance: a, ackClose: a };
+  };
+
   if (model === undefined) return null;
 
   const anyEligible = model.cards.some((c) => c.hasEligible);
@@ -167,28 +183,16 @@ export default function Orientation() {
         <p className="orient-head__eyebrow">Orientation</p>
         <h1 className="orient-head__title">What&apos;s next</h1>
         <p className="orient-head__sub">
-          {mobile
-            ? <>Your weakest domain leads. Swipe through the seven &mdash; tap a card to open its next step.</>
-            : <>Your weakest domain leads. Pick a domain from the rail &mdash; tap the card to open its next step.</>}
+          Your weakest domain leads. Move through the seven &mdash; tap a card to open its next step.
         </p>
       </header>
 
-      {mobile ? (
-        <OrientationCarousel
-          cards={model.cards}
-          valuesLayer={valuesLayer}
-          focusPillarId={focusPillarId}
-          onOpenCard={setOpenPillarId}
-        />
-      ) : (
-        <OrientationSpread
-          cards={model.cards}
-          valuesLayer={valuesLayer}
-          focusPillarId={focusPillarId}
-          onSelect={setFocusPillarId}
-          onOpenCard={setOpenPillarId}
-        />
-      )}
+      <OrientationCarousel
+        cards={model.cards}
+        valuesLayer={valuesLayer}
+        focusPillarId={focusPillarId}
+        onOpenCard={setOpenPillarId}
+      />
 
       {openCard && (
         <OrientationSheet
@@ -197,6 +201,7 @@ export default function Orientation() {
           onMarkDone={handleMarkDone}
           onNotApplicable={handleNotApplicable}
           onNotToday={handleNotToday}
+          onRevert={handleRevert}
           onClose={() => setOpenPillarId(null)}
         />
       )}

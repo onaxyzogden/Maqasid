@@ -144,6 +144,10 @@ export function MirrorCard({
   onViewMode,
   onModuleId,
   showProjects,
+  // Optional replacement for the Action task list — the node popup slots its
+  // one-step-at-a-time <SequentialStepFlow> here while the desktop mirror keeps
+  // the classic PPTaskCard list. Education/projects branches are unaffected.
+  taskContent = null,
 }) {
   return (
     <aside className="pp-mirror-card">
@@ -206,6 +210,8 @@ export function MirrorCard({
             ))}
           </div>
         )
+      ) : taskContent != null ? (
+        taskContent
       ) : (tasks.length === 0 ? (
         <p className="pp-mirror-empty">No tasks queued for this window.</p>
       ) : (

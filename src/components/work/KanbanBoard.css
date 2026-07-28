@@ -158,6 +158,12 @@
   color: var(--text2);
 }
 
+/* Refusing a same-column drag of a seeded card reports through the shared
+   `Toast` (@store/toast-store), which portals to <body>. A local position:fixed
+   element cannot be used here: `.pb-content__layer` sets a transform, which makes
+   it the containing block for fixed descendants, so the notice rendered ~440px
+   below the viewport. See KanbanBoard.jsx handleDragEnd. */
+
 @media (max-width: 767px) {
   .kanban-column { flex: 0 0 85vw; }
 }

@@ -12,6 +12,8 @@ export const MAQASID_PILLARS = [
     universalLabel: 'Purpose',
     stewardshipLabel: 'Spiritual Governance',
     universalStewardship: 'Purpose Alignment',
+    description: 'Preserve and cultivate your relationship with Allah through the five pillars of Islam, spiritual reflection, and access to primary sources.',
+    universalDescription: 'Preserve and cultivate a clear sense of purpose through consistent practice, honest reflection, and grounding in the sources you trust.',
     arabicRoot: 'Hifz al-Din',
     arabicRootAr: 'حفظ الدين',
     rootAction: 'Aligning',
@@ -29,6 +31,7 @@ export const MAQASID_PILLARS = [
     universalLabel: 'Vitality',
     stewardshipLabel: 'Vitality Stewardship',
     universalStewardship: 'Vitality Management',
+    description: 'Protect and develop your physical health, mental well-being, personal safety, and social character.',
     arabicRoot: 'Hifz al-Nafs',
     arabicRootAr: 'حفظ النفس',
     rootAction: 'Nurturing',
@@ -46,6 +49,7 @@ export const MAQASID_PILLARS = [
     universalLabel: 'Clarity',
     stewardshipLabel: 'Cognitive Integrity',
     universalStewardship: 'Cognitive Clarity',
+    description: 'Sharpen your mind through continuous learning, critical thinking, cognitive protection, and professional skill development.',
     arabicRoot: "Hifz al-\u02BFAql",
     arabicRootAr: 'حفظ العقل',
     rootAction: 'Clarifying',
@@ -63,6 +67,7 @@ export const MAQASID_PILLARS = [
     universalLabel: 'Legacy',
     stewardshipLabel: 'Lineage & Legacy',
     universalStewardship: 'Legacy Stewardship',
+    description: 'Strengthen the bonds of marriage, parenting, kinship, and home life as the foundation of a purposeful legacy.',
     arabicRoot: 'Hifz al-Nasl',
     arabicRootAr: 'حفظ النسل',
     rootAction: 'Connecting',
@@ -80,6 +85,8 @@ export const MAQASID_PILLARS = [
     universalLabel: 'Resources',
     stewardshipLabel: 'Resource Orchestration',
     universalStewardship: 'Resource Management',
+    description: 'Manage your livelihood with integrity — from halal earning and financial literacy to ownership rights and charitable circulation.',
+    universalDescription: 'Manage your livelihood with integrity — from ethical earning and financial literacy to ownership rights and generous circulation.',
     arabicRoot: 'Hifz al-Mal',
     arabicRootAr: 'حفظ المال',
     rootAction: 'Flowing',
@@ -97,6 +104,8 @@ export const MAQASID_PILLARS = [
     universalLabel: 'Ecology',
     stewardshipLabel: 'Ecological Symbiosis',
     universalStewardship: 'Ecological Balance',
+    description: 'Honor your role as khalifah of the earth through conscious resource use, waste reduction, and ecological stewardship.',
+    universalDescription: 'Honor your role as a steward of the earth through conscious resource use, waste reduction, and ecological care.',
     arabicRoot: "Hifz al-Bi\u02BFah",
     arabicRootAr: 'حفظ البيئة',
     rootAction: 'Integrating',
@@ -114,6 +123,7 @@ export const MAQASID_PILLARS = [
     universalLabel: 'Collective',
     stewardshipLabel: 'Collective Stewardship',
     universalStewardship: 'Community Impact',
+    description: 'Serve and strengthen your community — from neighbors and local networks to collective initiatives and shared impact.',
     arabicRoot: 'Hifz al-Ummah',
     arabicRootAr: 'حفظ الأمة',
     rootAction: 'Unifying',
@@ -131,6 +141,13 @@ export const MAQASID_PILLARS = [
     universalLabel: 'Territory',
     stewardshipLabel: 'Land Stewardship',
     universalStewardship: 'Territorial Stewardship',
+    // NEWLY AUTHORED (2026-07-27) — moontrance has no entry in Landing's
+    // PILLAR_FEATURES, so unlike the seven this copy was not lifted from
+    // existing approved text. It exists so the pillar shape stays uniform;
+    // moontrance is filtered out of MAQASID_CORE_PILLARS and never reaches the
+    // orientation card or the landing wheel.
+    description: 'Steward the land as an amanah — its care, its seasonal rhythms, and the residency and hospitality it will hold.',
+    universalDescription: 'Steward the land you are responsible for — its care, its seasonal rhythms, and the residency and hospitality it will hold.',
     arabicRoot: 'Hifz al-Ard',
     arabicRootAr: 'حفظ الأرض',
     rootAction: 'Cultivating',
@@ -170,6 +187,27 @@ export function getPillarLabel(pillar, valuesLayer) {
 /** Get stewardship description based on values layer */
 export function getPillarStewardship(pillar, valuesLayer) {
   return valuesLayer === 'islamic' ? pillar.stewardshipLabel : pillar.universalStewardship;
+}
+
+/**
+ * Get the one-line domain description based on values layer.
+ *
+ * Only the pillars whose Islamic copy names something layer-specific (faith —
+ * "Allah", wealth — "halal", environment — "khalifah", plus moontrance) carry a
+ * universalDescription; the other four are already neutral and fall through
+ * rather than duplicating a string that would silently drift.
+ *
+ * Null-safe on both axes — it renders straight into a card face, so an unknown
+ * pillar or a pillar with no copy yields '' and never "undefined".
+ *
+ * NOTE: PillarFirstEntry.jsx carries a SECOND, deliberately different set of
+ * pillar descriptions (first-run explainer register, "This higher objective…").
+ * That is not a duplicate of this copy and is intentionally not folded in here.
+ */
+export function getPillarDescription(pillar, valuesLayer) {
+  if (!pillar) return '';
+  if (valuesLayer === 'islamic') return pillar.description ?? '';
+  return pillar.universalDescription ?? pillar.description ?? '';
 }
 
 // Non-prefixed submodule labels (sources, cross-pillar modules, etc.)
