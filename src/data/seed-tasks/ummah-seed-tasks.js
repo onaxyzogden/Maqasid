@@ -7408,6 +7408,32 @@ The Prophet (peace be upon him) appointed Usama ibn Zayd to lead an army at age 
 5. Provide training in: public speaking, project management, Islamic leadership principles, and conflict resolution.
 6. Review the pipeline annually: who has progressed? Who needs more support? Who is ready for the next level?
 7. Completion indicator: at least 3 youth placed in meaningful leadership roles with documented mentorship and at least one youth-led project successfully completed.` },
+        { title: 'Review the programme after three months — assess impact and refine the approach', done: false,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 103:1-3",
+              arabic: "وَالْعَصْرِ إِنَّ الْإِنسَانَ لَفِي خُسْرٍ إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ",
+              translation: "By time, indeed mankind is in loss, except for those who have believed and done righteous deeds and advised each other to truth and advised each other to patience.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+          ],
+          description: `**Why?**
+
+Three months is long enough to see patterns and short enough to course-correct before problems become entrenched. Some matches may not be working. Some youth may have dropped out. Some mentors may be struggling with the time commitment. A formal review prevents the programme from quietly dying — which is the fate of most well-intentioned community initiatives. The principle of muhasabah (self-accounting) applies to institutions just as it applies to individuals.
+
+
+**How?**
+
+1. Survey both mentors and mentees separately with honest questions: Is the relationship valuable? Is the frequency right? What would you change? Do you want to continue?
+2. Review attendance and consistency: How many of the planned meetings actually happened? If less than 75%, investigate why.
+3. Meet with mentors as a group to share experiences (without naming mentees). What is working? What is not? What resources do they need?
+4. Speak privately with any mentee who has disengaged — understand their reasons without pressuring them to return.
+5. Make adjustments: re-match pairs if needed, adjust frequency, change the topic framework, or bring in guest speakers to supplement.
+6. Celebrate successes — share anonymised wins with the community to build support and attract new mentors and mentees.
+7. Completion indicator: a three-month review has been conducted with input from all participants, adjustments have been implemented, and a decision has been made on whether to expand, continue as is, or restructure the programme.` },
       ],
     },
     {
@@ -7627,6 +7653,76 @@ The Prophet (peace be upon him) said: "When a person dies, their deeds end excep
 5. Present the concept to the community and gauge interest and capacity to contribute.
 6. If feasible, launch with a modest target and grow over time — waqf is a marathon, not a sprint.
 7. Completion indicator: a feasibility study completed with legal and scholarly input, a draft waqf charter, and a community presentation with documented interest from at least 10 potential contributors.` },
+        { title: 'Form a waqf committee with financial, legal, and community representation', done: false,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 4:58",
+              arabic: "إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا",
+              translation: "Indeed, Allah commands you to render trusts to whom they are due.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 7138",
+              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd and each of you is responsible for his flock.\" A waqf committee with diverse representation ensures trust is properly stewarded.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
+          description: `**Why?**
+
+A waqf is a perpetual institution that must outlive its founders. It requires financial expertise to invest wisely, legal knowledge to structure it correctly, and community trust to attract contributions. A committee with diverse expertise prevents the waqf from being captured by one individual or faction and ensures accountability. The historical corruption of waqf institutions — which contributed to their decline in the modern era — was almost always traceable to poor governance.
+
+
+**How?**
+
+1. Identify community members with relevant expertise: an accountant or financial advisor, a lawyer (preferably familiar with trust or charity law), a successful business person, and a respected community elder.
+2. Approach each person individually, explain the vision, and ask them to serve on the founding committee.
+3. Ensure the imam or a scholar is involved — the waqf must be structured in compliance with Islamic principles, and scholarly input legitimises it to potential contributors.
+4. Define roles: chairperson (community leader), treasurer (financial expert), legal advisor, investment advisor, and secretary.
+5. Establish governance rules: meeting frequency, decision-making process (consensus or majority), conflict of interest policy, and term limits.
+6. Register the committee formally if required by local law — as a trust, charitable organisation, or other appropriate legal entity.
+7. Completion indicator: a waqf committee of at least four members with documented roles, governance rules, and legal standing (or a plan to obtain it).` },
+        { title: 'Draft the waqf deed — define the purpose, beneficiaries, and management structure', done: false,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:282",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا تَدَايَنتُم بِدَيْنٍ إِلَىٰ أَجَلٍ مُّسَمًّى فَاكْتُبُوهُ",
+              translation: "O you who have believed, when you contract a debt for a specified term, write it down.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 2737",
+              translation: "Umar (may Allah be pleased with him) said: \"I got some land in Khaybar and came to the Prophet and said, 'I have got land which is the best I have ever had. What do you command regarding it?' He said: 'If you wish, make the property inalienable and give the profit from it to charity.'\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
+          description: `**Why?**
+
+The waqf deed is the founding document that governs the endowment in perpetuity. It defines what the waqf funds, who benefits, who manages it, and what happens if circumstances change. A vague or poorly drafted deed leads to disputes, misuse, and eventual collapse. Historically, the most enduring waqf institutions had precise, well-drafted deeds that anticipated future challenges. This document is your community's covenant with future generations.
+
+
+**How?**
+
+1. Define the purpose clearly: "The proceeds of this waqf shall fund [specific purposes: masjid operations, Islamic education, community welfare, or a combination]."
+2. Specify beneficiaries: the local Muslim community, specific programmes, or specific categories of people (students, widows, converts, etc.).
+3. Define the management structure: who are the trustees? How are they appointed and replaced? What happens if a trustee resigns, dies, or is removed?
+4. Include investment guidelines: the waqf capital must be invested in halal instruments only. Define acceptable investment categories and risk tolerance.
+5. Specify distribution rules: what percentage of returns is distributed vs. reinvested? How are disbursements approved?
+6. Include amendment provisions: how can the deed be modified if circumstances change (e.g., the original purpose becomes impossible)?
+7. Completion indicator: a completed waqf deed, reviewed by both a legal professional and an Islamic scholar, ready for community presentation and formal execution.` },
       ],
     },
     {
@@ -7704,6 +7800,40 @@ Knowledge in Islam has a chain (isnad) — it is transmitted from teacher to stu
 5. Discuss compensation transparently — teachers deserve fair pay. If the community cannot afford it, explore sponsorship or fee-sharing models.
 6. Agree on curriculum, schedule, and expectations before launching — clarity prevents conflict.
 7. Completion indicator: a qualified teacher has agreed to lead the programme, with curriculum topics, schedule, and compensation terms documented.` },
+        { title: "Design a structured curriculum with clear learning outcomes", done: false,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 96:1-5",
+              arabic: "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ",
+              translation: "Read in the name of your Lord who created. Created man from a clinging substance. Read, and your Lord is the Most Generous. Who taught by the pen. Taught man that which he knew not.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 20:114",
+              arabic: "وَقُل رَّبِّ زِدْنِي عِلْمًا",
+              translation: "And say: My Lord, increase me in knowledge.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+          ],
+          description: `**Why?**
+
+ A curriculum without structure produces students with scattered, incomplete knowledge. Clear learning outcomes ensure that after completing the programme, students can demonstrably recite, understand, and apply what they have learned. Structure also allows teachers to coordinate, prevents repetition, and shows the community that this is a serious institution, not a casual gathering.
+
+**How?**
+
+1. For each subject and age group, define 3-5 learning outcomes: what should a student know and be able to do after completing this course?
+2. Break each course into weekly sessions with specific topics, readings, and activities.
+3. Include assessment points: not formal exams, but recitation checks, written reflections, or practical demonstrations.
+4. Align the curriculum with the community's identified needs from the assessment phase.
+5. Have the curriculum reviewed by at least one qualified scholar for accuracy and by one experienced educator for pedagogy.
+6. Pilot the curriculum for one term and collect feedback from students and teachers.
+7. Completion indicator: a written curriculum document covering at least 3 subjects with weekly session plans, learning outcomes, and assessment methods, reviewed and approved by a scholar and an educator.` },
         { title: 'Secure a venue and set a consistent weekly schedule for the halaqa or school', done: false,
           sources: [
             {
@@ -7914,6 +8044,41 @@ A process without documentation is just a good idea. A written sulh process give
 5. Include Islamic principles that govern the process: justice (adl), reconciliation (sulh), and the prohibition of oppression (zulm).
 6. Review the document with the imam and mediators for feedback before finalising.
 7. Completion indicator: a written sulh process document, reviewed and approved by the imam and mediator committee, ready for presentation to the community.` },
+        { title: "Establish a referral network for cases beyond the community's capacity", done: false,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 5:2",
+              arabic: "وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ",
+              translation: "And cooperate in righteousness and piety.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 4:135",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا كُونُوا قَوَّامِينَ بِالْقِسْطِ شُهَدَاءَ لِلَّهِ",
+              translation: "O you who have believed, be persistently standing firm in justice, witnesses for Allah.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+          ],
+          description: `**Why?**
+
+Not every dispute can or should be resolved internally. Some cases involve legal complexity (e.g., divorce, inheritance, business partnerships with external parties) that require professional Islamic arbitration, legal counsel, or even court intervention. The Prophet (peace be upon him) sent delegations to specialists when needed. A referral network ensures the community does not overextend itself and that parties receive the right level of support for their situation.
+
+
+**How?**
+
+1. Research and compile a list of: Islamic arbitration councils, Muslim family lawyers, Muslim business mediators, and counselling services in your area or region.
+2. Contact each to confirm: services offered, fees, geographic coverage, and willingness to accept referrals from your community.
+3. Establish a simple referral protocol: when a case is assessed as beyond scope, the intake team provides the party with relevant referral options and contact details.
+4. Maintain the referral list as a living document, updated annually.
+5. Follow up on referred cases (with consent) to assess whether the external service was helpful.
+6. Share the referral directory with the community so individuals can also access it directly.
+7. Completion indicator: a published referral directory with at least 5 vetted external services, and at least 2 successful referrals made.` },
         { title: 'Present the sulh process to the community and gain buy-in from leadership', done: false,
           sources: [
             {
@@ -14341,6 +14506,15 @@ The Prophetic model of leadership is one of accountability and service, not perm
               hadithGrade: "Sahih",
               rationale: "Prophetic narration cited as evidence for this subtask.",
             },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 2737",
+              translation: "Umar ibn al-Khattab acquired land at Khaybar and the Prophet (peace be upon him) advised: \"If you wish, you may hold the property as waqf and give its produce as charity — it shall not be sold, inherited, or given away.\" This is the basis for endowed land stewardship.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
           ],
           description: `**Why?**
 
@@ -14349,13 +14523,14 @@ Volunteer energy is finite. The founding generation works with the passion of bu
 
 **How?**
 
-1. Determine the annual operating cost of the land stewardship programme: soil amendments, water, tools, insurance, and a basic stipend for the lead steward.
-2. Calculate the endowment principal needed to generate that annual amount at a conservative halal return rate (3-5% from Islamic investment vehicles).
+1. Define what the fund exists to pay for. Start with the operating costs of the land you already steward: soil amendments, water, tools, insurance, and a basic stipend for the lead steward. Then name the two purposes the endowment grows into — acquiring further land for stewardship, and training new communities to steward it — so that later trustees are not left guessing whether expansion is a permitted use.
+2. Determine the annual operating cost at current scale, then calculate the endowment principal needed to generate that amount at a conservative halal return rate (3-5% from Islamic investment vehicles).
 3. Launch an endowment fundraising campaign targeting community members, donors, and qard ḥasan lenders who understand the waqf concept.
 4. Invest the endowment in Shariah-compliant vehicles: Islamic mutual funds, sukuk, or halal real estate — consult an Islamic finance advisor.
-5. Establish a spending policy: only the annual return is spent; the principal is never touched. In years of low return, reduce spending rather than invading the principal.
-6. Report endowment performance annually to all donors and the community — transparency builds trust and encourages further contributions.
-7. Completion indicator: endowment fund established with initial contributions, invested in Shariah-compliant vehicles, and first annual distribution made to stewardship operations.` },
+5. Appoint a separate board of mutawallis (waqf managers), distinct from the land's operational leadership, with written investment and disbursement policies. The people who spend the returns should not be the same people who govern the corpus.
+6. Establish a spending policy: only the annual return is spent; the principal is never touched. In years of low return, reduce spending rather than invading the principal.
+7. Report endowment performance annually to all donors and the community — transparency builds trust and encourages further contributions.
+8. Completion indicator: endowment fund established with initial contributions, a mutawalli board appointed with written investment and disbursement policies, capital invested in Shariah-compliant vehicles, and first annual distribution made to stewardship operations.` },
         { title: 'Conduct a 10-year land health review comparing current conditions to the original baseline', done: false,
           sources: [
             {

@@ -55,6 +55,26 @@ Rules (enforced by `__tests__/seed-order.test.js`, so a violation fails `npm tes
 Board task counts after the 2026-07-27 dedupe: `ummah_community_growth` **6**,
 `ummah_moontrance-land_excellence` **4**.
 
+## Adding a subtask to an existing seed task
+
+Unlike tasks, **new seed subtasks do reach already-seeded boards** — `backfillAndStripSeeds()`
+computes the set difference by title and appends what storage lacks, every boot. Two catches:
+
+- **It appends at the END**, ignoring seed position, and it runs on `requestIdleCallback` *after*
+  mount. If the subtask's position matters (a sequentially-locked chain — e.g. designing a curriculum
+  must not land after collecting first-month feedback), the seed edit alone is not enough: it needs a
+  one-shot in [migration.js](../../services/migration.js) that performs the **insertion** itself
+  pre-mount. See `FOLDED_SUBTASK_ORDER` / `alignSubtaskOrder` / `foldInSeedSubtasks`, whose order
+  table is a **literal** (seeds are lazy-loaded; `runMigrations()` is pre-mount) pinned to this
+  directory by the drift-guard test in `__tests__/subtask-foldin.test.js`. **If you re-order or
+  rename a subtask on a task listed in that table, update the table — the test will tell you.**
+- **Appending to a *completed* task re-opens it** in the orientation chain: `isTaskComplete` is pure
+  `subtasks.every(satisfied)`.
+
+Subtask counts on the four `ummah_community_growth` tasks changed by the 2026-07-27 fold-in:
+sulh **6**, education **6**, youth **6**, bayt al-mal **7**
+([2026-07-27-milos-subtask-foldin](../../../wiki/decisions/2026-07-27-milos-subtask-foldin.md)).
+
 ## Subtask Schema
 Each subtask may carry:
 - `title` (string, required)

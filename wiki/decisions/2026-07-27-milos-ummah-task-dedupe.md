@@ -77,6 +77,11 @@ later pass**; deliberately *not* folded in now, so the diff stays a clean remova
 - "Review the programme after three months"
 - "Establish a waqf endowment to fund perpetual land stewardship operations"
 
+> **Deferral closed the same day by [[2026-07-27-milos-subtask-foldin]].** Five of the six are back as
+> subtask rows at curated positions on their surviving siblings; the sixth (the land waqf endowment)
+> was **merged** into the endowment subtask that already existed on a sibling task, because adding it
+> as a row would have recreated the very redundancy this decision removed.
+
 ### 3. A one-shot prune migration, guarded by "did the operator touch this?"
 
 New in [migration.js](src/services/migration.js), following the existing `MOJIBAKE_FLAG` idiom:

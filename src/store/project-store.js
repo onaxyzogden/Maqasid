@@ -169,16 +169,17 @@ async function backfillAndStripSeeds() {
       // stages/implement-seed-order-reconciliation-review.md.
       if (t.seedOrder !== seed._seedIndex) patch.seedOrder = seed._seedIndex;
 
-      // Structural: add any new subtasks introduced by seed updates (slim shape — no description/sources)
+      // Structural: add any new subtasks introduced by seed updates (slim shape — no description/sources).
+      // Gated on the set difference alone, NOT on array length: a task where the
+      // user added a subtask of their own has stored length >= seed length, and a
+      // length gate would silently starve it of every future seed subtask.
       const seedSubs = seed.subtasks || [];
       const storedSubs = t.subtasks || [];
-      if (seedSubs.length > storedSubs.length) {
-        const storedTitles = new Set(storedSubs.map((s) => s.title));
-        const newSubs = seedSubs
-          .filter((s) => !storedTitles.has(s.title))
-          .map((s) => ({ id: genSubtaskId(), title: s.title, done: false }));
-        if (newSubs.length > 0) patch.subtasks = [...storedSubs, ...newSubs];
-      }
+      const storedTitles = new Set(storedSubs.map((s) => s.title));
+      const newSubs = seedSubs
+        .filter((s) => !storedTitles.has(s.title))
+        .map((s) => ({ id: genSubtaskId(), title: s.title, done: false }));
+      if (newSubs.length > 0) patch.subtasks = [...storedSubs, ...newSubs];
 
       // Strip: remove description/sources when a seed match exists.
       // These fields are read-only reference data in the UI — never user-edited —

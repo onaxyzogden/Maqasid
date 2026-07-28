@@ -87,5 +87,13 @@ Orientation (container)
   copies the boards used to carry put them *before* it, so a board and its chain disagreed — see
   [2026-07-27-milos-board-order-single-authority](../../../wiki/decisions/2026-07-27-milos-board-order-single-authority.md).
   Never re-inline a comparator here.
+- **Adding a subtask to a seed task re-opens that task in the chain.** `isTaskComplete` is pure
+  `subtasks.every(satisfied)` — it has no memory of `completedAt` — so growing a finished task's
+  array makes it the current step again. Intended (a new obligation *is* outstanding work), but it
+  means a seed content edit can silently reactivate a board the operator had finished. New seed
+  subtasks reach already-seeded boards via `backfillAndStripSeeds`, which **appends at the end**; if
+  position matters, the seed edit needs a one-shot insertion migration — see `alignSubtaskOrder` in
+  [migration.js](../../services/migration.js) and
+  [2026-07-27-milos-subtask-foldin](../../../wiki/decisions/2026-07-27-milos-subtask-foldin.md).
 - **The `snoozed` task-pill state is latent.** Under the cross-board fall-through rule, a board whose current task is snoozed is *skipped and never surfaced*, so `TaskStepper`'s moon glyph is currently unreachable in practice. It ships on purpose (cheap; keeps the state model honest) — do **not** "fix" it by surfacing snoozed boards, which would weaken the lock invariant.
 - **Do not convert `SequentialStepFlow`'s `preview` reset into a `useEffect`.** It is a render-time `setState` guarded by the `syncedTo` key (see Key Patterns) — an effect version trips `react-hooks/set-state-in-effect` and flashes the stale step for one frame. (The reset moved with the extraction — it now lives in `src/components/shared/SequentialStepFlow.jsx`, not the sheet.)
