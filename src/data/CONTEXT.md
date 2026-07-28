@@ -29,8 +29,10 @@ Static configuration, content, and seed data organized into thematic subdirector
 The `universal*` fields are **optional** — only pillars whose Islamic copy names something
 layer-specific carry one (faith, wealth, environment, moontrance for `universalDescription`), and
 the helpers fall through to the Islamic string rather than duplicating a neutral sentence that
-would silently drift. `description` is the one-line domain sentence shown on the orientation card
-**and** the landing page's pillar wheel/tabs; `PILLAR_DESCRIPTIONS` in
+would silently drift. `description` is the one-line domain sentence shown on the orientation card —
+its **only** consumer since the landing page's Seven Maqasid tab section was removed upstream
+(2026-07-28). The landing hero wheel still iterates `MAQASID_CORE_PILLARS`, but reads
+`stewardshipLabel`, not this field. `PILLAR_DESCRIPTIONS` in
 `components/onboarding/PillarFirstEntry.jsx` is a deliberately different (longer, first-run
 explainer) voice and is not a duplicate of this field.
 

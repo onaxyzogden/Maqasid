@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { cloudAccountsEnabled } from '../services/supabase';
-import { ChevronDown, ArrowRight, Star, LogIn, X, Moon, Check, BookOpen, Shield, Sparkles } from 'lucide-react';
-import { MAQASID_CORE_PILLARS, getPillarDescription } from '../data/maqasid';
+import { ChevronDown, ArrowRight, Star, LogIn, X, Moon, BookOpen, Shield, Sparkles } from 'lucide-react';
+import { MAQASID_CORE_PILLARS } from '../data/maqasid';
 import { ICON_REGISTRY, getIcon } from '../data/icon-registry';
 import { AMANAH_TIERS } from '../data/config/amanah-tiers';
 import { RELEVANCE_CHIPS } from '../data/config/relevance-chips';
@@ -11,71 +11,6 @@ import { genUserId } from '../services/id';
 import MaqasidComparisonWheel from '../components/faith/MaqasidComparisonWheel';
 import PropheticPathPreview from '../components/landing/PropheticPathPreview';
 import '../styles/landing.css';
-
-const PILLAR_ICON_MAP = ICON_REGISTRY;
-
-// Landing-only marketing bullets. The one-line pillar descriptions that used to
-// live here moved to `description` in src/data/maqasid.js (the orientation card
-// reads them too) — reach them via getPillarDescription, always with 'islamic'
-// pinned: the public page has no settings store and its surrounding copy is
-// explicitly Islamic.
-const PILLAR_FEATURES = {
-  faith: {
-    items: [
-      { title: 'Five Pillars Boards', desc: 'Dedicated Kanban boards for Shahada, Salah, Zakah, Siyam, and Hajj' },
-      { title: 'Primary Sources', desc: "Integrated Qur\u2019an study, Hadith collections, and Islamic knowledge" },
-      { title: 'Spiritual Readiness', desc: 'Quranic grounding checks before every task to align intention with action' },
-      { title: 'Three-Tier Growth', desc: 'Progress through Core, Growth, and Excellence in your faith journey' },
-    ],
-  },
-  health: {
-    items: [
-      { title: 'Physical Health', desc: 'Track nutrition, exercise, and vitality goals across three growth tiers' },
-      { title: 'Mental Well-being', desc: 'Monitor emotional resilience, stress management, and inner peace' },
-      { title: 'Safety & Security', desc: 'Plan for personal protection, emergency preparedness, and stability' },
-      { title: 'Social Character', desc: 'Cultivate adab, integrity, and exemplary social presence' },
-    ],
-  },
-  intellect: {
-    items: [
-      { title: 'Learning & Literacy', desc: 'Foundational competency, continuous education, and intellectual legacy' },
-      { title: 'Critical Thinking', desc: 'Truth-seeking, logical reasoning, and visionary insight' },
-      { title: 'Cognitive Integrity', desc: 'Protect focus, attention, and flow states from digital distraction' },
-      { title: 'Skill Proficiency', desc: 'Ethical craftsmanship, specialized expertise, and industry leadership' },
-    ],
-  },
-  family: {
-    items: [
-      { title: 'Foundations of Marriage', desc: 'Legal union, emotional tranquility, and partnership in virtue' },
-      { title: 'Parenting & Mentorship', desc: 'Provision, tarbiyah, and intergenerational wisdom transfer' },
-      { title: 'Extended Family', desc: 'Silat al-Rahim \u2014 maintaining kinship ties and proactive support' },
-      { title: 'Home Environment', desc: 'Sanctity, wholesome atmosphere, and hospitality of the household' },
-    ],
-  },
-  wealth: {
-    items: [
-      { title: 'Earning & Provision', desc: 'Track halal income streams, value expansion, and economic empowerment' },
-      { title: 'Financial Literacy', desc: 'Budgets, expense tracking, invoicing, and financial reports' },
-      { title: 'Ownership & Rights', desc: 'Protect heirs, maintain transparent dealings, build generational legacy' },
-      { title: 'Business Operations', desc: 'Projects, people, office, and tech modules for your ventures' },
-    ],
-  },
-  environment: {
-    items: [
-      { title: 'Resource Consumption', desc: 'Anti-extravagance in water and energy \u2014 track efficiency goals' },
-      { title: 'Waste & Pollution', desc: 'Harm reduction, conscious consumption, and zero-waste aspirations' },
-      { title: 'Ecosystem & Biodiversity', desc: 'Respect for creation, active stewardship, and ecological restoration' },
-      { title: 'Ethical Sourcing', desc: 'Ethical origins, sustainable supply chains, and circular economy' },
-    ],
-  },
-  ummah: {
-    items: [
-      { title: 'Neighbors', desc: 'Neighborly relations, local connections, and mutual aid' },
-      { title: 'Community', desc: 'Group initiatives, collective impact, and civic engagement' },
-      { title: 'MTC', desc: 'Faith-rooted land destination \u2014 experiences, stewardship, and community' },
-    ],
-  },
-};
 
 // `a` may be a string or an array of paragraphs (see the FAQ renderer below).
 const FAQS = [
@@ -112,69 +47,6 @@ const FAQS = [
     a: 'Yes. MIOS is free to use with full access to all seven higher objectives and every sub-module. No paywalls, no premium tiers.',
   },
 ];
-
-const PILLAR_MOCK_TASKS = {
-  faith:       { col1: ['Study conditions of Shahada', 'Memorise hadith of Jibril'], col2: ['Establish 5 daily prayers on time', 'Learn rules of zakah'], col3: ['Calculate nisab', 'Ramadan fasting intention'] },
-  health:      { col1: ['Morning exercise routine', 'Sleep hygiene check'], col2: ['Weekly reflection journal', 'Reduce screen time 1hr'], col3: ['Meal prep Sunday', 'Gratitude practice'] },
-  intellect:   { col1: ['Read 20 pages/day', 'Deep work block (2hr)'], col2: ['Critical analysis journal', 'Learn Arabic vocabulary'], col3: ['Finish online course', 'Summarise key learnings'] },
-  family:      { col1: ['Weekly family check-in', 'Read to children (30min)'], col2: ['Call extended family', 'Plan family outing'], col3: ['Home maintenance list', 'Mealtime without devices'] },
-  wealth:      { col1: ['Review monthly budget', 'Track halal income streams'], col2: ['Calculate annual zakah', 'Update financial statement'], col3: ['Invoice client #3', 'Review investment halal status'] },
-  environment: { col1: ['Reduce energy use 20%', 'Zero-waste kitchen goal'], col2: ['Source ethical produce', 'Carbon footprint audit'], col3: ['Plant herb garden', 'Repair vs. replace audit'] },
-  ummah:       { col1: ['Visit neighbour this week', 'Volunteer at masjid'], col2: ['Community clean-up drive', 'Support local business'], col3: ['Eid gift for neighbour', 'Join Quran circle'] },
-};
-
-const MOCK_COLS = [
-  { label: 'To Do',       dot: '#94a3b8' },
-  { label: 'In Progress', dot: '#f59e0b' },
-  { label: 'Done',        dot: '#22c55e' },
-];
-
-function PillarMockup({ pillar }) {
-  const Icon = PILLAR_ICON_MAP[pillar.icon];
-  const color = pillar.accentColor;
-  const tasks = PILLAR_MOCK_TASKS[pillar.id];
-  const cols = [tasks.col1, tasks.col2, tasks.col3];
-
-  return (
-    <div className="pillar-mockup" style={{ '--mock-color': color }}>
-      {/* Header */}
-      <div className="pm-header">
-        <div className="pm-header-icon">{Icon && <Icon size={14} />}</div>
-        <span className="pm-header-name">{pillar.sidebarLabel}</span>
-        <span className="pm-header-level">Level 1 · Core</span>
-      </div>
-      {/* Kanban columns */}
-      <div className="pm-board">
-        {MOCK_COLS.map((col, ci) => (
-          <div key={ci} className="pm-col">
-            <div className="pm-col-header">
-              <span className="pm-dot" style={{ background: col.dot }} />
-              <span className="pm-col-name">{col.label}</span>
-              <span className="pm-col-count">{cols[ci].length}</span>
-            </div>
-            <div className="pm-cards">
-              {cols[ci].map((task, ti) => (
-                <div key={ti} className="pm-card" style={{ borderLeftColor: color }}>
-                  <span className="pm-card-title">{task}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-      {/* Progress footer */}
-      <div className="pm-footer">
-        <span className="pm-footer-label">Progress</span>
-        <div className="pm-progress">
-          <div className="pm-seg pm-seg-todo"    style={{ width: '40%' }} />
-          <div className="pm-seg pm-seg-active"  style={{ width: '35%' }} />
-          <div className="pm-seg pm-seg-done"    style={{ width: '25%', background: color }} />
-        </div>
-      </div>
-    </div>
-  );
-}
-
 
 const HOW_IT_WORKS = [
   { step: '01', title: 'Choose Your Path', desc: 'Select the Islamic values layer or universal ethics during onboarding. Set your name and preferences. No account required.', icon: ICON_REGISTRY.Compass },
@@ -308,7 +180,6 @@ export default function Landing() {
   const navigate = useNavigate();
   const user = useAuthStore((s) => s.user);
   const login = useAuthStore((s) => s.login);
-  const [activeTab, setActiveTab] = useState('faith');
   const [activeDay, setActiveDay] = useState('ramadan');
   const [openFaq, setOpenFaq] = useState(null);
   const [showLogin, setShowLogin] = useState(false);
@@ -347,8 +218,6 @@ export default function Landing() {
     navigate('/app');
   };
 
-  const activePillar = MAQASID_CORE_PILLARS.find((p) => p.id === activeTab);
-  const activeFeatures = PILLAR_FEATURES[activeTab];
   const activeVariant = DAY_VARIANTS.find((v) => v.id === activeDay);
 
   return (
@@ -363,7 +232,6 @@ export default function Landing() {
           <li><a href="#orientation">Orientation</a></li>
           <li><a href="#evidence">Evidence</a></li>
           <li><a href="#prophetic-path">The Day</a></li>
-          <li><a href="#pillars">Higher Objectives</a></li>
         </ul>
         <div className="landing-nav-actions">
           {user ? (
@@ -606,65 +474,6 @@ export default function Landing() {
         )}
       </section>
 
-      {/* Seven Pillars */}
-      <section className="features-section" id="pillars">
-        <p className="section-label">The Seven Maqasid</p>
-        <h2 className="section-title">Underneath all of it — seven higher objectives.</h2>
-        <p className="section-subtitle">
-          The Maqasid al-Shari&rsquo;ah give the structure. Each objective has its own dashboard, its sub-modules, and three tiers: Core (Daruriyyat), Growth (Hajiyyat), Excellence (Tahsiniyyat).
-        </p>
-
-        <div className="feature-tabs">
-          {MAQASID_CORE_PILLARS.map((pillar) => {
-            const Icon = PILLAR_ICON_MAP[pillar.icon];
-            return (
-              <button
-                key={pillar.id}
-                className={`feature-tab ${activeTab === pillar.id ? 'active' : ''}`}
-                onClick={() => setActiveTab(pillar.id)}
-                style={activeTab === pillar.id ? { borderColor: pillar.accentColor, color: pillar.accentColor } : undefined}
-              >
-                {Icon && <Icon size={16} />} {pillar.sidebarLabel}
-              </button>
-            );
-          })}
-        </div>
-
-        <div className="feature-content">
-          <div className="feature-preview" style={{ borderColor: activePillar?.accentColor + '30', padding: 'var(--space-4)', background: 'var(--bg2)', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start', gap: 'var(--space-3)' }}>
-            {activePillar && (
-              <>
-                <div style={{ width: '100%' }}>
-                  <div style={{ fontWeight: 700, fontSize: '1.1rem', color: 'var(--text)', marginBottom: 2 }}>
-                    {activePillar.sidebarLabel}
-                  </div>
-                  <div style={{ fontSize: '0.85rem', color: activePillar.accentColor, fontStyle: 'italic', marginBottom: 'var(--space-2)' }}>
-                    {activePillar.arabicRoot} · {activePillar.arabicRootAr}
-                  </div>
-                  <div style={{ fontSize: '0.875rem', color: 'var(--text2)', lineHeight: 1.6 }}>
-                    {getPillarDescription(activePillar, 'islamic')}
-                  </div>
-                </div>
-                <PillarMockup pillar={activePillar} />
-              </>
-            )}
-          </div>
-          <div className="feature-list">
-            {activeFeatures?.items.map((f, i) => (
-              <div key={i} className="feature-item">
-                <div className="feature-icon" style={{ background: activePillar?.accentColor + '18' }}>
-                  <Check size={18} style={{ color: activePillar?.accentColor }} />
-                </div>
-                <div>
-                  <h4>{f.title}</h4>
-                  <p>{f.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* How It Works */}
       <section className="pricing-section" id="how-it-works">
         <p className="section-label">How It Works</p>
@@ -747,7 +556,6 @@ export default function Landing() {
               <li><a href="#orientation">Orientation</a></li>
               <li><a href="#prophetic-path">The Day</a></li>
               <li><a href="#sunnah">Sunnah Mode</a></li>
-              <li><a href="#pillars">Higher Objectives</a></li>
             </ul>
           </div>
           <div className="footer-col">
