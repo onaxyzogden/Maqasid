@@ -4,12 +4,10 @@ import { useProjectStore } from '../../store/project-store';
 import { useTaskStore } from '../../store/task-store';
 import { useSettingsStore } from '../../store/settings-store';
 import { usePrayerTimes } from '../../hooks/usePrayerTimes';
-import { useMobile } from '../../hooks/useMobile';
 import { computeTodayKey } from '../../utils/islamic-day-key';
 import { getPillarById, getPillarLabel } from '../../data/maqasid';
 import { buildOrientationCarousel } from '../../data/orientation-selector';
 import OrientationCarousel from './OrientationCarousel';
-import OrientationSpread from './OrientationSpread';
 import OrientationSheet from './OrientationSheet';
 import './Orientation.css';
 
@@ -26,7 +24,6 @@ export default function Orientation() {
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
   const { timings } = usePrayerTimes();
   const maghribRaw = timings?.Maghrib ?? null;
-  const mobile = useMobile();
 
   // undefined = not yet computed (avoids an empty-state flash on first paint).
   const [model, setModel] = useState(undefined);
@@ -186,28 +183,16 @@ export default function Orientation() {
         <p className="orient-head__eyebrow">Orientation</p>
         <h1 className="orient-head__title">What&apos;s next</h1>
         <p className="orient-head__sub">
-          {mobile
-            ? <>Your weakest domain leads. Swipe through the seven &mdash; tap a card to open its next step.</>
-            : <>Your weakest domain leads. Pick a domain from the rail &mdash; tap the card to open its next step.</>}
+          Your weakest domain leads. Move through the seven &mdash; tap a card to open its next step.
         </p>
       </header>
 
-      {mobile ? (
-        <OrientationCarousel
-          cards={model.cards}
-          valuesLayer={valuesLayer}
-          focusPillarId={focusPillarId}
-          onOpenCard={setOpenPillarId}
-        />
-      ) : (
-        <OrientationSpread
-          cards={model.cards}
-          valuesLayer={valuesLayer}
-          focusPillarId={focusPillarId}
-          onSelect={setFocusPillarId}
-          onOpenCard={setOpenPillarId}
-        />
-      )}
+      <OrientationCarousel
+        cards={model.cards}
+        valuesLayer={valuesLayer}
+        focusPillarId={focusPillarId}
+        onOpenCard={setOpenPillarId}
+      />
 
       {openCard && (
         <OrientationSheet

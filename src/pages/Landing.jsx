@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { cloudAccountsEnabled } from '../services/supabase';
 import { ChevronDown, ArrowRight, Star, LogIn, X, Moon, Check, BookOpen, Shield, Sparkles } from 'lucide-react';
-import { MAQASID_CORE_PILLARS } from '../data/maqasid';
+import { MAQASID_CORE_PILLARS, getPillarDescription } from '../data/maqasid';
 import { ICON_REGISTRY, getIcon } from '../data/icon-registry';
 import { AMANAH_TIERS } from '../data/config/amanah-tiers';
 import { RELEVANCE_CHIPS } from '../data/config/relevance-chips';
@@ -14,9 +14,13 @@ import '../styles/landing.css';
 
 const PILLAR_ICON_MAP = ICON_REGISTRY;
 
+// Landing-only marketing bullets. The one-line pillar descriptions that used to
+// live here moved to `description` in src/data/maqasid.js (the orientation card
+// reads them too) — reach them via getPillarDescription, always with 'islamic'
+// pinned: the public page has no settings store and its surrounding copy is
+// explicitly Islamic.
 const PILLAR_FEATURES = {
   faith: {
-    description: 'Preserve and cultivate your relationship with Allah through the five pillars of Islam, spiritual reflection, and access to primary sources.',
     items: [
       { title: 'Five Pillars Boards', desc: 'Dedicated Kanban boards for Shahada, Salah, Zakah, Siyam, and Hajj' },
       { title: 'Primary Sources', desc: "Integrated Qur\u2019an study, Hadith collections, and Islamic knowledge" },
@@ -25,7 +29,6 @@ const PILLAR_FEATURES = {
     ],
   },
   health: {
-    description: 'Protect and develop your physical health, mental well-being, personal safety, and social character.',
     items: [
       { title: 'Physical Health', desc: 'Track nutrition, exercise, and vitality goals across three growth tiers' },
       { title: 'Mental Well-being', desc: 'Monitor emotional resilience, stress management, and inner peace' },
@@ -34,7 +37,6 @@ const PILLAR_FEATURES = {
     ],
   },
   intellect: {
-    description: 'Sharpen your mind through continuous learning, critical thinking, cognitive protection, and professional skill development.',
     items: [
       { title: 'Learning & Literacy', desc: 'Foundational competency, continuous education, and intellectual legacy' },
       { title: 'Critical Thinking', desc: 'Truth-seeking, logical reasoning, and visionary insight' },
@@ -43,7 +45,6 @@ const PILLAR_FEATURES = {
     ],
   },
   family: {
-    description: 'Strengthen the bonds of marriage, parenting, kinship, and home life as the foundation of a purposeful legacy.',
     items: [
       { title: 'Foundations of Marriage', desc: 'Legal union, emotional tranquility, and partnership in virtue' },
       { title: 'Parenting & Mentorship', desc: 'Provision, tarbiyah, and intergenerational wisdom transfer' },
@@ -52,7 +53,6 @@ const PILLAR_FEATURES = {
     ],
   },
   wealth: {
-    description: 'Manage your livelihood with integrity \u2014 from halal earning and financial literacy to ownership rights and charitable circulation.',
     items: [
       { title: 'Earning & Provision', desc: 'Track halal income streams, value expansion, and economic empowerment' },
       { title: 'Financial Literacy', desc: 'Budgets, expense tracking, invoicing, and financial reports' },
@@ -61,7 +61,6 @@ const PILLAR_FEATURES = {
     ],
   },
   environment: {
-    description: 'Honor your role as khalifah of the earth through conscious resource use, waste reduction, and ecological stewardship.',
     items: [
       { title: 'Resource Consumption', desc: 'Anti-extravagance in water and energy \u2014 track efficiency goals' },
       { title: 'Waste & Pollution', desc: 'Harm reduction, conscious consumption, and zero-waste aspirations' },
@@ -70,7 +69,6 @@ const PILLAR_FEATURES = {
     ],
   },
   ummah: {
-    description: 'Serve and strengthen your community \u2014 from neighbors and local networks to collective initiatives and shared impact.',
     items: [
       { title: 'Neighbors', desc: 'Neighborly relations, local connections, and mutual aid' },
       { title: 'Community', desc: 'Group initiatives, collective impact, and civic engagement' },
@@ -644,7 +642,7 @@ export default function Landing() {
                     {activePillar.arabicRoot} · {activePillar.arabicRootAr}
                   </div>
                   <div style={{ fontSize: '0.875rem', color: 'var(--text2)', lineHeight: 1.6 }}>
-                    {activeFeatures?.description}
+                    {getPillarDescription(activePillar, 'islamic')}
                   </div>
                 </div>
                 <PillarMockup pillar={activePillar} />

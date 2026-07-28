@@ -15,15 +15,24 @@ Static configuration, content, and seed data organized into thematic subdirector
 | `module-overviews/` | Maqasid framework overviews per module (6 files) | — |
 
 ## Root-Level Files (stay here)
-- `maqasid.js` — MAQASID_PILLARS array (7 pillars), `getPillarById()`, `getPillarLabel()`, `getPillarStewardship()`
+- `maqasid.js` — `MAQASID_PILLARS` array (**8** entries — the 7 Maqasid + `moontrance`) and `MAQASID_CORE_PILLARS` (the 7, moontrance filtered out — what the orientation carousel and the landing wheel iterate). Helpers: `getPillarById()`, `getPillarForModule()`, `getPillarLabel()`, `getSubmoduleLabel()`, `getPillarStewardship()`, `getPillarDescription()`. The three `get*Label`-family helpers plus `getPillarDescription` all take `valuesLayer` and fall back to the Islamic string when no universal variant exists
 - `modules.js` — MODULES array (8 modules: people, work, money, tech, office, family, neighbors, community)
 
 ## Key Data Shapes
 
 **Pillar** (maqasid.js):
 ```js
-{ id, order, sidebarLabel, universalLabel, stewardshipLabel, arabicRoot, arabicRootAr, rootAction, accentColor, icon, subModuleIds[], status, relationship, readinessAyatKey }
+{ id, order, sidebarLabel, universalLabel, stewardshipLabel, universalStewardship,
+  description, universalDescription, arabicRoot, arabicRootAr, rootAction,
+  accentColor, icon, subModuleIds[], status, relationship, readinessAyatKey }
 ```
+The `universal*` fields are **optional** — only pillars whose Islamic copy names something
+layer-specific carry one (faith, wealth, environment, moontrance for `universalDescription`), and
+the helpers fall through to the Islamic string rather than duplicating a neutral sentence that
+would silently drift. `description` is the one-line domain sentence shown on the orientation card
+**and** the landing page's pillar wheel/tabs; `PILLAR_DESCRIPTIONS` in
+`components/onboarding/PillarFirstEntry.jsx` is a deliberately different (longer, first-run
+explainer) voice and is not a duplicate of this field.
 
 **Readiness Ayah** (per binary key):
 ```js
