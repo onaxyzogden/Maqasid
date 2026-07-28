@@ -175,8 +175,16 @@ Board totals after this addendum: **90 hand-authored boards curated** (28 core +
   [[2026-07-27-milos-ummah-task-dedupe]]. Note the count recorded here was wrong:
   `moontrance-land_excellence` carries **one** pair, not two, so the honest figure is **5 removals
   across 10 tasks**, not six.
-- **Prayer-board ordering** — prayer boards are *generated* from `FAITH_SEED_TASKS`; their order
-  comes from the generator, not a hand-authored array.
+- ~~**Prayer-board ordering** — prayer boards are *generated* from `FAITH_SEED_TASKS`; their order
+  comes from the generator, not a hand-authored array.~~ — **closed same day** by
+  [[2026-07-27-milos-prayer-board-ordering]], which found the wording above too generous: the
+  generator did not merely leave prayer uncurated, it emitted **actively wrong** `seq`. Every copied
+  task carried its *source* faith board's value — out of range on all 12 `before`/`after` boards,
+  **duplicated** on `prayer_fajr_after` (`[5,5,0]`), absent on the six `_during` boards, and inverted
+  on **all five** `_after` boards, where the excellence-tier memorisation task sorted **ahead of** the
+  core post-prayer adhkar. Compounding it, `buildPrayerPhaseTasks` handed its single board to the
+  non-sorting `decorateTaskChain`, so the prayer stepper ignored the chain entirely. All 18 generated
+  boards are now curated in the generator and inside this file's ratchet. **Board totals: 108.**
 - ~~**Pre-existing wart:** drag-reordering a *seeded* task on the kanban writes `order`, but seeded
   boards sort by `seedOrder`, so the drag has no lasting effect~~ — **closed same day** by
   [[2026-07-27-milos-board-order-single-authority]], which also found that the claim above ("every

@@ -141,6 +141,16 @@ prayer-phase tasks from this popup on every prayer and every tab — while openi
 `faith-salah` pool to fix that would have let the keyword matchers (`/siwak|rawatib|witr/`) pull
 one prayer's tasks into another's window. Non-prayer nodes still use `buildTasksForNode`.
 
+**`buildPrayerPhaseTasks` sorts through `orderBoardTasks` — do not remove it, and do not inline a
+comparator.** It pools a **single** board, so `seedOrder` is meaningful across it; the
+`decorateTaskChain` call below deliberately does not sort, which is correct only for the *non-prayer*
+branch's merged cross-project pool. Until 2026-07-27 the prayer branch inherited that non-sorting
+path and rendered the stepper in raw `localStorage` order, ignoring the curated chain entirely
+([2026-07-27-milos-prayer-board-ordering](../../../wiki/decisions/2026-07-27-milos-prayer-board-ordering.md)).
+Note also that the Maghrib daily reset sets `order: 0` on reverted tasks (`task-store.js`), so on
+prayer boards `seedOrder` is the **only** stable ordering. The six `prayer_{id}_during` boards do
+carry a curated `seq` too, but never render as a stepper here — `PrayerHeroDuring` owns that tab.
+
 Prayer-phase rows carry `_level: null` — those boards are keyed by window, not by Maqasid level —
 so `PPTaskCard` omits the L1/L2/L3 chip for them rather than defaulting to L3 "Tahsiniyyat" and
 labelling Fajr's mu'akkadah rawatib an embellishment. Non-prayer rows keep the chip.

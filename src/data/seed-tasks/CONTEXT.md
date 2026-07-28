@@ -26,9 +26,18 @@ Rules (enforced by `__tests__/seed-order.test.js`, so a violation fails `npm tes
 - A board either has **no `seq` at all**, or **every** task has one forming a complete permutation of
   `0..n-1` — no gaps, no duplicates, no partial coverage. **Adding a task to a curated board means
   giving it a `seq` and renumbering.**
-- **All 90 hand-authored boards are curated and ratcheted** (28 core + 62 growth/excellence, 2026-07-27)
-  — no board may regress to uncurated, and a **new board must arrive with `seq` already assigned**.
-  Prayer boards are generated from `FAITH_SEED_TASKS` and inherit the generator's order.
+- **All 108 boards are curated and ratcheted** — 90 hand-authored (28 core + 62 growth/excellence)
+  plus the **18 generated prayer boards** (2026-07-27). No board may regress to uncurated, and a
+  **new board must arrive with `seq` already assigned**.
+- **Prayer boards are generated but not exempt.** They are copied out of `FAITH_SEED_TASKS` by
+  `prayer-seed-tasks.js`, and the spread used to carry each task's *source-board* `seq` — meaningless
+  on a 1–3 task board, and duplicated/inverted in practice. `curateBoardOrder()` now runs as the
+  **last** step of `buildPrayerSeedTasks()` and overwrites it with the board's own `0..n-1` position;
+  the default is emission order (tier-ascending, since `SALAH_SOURCES` runs core → growth →
+  excellence) with three clock overrides in the exported `PRAYER_ORDER_OVERRIDES`. Those override
+  entries are literal titles pinned to the seed by a set-equality drift guard in
+  `__tests__/prayer-order.test.js` — **retitling or retagging a `faith_salah_*` task fails that
+  test.** See [2026-07-27-milos-prayer-board-ordering](wiki/decisions/2026-07-27-milos-prayer-board-ordering.md).
 - Curation rubric, rationale and per-board reasoning:
   [2026-07-27-milos-seed-order-curation](wiki/decisions/2026-07-27-milos-seed-order-curation.md).
 - `seq` is **not** persisted onto the task; only the derived `seedOrder` is. Editing `seq` re-orders

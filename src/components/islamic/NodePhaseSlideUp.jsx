@@ -10,7 +10,7 @@ import {
   getModuleGroups,
   LEVEL_FULL_LABEL,
 } from '@data/prophetic-path-submodules';
-import { decorateTaskChain, findCurrentSubtaskIndex } from '@data/orientation-selector';
+import { decorateTaskChain, findCurrentSubtaskIndex, orderBoardTasks } from '@data/orientation-selector';
 import { PRAYER_BOARD_PREFIX } from '@data/prayer-pillars';
 import { computeTodayKey } from '@/utils/islamic-day-key';
 import '@components/work/ProjectSlideUp.css';
@@ -66,11 +66,20 @@ const PHASES = [
 // Completed tasks are NOT filtered out — the stepper shows the whole chain
 // (done pills collapse to checks) and browsing back onto one is how revert
 // works. The Maghrib daily reset clears prayer boards for the new day.
+//
+// Sorted through `orderBoardTasks` — the ONE comparator, never an inline
+// `a.seedOrder - b.seedOrder`. This pool is a SINGLE board, so `seedOrder` is
+// meaningful across it; the unsorted path below is only correct for the merged
+// cross-project pool that non-prayer nodes build. Without this the stepper ran
+// on raw localStorage order and ignored the curated chain entirely — see
+// wiki/decisions/2026-07-27-milos-prayer-board-ordering.md. Note the Maghrib
+// reset collapses `order` to 0 (task-store.js), so `seedOrder` is the only
+// stable ordering these boards have.
 function buildPrayerPhaseTasks(prayerId, phase, projects, tasksByProject, submoduleName) {
   const projectId = `${PRAYER_BOARD_PREFIX}_${prayerId}_${phase}`;
   const project = (projects || []).find((p) => p.id === projectId);
   if (!project) return [];
-  return (tasksByProject?.[projectId] || [])
+  return orderBoardTasks(tasksByProject?.[projectId] || [])
     .map((t) => ({
       id: t.id,
       projectId,

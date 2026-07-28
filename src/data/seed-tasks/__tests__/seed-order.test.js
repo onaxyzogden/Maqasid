@@ -10,6 +10,13 @@
 // ratchet below closes the first option off for this repo: every hand-authored
 // board across all three tiers is curated, and a new one must arrive curated.
 //
+// Prayer boards are GENERATED from FAITH_SEED_TASKS rather than hand-authored,
+// but they are held to the same invariant: their generator assigns each board
+// its own permutation last, overwriting the source board's `seq` that the copy
+// inherits. Leaving them out of this file is how a board shipped with duplicate
+// seq values ([5,5,0] on prayer_fajr_after) — see
+// wiki/decisions/2026-07-27-milos-prayer-board-ordering.md.
+//
 // Rubric + rationale: wiki/decisions/2026-07-27-milos-seed-order-curation.md
 
 import { describe, it, expect } from 'vitest';
@@ -20,6 +27,7 @@ import { FAMILY_SEED_TASKS } from '../family-seed-tasks';
 import { WEALTH_SEED_TASKS } from '../wealth-seed-tasks';
 import { ENVIRONMENT_SEED_TASKS } from '../environment-seed-tasks';
 import { UMMAH_SEED_TASKS } from '../ummah-seed-tasks';
+import { PRAYER_SEED_TASKS } from '../prayer-seed-tasks';
 
 const PILLARS = [
   { id: 'faith',       data: FAITH_SEED_TASKS },
@@ -29,6 +37,7 @@ const PILLARS = [
   { id: 'wealth',      data: WEALTH_SEED_TASKS },
   { id: 'environment', data: ENVIRONMENT_SEED_TASKS },
   { id: 'ummah',       data: UMMAH_SEED_TASKS },
+  { id: 'prayer',      data: PRAYER_SEED_TASKS },  // generated, still conformant
 ];
 
 function boardsOf(data) {

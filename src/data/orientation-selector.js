@@ -113,9 +113,11 @@ const USER_TASK_ORDER_FLOOR = 1e6;
 // order: Array.prototype.sort is stable, and the explicit index tiebreak makes
 // that guarantee local rather than implied.
 //
-// Board-scoped ON PURPOSE — a merged cross-project pool (the Prophetic Path
-// node popup) must keep its build order, since `seedOrder` is only meaningful
-// within one board. See decorateTaskChain below.
+// Board-scoped ON PURPOSE — a merged cross-project pool must keep its build
+// order, since `seedOrder` is only meaningful within one board. That is the
+// Prophetic Path node popup's NON-prayer branch, which pools a whole node's
+// tasks across projects. Its prayer branch owns exactly one board
+// (`prayer_{id}_{phase}`) and so does call this. See decorateTaskChain below.
 export function orderBoardTasks(tasks) {
   const list = tasks ?? [];
   return list
@@ -132,9 +134,10 @@ export function orderBoardTasks(tasks) {
 
 // Decorate an ordered task list with stepper display state + letter labels —
 // the [{ task, state, letter }] shape TaskStepper renders. Takes the list in
-// the order it is given (callers that own a single board pass it through
-// orderBoardTasks first). Board-free so a merged cross-project pool (Prophetic
-// Path node popup) can use it too.
+// the order it is given — it does NOT sort, so every caller that owns a single
+// board must pass it through orderBoardTasks first (NodePhaseSlideUp's prayer
+// branch does). Board-free so a merged cross-project pool (the same popup's
+// non-prayer branch) can use it too.
 export function decorateTaskChain(tasks, todayKey) {
   const list = tasks ?? [];
   const currentTaskIndex = findCurrentTaskIndex(list);
