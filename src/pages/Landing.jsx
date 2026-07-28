@@ -1,16 +1,32 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { cloudAccountsEnabled } from '../services/supabase';
-import { ChevronDown, ArrowRight, Star, LogIn, X, Moon, BookOpen, Shield, Sparkles } from 'lucide-react';
+import {
+  ChevronDown, ArrowRight, Star, LogIn, X, Moon, BookOpen, Shield, Sparkles,
+  Menu, Compass, Sunrise, HelpCircle,
+} from 'lucide-react';
 import { MAQASID_CORE_PILLARS } from '../data/maqasid';
 import { ICON_REGISTRY, getIcon } from '../data/icon-registry';
 import { AMANAH_TIERS } from '../data/config/amanah-tiers';
 import { RELEVANCE_CHIPS } from '../data/config/relevance-chips';
+import { LANDING_DEMO_DECK } from '../data/generated/landing-demo-deck';
 import { useAuthStore } from '../store/auth-store';
 import { genUserId } from '../services/id';
 import MaqasidComparisonWheel from '../components/faith/MaqasidComparisonWheel';
 import PropheticPathPreview from '../components/landing/PropheticPathPreview';
+import { useRevealSection, useScrolledPast } from '../components/landing/use-landing-scroll';
 import '../styles/landing.css';
+
+// One source for both navs. The bar shows the first three; the mobile sheet
+// shows all six with their icons, which is what makes it worth opening.
+const NAV_LINKS = [
+  { href: '#orientation', label: 'Orientation', Icon: Compass },
+  { href: '#evidence', label: 'Evidence', Icon: Shield },
+  { href: '#prophetic-path', label: 'The Day', Icon: Sunrise },
+  { href: '#sunnah', label: 'Sunnah Mode', Icon: Moon },
+  { href: '#how-it-works', label: 'How It Works', Icon: Sparkles },
+  { href: '#faq', label: 'FAQ', Icon: HelpCircle },
+];
 
 // `a` may be a string or an array of paragraphs (see the FAQ renderer below).
 const FAQS = [
@@ -49,9 +65,9 @@ const FAQS = [
 ];
 
 const HOW_IT_WORKS = [
-  { step: '01', title: 'Choose Your Path', desc: 'Select the Islamic values layer or universal ethics during onboarding. Set your name and preferences. No account required.', icon: ICON_REGISTRY.Compass },
-  { step: '02', title: 'Take the Next Step', desc: 'Open Orientation. It names one subtask, shows the ladder it came from, and shows the evidence behind it.', icon: BookOpen },
-  { step: '03', title: 'Grow Through the Tiers', desc: 'Work up from Core (Daruriyyat) to Growth (Hajiyyat) to Excellence (Tahsiniyyat) across every dimension of your life.', icon: Sparkles },
+  { step: '01', title: 'Choose your path', desc: 'Select the Islamic values layer or universal ethics during onboarding. Set your name and preferences. No account required.', icon: ICON_REGISTRY.Compass },
+  { step: '02', title: 'Take the next step', desc: 'Open Orientation. It names one subtask, shows the ladder it came from, and shows the evidence behind it.', icon: BookOpen },
+  { step: '03', title: 'Work up the tiers', desc: 'Work up from Core (Daruriyyat) to Growth (Hajiyyat) to Excellence (Tahsiniyyat) across all seven.', icon: Sparkles },
 ];
 
 const ORIENTATION_POINTS = [
@@ -73,6 +89,14 @@ const ORIENTATION_POINTS = [
 ];
 
 const ORIENTATION_EXITS = ['Mark done', 'Doesn\u2019t apply', 'Something else', 'Not today'];
+
+// Everything the demo card renders comes from LANDING_DEMO_DECK, which is
+// generated out of the seed files by scripts/generate-landing-demo.mjs and
+// gated by `npm run lint`. Never hand-write a task, ladder segment, tier, or
+// citation here: the card used to be typed out and drifted into fiction, which
+// is the one thing a page about evidence cannot afford. Badge colours and the
+// pillar tint are looked up from the same config the app uses.
+const byId = (list, id) => list.find((e) => e.id === id) || null;
 
 // Day-variant copy. Every `quote` is reproduced character-for-character from
 // SPECIAL_DAY_RESOLVERS in src/data/prophetic-path-submodules.js (or, for
@@ -122,6 +146,31 @@ const DAY_VARIANTS = [
   },
 ];
 
+// Each Amanah tier description is two sentences: what the tier means, then what
+// the gate does about it. Splitting them lets the card give the verdict its own
+// tinted line instead of burying it at the end of a paragraph. Only the break
+// point is chosen here — both halves come from AMANAH_TIERS verbatim.
+function splitTierDescription(description) {
+  const cut = description.lastIndexOf('. ');
+  return cut === -1
+    ? [description, '']
+    : [description.slice(0, cut + 1), description.slice(cut + 2)];
+}
+
+// Sections fade up the first time they enter the viewport. The `is-in` class is
+// what makes them visible — never a keyframe. main.jsx adds `.reduce-motion` to
+// <html> under the Claude Code preview and clamps every transition to 0.001ms
+// there, so a keyframe-driven reveal would render permanently blank; with the
+// class doing the work it simply snaps in.
+function RevealSection({ className = '', children, ...rest }) {
+  const [ref, revealClass] = useRevealSection();
+  return (
+    <section ref={ref} className={`reveal ${className} ${revealClass}`.trim()} {...rest}>
+      {children}
+    </section>
+  );
+}
+
 function HeroWheel() {
   const [tappedId, setTappedId] = useState(MAQASID_CORE_PILLARS[0].id);
   const [hoverId, setHoverId] = useState(null);
@@ -165,12 +214,127 @@ function HeroWheel() {
             type="button"
             className={`hero-wheel-legend-item${p.id === activeId ? ' is-active' : ''}`}
             style={{ '--card-accent': p.accentColor }}
+            data-tip={p.stewardshipLabel}
             onClick={() => setTappedId(p.id)}
           >
             <span className="hero-wheel-legend-name">{p.sidebarLabel}</span>
             <span className="hero-wheel-legend-ar">{p.arabicRootAr}</span>
           </button>
         ))}
+      </div>
+    </div>
+  );
+}
+
+// The Orientation demo, playable. Every exit advances to the next card, which
+// is what the live app does — none of the four is a dead end. `Why & how`
+// expands to the real citations for the task on screen.
+function OrientationDemo() {
+  const [index, setIndex] = useState(0);
+  const [expanded, setExpanded] = useState(false);
+
+  const card = LANDING_DEMO_DECK[index];
+  const pillar = byId(MAQASID_CORE_PILLARS, card.pillarId);
+  const tier = byId(AMANAH_TIERS, card.tierId);
+
+  // Any exit surfaces the next task and closes the trail behind it.
+  const advance = () => {
+    setIndex((i) => (i + 1) % LANDING_DEMO_DECK.length);
+    setExpanded(false);
+  };
+
+  return (
+    <div className="orient-deck">
+      <div className="orient-card orient-card--stacked orient-card--back" aria-hidden="true" />
+      <div className="orient-card orient-card--stacked orient-card--mid" aria-hidden="true" />
+      <div
+        className="orient-card orient-card--front motif-halo"
+        style={{ '--motif-tint': pillar?.accentColor }}
+      >
+        <div className="orient-live" aria-live="polite">
+          <div className="orient-ladder">
+            {/* Tinted off the --motif-tint the card above already carries. */}
+            <span className="orient-ladder-pillar">{pillar?.sidebarLabel}</span>
+            <span className="orient-ladder-sep">&rsaquo;</span>
+            <span>{card.level}</span>
+            <span className="orient-ladder-sep">&rsaquo;</span>
+            <span>{card.moduleLabel}</span>
+          </div>
+          <p className="orient-task">{card.subtask}</p>
+        </div>
+        <div className="orient-meta">
+          {tier && (
+            <span
+              className="orient-badge"
+              data-tip={tier.description}
+              style={{ '--badge-color': tier.color, '--badge-bg': tier.bg }}
+            >
+              {tier.id} · {tier.label.toUpperCase()}
+            </span>
+          )}
+          <button
+            type="button"
+            className="orient-why"
+            aria-expanded={expanded}
+            aria-controls="orient-evidence"
+            onClick={() => setExpanded((v) => !v)}
+          >
+            Why &amp; how
+            <ChevronDown size={15} className={expanded ? 'is-open' : ''} aria-hidden="true" />
+          </button>
+        </div>
+
+        {/* Conditional render, never a keyframe on an opacity:0 resting state —
+            .reduce-motion clamps durations but not delays, so an animated
+            reveal would render permanently blank for reduced-motion users. */}
+        {expanded && (
+          <div className="orient-evidence" id="orient-evidence">
+            <p className="orient-from">From: {card.project}</p>
+            {card.sources.map((s) => {
+              const chip = byId(RELEVANCE_CHIPS, s.relevance);
+              // Per-source, not the card's tier: the card wears its strongest,
+              // but each citation is labelled with its own provenance.
+              const prov = AMANAH_TIERS.find((t) => t.label === s.provenanceTier);
+              return (
+                <div key={s.ref} className="orient-source">
+                  <p className="orient-source-ref">
+                    {s.ref}
+                    {s.hadithGrade ? ` · ${s.hadithGrade}` : ''}
+                  </p>
+                  <p className="orient-source-text">{s.translation}</p>
+                  <div className="orient-source-axes">
+                    {prov && (
+                      <span
+                        className="orient-badge"
+                        data-tip={prov.description}
+                        style={{ '--badge-color': prov.color, '--badge-bg': prov.bg }}
+                      >
+                        {prov.label}
+                      </span>
+                    )}
+                    {chip && (
+                      <span
+                        className="orient-badge"
+                        data-tip={chip.description}
+                        style={{ '--badge-color': chip.color, '--badge-bg': chip.bg }}
+                      >
+                        {chip.label}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        <div className="orient-exits">
+          {ORIENTATION_EXITS.map((label) => (
+            <button key={label} type="button" className="orient-exit" onClick={advance}>
+              {label}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -185,6 +349,28 @@ export default function Landing() {
   const [showLogin, setShowLogin] = useState(false);
   const [loginName, setLoginName] = useState('');
   const [loginEmail, setLoginEmail] = useState('');
+  const [menuOpen, setMenuOpen] = useState(false);
+  const compact = useScrolledPast(40);
+  const menuBtnRef = useRef(null);
+  const sheetRef = useRef(null);
+
+  // While the sheet is open: Escape closes it, the page behind it cannot
+  // scroll, and focus moves inside. Closing hands focus back to the button
+  // that opened it, so keyboard users don't get dropped at the top of the DOM.
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    const onKeyDown = (e) => { if (e.key === 'Escape') setMenuOpen(false); };
+    const trigger = menuBtnRef.current; // same node at cleanup; captured to satisfy the lint rule
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', onKeyDown);
+    sheetRef.current?.querySelector('a')?.focus();
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = prevOverflow;
+      trigger?.focus();
+    };
+  }, [menuOpen]);
 
   // Warm the authenticated-shell chunks during idle so the first /app
   // navigation doesn't pay a cold fetch. import() is deduped against the
@@ -221,7 +407,7 @@ export default function Landing() {
   const activeVariant = DAY_VARIANTS.find((v) => v.id === activeDay);
 
   return (
-    <div className="landing">
+    <div className={`landing${compact ? ' is-compact' : ''}${menuOpen ? ' is-menu-open' : ''}`}>
       {/* Nav */}
       <nav className="landing-nav">
         <Link to="/" className="landing-logo">
@@ -229,10 +415,21 @@ export default function Landing() {
           MIOS
         </Link>
         <ul className="landing-nav-links">
-          <li><a href="#orientation">Orientation</a></li>
-          <li><a href="#evidence">Evidence</a></li>
-          <li><a href="#prophetic-path">The Day</a></li>
+          {NAV_LINKS.slice(0, 3).map((l) => (
+            <li key={l.href}><a href={l.href}>{l.label}</a></li>
+          ))}
         </ul>
+        <button
+          type="button"
+          ref={menuBtnRef}
+          className="landing-nav-toggle"
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          aria-controls="landing-mobile-nav"
+          onClick={() => setMenuOpen((v) => !v)}
+        >
+          {menuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
         <div className="landing-nav-actions">
           {user ? (
             <Link to="/app" className="btn btn-primary">
@@ -241,11 +438,11 @@ export default function Landing() {
           ) : (
             <>
               {cloudAccountsEnabled ? (
-                <Link to="/auth" className="btn btn-ghost" style={{ fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
+                <Link to="/auth" className="btn btn-ghost landing-nav-signin">
                   <LogIn size={16} /> Sign In
                 </Link>
               ) : (
-                <button className="btn btn-ghost" onClick={() => setShowLogin(true)} style={{ fontSize: '0.9rem' }}>
+                <button className="btn btn-ghost landing-nav-signin" onClick={() => setShowLogin(true)}>
                   <LogIn size={16} /> Enter MIOS
                 </button>
               )}
@@ -255,16 +452,62 @@ export default function Landing() {
         </div>
       </nav>
 
+      {/* Mobile sheet. Anchored under the nav and pulled up out of sight when
+          closed — never pinned to the bottom edge, which is the failure mode
+          the in-app MobileNav keeps hitting. `inert` keeps the closed sheet out
+          of the tab order while still letting it transition. */}
+      <div
+        className="landing-sheet-backdrop"
+        onClick={() => setMenuOpen(false)}
+        aria-hidden="true"
+      />
+      <div
+        id="landing-mobile-nav"
+        ref={sheetRef}
+        className="landing-sheet"
+        inert={!menuOpen || undefined}
+      >
+        <ul className="landing-sheet-links">
+          {NAV_LINKS.map((l, i) => (
+            <li key={l.href} style={{ '--i': i }}>
+              <a href={l.href} onClick={() => setMenuOpen(false)}>
+                <span className="landing-sheet-icon"><l.Icon size={18} /></span>
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        {/* The bar has no room for a second button at 375px, so the sign-in
+            route lives here instead. The primary CTA stays in the bar. */}
+        {!user && (
+          <div className="landing-sheet-actions">
+            {cloudAccountsEnabled ? (
+              <Link to="/auth" className="btn btn-secondary" onClick={() => setMenuOpen(false)}>
+                <LogIn size={16} /> Sign In
+              </Link>
+            ) : (
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={() => { setMenuOpen(false); setShowLogin(true); }}
+              >
+                <LogIn size={16} /> Enter MIOS
+              </button>
+            )}
+          </div>
+        )}
+      </div>
+
       {/* Login Modal */}
       {showLogin && (
-        <div className="expense-form-overlay" style={{ zIndex: 300 }}>
-          <div className="expense-form-modal" style={{ maxWidth: 400 }}>
+        <div className="expense-form-overlay landing-login-overlay">
+          <div className="expense-form-modal landing-login-modal">
             <div className="expense-form-header">
               <h3>Continue locally</h3>
               <button className="expense-form-close" onClick={() => setShowLogin(false)}><X size={18} /></button>
             </div>
             <div className="expense-form-body">
-              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: 1.5, marginBottom: '1rem', marginTop: '-0.25rem' }}>
+              <p className="landing-login-note">
                 Your data stays on this device only. You can export a full backup any time from Settings.
               </p>
               <div className="expense-form-field">
@@ -288,8 +531,7 @@ export default function Landing() {
               ) : (
                 <button className="btn btn-ghost" onClick={() => setShowLogin(false)}>Cancel</button>
               )}
-              <button className="btn btn-primary" onClick={handleLogin} disabled={!loginName.trim()}
-                style={{ opacity: loginName.trim() ? 1 : 0.4 }}>
+              <button className="btn btn-primary" onClick={handleLogin} disabled={!loginName.trim()}>
                 Continue <ArrowRight size={14} />
               </button>
             </div>
@@ -305,14 +547,16 @@ export default function Landing() {
               <Star size={14} /> MIOS — Maqasid Islam Orienting System
             </div>
             <h1 className="hero-title">
-              Align your daily rhythm with <span className="highlight">what truly matters</span>
+              Seven objectives. <span className="highlight">One next step.</span>
             </h1>
             <p className="hero-subtitle">
-              MIOS holds every dimension of your life under the Maqasid al-Shari&rsquo;ah — then names the one thing to do next, and shows the evidence it rests on.
+              MIOS sorts your whole life under the Maqasid al-Shari&rsquo;ah — then names the one thing to do next, and shows the evidence it rests on.
             </p>
             <div className="hero-cta">
-              <Link to="/get-started" className="btn btn-primary btn-lg">
-                Begin Your Path <ArrowRight size={18} />
+              {/* motif-shimmer-border is tokens.css's 4s mask-composite sweep;
+                  it falls back to --primary when no --motif-tint is set. */}
+              <Link to="/get-started" className="btn btn-primary btn-lg motif-shimmer-border">
+                Begin your path <ArrowRight size={18} />
               </Link>
               <a href="#orientation" className="btn btn-secondary btn-lg">See what it recommends</a>
             </div>
@@ -322,9 +566,9 @@ export default function Landing() {
         <div className="hero-marquee" aria-hidden="true">
           <div className="hero-marquee-track">
             {[...Array(2)].map((_, dup) => (
-              <div key={dup} style={{ display: 'flex', gap: 'var(--space-10)' }}>
+              <div key={dup} className="hero-marquee-group">
                 <span className="hero-marquee-item">Grounded in the Maqasid al-Shari'ah</span>
-                <span className="hero-marquee-item">Local-first · sync only if you ask</span>
+                <span className="hero-marquee-item">Local-first · nothing leaves your device</span>
                 <span className="hero-marquee-item">Zero tracking · zero ads</span>
                 <span className="hero-marquee-item">Every task carries its evidence</span>
                 <span className="hero-marquee-item">Free — no paywalls, no tiers</span>
@@ -336,40 +580,24 @@ export default function Landing() {
       </section>
 
       {/* Orientation — the single next step */}
-      <section className="features-section" id="orientation">
-        <p className="section-label">Orientation</p>
-        <h2 className="section-title">One next step. Never a backlog.</h2>
-        <p className="section-subtitle">
-          Open MIOS and it names a single subtask — the one your Core tier is missing first. Not a list to triage. One thing, with the trail that led to it.
-        </p>
+      <RevealSection className="features-section" id="orientation">
+        <div className="section-head section-head--split">
+          <div className="section-head-lead">
+            <p className="section-label">Orientation</p>
+            <h2 className="section-title">It names one thing. That&rsquo;s the whole screen.</h2>
+          </div>
+          <p className="section-subtitle">
+            Open MIOS and it names a single subtask — the one your Core tier is missing first. Not a list to triage. One thing, with the trail that led to it. The card below is real: take an exit and see what comes next.
+          </p>
+        </div>
 
         <div className="feature-content">
-          <div className="orient-card">
-            <div className="orient-ladder">
-              <span style={{ color: '#AD6E9E' }}>Family</span>
-              <span className="orient-ladder-sep">&rsaquo;</span>
-              <span>Core</span>
-              <span className="orient-ladder-sep">&rsaquo;</span>
-              <span>Extended Family</span>
-              <span className="orient-ladder-sep">&rsaquo;</span>
-              <span>Silat al-Rahim</span>
-            </div>
-            <p className="orient-task">Call one relative you haven&rsquo;t spoken to this month.</p>
-            <div className="orient-meta">
-              <span className="orient-badge" style={{ color: '#f59e0b', background: '#f59e0b18' }}>T2 · QARINA</span>
-              <span className="orient-why">Why &amp; how</span>
-            </div>
-            <div className="orient-exits">
-              {ORIENTATION_EXITS.map((label) => (
-                <span key={label} className="orient-exit">{label}</span>
-              ))}
-            </div>
-          </div>
+          <OrientationDemo />
           <div className="feature-list">
-            {ORIENTATION_POINTS.map((f) => (
-              <div key={f.title} className="feature-item">
-                <div className="feature-icon" style={{ background: 'var(--primary-bg)' }}>
-                  {f.Icon && <f.Icon size={18} style={{ color: 'var(--primary)' }} />}
+            {ORIENTATION_POINTS.map((f, i) => (
+              <div key={f.title} className="feature-item reveal-stagger" style={{ '--i': i }}>
+                <div className="feature-icon">
+                  {f.Icon && <f.Icon size={18} />}
                 </div>
                 <div>
                   <h4>{f.title}</h4>
@@ -388,10 +616,10 @@ export default function Landing() {
             )}
           </div>
         </div>
-      </section>
+      </RevealSection>
 
       {/* Evidence — the two-axis grounding schema */}
-      <section className="pricing-section" id="evidence">
+      <RevealSection className="pricing-section" id="evidence">
         <p className="section-label">Evidence</p>
         <h2 className="section-title">Every task carries its evidence.</h2>
         <p className="section-subtitle">
@@ -399,26 +627,38 @@ export default function Landing() {
         </p>
 
         <p className="evidence-axis-label">Provenance — how verified the evidence is</p>
-        <div className="pricing-cards">
-          {AMANAH_TIERS.map((tier) => (
-            <div key={tier.id} className="pricing-card" style={{ borderTop: `3px solid ${tier.color}` }}>
-              <div className="evidence-tier-head">
-                <span className="evidence-badge" style={{ color: tier.color, background: tier.bg }}>{tier.id}</span>
-                <div>
-                  <div className="plan-name" style={{ marginBottom: 0 }}>{tier.label}</div>
-                  <div className="evidence-tier-ar">{tier.arabic}</div>
+        <div className="evidence-bento">
+          {AMANAH_TIERS.map((tier, i) => {
+            const [meaning, verdict] = splitTierDescription(tier.description);
+            return (
+              <article
+                key={tier.id}
+                className={`evidence-bento-card reveal-stagger${i === 0 ? ' is-featured' : ''}`}
+                style={{ '--tier-color': tier.color, '--tier-bg': tier.bg, '--i': i }}
+              >
+                <div className="evidence-tier-head">
+                  <span className="evidence-badge">{tier.id}</span>
+                  <div>
+                    <div className="evidence-tier-name">{tier.label}</div>
+                    <div className="evidence-tier-ar">{tier.arabic}</div>
+                  </div>
                 </div>
-              </div>
-              <p className="evidence-tier-desc">{tier.description}</p>
-            </div>
-          ))}
+                <p className="evidence-tier-desc">{meaning}</p>
+                {verdict && <p className="evidence-tier-verdict">{verdict}</p>}
+              </article>
+            );
+          })}
         </div>
 
         <p className="evidence-axis-label">Relevance — how closely the citation bears on the task</p>
-        <div className="evidence-chips">
-          {RELEVANCE_CHIPS.map((chip) => (
-            <div key={chip.id} className="evidence-chip">
-              <span className="evidence-badge" style={{ color: chip.color, background: chip.bg }}>{chip.label}</span>
+        <div className="evidence-rail">
+          {RELEVANCE_CHIPS.map((chip, i) => (
+            <div
+              key={chip.id}
+              className="evidence-rail-item reveal-stagger"
+              style={{ '--chip-color': chip.color, '--chip-bg': chip.bg, '--i': i }}
+            >
+              <span className="evidence-badge is-chip">{chip.label}</span>
               <p>{chip.description}</p>
             </div>
           ))}
@@ -427,7 +667,7 @@ export default function Landing() {
         <p className="evidence-note">
           Qur&rsquo;an passages render word-by-word with translation; hadith render with their collection, number, and — where the collection assigns one — their grade. MIOS does not issue rulings: citations are starting points for reflection and study, not a fatwa. Verify with a qualified scholar before acting on contested matters.
         </p>
-      </section>
+      </RevealSection>
 
       {/* Prophetic Path live-demo preview */}
       <section className="prophetic-preview-section" id="prophetic-path">
@@ -445,7 +685,7 @@ export default function Landing() {
       </section>
 
       {/* Sunnah Mode — the spine reshapes by day */}
-      <section className="features-section" id="sunnah">
+      <RevealSection className="features-section" id="sunnah">
         <p className="section-label">Sunnah Mode</p>
         <h2 className="section-title">The day is not the same every day.</h2>
         <p className="section-subtitle">
@@ -458,7 +698,7 @@ export default function Landing() {
               key={v.id}
               className={`feature-tab ${activeDay === v.id ? 'active' : ''}`}
               onClick={() => setActiveDay(v.id)}
-              style={activeDay === v.id ? { borderColor: v.accent, color: v.accent } : undefined}
+              style={{ '--tab-accent': v.accent }}
             >
               {v.label}
             </button>
@@ -466,61 +706,56 @@ export default function Landing() {
         </div>
 
         {activeVariant && (
-          <div className="day-panel" style={{ borderColor: `${activeVariant.accent}40` }} aria-live="polite">
-            <p className="day-panel-headline" style={{ color: activeVariant.accent }}>{activeVariant.headline}</p>
+          <div className="day-panel" style={{ '--day-accent': activeVariant.accent }} aria-live="polite">
+            <p className="day-panel-headline">{activeVariant.headline}</p>
             <p className="day-panel-quote">{activeVariant.quote}</p>
             <p className="day-panel-shift">{activeVariant.shift}</p>
           </div>
         )}
-      </section>
+      </RevealSection>
 
       {/* How It Works */}
-      <section className="pricing-section" id="how-it-works">
-        <p className="section-label">How It Works</p>
-        <h2 className="section-title">Three steps to a purposeful life</h2>
-        <p className="section-subtitle">Get started in under a minute. No account required — everything runs on your device until you choose to sync.</p>
+      <RevealSection className="pricing-section" id="how-it-works">
+        <div className="section-head section-head--split">
+          <div className="section-head-lead">
+            <p className="section-label">How It Works</p>
+            <h2 className="section-title">Three steps, then it does the choosing.</h2>
+          </div>
+          <p className="section-subtitle">Set up in under a minute. No account, and nothing leaves your device — export the whole thing as JSON whenever you want.</p>
+        </div>
 
-        <div className="pricing-cards">
-          {HOW_IT_WORKS.map((step) => {
+        <div className="how-steps">
+          {HOW_IT_WORKS.map((step, i) => {
             const Icon = step.icon;
             return (
-              <div key={step.step} className="pricing-card">
-                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', marginBottom: 'var(--space-4)' }}>
-                  <div style={{
-                    width: 48, height: 48, borderRadius: 'var(--radius)',
-                    background: 'var(--primary-bg)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    color: 'var(--primary)', fontWeight: 700, fontSize: '1.1rem', flexShrink: 0,
-                  }}>
-                    <Icon size={24} />
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--primary)', letterSpacing: '0.06em' }}>STEP {step.step}</div>
-                    <div className="plan-name" style={{ marginBottom: 0 }}>{step.title}</div>
-                  </div>
-                </div>
-                <p style={{ color: 'var(--text2)', fontSize: '0.95rem', lineHeight: 1.7 }}>{step.desc}</p>
+              <div key={step.step} className="how-step reveal-stagger" style={{ '--i': i }}>
+                <span className="how-step-num" aria-hidden="true">{step.step}</span>
+                <div className="how-step-icon"><Icon size={24} /></div>
+                <p className="how-step-eyebrow">Step {step.step}</p>
+                <h3 className="how-step-title">{step.title}</h3>
+                <p className="how-step-desc">{step.desc}</p>
               </div>
             );
           })}
         </div>
-      </section>
+      </RevealSection>
 
       {/* CTA */}
-      <section className="cta-section">
-        <h2>Ready to align your life with purpose?</h2>
-        <p>Join those who organize every dimension of their life around the objectives that truly matter.</p>
-        <Link to="/get-started" className="btn btn-primary btn-lg">
-          Get Started Free <ArrowRight size={18} />
+      <RevealSection className="cta-section">
+        <h2>There is already one thing to do next.</h2>
+        <p>Choose your path in under a minute. Orientation names the first step from there — and shows you where it came from.</p>
+        <Link to="/get-started" className="btn btn-primary btn-lg motif-shimmer-border">
+          Choose your path <ArrowRight size={18} />
         </Link>
-      </section>
+      </RevealSection>
 
       {/* FAQ */}
-      <section className="faq-section" id="faq">
+      <RevealSection className="faq-section" id="faq">
         <p className="section-label">FAQ</p>
         <h2 className="section-title">Frequently asked questions</h2>
-        <div style={{ marginTop: 'var(--space-8)' }}>
+        <div className="faq-list">
           {FAQS.map((faq, i) => (
-            <div key={i} className="faq-item">
+            <div key={i} className="faq-item reveal-stagger" style={{ '--i': i }}>
               <button
                 className={`faq-question ${openFaq === i ? 'open' : ''}`}
                 onClick={() => setOpenFaq(openFaq === i ? null : i)}
@@ -538,13 +773,13 @@ export default function Landing() {
             </div>
           ))}
         </div>
-      </section>
+      </RevealSection>
 
       {/* Footer */}
       <footer className="landing-footer">
         <div className="footer-grid">
           <div className="footer-brand">
-            <div className="landing-logo" style={{ marginBottom: 'var(--space-3)' }}>
+            <div className="landing-logo">
               <div className="logo-icon"><Moon size={16} /></div>
               MIOS
             </div>
@@ -578,8 +813,7 @@ export default function Landing() {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>&copy; {new Date().getFullYear()} MIOS. All rights reserved.</span>
-          <span>Every dimension of life. With purpose.</span>
+          <span>&copy; {new Date().getFullYear()} MIOS</span>
         </div>
       </footer>
     </div>
