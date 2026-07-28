@@ -20,9 +20,9 @@ const LEVEL_COLORS = {
 };
 
 const LEVEL_LABELS = {
-  core:       'CORE · Level 1 · Necessities (Daruriyyat)',
-  growth:     'GROWTH · Level 2 · Needs (Hajiyyat)',
-  excellence: 'EXCELLENCE · Level 3 · Refinement (Tahsiniyyat)',
+  core:       'LEVEL 1 · CORE (DARURIYYAT)',
+  growth:     'LEVEL 2 · GROWTH (HAJIYYAT)',
+  excellence: 'LEVEL 3 · EXCELLENCE (TAHSINIYYAT)',
 };
 
 const LEVEL_DESCRIPTIONS = {

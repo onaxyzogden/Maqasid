@@ -20,12 +20,12 @@ Use simplified Arabic transliteration without diacritical marks in code and UI l
 
 ### Seven Maqasid (Pillar Names)
 1. **Faith** (حفظ الدين — Hifz al-Din)
-2. **Life** (حفظ النفس — Hifz al-Nafs)
+2. **Health** (حفظ النفس — Hifz al-Nafs)
 3. **Intellect** (حفظ العقل — Hifz al-Aql)
 4. **Family** (حفظ النسل — Hifz al-Nasl)
 5. **Wealth** (حفظ المال — Hifz al-Mal)
 6. **Environment** (حفظ البيئة — Hifz al-Bi'ah)
-7. **Ummah** (حفظ الأمة — Hifz al-Ummah)
+7. **Community** (حفظ الأمة — Hifz al-Ummah)
 
 ## UI Copy Voice
 

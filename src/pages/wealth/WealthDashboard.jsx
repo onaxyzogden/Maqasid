@@ -82,10 +82,10 @@ export default function WealthDashboard() {
       {/* ── Pillars Bento Grid ── */}
       <section className="wealth-pillars">
 
-        {/* Level 1: Core Pillars */}
+        {/* Level 1: Core */}
         <div className="wealth-core-card">
-          <span className="wealth-badge wealth-badge--dark">LEVEL 1: NECESSITIES</span>
-          <h3 className="wealth-core-card__title">Core Pillars</h3>
+          <span className="wealth-badge wealth-badge--dark">LEVEL 1: CORE</span>
+          <h3 className="wealth-core-card__title">Core</h3>
           <p className="wealth-core-card__desc">
             Foundational elements required for the preservation and stewardship of wealth.
           </p>
@@ -123,10 +123,10 @@ export default function WealthDashboard() {
         {/* Level 2 + 3 sub-grid */}
         <div className="wealth-pillars__right">
 
-          {/* Level 2: Growth Space */}
+          {/* Level 2: Growth */}
           <div className="wealth-needs-card">
-            <span className="wealth-badge wealth-badge--secondary">LEVEL 2: NEEDS</span>
-            <h3 className="wealth-needs-card__title">Growth Space</h3>
+            <span className="wealth-badge wealth-badge--secondary">LEVEL 2: GROWTH</span>
+            <h3 className="wealth-needs-card__title">Growth</h3>
             <p className="wealth-needs-card__desc">
               Expansions of wealth stewardship through ethical ownership and investment.
             </p>
@@ -161,10 +161,10 @@ export default function WealthDashboard() {
             </div>
           </div>
 
-          {/* Level 3: Embellishments */}
+          {/* Level 3: Excellence */}
           <div className="wealth-excellence-card">
             <span className="wealth-badge wealth-badge--tertiary">LEVEL 3: EXCELLENCE</span>
-            <h3 className="wealth-excellence-card__title">Embellishments</h3>
+            <h3 className="wealth-excellence-card__title">Excellence</h3>
             <p className="wealth-excellence-card__desc">
               The refinement of wealth into lasting generosity and generational endowment.
             </p>

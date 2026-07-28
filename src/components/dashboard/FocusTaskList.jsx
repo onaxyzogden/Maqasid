@@ -29,7 +29,7 @@ function TaskRow({ task, project, accentColor, maintenance }) {
 }
 
 const LEVEL_LABELS = {
-  core: 'Level 1 · Foundation',
+  core: 'Level 1 · Core',
   growth: 'Level 2 · Growth',
   excellence: 'Level 3 · Excellence',
 };
