@@ -64,9 +64,9 @@ const FAQS = [
 ];
 
 const HOW_IT_WORKS = [
-  { step: '01', title: 'Choose Your Path', desc: 'Select the Islamic values layer or universal ethics during onboarding. Set your name and preferences. No account required.', icon: ICON_REGISTRY.Compass },
-  { step: '02', title: 'Take the Next Step', desc: 'Open Orientation. It names one subtask, shows the ladder it came from, and shows the evidence behind it.', icon: BookOpen },
-  { step: '03', title: 'Grow Through the Tiers', desc: 'Work up from Core (Daruriyyat) to Growth (Hajiyyat) to Excellence (Tahsiniyyat) across every dimension of your life.', icon: Sparkles },
+  { step: '01', title: 'Choose your path', desc: 'Select the Islamic values layer or universal ethics during onboarding. Set your name and preferences. No account required.', icon: ICON_REGISTRY.Compass },
+  { step: '02', title: 'Take the next step', desc: 'Open Orientation. It names one subtask, shows the ladder it came from, and shows the evidence behind it.', icon: BookOpen },
+  { step: '03', title: 'Work up the tiers', desc: 'Work up from Core (Daruriyyat) to Growth (Hajiyyat) to Excellence (Tahsiniyyat) across all seven.', icon: Sparkles },
 ];
 
 const ORIENTATION_POINTS = [
@@ -430,16 +430,16 @@ export default function Landing() {
               <Star size={14} /> MIOS — Maqasid Islam Orienting System
             </div>
             <h1 className="hero-title">
-              Align your daily rhythm with <span className="highlight">what truly matters</span>
+              Seven objectives. <span className="highlight">One next step.</span>
             </h1>
             <p className="hero-subtitle">
-              MIOS holds every dimension of your life under the Maqasid al-Shari&rsquo;ah — then names the one thing to do next, and shows the evidence it rests on.
+              MIOS sorts your whole life under the Maqasid al-Shari&rsquo;ah — then names the one thing to do next, and shows the evidence it rests on.
             </p>
             <div className="hero-cta">
               {/* motif-shimmer-border is tokens.css's 4s mask-composite sweep;
                   it falls back to --primary when no --motif-tint is set. */}
               <Link to="/get-started" className="btn btn-primary btn-lg motif-shimmer-border">
-                Begin Your Path <ArrowRight size={18} />
+                Begin your path <ArrowRight size={18} />
               </Link>
               <a href="#orientation" className="btn btn-secondary btn-lg">See what it recommends</a>
             </div>
@@ -467,7 +467,7 @@ export default function Landing() {
         <div className="section-head section-head--split">
           <div className="section-head-lead">
             <p className="section-label">Orientation</p>
-            <h2 className="section-title">One next step. Never a backlog.</h2>
+            <h2 className="section-title">It names one thing. That&rsquo;s the whole screen.</h2>
           </div>
           <p className="section-subtitle">
             Open MIOS and it names a single subtask — the one your Core tier is missing first. Not a list to triage. One thing, with the trail that led to it.
@@ -636,7 +636,7 @@ export default function Landing() {
         <div className="section-head section-head--split">
           <div className="section-head-lead">
             <p className="section-label">How It Works</p>
-            <h2 className="section-title">Three steps to a purposeful life</h2>
+            <h2 className="section-title">Three steps, then it does the choosing.</h2>
           </div>
           <p className="section-subtitle">Set up in under a minute. No account, and nothing leaves your device — export the whole thing as JSON whenever you want.</p>
         </div>
@@ -659,10 +659,10 @@ export default function Landing() {
 
       {/* CTA */}
       <RevealSection className="cta-section">
-        <h2>Ready to align your life with purpose?</h2>
-        <p>Join those who organize every dimension of their life around the objectives that truly matter.</p>
+        <h2>There is already one thing to do next.</h2>
+        <p>Choose your path in under a minute. Orientation names the first step from there — and shows you where it came from.</p>
         <Link to="/get-started" className="btn btn-primary btn-lg motif-shimmer-border">
-          Get Started Free <ArrowRight size={18} />
+          Choose your path <ArrowRight size={18} />
         </Link>
       </RevealSection>
 
@@ -730,8 +730,7 @@ export default function Landing() {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>&copy; {new Date().getFullYear()} MIOS. All rights reserved.</span>
-          <span>Every dimension of life. With purpose.</span>
+          <span>&copy; {new Date().getFullYear()} MIOS</span>
         </div>
       </footer>
     </div>
