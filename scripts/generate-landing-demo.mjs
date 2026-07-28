@@ -227,8 +227,8 @@ async function main() {
       loadLocal('src/utils/subtask-grounding.js'),
     ]);
 
-    // One card per top-level objective, in pillar order -- the deck is the
-    // hero's "Seven objectives" made concrete, so a missing pillar is a bug.
+    // One card per top-level objective, in pillar order -- the deck is the hero's
+    // "MIOS names seven" made concrete, so a missing pillar is a bug.
     const pillarIds = MAQASID_CORE_PILLARS.slice(0, 7).map((p) => p.id);
     const pickIds = PICKS.map((p) => p.pillarId);
     if (pillarIds.join(',') !== pickIds.join(',')) {

@@ -452,6 +452,18 @@ html.reduce-motion:has(.landing) { scroll-behavior: auto; }
   max-width: 860px; margin-bottom: var(--space-6);
 }
 
+/* From 901px the hero is two columns, but the grid does not hit its 1200px max
+   until ~1254px. In between, the text column is only (100vw - 94px) / 2 -- about
+   410px at 920px, 453px at 1000px -- while 6.5vw is already at or near the 68px
+   ceiling. Sizing the title off the viewport there is sizing it off space it
+   does not have: the title runs to five lines and the CTA falls below the fold.
+   Track the column instead. The comfortable ratio at the maxed-out 580px column
+   is column/8.5, and (100vw - 94px)/17 holds exactly that, meeting 68px right
+   where the grid maxes out -- so there is no jump at the top of the range. */
+@media (min-width: 901px) {
+  .hero-title { font-size: clamp(2.75rem, calc((100vw - 94px) / 17), 4.25rem); }
+}
+
 /* Above 1024px the clamp is at its 68px ceiling, which is where the tracking
    has to come in further to stop the words drifting apart. The base stays at
    -0.02em -- at the 44px small end, -0.03em would already be too tight. */

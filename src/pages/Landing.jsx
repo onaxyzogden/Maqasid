@@ -547,10 +547,13 @@ export default function Landing() {
               <Star size={14} /> MIOS — Maqasid Islam Orienting System
             </div>
             <h1 className="hero-title">
-              Seven objectives. <span className="highlight">One next step.</span>
+              Faith, family, health, wealth — <span className="highlight">one step at a time.</span>
             </h1>
+            {/* Most visitors have never met the term, and the pillars section that used to
+                spell it out is gone — so the hero defines it. "MIOS names seven" is exact:
+                the classical set is five, and the extension is ours, not the tradition's. */}
             <p className="hero-subtitle">
-              MIOS sorts your whole life under the Maqasid al-Shari&rsquo;ah — then names the one thing to do next, and shows the evidence it rests on.
+              The Maqasid al-Shari&rsquo;ah are the higher objectives of Islamic law — what it exists to protect. MIOS names seven, sorts your whole life under them, and shows you the one thing to do next.
             </p>
             <div className="hero-cta">
               {/* motif-shimmer-border is tokens.css's 4s mask-composite sweep;
