@@ -68,8 +68,12 @@ Test mutations were preview-localStorage only (Fajr's before-board task consumed
 
 **Amanah:** neutral. Presentational/navigational — no seed `sources[]`, fiqh, or capital surface touched; no CSA/CSRA/salam/yield-share. The drill-in *surfaces* existing graded evidence (the Evidence accordion) inside the covenant popup and keeps the three non-punitive exits.
 
+> [!note] Amended 2026-07-28
+> **Item 2 (the desktop stage + rail) is retired** by [[2026-07-28-milos-orientation-card-face-single-layout]]. `OrientationSpread.jsx`, all `.orient-spread*` / `.orient-rail*` CSS and the `useMobile()` gate in `Orientation.jsx` are deleted; the carousel is now the single layout at every width, sized by a **container query** (`@container orient (min-width: 480px)`) rather than a viewport media query. That reverses this entry's "CSS-only desktop layout" rejection at line 46, but *not* its reasoning — the objection was that scroll-snap JS must never run against a non-scrolling layout, and the retained layout is the scrolling one, so `centerEl`/`nearestIndex` still have a scroll container. `focusPillarId` survives the rail's removal (the container still writes it to re-front the recommended pillar). **Items 1, 3 and 4 are untouched and still in force:** the badge fix at line 25 is load-bearing and now doubly so (re-recorded as a gotcha in the new ADR), the centered `pp-slideup__*` chrome stands, and `shared/SubtaskStepDetail` / `shared/SubtaskEvidence` are unchanged — the orientation sheet still renders them.
+
 ## Connections
 
+- [[2026-07-28-milos-orientation-card-face-single-layout]] — **retires** this entry's desktop stage + rail; its badge fix, centered chrome and shared step internals survive intact
 - [[2026-07-25-milos-orientation-carousel-redesign]] — delivers that ADR's deferred desktop layout and fixes its badge clip; its sheet is now built on the shared `SubtaskStepDetail`
 - [[2026-07-22-milos-prophetic-path-node-popup]] — the popup this drill-in extends; its `display:contents` portal rule preserved
 - [[2026-07-25-milos-prayer-popup-consolidation]] / [[2026-07-25-milos-nonprayer-tasks-to-during]] — the tab layouts whose task lists the drill-in now sits behind

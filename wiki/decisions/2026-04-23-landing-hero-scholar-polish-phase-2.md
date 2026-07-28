@@ -9,6 +9,9 @@ superseded_by: []
 
 # Landing hero — scholar-led polish phase 2
 
+> [!warning] Stale — all four changes below have been removed from the codebase (noted 2026-07-28)
+> Measured against `src/pages/Landing.jsx` + `src/styles/landing.css` at `188471f`: `.hero-ring` / `.hr-shimmer` (§1), `maqasidPulse` (§2), and `.hero-bento*` incl. the Mastery Ring (§3–4) have **zero occurrences** in either file. `7ba79e9 feat(landing): replace hero bento grid with MaqasidComparisonWheel` (**2026-04-28**) removed them; **no decision page was ever filed for that change**, so this entry has read as current for three months. The wheel that replaced the grid reads `pillar.stewardshipLabel` for its detail line, **not** `PILLAR_FEATURES[pillar.id].description` as §42 states — and `PILLAR_FEATURES` itself no longer exists at all, deleted with the Seven Maqasid tab section by `123fac5` (see [[2026-07-28-milos-orientation-card-face-single-layout]]). Phase 1's `.hero-marquee` ([[2026-04-23-landing-hero-scholar-polish]]) **does** survive. `superseded_by` is left empty deliberately: there is no page to point at. Flagged during a wiki-update contradiction check, not repaired — filing the 2026-04-28 hero rewrite is its own piece of work.
+
 Second pass of the UI/UX Design Scholar NotebookLM (`995a59d1-...`) blueprint. Phase 1 ([[2026-04-23-landing-hero-scholar-polish]]) delivered Sacred Serif typography, soul-language copy, Qalb-intent CTA press, and the Ummah-signal marquee. This phase executes items 4 ("Breaking the Box") and 5 (Bento pillar grid with Mastery Rings + progressive disclosure).
 
 ## Plan adjustment vs. original scholar brief

@@ -70,8 +70,12 @@ All seven pillars were seeded in the **fresh, isolated preview browser** by navi
 > [!note] Amended 2026-07-26
 > Three items evolved in [[2026-07-26-milos-centered-popups-node-drill-in]]: (1) the deferred **desktop layout** shipped as `OrientationSpread` (stage + 7-row rail, gated by `useMobile()` — the carousel is untouched); (2) the "Weakest — recommended" flag's **clipping** (the track's 4px top padding vs. the −9px overhang under forced `overflow-y`) was fixed by raising the padding to `var(--space-3)`; (3) the sheet is **no longer a bottom sheet** — the shared `pp-slideup__*` chrome became a centered popup at every viewport, and the sheet's step body was extracted to `shared/SubtaskStepDetail` (also consumed by the Prophetic Path node popup). `OrientationEvidence.jsx` moved to `shared/SubtaskEvidence.jsx`. Everything else here — engine, tier gate, continuity, 3 actions — stands.
 
+> [!note] Amended 2026-07-28
+> The **card face described at line 35 is superseded** by [[2026-07-28-milos-orientation-card-face-single-layout]]. The crumb (`TIER_META` › `getSubmoduleLabel`) and the priority pill are gone from the face — both still render in the sheet — and the "Now" line now shows the **task** title, not the subtask (the sheet opens to the subtask, so the face was saying it twice). A new static one-line **domain description** leads the card, rendered *outside* the eligible/caught-up/unseeded branch. Everything else in this entry stands: the engine, the necessity-tier gate, `buildOrientationCarousel`, the flag semantics, the dot row, held-task continuity and the 3 actions. Note also that the desktop layout recorded at line 51 and in the 2026-07-26 amendment above has since been **retired** — the carousel is now the only layout at every width.
+
 ## Connections
 
+- [[2026-07-28-milos-orientation-card-face-single-layout]] — **partially supersedes** this entry's card-face composition (crumb, priority pill, subtask line) and retires the desktop spread; the engine and continuity model here are untouched
 - [[2026-07-26-milos-centered-popups-node-drill-in]] — the follow-on that delivered the deferred desktop layout, fixed the badge clip, centered the sheet, and shared its step internals
 - [[2026-07-23-milos-orientation-screen]] — the surface this **partially supersedes**: the ladder+strip UI and "Something else" override are retired; that ADR's engine, system-wide tier gate, real-snooze semantics, and effect-driven recompute all remain in force (and are extended here).
 - [[milos]] — parent entity, `/app/orientation` route
