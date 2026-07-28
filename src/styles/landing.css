@@ -1,6 +1,127 @@
 /* Landing Page Styles */
 .landing { --nav-h: 64px; }
 
+/* ── Scroll reveal ───────────────────────────────────────────────────────────
+   `.is-in` is added by useFirstReveal in JS; the transition only decorates it.
+   Nothing here depends on a keyframe to become visible — main.jsx puts
+   `.reduce-motion` on <html> in the Claude Code preview and global.css clamps
+   every transition to 0.001ms, which would strand a keyframe-driven reveal at
+   opacity 0 forever. Under the clamp these simply snap in. */
+.landing .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 700ms var(--ease), transform 700ms var(--ease);
+}
+.landing .reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Children inside a revealed section come in on a 70ms ladder set by --i. */
+.landing .reveal-stagger {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 520ms var(--ease), transform 520ms var(--ease);
+}
+.landing .is-in .reveal-stagger {
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+
+/* Genuine reduced-motion users — and the preview harness — get the content
+   outright rather than a fade they cannot see. */
+@media (prefers-reduced-motion: reduce) {
+  .landing .reveal,
+  .landing .reveal-stagger { opacity: 1; transform: none; transition: none; }
+}
+.reduce-motion .landing .reveal,
+.reduce-motion .landing .reveal-stagger { opacity: 1; transform: none; transition: none; }
+
+/* ── Delayed tooltip ─────────────────────────────────────────────────────────
+   One second of dwell before it appears, instant on the way out — the delay
+   lives on the :hover rule so only the entry transition carries it. Scoped to
+   .landing so it cannot leak into the app shell. */
+.landing [data-tip] { position: relative; }
+.landing [data-tip]::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + var(--space-2));
+  left: 50%;
+  translate: -50% 4px;
+  z-index: 30;
+  width: max-content;
+  max-width: 240px;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius);
+  background: var(--text);
+  color: var(--bg);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-transform: none;
+  text-align: left;
+  white-space: normal;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration) var(--ease) 0s,
+              translate var(--duration) var(--ease) 0s;
+}
+.landing [data-tip]:hover::after,
+.landing [data-tip]:focus-visible::after {
+  opacity: 1;
+  translate: -50% 0;
+  transition-delay: 1s;
+}
+
+/* ── Button hover ────────────────────────────────────────────────────────────
+   A 2px lift and a light sweep across the fill. The element selector is not
+   decoration: global.css loads after this file and its `.btn-primary:hover`
+   sets its own transform at equal specificity, so `.landing a.btn` /
+   `.landing button.btn` is what actually wins. */
+.landing a.btn,
+.landing button.btn {
+  position: relative;
+  overflow: hidden;
+}
+.landing a.btn::after,
+.landing button.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 65%);
+  background-size: 250% 100%;
+  background-position: 200% 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration) var(--ease);
+}
+.landing a.btn:hover,
+.landing button.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+.landing a.btn:hover::after,
+.landing button.btn:hover::after {
+  opacity: 1;
+  animation: landingBtnSweep 900ms var(--ease) forwards;
+}
+/* Press wins over hover — this must stay after the :hover rules above. */
+.landing a.btn:active,
+.landing button.btn:active {
+  transform: scale(0.97);
+  transition: transform 80ms var(--ease);
+}
+@keyframes landingBtnSweep {
+  from { background-position: 200% 0; }
+  to   { background-position: -50% 0; }
+}
+
 /* Nav */
 .landing-nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -194,6 +315,15 @@
   background: linear-gradient(135deg, var(--primary), var(--accent));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
+  /* Text pop-out. Deliberately transform-only: an opacity keyframe here would
+     leave the phrase invisible wherever animations are clamped. */
+  display: inline-block;
+  animation: heroHighlightPop 800ms var(--ease-spring) both;
+}
+
+@keyframes heroHighlightPop {
+  from { transform: scale(0.92) translateY(0.06em); }
+  to   { transform: none; }
 }
 
 .hero-subtitle {
@@ -205,7 +335,6 @@
   display: flex; gap: var(--space-3); align-items: center; flex-wrap: wrap;
   justify-content: center;
 }
-.hero-cta .btn:active { transform: scale(0.97); transition: transform 80ms var(--ease); }
 
 /* Ummah signal marquee */
 .hero-marquee {
@@ -263,6 +392,38 @@
   max-width: 600px; margin: 0 auto var(--space-10);
 }
 
+/* Split section head — title left, subtitle in a narrow measure beside it.
+   Alternated against the centered default so the page stops marching. */
+.section-head--split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: end;
+  gap: var(--space-6) var(--space-10);
+  max-width: 1080px;
+  margin: 0 auto var(--space-10);
+}
+.section-head--split .section-label,
+.section-head--split .section-title,
+.section-head--split .section-subtitle {
+  text-align: left;
+  margin-inline: 0;
+  max-width: none;
+}
+.section-head--split .section-title { margin-bottom: 0; }
+.section-head--split .section-subtitle {
+  margin-bottom: 0;
+  max-width: 48ch;
+  font-size: var(--text-base);
+}
+
+@media (max-width: 900px) {
+  .section-head--split {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: var(--space-4);
+  }
+}
+
 .feature-tabs {
   display: flex; justify-content: center; gap: var(--space-2);
   margin-bottom: var(--space-8); flex-wrap: wrap;
@@ -302,33 +463,93 @@
   width: 36px; height: 36px; border-radius: var(--radius-sm);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
+  background: var(--primary-bg);
+  color: var(--primary);
 }
 
 .feature-item h4 { font-size: var(--text-md); margin-bottom: 2px; }
 .feature-item p { font-size: var(--text-base); color: var(--text2); line-height: 1.5; }
 
-/* Pricing */
+/* Tinted band shared by Evidence and How It Works */
 .pricing-section {
   padding: var(--space-16) var(--space-6);
   background: var(--bg3);
 }
 
-.pricing-cards {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-6); max-width: 1000px; margin: 0 auto;
+/* How It Works — straight-line grid. No cards; columns divided by hairlines,
+   each step numbered by a large ghosted numeral sitting behind the content.
+   The numeral ghosts via its own opacity rather than tokens.css's
+   .motif-ghost-text: main.jsx imports App (and therefore this file) before
+   tokens.css, so at equal specificity the motif class would win and knock the
+   primary tint back to plain body text. */
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 1080px;
+  margin: 0 auto;
 }
 
-.pricing-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius-xl); padding: var(--space-8);
-  display: flex; flex-direction: column;
-  transition: all var(--duration-lg) var(--ease);
+.how-step {
+  position: relative;
+  isolation: isolate;
+  padding: var(--space-6) var(--space-6) var(--space-8);
 }
-.pricing-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+.how-step + .how-step {
+  border-inline-start: 1px solid var(--border);
+}
 
-.pricing-card .plan-name {
-  font-size: var(--text-lg); font-weight: 600; color: var(--text2);
-  margin-bottom: var(--space-2);
+.how-step-num {
+  position: absolute;
+  z-index: -1;
+  top: calc(var(--space-1) * -1);
+  inset-inline-end: var(--space-4);
+  font-family: var(--font-heading);
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--primary);
+  opacity: 0.14;
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  transition: transform var(--duration-lg) var(--ease-spring),
+              opacity var(--duration-lg) var(--ease);
+}
+
+/* Text pop-out — the numeral swells and brightens as you read its column. */
+.how-step:hover .how-step-num {
+  transform: scale(1.12) translateY(-4px);
+  opacity: 0.24;
+}
+
+.how-step-icon {
+  width: 48px; height: 48px;
+  border-radius: var(--radius);
+  background: var(--primary-bg);
+  color: var(--primary);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: var(--space-4);
+}
+
+.how-step-eyebrow {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-1);
+}
+
+.how-step-title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: var(--space-3);
+}
+
+.how-step-desc {
+  color: var(--text2);
+  font-size: var(--text-base);
+  line-height: 1.7;
 }
 
 /* FAQ */
@@ -336,6 +557,8 @@
   padding: var(--space-16) var(--space-6);
   max-width: 800px; margin: 0 auto;
 }
+
+.faq-list { margin-top: var(--space-8); }
 
 .faq-item {
   border-bottom: 1px solid var(--border);
@@ -396,13 +619,64 @@
 .cta-section h2 { margin-bottom: var(--space-4); }
 .cta-section p { color: var(--text2); margin-bottom: var(--space-6); max-width: 500px; margin-inline: auto; }
 
-/* Orientation — mock "one next step" card */
+/* Orientation — mock "one next step" card, rendered as a deck that breaks
+   out of its grid cell. The two cards behind it are the backlog MIOS is
+   deliberately not showing you. */
+.orient-deck {
+  position: relative;
+  align-self: start;
+  margin-block-start: calc(var(--space-6) * -1);
+  padding: var(--space-4) var(--space-6) var(--space-8) 0;
+}
+
 .orient-card {
   background: var(--surface); border: 1px solid var(--border);
   border-radius: var(--radius-xl); padding: var(--space-6);
   display: flex; flex-direction: column; gap: var(--space-4);
   align-self: start;
 }
+
+.orient-card--front {
+  position: relative;
+  z-index: 2;
+  transform: rotate(-1.5deg);
+  transition: transform var(--duration-lg) var(--ease-spring);
+}
+
+.orient-card--stacked {
+  position: absolute;
+  inset-inline: var(--space-6) 0;
+  top: 0;
+  height: 100%;
+  gap: 0;
+  background: var(--bg2);
+  transition: transform var(--duration-lg) var(--ease-spring),
+              opacity var(--duration-lg) var(--ease);
+}
+.orient-card--mid {
+  z-index: 1;
+  opacity: 0.7;
+  transform: rotate(1.5deg) translate(var(--space-3), var(--space-3));
+}
+.orient-card--back {
+  z-index: 0;
+  opacity: 0.4;
+  transform: rotate(3.5deg) translate(var(--space-6), var(--space-6));
+}
+
+/* Hover fans the deck: the front card straightens, the two behind slide out. */
+.orient-deck:hover .orient-card--front,
+.orient-deck:focus-within .orient-card--front { transform: rotate(0deg) translateY(-4px); }
+.orient-deck:hover .orient-card--mid,
+.orient-deck:focus-within .orient-card--mid {
+  transform: rotate(2.5deg) translate(var(--space-5), var(--space-4));
+}
+.orient-deck:hover .orient-card--back,
+.orient-deck:focus-within .orient-card--back {
+  transform: rotate(5deg) translate(var(--space-10), var(--space-8));
+}
+
+.orient-ladder-pillar { font-weight: 700; }
 
 .orient-ladder {
   display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2);
@@ -422,6 +696,7 @@
 .orient-badge {
   font-size: var(--text-2xs); font-weight: 700; letter-spacing: 0.06em;
   padding: var(--space-1) var(--space-2); border-radius: var(--radius-full);
+  color: var(--badge-color); background: var(--badge-bg);
 }
 
 .orient-exits {
@@ -443,26 +718,82 @@
 }
 
 .evidence-tier-head { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3); }
+.evidence-tier-name { font-size: var(--text-lg); font-weight: 600; color: var(--text2); }
 .evidence-tier-ar { font-size: var(--text-base); color: var(--text3); }
 .evidence-tier-desc { color: var(--text2); font-size: var(--text-base); line-height: 1.7; margin: 0; }
+
+/* The gate verdict — the closing sentence of each tier description, pulled onto
+   its own line and tinted with that tier's semantic colour. Green proceeds,
+   amber cautions, violet holds. */
+.evidence-tier-verdict {
+  margin: var(--space-4) 0 0;
+  padding-top: var(--space-3);
+  border-top: 1px solid color-mix(in srgb, var(--tier-color) 22%, transparent);
+  color: var(--tier-color);
+  font-size: var(--text-base);
+  font-weight: 600;
+  line-height: 1.5;
+}
 
 .evidence-badge {
   font-size: var(--text-2xs); font-weight: 700; letter-spacing: 0.06em;
   padding: var(--space-1) var(--space-2); border-radius: var(--radius-full);
   white-space: nowrap; flex-shrink: 0;
+  color: var(--tier-color); background: var(--tier-bg);
 }
+.evidence-badge.is-chip { color: var(--chip-color); background: var(--chip-bg); }
 
-.evidence-chips {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4);
+/* Provenance — asymmetric bento. Bayyinah, the strongest tier, takes the
+   2x2 cell; Qarina and Niyyah stack down the third column. */
+.evidence-bento {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
   max-width: 1100px; margin: 0 auto;
 }
 
-.evidence-chip {
-  display: flex; flex-direction: column; gap: var(--space-2); align-items: flex-start;
-  border: 1px solid var(--border); border-radius: var(--radius-lg);
-  padding: var(--space-4); background: var(--surface);
+.evidence-bento-card {
+  display: flex; flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-block-start: 3px solid var(--tier-color);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  transition: box-shadow var(--duration-lg) var(--ease),
+              transform var(--duration-lg) var(--ease),
+              border-color var(--duration-lg) var(--ease);
 }
-.evidence-chip p { color: var(--text2); font-size: var(--text-base); line-height: 1.6; margin: 0; }
+.evidence-bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: color-mix(in srgb, var(--tier-color) 45%, var(--border));
+  border-block-start-color: var(--tier-color);
+}
+
+.evidence-bento-card.is-featured {
+  grid-column: span 2;
+  grid-row: span 2;
+  padding: var(--space-8);
+  justify-content: center;
+}
+.evidence-bento-card.is-featured .evidence-tier-name { font-size: var(--text-xl); }
+.evidence-bento-card.is-featured .evidence-tier-desc { font-size: var(--text-md); }
+
+/* Relevance — straight-line grid. No cards; hairline dividers only. */
+.evidence-rail {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 1100px; margin: 0 auto;
+}
+
+.evidence-rail-item {
+  display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start;
+  padding: var(--space-5) var(--space-6);
+}
+.evidence-rail-item + .evidence-rail-item {
+  border-inline-start: 1px solid var(--border);
+}
+.evidence-rail-item p { color: var(--text2); font-size: var(--text-base); line-height: 1.6; margin: 0; }
 
 .evidence-note {
   max-width: 720px; margin: var(--space-8) auto 0;
@@ -507,10 +838,32 @@
   .landing-nav { padding: 0 var(--space-4); }
   .landing-nav-links { display: none; }
   .feature-content { grid-template-columns: 1fr; }
-  .pricing-cards { grid-template-columns: 1fr; }
-  .evidence-chips { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--space-6); }
   .footer-bottom { flex-direction: column; gap: var(--space-3); }
+
+  /* Every straight-line / bento grid collapses to a single column, and the
+     dividing hairlines flip from vertical to horizontal. */
+  .evidence-bento,
+  .evidence-rail,
+  .how-steps { grid-template-columns: minmax(0, 1fr); }
+  .evidence-bento-card.is-featured {
+    grid-column: auto; grid-row: auto; padding: var(--space-6);
+  }
+  .evidence-rail-item + .evidence-rail-item,
+  .how-step + .how-step {
+    border-inline-start: none;
+    border-block-start: 1px solid var(--border);
+  }
+  .evidence-rail-item { padding-inline: 0; }
+  .how-step { padding-inline: 0; }
+
+  /* The deck stops breaking out — no room for the fan on a phone. */
+  .orient-deck {
+    margin-block-start: 0;
+    padding: 0;
+  }
+  .orient-card--front { transform: none; }
+  .orient-card--stacked { display: none; }
 }
 
 /* ── Onboarding fade-up animation ────────────────────────────────────────── */

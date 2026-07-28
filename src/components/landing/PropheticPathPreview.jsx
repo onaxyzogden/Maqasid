@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Sun, Sunrise, Sunset, Moon, Star, Coffee, Utensils, UtensilsCrossed } from 'lucide-react';
+import { useScrollProgress, useFirstReveal } from './use-landing-scroll';
 import './PropheticPathPreview.css';
 
 const PREVIEW_NODES = [
@@ -101,62 +102,6 @@ const PREVIEW_NODES = [
   },
 ];
 
-function useScrollProgress(ref) {
-  const [progress, setProgress] = useState(0);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return undefined;
-    let raf = 0;
-    const update = () => {
-      raf = 0;
-      const rect = el.getBoundingClientRect();
-      const vh = window.innerHeight || 1;
-      const total = rect.height - vh;
-      if (total <= 0) {
-        setProgress(0);
-        return;
-      }
-      const scrolled = -rect.top;
-      const p = Math.max(0, Math.min(1, scrolled / total));
-      setProgress(p);
-    };
-    const onScroll = () => {
-      if (!raf) raf = window.requestAnimationFrame(update);
-    };
-    update();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-      if (raf) window.cancelAnimationFrame(raf);
-    };
-  }, [ref]);
-  return progress;
-}
-
-function useFirstReveal(ref) {
-  const [revealed, setRevealed] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || revealed) return undefined;
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setRevealed(true);
-            io.disconnect();
-          }
-        }
-      },
-      { threshold: 0.15 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [ref, revealed]);
-  return revealed;
-}
-
 export default function PropheticPathPreview() {
   const sectionRef = useRef(null);
   const phoneRef = useRef(null);
@@ -181,6 +126,13 @@ export default function PropheticPathPreview() {
           <div className="ppp-screen-header">
             <span className="ppp-screen-eyebrow">Prophetic Path</span>
             <span className="ppp-screen-date">Today</span>
+          </div>
+
+          {/* Fed by the same useScrollProgress value that drives the active
+              node — no second scroll listener. Scaled rather than sized so it
+              never triggers layout on a rAF tick. */}
+          <div className="ppp-progress" aria-hidden="true">
+            <span className="ppp-progress-fill" style={{ '--ppp-progress': progress }} />
           </div>
 
           <div className="ppp-spine-wrap">
