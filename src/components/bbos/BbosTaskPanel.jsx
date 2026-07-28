@@ -9,6 +9,7 @@ import { useTaskStore } from '../../store/task-store';
 import { useAuthStore } from '../../store/auth-store';
 import { getBbosTaskDef, getBbosTaskDeps, BBOS_VALIDATION_FLAG_LABELS } from '@data/bbos/bbos-task-definitions';
 import { BBOS_STAGES } from '@data/bbos/bbos-pipeline';
+import { orderBoardTasks } from '@data/orientation-selector';
 import { getBbosStageIslamic } from '@data/bbos/bbos-stage-islamic';
 import { downloadTaskTemplate, validateTaskTemplate, importTaskTemplate } from '@services/bbos-template';
 import { useAppStore } from '../../store/app-store';
@@ -133,15 +134,20 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
     const runwayMonths = Number(task.bbosFieldData?.financialRunwayMonths);
     if (!runwayMonths || runwayMonths <= 0) return;
 
+    // Stage is the primary key; within a stage, the one board-ordering
+    // authority decides. Group -> order each group -> flatten, so the
+    // within-stage comparator stays identical to every other surface.
     const stageOrderMap = new Map(BBOS_STAGES.map((s) => [s.id, s.order ?? 0]));
-    const allTasks = (taskStore.tasksByProject[projectId] || [])
-      .filter((t) => t.bbosTaskType)
-      .sort((a, b) => {
-        const stA = stageOrderMap.get(a.bbosTaskType?.split('-')[0]) ?? 99;
-        const stB = stageOrderMap.get(b.bbosTaskType?.split('-')[0]) ?? 99;
-        if (stA !== stB) return stA - stB;
-        return (a.seedOrder ?? 999) - (b.seedOrder ?? 999);
-      });
+    const byStage = new Map();
+    for (const t of taskStore.tasksByProject[projectId] || []) {
+      if (!t.bbosTaskType) continue;
+      const stage = stageOrderMap.get(t.bbosTaskType.split('-')[0]) ?? 99;
+      if (!byStage.has(stage)) byStage.set(stage, []);
+      byStage.get(stage).push(t);
+    }
+    const allTasks = [...byStage.keys()]
+      .sort((a, b) => a - b)
+      .flatMap((stage) => orderBoardTasks(byStage.get(stage)));
 
     if (allTasks.length === 0) return;
     setRunwayModal({ allTasks, runwayMonths });

@@ -6,6 +6,7 @@ export const INTELLECT_SEED_TASKS = {
   // ── LEARNING & LITERACY ──
   intellect_learning_core: [
     {
+      seq: 1,
       title: 'Attain functional literacy in Arabic script — learn to read the Quran with tajweed',
       priority: 'urgent', tags: ['arabic', 'quran'],
       description: 'The Quran was revealed in Arabic, and reading it properly is a foundational duty. This task covers learning the Arabic alphabet, connecting letters, and applying basic tajweed rules so you can recite directly from the mushaf with correctness.',
@@ -241,6 +242,7 @@ Self-assessment is notoriously unreliable in recitation — you often cannot hea
       ],
     },
     {
+      seq: 4,
       title: 'Identify the core knowledge your profession or calling requires and map your gaps',
       priority: 'high', tags: ['learning', 'planning'],
       description: 'Islam demands itqan (excellence) in one\'s work, which begins with knowing what you need to know. Conduct an honest audit of the knowledge and competencies your field requires, then identify where you fall short so you can build a targeted learning plan.',
@@ -478,6 +480,7 @@ A plan without milestones is just a wish. The 90-day horizon is long enough to a
       ],
     },
     {
+      seq: 2,
       title: 'Establish a daily reading habit — minimum 20 pages or 30 minutes',
       priority: 'high', tags: ['reading', 'discipline'],
       description: 'The first word revealed to the Prophet (peace be upon him) was "Iqra" — Read. Consistent reading expands your vocabulary, deepens comprehension, and builds the cognitive endurance needed for serious intellectual work. This task anchors reading as a non-negotiable daily practice.',
@@ -673,6 +676,7 @@ Reading without reflection is consumption without digestion. The Quran repeatedl
       ],
     },
     {
+      seq: 0,
       title: 'Learn the Islamic obligation to seek knowledge — study hadith "Seek knowledge from the cradle to the grave"',
       priority: 'medium', tags: ['aqidah', 'knowledge'],
       description: 'Understanding that seeking knowledge is a religious obligation (fard) transforms learning from a personal ambition into an act of worship. Study the Quranic verses and ahadith that establish the rank of scholars and the duty of lifelong learning.',
@@ -903,6 +907,7 @@ Knowledge in Islam becomes ibadah (worship) through intention (niyyah). Without 
       ],
     },
     {
+      seq: 3,
       title: 'Complete a foundational course in Islamic sciences (fiqh, aqidah, or seerah)',
       priority: 'high', tags: ['islamic-education', 'study'],
       description: 'Every Muslim needs a baseline understanding of their faith — how to worship correctly (fiqh), what to believe (aqidah), and who the Prophet (peace be upon him) was (seerah). Completing a structured course ensures your foundation is solid rather than piecemeal.',
@@ -1131,6 +1136,7 @@ The Islamic scholarly tradition has always centred on note-taking, summarisation
 
   intellect_learning_growth: [
     {
+      seq: 0,
       title: 'Read one non-fiction book per month across diverse disciplines (science, history, philosophy)',
       priority: 'high', tags: ['reading', 'breadth'],
       description: 'The Quran repeatedly urges reflection on creation, history, and the natural world. Reading across disciplines builds the cross-pollinating knowledge base that produces genuine insight and protects against intellectual narrowness.',
@@ -1329,6 +1335,7 @@ If you cannot summarise a book in one page, you did not truly absorb it. Writing
       ],
     },
     {
+      seq: 2,
       title: 'Enrol in a structured course or programme aligned with your life mission',
       priority: 'high', tags: ['learning', 'skill-building'],
       description: 'Structured learning with deadlines, assessments, and feedback is far more effective than passive self-study. Align your next formal education investment with your overarching life mission so that every hour of study compounds toward your purpose.',
@@ -1628,6 +1635,7 @@ Completion is where most people fail — online course completion rates average 
       ],
     },
     {
+      seq: 3,
       title: 'Study one new language at an intermediate level (Arabic priority for Muslims)',
       priority: 'medium', tags: ['arabic', 'language'],
       description: 'Language opens entire civilisations of thought. For Muslims, Arabic unlocks the Quran, hadith, and classical scholarship without the filter of translation. Even for non-Arabic languages, bilingualism strengthens cognitive flexibility and empathy.',
@@ -1890,6 +1898,7 @@ Without a formal checkpoint, you will lack objective evidence of your progress. 
       ],
     },
     {
+      seq: 1,
       title: 'Build a personal library — curate 50 essential books across faith, profession, and worldview',
       priority: 'low', tags: ['reading', 'curation'],
       description: 'A personal library is a physical manifestation of your intellectual priorities. Curating it intentionally across faith, profession, and worldview ensures you have depth in what matters and breadth to think across boundaries.',
@@ -2160,6 +2169,7 @@ Reading three Islamic books in a row, then five professional books, then four wo
 
   intellect_learning_excellence: [
     {
+      seq: 1,
       title: 'Author an original piece of work — article, paper, book, or curriculum',
       priority: 'medium', tags: ['writing', 'legacy'],
       description: 'The scholars of Islam preserved and advanced knowledge by writing. Authoring original work forces you to synthesise what you know, fill gaps in your understanding, and contribute something lasting. It is one of the highest forms of sadaqah jariyah for the intellect.',
@@ -2420,6 +2430,7 @@ A work that remains unpublished benefits no one but you. Publishing — whether 
       ],
     },
     {
+      seq: 0,
       title: 'Mentor at least one student or younger person in your area of expertise',
       priority: 'medium', tags: ['mentorship', 'legacy'],
       description: 'The Prophet (peace be upon him) invested deeply in developing the next generation. Mentorship is how knowledge survives beyond your lifetime. Teaching also deepens your own mastery — you do not truly understand something until you can explain it to another.',
@@ -2706,6 +2717,7 @@ A mentorship without a formal review is a relationship that drifts rather than c
       ],
     },
     {
+      seq: 2,
       title: 'Develop and publish a structured learning pathway or curriculum in your field',
       priority: 'low', tags: ['teaching', 'contribution'],
       description: 'Creating a curriculum is an act of intellectual stewardship — you distil years of experience into a pathway others can follow. This compounds your impact far beyond what one-on-one mentorship alone can achieve.',
@@ -3039,6 +3051,7 @@ The entire purpose of creating a curriculum is to benefit others at scale. A cur
   // ── CRITICAL THINKING ──
   intellect_thinking_core: [
     {
+      seq: 0,
       title: 'Implement a "verify before sharing" rule — check sources before forwarding any claim',
       priority: 'urgent', tags: ['verification', 'sidq'],
       description: 'The Quran warns against spreading information without verification (49:6). In an age of misinformation, implementing a personal verification discipline is both a religious obligation and an intellectual safeguard. Every claim you share carries your credibility.',
@@ -3264,6 +3277,7 @@ Tawbah (repentance) includes rectifying past wrongs where possible. If you have 
       ],
     },
     {
+      seq: 2,
       title: 'Study the Islamic epistemology of knowledge — categories of certainty (qat\'i vs. dhanni)',
       priority: 'high', tags: ['epistemology', 'islamic-knowledge'],
       description: 'Islamic scholarship developed a sophisticated framework for categorising knowledge by certainty. Understanding the difference between definitive (qat\'i) and speculative (dhanni) evidence teaches intellectual humility and prevents you from being dogmatic about matters that are genuinely open to interpretation.',
@@ -3428,6 +3442,7 @@ Theory without application remains abstract. By applying the qat'i/dhanni framew
       ],
     },
     {
+      seq: 3,
       title: 'Learn the logical fallacies — identify them in media, debate, and your own thinking',
       priority: 'high', tags: ['logic', 'critical-thinking'],
       description: 'Logical fallacies are errors in reasoning that make arguments appear valid when they are not. The Muslim intellectual tradition, from Al-Ghazali to Ibn Taymiyyah, engaged deeply with logic. Recognising fallacies protects you from manipulation and sharpens your own arguments.',
@@ -3633,6 +3648,7 @@ A syllogism is the basic unit of deductive reasoning — two premises leading to
       ],
     },
     {
+      seq: 4,
       title: 'Practise steelmanning — before critiquing any position, articulate it in its strongest form',
       priority: 'medium', tags: ['reasoning', 'fairness'],
       description: 'Islam commands justice even toward those you disagree with (5:8). Steelmanning — presenting an opposing view in its strongest possible form before critiquing it — is the intellectual embodiment of that command. It builds genuine understanding and earns respect in discourse.',
@@ -3840,6 +3856,7 @@ A single steelmanning exercise is illuminating. A monthly practice transforms th
       ],
     },
     {
+      seq: 1,
       title: 'Audit your main news and information sources — classify them by reliability and bias',
       priority: 'high', tags: ['media-literacy', 'verification'],
       description: 'Your worldview is shaped by your information diet. An unaudited information diet leads to distorted thinking. This task involves mapping every regular source you consume, evaluating its reliability and bias, and deliberately diversifying to correct blind spots.',
@@ -4059,6 +4076,7 @@ Your attention is an amana (trust). Spending it on sources that consistently mis
 
   intellect_thinking_growth: [
     {
+      seq: 3,
       title: 'Study a foundational text on logic or philosophy — e.g., Aristotle\'s categories or Al-Ghazali\'s Maqasid al-Falasifah',
       priority: 'medium', tags: ['logic', 'philosophy'],
       description: 'The Muslim intellectual tradition engaged deeply with Greek logic and developed it further. Studying a foundational text in logic or philosophy — whether from the Western or Islamic tradition — builds the conceptual vocabulary needed for rigorous thinking about any subject.',
@@ -4287,6 +4305,7 @@ The purpose of studying a foundational text is not to finish it but to be change
       ],
     },
     {
+      seq: 0,
       title: 'Apply a structured decision-making framework (e.g., istikharah + pros/cons + shura) to your next major decision',
       priority: 'high', tags: ['decision-making', 'istikhara'],
       description: 'Islam provides a comprehensive decision-making toolkit: istikharah (seeking divine guidance), shura (consultation), and rational analysis. Combining all three into a structured framework protects against impulsiveness and ensures major decisions are made with both spiritual and intellectual rigour.',
@@ -4581,6 +4600,7 @@ A decision without documentation teaches you nothing for the future. By recordin
       ],
     },
     {
+      seq: 2,
       title: 'Practice adversarial thinking — challenge your own deeply held assumptions monthly',
       priority: 'medium', tags: ['critical-thinking', 'muhasaba'],
       description: 'Muhasaba (self-accounting) extends to the intellect, not just behaviour. Deliberately challenging your own assumptions prevents intellectual stagnation and protects against the arrogance of certainty in matters that warrant humility.',
@@ -4778,6 +4798,7 @@ Adversarial thinking is most valuable as a habit, not a one-time exercise. Month
       ],
     },
     {
+      seq: 1,
       title: 'Study cognitive bias — read "Thinking, Fast and Slow" or equivalent Islamic-compatible text',
       priority: 'medium', tags: ['psychology', 'critical-thinking'],
       description: 'The nafs (self) has biases that distort perception and judgement. Modern cognitive science has catalogued these biases extensively. Understanding them is a form of self-knowledge that the Quran encourages, helping you recognise when your thinking is being hijacked by emotion, ego, or mental shortcuts.',
@@ -5037,6 +5058,7 @@ Bias is, by definition, something you cannot fully see in yourself. Having an ac
 
   intellect_thinking_excellence: [
     {
+      seq: 0,
       title: 'Write a structured analysis of a complex issue in your field — demonstrate cross-disciplinary reasoning',
       priority: 'medium', tags: ['writing', 'analysis'],
       description: 'The highest level of intellectual contribution involves synthesising insights from multiple disciplines to illuminate a complex problem. This task pushes you to move beyond consuming knowledge to producing it — integrating your professional expertise with Islamic principles and other fields.',
@@ -5378,6 +5400,7 @@ Knowledge that remains in your notebook benefits only you. Publishing or present
       ],
     },
     {
+      seq: 1,
       title: 'Lead a structured debate or seminar — present and defend a reasoned position publicly',
       priority: 'low', tags: ['leadership', 'communication'],
       description: 'The ability to present ideas clearly and defend them under scrutiny is a mark of intellectual maturity. The Islamic scholarly tradition of munazara (formal debate) honoured this skill. Leading a public discussion builds both your confidence and your community\'s intellectual culture.',
@@ -5637,6 +5660,7 @@ The event itself is only half the learning. The reflection is where you consolid
       ],
     },
     {
+      seq: 2,
       title: 'Solve a meaningful, complex problem in your community using original research and analysis',
       priority: 'medium', tags: ['impact', 'problem-solving'],
       description: 'Knowledge without application is like a tree without fruit. This task challenges you to identify a real problem affecting your community and apply your intellectual capabilities to solve it — moving from theory to tangible impact, which is the ultimate purpose of Hifz al-Aql.',
@@ -5924,6 +5948,7 @@ Implementation is where intellectual work becomes real-world impact. Many brilli
   // ── COGNITIVE INTEGRITY ──
   intellect_cognitive_core: [
     {
+      seq: 0,
       title: 'Identify and eliminate mind-dulling inputs — excessive entertainment, haram content, gossip media',
       priority: 'urgent', tags: ['protection', 'discipline'],
       description: 'Hifz al-Aql (preservation of the intellect) begins with removing what harms it. Just as Islam prohibits intoxicants that cloud the mind, the principle extends to any input that dulls your cognitive sharpness — excessive entertainment, haram imagery, and gossip all erode your ability to think clearly and deeply.',
@@ -6124,6 +6149,7 @@ Behaviour change requires feedback loops. A 30-day review lets you assess what i
       ],
     },
     {
+      seq: 1,
       title: 'Establish a "no phone first hour" morning protocol — protect your cognitive prime time',
       priority: 'high', tags: ['focus', 'discipline'],
       description: 'The first hour after waking is when your mind is freshest and most receptive. The Sunnah morning routine — Fajr prayer, adhkar, Quran — fills this time with what matters most. Allowing the phone to hijack this window means surrendering your best cognitive hours to other people\'s agendas.',
@@ -6281,6 +6307,7 @@ Consistency transforms intention into habit. Tracking your adherence for 21 cons
       ],
     },
     {
+      seq: 2,
       title: 'Practise the Sunnah of silence (samt) — designate daily quiet periods for reflection',
       priority: 'high', tags: ['reflection', 'sunnah'],
       description: ' Deliberate silence creates space for tafakkur (contemplation) and protects the intellect from the noise of constant stimulation.',
@@ -6405,6 +6432,7 @@ Like any capacity, your tolerance for silence and depth of contemplation grow wi
       ],
     },
     {
+      seq: 3,
       title: 'Learn and apply the Islamic concept of ʿilm al-yaqin (knowledge with certainty) — do not opine without evidence',
       priority: 'medium', tags: ['epistemology', 'sidq'],
       description: 'The Quran condemns speaking about what one has no knowledge of (17:36). This task involves internalising the discipline of intellectual honesty — distinguishing between what you truly know, what you believe, and what you are guessing — and having the courage to say "I don\'t know" when you don\'t.',
@@ -6587,6 +6615,7 @@ Self-audit is the practical application of muhasabah (self-accountability). Revi
       ],
     },
     {
+      seq: 4,
       title: 'Audit your social circle — who is elevating your thinking vs. who is draining it',
       priority: 'medium', tags: ['relationships', 'growth'],
       description: 'The Prophet (peace be upon him) compared a good companion to a perfume seller and a bad one to a blacksmith\'s bellows. Your intellectual environment is shaped by the people you spend time with. This audit helps you become intentional about surrounding yourself with people who challenge and elevate your thinking.',
@@ -6764,6 +6793,7 @@ Growth requires exposure to people who are ahead of you. The Islamic tradition o
 
   intellect_cognitive_growth: [
     {
+      seq: 2,
       title: 'Implement "Deep Work" sessions — 90-minute uninterrupted focus blocks, 3×/week minimum',
       priority: 'high', tags: ['focus', 'deep-work'],
       description: 'Deep, sustained concentration is the engine of all meaningful intellectual output. The modern world fragments attention by design. Scheduling protected deep work sessions — with phone off, door closed, and a single task — is how you reclaim the cognitive power that distraction steals.',
@@ -6922,6 +6952,7 @@ Three sessions per week is the minimum effective dose, but five sessions — rou
       ],
     },
     {
+      seq: 1,
       title: 'Begin a memorisation practice — Quran, hadith, or technical material (30 minutes/day)',
       priority: 'high', tags: ['memorisation', 'discipline'],
       description: 'Memorisation is the gymnasium of the intellect. The Islamic tradition of hifz (memorisation of the Quran) is the pinnacle, but any regular memorisation practice — hadith, poetry, or technical material — strengthens working memory, focus, and the ability to recall knowledge when it matters.',
@@ -7105,6 +7136,7 @@ Testing is not just assessment — it is one of the most powerful learning techn
       ],
     },
     {
+      seq: 3,
       title: 'Practice deliberate rest — schedule complete cognitive rest (no inputs) one day per week',
       priority: 'medium', tags: ['rest', 'balance'],
       description: 'The mind, like the body, needs recovery to perform. Continuous input without rest leads to cognitive fatigue, reduced creativity, and burnout. Scheduling a full day of cognitive rest — no reading, no screens, no problem-solving — allows your subconscious to consolidate learning and restore sharpness.',
@@ -7261,6 +7293,7 @@ The proof of rest's value is in the day that follows. If you have rested properl
       ],
     },
     {
+      seq: 0,
       title: 'Study the science of habit formation — design your environment for intellectual work',
       priority: 'medium', tags: ['habit', 'environment-design'],
       description: 'Your environment shapes your behaviour more than your willpower does. Studying habit formation science — cue, routine, reward — and then redesigning your physical and digital environment to support intellectual work removes friction from good habits and adds friction to bad ones.',
@@ -7442,6 +7475,7 @@ Knowledge without application is a tree without fruit — as Imam Al-Ghazali tau
 
   intellect_cognitive_excellence: [
     {
+      seq: 0,
       title: 'Achieve a sustained state of flow in your core intellectual work — document your conditions for it',
       priority: 'medium', tags: ['flow', 'mastery'],
       description: 'Flow — the state of complete absorption in a task where time disappears and output soars — is the peak of cognitive performance. Documenting the exact conditions that trigger your flow (time of day, environment, task type, preparation rituals) allows you to reliably reproduce it rather than waiting for it to happen by chance.',
@@ -7615,6 +7649,7 @@ A written manual crystallises your hard-won self-knowledge into a durable, share
       ],
     },
     {
+      seq: 1,
       title: 'Develop an original intellectual framework or model grounded in Islamic principles',
       priority: 'low', tags: ['original-thinking', 'contribution'],
       description: 'The highest expression of Hifz al-Aql is not merely preserving the intellect but using it to produce original contributions to human knowledge. Developing a framework that integrates Islamic principles with contemporary challenges is both an act of scholarship and a form of da\'wah through intellectual excellence.',
@@ -7847,6 +7882,7 @@ Knowledge that remains in your notebook benefits only you. Publishing your frame
       ],
     },
     {
+      seq: 2,
       title: 'Complete a major long-form work requiring 90+ hours of deep cognitive effort',
       priority: 'medium', tags: ['deep-work', 'legacy'],
       description: 'Great intellectual works — books, research projects, complex systems — require sustained effort over months. Completing a 90+ hour deep work project demonstrates mastery of your craft, discipline over your nafs, and the ability to produce something of lasting value. This is the intellect operating at its designed capacity.',
@@ -8052,6 +8088,7 @@ The project itself is valuable, but the self-knowledge gained from completing it
   // ── PROFESSIONAL MASTERY ──
   intellect_professional_core: [
     {
+      seq: 1,
       title: 'Obtain or verify all certifications and licences required to practise your profession ethically',
       priority: 'urgent', tags: ['credentials', 'ethics'],
       description: 'Practising a profession without proper credentials is a form of deception and can cause harm to those who trust you. Islam demands that you be qualified for the responsibility you carry. This task ensures your professional standing is legitimate and current.',
@@ -8225,6 +8262,7 @@ Identifying gaps means nothing if you do not act on them. Every day you practise
       ],
     },
     {
+      seq: 2,
       title: 'Define your professional mission statement — how does your work serve Allah and humanity?',
       priority: 'high', tags: ['mission', 'niyyah'],
       description: 'Without a clear mission, professional life becomes a treadmill of tasks without purpose. Defining how your work serves a higher purpose — connecting your daily effort to the pleasure of Allah and benefit of humanity — transforms routine work into ibadah and gives you criteria for saying yes or no to opportunities.',
@@ -8424,6 +8462,7 @@ The purpose of displaying your mission statement is not vanity — it is remembr
       ],
     },
     {
+      seq: 3,
       title: 'Identify the top 3 skill gaps holding you back in your current role and create a plan to close them',
       priority: 'high', tags: ['skills', 'planning'],
       description: ' Identifying the specific skills holding you back from excellence in your role — and systematically closing those gaps — is a direct expression of this principle.',
@@ -8588,6 +8627,7 @@ Without measurement, you cannot distinguish genuine improvement from the illusio
       ],
     },
     {
+      seq: 0,
       title: 'Ensure your primary income source is fully halal — audit contracts, clients, and products',
       priority: 'urgent', tags: ['halal', 'income'],
       description: 'The du\'a of a person whose income is haram is not accepted. This is not a peripheral concern — it strikes at the heart of your relationship with Allah. Conducting a thorough halal audit of your income ensures that every dirham you earn and spend is clean, protecting your ibadah and your family.',
@@ -8752,6 +8792,7 @@ Identifying haram income sources is only valuable if you act on the findings. Th
       ],
     },
     {
+      seq: 4,
       title: 'Build a professional portfolio or record of your best work',
       priority: 'medium', tags: ['portfolio', 'credibility'],
       description: 'A portfolio is tangible proof of your competence. It allows others to assess your work on its merits rather than relying on credentials alone. Building one forces you to curate your best output, identify patterns in your strengths, and present yourself with clarity and honesty.',
@@ -8913,6 +8954,7 @@ A stale portfolio suggests stagnation. If your most recent work is from two year
 
   intellect_professional_growth: [
     {
+      seq: 3,
       title: 'Pursue advanced training, specialisation, or a higher qualification in your field',
       priority: 'high', tags: ['education', 'expertise'],
       description: 'Depth of expertise distinguishes a professional from a generalist. Pursuing advanced training or a higher qualification deepens your mastery, increases your value, and positions you to contribute at a higher level. Choose a specialisation that aligns with both market demand and your mission.',
@@ -9079,6 +9121,7 @@ Completing a qualification is an achievement, but its value is only realised whe
       ],
     },
     {
+      seq: 0,
       title: 'Find a professional mentor — someone 5–10 years ahead on the path you want to walk',
       priority: 'high', tags: ['mentorship', 'growth'],
       description: 'A mentor compresses decades into years by sharing hard-won lessons. The Islamic tradition of teacher-student relationships (ustad-talib) is a model of structured knowledge transfer. Finding someone who has walked your intended path and is willing to guide you is one of the highest-leverage investments you can make.',
@@ -9248,6 +9291,7 @@ Your mentor is giving you their most valuable resource: time and attention. Arri
       ],
     },
     {
+      seq: 1,
       title: 'Attend at least two conferences, seminars, or professional gatherings per year',
       priority: 'medium', tags: ['networking', 'learning'],
       description: 'Professional gatherings expose you to new ideas, emerging trends, and potential collaborators that you would never encounter in your daily routine. They also build the professional network that opens doors and creates opportunities for meaningful work.',
@@ -9403,6 +9447,7 @@ The value of conference networking is almost entirely in the follow-up. Without 
       ],
     },
     {
+      seq: 2,
       title: 'Develop a personal "board of advisors" — 3–5 trusted people who challenge your professional thinking',
       priority: 'medium', tags: ['shura', 'accountability'],
       description: 'The Quranic principle of shura (consultation) applies to professional life as much as community governance. Building a personal advisory board of 3-5 people who know your work, challenge your thinking, and hold you accountable creates a structure for continuously improving your professional judgement.',
@@ -9582,6 +9627,7 @@ A one-sided advisory relationship becomes a burden. Even if your advisors are mo
 
   intellect_professional_excellence: [
     {
+      seq: 0,
       title: 'Publish original research, a case study, or an innovation in your field',
       priority: 'medium', tags: ['publishing', 'contribution'],
       description: 'Publishing original work is how you shift from consuming knowledge to contributing to it. A published case study, research paper, or documented innovation establishes you as a thought leader and creates a lasting reference that benefits others in your field long after you move on.',
@@ -9740,6 +9786,7 @@ Publication alone does not guarantee that your work reaches the people who need 
       ],
     },
     {
+      seq: 1,
       title: 'Take on a leadership or governance role — board position, committee chair, or department head',
       priority: 'medium', tags: ['leadership', 'impact'],
       description: 'Leadership is an amanah (trust) — a responsibility to steward something larger than yourself. Taking on a governance or leadership role in your profession amplifies your impact from individual contribution to systemic influence. It is also where you practice the Islamic values of justice, shura, and servant leadership at scale.',
@@ -9903,6 +9950,7 @@ Islamic leadership is servant leadership: you are there to serve those you lead,
       ],
     },
     {
+      seq: 2,
       title: 'Design and deliver a training programme that uplifts others in your profession',
       priority: 'low', tags: ['teaching', 'legacy'],
       description: ' Designing a training programme takes your accumulated expertise and makes it accessible to others, multiplying your impact. It is a form of sadaqah jariyah — ongoing charity that continues to benefit people long after you deliver it.',

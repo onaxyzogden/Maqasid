@@ -8,6 +8,7 @@ export const UMMAH_SEED_TASKS = {
   // ── CORE: Foundational Obligations ──
   ummah_collective_core: [
     {
+      seq: 0,
       title: "Sustain daily du'a for the global ummah's oppressed and afflicted",
       priority: 'urgent', tags: ['dua', 'global-ummah', 'foundation'],
       description: "The ummah is one body; when any part suffers the whole must respond. Before hands can act or wealth can flow, the heart must turn to Allah on behalf of the Muslims suffering in every region of the earth. This task establishes du'a for the global ummah as a fixed daily act of worship — not an emotional reaction to headlines.",
@@ -262,6 +263,7 @@ Du'a without presence of heart is a body without a soul. The Prophet (peace be u
       ],
     },
     {
+      seq: 1,
       title: "Maintain informed awareness of major ummah afflictions",
       priority: 'urgent', tags: ['awareness', 'global-ummah', 'crisis-literacy'],
       description: "A Muslim cannot weep, give, boycott, or bear witness for what they do not know. Strategic ignorance of the ummah's wounds is not neutrality — it is abandonment. This task establishes a disciplined, sustainable practice of staying informed about major afflictions against Muslims worldwide, without falling into doomscrolling, despair, or propaganda capture.",
@@ -471,6 +473,7 @@ Allah forbids despair of His mercy and categorises it with kufr (12:87). Yet a s
       ],
     },
     {
+      seq: 3,
       title: "Direct a standing portion of sadaqah and cross-border zakat to the global ummah",
       priority: 'urgent', tags: ['sadaqah', 'zakat', 'global-aid', 'solidarity'],
       description: "Du'a and awareness are incomplete without material flow. The wealth of the ummah must reach the parts of it that bleed. This task establishes an intentional, ongoing financial pipeline — distinct from ad-hoc emotional giving — that channels a fixed portion of sadaqah and zakat across borders to the Muslims most afflicted by war, famine, displacement, and persecution.",
@@ -662,6 +665,7 @@ The Prophet (peace be upon him) taught that the one who points the way to good s
       ],
     },
     {
+      seq: 2,
       title: "Refuse material participation in clear oppression of the ummah",
       priority: 'high', tags: ['boycott', 'wara', 'witness', 'consumption'],
       description: "Every purchase is a vote and a sadaqah of its opposite. When companies and industries directly fund weapons, settlements, or regimes visibly oppressing Muslims, continuing to hand them money is not a neutral economic act — it is material participation in wrongdoing. This task establishes a disciplined, sustained refusal to finance clear oppression of the ummah through one's consumption.",
@@ -880,6 +884,7 @@ Boycotts that collapse after a news cycle embolden the targets and teach the mar
       ],
     },
     {
+      seq: 4,
       title: "Bear public witness when the ummah is attacked",
       priority: 'high', tags: ['witness', 'amr-bil-maruf', 'tongue', 'haqq'],
       description: "Silence before clear oppression is a spiritual failure with a cost on the Day of Judgement. The Prophet (peace be upon him) ranked speaking the truth against a tyrant among the greatest jihads. This task establishes the habit of public witness — in speech, in writing, in presence — when Muslims are attacked, without descending into reckless speech or empty performance.",
@@ -1085,6 +1090,7 @@ Allah cursed earlier communities not only for their oppression but for their sil
   // ── GROWTH: Building Capacity ──
   ummah_collective_growth: [
     {
+      seq: 0,
       title: "Develop strategic literacy on the major fronts affecting the global ummah",
       priority: 'high', tags: ['literacy', 'strategy', 'global-ummah'],
       description: "Responding to the ummah's afflictions at a foundational level means reading the news honestly. Responding at a growth level means understanding the history, actors, economics, and geopolitics that shape each front. This task builds the strategic literacy required to move from reactive compassion to durable, informed engagement across decades.",
@@ -1285,6 +1291,7 @@ Knowledge hoarded dies with its holder. The covenant Allah took from the people 
       ],
     },
     {
+      seq: 3,
       title: "Build or join a sustained advocacy collective focused on the global ummah",
       priority: 'high', tags: ['advocacy', 'collective', 'sustained-action'],
       description: "Individual action hits a ceiling quickly. Institutions — even small, informal ones — outlast the individuals inside them and compound effort across years. This task moves the believer from solo solidarity into a sustained advocacy collective: a standing group that organises, speaks, gives, and holds one another accountable around the ummah's major fronts.",
@@ -1467,6 +1474,7 @@ Most Muslim advocacy collectives die when their founders burn out, move cities, 
       ],
     },
     {
+      seq: 1,
       title: "Fund capacity-building projects in afflicted Muslim regions beyond emergency relief",
       priority: 'high', tags: ['capacity-building', 'development', 'long-term'],
       description: "Emergency relief saves lives today; capacity-building preserves dignity and independence tomorrow. A believer's giving matures when it extends past the immediate crisis to the institutions that let afflicted communities stand on their own — schools, clinics, skills centres, livelihoods, legal aid. This task establishes a deliberate capacity-building portfolio alongside relief.",
@@ -1649,6 +1657,7 @@ When you channel funds from family, circle, or masjid into capacity-building, th
       ],
     },
     {
+      seq: 2,
       title: "Cultivate direct relationships with Muslims in afflicted regions",
       priority: 'medium', tags: ['relationships', 'sisterhood-brotherhood', 'direct'],
       description: "Giving from a distance is a duty; knowing those you give to is a completion. The Prophet (peace be upon him) pursued and maintained personal relationships across tribe and geography. This task moves the believer from anonymous donor to known brother or sister of Muslims in afflicted regions — through correspondence, video calls, twinned relationships, and where safe and halal, travel.",
@@ -1831,6 +1840,7 @@ Not every afflicted region is safely travelable, and the believer must not roman
       ],
     },
     {
+      seq: 4,
       title: "Train in a skill that directly serves the global ummah",
       priority: 'medium', tags: ['skill', 'service', 'specialisation'],
       description: "The ummah needs specialists, not only generalists with good intentions. Doctors for triage, lawyers for documentation, translators for testimony, journalists for witness, engineers for rebuilding. This task commits the believer to developing a specific, transferable skill that — when crisis or opportunity arises — makes them a multiplier of response rather than another voice at the back.",
@@ -2018,6 +2028,7 @@ Marketable skills invite pressure to monetise every hour — consultancies, prem
   // ── EXCELLENCE: Aspirational Impact ──
   ummah_collective_excellence: [
     {
+      seq: 1,
       title: "Establish or endow a waqf serving a specific front of the global ummah",
       priority: 'medium', tags: ['waqf', 'sadaqah-jariyah', 'institution'],
       description: "The waqf is the Islamic civilisation's engine for intergenerational good — a perpetual endowment whose principal is preserved and whose yield serves a defined purpose forever. This task moves the believer from episodic giving to institution-building: establishing or contributing substantively to a waqf whose yield permanently serves a specific front of the ummah.",
@@ -2209,6 +2220,7 @@ A waqf documented and open to contribution grows in principal faster than it cou
       ],
     },
     {
+      seq: 3,
       title: "Travel to serve in person in an afflicted Muslim region when halal and viable",
       priority: 'medium', tags: ['travel', 'frontline-service', 'bodily-presence'],
       description: "Some service can only be rendered in person. A qualified doctor in a field clinic, a lawyer in a tribunal, a teacher in a displacement camp, a journalist at a site of witness — these roles cannot be videoconferenced. This task, where family, safety, and halal pathways permit, commits the believer to sustained physical presence serving in an afflicted region at a level of skill that meaningfully contributes.",
@@ -2391,6 +2403,7 @@ A single dramatic trip followed by normal life is a form of spiritual tourism. A
       ],
     },
     {
+      seq: 2,
       title: "Shape public discourse on the ummah through sustained scholarly, journalistic, or media work",
       priority: 'medium', tags: ['discourse', 'media', 'witness-at-scale'],
       description: "The narrative about the ummah is being written constantly, whether by believers or by others. The believer with the capacity to produce substantial long-form work — scholarship, journalism, film, serious media — carries a responsibility to contribute honest, rigorous, compelling discourse to that record. This task commits the believer to sustained production, not occasional commentary.",
@@ -2573,6 +2586,7 @@ A discourse field dominated by a few established voices becomes brittle. Citatio
       ],
     },
     {
+      seq: 0,
       title: "Raise a generation trained and committed to global ummah service",
       priority: 'medium', tags: ['tarbiyah', 'intergenerational', 'legacy'],
       description: "No single believer's lifespan is adequate to the ummah's afflictions; the work is longer than any life. The believer's greatest contribution may be a next generation — biological, adopted, taught, mentored — that carries the ummah-service covenant forward more capably than the generation before. This task is the deliberate work of shaping such a generation.",
@@ -2755,6 +2769,7 @@ The ummah of their adulthood will face challenges you cannot foresee. Your task 
       ],
     },
     {
+      seq: 4,
       title: "Build structural bridges between affluent and afflicted Muslim regions",
       priority: 'medium', tags: ['ummah-solidarity', 'institution-building', 'diaspora'],
       description: "Emergency appeals raise money; they do not build durability. The ummah's affluent regions (established diaspora, Gulf capital, mature institutions) and afflicted ones (Gaza, Sudan, Uyghur, Rohingya, Kashmir, and others) are separated not only by distance but by the absence of durable channels between them. This task builds institutional bridges — match-making bodies, brain-trust networks, sister-institution pairings, professional pipelines — that convert episodic solidarity into structural flow.",
@@ -2942,6 +2957,7 @@ One bridge, however durable, reaches only one front of the ummah. The ummah has 
   // ── GROWTH: Proactive Kindness, Sharing, Visiting, Forbearance ──
   ummah_neighbors_growth: [
     {
+      seq: 1,
       title: "Share food with your neighbors regularly — especially on Eid, Jumu'ah, and occasions of joy",
       priority: 'urgent', tags: ['haqq-al-jar', 'food-sharing', 'sunnah'],
       description: " Food sharing is the most repeatedly emphasised act of neighborliness in the Prophetic tradition. This task establishes it as a regular, joyful practice rather than an occasional gesture.",
@@ -3124,6 +3140,7 @@ Thoughtful giving is the difference between a gesture and genuine care. If your 
       ],
     },
     {
+      seq: 2,
       title: "Visit sick neighbors and support them through illness with practical care",
       priority: 'urgent', tags: ['haqq-al-jar', 'visiting-sick', 'sunnah'],
       description: " Visiting the sick is a fundamental right — and when the sick person is your neighbor, the obligation is doubled by proximity.",
@@ -3313,6 +3330,7 @@ The Prophet (peace be upon him) listed following the funeral (ittiba' al-janazah
       ],
     },
     {
+      seq: 0,
       title: "Speak well of your neighbors in their absence — defend their honour and never gossip",
       priority: 'high', tags: ['haqq-al-jar', 'ghiba', 'honour'],
       description: "The Quran explicitly forbids ghiba (backbiting): 'Do not backbite one another. Would one of you like to eat the flesh of his dead brother?' (49:12). Ghiba about neighbors is particularly corrosive because you share daily space. This task ensures your tongue is a source of protection, not harm, for those who live beside you.",
@@ -3502,6 +3520,7 @@ Modern technology has created new avenues for ghiba that did not exist in the Pr
       ],
     },
     {
+      seq: 3,
       title: "Build trust and reliability — become the neighbor others count on without hesitation",
       priority: 'high', tags: ['haqq-al-jar', 'trust', 'reliability'],
       description: "Trust is built through consistent, small acts of reliability over time — not through grand gestures. This task focuses on becoming the neighbor whose word is their bond, whose help can be counted on, and whose presence is a source of security.",
@@ -3690,6 +3709,7 @@ Availability is the currency of trust. If a neighbor calls and you never answer,
       ],
     },
     {
+      seq: 4,
       title: "Exercise patient forbearance (hilm) with difficult neighbors — transforming hardship into reward",
       priority: 'medium', tags: ['haqq-al-jar', 'hilm', 'sabr'],
       description: "Not every neighbor is easy to live beside. This task builds the muscle of hilm (forbearance) as a spiritual practice.",
@@ -3902,6 +3922,7 @@ The Prophet (peace be upon him) used to pray for people who were hostile to him 
   // ── EXCELLENCE: Best Neighbor, Community Transformation, Da'wah Through Conduct ──
   ummah_neighbors_excellence: [
     {
+      seq: 0,
       title: "Become 'the best neighbor in the sight of Allah' — embody Tirmidhi 1944 as a life goal",
       priority: 'urgent', tags: ['haqq-al-jar', 'ihsan', 'excellence'],
       description: " This is not a casual compliment but a rank — a station before Allah determined by how you treat the people who live beside you. This task focuses on attaining that rank through comprehensive, excellent conduct.",
@@ -4083,6 +4104,7 @@ Individual acts of kindness are powerful, but traditions create sustained commun
       ],
     },
     {
+      seq: 4,
       title: "Transform your street or building into a genuine community through intentional neighborly leadership",
       priority: 'high', tags: ['haqq-al-jar', 'community', 'leadership'],
       description: "The Prophet (peace be upon him) transformed the individual tribes of Madinah into a unified community through deliberate acts of bonding, shared responsibility, and mutual care. Your street or building can undergo a similar transformation at a micro-scale. This task is about becoming the catalyst who turns isolated households into an interconnected, mutually supportive neighborhood.",
@@ -4263,6 +4285,7 @@ The Ansar of Madinah did not just welcome the Muhajirun with words — they shar
       ],
     },
     {
+      seq: 1,
       title: "Practice da'wah through conduct — let your neighborliness be the most powerful testimony of Islam",
       priority: 'high', tags: ['haqq-al-jar', 'dawah', 'conduct'],
       description: " Your non-Muslim neighbors form their understanding of Islam primarily through you — not through books, scholars, or media. This task ensures that your conduct is the most compelling da'wah they will ever encounter.",
@@ -4453,6 +4476,7 @@ The Prophet (peace be upon him) maintained deep, genuine relationships with peop
       ],
     },
     {
+      seq: 2,
       title: "Establish a neighborhood mutual aid network — formalise the culture of reciprocal support",
       priority: 'medium', tags: ['haqq-al-jar', 'mutual-aid', 'network'],
       description: " At the excellence level, individual acts of kindness evolve into structured, sustainable mutual aid. This task is about creating a network that ensures no neighbor in your vicinity faces hardship alone — a modern micro-implementation of the Ansar model.",
@@ -4644,6 +4668,7 @@ Networks and communities decay without intentional maintenance. Neighbors move, 
       ],
     },
     {
+      seq: 3,
       title: "Build intergenerational neighbor bonds — connect children, adults, and elders across households",
       priority: 'medium', tags: ['haqq-al-jar', 'intergenerational', 'bonds'],
       description: "The Prophet's community in Madinah was not age-segregated — children learned from elders, elders were cared for by youth, and adults modelled responsibility to both. Modern neighborhoods often silo generations: children play only with children, adults interact only with adults, and elderly residents become invisible. This task restores the intergenerational fabric that makes a neighborhood a true community.",
@@ -4838,6 +4863,7 @@ The Prophet (peace be upon him) noticed when regular community members were abse
   // ── CORE — Fulfil basic community obligations ──
   ummah_community_core: [
     {
+      seq: 5,
       title: "Establish regular congregational prayer in your locality",
       priority: 'urgent', tags: ['jamaah', 'salah', 'foundation'],
       description: "Congregational prayer is the visible heartbeat of the Muslim community. Without a functioning jamaah, the collective identity of Muslims in a locality dissolves into isolated individuals. This task establishes or strengthens the weekly and daily congregational prayer presence where you live.",
@@ -5083,6 +5109,7 @@ The Prophet (peace be upon him) described the believers as "one body — if one 
       ],
     },
     {
+      seq: 7,
       title: "Implement shura (mutual consultation) for community decisions",
       priority: 'urgent', tags: ['shura', 'governance'],
       description: "Allah describes the believers as those whose affairs are conducted by shura among them (Quran 42:38). This task establishes a functional consultation process so that community decisions are made collectively, transparently, and in accordance with the Prophetic model of governance.",
@@ -5274,6 +5301,7 @@ Shura is not merely a leadership exercise — it is the right of the entire umma
       ],
     },
     {
+      seq: 8,
       title: "Build a basic mutual aid system for community members in need",
       priority: 'urgent', tags: ['mutual-aid', 'takaful', 'brotherhood'],
       description: "The believers are described as allies of one another (Quran 9:71). This task creates a structured system for identifying and responding to the material needs of community members — food, shelter, financial emergencies, and practical help — so that no Muslim in your locality suffers alone.",
@@ -5465,6 +5493,7 @@ The Prophet (peace be upon him) paired the Muhajirun with the Ansar — every ne
       ],
     },
     {
+      seq: 9,
       title: "Establish a visible Islamic presence in your locality",
       priority: 'high', tags: ['dawah', 'presence', 'identity'],
       description: "Islam is not meant to be hidden. The Prophet (peace be upon him) established the adhan, built the masjid, and made the Muslim community visible and recognisable in Madinah from the first day. This task ensures that Muslims in your area are known, respected, and accessible to their neighbours.",
@@ -5674,6 +5703,7 @@ The Prophet (peace be upon him) participated in the Hilf al-Fudul (Pact of the V
       ],
     },
     {
+      seq: 6,
       title: "Unite the community around shared fundamentals of faith and practice",
       priority: 'high', tags: ['unity', 'ukhuwwah', 'aqidah'],
       description: "The Prophet (peace be upon him) said: 'The Muslim ummah is one body.' Sectarian division and petty disagreement weaken the community from within. This task focuses on identifying, articulating, and rallying around the non-negotiable fundamentals that all Muslims share, while establishing healthy norms for handling legitimate differences.",
@@ -5919,6 +5949,7 @@ Allah commands: "If two groups of believers fight, make peace between them" (Qur
       ],
     },
     {
+      seq: 0,
       title: 'Attend congregational prayers consistently — prioritise Fajr, Isha, and Jumu\'ah',
       priority: 'urgent', tags: ['salah', 'jama\'ah'],
       description: 'Congregational prayer is the heartbeat of Muslim community life. The Prophet (peace be upon him) said the prayer in congregation is twenty-seven times superior to the prayer offered alone. Establishing consistency in jama\'ah — especially Fajr, Isha, and Jumu\'ah — anchors your presence in the community and fulfils one of the most emphasised communal obligations in Islam.',
@@ -6155,6 +6186,7 @@ The Prophet (peace be upon him) said, "Whoever prays Isha in jama'ah, it is as i
       ],
     },
     {
+      seq: 1,
       title: 'Resolve disputes and maintain brotherhood — no estrangement beyond three days',
       priority: 'urgent', tags: ['ukhuwwah', 'sulh'],
       description: 'The Prophet (peace be upon him) said, "It is not permissible for a Muslim to forsake his brother for more than three days" (Bukhari and Muslim). Unresolved conflicts tear the communal fabric and nullify the spiritual benefits of congregational life. This task establishes the discipline of rapid reconciliation as a non-negotiable community obligation.',
@@ -6364,6 +6396,7 @@ The Quran says, "There is no good in most of their secret counsels except the on
       ],
     },
     {
+      seq: 2,
       title: 'Visit the sick in your community — fulfil the rights of Muslim upon Muslim',
       priority: 'urgent', tags: ['visiting-sick', 'huquq'],
       description: 'The Prophet (peace be upon him) listed visiting the sick as one of the five rights every Muslim has over another (Bukhari). Visiting the sick is not merely a kind gesture — it is an obligation that maintains the social safety net of the ummah and reminds both the visitor and the visited of Allah\'s power over health and life.',
@@ -6555,6 +6588,7 @@ Individual initiative is good, but systemic care is better. Without a tracking s
       ],
     },
     {
+      seq: 3,
       title: 'Attend funerals (janazah) — fulfil the communal obligation and support the bereaved',
       priority: 'urgent', tags: ['janazah', 'huquq'],
       description: 'Attending the janazah prayer and burial is a fard kifayah (communal obligation) — if no one fulfils it, the entire community is sinful. The Prophet (peace be upon him) promised the reward of a qirat (a mountain of reward) for attending the prayer and another for staying until burial. Beyond reward, funeral attendance holds the community together through its most vulnerable moments.',
@@ -6764,6 +6798,7 @@ Washing the deceased is one of the most intimate and sacred acts of service in I
       ],
     },
     {
+      seq: 4,
       title: 'Support mutual financial assistance — distribute sadaqah and zakat within your community',
       priority: 'urgent', tags: ['sadaqah', 'zakat', 'infaq'],
       description: 'Financial solidarity is a pillar of ummah life. The Quran commands, "And in their wealth is a known right for the one who asks and the one who is deprived" (70:24-25). Beyond the obligatory zakat, regular sadaqah and mutual aid within the community prevent the kind of poverty and desperation that fragment communities and push people away from the masjid.',
@@ -6995,386 +7030,7 @@ The Prophet (peace be upon him) said, "The believers in their mutual kindness, c
   // ── GROWTH — Build community institutions ──
   ummah_community_growth: [
     {
-      title: "Establish a community education institution (halaqa or weekend school)",
-      priority: 'high', tags: ['education', 'tarbiyah', 'institution'],
-      description: " This task creates a structured, ongoing educational institution that serves all ages — from children learning the basics of their faith to adults deepening their understanding. Education is the engine of community growth.",
-      subtasks: [
-        { title: "Assess the educational needs of your community across all age groups", done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 96:1-5",
-              arabic: "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ ۝ خَلَقَ الْإِنسَانَ مِنْ عَلَقٍ ۝ اقْرَأْ وَرَبُّكَ الْأَكْرَمُ ۝ الَّذِي عَلَّمَ بِالْقَلَمِ ۝ عَلَّمَ الْإِنسَانَ مَا لَمْ يَعْلَمْ",
-              translation: "Read in the name of your Lord who created. Created man from a clinging substance. Read, and your Lord is the most Generous. Who taught by the pen. Taught man that which he knew not.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "quran",
-              ref: "Quran 20:114",
-              arabic: "وَقُل رَّبِّ زِدْنِي عِلْمًا",
-              translation: "And say, \"My Lord, increase me in knowledge.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sunan Ibn Majah 224",
-              translation: "The Prophet (peace be upon him) said: \"Seeking knowledge is an obligation upon every Muslim.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
- An education programme built without understanding the community's actual needs will attract no one. Some communities need basic Arabic literacy; others need advanced fiqh; many need youth-specific programming. A needs assessment ensures you build what is actually needed, not what you assume is needed.
-
-**How?**
-
-1. Design a simple survey covering: age, current Islamic knowledge level (self-assessed), topics of greatest interest, preferred learning format (lecture, discussion, online, in-person), and scheduling constraints.
-2. Distribute to at least 50 community members across all demographics — parents, singles, youth, elders, converts.
-3. Supplement surveys with 5-10 in-depth conversations with community leaders, teachers, and parents.
-4. Compile results into a needs matrix: rows = age groups, columns = topic areas, cells = demand level (high/medium/low).
-5. Identify the top 3 unmet needs that affect the largest number of people.
-6. Present findings to the shura council with a recommendation for programme priorities.
-7. Completion indicator: a documented needs assessment with at least 50 survey responses and a prioritised list of 3 educational needs, endorsed by the shura council.` },
-        { title: "Recruit and vet qualified teachers for core subjects", done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 9:122",
-              arabic: "فَلَوْلَا نَفَرَ مِن كُلِّ فِرْقَةٍ مِّنْهُمْ طَائِفَةٌ لِّيَتَفَقَّهُوا فِي الدِّينِ",
-              translation: "From every group, a party should go forth to obtain understanding in the religion.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sunan Abi Dawud 3641",
-              translation: "The Prophet (peace be upon him) said: \"The scholars are the heirs of the Prophets.\" Recruiting qualified teachers is essential to preserving and transmitting sacred knowledge. **II. Hadith**",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih al-Bukhari 100",
-              translation: "Recorded in Sahih al-Bukhari 100: 'Allah does not take away the knowledge... but takes it away by the death of the religious learned men...'",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-The Prophet (peace be upon him) warned: "Allah does not take away knowledge by snatching it from people, but by taking away the scholars" (Bukhari & Muslim). Who teaches matters as much as what is taught. Unqualified teachers can transmit distorted beliefs, poor methodology, or harmful attitudes that take years to undo. Vetting ensures that the community's educational foundation is built on sound knowledge, good character, and pedagogical competence.
-
-
-**How?**
-
-1. Define the core subjects your programme will cover (e.g., Quran recitation, basic aqidah, fiqh of worship, seerah, Arabic).
-2. For each subject, list the minimum qualifications: formal ijaza or degree, teaching experience, and character references.
-3. Reach out to local imams, Islamic university graduates, and experienced teachers — start within the community, then expand to neighbouring communities.
-4. Conduct interviews focusing on: knowledge level, teaching methodology, ability to handle difficult questions, and alignment with the community's values.
-5. Request a trial lesson observed by 2-3 evaluators.
-6. Check references and conduct background checks, especially for those teaching children.
-7. Completion indicator: at least one vetted, qualified teacher recruited for each core subject, with documented qualifications and trial lesson feedback.` },
-        { title: "Design a structured curriculum with clear learning outcomes", done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 96:1-5",
-              arabic: "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ",
-              translation: "Read in the name of your Lord who created. Created man from a clinging substance. Read, and your Lord is the Most Generous. Who taught by the pen. Taught man that which he knew not.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "quran",
-              ref: "Quran 20:114",
-              arabic: "وَقُل رَّبِّ زِدْنِي عِلْمًا",
-              translation: "And say: My Lord, increase me in knowledge.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
- A curriculum without structure produces students with scattered, incomplete knowledge. Clear learning outcomes ensure that after completing the programme, students can demonstrably recite, understand, and apply what they have learned. Structure also allows teachers to coordinate, prevents repetition, and shows the community that this is a serious institution, not a casual gathering.
-
-**How?**
-
-1. For each subject and age group, define 3-5 learning outcomes: what should a student know and be able to do after completing this course?
-2. Break each course into weekly sessions with specific topics, readings, and activities.
-3. Include assessment points: not formal exams, but recitation checks, written reflections, or practical demonstrations.
-4. Align the curriculum with the community's identified needs from the assessment phase.
-5. Have the curriculum reviewed by at least one qualified scholar for accuracy and by one experienced educator for pedagogy.
-6. Pilot the curriculum for one term and collect feedback from students and teachers.
-7. Completion indicator: a written curriculum document covering at least 3 subjects with weekly session plans, learning outcomes, and assessment methods, reviewed and approved by a scholar and an educator.` },
-        { title: "Secure a dedicated space and regular schedule for classes", done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 9:122",
-              arabic: "فَلَوْلَا نَفَرَ مِن كُلِّ فِرْقَةٍ مِّنْهُمْ طَائِفَةٌ لِّيَتَفَقَّهُوا فِي الدِّينِ وَلِيُنذِرُوا قَوْمَهُمْ إِذَا رَجَعُوا إِلَيْهِمْ",
-              translation: "And it is not for the believers to go forth all at once. For there should separate from every division of them a group to obtain understanding in the religion and warn their people when they return to them.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Jami at-Tirmidhi 2682",
-              translation: "The Prophet (peace be upon him) said: \"May Allah brighten the face of a person who hears a hadith from us, memorises it, and conveys it to others.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-The Prophet (peace be upon him) had the Suffah — a dedicated space in the masjid for learning. Education cannot thrive in borrowed, inconsistent spaces with unpredictable schedules. A dedicated space signals permanence and seriousness; a regular schedule builds habit and attendance. Without these, even the best curriculum will fail because people cannot plan around uncertainty.
-
-
-**How?**
-
-1. Assess available spaces: rooms in the masjid, community centre, school, or a rented facility.
-2. Determine the minimum requirements: seating capacity, whiteboard or projector, ventilation, accessibility, and separate spaces for children and adults if needed.
-3. Negotiate a consistent booking: same day, same time, same room every week — this is non-negotiable for building attendance.
-4. If no suitable space exists, explore partnerships with local schools, libraries, or churches that rent community rooms.
-5. Budget for the space: rent, utilities, teaching materials, and a small contingency.
-6. Announce the schedule widely and stick to it — cancellations erode trust faster than anything.
-7. Completion indicator: a confirmed, dedicated space booked for at least one academic term with a published schedule distributed to the community.` },
-        { title: "Launch the first term and establish feedback and improvement cycles", done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 3:110",
-              arabic: "كُنتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنَّاسِ تَأْمُرُونَ بِالْمَعْرُوفِ وَتَنْهَوْنَ عَنِ الْمُنكَرِ",
-              translation: "You are the best nation produced for mankind. You enjoin what is right and forbid what is wrong.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih Muslim 2674",
-              translation: "The Prophet (peace be upon him) said: \"When a person dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-The Prophet (peace be upon him) constantly refined his approach based on the needs of his community. A programme that launches and never improves will stagnate and lose relevance. Formal feedback cycles — from students, teachers, and parents — ensure the programme adapts, grows, and continues to serve the community well. The first term is the proof of concept that builds the credibility needed for long-term sustainability.
-
-
-**How?**
-
-1. Launch with a public event: introduce the teachers, explain the curriculum, and register students.
-2. Run the first term (8-12 weeks) with consistent delivery of the planned curriculum.
-3. Collect mid-term feedback: a brief survey asking students what is working, what is not, and what they want more of.
-4. Collect end-of-term feedback from students, parents, and teachers with a more detailed survey.
-5. Hold a teachers' meeting to review feedback, discuss challenges, and plan adjustments for the next term.
-6. Publish a brief report to the community: how many students enrolled, what was taught, and what improvements are planned.
-7. Completion indicator: a completed first term with at least 15 enrolled students, documented feedback, and a published improvement plan for term two.` },
-      ],
-    },
-    {
-      title: "Build a community dispute resolution (sulh) mechanism",
-      priority: 'high', tags: ['sulh', 'justice', 'conflict-resolution'],
-      description: "Allah commands: 'If two groups of believers fight, make peace between them' (Quran 49:9). This task creates a formal, trusted mechanism for resolving disputes within the community — from personal conflicts to business disagreements — before they escalate into fitna that tears the community apart.",
-      subtasks: [
-        { title: "Identify and train community mediators in Islamic dispute resolution", done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 29:46",
-              arabic: "وَلَا تُجَادِلُوا أَهْلَ الْكِتَابِ إِلَّا بِالَّتِي هِيَ أَحْسَنُ إِلَّا الَّذِينَ ظَلَمُوا مِنْهُمْ ۖ وَقُولُوا آمَنَّا بِالَّذِي أُنْزِلَ إِلَيْنَا وَأُنْزِلَ إِلَيْكُمْ وَإِلَٰهُنَا وَإِلَٰهُكُمْ وَاحِدٌ وَنَحْنُ لَهُ مُسْلِمُونَ",
-              translation: "And dispute ye not with the People of the Book, except with means better (than mere disputation), unless it be with those of them who inflict wrong (and injury): but say, \"We believe in the revelation which has come down to us and in that which came down to you; Our Allah and your Allah is one; and it is to Him we bow (in Islam).",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-The Prophet (peace be upon him) personally mediated disputes and appointed mediators like Abu Ubayda ibn al-Jarrah, known as the "trustworthy one of this ummah." Effective mediation requires specific skills: impartiality, deep listening, knowledge of Islamic rulings on justice, and the ability to help parties find common ground. Untrained mediators often make conflicts worse by taking sides or imposing solutions. Training ensures the community has people who can heal rather than inflame.
-
-
-**How?**
-
-1. Identify 3-5 community members who possess the following qualities: respected by all groups, known for fairness, able to maintain confidentiality, and willing to commit time to mediation.
-2. Provide training in the basics of Islamic dispute resolution: the Quranic principles of sulh (reconciliation), the Prophetic examples, and the fiqh of arbitration (tahkim).
-3. Supplement with practical mediation skills: active listening, reframing, managing emotions, and drafting agreements.
-4. If formal training courses are available (e.g., through Islamic arbitration councils or community mediation programmes), enrol the candidates.
-5. Conduct practice mediations using realistic scenarios before handling real cases.
-6. Establish a code of conduct for mediators: impartiality, confidentiality, and no personal benefit from cases.
-7. Completion indicator: at least 3 trained mediators who have completed training and conducted at least one supervised practice mediation each.` },
-        { title: "Define the scope and process of the dispute resolution service", done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 49:9",
-              arabic: "وَإِن طَائِفَتَانِ مِنَ الْمُؤْمِنِينَ اقْتَتَلُوا فَأَصْلِحُوا بَيْنَهُمَا",
-              translation: "And if two factions among the believers should fight, then make settlement between the two.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "quran",
-              ref: "Quran 4:35",
-              arabic: "وَإِنْ خِفْتُمْ شِقَاقَ بَيْنِهِمَا فَابْعَثُوا حَكَمًا مِّنْ أَهْلِهِ وَحَكَمًا مِّنْ أَهْلِهَا",
-              translation: "And if you fear dissension between the two, send an arbitrator from his people and an arbitrator from her people.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sunan Abi Dawud 4919",
-              translation: "The Prophet (peace be upon him) said: \"Shall I not inform you of something more excellent in degree than fasting, prayer, and charity? It is reconciling people.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-Without a clear scope and process, the mediation service will either be overwhelmed by every minor disagreement or ignored because no one knows it exists. The Prophet (peace be upon him) established clear processes for adjudication — different approaches for family disputes, financial disputes, and interpersonal conflicts. A defined scope and process builds trust by setting expectations: what kinds of disputes are handled, how long it takes, and what the outcomes can be.
-
-
-**How?**
-
-1. Define the types of disputes the service will handle: interpersonal conflicts, family disputes (non-legal), business disagreements between community members, and community governance disputes.
-2. Define what is out of scope: criminal matters (refer to authorities), cases requiring legal expertise (refer to Islamic arbitration councils or lawyers), and disputes where one party refuses to participate.
-3. Write a step-by-step process: (a) intake and initial assessment, (b) contacting both parties, (c) scheduling mediation, (d) conducting the session, (e) drafting an agreement, (f) follow-up.
-4. Set timelines: intake within 72 hours, first session within 2 weeks, resolution target within 30 days.
-5. Create intake forms and agreement templates.
-6. Publish the service details through the masjid, newsletter, and community website.
-7. Completion indicator: a documented process with forms and templates, published and accessible to all community members.` },
-        { title: "Handle the first 3 cases and document lessons learned", done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 4:58",
-              arabic: "إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا وَإِذَا حَكَمْتُم بَيْنَ النَّاسِ أَن تَحْكُمُوا بِالْعَدْلِ",
-              translation: "Indeed, Allah commands you to render trusts to whom they are due and when you judge between people to judge with justice.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih al-Bukhari 7188",
-              translation: "The Prophet (peace be upon him) said: \"When a judge makes a ruling, striving to reach the right decision, and is correct, he will have two rewards. If he is mistaken, he will still have one reward.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-Theory without practice is incomplete. The first real cases will reveal gaps in the process, skill deficiencies in the mediators, and community attitudes that need to be addressed. The Prophet (peace be upon him) learned and adjusted through experience — the approach at Badr was different from Uhud, which was different from Khandaq. Documenting lessons from real cases ensures the service improves rapidly and builds credibility through demonstrated competence.
-
-
-**How?**
-
-1. Accept the first 3 cases through the published intake process — do not cherry-pick easy cases; take what comes.
-2. Assign each case to a mediator, with a senior mentor observing or available for consultation.
-3. Follow the documented process for each case, noting any deviations and why they were necessary.
-4. After each case (whether resolved or not), conduct a debrief: what worked, what did not, and what should change.
-5. Compile lessons learned into a brief report without identifying parties.
-6. Update the process document and training materials based on the lessons.
-7. Completion indicator: 3 cases processed through the system with documented outcomes and a lessons-learned report that has been used to update the process.` },
-        { title: "Build community trust in the mediation service through transparency", done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 49:10",
-              arabic: "إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ فَأَصْلِحُوا بَيْنَ أَخَوَيْكُمْ ۚ وَاتَّقُوا اللَّهَ لَعَلَّكُمْ تُرْحَمُونَ",
-              translation: "The believers are but brothers, so make settlement between your brothers. And fear Allah that you may receive mercy.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih al-Bukhari 2692",
-              translation: "The Prophet (peace be upon him) said: \"Making peace between people is a form of charity.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-People will not use a dispute resolution service they do not trust. The Prophet (peace be upon him) was known as al-Amin (the trustworthy) before prophethood — trust must be earned, not assumed. Transparency about the process, the mediators' qualifications, and the service's track record (without breaching confidentiality) builds the credibility needed for community members to bring their real disputes forward rather than letting them fester.
-
-
-**How?**
-
-1. Publish a quarterly report: number of cases handled, resolution rate, average time to resolution, and types of disputes (without identifying details).
-2. Share anonymised testimonials from parties who found the process helpful (with their permission).
-3. Invite the community to meet the mediators at a community gathering — brief introductions and Q&A about the process.
-4. Address concerns and misconceptions openly: "Yes, everything is confidential. No, the mediator cannot force a decision on you."
-5. Seek endorsement from the imam and shura council — their public support lends institutional credibility.
-6. Ask resolved parties to refer others — word of mouth is the strongest trust signal.
-7. Completion indicator: at least one published quarterly report, one public introduction event, and at least 2 new cases received through referrals from previous users.` },
-        { title: "Establish a referral network for cases beyond the community's capacity", done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 5:2",
-              arabic: "وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ",
-              translation: "And cooperate in righteousness and piety.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "quran",
-              ref: "Quran 4:135",
-              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا كُونُوا قَوَّامِينَ بِالْقِسْطِ شُهَدَاءَ لِلَّهِ",
-              translation: "O you who have believed, be persistently standing firm in justice, witnesses for Allah.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-Not every dispute can or should be resolved internally. Some cases involve legal complexity (e.g., divorce, inheritance, business partnerships with external parties) that require professional Islamic arbitration, legal counsel, or even court intervention. The Prophet (peace be upon him) sent delegations to specialists when needed. A referral network ensures the community does not overextend itself and that parties receive the right level of support for their situation.
-
-
-**How?**
-
-1. Research and compile a list of: Islamic arbitration councils, Muslim family lawyers, Muslim business mediators, and counselling services in your area or region.
-2. Contact each to confirm: services offered, fees, geographic coverage, and willingness to accept referrals from your community.
-3. Establish a simple referral protocol: when a case is assessed as beyond scope, the intake team provides the party with relevant referral options and contact details.
-4. Maintain the referral list as a living document, updated annually.
-5. Follow up on referred cases (with consent) to assess whether the external service was helpful.
-6. Share the referral directory with the community so individuals can also access it directly.
-7. Completion indicator: a published referral directory with at least 5 vetted external services, and at least 2 successful referrals made.` },
-      ],
-    },
-    {
+      seq: 4,
       title: "Develop a structured dawah and outreach programme",
       priority: 'medium', tags: ['dawah', 'outreach', 'interfaith'],
       description: "Allah commands: 'Invite to the way of your Lord with wisdom and beautiful preaching' (Quran 16:125). This task builds a structured, sustainable outreach programme that represents Islam accurately and beautifully to non-Muslims, engages in interfaith dialogue, and fulfils the community's obligation to share the message.",
@@ -7564,6 +7220,7 @@ The Prophet (peace be upon him) communicated differently with different audience
       ],
     },
     {
+      seq: 2,
       title: "Develop a comprehensive youth programme rooted in Islamic identity",
       priority: 'high', tags: ['youth', 'tarbiyah', 'identity'],
       description: "The Prophet (peace be upon him) invested deeply in the youth of the ummah — appointing young leaders, mentoring them personally, and building their Islamic identity alongside their skills. This task creates a structured youth programme that addresses the unique challenges facing young Muslims: identity confusion, peer pressure, cultural tension, and the need for belonging.",
@@ -7751,11 +7408,38 @@ The Prophet (peace be upon him) appointed Usama ibn Zayd to lead an army at age 
 5. Provide training in: public speaking, project management, Islamic leadership principles, and conflict resolution.
 6. Review the pipeline annually: who has progressed? Who needs more support? Who is ready for the next level?
 7. Completion indicator: at least 3 youth placed in meaningful leadership roles with documented mentorship and at least one youth-led project successfully completed.` },
+        { title: 'Review the programme after three months — assess impact and refine the approach', done: false,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 103:1-3",
+              arabic: "وَالْعَصْرِ إِنَّ الْإِنسَانَ لَفِي خُسْرٍ إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ",
+              translation: "By time, indeed mankind is in loss, except for those who have believed and done righteous deeds and advised each other to truth and advised each other to patience.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+          ],
+          description: `**Why?**
+
+Three months is long enough to see patterns and short enough to course-correct before problems become entrenched. Some matches may not be working. Some youth may have dropped out. Some mentors may be struggling with the time commitment. A formal review prevents the programme from quietly dying — which is the fate of most well-intentioned community initiatives. The principle of muhasabah (self-accounting) applies to institutions just as it applies to individuals.
+
+
+**How?**
+
+1. Survey both mentors and mentees separately with honest questions: Is the relationship valuable? Is the frequency right? What would you change? Do you want to continue?
+2. Review attendance and consistency: How many of the planned meetings actually happened? If less than 75%, investigate why.
+3. Meet with mentors as a group to share experiences (without naming mentees). What is working? What is not? What resources do they need?
+4. Speak privately with any mentee who has disengaged — understand their reasons without pressuring them to return.
+5. Make adjustments: re-match pairs if needed, adjust frequency, change the topic framework, or bring in guest speakers to supplement.
+6. Celebrate successes — share anonymised wins with the community to build support and attract new mentors and mentees.
+7. Completion indicator: a three-month review has been conducted with input from all participants, adjustments have been implemented, and a decision has been made on whether to expand, continue as is, or restructure the programme.` },
       ],
     },
     {
+      seq: 5,
       title: "Establish a community treasury (bayt al-mal) for collective financial strength",
-      priority: 'medium', tags: ['bayt-al-mal', 'finance', 'waqf'],
+      priority: 'high', tags: ['bayt-al-mal', 'finance', 'waqf'],
       description: "The Prophet (peace be upon him) established a bayt al-mal in Madinah — a collective treasury that funded community needs, supported the poor, and provided for public services. This task creates a transparent, accountable community fund that goes beyond emergency aid to build long-term collective financial capacity.",
       subtasks: [
         { title: "Audit current community finances — income, expenses, and gaps", done: false,
@@ -7969,9 +7653,80 @@ The Prophet (peace be upon him) said: "When a person dies, their deeds end excep
 5. Present the concept to the community and gauge interest and capacity to contribute.
 6. If feasible, launch with a modest target and grow over time — waqf is a marathon, not a sprint.
 7. Completion indicator: a feasibility study completed with legal and scholarly input, a draft waqf charter, and a community presentation with documented interest from at least 10 potential contributors.` },
+        { title: 'Form a waqf committee with financial, legal, and community representation', done: false,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 4:58",
+              arabic: "إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا",
+              translation: "Indeed, Allah commands you to render trusts to whom they are due.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 7138",
+              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd and each of you is responsible for his flock.\" A waqf committee with diverse representation ensures trust is properly stewarded.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
+          description: `**Why?**
+
+A waqf is a perpetual institution that must outlive its founders. It requires financial expertise to invest wisely, legal knowledge to structure it correctly, and community trust to attract contributions. A committee with diverse expertise prevents the waqf from being captured by one individual or faction and ensures accountability. The historical corruption of waqf institutions — which contributed to their decline in the modern era — was almost always traceable to poor governance.
+
+
+**How?**
+
+1. Identify community members with relevant expertise: an accountant or financial advisor, a lawyer (preferably familiar with trust or charity law), a successful business person, and a respected community elder.
+2. Approach each person individually, explain the vision, and ask them to serve on the founding committee.
+3. Ensure the imam or a scholar is involved — the waqf must be structured in compliance with Islamic principles, and scholarly input legitimises it to potential contributors.
+4. Define roles: chairperson (community leader), treasurer (financial expert), legal advisor, investment advisor, and secretary.
+5. Establish governance rules: meeting frequency, decision-making process (consensus or majority), conflict of interest policy, and term limits.
+6. Register the committee formally if required by local law — as a trust, charitable organisation, or other appropriate legal entity.
+7. Completion indicator: a waqf committee of at least four members with documented roles, governance rules, and legal standing (or a plan to obtain it).` },
+        { title: 'Draft the waqf deed — define the purpose, beneficiaries, and management structure', done: false,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:282",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا تَدَايَنتُم بِدَيْنٍ إِلَىٰ أَجَلٍ مُّسَمًّى فَاكْتُبُوهُ",
+              translation: "O you who have believed, when you contract a debt for a specified term, write it down.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 2737",
+              translation: "Umar (may Allah be pleased with him) said: \"I got some land in Khaybar and came to the Prophet and said, 'I have got land which is the best I have ever had. What do you command regarding it?' He said: 'If you wish, make the property inalienable and give the profit from it to charity.'\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
+          description: `**Why?**
+
+The waqf deed is the founding document that governs the endowment in perpetuity. It defines what the waqf funds, who benefits, who manages it, and what happens if circumstances change. A vague or poorly drafted deed leads to disputes, misuse, and eventual collapse. Historically, the most enduring waqf institutions had precise, well-drafted deeds that anticipated future challenges. This document is your community's covenant with future generations.
+
+
+**How?**
+
+1. Define the purpose clearly: "The proceeds of this waqf shall fund [specific purposes: masjid operations, Islamic education, community welfare, or a combination]."
+2. Specify beneficiaries: the local Muslim community, specific programmes, or specific categories of people (students, widows, converts, etc.).
+3. Define the management structure: who are the trustees? How are they appointed and replaced? What happens if a trustee resigns, dies, or is removed?
+4. Include investment guidelines: the waqf capital must be invested in halal instruments only. Define acceptable investment categories and risk tolerance.
+5. Specify distribution rules: what percentage of returns is distributed vs. reinvested? How are disbursements approved?
+6. Include amendment provisions: how can the deed be modified if circumstances change (e.g., the original purpose becomes impossible)?
+7. Completion indicator: a completed waqf deed, reviewed by both a legal professional and an Islamic scholar, ready for community presentation and formal execution.` },
       ],
     },
     {
+      seq: 1,
       title: 'Establish community education — launch a regular halaqa or weekend Islamic school programme',
       priority: 'high', tags: ['education', 'halaqa', 'ilm'],
       description: 'The Prophet (peace be upon him) said, "When a person dies, their deeds cease except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for them" (Muslim). Community education is the vehicle for beneficial knowledge — it raises the baseline understanding of Islam, connects families, and ensures the next generation inherits more than cultural habits.',
@@ -8045,6 +7800,40 @@ Knowledge in Islam has a chain (isnad) — it is transmitted from teacher to stu
 5. Discuss compensation transparently — teachers deserve fair pay. If the community cannot afford it, explore sponsorship or fee-sharing models.
 6. Agree on curriculum, schedule, and expectations before launching — clarity prevents conflict.
 7. Completion indicator: a qualified teacher has agreed to lead the programme, with curriculum topics, schedule, and compensation terms documented.` },
+        { title: "Design a structured curriculum with clear learning outcomes", done: false,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 96:1-5",
+              arabic: "اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ",
+              translation: "Read in the name of your Lord who created. Created man from a clinging substance. Read, and your Lord is the Most Generous. Who taught by the pen. Taught man that which he knew not.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 20:114",
+              arabic: "وَقُل رَّبِّ زِدْنِي عِلْمًا",
+              translation: "And say: My Lord, increase me in knowledge.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+          ],
+          description: `**Why?**
+
+ A curriculum without structure produces students with scattered, incomplete knowledge. Clear learning outcomes ensure that after completing the programme, students can demonstrably recite, understand, and apply what they have learned. Structure also allows teachers to coordinate, prevents repetition, and shows the community that this is a serious institution, not a casual gathering.
+
+**How?**
+
+1. For each subject and age group, define 3-5 learning outcomes: what should a student know and be able to do after completing this course?
+2. Break each course into weekly sessions with specific topics, readings, and activities.
+3. Include assessment points: not formal exams, but recitation checks, written reflections, or practical demonstrations.
+4. Align the curriculum with the community's identified needs from the assessment phase.
+5. Have the curriculum reviewed by at least one qualified scholar for accuracy and by one experienced educator for pedagogy.
+6. Pilot the curriculum for one term and collect feedback from students and teachers.
+7. Completion indicator: a written curriculum document covering at least 3 subjects with weekly session plans, learning outcomes, and assessment methods, reviewed and approved by a scholar and an educator.` },
         { title: 'Secure a venue and set a consistent weekly schedule for the halaqa or school', done: false,
           sources: [
             {
@@ -8171,188 +7960,7 @@ No programme survives contact with reality unchanged. What looked good on paper 
       ],
     },
     {
-      title: 'Build a youth mentorship programme — invest in the next generation of community leaders',
-      priority: 'high', tags: ['youth', 'mentorship', 'tarbiyah'],
-      description: 'The Prophet (peace be upon him) invested deeply in young companions — Mu\'adh ibn Jabal, Usamah ibn Zayd, and Ali ibn Abi Talib were entrusted with leadership responsibilities in their teens and twenties. A structured mentorship programme ensures young Muslims have guidance, belonging, and a pathway to leadership within the community rather than seeking identity and purpose elsewhere.',
-      subtasks: [
-        { title: 'Identify 3-5 youth (ages 13-25) in your community who would benefit from mentorship', done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 66:6",
-              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا قُوا أَنفُسَكُمْ وَأَهْلِيكُمْ نَارًا",
-              translation: "O you who have believed, protect yourselves and your families from a Fire.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih al-Bukhari 7138",
-              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd and each of you is responsible for his flock.\" Identifying youth who need mentorship is the first act of shepherding the next generation. **II. Hadith**",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih al-Bukhari 629",
-              translation: "Recorded in Volume 1, Book 11, Number 629 as one of the seven shaded: 'a youth who has been brought up in the worship of Allah.' Also in Muslim 2248.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-Youth who are not actively engaged by the community will be actively engaged by everything outside it — social media, peer pressure, ideological confusion, and environments that erode their faith. The Prophet (peace be upon him) said, "Seven will be shaded by Allah... a young person who grew up in the worship of Allah" (Bukhari). Identifying specific youth who need mentorship is the first step to providing the structured support that helps them become that young person. Vague concern for "the youth" accomplishes nothing — named, known individuals can be genuinely helped.
-
-
-**How?**
-
-1. Observe the youth at your masjid: who attends regularly? Who used to attend but has drifted? Who comes but seems disengaged or isolated?
-2. Speak to parents, the imam, and youth programme leaders — ask who they are concerned about and who shows leadership potential that needs nurturing.
-3. Look beyond the masjid: school friends of your children, neighbours' teenagers, university students new to the area.
-4. Consider diversity: include youth at different stages — some struggling with faith, some strong but lacking direction, some with leadership potential but no platform.
-5. Approach each young person (or their parents, for younger teens) and express genuine interest: "I would love to spend some time with you regularly — mentoring, learning together, or just talking."
-6. Gauge their receptiveness. Forced mentorship does not work — the relationship must be voluntary.
-7. Completion indicator: a list of 3-5 youth who have agreed (or whose parents have agreed) to participate in a mentorship relationship.` },
-        { title: 'Recruit 2-3 mentors from the community — mature Muslims with diverse professional and life experience', done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 17:24",
-              arabic: "وَاخْفِضْ لَهُمَا جَنَاحَ الذُّلِّ مِنَ الرَّحْمَةِ وَقُل رَّبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا",
-              translation: "And lower to them the wing of humility out of mercy and say, \"My Lord, have mercy upon them as they brought me up when I was small.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "quran",
-              ref: "Quran 25:74",
-              arabic: "وَالَّذِينَ يَقُولُونَ رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا",
-              translation: "And those who say, \"Our Lord, grant us from among our wives and offspring comfort to our eyes and make us an example for the righteous.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Jami at-Tirmidhi 1914",
-              translation: "The Prophet (peace be upon him) said: \"He is not one of us who does not show mercy to our young ones and respect to our elders.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-A single mentor can only offer one perspective. Youth benefit from exposure to multiple role models who demonstrate that Islam is lived successfully in diverse contexts — business, academia, trades, family life, community service. The Prophet (peace be upon him) did not mentor alone; he cultivated an entire community of adults who invested in the young. Recruiting multiple mentors also distributes the workload, preventing burnout and ensuring the programme survives if one mentor becomes unavailable.
-
-
-**How?**
-
-1. Identify community members who are: practising Muslims, emotionally mature, good listeners, patient, and available for at least two hours per month.
-2. Look for diversity in profession, ethnicity, age, and life experience — a doctor, a tradesperson, a teacher, and a business owner will collectively offer far more than four people from the same background.
-3. Approach potential mentors individually. Explain the programme vision, the time commitment, and what you are asking of them.
-4. Provide basic mentorship guidelines: confidentiality, appropriate boundaries, active listening, and the difference between mentoring and lecturing.
-5. If possible, arrange a brief training session — even a one-hour orientation on effective Islamic mentoring principles.
-6. Match mentors with mentees based on compatibility: shared interests, complementary personalities, and the specific needs of each young person.
-7. Completion indicator: 2-3 mentors have committed to the programme, received orientation, and been matched with mentees.` },
-        { title: 'Design a simple mentorship framework — monthly meetings, topics, and check-in structure', done: false,
-          sources: [
-            {
-              kind: "hadith",
-              ref: "Sahih Muslim 2674",
-              translation: "The Prophet (peace be upon him) said: \"Whoever starts a good practice in Islam will have its reward and the reward of those who act upon it after him.\" A structured mentorship framework ensures the good practice is repeatable and scalable.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-Unstructured mentorship often devolves into sporadic, unfocused meetings that neither party finds valuable. A simple framework ensures consistency, progress, and accountability without making the relationship feel clinical. The Prophet's tarbiyah (nurturing) of the companions was both relational and intentional — he combined personal warmth with purposeful teaching. Your framework should do the same.
-
-
-**How?**
-
-1. Set a minimum meeting frequency: at least twice per month, either in person or via video call, for 60-90 minutes each.
-2. Create a flexible topic rotation covering key areas: faith and worship, character development, academic or career guidance, relationships and social skills, and community responsibility.
-3. Design each meeting with a simple structure: 15 minutes of personal catch-up (how are you doing?), 30-40 minutes of focused discussion or activity, and 10 minutes of du'a and goal-setting for the next meeting.
-4. Provide mentors with a one-page guide for each topic — suggested questions, relevant hadith or Quranic ayat, and discussion prompts. They do not need to be scholars; they need to be prepared.
-5. Include at least one group activity per quarter where all mentors and mentees come together — a hike, a community service project, or a shared meal.
-6. Establish a simple check-in method between meetings — a weekly text message asking "How is your week going?" maintains connection without requiring a full meeting.
-7. Completion indicator: a written mentorship framework document covering meeting frequency, topic rotation, session structure, and quarterly group activities, distributed to all mentors.` },
-        { title: 'Launch the programme and hold the first mentor-mentee meetings', done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 31:13-14",
-              arabic: "وَإِذْ قَالَ لُقْمَانُ لِابْنِهِ وَهُوَ يَعِظُهُ يَا بُنَيَّ لَا تُشْرِكْ بِاللَّهِ إِنَّ الشِّرْكَ لَظُلْمٌ عَظِيمٌ",
-              translation: "And when Luqman said to his son while he was instructing him, \"O my son, do not associate anything with Allah. Indeed, association with Him is great injustice.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih al-Bukhari 7138",
-              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd, and each of you is responsible for his flock.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-Planning without execution is a form of self-deception. The first meeting sets the tone for the entire relationship — it is where trust begins to form and where the mentee decides whether this is worth their time. The Prophet (peace be upon him) began his mentoring relationships with genuine personal interest ("How are you, O young man?") before moving to instruction. The first meeting must prioritise relationship over curriculum.
-
-
-**How?**
-
-1. Coordinate with all mentor-mentee pairs to schedule their first meetings within the same two-week window — this creates collective momentum.
-2. For the first meeting, instruct mentors to focus 80% on getting to know their mentee: family background, interests, school or work life, goals, struggles, and what they hope to get from mentorship.
-3. Share a meal together if possible — the Prophet (peace be upon him) frequently ate with those he was building relationships with. Breaking bread lowers barriers.
-4. Have mentors share their own story honestly, including struggles — vulnerability from the mentor builds trust from the mentee.
-5. At the end of the first meeting, agree on the next meeting date and one small commitment (e.g., "Read this short article and we will discuss it next time").
-6. After all first meetings, gather mentor feedback: How did it go? Any concerns? Does the match feel right?
-7. Completion indicator: all mentor-mentee pairs have completed their first meeting, with the second meeting scheduled and one initial commitment set.` },
-        { title: 'Review the programme after three months — assess impact and refine the approach', done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 103:1-3",
-              arabic: "وَالْعَصْرِ إِنَّ الْإِنسَانَ لَفِي خُسْرٍ إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ",
-              translation: "By time, indeed mankind is in loss, except for those who have believed and done righteous deeds and advised each other to truth and advised each other to patience.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-Three months is long enough to see patterns and short enough to course-correct before problems become entrenched. Some matches may not be working. Some youth may have dropped out. Some mentors may be struggling with the time commitment. A formal review prevents the programme from quietly dying — which is the fate of most well-intentioned community initiatives. The principle of muhasabah (self-accounting) applies to institutions just as it applies to individuals.
-
-
-**How?**
-
-1. Survey both mentors and mentees separately with honest questions: Is the relationship valuable? Is the frequency right? What would you change? Do you want to continue?
-2. Review attendance and consistency: How many of the planned meetings actually happened? If less than 75%, investigate why.
-3. Meet with mentors as a group to share experiences (without naming mentees). What is working? What is not? What resources do they need?
-4. Speak privately with any mentee who has disengaged — understand their reasons without pressuring them to return.
-5. Make adjustments: re-match pairs if needed, adjust frequency, change the topic framework, or bring in guest speakers to supplement.
-6. Celebrate successes — share anonymised wins with the community to build support and attract new mentors and mentees.
-7. Completion indicator: a three-month review has been conducted with input from all participants, adjustments have been implemented, and a decision has been made on whether to expand, continue as is, or restructure the programme.` },
-      ],
-    },
-    {
+      seq: 0,
       title: 'Establish a community dispute resolution (sulh) process — prevent conflicts from escalating',
       priority: 'high', tags: ['sulh', 'conflict-resolution', 'justice'],
       description: 'The Quran says, "Reconciliation is best" (4:128) and commands believers to make peace between disputing parties (49:9). Most community conflicts — between families, between members and leadership, or between neighbours — escalate because there is no structured process for resolution. A sulh (reconciliation) process gives the community a pathway to justice and mercy before disputes reach courts or cause permanent rifts.',
@@ -8436,6 +8044,41 @@ A process without documentation is just a good idea. A written sulh process give
 5. Include Islamic principles that govern the process: justice (adl), reconciliation (sulh), and the prohibition of oppression (zulm).
 6. Review the document with the imam and mediators for feedback before finalising.
 7. Completion indicator: a written sulh process document, reviewed and approved by the imam and mediator committee, ready for presentation to the community.` },
+        { title: "Establish a referral network for cases beyond the community's capacity", done: false,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 5:2",
+              arabic: "وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ",
+              translation: "And cooperate in righteousness and piety.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 4:135",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا كُونُوا قَوَّامِينَ بِالْقِسْطِ شُهَدَاءَ لِلَّهِ",
+              translation: "O you who have believed, be persistently standing firm in justice, witnesses for Allah.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+          ],
+          description: `**Why?**
+
+Not every dispute can or should be resolved internally. Some cases involve legal complexity (e.g., divorce, inheritance, business partnerships with external parties) that require professional Islamic arbitration, legal counsel, or even court intervention. The Prophet (peace be upon him) sent delegations to specialists when needed. A referral network ensures the community does not overextend itself and that parties receive the right level of support for their situation.
+
+
+**How?**
+
+1. Research and compile a list of: Islamic arbitration councils, Muslim family lawyers, Muslim business mediators, and counselling services in your area or region.
+2. Contact each to confirm: services offered, fees, geographic coverage, and willingness to accept referrals from your community.
+3. Establish a simple referral protocol: when a case is assessed as beyond scope, the intake team provides the party with relevant referral options and contact details.
+4. Maintain the referral list as a living document, updated annually.
+5. Follow up on referred cases (with consent) to assess whether the external service was helpful.
+6. Share the referral directory with the community so individuals can also access it directly.
+7. Completion indicator: a published referral directory with at least 5 vetted external services, and at least 2 successful referrals made.` },
         { title: 'Present the sulh process to the community and gain buy-in from leadership', done: false,
           sources: [
             {
@@ -8562,6 +8205,7 @@ A sulh process that depends on the same two or three people is fragile. If those
       ],
     },
     {
+      seq: 3,
       title: 'Develop dedicated programming for women — ensure equitable access and voice in community life',
       priority: 'high', tags: ['women', 'equity', 'programming'],
       description: 'The Prophet (peace be upon him) dedicated specific time to teach and address the women of the community when they asked for it (Bukhari). Women\'s programming is not a separate, lesser track — it is essential infrastructure that ensures half the community has access to education, leadership development, social connection, and a voice in community decisions. Communities that neglect women\'s programming lose families.',
@@ -8769,193 +8413,12 @@ The physical condition of the women's section communicates how much the communit
 7. Completion indicator: the women's section has been assessed, a prioritised improvement list has been presented to the masjid board, and at least one tangible improvement has been completed.` },
       ],
     },
-    {
-      title: 'Establish a community treasury or waqf — build institutional financial sustainability',
-      priority: 'high', tags: ['waqf', 'treasury', 'endowment'],
-      description: 'Waqf (Islamic endowment) was the financial engine of Muslim civilisation for over a thousand years — it funded mosques, schools, hospitals, and public infrastructure. A community treasury or waqf transforms your community from donation-dependent to self-sustaining. The Prophet (peace be upon him) said, "When a person dies, their deeds cease except for three: ongoing charity (sadaqah jariyah)..." (Muslim). Waqf is the ultimate sadaqah jariyah.',
-      subtasks: [
-        { title: 'Research waqf models and identify which is most suitable for your community', done: false,
-          sources: [
-            {
-              kind: "hadith",
-              ref: "Sahih Muslim 1015",
-              translation: "The Prophet (peace be upon him) said: \"When a man dies, his deeds come to an end except for three: sadaqah jariyah (ongoing charity), beneficial knowledge, or a righteous child who prays for him.\" A waqf is the institutional form of sadaqah jariyah.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-Waqf is a sophisticated Islamic financial instrument with over 1,400 years of jurisprudential development. Launching one without understanding the models is like starting a business without a business plan. Different waqf models suit different community sizes and goals: a cash waqf (pooled funds invested for returns), a property waqf (real estate generating rental income), or a corporate waqf (an endowment managed by a registered entity). Choosing the wrong model can lead to legal complications, mismanagement, or failure to generate meaningful returns.
-
-
-**How?**
-
-1. Study the basic fiqh of waqf: it is an irrevocable dedication of assets whose proceeds benefit a specified purpose. The principal is preserved; only the returns are used.
-2. Research modern waqf models: cash waqf funds (e.g., the model used by National Zakat Foundation or ISNA Endowment), property-based waqf (a building whose rent funds community programmes), and investment waqf (pooled capital invested in halal instruments).
-3. Assess your community's capacity: a small community may start with a cash waqf pool; a larger one may aim for property acquisition.
-4. Consult with an Islamic finance professional or a waqf-experienced imam to understand legal requirements in your jurisdiction (trust law, charity registration, tax implications).
-5. Study successful examples: the Waqf of Uthman ibn Affan (the well of Rumah), modern examples like Awqaf SA, or local community endowments.
-6. Document your findings in a brief report comparing 2-3 models with pros, cons, and suitability for your community.
-7. Completion indicator: a written comparison of at least two waqf models with a recommendation for which is most suitable, informed by professional consultation.` },
-        { title: 'Form a waqf committee with financial, legal, and community representation', done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 4:58",
-              arabic: "إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا",
-              translation: "Indeed, Allah commands you to render trusts to whom they are due.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih al-Bukhari 7138",
-              translation: "The Prophet (peace be upon him) said: \"Each of you is a shepherd and each of you is responsible for his flock.\" A waqf committee with diverse representation ensures trust is properly stewarded.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-A waqf is a perpetual institution that must outlive its founders. It requires financial expertise to invest wisely, legal knowledge to structure it correctly, and community trust to attract contributions. A committee with diverse expertise prevents the waqf from being captured by one individual or faction and ensures accountability. The historical corruption of waqf institutions — which contributed to their decline in the modern era — was almost always traceable to poor governance.
-
-
-**How?**
-
-1. Identify community members with relevant expertise: an accountant or financial advisor, a lawyer (preferably familiar with trust or charity law), a successful business person, and a respected community elder.
-2. Approach each person individually, explain the vision, and ask them to serve on the founding committee.
-3. Ensure the imam or a scholar is involved — the waqf must be structured in compliance with Islamic principles, and scholarly input legitimises it to potential contributors.
-4. Define roles: chairperson (community leader), treasurer (financial expert), legal advisor, investment advisor, and secretary.
-5. Establish governance rules: meeting frequency, decision-making process (consensus or majority), conflict of interest policy, and term limits.
-6. Register the committee formally if required by local law — as a trust, charitable organisation, or other appropriate legal entity.
-7. Completion indicator: a waqf committee of at least four members with documented roles, governance rules, and legal standing (or a plan to obtain it).` },
-        { title: 'Draft the waqf deed — define the purpose, beneficiaries, and management structure', done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 2:282",
-              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا تَدَايَنتُم بِدَيْنٍ إِلَىٰ أَجَلٍ مُّسَمًّى فَاكْتُبُوهُ",
-              translation: "O you who have believed, when you contract a debt for a specified term, write it down.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih al-Bukhari 2737",
-              translation: "Umar (may Allah be pleased with him) said: \"I got some land in Khaybar and came to the Prophet and said, 'I have got land which is the best I have ever had. What do you command regarding it?' He said: 'If you wish, make the property inalienable and give the profit from it to charity.'\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-The waqf deed is the founding document that governs the endowment in perpetuity. It defines what the waqf funds, who benefits, who manages it, and what happens if circumstances change. A vague or poorly drafted deed leads to disputes, misuse, and eventual collapse. Historically, the most enduring waqf institutions had precise, well-drafted deeds that anticipated future challenges. This document is your community's covenant with future generations.
-
-
-**How?**
-
-1. Define the purpose clearly: "The proceeds of this waqf shall fund [specific purposes: masjid operations, Islamic education, community welfare, or a combination]."
-2. Specify beneficiaries: the local Muslim community, specific programmes, or specific categories of people (students, widows, converts, etc.).
-3. Define the management structure: who are the trustees? How are they appointed and replaced? What happens if a trustee resigns, dies, or is removed?
-4. Include investment guidelines: the waqf capital must be invested in halal instruments only. Define acceptable investment categories and risk tolerance.
-5. Specify distribution rules: what percentage of returns is distributed vs. reinvested? How are disbursements approved?
-6. Include amendment provisions: how can the deed be modified if circumstances change (e.g., the original purpose becomes impossible)?
-7. Completion indicator: a completed waqf deed, reviewed by both a legal professional and an Islamic scholar, ready for community presentation and formal execution.` },
-        { title: 'Launch a fundraising campaign to seed the waqf with initial capital', done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 2:261",
-              arabic: "مَّثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ",
-              translation: "The example of those who spend their wealth in the way of Allah is like a seed of grain which grows seven ears; in each ear is a hundred grains.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih Muslim 1006",
-              translation: "The Prophet (peace be upon him) said: \"Charity does not decrease wealth.\" Fundraising to seed a waqf is an investment in multiplied reward.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-A waqf without capital is an idea, not an institution. The initial seed campaign sets the financial foundation and, equally importantly, builds community ownership — people who contribute to the waqf become invested in its success. The Prophet (peace be upon him) praised Uthman ibn Affan for purchasing the well of Rumah and making it waqf — the companions gave generously because they understood the perpetual nature of the reward.
-
-
-**How?**
-
-1. Set a realistic seed target based on your chosen waqf model — enough to generate meaningful returns but achievable for your community's size.
-2. Create a compelling campaign: explain what waqf is, how the proceeds will be used, the concept of sadaqah jariyah, and the specific community needs it will address.
-3. Present the campaign during a Jumu'ah khutbah, community dinner, or dedicated fundraising event. The imam's endorsement is essential.
-4. Offer multiple giving levels: one-time contributions, monthly pledges, and legacy gifts (bequests in wills).
-5. Make giving easy: set up online donation links, bank transfer details, and in-person collection at the masjid.
-6. Provide regular updates on progress toward the target — transparency builds trust and momentum.
-7. Completion indicator: the fundraising campaign has launched, contributions have been received from at least 10 community members, and the waqf account holds its first deposit.` },
-        { title: 'Make the first investment and distribute the first returns to the designated beneficiaries', done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 2:261",
-              arabic: "مَّثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ فِي كُلِّ سُنبُلَةٍ مِّائَةُ حَبَّةٍ",
-              translation: "The example of those who spend their wealth in the way of Allah is like a seed of grain which grows seven ears; in each ear is a hundred grains.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "quran",
-              ref: "Quran 3:92",
-              arabic: "لَن تَنَالُوا الْبِرَّ حَتَّىٰ تُنفِقُوا مِمَّا تُحِبُّونَ",
-              translation: "Never will you attain righteousness until you spend from that which you love.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih Muslim 1631",
-              translation: "The Prophet (peace be upon him) said: \"When a person dies, his deeds come to an end except for three: ongoing charity (sadaqah jariyah), knowledge that is benefited from, and a righteous child who prays for him.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-The first investment and distribution transforms the waqf from a concept into a functioning institution. It demonstrates to contributors that their money is working, builds credibility for future fundraising, and delivers tangible benefit to the community. The moment the first return is distributed — whether it funds a student's tuition, covers a family's groceries, or contributes to masjid operations — the waqf becomes real.
-
-
-**How?**
-
-1. With the committee's approval, select the first halal investment vehicle — options include Islamic savings accounts, sukuk (Islamic bonds), halal equity funds, or real estate.
-2. Start conservatively: prioritise capital preservation for the first investment while the committee builds experience and confidence.
-3. Monitor the investment according to the schedule defined in the waqf deed — monthly, quarterly, or annually.
-4. When returns are generated, calculate the distributable amount according to the deed's rules.
-5. Identify the first beneficiaries or programmes to receive funding, following the priority order in the waqf deed.
-6. Document the distribution: amount, recipient or programme, date, and authorising committee members.
-7. Completion indicator: the first investment has been made, returns have been generated, and at least one distribution has been made to a beneficiary or community programme, with full documentation.` },
-      ],
-    },
   ],
 
   // ── EXCELLENCE — Model community for the world ──
   ummah_community_excellence: [
     {
+      seq: 2,
       title: "Build a model community replicable by other Muslim communities",
       priority: 'medium', tags: ['model', 'replication', 'ihsan'],
       description: "The Prophet (peace be upon him) built a community in Madinah that became the template for every Muslim society thereafter. This task aspires to develop your community into a documented, replicable model — not because it is perfect, but because its systems, processes, and culture can be studied and adapted by other communities seeking to strengthen themselves.",
@@ -9146,6 +8609,7 @@ The Prophet (peace be upon him) paired experienced Companions with newer Muslims
       ],
     },
     {
+      seq: 3,
       title: "Contribute to global ummah solidarity and mutual support",
       priority: 'medium', tags: ['global-ummah', 'solidarity', 'aid'],
       description: " This task extends the community's concern beyond local boundaries to active solidarity with the global ummah — supporting Muslims in crisis, amplifying suppressed voices, and contributing to the collective strength of the worldwide Muslim community.",
@@ -9364,6 +8828,7 @@ The Prophet (peace be upon him) made qunut al-nazilah (supplication during calam
       ],
     },
     {
+      seq: 0,
       title: "Establish institutional sadaqah jariyah for intergenerational benefit",
       priority: 'medium', tags: ['waqf', 'sadaqah-jariyah', 'legacy'],
       description: "The Prophet (peace be upon him) said: 'When a person dies, their deeds end except for three: ongoing charity, beneficial knowledge, and a righteous child who prays for them' (Muslim). This task builds institutional forms of sadaqah jariyah — endowments, educational trusts, and infrastructure — that serve the community not just today but for generations to come.",
@@ -9563,6 +9028,7 @@ The preservation of the seerah (Prophetic biography) and the history of the Comp
       ],
     },
     {
+      seq: 1,
       title: "Build intergenerational continuity — ensure the community outlasts its founders",
       priority: 'medium', tags: ['succession', 'continuity', 'legacy'],
       description: "The Prophet (peace be upon him) prepared his Companions to lead after him — Abu Bakr, Umar, Uthman, and Ali (may Allah be pleased with them all) were ready because he invested in their development throughout his life. This task ensures that your community's leadership, institutions, and culture can be sustained across generations, independent of any single individual.",
@@ -9762,6 +9228,7 @@ The Prophet (peace be upon him) did not mentor only the elite — Anas ibn Malik
       ],
     },
     {
+      seq: 4,
       title: "Aspire to the Prophetic community standard — a living model of Madinah values",
       priority: 'low', tags: ['ihsan', 'prophetic-model', 'excellence'],
       description: "The community of Madinah under the Prophet (peace be upon him) was characterised by justice, mercy, brotherhood, knowledge, worship, service, and joy. This task is the aspirational north star — not a checklist to complete but a standard to continuously approach. It challenges the community to measure itself against the Prophetic model and to never settle for mediocrity in any dimension of collective life.",
@@ -9975,6 +9442,7 @@ The Prophet (peace be upon him) said: "Actions are judged by intentions" (Bukhar
   // ── CORE: Not Harming, Greeting, Basic Care ──
   ummah_neighbors_core: [
     {
+      seq: 1,
       title: "Learn every immediate neighbor's name, household composition, and basic needs",
       priority: 'urgent', tags: ['haqq-al-jar', 'awareness'],
       description: "You cannot fulfil the rights of someone you do not know. This task establishes the foundational awareness required to honour those rights — begin by learning who lives beside you.",
@@ -10164,6 +9632,7 @@ Identifying harm without acting on it is worse than ignorance, because it adds t
       ],
     },
     {
+      seq: 0,
       title: "Protect your neighbors' property and privacy as you would your own",
       priority: 'urgent', tags: ['haqq-al-jar', 'amanah'],
       description: "The right of the neighbor includes safeguarding their property when they are absent and never violating their privacy. The Prophet (peace be upon him) listed the rights of the neighbor to include protecting their home in their absence and lowering your gaze from their private spaces. This task ensures you actively honour these trust-based obligations.",
@@ -10362,6 +9831,7 @@ The neighborly relationship must have practical infrastructure, not just goodwil
       ],
     },
     {
+      seq: 2,
       title: "Remove harm from shared spaces — keep communal areas clean, safe, and unobstructed",
       priority: 'high', tags: ['haqq-al-jar', 'shared-spaces'],
       description: " Shared hallways, stairwells, driveways, and communal gardens are the 'paths' of your neighborhood. This task applies the prophetic principle directly to communal spaces where your neighbors walk daily.",
@@ -10550,6 +10020,7 @@ Islam teaches that the best actions are those done consistently, even if small. 
       ],
     },
     {
+      seq: 3,
       title: "Handle neighbor conflicts with patience, direct communication, and sabr",
       priority: 'medium', tags: ['haqq-al-jar', 'conflict', 'sabr'],
       description: "Disagreements with neighbors are inevitable — noise disputes, parking issues, boundary questions. Islam provides a clear framework: address issues directly and kindly, exercise patience, and never respond to harm with harm.",
@@ -10749,6 +10220,7 @@ The Quran instructs: "If two parties among the believers fall into a dispute, ma
       ],
     },
     {
+      seq: 4,
       title: "Fulfil the basic needs of vulnerable neighbors — elderly, sick, alone, or in hardship",
       priority: 'high', tags: ['haqq-al-jar', 'vulnerable', 'care'],
       description: " Vulnerable neighbors — the elderly, the sick, those living alone, recent arrivals, or families facing hardship — have an amplified right to your attention. This task ensures you identify and actively care for those in your vicinity who need it most.",
@@ -10939,6 +10411,7 @@ Emergencies do not announce themselves. A power outage, a water main break, a fa
       ],
     },
     {
+      seq: 6,
       title: 'Institutionalise amr bil-ma\'ruf wa nahi \'anil-munkar — commanding good and forbidding evil as a community practice',
       priority: 'medium', tags: ['amr-bil-maruf', 'hisbah', 'accountability'],
       description: 'Allah says, "You are the best community singled out for people: you command what is right, forbid what is wrong, and believe in Allah" (Quran 3:110). This is not optional — it is the defining characteristic of the ummah. Institutionalising this practice means moving beyond individual advice-giving to a community-wide culture of mutual accountability, done with wisdom, gentleness, and due process.',
@@ -11165,6 +10638,7 @@ Amr bil-ma'ruf cannot function if people are afraid to speak. Many community mem
       ],
     },
     {
+      seq: 5,
       title: 'Build interfaith bridges — represent Islam authentically while fostering cooperation with neighbours of other faiths',
       priority: 'medium', tags: ['interfaith', 'da\'wah', 'coexistence'],
       description: 'The Quran says, "O humanity, We created you from a male and a female and made you peoples and tribes that you may know one another" (49:13). Interfaith engagement is not compromise — it is the Quranic mandate to make ourselves known, to cooperate on shared values, and to represent Islam with excellence. The Prophet (peace be upon him) maintained relationships with Jewish and Christian neighbours, participated in shared civic life, and was known for his integrity by people of all faiths.',
@@ -11382,6 +10856,7 @@ In the age of social media and 24-hour news, communities that do not tell their 
       ],
     },
     {
+      seq: 9,
       title: 'Launch global ummah solidarity projects — connect local effort to worldwide Muslim concerns',
       priority: 'medium', tags: ['global-solidarity', 'ummah', 'international'],
       description: ' A community that only looks inward is not living up to the ummah ideal. Global solidarity projects connect your local community to the broader body of believers, channelling resources, prayer, and advocacy to where they are needed most.',
@@ -11600,6 +11075,7 @@ Financial support and du'a address symptoms; advocacy addresses root causes. The
       ],
     },
     {
+      seq: 8,
       title: 'Develop a community replication model — document your community\'s best practices so others can learn from them',
       priority: 'medium', tags: ['replication', 'scaling', 'documentation'],
       description: 'The best community is not one that hoards its success but one that enables others to replicate it. The Prophet (peace be upon him) said, "Convey from me, even if it is one ayah" (Bukhari). Documenting your community\'s successful programmes, governance structures, and lessons learned creates a blueprint that other Muslim communities — especially newer or smaller ones — can adapt and implement.',
@@ -11818,6 +11294,7 @@ Sharing directly with a few communities is valuable; publishing or presenting re
       ],
     },
     {
+      seq: 7,
       title: 'Build intergenerational knowledge transfer — ensure community wisdom passes to the next generation',
       priority: 'medium', tags: ['intergenerational', 'legacy', 'knowledge-transfer'],
       description: 'Every generation of Muslims has a responsibility to pass on what it learned to the next. Intergenerational knowledge transfer goes beyond Quran — it includes community building wisdom, lived Islamic experience, professional skills, and the stories of struggle and triumph that give a community its identity and resilience.',
@@ -12049,6 +11526,7 @@ A legacy document is the community's letter to its own future. It captures not j
 
   "ummah_moontrance-land_core": [
     {
+      seq: 1,
       title: 'Conduct a comprehensive soil assessment — map soil types, pH, organic matter, and contamination across the entire land parcel',
       priority: 'urgent', tags: ['soil', 'khilafah-al-ard'],
       description: 'Before any planting or building can begin, you must know exactly what the soil holds and what it lacks. Allah placed us as khulafa (stewards) on this earth (Quran 2:30), and a steward who acts without knowledge of what they tend is negligent. This assessment provides the baseline truth about the land\'s condition.',
@@ -12276,6 +11754,7 @@ Restoration is not a one-time event but a living process that must be tracked. W
       ],
     },
     {
+      seq: 2,
       title: 'Design a water systems plan — map sources, drainage, and irrigation needs for the entire land parcel',
       priority: 'urgent', tags: ['water', 'nizam-al-miyah'],
       description: 'Water is the lifeblood of any land. Allah says He laid out the earth for His creatures with fruit-laden palms and husked grain (Quran 55:10-12), but none of this grows without intentional water management. This task designs the complete water architecture before a single pipe is laid or swale is dug.',
@@ -12503,6 +11982,7 @@ Harvesting water that falls freely from the sky is one of the most direct expres
       ],
     },
     {
+      seq: 0,
       title: 'Establish the legal land trust and Islamic covenant — protect the land from sale, speculation, and misuse',
       priority: 'urgent', tags: ['waqf', 'amanah', 'legal'],
       description: 'Land in Islam is amanah (trust), not a commodity for speculation. Without a legal structure that enshrines stewardship, future generations or external pressures could convert this sacred trust into a market asset. This task creates the legal and covenantal framework that protects the land in perpetuity.',
@@ -12720,6 +12200,7 @@ A trust held in secret serves no communal purpose. Publicly declaring the land c
       ],
     },
     {
+      seq: 4,
       title: 'Develop the initial planting plan — select species, map zones, and plant the first season',
       priority: 'urgent', tags: ['planting', 'sadaqah-jariyah'],
       description: 'The Prophet (peace be upon him) said: "If a Muslim plants a tree or sows seeds, and then a bird, or a person, or an animal eats from it, it is regarded as a charitable gift (sadaqah) for him" (Bukhari). This task translates that hadith into a practical, soil-appropriate planting plan for the first growing season.',
@@ -12938,6 +12419,7 @@ This is the moment where planning becomes reality and the first sadaqah jariyah 
       ],
     },
     {
+      seq: 3,
       title: 'Build safety and access infrastructure — fencing, paths, signage, and emergency provisions',
       priority: 'urgent', tags: ['infrastructure', 'safety'],
       description: 'A land stewardship project that people cannot safely access or navigate will fail before it starts. Fencing protects plantings and marks boundaries, paths channel foot traffic away from sensitive areas, signage educates visitors, and emergency provisions protect workers. This is the infrastructure of amanah — making the land safe for everyone who enters it.',
@@ -13146,6 +12628,7 @@ Community work days, deliveries of amendments and materials, and regular mainten
   ],
   "ummah_moontrance-land_growth": [
     {
+      seq: 1,
       title: 'Establish a composting and soil amendment programme — close the organic waste loop on-site',
       priority: 'high', tags: ['compost', 'islah-al-turbah'],
       description: ' Composting removes organic "waste" from landfill and transforms it into the most valuable input for soil restoration — it is environmental sadaqah in its purest form. This programme closes the nutrient loop so the land feeds itself.',
@@ -13345,6 +12828,7 @@ Bare soil is wounded soil — exposed to rain erosion, sun degradation, and weed
       ],
     },
     {
+      seq: 2,
       title: 'Establish the perennial food forest — plant canopy, understory, and ground layers',
       priority: 'high', tags: ['food-forest', 'sadaqah-jariyah'],
       description: 'A food forest mimics the structure of a natural forest ecosystem but with species chosen for human benefit. Once established, it produces food, medicine, timber, and wildlife habitat with minimal ongoing labour. This is the highest expression of sadaqah jariyah on land — an investment that feeds people and creatures for generations after you are gone.',
@@ -13517,6 +13001,7 @@ A food forest aims for self-sufficiency, but young trees and shrubs need consist
       ],
     },
     {
+      seq: 0,
       title: 'Build rainwater harvesting infrastructure — capture, store, and distribute rainfall across the land',
       priority: 'high', tags: ['rainwater', 'nizam-al-miyah'],
       description: 'Allah describes rain as "blessed water" (Quran 50:9) sent from the sky to revive dead land. Allowing this blessing to run off uncaptured is a form of ingratitude. This task builds the infrastructure to catch, hold, and deliver every possible litre of rainfall to where it is needed most.',
@@ -13735,6 +13220,7 @@ You cannot manage what you do not measure. A monitoring dashboard provides real-
       ],
     },
     {
+      seq: 3,
       title: 'Create a biodiversity corridor — connect habitat zones to support wildlife and pollinators',
       priority: 'high', tags: ['biodiversity', 'khalifah'],
       description: 'The Quran says there is no creature on earth or bird that flies with its wings but that they are communities like you (6:38). A land stewardship project that grows food but destroys habitat for other creatures has failed its khilafah mandate. Biodiversity corridors provide continuous habitat for wildlife, pollinators, and beneficial insects across the land.',
@@ -13970,6 +13456,7 @@ Zone 5 in permaculture design is land left entirely to nature — no harvesting,
       ],
     },
     {
+      seq: 4,
       title: 'Launch community work days — regular gatherings for collective land stewardship and learning',
       priority: 'high', tags: ['community', 'ummah'],
       description: 'Land stewardship is not a solo endeavour — it is an expression of ummah (community). Regular work days bring people together to labour, learn, eat, and pray on the land, building the social fabric that sustains the project through challenges.',
@@ -14188,6 +13675,7 @@ Children who grow food, care for soil, and observe wildlife on sacred land carry
   ],
   "ummah_moontrance-land_excellence": [
     {
+      seq: 0,
       title: 'Achieve a fully regenerative closed-loop system — zero external inputs, net-positive soil health',
       priority: 'medium', tags: ['regenerative', 'closed-loop'],
       description: 'The ultimate expression of land stewardship is a system that needs nothing from outside and gives back more than it takes. A closed-loop regenerative system produces its own fertility (compost, manure, nitrogen fixation), its own water (rainwater harvesting), its own seed (seed bank), and its own energy — mirroring the self-sustaining perfection of the natural systems Allah created.',
@@ -14424,6 +13912,7 @@ One regenerative land project is a blessing. A replicable model that other Musli
       ],
     },
     {
+      seq: 1,
       title: 'Produce surplus food and resources for community distribution — the land gives more than it consumes',
       priority: 'medium', tags: ['surplus', 'sadaqah'],
       description: 'The measure of a regenerative land project is not what it produces for itself but what it gives away. When the food forest, gardens, and livestock produce more than the stewards need, the surplus becomes direct sadaqah — fresh, halal, tayyib food distributed to those who need it most. This is the point where khilafah al-ard becomes tangible community provision.',
@@ -14642,196 +14131,7 @@ An annual impact report transforms scattered data into a compelling story of wha
       ],
     },
     {
-      title: 'Develop a replicable Islamic land stewardship model — document, teach, and support new projects',
-      priority: 'medium', tags: ['replication', 'dawah'],
-      description: 'The greatest impact of this project is not what happens on this one parcel of land but what happens when 10, then 100, then 1000 communities follow the same model. Developing a replicable framework is the scaling mechanism — turning one act of khilafah into a movement.',
-      subtasks: [
-        { title: 'Distil the project methodology into a step-by-step Islamic Land Stewardship Framework', done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 5:2",
-              arabic: "وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ ۖ وَلَا تَعَاوَنُوا عَلَى الْإِثْمِ وَالْعُدْوَانِ",
-              translation: "And cooperate in righteousness and piety, but do not cooperate in sin and aggression.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "quran",
-              ref: "Quran 16:90",
-              arabic: "إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ",
-              translation: "Indeed, Allah commands justice and excellence.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih Muslim 2674",
-              translation: "The Prophet (peace be upon him) said: \"Whoever establishes a good practice in Islam will have its reward and the reward of all who act upon it after him, without that diminishing their rewards in the slightest.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-Raw experience is not transferable — methodology is. A step-by-step framework takes everything learned on this land and organises it into a sequence that any community can follow, regardless of their starting point. Without this distillation, each new project must reinvent every solution from scratch. The Quran commands us to "take provision" for the journey (2:197), and this framework is the provision you prepare for communities that will follow.
-
-
-**How?**
-
-1. Review every phase of the project from CORE through EXCELLENCE and identify the essential steps that any community must take, regardless of geography, climate, or scale.
-2. Organise these steps into a sequential framework with clear stages: Assess, Protect, Restore, Plant, Harvest, Distribute, Replicate.
-3. For each stage, write a summary of objectives, key actions, common mistakes, and minimum viable outcome.
-4. Include decision trees for major choices: what legal structure to use, which livestock to start with, how to size water storage, and which crops to prioritise.
-5. Embed Islamic principles at each stage — not as decoration but as the reasoning framework that guides decisions.
-6. Test the framework document by having someone unfamiliar with the project read it and attempt to plan a hypothetical land project using only the document.
-7. Completion indicator: a complete Islamic Land Stewardship Framework document, tested by at least one external reader, covering all stages from assessment to replication.` },
-        { title: 'Create a training programme and mentor network to support new community land projects', done: false,
-          sources: [
-            {
-              kind: "hadith",
-              ref: "Sahih Muslim 1631",
-              translation: "The Prophet (peace be upon him) said: \"When a man dies, his deeds come to an end except for three: ongoing charity (sadaqah jariyah), beneficial knowledge, or a righteous child who prays for him.\" Teaching others to steward land is beneficial knowledge that outlives its teacher.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-A written framework is necessary but not sufficient. New communities need human guidance — someone who has made the mistakes, solved the problems, and can answer the questions that no document anticipates. A training programme and mentor network provides this human layer, ensuring that knowledge transfers through relationship, not just text. The Islamic tradition of isnad (chains of transmission) applies here: knowledge is most trustworthy when passed from practitioner to practitioner.
-
-
-**How?**
-
-1. Develop a training curriculum based on the framework: a 6-session course covering assessment, legal protection, soil restoration, planting, water systems, and community building.
-2. Train at least 3 experienced stewards from your project as mentors, equipping them to guide new communities through the framework.
-3. Offer the training programme in accessible formats: in-person weekend intensives, online webinar series, and self-paced written modules.
-4. Create a mentor matching system: new communities are paired with a mentor who has relevant experience (similar climate, scale, or community context).
-5. Establish a communication platform (forum, WhatsApp group, or regular video calls) where new and experienced stewards can share questions, solutions, and encouragement.
-6. Run a pilot mentorship with one new community project, documenting what works and what needs improvement in the support model.
-7. Completion indicator: training curriculum developed, at least 3 mentors trained, one pilot mentorship completed with documented lessons, and a communication platform active.` },
-        { title: 'Establish formal partnerships with Islamic organisations to promote land stewardship as a community priority', done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 49:13",
-              arabic: "يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا",
-              translation: "O mankind, We created you from a male and a female and made you into nations and tribes, that you may know one another.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "quran",
-              ref: "Quran 3:103",
-              arabic: "وَاعْتَصِمُوا بِحَبْلِ اللَّهِ جَمِيعًا وَلَا تَفَرَّقُوا",
-              translation: "And hold firmly to the rope of Allah, all together, and do not become divided.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sunan Abi Dawud 4919",
-              translation: "The Prophet (peace be upon him) said: \"The believers in their mutual kindness, compassion, and sympathy are just like one body. When one limb suffers, the whole body responds to it with wakefulness and fever.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-Individual communities can start land projects, but systemic change requires institutional backing. Formal partnerships with Islamic organisations — national charities, scholarly bodies, mosque networks, and Islamic finance institutions — elevate land stewardship from a niche hobby to a recognised priority of the ummah. These partnerships provide access to funding, land, expertise, and the credibility needed to inspire communities who would not otherwise consider a land project.
-
-
-**How?**
-
-1. Identify the key Islamic organisations in your country or region that have influence, resources, or land: national Islamic charities, waqf boards, mosque umbrella bodies, Islamic finance institutions, and Muslim environmental groups.
-2. Prepare a partnership proposal for each type of organisation, tailored to their mission: for charities, emphasise food distribution; for waqf boards, emphasise permanent endowment; for mosque networks, emphasise community building.
-3. Present the proposal at conferences, council meetings, and through personal networks — institutional partnerships require relational trust, not just documents.
-4. Negotiate specific partnership terms: funding support, land access, volunteer mobilisation, or co-branding of the stewardship framework.
-5. Formalise partnerships with signed memoranda of understanding (MOUs) specifying commitments, timelines, and mutual expectations.
-6. Report regularly to partners on project outcomes to maintain trust and demonstrate value.
-7. Completion indicator: formal partnership agreements signed with at least 2 Islamic organisations, with active collaboration on at least one joint initiative.` },
-        { title: 'Establish a waqf endowment to fund perpetual land stewardship operations and new acquisitions', done: false,
-          sources: [
-            {
-              kind: "hadith",
-              ref: "Sahih al-Bukhari 2737",
-              translation: "Umar ibn al-Khattab acquired land at Khaybar and the Prophet (peace be upon him) advised: \"If you wish, you may hold the property as waqf and give its produce as charity — it shall not be sold, inherited, or given away.\" This is the basis for endowed land stewardship.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-Waqf is the Islamic institution designed precisely for this purpose — permanently dedicating assets so that their benefits flow forever. A waqf endowment for the land project creates a self-sustaining funding source that does not depend on annual donations, government grants, or individual generosity. The endowment's returns fund operations, maintenance, and — crucially — the acquisition and restoration of additional land.
-
-**How?**
-
-1. Consult with an Islamic finance specialist and a charity lawyer to design a waqf endowment structure that is both shariah-compliant and legally enforceable in your jurisdiction.
-2. Define the waqf's beneficiaries and purposes: funding operational costs of existing land projects, acquiring new land for stewardship, training new communities, and distributing surplus food.
-3. Seed the endowment with an initial contribution — this can come from the land trust itself (dedicating a portion of any income), founding donors, or a community fundraising campaign.
-4. Invest the endowment capital in shariah-compliant instruments (sukuk, halal equity funds, or income-generating property) so that the corpus is preserved and only returns are spent.
-5. Establish governance for the waqf: a separate board of mutawallis (waqf managers) with clear investment and disbursement policies.
-6. Launch a community awareness campaign about the waqf, inviting ongoing contributions — even small, regular donations compound over time.
-7. Completion indicator: waqf endowment legally established, initial capital contributed, investment strategy implemented, and the first disbursement made to fund land stewardship operations.` },
-        { title: 'Design an intergenerational stewardship succession plan ensuring the land outlives its founders', done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 28:77",
-              arabic: "وَأَحْسِن كَمَا أَحْسَنَ اللَّهُ إِلَيْكَ ۖ وَلَا تَبْغِ الْفَسَادَ فِي الْأَرْضِ",
-              translation: "And do good as Allah has done good to you, and do not seek corruption in the earth.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "quran",
-              ref: "Quran 2:30",
-              arabic: "إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً",
-              translation: "Indeed, I will make upon the earth a successive authority (khalifah).",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sunan Abi Dawud 5134",
-              translation: "The Prophet (peace be upon him) said: \"If the Hour is about to be established and one of you has a palm shoot in his hand, and he is able to plant it before the Hour is established, let him plant it.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-The ultimate test of any stewardship project is whether it survives its founders. Land is permanent; people are not. Without a succession plan, the project is one generation away from collapse — trustees retire, knowledge is lost, and the covenant fades. An intergenerational plan ensures that leadership, knowledge, and commitment transfer smoothly to the next generation, and the next after that. The Quran speaks of those who say "Our Lord, give us from our spouses and offspring comfort to our eyes, and make us leaders of the righteous" (25:74) — this plan is how you answer that du'a in practical terms.
-
-
-**How?**
-
-1. Establish a youth trustee pipeline: identify young adults (18-25) in the community with interest in land stewardship and invite them into a structured apprenticeship with current trustees.
-2. Require that at least one trustee position is always held by someone under 30, ensuring generational representation is built into the governance structure.
-3. Create a knowledge transfer programme: each senior trustee mentors a junior trustee in their area of expertise (soil management, water systems, governance, community relations) over a minimum 2-year period.
-4. Document all institutional knowledge — not just the framework document, but the informal knowledge: supplier relationships, community dynamics, seasonal quirks of the land, and lessons learned from failures.
-5. Build regular succession reviews into the annual governance cycle: every year, the board assesses its succession readiness and identifies gaps.
-6. Include a "dead hand" clause in the waqf and trust documents: if all trustees are unable to serve, the covenant specifies how replacement trustees are appointed (e.g., by a named Islamic organisation) to prevent the land from falling into legal limbo.
-7. Completion indicator: at least 2 youth apprentice trustees in active mentorship, succession review conducted annually, knowledge transfer programme documented, and dead-hand succession clause included in the legal trust documents.` },
-      ],
-    },
-    {
+      seq: 2,
       title: 'Build a replicable Islamic land stewardship model that other communities can adopt and adapt',
       priority: 'medium', tags: ['model', 'ummah', 'replication'],
       description: 'A single regenerative land project is an oasis. A replicable model is a civilisational shift. This task synthesises the entire Land experience into an open-source, community-tested framework that any Muslim community in any climate can follow — scaling the khilafah al-ard mandate from one parcel to a global movement.',
@@ -15049,6 +14349,7 @@ Isolated projects plateau. A network multiplies. When 10 communities share soil 
       ],
     },
     {
+      seq: 3,
       title: 'Establish an intergenerational stewardship succession plan — ensure the land outlives its founders',
       priority: 'low', tags: ['succession', 'intergenerational', 'waqf'],
       description: 'The ultimate test of Islamic land stewardship is whether the land continues to thrive after the founding generation steps back. An intergenerational succession plan transfers knowledge, responsibility, and authority to the next generation of stewards, ensuring the land remains a productive trust (amanah) for decades and centuries beyond its establishment.',
@@ -15205,6 +14506,15 @@ The Prophetic model of leadership is one of accountability and service, not perm
               hadithGrade: "Sahih",
               rationale: "Prophetic narration cited as evidence for this subtask.",
             },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 2737",
+              translation: "Umar ibn al-Khattab acquired land at Khaybar and the Prophet (peace be upon him) advised: \"If you wish, you may hold the property as waqf and give its produce as charity — it shall not be sold, inherited, or given away.\" This is the basis for endowed land stewardship.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
           ],
           description: `**Why?**
 
@@ -15213,13 +14523,14 @@ Volunteer energy is finite. The founding generation works with the passion of bu
 
 **How?**
 
-1. Determine the annual operating cost of the land stewardship programme: soil amendments, water, tools, insurance, and a basic stipend for the lead steward.
-2. Calculate the endowment principal needed to generate that annual amount at a conservative halal return rate (3-5% from Islamic investment vehicles).
+1. Define what the fund exists to pay for. Start with the operating costs of the land you already steward: soil amendments, water, tools, insurance, and a basic stipend for the lead steward. Then name the two purposes the endowment grows into — acquiring further land for stewardship, and training new communities to steward it — so that later trustees are not left guessing whether expansion is a permitted use.
+2. Determine the annual operating cost at current scale, then calculate the endowment principal needed to generate that amount at a conservative halal return rate (3-5% from Islamic investment vehicles).
 3. Launch an endowment fundraising campaign targeting community members, donors, and qard ḥasan lenders who understand the waqf concept.
 4. Invest the endowment in Shariah-compliant vehicles: Islamic mutual funds, sukuk, or halal real estate — consult an Islamic finance advisor.
-5. Establish a spending policy: only the annual return is spent; the principal is never touched. In years of low return, reduce spending rather than invading the principal.
-6. Report endowment performance annually to all donors and the community — transparency builds trust and encourages further contributions.
-7. Completion indicator: endowment fund established with initial contributions, invested in Shariah-compliant vehicles, and first annual distribution made to stewardship operations.` },
+5. Appoint a separate board of mutawallis (waqf managers), distinct from the land's operational leadership, with written investment and disbursement policies. The people who spend the returns should not be the same people who govern the corpus.
+6. Establish a spending policy: only the annual return is spent; the principal is never touched. In years of low return, reduce spending rather than invading the principal.
+7. Report endowment performance annually to all donors and the community — transparency builds trust and encourages further contributions.
+8. Completion indicator: endowment fund established with initial contributions, a mutawalli board appointed with written investment and disbursement policies, capital invested in Shariah-compliant vehicles, and first annual distribution made to stewardship operations.` },
         { title: 'Conduct a 10-year land health review comparing current conditions to the original baseline', done: false,
           sources: [
             {
@@ -15273,6 +14584,7 @@ The land itself is the ultimate witness to the quality of stewardship it has rec
   // ── CORE — Establish seasonal calendar and foundational programming ──
   "ummah_moontrance-seasonal_core": [
     {
+      seq: 0,
       title: 'Establish a four-season calendar aligned with agricultural and Islamic cycles',
       priority: 'urgent', tags: ['calendar', 'seasons', 'planning'],
       description: 'Map the four MTC seasons — Ghars (Spring/Planting), Ri\'ayah (Summer/Tending), Hisab (Autumn/Harvest), and Sukun (Winter/Stillness) — onto the local growing calendar and anchor each with its Islamic spiritual themes. This calendar becomes the master schedule for every programme, event, and resource allocation across the year.',
@@ -15500,6 +14812,7 @@ Each season demands different tools, supplies, and human capacity. Without a mas
       ],
     },
     {
+      seq: 1,
       title: 'Launch the Ghars (Spring/Planting) programme — seed selection, soil prep, and planting as sadaqah jariyah',
       priority: 'urgent', tags: ['ghars', 'spring', 'planting', 'sadaqah-jariyah'],
       description: 'Design and execute the spring planting programme grounded in the hadith that planting a tree from which others eat is sadaqah jariyah (Bukhari 2320). This covers seed selection for local conditions, soil preparation, water system installation, and communal planting days that transform agricultural work into ongoing charity.',
@@ -15682,6 +14995,7 @@ Documentation transforms a single season's effort into repeatable knowledge. Wit
       ],
     },
     {
+      seq: 2,
       title: 'Build the Ri\'ayah (Summer/Tending) schedule — daily care, hospitality, and tarbiyah programming',
       priority: 'urgent', tags: ['riyayah', 'summer', 'tending', 'tarbiyah'],
       description: 'Establish the summer tending schedule that balances daily crop care with community engagement, hospitality, and educational programming. Ri\'ayah means care and stewardship — this season teaches participants that consistent, patient tending is both an agricultural necessity and a spiritual practice of trust in Allah\'s timing.',
@@ -15843,6 +15157,7 @@ Summer heat, pests, and disease pressure test every planting decision made in sp
       ],
     },
     {
+      seq: 3,
       title: 'Execute the Hisab (Autumn/Harvest) programme — main harvest, seed-saving, and community assessment',
       priority: 'urgent', tags: ['hisab', 'autumn', 'harvest', 'shura'],
       description: 'Coordinate the main harvest season with an emphasis on gratitude, accountability, and forward planning. Hisab means accounting — this season is about gathering the fruits of the year\'s labour, preserving food and seeds for the future, and conducting an honest community assessment of what worked and what needs to change.',
@@ -16024,6 +15339,7 @@ Data without archiving is lost knowledge. Every measurement, observation, and de
       ],
     },
     {
+      seq: 4,
       title: 'Plan the Sukun (Winter/Stillness) season — rest, study circles, maintenance, and next-year preparation',
       priority: 'urgent', tags: ['sukun', 'winter', 'rest', 'planning'],
       description: 'Design the winter programme around the Quranic concept of sukun (tranquillity, 30:21) — a season of intentional rest, deep learning, infrastructure maintenance, and strategic planning. Sukun is not idleness but purposeful stillness, like the earth resting before it brings forth life again in spring.',
@@ -16209,6 +15525,7 @@ Without intentional winter gatherings, the community that formed around shared a
   // ── GROWTH — Expand seasonal programming with hospitality, tarbiyah, heritage, shura, and volunteer systems ──
   "ummah_moontrance-seasonal_growth": [
     {
+      seq: 1,
       title: 'Launch a farm-to-iftar guest hospitality programme tied to the seasonal harvest',
       priority: 'urgent', tags: ['hospitality', 'iftar', 'farm-to-table'],
       description: 'Create a structured hospitality programme that hosts guests for iftar meals prepared from the land\'s own harvest, connecting the food on the table directly to the earth it came from. This programme embodies the Prophetic command to honour guests while demonstrating the full cycle of Islamic land stewardship from seed to plate.',
@@ -16371,6 +15688,7 @@ Impact measurement ensures the hospitality programme achieves its spiritual and 
       ],
     },
     {
+      seq: 2,
       title: 'Integrate children\'s tarbiyah programming across all four seasons',
       priority: 'urgent', tags: ['tarbiyah', 'children', 'education', 'family'],
       description: 'Design a year-round children\'s programme that uses the seasonal agricultural cycle as a living classroom for Islamic values, ecological awareness, and practical life skills. Children who plant seeds in spring, tend crops in summer, harvest in autumn, and study in winter internalise the relationship between effort, patience, trust in Allah, and provision in a way no textbook can teach.',
@@ -16515,6 +15833,7 @@ Without documentation, the children's programme exists only in the memories of i
       ],
     },
     {
+      seq: 3,
       title: 'Establish a seed-saving heritage programme preserving local and heirloom varieties',
       priority: 'urgent', tags: ['seed-saving', 'heritage', 'biodiversity', 'preservation'],
       description: 'Build a structured seed-saving programme that goes beyond basic seed collection to actively preserve, catalogue, and share heirloom and locally adapted varieties. This programme treats seeds as a trust (amanah) from previous generations — biological heritage that carries the accumulated wisdom of countless growing seasons and must be passed forward.',
@@ -16668,6 +15987,7 @@ A well-documented seed-saving programme becomes a gift to the entire ummah — o
       ],
     },
     {
+      seq: 4,
       title: 'Formalise the community shura assessment process for continuous seasonal improvement',
       priority: 'urgent', tags: ['shura', 'assessment', 'governance', 'feedback'],
       description: 'Develop a structured shura (consultation) process that goes beyond the annual autumn assessment to create ongoing feedback loops, transparent governance, and community-driven decision making. This process ensures the MTC programme is truly governed by its participants, not merely administered to them, fulfilling the Quranic mandate of "amruhum shura baynahum" (42:38).',
@@ -16868,6 +16188,7 @@ A shura process that never examines itself risks becoming performative — going
       ],
     },
     {
+      seq: 0,
       title: 'Build a seasonal volunteer coordination system with clear pathways and recognition',
       priority: 'urgent', tags: ['volunteers', 'coordination', 'onboarding', 'recognition'],
       description: 'Create a structured volunteer management system that recruits, onboards, schedules, supports, and recognises volunteers across all four seasons. Volunteers are the lifeblood of MTC — without them, no seed gets planted and no guest gets fed. A well-designed system treats volunteers as valued community members with their own growth journey, not as disposable labour.',
@@ -17025,6 +16346,7 @@ High volunteer turnover is expensive in time, training, and community cohesion. 
   // ── EXCELLENCE — Full four-season model, year-round pathway, national experiences, distribution network, publication ──
   "ummah_moontrance-seasonal_excellence": [
     {
+      seq: 2,
       title: 'Package the full four-season model as a replicable framework for other communities',
       priority: 'urgent', tags: ['replication', 'framework', 'documentation', 'scaling'],
       description: 'Transform the MTC four-season model from a single-site operation into a documented, tested, and shareable framework that any Muslim community can adapt to their local conditions. This is the highest expression of sadaqah jariyah through agricultural knowledge — a system that multiplies itself across the ummah.',
@@ -17179,6 +16501,7 @@ As the framework spreads, quality control becomes essential. A community that us
       ],
     },
     {
+      seq: 0,
       title: 'Design a year-round engagement pathway from first-time visitor to resident steward',
       priority: 'urgent', tags: ['engagement', 'pathway', 'visitor', 'resident', 'retention'],
       description: 'Create a structured journey that guides individuals from their first encounter with MTC through deepening levels of involvement until they become resident stewards who carry the programme forward. This pathway ensures the community grows not just in numbers but in depth of commitment, skill, and spiritual connection to the land.',
@@ -17352,6 +16675,7 @@ An engagement pathway on paper is meaningless if people are not actually progres
       ],
     },
     {
+      seq: 4,
       title: 'Develop national-level faith-designed seasonal experiences that attract wide participation',
       priority: 'urgent', tags: ['national', 'events', 'faith-designed', 'scaling'],
       description: 'Create signature seasonal experiences of such quality and spiritual depth that they attract participants from beyond the local community, establishing MTC as a national model for faith-rooted agricultural engagement. These experiences are not merely scaled-up local events but carefully designed encounters that demonstrate what is possible when Islamic values and land stewardship are fully integrated.',
@@ -17507,6 +16831,7 @@ The best programme in the world cannot scale if no one knows about it. A media a
       ],
     },
     {
+      seq: 1,
       title: 'Build a surplus food distribution network that channels MTC harvests to those in need',
       priority: 'urgent', tags: ['distribution', 'food-security', 'surplus', 'sadaqah'],
       description: 'Create a systematic distribution network that ensures surplus harvest from MTC and affiliated programmes reaches families experiencing food insecurity, fulfilling the Quranic command to "give its due on the day of its harvest" (6:141). This network transforms excess into provision, waste into worship, and local production into community food security.',
@@ -17661,6 +16986,7 @@ Impact measurement completes the cycle of accountability. The community that gre
       ],
     },
     {
+      seq: 3,
       title: 'Document the complete Seasonal model for academic publication and institutional sharing',
       priority: 'urgent', tags: ['publication', 'documentation', 'academic', 'institutional'],
       description: 'Produce a comprehensive written account of the Seasonal model suitable for academic journals, institutional reports, and educational curricula. This documentation elevates the model from a community project to a contribution to knowledge — accessible to researchers, policymakers, educators, and community leaders who can study, cite, critique, and build upon it.',
@@ -17848,6 +17174,7 @@ Knowledge that is not archived is knowledge at risk. Digital files corrupt, webs
   // ── CORE ── foundational acts of community formation
   "ummah_moontrance-residency_core": [
     {
+      seq: 0,
       title: "Draft the community covenant (Mithaq) — a binding agreement of mutual rights, duties, and Islamic governance principles",
       priority: 'urgent', tags: ['covenant', 'mithaq', 'governance'],
       description: "The Mithaq is the foundational social contract of the community, modelled on the Prophet's Charter of Madinah. It establishes shared commitments to Islamic governance, mutual aid, conflict resolution, and stewardship of common resources. Without a written covenant, communal life drifts toward informal power structures and unspoken expectations that fracture trust.",
@@ -18084,6 +17411,7 @@ A covenant that exists only as a discussion or digital draft lacks the weight of
       ],
     },
     {
+      seq: 1,
       title: "Establish the shura governance structure — roles, council formation, and decision-making processes",
       priority: 'urgent', tags: ['shura', 'governance', 'hukm'],
       description: "Governance built on shura (mutual consultation) is a Quranic mandate (42:38), not an optional enhancement. This task creates the institutional architecture for collective decision-making: who sits on the shura council, how they are selected, what authority they hold, and how decisions are made and communicated. Without formal governance, communities default to charismatic authority or wealth-based power.",
@@ -18293,6 +17621,7 @@ The first shura meeting sets the tone and precedent for all governance to come. 
       ],
     },
     {
+      seq: 2,
       title: "Recruit and vet founding families — the Ansar-Muhajirun model of intentional community formation",
       priority: 'urgent', tags: ['hijrah', 'recruitment', 'ansar-muhajirun'],
       description: "The community is built on the quality and commitment of its founding families, not on rapid growth. The Prophetic model paired Muhajirun (those who migrated) with Ansar (those who hosted), creating bonds of mutual obligation that transcended tribal identity. Recruitment must be intentional, transparent, and grounded in shared values — not in marketing or desperation to fill land.",
@@ -18430,6 +17759,7 @@ The bay'ah is the moment when individual interest becomes collective commitment.
       ],
     },
     {
+      seq: 3,
       title: "Establish basic infrastructure — housing, worship space, water, and food systems for founding families",
       priority: 'urgent', tags: ['infrastructure', 'land', 'tamkin'],
       description: "A community cannot form without the physical conditions for dignified life. Before families commit to relocation, the land must provide — at minimum — shelter, clean water, a designated prayer space, and a pathway to food production. This task prioritises function over aesthetics: the goal is habitable, safe, and Shariah-compliant infrastructure that allows families to live, worship, and eat while permanent structures are planned.",
@@ -18646,6 +17976,7 @@ Food security is both a practical necessity and a spiritual aspiration. Even at 
       ],
     },
     {
+      seq: 4,
       title: "Build the newcomer onboarding process — from first inquiry to full integration",
       priority: 'urgent', tags: ['onboarding', 'integration', 'ta\'aruf'],
       description: "A community that cannot onboard new members effectively will either stagnate or fracture as unprepared newcomers collide with established norms. The onboarding process must systematically move a family from initial curiosity through informed commitment to genuine belonging. This is the community's immune system and its hospitality in one system — filtering for fit while welcoming with open arms those who belong.",
@@ -18823,6 +18154,7 @@ Onboarding is not complete when the orientation checklist is ticked off — it i
   // ── GROWTH ── deepening community bonds, systems, and resilience
   "ummah_moontrance-residency_growth": [
     {
+      seq: 0,
       title: "Launch a structured ta'aruf programme — building deep knowing across all community families",
       priority: 'urgent', tags: ['ta\'aruf', 'diversity', 'belonging'],
       description: "Ta'aruf (mutual knowing) is a Quranic imperative: 'We made you into nations and tribes so that you may know one another' (49:13). This is not casual socialising but structured, intentional relationship-building that crosses the natural cliques of family similarity, age, and background. A ta'aruf programme ensures no family exists in isolation within the community and that diversity is experienced as richness rather than friction.",
@@ -19050,6 +18382,7 @@ Ta'aruf is not a programme you launch and forget — it is a living practice tha
       ],
     },
     {
+      seq: 1,
       title: "Build robust conflict resolution mechanisms — from prevention to reconciliation",
       priority: 'urgent', tags: ['conflict', 'islah', 'justice'],
       description: "Conflict is inevitable in any community; unresolved conflict is the leading cause of community collapse. Islam provides a comprehensive framework for conflict resolution — from private counsel to formal arbitration — but these tools only work when they are institutionalised before conflict erupts. This task builds a multi-layered conflict resolution system that de-escalates disputes early, adjudicates them fairly, and reconciles relationships afterwards.",
@@ -19223,6 +18556,7 @@ Communities that do not learn from their conflicts are condemned to repeat them.
       ],
     },
     {
+      seq: 2,
       title: "Implement a comprehensive financial transparency system — from individual contributions to community expenditures",
       priority: 'urgent', tags: ['finance', 'transparency', 'amanah'],
       description: "Financial trust is the load-bearing wall of communal life. When community members cannot see exactly how funds are collected, held, and spent, suspicion fills the information vacuum — even when stewardship is exemplary. This task builds a financial transparency system so thorough that distrust has no ground to grow on. Every dirham in and every dirham out must be traceable, reported, and auditable by any member at any time.",
@@ -19405,6 +18739,7 @@ Monthly reports and annual audits are essential but retrospective — they tell 
       ],
     },
     {
+      seq: 3,
       title: "Build children's education infrastructure — Islamic, academic, and experiential learning",
       priority: 'urgent', tags: ['education', 'children', 'tarbiyah'],
       description: "Children are the community's most precious trust (amanah) and its most important long-term investment. Families will not commit to permanent residency without confidence that their children will receive education that is Islamically grounded, academically rigorous, and enriched by the unique opportunities of community life. This task builds the educational infrastructure — from Quran instruction to outdoor experiential learning — that makes the community a place where children thrive.",
@@ -19621,6 +18956,7 @@ Celebration cements identity. When a child completes hifz of a juz, finishes a c
       ],
     },
     {
+      seq: 4,
       title: "Establish community traditions collaboratively — shared rhythms, seasonal practices, and collective memory",
       priority: 'urgent', tags: ['traditions', 'culture', 'identity'],
       description: "Traditions are the connective tissue of community identity. They create shared rhythms, anticipated joys, and a sense of continuity across seasons and years. But imposed traditions breed resentment — they must emerge collaboratively from the community's collective experience, values, and creativity. This task builds the framework for developing, testing, and adopting community traditions that are authentically owned by all families, grounded in Islamic principles, and adaptable to the community's evolving identity.",
@@ -19815,6 +19151,7 @@ Traditions that are imposed by a few feel like obligations; traditions that emer
   // ── EXCELLENCE ── generational legacy, replicability, and visible proof
   "ummah_moontrance-residency_excellence": [
     {
+      seq: 0,
       title: "Establish a waqf endowment generating surplus — permanent community wealth held in trust for Allah",
       priority: 'urgent', tags: ['waqf', 'endowment', 'sadaqah-jariyah'],
       description: "A waqf is the Islamic institution of perpetual endowment — assets dedicated irrevocably to a beneficial purpose, with their income funding community needs in perpetuity. Establishing a waqf transforms the community from a generation-dependent enterprise into a self-sustaining institution. When the waqf generates surplus beyond operational needs, the community gains the financial freedom to invest in growth, support struggling families, fund scholarship, and extend generosity beyond its own borders. This is sadaqah jariyah at institutional scale.",
@@ -20005,6 +19342,7 @@ Waqf surplus is the ultimate marker of financial maturity for an Islamic communi
       ],
     },
     {
+      seq: 2,
       title: "Produce a fully documented, replicable community formation model",
       priority: 'urgent', tags: ['documentation', 'replication', 'da\'wah'],
       description: "If the community's model cannot be replicated, its impact dies with its geography. A fully documented model — covering every stage from vision to operational maturity — transforms one community's experience into a blueprint that other Muslim communities worldwide can study, adapt, and implement. This is da'wah through demonstration: proving that Islamic social architecture works in practice, not merely in theory, and making that proof available to anyone with the courage to try.",
@@ -20196,6 +19534,7 @@ A document describes a model; a visit demonstrates it. There is no substitute fo
       ],
     },
     {
+      seq: 1,
       title: "Develop intergenerational succession planning — ensuring the community outlives its founders",
       priority: 'urgent', tags: ['succession', 'legacy', 'generations'],
       description: "The greatest test of any community is whether it survives the transition from its founding generation to the next. Most intentional communities fail this test because they never plan for it — leadership is held by founders until they age out, institutional knowledge lives in their heads, and the second generation inherits a community they feel obligated to maintain rather than empowered to lead. Succession planning begins now, not when founders are ready to step aside, because the habits and structures that enable smooth transition must be practised for years before they are needed.",
@@ -20386,6 +19725,7 @@ Plans are theories; stress tests are evidence. A succession plan that has never 
       ],
     },
     {
+      seq: 3,
       title: "Create a resident-to-ambassador pathway — empowering members to seed new communities",
       priority: 'urgent', tags: ['ambassador', 'replication', 'da\'wah'],
       description: "The ultimate measure of the community's success is not its own flourishing but its ability to reproduce. A resident-to-ambassador pathway identifies, trains, and sends community members to help other Muslim communities form, using the replication guide and their lived experience as tools. This transforms the community from a single settlement into a network hub — a mother community that births others, creating the visible proof that Islamic social architecture scales beyond a single location.",
@@ -20559,6 +19899,7 @@ The replication guide and ambassador programme are proactive tools, but many com
       ],
     },
     {
+      seq: 4,
       title: "Make the community visible proof of Islamic social architecture — media, scholarship, and public witness",
       priority: 'urgent', tags: ['da\'wah', 'visibility', 'proof-of-concept'],
       description: "The Muslim ummah is saturated with critiques of what is wrong and theories of what could be better. What it desperately lacks is working examples. Your community, if it thrives, is not merely a pleasant place to live — it is an argument. It is evidence that shura governs justly, that waqf sustains wealth, that ta'aruf builds social cohesion, and that Islamic education produces grounded young people. Making this evidence visible transforms a local community into a global contribution to the ummah's imagination of what is possible.",

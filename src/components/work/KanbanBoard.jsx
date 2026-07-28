@@ -1,6 +1,8 @@
 import { useState, useMemo } from 'react';
 import { DndContext, DragOverlay, PointerSensor, useSensor, useSensors, closestCenter } from '@dnd-kit/core';
 import { useTaskStore } from '../../store/task-store';
+import { useToastStore } from '@store/toast-store';
+import { orderBoardTasks } from '../../data/orientation-selector';
 import { useTaskActions } from '../../hooks/useTaskActions';
 import { getTaskAccessLevel } from '@data/bbos/bbos-role-access';
 import ScopeGate from '../shared/ScopeGate';
@@ -16,6 +18,7 @@ export default function KanbanBoard({ project, onSelectTask, selectedTaskId, fil
   const { createTask } = useTaskActions(project.id);
   const [activeTask, setActiveTask] = useState(null);
   const [collapsedCols, setCollapsedCols] = useState(() => new Set());
+  const addToast = useToastStore((s) => s.addToast);
 
   const toggleColumn = (columnId) =>
     setCollapsedCols((prev) => {
@@ -37,10 +40,7 @@ export default function KanbanBoard({ project, onSelectTask, selectedTaskId, fil
     return filteredTasks.filter((t) => getTaskAccessLevel(bbosRole, t.bbosTaskType) !== '-');
   }, [filteredTasks, bbosRole]);
 
-  const getTasksByColumn = (columnId) =>
-    tasks
-      .filter((t) => t.columnId === columnId)
-      .sort((a, b) => (a.seedOrder ?? a.order) - (b.seedOrder ?? b.order));
+  const getTasksByColumn = (columnId) => orderBoardTasks(tasks.filter((t) => t.columnId === columnId));
 
   const handleAddTask = (columnId) => {
     const opts = bbosFilter ? { bbosStage: bbosFilter } : {};
@@ -62,15 +62,30 @@ export default function KanbanBoard({ project, onSelectTask, selectedTaskId, fil
 
     const overTask = tasks.find((t) => t.id === over.id);
     const overColumn = project.columns.find((c) => c.id === over.id);
+    const toColumnId = overTask ? overTask.columnId : overColumn?.id;
+    if (!toColumnId) return;
+
+    // A seeded task's position comes from `seedOrder` (its curated `seq` in the
+    // seed file), which outranks `order` in orderBoardTasks. `moveTask` only
+    // renumbers `order`, so reordering a seeded card inside its own column was a
+    // phantom — it snapped back on the next render. Say so instead of pretending.
+    // Moving it to ANOTHER column is a real state change and still goes through.
+    if (typeof draggedTask.seedOrder === 'number' && toColumnId === draggedTask.columnId) {
+      addToast({
+        type: 'info',
+        duration: 4000,
+        message: "This task's place in the sequence is set by the board's guided order. You can still move it between columns.",
+      });
+      return;
+    }
 
     if (overTask) {
-      const toColumnId = overTask.columnId;
       const colTasks = getTasksByColumn(toColumnId);
       const newOrder = colTasks.findIndex((t) => t.id === over.id);
       moveTask(project.id, active.id, toColumnId, Math.max(0, newOrder), project.columns);
-    } else if (overColumn) {
-      const colTasks = getTasksByColumn(overColumn.id);
-      moveTask(project.id, active.id, overColumn.id, colTasks.length, project.columns);
+    } else {
+      const colTasks = getTasksByColumn(toColumnId);
+      moveTask(project.id, active.id, toColumnId, colTasks.length, project.columns);
     }
   };
 

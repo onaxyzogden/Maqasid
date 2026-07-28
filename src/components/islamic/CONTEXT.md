@@ -9,7 +9,8 @@ Spiritual UX layer: prayer awareness, ceremony gates, intention setting, readine
 | CeremonyGate.jsx | Pre-entry gate UI for modules — begin opening or skip |
 | CeremonyGuard.jsx | Route-level wrapper (static moduleId prop) — renders CeremonyGate until `completedOpening[moduleId]` is true, then renders `children`. Used in `App.jsx` around pillar-route elements |
 | CeremonyGuardDynamic.jsx | Param-driven variant — reads `moduleId` from `useParams(paramKey)` (default `'moduleId'`). Used for catch-all routes like `/app/:moduleId` |
-| ThresholdModal.jsx | Full ceremony flow: Dua → Attributes → Readiness [→ Pause] → Confirm |
+| ThresholdModal.jsx | Thin modal wrapper (overlay, focus trap, header, leaving animation, threshold-store wiring) around `CeremonyFlow` — the globally mounted ceremony host in `AppShell.jsx` |
+| CeremonyFlow.jsx | The full ceremony flow itself: Dua → Attributes → Readiness/Reflection [→ Pause / Closing Dua] → Bismillah/Alhamdulillah. **Stateless toward stores** — host passes `{ moduleId, type, onComplete }`; host resets a finished flow by remounting (key bump). Embedded by both `ThresholdModal` (modal) and `NodePhaseSlideUp` Before/After tabs (inline) |
 | NiyyahAct.jsx | Daily intention ceremony: orient step + pillar focus selection |
 | PrayerTime.jsx | Sidebar prayer schedule with geolocation + 5 daily times |
 | PrayerOverlay.jsx | Slim, non-blocking prayer-time banner (top-center) — dismissible (✕ or Alhamdulillah); auto-clears after `PRAYER_TRAIL_MS` |
@@ -23,8 +24,7 @@ Spiritual UX layer: prayer awareness, ceremony gates, intention setting, readine
 | useIslamicSections.js | Single source of truth for the panel's ordered sections + per-section availability (computed from `valuesLayer`, route, `activeModule`/`activeBbosStage`, citation count). Consumed by both IslamicRail and (for availability) the panel so the two never drift |
 | ResumeOverlay.jsx | Confirmation overlay when returning to module mid-session |
 | PropheticPath.jsx | The day's timeline spine. Renders `TimelineNode` cards (presentational) + the slide-ups (`NodePhaseSlideUp`, project/task panels) |
-| NodePhaseSlideUp.jsx | Node popup (centered modal) — Before / During / After tabs. The single entry point for every Prophetic Path node (replaced the old `.pp-satellite` buttons). Task rows drill into an inline Orientation-style step detail (`shared/SubtaskStepDetail` + 3-action footer) — no TaskDetailPanel hand-off |
-| CeremonySummary.jsx | Condensed threshold preview (du'a + up to 2 attributes) shown in the popup's Before/After tabs for **non-prayer** nodes, with a "Begin opening/closing" button that hands off to the full `ThresholdModal` |
+| NodePhaseSlideUp.jsx | Node popup (centered modal) — Before / During / After tabs. The single entry point for every Prophetic Path node (replaced the old `.pp-satellite` buttons). Task lists render as Orientation-style one-at-a-time steppers (`shared/SequentialStepFlow`); non-prayer Before/After embed the full `CeremonyFlow` inline — no modal hand-off, no TaskDetailPanel hand-off |
 | PrayerHeroDuring.jsx | The inline "during the prayer" guide shown in the popup's **During** tab for the **six prayer** nodes (prop `pillarKey` = node id). Two self-contained modes over `PRAYER_SEQUENCES` (`@data/prayer-sequences`): **Reference** (vertical scroll — rakʿah sections, postures, recitations) and opt-in **Pray-Along** (swipeable step cards); falls back to a "coming soon" card for prayers without a sequence (all six prayer nodes now have one — Fajr/Dhuhr/Asr/Maghrib/Isha as fard, Tahajjud as nafl; the fallback card is now a defensive default). Brings its own CSS + data; consumed only by `NodePhaseSlideUp` |
 | PropheticPathMirror.jsx | `MirrorCard` / `PPTaskCard` / `EducationList` / `ProjectRow` — extracted from `PropheticPath.jsx` so the popup can reuse them without a circular import |
 | prophetic-path-constants.js | `LEVEL_COLOR`, `PRAYER_NODE_IDS`, `THRESHOLD_MODULE_BY_NODE`, `isThresholdTriggerNode` — shared by `PropheticPath.jsx` and the popup; imports nothing from either |
@@ -56,13 +56,23 @@ Both modes end at the same UI:
 - Shows "Begin Opening" or "Return to Opening" (if deferred)
 - Skip flow: confirmation dialog → `completeOpening(moduleId)` immediately
 
-### ThresholdModal — Multi-Step Ceremony
+### CeremonyFlow — Multi-Step Ceremony (hosted by ThresholdModal or inline)
+The step machine lives in `CeremonyFlow.jsx` (extracted from ThresholdModal 2026-07-27);
+`ThresholdModal` is now only the modal chrome around it. User-facing copy says
+"Opening/Closing **Ceremony**" everywhere — identifiers (`threshold-store`, `ThresholdModal`,
+`THRESHOLD_MODULE_BY_NODE`, `disableL1ThresholdGate`) keep the threshold name.
 5 base steps with conditional branching:
 1. **Dua** — module-specific supplication
 2. **Attributes** — governing Islamic attributes / universal principles
-3. **Readiness** (opening) / **Reflection** (closing)
-4. **Confirm** — checkbox attestation
-5. **Pause** — conditionally inserted if readiness NOT all-yes
+3. **Readiness** (opening) / **Reflection** (closing) — interactive yes/not-yet cards; finalize
+   button is the bilingual **Bismillah** (opening) / **Alhamdulillah** (closing)
+4. **Closing Dua** — closing ceremonies with an interactive reflection only
+5. **Pause** — conditionally inserted on opening when readiness is filled but NOT all-yes
+   (`triggerPause()` sets step 3)
+
+The top-level frame line ("Al-X asks… / Al-X witnessed…") is **no longer rendered** (removed
+2026-07-27 at render level in `ReadinessCheck`); per-attribute `attrFrame` questions stay. The
+`frame:` fields in `islamic-data.js` / `bbos-stage-islamic.js` are inert data — do not re-render them.
 
 **Pause system**: If interactive readiness has unconfirmed rows → pause step inserted with contextual Quranic verse via `lookupReadinessAyahByKey()`. Includes compassionate defer option.
 
@@ -92,19 +102,24 @@ Both modes end at the same UI:
 Clicking any node card on the spine opens `NodePhaseSlideUp` (portal → `document.body`), a
 **centered modal** built on the shared `.pp-slideup__*` popup chrome (`work/ProjectSlideUp.css`).
 Three tabs, default **During**:
-- **Before** → `<CeremonySummary type="opening">` *only* (non-prayer), or — on the
-  6 prayer nodes — the phase task list *only*
-- **During** → `<MirrorCard>` — the consolidated task list with the Action/Education toggle
-  (the same for every non-prayer node, incl. `midday-labor`; the old `showProjects` projects
-  view was dropped), or — on the 6 prayer nodes — `<PrayerHeroDuring pillarKey={node.id}>`
-  rendered inline (the in-prayer guide itself)
-- **After** → `<CeremonySummary type="closing">` *only* (non-prayer), or — on the
-  6 prayer nodes — the phase task list *only*
+- **Before** → the full `<CeremonyFlow type="opening">` embedded inline (non-prayer), or — on the
+  6 prayer nodes — that window's task stepper
+- **During** → `<MirrorCard>` — the consolidated task pool rendered as a `SequentialStepFlow`
+  stepper via MirrorCard's `taskContent` prop, with the Action/Education toggle (the same for
+  every non-prayer node, incl. `midday-labor`; the old `showProjects` projects view was
+  dropped), or — on the 6 prayer nodes — `<PrayerHeroDuring pillarKey={node.id}>` rendered
+  inline (the in-prayer guide itself)
+- **After** → the full `<CeremonyFlow type="closing">` embedded inline (non-prayer), or — on the
+  6 prayer nodes — that window's task stepper
 
-For **non-prayer** nodes the task list is consolidated onto the During tab: `phaseTasks` pulls the
+For **non-prayer** nodes the task pool is consolidated onto the During tab: `phaseTasks` pulls the
 whole node pool (`buildTasksForNode` with `phase: null`, `limit: 20`) so no before/main/after task
-is stranded, and Before/After stay pure threshold-ceremony previews. Prayer nodes keep their
-per-window task boards on Before/After (see below).
+is stranded, and Before/After host the ceremony itself. The flow is wrapped in
+`.pp-ceremony-embed` (NodePhaseSlideUp.css), which strips the modal's horizontal padding and inner
+scroll — the `.thr-*` rules are deliberately flat (not scoped to `.thr-modal`) so one stylesheet
+dresses both hosts. `onComplete` → threshold-store `completeOpening`/`completeClosing` + a
+`ceremonyRun` key bump that remounts the flow back to step 0 (the popup stays open). Prayer nodes
+keep their per-window task boards on Before/After (see below).
 
 On the six prayer nodes the Before/After tabs are tasks-only: they render neither the generic
 `faith-salah` opening/closing threshold (all six resolved to the same `<CeremonySummary>`) nor the
@@ -126,38 +141,47 @@ prayer-phase tasks from this popup on every prayer and every tab — while openi
 `faith-salah` pool to fix that would have let the keyword matchers (`/siwak|rawatib|witr/`) pull
 one prayer's tasks into another's window. Non-prayer nodes still use `buildTasksForNode`.
 
+**`buildPrayerPhaseTasks` sorts through `orderBoardTasks` — do not remove it, and do not inline a
+comparator.** It pools a **single** board, so `seedOrder` is meaningful across it; the
+`decorateTaskChain` call below deliberately does not sort, which is correct only for the *non-prayer*
+branch's merged cross-project pool. Until 2026-07-27 the prayer branch inherited that non-sorting
+path and rendered the stepper in raw `localStorage` order, ignoring the curated chain entirely
+([2026-07-27-milos-prayer-board-ordering](../../../wiki/decisions/2026-07-27-milos-prayer-board-ordering.md)).
+Note also that the Maghrib daily reset sets `order: 0` on reverted tasks (`task-store.js`), so on
+prayer boards `seedOrder` is the **only** stable ordering. The six `prayer_{id}_during` boards do
+carry a curated `seq` too, but never render as a stepper here — `PrayerHeroDuring` owns that tab.
+
 Prayer-phase rows carry `_level: null` — those boards are keyed by window, not by Maqasid level —
 so `PPTaskCard` omits the L1/L2/L3 chip for them rather than defaulting to L3 "Tahsiniyyat" and
 labelling Fajr's mu'akkadah rawatib an embellishment. Non-prayer rows keep the chip.
 
-**Task drill-in (inline detail + 3 actions).** Tapping a task row (prayer Before/After list or the
-non-prayer During mirror list) swaps the tab body for an inline step detail — Back button +
-`<SubtaskStepDetail>` (crumb → title/progress → tags → Now box → Why & how → Evidence) + a
-`<OrientationActions>` footer (Mark done / Doesn't apply / Not today). There is **no**
-TaskDetailPanel hand-off anymore (`PropheticPath.jsx`'s `selectedTask`/`openTask` plumbing was
-removed). Mechanics mirror Orientation:
-- `detailKey` = `{ projectId, taskId }` — a key, not a snapshot. The row is re-found in the
-  freshly-built `phaseTasks` each render, so a store mutation advances the Now subtask in place.
+**Task stepper (one step at a time, no drill-in).** Every task list in the popup (prayer
+Before/After boards and the non-prayer During pool) renders through
+`shared/SequentialStepFlow` — the same engine as the Orientation sheet: lettered **Task pills** +
+numbered **Subtask chips**, one `<SubtaskStepDetail>` at a time, `<OrientationActions>` footer
+(Mark done / Doesn't apply / Not now) pinned to the true current step, locked steps ahead
+previewable, completed steps behind revertible (primary reads "Completed" but stays enabled —
+click un-completes). The 2026-07-26 tap-to-drill-in machinery (`detailKey`, back button, list
+fallback) is gone — the stepper *is* the detail. Mechanics:
+- Prayer Before/After: `buildPrayerPhaseTasks` no longer filters `completedAt` (the stepper shows
+  done pills); items + indices come from `deriveBoardSequence(project, tasks, todayKey)`.
+- Non-prayer During: the merged pool spans projects, so items are synthesized per row and every
+  handler reads the row's own `projectId`. Rendered inside `MirrorCard` via its optional
+  `taskContent` prop (other MirrorCard consumers unchanged).
 - `todayKey` comes from `computeTodayKey(maghribRaw)` in an effect (`@/utils/islamic-day-key`) —
   the wall-clock read stays out of render. `PropheticPath.jsx` passes `maghribRaw`.
-- Now step = `findNextEligibleSubtask(detailRow, todayKey)`; progress counts
-  `isSubtaskSatisfied` (done **or** notApplicable) — both from `@data/orientation-selector`.
-- Actions call `useTaskStore` directly (`toggleSubtask` / `updateSubtask`). `toggleSubtask` never
-  sets task `completedAt`, so consuming the last step keeps the row in the pool — the drill-in
-  stays put showing the complete state ("Nothing left in this task today"), footer hidden, no
-  auto-navigation.
-- Tab and moduleGroup switches clear `detailKey` (each tab is its own task pool); if the row
-  leaves the pool the body falls back to the list. Prayer crumb degrades to just the submodule
-  name (no `_level`); non-prayer crumb is `Daruriyyat/Hajiyyat/Tahsiniyyat › submodule`.
+- Handlers: markDone → `toggleSubtask`; doesn't apply → `updateSubtask {notApplicable}`;
+  **"Not now" → task-level snooze** (`updateTask {snoozedUntilDayKey}`, matching Orientation — a
+  change from the old drill-in's subtask-level snooze); revert → `toggleSubtask` if done, else
+  clears `notApplicable`.
+- Tab/module switches reset the preview via `resetKey` (`node.id|phase|moduleId`).
 - Known mismatch (deferred): `PPTaskCard`'s list-row done-count counts only `done`, so a
-  notApplicable step advances the detail progress but not the list row's fraction.
+  notApplicable step advances stepper progress but not a list row's fraction where lists remain.
 
-The ceremony is **not** rendered locally: "Begin opening/closing" sets
-`openingModuleId` / `closingModuleId` on threshold-store and closes the popup, so the globally
-mounted `ThresholdModal` (`AppShell.jsx`) takes over. Module precedence is
-`THRESHOLD_MODULE_BY_NODE[node.id] || moduleId || 'work'`. This replaced the old `.pp-satellite`
-buttons, which CSS hid on every non-active node — the opening/closing thresholds are now
-reachable from **every** node on the timeline, past and upcoming included.
+The ceremony **is** rendered locally on non-prayer Before/After (see above) — the old
+"Begin opening/closing" hand-off to the global `ThresholdModal` is gone from the popup. The modal
+still exists for its other entry points (IslamicRail, IslamicPanel, CeremonyGate). Module
+precedence is `THRESHOLD_MODULE_BY_NODE[node.id] || moduleId || 'work'`.
 
 ### NiyyahAct — Daily Intention
 2-step flow: (1) Orient (Bismillah + morning dua), (2) Focus (select pillar buttons). Stores via `completeNiyyah(selectedPillars)`.
@@ -187,8 +211,9 @@ reachable from **every** node on the timeline, past and upcoming included.
   while custom properties still inherit. Drop either and the mirror/pill-switch styling silently
   disappears
 - `MODULE_ATTRS` is keyed at pillar level, so sub-modules (`faith-salah`) miss keys and fall back
-  to their parent pillar. Use `resolveCeremonyData(moduleId, valuesLayer)` from
-  `@data/islamic/islamic-data` rather than re-deriving the fallback
+  to their parent pillar. `CeremonyFlow` derives this fallback itself (`rawData ?? pillarData`);
+  `resolveCeremonyData(moduleId, valuesLayer)` in `@data/islamic/islamic-data` implements the
+  same rule and is currently **unused by code** — kept as the public helper for future callers
 - **Stacked-dialog Escape order**: when `SubmoduleSlideUp`/`ProjectSlideUp` opens on top of
   `NodePhaseSlideUp`, Escape closes the *bottom* dialog first — `useFocusTrap` registers document
   keydown listeners in mount order and the node popup mounted first. Each popup individually

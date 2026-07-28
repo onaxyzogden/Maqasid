@@ -6,6 +6,7 @@ export const ENVIRONMENT_SEED_TASKS = {
   // ── RESOURCE CONSUMPTION (WATER & ENERGY) ──
   environment_resource_core: [
     {
+      seq: 0,
       title: 'Audit household water usage — identify and fix all leaks, dripping taps, and wasteful habits',
       priority: 'urgent', tags: ['water', 'israf'],
       description: 'Conduct a thorough walk-through of every water outlet in your home to find leaks, dripping taps, and inefficient fixtures.',
@@ -178,6 +179,7 @@ Without a measured baseline, conservation efforts become guesswork. Recording yo
       ],
     },
     {
+      seq: 1,
       title: 'Practise the Sunnah of wudu — use minimal water (3 scoops per limb), even at a running stream',
       priority: 'urgent', tags: ['wudu', 'sunnah'],
       description: 'The Prophet (peace be upon him) used to perform wudu with approximately one mudd of water (roughly 750ml). Training yourself to use minimal water during wudu builds the habit of mindful consumption that extends to every area of resource use.',
@@ -334,6 +336,7 @@ Individual change multiplied across a household creates lasting impact. If four 
       ],
     },
     {
+      seq: 2,
       title: 'Turn off all unused lights, appliances, and chargers — eliminate standby energy waste',
       priority: 'high', tags: ['energy', 'israf'],
       description: 'Standby power (phantom load) can account for 5-10% of household electricity consumption. Eliminating this waste is a direct application of the Quranic prohibition against israf — extravagance and needless consumption of resources entrusted to us.',
@@ -515,6 +518,7 @@ Heating and cooling represent the largest share of household energy consumption 
       ],
     },
     {
+      seq: 4,
       title: 'Learn the Quranic prohibition of israf (extravagance) and its application to resources',
       priority: 'medium', tags: ['israf', 'quran'],
       description: 'Allah says "Eat and drink, but do not be extravagant — He does not love the extravagant" (Al-A\'raf 7:31). Understanding israf as a comprehensive principle — not limited to food — reshapes how you view energy, water, materials, and time as amanah (trust).',
@@ -707,6 +711,7 @@ Environmental stewardship in a household is a collective endeavour — one perso
       ],
     },
     {
+      seq: 3,
       title: 'Track monthly electricity and water bills — establish a baseline for reduction targets',
       priority: 'medium', tags: ['tracking', 'planning'],
       description: 'You cannot improve what you do not measure. Recording 3-6 months of utility data creates a reliable baseline so that future conservation efforts can be measured against real numbers rather than guesswork.',
@@ -873,6 +878,7 @@ A goal without a number is a wish. Setting a specific, time-bound reduction targ
   ],
   environment_resource_growth: [
     {
+      seq: 1,
       title: 'Replace all incandescent bulbs with LED equivalents throughout the home',
       priority: 'high', tags: ['energy', 'efficiency'],
       description: 'LED bulbs use up to 80% less energy and last 15-25 times longer than incandescent bulbs. This single change can meaningfully reduce your electricity footprint and is one of the highest-return environmental investments for any household.',
@@ -1028,6 +1034,7 @@ Measuring the actual impact of the LED upgrade closes the feedback loop between 
       ],
     },
     {
+      seq: 2,
       title: 'Install water-saving aerators or low-flow showerheads in all taps and showers',
       priority: 'high', tags: ['water', 'efficiency'],
       description: 'Aerators mix air into the water stream, reducing flow by 30-50% without noticeably affecting water pressure. This is a low-cost, high-impact upgrade that directly reduces water waste in line with the khalifah responsibility over natural resources.',
@@ -1166,6 +1173,7 @@ Verification closes the loop — confirming that the installed fittings are actu
       ],
     },
     {
+      seq: 0,
       title: 'Set a household water and energy reduction target — aim for 20% less than current baseline',
       priority: 'medium', tags: ['planning', 'goals'],
       description: 'A clear, shared target turns individual conservation habits into a household commitment. The 20% target is ambitious but achievable for most homes through the combined effect of behavioural changes and efficiency upgrades already underway.',
@@ -1348,6 +1356,7 @@ Celebration reinforces positive behaviour and builds intrinsic motivation for co
       ],
     },
     {
+      seq: 3,
       title: 'Research government rebates or community programmes for energy-efficient home upgrades',
       priority: 'low', tags: ['energy', 'planning'],
       description: 'Many governments and utility companies offer rebates, grants, or interest-free financing for energy-efficient appliances, insulation, and solar installations. Taking advantage of these programmes makes larger environmental investments financially accessible.',
@@ -1470,6 +1479,7 @@ Not all efficiency upgrades deliver equal value — some save more energy per do
   ],
   environment_resource_excellence: [
     {
+      seq: 1,
       title: 'Install solar panels or transition to a renewable energy provider for your home',
       priority: 'medium', tags: ['renewable', 'solar'],
       description: 'Transitioning to renewable energy is one of the most significant steps a household can take toward environmental stewardship. Solar panels also provide long-term financial savings and energy independence, aligning the maqasid of wealth preservation with environmental care.',
@@ -1616,6 +1626,7 @@ This is the culmination of all the research and planning — the step where clea
       ],
     },
     {
+      seq: 0,
       title: 'Install a rainwater harvesting system for garden and non-potable household use',
       priority: 'low', tags: ['water', 'renewable'],
       description: 'Rainwater harvesting captures a free, clean resource that would otherwise run off into drains. Using collected rainwater for gardens, toilets, and laundry can reduce mains water consumption by 30-50%, embodying the khalifah principle of working with natural cycles rather than against them.',
@@ -1762,6 +1773,7 @@ Measuring the actual displacement of mains water by rainwater quantifies the ret
       ],
     },
     {
+      seq: 2,
       title: 'Achieve net-zero or carbon-neutral household energy consumption — document and share your journey',
       priority: 'low', tags: ['net-zero', 'legacy'],
       description: 'Net-zero means your home generates as much clean energy as it consumes over a year. Documenting and sharing this journey creates a replicable model for other Muslim households and demonstrates that Islamic environmental stewardship is practical, not just aspirational.',
@@ -1929,6 +1941,7 @@ Knowledge that remains private benefits only the knower. Sharing your net-zero j
 // ── WASTE & POLLUTION MANAGEMENT ──
   environment_waste_core: [
     {
+      seq: 2,
       title: 'Set up a proper recycling system at home — label bins clearly for paper, plastic, glass, and metal',
       priority: 'high', tags: ['recycling', 'waste'],
       description: 'A clearly labelled recycling system removes the friction that causes recyclable materials to end up in landfill. Making recycling easy and visible for every household member is foundational to reducing waste as part of your environmental amanah.',
@@ -2098,6 +2111,7 @@ A recycling system only works if every person in the household participates corr
       ],
     },
     {
+      seq: 0,
       title: 'Identify and safely dispose of all toxic household chemicals — paint, batteries, electronics',
       priority: 'urgent', tags: ['toxic-waste', 'safety'],
       description: 'Toxic household waste contaminates soil and water when disposed of improperly. Islam prohibits causing harm (la darar wa la dirar), and improper chemical disposal harms both the environment and neighbouring communities who share these resources.',
@@ -2236,6 +2250,7 @@ Hazardous waste is not a one-time problem — batteries die, electronics become 
       ],
     },
     {
+      seq: 1,
       title: 'Stop littering and remove harmful waste from public spaces — "removing harm is sadaqah"',
       priority: 'high', tags: ['sadaqah', 'cleanliness'],
       description: ' This task extends that hadith into a regular practice of picking up litter and keeping shared spaces clean as an act of worship.',
@@ -2452,6 +2467,7 @@ Individual clean-up efforts are valuable but limited in scale and sustainability
       ],
     },
     {
+      seq: 4,
       title: 'Learn Islamic principles of taharah (purity) and their extension to environmental cleanliness',
       priority: 'medium', tags: ['taharah', 'study'],
       description: 'Taharah in Islam is not limited to ritual purity — it extends to keeping one\'s surroundings, water sources, and shared spaces clean. Understanding this broader scope transforms environmental action from a secular obligation into an act of ibadah.',
@@ -2579,6 +2595,7 @@ Knowledge without personal integration remains theoretical. Writing a reflection
       ],
     },
     {
+      seq: 3,
       title: 'Reduce household food waste — plan meals, store correctly, and compost unavoidable scraps',
       priority: 'high', tags: ['food-waste', 'planning'],
       description: 'Roughly one-third of food produced globally is wasted. In Islam, food is a ni\'mah (blessing) and wasting it is a form of ingratitude and israf. Proper meal planning, storage, and composting address food waste at every stage.',
@@ -2739,6 +2756,7 @@ Even after planning, storing, and cooking creatively, some food waste is genuine
   ],
   environment_waste_growth: [
     {
+      seq: 0,
       title: 'Eliminate single-use plastics — replace with reusable bags, bottles, containers, and cutlery',
       priority: 'high', tags: ['plastic', 'waste'],
       description: 'Single-use plastics persist in the environment for hundreds of years, harming wildlife and contaminating water. Switching to reusable alternatives is a practical expression of the khalifah principle — leaving the earth better than you found it.',
@@ -2914,6 +2932,7 @@ Cling wrap (plastic film) is one of the most insidious single-use plastics — i
       ],
     },
     {
+      seq: 3,
       title: 'Start a home composting system for organic kitchen and garden waste',
       priority: 'medium', tags: ['composting', 'waste'],
       description: 'Composting transforms organic waste into nutrient-rich soil, closing the loop between consumption and regeneration. It reduces methane emissions from landfill and produces a valuable resource for gardens — turning waste into provision, a reflection of divine resourcefulness.',
@@ -3082,6 +3101,7 @@ Composting is a cycle, not a one-way disposal mechanism. The end product — ric
       ],
     },
     {
+      seq: 1,
       title: 'Adopt a "buy less, buy better" purchasing philosophy — quality over quantity',
       priority: 'medium', tags: ['consumption', 'mindfulness'],
       description: 'Overconsumption is a root cause of waste. The Islamic principle of iqtisad (moderation in spending) encourages purchasing fewer, higher-quality items that last longer — reducing waste, saving money, and breaking the cycle of disposable culture.',
@@ -3213,6 +3233,7 @@ Self-awareness is the prerequisite for change. Most people significantly underes
       ],
     },
     {
+      seq: 2,
       title: 'Donate or responsibly rehome unwanted items instead of discarding them',
       priority: 'medium', tags: ['donation', 'circular'],
       description: 'Items you no longer need may still have years of useful life for someone else. Donating clothes, furniture, electronics, and household items extends their lifespan and benefits those in need — combining waste reduction with sadaqah.',
@@ -3372,6 +3393,7 @@ A one-time declutter is valuable but insufficient — possessions accumulate con
   ],
   environment_waste_excellence: [
     {
+      seq: 0,
       title: 'Achieve a near-zero waste household — measure and document monthly waste output',
       priority: 'medium', tags: ['zero-waste', 'measurement'],
       description: 'Near-zero waste means diverting 90%+ of household waste from landfill through reduction, reuse, recycling, and composting. Measuring your actual waste output creates accountability and reveals where the last stubborn waste streams originate.',
@@ -3541,6 +3563,7 @@ Your near-zero waste journey — including the struggles, failures, and creative
       ],
     },
     {
+      seq: 1,
       title: 'Advocate for better waste management in your workplace, masjid, or community organisation',
       priority: 'low', tags: ['advocacy', 'community'],
       description: 'Individual household changes are important but limited in scale. Advocating for systemic waste management improvements in organisations you belong to multiplies your impact and models Islamic environmental leadership in communal spaces.',
@@ -3701,6 +3724,7 @@ Tracking results closes the loop on your advocacy — it proves that the changes
       ],
     },
     {
+      seq: 2,
       title: 'Launch or join a community clean-up initiative — model Islamic environmental stewardship publicly',
       priority: 'low', tags: ['community', 'dawah'],
       description: 'Organising or joining community clean-ups is both an environmental act and a form of dawah — demonstrating that Islamic values produce people who care for public spaces. It builds bridges with neighbours and makes faith visible through service.',
@@ -3847,6 +3871,7 @@ Documentation transforms a single event into a lasting resource. Photos and a wr
 // ── ECOSYSTEM & BIODIVERSITY ──
   environment_ecosystem_core: [
     {
+      seq: 0,
       title: 'Stop all unnecessary destruction of plants, trees, and local wildlife in your surroundings',
       priority: 'urgent', tags: ['biodiversity', 'khilafah'],
       description: ' As khalifah (vicegerents) on earth, Muslims have a duty to protect plant and animal life from needless destruction — this is a baseline obligation, not an optional virtue.',
@@ -4006,6 +4031,7 @@ Children learn their relationship with nature primarily from their parents and h
       ],
     },
     {
+      seq: 1,
       title: 'Eliminate cruelty to animals — learn Islamic rules on the rights of animals (huquq al-hayawan)',
       priority: 'urgent', tags: ['animals', 'fiqh'],
       description: 'Islam grants animals explicit rights — to be fed, not overburdened, not harmed for sport, and slaughtered mercifully. Animal welfare is a serious obligation.',
@@ -4294,6 +4320,7 @@ The Prophet (peace be upon him) said: "Allah shows mercy to those who show mercy
       ],
     },
     {
+      seq: 3,
       title: 'Plant at least one tree or native plant — follow the hadith "even if the Hour is near, plant it"',
       priority: 'high', tags: ['planting', 'sunnah'],
       description: '',
@@ -4500,6 +4527,7 @@ Every act of the Muslim begins and ends with Allah. Planting a tree is a physica
       ],
     },
     {
+      seq: 4,
       title: 'Learn the Islamic concept of khilafah (vicegerency) — your role as caretaker of the earth',
       priority: 'medium', tags: ['khilafah', 'study'],
       description: 'Allah appointed humanity as khulafa (vicegerents) on earth (Quran 2:30), entrusted with its care — not its exploitation. Understanding khilafah reframes environmental action from optional activism to a core religious duty rooted in the covenant with Allah.',
@@ -4714,6 +4742,7 @@ Environmental stewardship cannot remain an individual pursuit — it must become
       ],
     },
     {
+      seq: 2,
       title: 'Avoid purchasing products made from endangered species or illegal wildlife trade',
       priority: 'high', tags: ['biodiversity', 'ethics'],
       description: 'The illegal wildlife trade drives species toward extinction and violates the Islamic principle that every creature has its own community and purpose (Quran 6:38). Refusing to purchase these products removes demand and protects biodiversity as an act of amanah.',
@@ -4849,6 +4878,7 @@ The illegal wildlife trade is the fourth largest criminal enterprise globally, w
   ],
   environment_ecosystem_growth: [
     {
+      seq: 1,
       title: 'Plant native species in your garden, balcony, or community space to support local pollinators',
       priority: 'high', tags: ['planting', 'biodiversity'],
       description: 'Native plants provide the food and habitat that local pollinators — bees, butterflies, and birds — depend on. Exotic ornamentals often offer little ecological value. Choosing native species transforms your garden from a decorative space into a functioning ecosystem.',
@@ -5020,6 +5050,7 @@ It is a contradiction to plant flowers for pollinators while simultaneously spra
       ],
     },
     {
+      seq: 2,
       title: 'Reduce or eliminate red meat consumption 2–3 days per week — lower your land and water footprint',
       priority: 'medium', tags: ['diet', 'ecology'],
       description: 'Livestock farming is one of the largest drivers of deforestation, water use, and greenhouse gas emissions. The Prophet (peace be upon him) ate meat sparingly. Reducing red meat consumption honours the Sunnah of moderation while significantly lowering your environmental footprint.',
@@ -5199,6 +5230,7 @@ Perception and reality rarely match when it comes to dietary habits. People cons
       ],
     },
     {
+      seq: 3,
       title: 'Participate in a local tree-planting, park restoration, or rewilding initiative',
       priority: 'medium', tags: ['restoration', 'community'],
       description: 'Joining organised restoration projects multiplies your impact far beyond what individual planting can achieve. These initiatives restore degraded land, sequester carbon, and rebuild ecosystems — and volunteering alongside others builds community bonds rooted in shared stewardship.',
@@ -5404,6 +5436,7 @@ One-off participation is valuable, but regular commitment transforms you from a 
       ],
     },
     {
+      seq: 0,
       title: 'Learn about your local ecosystem — identify native species of birds, plants, and insects in your area',
       priority: 'low', tags: ['awareness', 'biodiversity'],
       description: 'You cannot protect what you do not know. Learning to identify the birds, plants, and insects around you builds ecological literacy and deepens your connection to the land you inhabit. The Quran repeatedly draws attention to the signs (ayat) in creation.',
@@ -5549,6 +5582,7 @@ Nature reserves and botanical gardens are curated environments where ecological 
   ],
   environment_ecosystem_excellence: [
     {
+      seq: 2,
       title: 'Fund or actively participate in a large-scale land rehabilitation or carbon sequestration project',
       priority: 'medium', tags: ['restoration', 'carbon'],
       description: 'Large-scale land rehabilitation — reforestation, wetland restoration, regenerative agriculture — sequesters significant carbon while rebuilding ecosystems. Contributing financially or physically to these projects extends your khalifah impact beyond your immediate surroundings to landscape-level restoration.',
@@ -5737,6 +5771,7 @@ Seeing a restored ecosystem in person transforms abstract data into lived experi
       ],
     },
     {
+      seq: 0,
       title: 'Establish a community food garden or urban farm on underused land',
       priority: 'low', tags: ['food-security', 'community'],
       description: 'Community food gardens transform neglected urban land into productive, biodiverse spaces that provide fresh food, build community, and reconnect people with the earth.',
@@ -5971,6 +6006,7 @@ The excitement of a launch day fades within weeks. What sustains a community gar
       ],
     },
     {
+      seq: 1,
       title: 'Develop an Islamic environmental education programme for your masjid or school',
       priority: 'low', tags: ['education', 'dawah'],
       description: 'Most Islamic education programmes do not yet integrate environmental stewardship despite its strong Quranic and Prophetic foundations. Creating a structured programme fills this gap, raising a generation that sees caring for the earth as inseparable from their deen.',
@@ -6183,6 +6219,7 @@ A programme that runs once and disappears creates a moment of inspiration but no
 // ── ETHICAL SOURCING & CIRCULARITY ──
   environment_sourcing_core: [
     {
+      seq: 2,
       title: 'Audit your main purchases — identify brands or suppliers tied to environmental exploitation or child labour',
       priority: 'urgent', tags: ['audit', 'ethics'],
       description: 'Every purchase is a vote for the supply chain behind it. Islam prohibits benefiting from dhulm (oppression), and buying from companies that exploit workers or destroy ecosystems makes you complicit. This audit reveals where your money is actually going.',
@@ -6355,6 +6392,7 @@ Benchmark: A written, accessible "do not buy" list with at least 3-5 brands, sha
       ],
     },
     {
+      seq: 1,
       title: 'Ensure all food purchases meet halal AND tayyib standards — pure in source, not just slaughter method',
       priority: 'urgent', tags: ['halal', 'tayyib'],
       description: 'Halal addresses the permissibility of slaughter, but tayyib addresses the wholesomeness of the entire chain — how the animal was raised, what it was fed, how workers were treated, and how the land was farmed. True Islamic food sourcing demands both dimensions.',
@@ -6517,6 +6555,7 @@ Benchmark: Complete at least one farm or supplier visit, and use your observatio
       ],
     },
     {
+      seq: 3,
       title: 'Stop buying fast fashion — commit to purchasing only what you need, with longer useful life',
       priority: 'high', tags: ['fashion', 'consumption'],
       description: 'Fast fashion is built on planned obsolescence, exploitative labour, and massive textile waste. The average garment is worn only 7 times before disposal. Committing to buy less and buy better aligns with the Islamic virtues of moderation, contentment (qana\'ah), and avoiding israf.',
@@ -6651,6 +6690,7 @@ Benchmark: Be able to independently sew a button, hem a garment, and patch a sma
       ],
     },
     {
+      seq: 0,
       title: 'Learn the Islamic principle of tayyib (wholesome/pure) as applied to sourcing and consumption',
       priority: 'medium', tags: ['tayyib', 'study'],
       description: 'The Quran commands: "Eat of what is halal and tayyib" (2:168). Tayyib means wholesome, pure, and good — extending beyond ritual permissibility to encompass how things are produced, sourced, and their impact on health and environment. This principle is the Islamic foundation for ethical consumerism.',
@@ -6904,6 +6944,7 @@ Benchmark: At least one family discussion completed, with one shared tayyib comm
       ],
     },
     {
+      seq: 4,
       title: 'Identify and switch to at least three ethical, local, or fair-trade alternatives for everyday purchases',
       priority: 'high', tags: ['fair-trade', 'local'],
       description: 'Switching even a few regular purchases to ethical alternatives sends a market signal and supports businesses that treat workers and the environment justly. Start with three items you buy frequently — coffee, tea, chocolate, cleaning products, or personal care — and scale from there.',
@@ -7086,6 +7127,7 @@ Benchmark: Share your ethical swap findings with at least 3-5 people or one comm
   ],
   environment_sourcing_growth: [
     {
+      seq: 0,
       title: 'Shift grocery shopping toward local farmers\' markets, halal organic suppliers, or community-supported agriculture',
       priority: 'high', tags: ['local', 'food'],
       description: 'Buying local reduces transport emissions, supports small-scale farmers, and gives you direct knowledge of how your food is produced. Community-supported agriculture (CSA) models create direct farmer-consumer relationships rooted in mutual benefit and trust — values deeply aligned with Islamic commerce ethics.',
@@ -7249,6 +7291,7 @@ Benchmark: A meal plan that rotates with the seasons, featuring primarily locall
       ],
     },
     {
+      seq: 3,
       title: 'Research and adopt a Shariah-compatible ethical investment screen — exclude harmful industries',
       priority: 'medium', tags: ['investing', 'ethics'],
       description: 'Ethical investment screening ensures your wealth does not fund industries that cause environmental destruction, exploit workers, or violate Islamic prohibitions. Combining Shariah compliance (no riba, gambling, alcohol) with environmental screening (no fossil fuels, deforestation, pollution) creates a comprehensive ethical framework.',
@@ -7395,6 +7438,7 @@ Benchmark: Annual investment review completed consistently, with documented asse
       ],
     },
     {
+      seq: 2,
       title: 'Build a capsule wardrobe — buy fewer, higher-quality, ethically made garments that last',
       priority: 'medium', tags: ['fashion', 'mindfulness'],
       description: 'A capsule wardrobe consists of a small number of versatile, high-quality pieces that mix and match across seasons. This approach reduces textile waste, saves money long-term, and frees mental energy from the cycle of trend-chasing — embodying the Prophetic simplicity in dress.',
@@ -7584,6 +7628,7 @@ Benchmark: Six consecutive months of maintaining the one-in-one-out rule with no
       ],
     },
     {
+      seq: 1,
       title: 'Prioritise repair over replacement — fix electronics, clothing, and furniture before discarding',
       priority: 'medium', tags: ['repair', 'circular'],
       description: 'The throwaway culture encourages replacing items at the first sign of wear. Repairing extends product life, reduces waste, and saves money. The early Muslims were known for mending their clothing and maintaining their possessions with care — repair is a Sunnah-aligned habit.',
@@ -7714,6 +7759,7 @@ Benchmark: Attend at least one repair cafe (or complete at least 3 tutorial-guid
   ],
   environment_sourcing_excellence: [
     {
+      seq: 2,
       title: 'Invest in or co-found a business built on circular economy principles — closed-loop, zero-waste by design',
       priority: 'low', tags: ['circular-economy', 'business'],
       description: 'A circular economy business designs waste out of the system entirely — products are made to be reused, repaired, or recycled back into production. This represents the highest expression of Islamic environmental stewardship applied to commerce: generating halal profit while regenerating rather than depleting the earth.',
@@ -7951,6 +7997,7 @@ Benchmark: A documented dual-compliance assessment showing the business model pa
       ],
     },
     {
+      seq: 1,
       title: 'Build a community purchasing collective to negotiate with ethical suppliers at scale',
       priority: 'low', tags: ['community', 'impact'],
       description: 'Individual ethical purchasing has limited negotiating power. A community purchasing collective pools buying power to access wholesale pricing from ethical suppliers, making halal-tayyib products affordable for everyone. This is a modern application of the Islamic principle of ta\'awun (mutual cooperation).',
@@ -8126,6 +8173,7 @@ Benchmark: Sustained operation for at least 6 months with stable membership, at 
       ],
     },
     {
+      seq: 0,
       title: 'Publish a sourcing guide for your community — halal, tayyib, and environmentally responsible options',
       priority: 'low', tags: ['dawah', 'legacy'],
       description: 'A community sourcing guide compiles the research you have done into a shareable resource that helps others make ethical purchasing decisions without starting from scratch. This is sadaqah jariyah — ongoing charity through knowledge that continues to benefit others long after publication.',

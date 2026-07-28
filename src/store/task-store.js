@@ -47,13 +47,6 @@ export const useTaskStore = create((set, get) => ({
     }));
   },
 
-  getTasksByColumn: (projectId, columnId) => {
-    const tasks = get().tasksByProject[projectId] || [];
-    return tasks
-      .filter((t) => t.columnId === columnId)
-      .sort((a, b) => (a.seedOrder ?? a.order) - (b.seedOrder ?? b.order));
-  },
-
   getTask: (projectId, taskId) => {
     const tasks = get().tasksByProject[projectId] || [];
     return tasks.find((t) => t.id === taskId) || null;

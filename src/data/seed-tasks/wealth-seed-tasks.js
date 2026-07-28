@@ -6,6 +6,7 @@ export const WEALTH_SEED_TASKS = {
   // ── EARNING & PROVISION (RIZQ) ──
   wealth_earning_core: [
     {
+      seq: 1,
       title: 'Audit all income sources — confirm each is free from riba, haram industries, and deception',
       priority: 'urgent', tags: ['halal-income', 'audit'],
       description: 'Conduct a thorough review of every stream of income you receive — salary, freelance, investments, side ventures — and verify that none involve interest (riba), prohibited industries (alcohol, gambling, conventional insurance), or deceptive practices. This is the foundational step in purifying your wealth.',
@@ -223,6 +224,7 @@ Completion indicator: a written action plan with specific deadlines, assigned to
       ],
     },
     {
+      seq: 2,
       title: 'Identify and exit any employment, contract, or investment that involves haram activity',
       priority: 'urgent', tags: ['halal-income', 'action'],
       description: 'Once haram income sources have been identified through your audit, take concrete steps to exit them. This may involve resigning from a position, terminating a contract, or liquidating an investment. Prioritise urgency while planning a realistic transition so you do not leave your dependants without provision.',
@@ -410,6 +412,7 @@ Completion indicator: every replacement income source has been vetted through th
       ],
     },
     {
+      seq: 0,
       title: 'Learn the Islamic conditions for halal earnings — avoid riba, gharar, maysir, and oppression',
       priority: 'high', tags: ['fiqh', 'halal-income'],
       description: 'Study the foundational fiqh of earning in Islam so you can independently evaluate whether a transaction or business model is permissible. Understanding the prohibitions of riba (interest), gharar (excessive uncertainty), maysir (gambling), and zulm (oppression) equips you to make informed financial decisions for life.',
@@ -621,6 +624,7 @@ Completion indicator: a completed, printed or easily accessible reference docume
       ],
     },
     {
+      seq: 3,
       title: 'Ensure your income consistently covers the fard needs of your dependants (nafaqah)',
       priority: 'high', tags: ['provision', 'obligation'],
       description: 'Nafaqah — providing food, shelter, clothing, and essential needs for your family — is a religious obligation before any discretionary spending or saving. Assess whether your current income reliably meets these baseline needs and identify any shortfalls that must be addressed immediately.',
@@ -771,6 +775,7 @@ Completion indicator: a documented action plan addressing the income-nafaqah gap
       ],
     },
     {
+      seq: 4,
       title: 'Make tawbah and resolve any past haram earnings — consult a scholar if needed',
       priority: 'medium', tags: ['tawbah', 'purification'],
       description: 'If you have earned haram income in the past, sincere repentance (tawbah) is required alongside practical steps to purify your wealth. Scholars generally advise donating the haram portion to charity (not as sadaqah for reward, but to remove the impermissible funds). Seek specific guidance for your situation.',
@@ -986,6 +991,7 @@ Completion indicator: a complete, securely stored record of the entire wealth pu
   ],
   wealth_earning_growth: [
     {
+      seq: 1,
       title: 'Identify and develop a high-income skill aligned with your calling and halal principles',
       priority: 'high', tags: ['skill-building', 'income'],
       description: 'Invest in yourself by identifying a marketable skill that aligns with your God-given talents and serves a halal purpose. Whether it is software engineering, project management, medical expertise, or a trade, developing mastery in a high-value skill is one of the most reliable paths to increased halal provision.',
@@ -1162,6 +1168,7 @@ Completion indicator: a clearly defined, measurable 90-day milestone written dow
       ],
     },
     {
+      seq: 3,
       title: 'Diversify income — build a second halal revenue stream (consulting, rentals, or business)',
       priority: 'high', tags: ['income', 'stability'],
       description: 'Relying on a single income source creates financial fragility. Building a second halal revenue stream — whether through consulting, rental property, an online business, or partnership — provides resilience and increases your capacity for generosity.',
@@ -1344,6 +1351,7 @@ Completion indicator: a monthly tracking system in place with at least one month
       ],
     },
     {
+      seq: 0,
       title: 'Track your income and expenses monthly — use a simple halal-aware budgeting system',
       priority: 'medium', tags: ['budgeting', 'planning'],
       description: 'Consistent tracking of where your money comes from and where it goes is essential for intentional stewardship (khilafah) of wealth. A halal-aware budget explicitly accounts for zakah, sadaqah, and debt repayment as non-negotiable line items rather than afterthoughts.',
@@ -1553,6 +1561,7 @@ Completion indicator: three specific spending categories identified for reductio
       ],
     },
     {
+      seq: 2,
       title: 'Negotiate a raise or contract rate increase aligned with your market value',
       priority: 'medium', tags: ['income', 'negotiation'],
       description: 'Being underpaid relative to your contribution is not humility — it is a missed opportunity to better provide for your family and community. Research your market value and advocate for fair compensation.',
@@ -1690,6 +1699,7 @@ Completion indicator: the negotiation conversation conducted, with outcome docum
   ],
   wealth_earning_excellence: [
     {
+      seq: 1,
       title: 'Create ethical employment — hire and mentor someone, generating income for others',
       priority: 'medium', tags: ['employment', 'impact'],
       description: 'One of the highest forms of earning excellence is creating halal employment for others. By hiring even one person and paying them fairly and on time, you participate in circulating wealth through the community and fulfilling a prophetic standard of economic justice.',
@@ -1886,6 +1896,7 @@ Completion indicator: an automated payroll system in place with a dedicated rese
       ],
     },
     {
+      seq: 0,
       title: 'Build a business that operates as an act of worship — clear mission, halal model, community benefit',
       priority: 'medium', tags: ['business', 'mission'],
       description: 'The ultimate expression of halal earning is a business that embodies your values: its mission serves a genuine need, its model is entirely halal, and its impact benefits the broader community. This is business as ibadah — where profit and purpose are inseparable.',
@@ -2082,6 +2093,7 @@ Completion indicator: first quarterly mission review completed, with findings do
       ],
     },
     {
+      seq: 2,
       title: 'Document and share your halal career or business journey to mentor others',
       priority: 'low', tags: ['mentorship', 'dawah'],
       description: 'Your experience navigating halal career and business decisions is valuable to others who are earlier in their journey. Documenting and sharing lessons — through writing, speaking, or one-on-one mentorship — is a form of sadaqah jariyah that multiplies the impact of your own learning.',
@@ -2239,6 +2251,7 @@ Completion indicator: an active mentorship relationship with at least one person
 // ── FINANCIAL LITERACY & MANAGEMENT ──
   wealth_financial_core: [
     {
+      seq: 0,
       title: 'Close all interest-bearing (riba) accounts and migrate to Islamic or interest-free alternatives',
       priority: 'urgent', tags: ['riba', 'banking'],
       description: 'Riba is among the most severely prohibited transactions in Islam — Allah and His Messenger declared war against it (Quran 2:279). Audit every bank account, credit card, and financial product you hold, and migrate to Shariah-compliant or at minimum interest-free alternatives as urgently as possible.',
@@ -2457,6 +2470,7 @@ The migration is not truly complete until your entire financial ecosystem — in
       ],
     },
     {
+      seq: 1,
       title: 'List all debts — prioritise eliminating high-interest consumer debt immediately',
       priority: 'urgent', tags: ['debt', 'riba'],
       description: 'Debt — especially interest-bearing debt — is a burden the Prophet (peace be upon him) sought refuge from. Create a complete inventory of all debts, then prioritise paying off the ones carrying the highest interest first, as continuing to pay riba compounds both the financial and spiritual harm.',
@@ -2637,6 +2651,7 @@ A goal without a deadline is just a wish. Setting a specific target date for bec
       ],
     },
     {
+      seq: 2,
       title: 'Create a written monthly budget — income, fixed expenses, zakah allocation, and savings',
       priority: 'high', tags: ['budgeting', 'planning'],
       description: 'A written budget transforms vague financial intentions into a concrete plan. By explicitly allocating for zakah, debt repayment, essential expenses, and savings before discretionary spending, you ensure that your obligations to Allah and your family are met first.',
@@ -2855,6 +2870,7 @@ A budget that exists only in your head is not a budget — it is a vague intenti
       ],
     },
     {
+      seq: 4,
       title: 'Learn the basics of Islamic finance — riba prohibition, murabaha, musharakah, and ijara',
       priority: 'high', tags: ['islamic-finance', 'study'],
       description: 'Understanding Islamic financial instruments empowers you to make informed decisions about banking, investing, and purchasing. Learn how murabaha (cost-plus sale), musharakah (partnership), and ijara (leasing) provide halal alternatives to conventional interest-based products.',
@@ -3068,6 +3084,7 @@ Theory without application is incomplete. Comparing real Islamic financial produ
       ],
     },
     {
+      seq: 3,
       title: 'Build a 1-month emergency cash buffer as a starting safety net',
       priority: 'high', tags: ['emergency-fund', 'savings'],
       description: 'Having at least one month of essential expenses set aside protects you from being forced into haram borrowing during an unexpected hardship. This small buffer is the first step toward financial resilience and tawakkul grounded in practical preparation.',
@@ -3212,6 +3229,7 @@ An emergency fund that gets raided for non-emergencies is not an emergency fund 
   ],
   wealth_financial_growth: [
     {
+      seq: 0,
       title: 'Build a 6-month emergency fund in a halal, liquid account',
       priority: 'high', tags: ['emergency-fund', 'savings'],
       description: 'Expanding your emergency fund to cover six months of expenses provides genuine financial security. This cushion means you will never need to resort to riba-based loans in a crisis, and it gives you the freedom to make career and business decisions from a position of strength rather than desperation.',
@@ -3395,6 +3413,7 @@ Building a six-month emergency fund is one of the longest-duration financial goa
       ],
     },
     {
+      seq: 2,
       title: 'Open a Shariah-compliant investment account — research halal ETFs, sukuk, or Islamic funds',
       priority: 'high', tags: ['investing', 'halal'],
       description: 'Growing wealth beyond savings requires investment, and Islam encourages productive deployment of capital. Research Shariah-compliant options such as halal-screened equity ETFs, sukuk (Islamic bonds), and managed Islamic funds to put your money to work without compromising your principles.',
@@ -3594,6 +3613,7 @@ Consistent, regular investing — known as dollar-cost averaging — is one of t
       ],
     },
     {
+      seq: 1,
       title: 'Set clear financial goals — 1-year, 5-year, and 10-year targets with milestones',
       priority: 'medium', tags: ['planning', 'goals'],
       description: 'Without clear goals, wealth accumulation becomes aimless. Define what you want to achieve financially at each time horizon — whether it is becoming debt-free, buying a home outright, funding your children\'s education, or reaching financial independence — and break each goal into measurable milestones.',
@@ -3774,6 +3794,7 @@ No financial plan survives contact with reality unchanged. Income fluctuates, ex
       ],
     },
     {
+      seq: 3,
       title: 'Study a foundational personal finance book — filtered for Islamic compatibility (avoid riba-based advice)',
       priority: 'medium', tags: ['study', 'financial-literacy'],
       description: 'Many excellent personal finance books contain universal wisdom about budgeting, saving, and investing — but also include advice that assumes interest-based products are acceptable. Read with a critical Islamic lens: absorb the principles of discipline and wealth-building while filtering out anything involving riba.',
@@ -3934,6 +3955,7 @@ Distilling an entire book into five actionable takeaways forces you to identify 
   ],
   wealth_financial_excellence: [
     {
+      seq: 0,
       title: 'Engage a qualified Islamic financial planner to optimise your asset allocation and estate plan',
       priority: 'medium', tags: ['planning', 'expert'],
       description: 'As your wealth grows in complexity, professional guidance becomes essential. A qualified Islamic financial planner can optimise your portfolio allocation, tax strategy, and estate plan while ensuring every element remains Shariah-compliant. This is an investment in the long-term integrity of your wealth.',
@@ -4117,6 +4139,7 @@ Professional advice without implementation is wasted money and missed opportunit
       ],
     },
     {
+      seq: 1,
       title: 'Develop a multi-asset halal portfolio (equities, real estate, sukuk, gold)',
       priority: 'medium', tags: ['investing', 'diversification'],
       description: 'Diversification across asset classes reduces risk and increases resilience. A well-balanced halal portfolio might include Shariah-screened equities for growth, real estate for stability and rental income, sukuk for fixed-income exposure, and gold as a store of value — all within Islamic guidelines.',
@@ -4291,6 +4314,7 @@ Shariah compliance is not a one-time certification — it requires ongoing vigil
       ],
     },
     {
+      seq: 2,
       title: 'Achieve full financial independence — passive income covers all living expenses without active work',
       priority: 'low', tags: ['financial-independence', 'goals'],
       description: 'Financial independence means your halal passive income (rental properties, business profits, investment returns) covers all living expenses without requiring active employment. This frees your time for worship, family, community service, and pursuing your highest-impact work — the ultimate expression of Hifz al-Mal.',
@@ -4479,6 +4503,7 @@ Financial independence is not the destination — it is the vehicle that enables
 // ── OWNERSHIP & RIGHTS ──
   wealth_ownership_core: [
     {
+      seq: 3,
       title: 'Draft an Islamic Will (Wasiyyah) — ensure your estate distributes according to Quran 4:11–12',
       priority: 'urgent', tags: ['wasiyyah', 'estate'],
       description: 'Every Muslim with assets must have a valid Islamic will. Without one, secular probate law may distribute your estate in a way that violates the Quranic inheritance shares (fara\'id). A wasiyyah ensures your wealth passes to the right people in the right proportions as commanded by Allah.',
@@ -4694,6 +4719,7 @@ A perfectly drafted wasiyyah is useless if no one can find it when it is needed.
       ],
     },
     {
+      seq: 1,
       title: 'Confirm all major assets (property, vehicles, accounts) have clear, legitimate title in your name',
       priority: 'high', tags: ['ownership', 'legal'],
       description: 'Clear ownership is a prerequisite for Islamic inheritance, zakah calculation, and lawful transaction. Verify that the title or registration for every major asset you own is properly documented, legally valid, and free from disputes or ambiguity.',
@@ -4827,6 +4853,7 @@ Identifying unclear ownership is only half the work — the other half is resolv
       ],
     },
     {
+      seq: 0,
       title: 'Learn the Islamic rules of ownership — what you can and cannot own, and your obligations as an owner',
       priority: 'high', tags: ['fiqh', 'ownership'],
       description: 'In Islam, ownership is a trust (amanah) — you are a steward, not an absolute owner. Study what categories of property and assets can be privately owned, the rights of others upon your wealth (zakah, nafaqah, community dues), and the prohibitions against hoarding (kanz) and monopoly (ihtikar).',
@@ -5031,6 +5058,7 @@ Knowledge that is not consolidated is easily forgotten. After studying the vario
       ],
     },
     {
+      seq: 2,
       title: 'Identify any property or assets obtained through unclear or disputed means — resolve them',
       priority: 'high', tags: ['ownership', 'integrity'],
       description: 'Assets acquired through ambiguous transactions, family disputes, or informal arrangements may not be rightfully yours in the eyes of Shariah. Identify any such assets and take steps to clarify ownership — even if it means returning something to its rightful owner — as clean ownership is essential for barakah.',
@@ -5182,6 +5210,7 @@ The resolution determined in the previous step must be acted upon — not merely
       ],
     },
     {
+      seq: 4,
       title: 'Ensure all contracts you have signed are free from gharar (ambiguity) and zulm (injustice)',
       priority: 'medium', tags: ['contracts', 'fiqh'],
       description: 'Islam requires that contracts be clear, fair, and free from excessive uncertainty. Review your active contracts — employment agreements, leases, business partnerships, service agreements — to ensure they do not contain hidden terms, unjust clauses, or ambiguity that could harm either party.',
@@ -5352,6 +5381,7 @@ Allah commands the documentation of agreements in Surah Al-Baqarah (2:282): "O y
   ],
   wealth_ownership_growth: [
     {
+      seq: 0,
       title: 'Audit all business and personal contracts — add clarity, fairness, and Islamic compliance where missing',
       priority: 'high', tags: ['contracts', 'transparency'],
       description: 'As your financial affairs grow, so does the number of contracts governing them. Conduct a comprehensive audit of all active agreements to ensure they meet Islamic standards of transparency, mutual consent, and fairness. Update any that fall short.',
@@ -5525,6 +5555,7 @@ Auditing and amending contracts after the fact is corrective work. The superior 
       ],
     },
     {
+      seq: 3,
       title: 'Research and purchase your first Shariah-compliant asset — property, gold, or halal equity',
       priority: 'medium', tags: ['investing', 'ownership'],
       description: 'Moving from saving to owning productive or appreciating assets is a key step in wealth growth. Research Shariah-compliant asset classes and make your first purchase — whether it is physical gold, a rental property financed through Islamic means, or halal equity shares.',
@@ -5692,6 +5723,7 @@ Purchasing a Shariah-compliant asset is not a one-time event — it is the begin
       ],
     },
     {
+      seq: 1,
       title: 'Establish proper business documentation — contracts, receipts, and records for all transactions',
       priority: 'medium', tags: ['business', 'integrity'],
       description: 'Allah commands in Surah Al-Baqarah (2:282) that debts and major transactions be written down. Proper documentation protects all parties, prevents disputes, and is a form of ihsan (excellence) in your financial dealings. Establish systems to record every significant transaction.',
@@ -5830,6 +5862,7 @@ Financial records are irreplaceable — a fire, a hard drive failure, or a theft
       ],
     },
     {
+      seq: 2,
       title: 'Learn inheritance law (fara\'id) — know how your estate will be divided and plan accordingly',
       priority: 'medium', tags: ['faraid', 'estate'],
       description: 'The Islamic law of inheritance (fara\'id) is a precise system revealed in the Quran. Understanding how your estate will be divided among your heirs — and who qualifies as an heir — enables you to plan your wealth, make permissible bequests (wasiyyah), and avoid arrangements that conflict with divine decree.',
@@ -6052,6 +6085,7 @@ Knowledge of fara'id without action is incomplete stewardship. The entire purpos
   ],
   wealth_ownership_excellence: [
     {
+      seq: 0,
       title: 'Establish a family trust or multi-generational estate plan with a qualified Islamic scholar and lawyer',
       priority: 'medium', tags: ['estate', 'legacy'],
       description: 'A well-structured estate plan that spans generations ensures your wealth continues to benefit your family and community long after you are gone. Working with both an Islamic scholar and a qualified lawyer ensures the plan is both Shariah-compliant and legally enforceable in your jurisdiction.',
@@ -6266,6 +6300,7 @@ A trust created today reflects your family structure, financial position, and in
       ],
     },
     {
+      seq: 1,
       title: 'Transfer assets to joint or trust ownership to protect heirs and avoid probate complications',
       priority: 'low', tags: ['estate', 'planning'],
       description: 'Probate processes can be lengthy, expensive, and may distribute assets contrary to Islamic law. Transferring assets into joint ownership or a trust structure during your lifetime can protect your heirs from these complications and ensure a smoother, Shariah-aligned transition.',
@@ -6413,6 +6448,7 @@ Planning and verification are meaningless without execution. Until assets are ac
       ],
     },
     {
+      seq: 2,
       title: 'Set up a structured charitable ownership vehicle — waqf, foundation, or endowment',
       priority: 'low', tags: ['waqf', 'legacy'],
       description: 'A waqf is a permanent endowment in Islam — an asset whose principal is preserved while its returns benefit a designated cause indefinitely. Establishing a waqf or equivalent charitable vehicle is one of the most powerful forms of sadaqah jariyah, creating ongoing benefit that outlasts your lifetime.',
@@ -6625,6 +6661,7 @@ The waqf deed (waqfiyyah) is the founding document that defines everything: the 
 // ── CIRCULATION & IMPACT ──
   wealth_circulation_core: [
     {
+      seq: 0,
       title: 'Calculate your zakah precisely — nisab, hawl, and applicable categories (cash, gold, trade goods)',
       priority: 'urgent', tags: ['zakah', 'fard'],
       description: 'Zakah is the third pillar of Islam and a fard obligation on every Muslim whose wealth exceeds the nisab threshold for one lunar year (hawl). Calculating it precisely — across all zakatable assets including cash, gold, silver, trade inventory, and investments — ensures you fulfil this pillar correctly.',
@@ -6802,6 +6839,7 @@ The hawl — the lunar year that must pass over wealth exceeding the nisab — i
       ],
     },
     {
+      seq: 2,
       title: 'Distribute zakah to eligible recipients immediately — do not delay beyond the hawl date',
       priority: 'urgent', tags: ['zakah', 'obligation'],
       description: 'Once your hawl date arrives and zakah is due, it must be distributed without unnecessary delay. The poor and needy have a right (haqq) to this portion of your wealth — withholding it is a serious sin. Identify eligible recipients and ensure the funds reach them promptly.',
@@ -6988,6 +7026,7 @@ Zakah is an act of worship, not merely a financial transaction. Like salah and f
       ],
     },
     {
+      seq: 3,
       title: 'Pay any outstanding zakah from previous years — make up missed obligations with a scholar\'s guidance',
       priority: 'urgent', tags: ['zakah', 'qada'],
       description: 'If you have missed zakah payments from previous years — whether due to ignorance, negligence, or miscalculation — the obligation remains as a debt to Allah. Calculate the estimated shortfall for each missed year and pay it as soon as possible, consulting a scholar for guidance on complex situations.',
@@ -7185,6 +7224,7 @@ Planning without action is meaningless — the obligation is not fulfilled until
       ],
     },
     {
+      seq: 4,
       title: 'Establish a dedicated zakah account or envelope — separate and earmark zakah funds before spending',
       priority: 'high', tags: ['zakah', 'planning'],
       description: 'Mixing zakah funds with personal spending money risks accidental misuse. Set up a dedicated account, envelope, or digital category that holds your zakah funds separately. This makes distribution easier, tracking clearer, and ensures the funds are protected from personal spending.',
@@ -7323,6 +7363,7 @@ A zakah fund that runs on autopilot without periodic review may drift out of ali
       ],
     },
     {
+      seq: 1,
       title: 'Learn the eight eligible recipients of zakah (Surah At-Tawbah 9:60) and identify local options',
       priority: 'medium', tags: ['zakah', 'fiqh'],
       description: 'Allah specified exactly eight categories of people eligible to receive zakah in Surah At-Tawbah 9:60. Knowing these categories — the poor, the needy, zakah administrators, those whose hearts are to be reconciled, slaves seeking freedom, debtors, in the cause of Allah, and the wayfarer — ensures your zakah reaches those truly entitled to it.',
@@ -7484,6 +7525,7 @@ A prepared distribution list eliminates the last-minute scramble that often acco
   ],
   wealth_circulation_growth: [
     {
+      seq: 0,
       title: 'Establish a regular sadaqah habit — automate a monthly charitable contribution, however small',
       priority: 'high', tags: ['sadaqah', 'habit'],
       description: ' Automating a monthly sadaqah contribution — even a modest amount — builds the habit of generosity, purifies your wealth, and provides ongoing support to those in need.',
@@ -7640,6 +7682,7 @@ A sadaqah habit that never grows stagnates spiritually and practically. As Allah
       ],
     },
     {
+      seq: 2,
       title: 'Direct investment or purchasing power toward local Muslim businesses and ethical community ventures',
       priority: 'medium', tags: ['community', 'impact'],
       description: 'Wealth circulation within the community multiplies its impact. By intentionally directing your spending and investment toward local Muslim-owned businesses and ethical ventures, you help build a self-sustaining economic ecosystem that reduces dependency on external systems and strengthens communal bonds.',
@@ -7816,6 +7859,7 @@ What gets measured gets managed. Without tracking, your commitment to community-
       ],
     },
     {
+      seq: 1,
       title: 'Give interest-free loans (qard hasan) to family or community members in need',
       priority: 'medium', tags: ['qard-hasan', 'community'],
       description: 'Qard hasan — a beautiful loan given without any expectation of interest or profit — is one of the most praised financial acts in Islam. Allah describes it as "lending to Allah" (Quran 2:245). When a family or community member is in need, offering a qard hasan protects them from riba while earning immense reward.',
@@ -8021,6 +8065,7 @@ The post-disbursement period is where most qard hasan arrangements either streng
       ],
     },
     {
+      seq: 3,
       title: 'Research and identify a local sadaqah jariyah project to contribute to consistently',
       priority: 'medium', tags: ['sadaqah-jariyah', 'planning'],
       description: 'Sadaqah jariyah — ongoing charity — continues to benefit you after death. Projects like building a well, funding a school, planting trees, or supporting an Islamic education program generate continuous reward. Find a local project you believe in and commit to consistent contributions.',
@@ -8182,6 +8227,7 @@ Seeing your sadaqah jariyah in action — the well being dug, the school walls r
   ],
   wealth_circulation_excellence: [
     {
+      seq: 2,
       title: 'Formally establish or fund a waqf (endowment) — a permanent asset dedicated to ongoing benefit',
       priority: 'medium', tags: ['waqf', 'sadaqah-jariyah'],
       description: 'A waqf is the pinnacle of wealth circulation in Islam — a permanent endowment whose principal is preserved forever while its returns fund a designated cause. Historically, waqf funded hospitals, universities, and public infrastructure across the Muslim world. Establishing one is a legacy that transcends your lifetime.',
@@ -8399,6 +8445,7 @@ All the planning, legal work, and scholarly consultation culminate in this momen
       ],
     },
     {
+      seq: 0,
       title: 'Create a family sadaqah fund — a shared pot your household contributes to and distributes together',
       priority: 'low', tags: ['sadaqah', 'family'],
       description: 'A family sadaqah fund transforms charity from an individual act into a household value. Everyone contributes — even children with small amounts — and the family decides together where to distribute. This builds generosity as a family identity and teaches children the joy and responsibility of giving.',
@@ -8588,6 +8635,7 @@ Tracking transforms scattered acts of kindness into a documented legacy of gener
       ],
     },
     {
+      seq: 1,
       title: 'Build a legacy wealth strategy: 1/3 for heirs, 1/3 for charity, 1/3 reinvested in community impact',
       priority: 'low', tags: ['legacy', 'planning'],
       description: 'A comprehensive legacy strategy goes beyond a will — it is a deliberate plan for how your wealth will continue to serve after you. Inspired by the prophetic principle of the wasiyyah (up to 1/3 for charity), design a framework that balances provision for heirs, charitable endowment, and reinvestment in community-building ventures.',

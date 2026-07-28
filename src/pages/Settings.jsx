@@ -371,7 +371,7 @@ export default function Settings() {
               checked={disableL1ThresholdGate}
               onChange={(e) => setDisableL1ThresholdGate(e.target.checked)}
             />
-            <span>Disable Threshold Opening gate for Level 1 submodules</span>
+            <span>Disable Opening Ceremony gate for Level 1 submodules</span>
           </label>
           <div style={{ fontSize: '0.8rem', color: 'var(--text3)', marginTop: 'var(--space-2)' }}>
             When enabled, Level 1 (<code>*-core</code>) pages open without the ritual.
@@ -388,7 +388,7 @@ export default function Settings() {
               checked={disableL23ThresholdGate}
               onChange={(e) => setDisableL23ThresholdGate(e.target.checked)}
             />
-            <span>Disable Threshold Opening gate for Level 2 &amp; 3 submodules</span>
+            <span>Disable Opening Ceremony gate for Level 2 &amp; 3 submodules</span>
           </label>
           <div style={{ fontSize: '0.8rem', color: 'var(--text3)', marginTop: 'var(--space-2)' }}>
             When enabled, Level 2 (<code>*-growth</code>) and Level 3 (<code>*-excellence</code>) pages open without the ritual.

@@ -3,6 +3,7 @@ import { Calendar, CheckSquare, ClipboardList } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { getTaskAccessLevel } from '../../data/bbos/bbos-role-access';
 import { PRIORITIES } from '../../data/modules';
+import { orderBoardTasks } from '../../data/orientation-selector';
 import ScopeGate from '../shared/ScopeGate';
 import EmptyState from '../shared/EmptyState';
 import './ListView.css';
@@ -30,7 +31,7 @@ export default function ListView({ project, onSelectTask, filters, bbosRole, bbo
 
   const grouped = project.columns.map((col) => ({
     column: col,
-    tasks: tasks.filter((t) => t.columnId === col.id).sort((a, b) => (a.seedOrder ?? a.order) - (b.seedOrder ?? b.order)),
+    tasks: orderBoardTasks(tasks.filter((t) => t.columnId === col.id)),
   }));
 
   return (

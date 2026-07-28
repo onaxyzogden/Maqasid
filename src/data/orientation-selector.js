@@ -10,9 +10,10 @@
 // Within a pillar+tier, work is SEQUENTIALLY LOCKED: a board (project) holds an
 // ordered list of tasks, each an ordered list of subtasks, and only the first
 // not-yet-complete task — and within it the first not-yet-satisfied subtask — is
-// actionable. Everything else is visible but locked. Order is ARRAY ORDER of
-// `tasksByProject[boardId]`; the display label `task.n` is never consulted for
-// sequencing. "Not today" snoozes the whole current task, so its board drops out
+// actionable. Everything else is visible but locked. Chain order is the CURATED
+// SEED ORDER (`task.seedOrder`, see orderBoardTasks), falling back to persisted
+// array order for tasks that have none; the display label `task.n` is never
+// consulted for sequencing. "Not today" snoozes the whole current task, so its board drops out
 // for the day and selection falls through to the next actionable board in the
 // pillar, then to the next pillar.
 //
@@ -101,12 +102,63 @@ function taskLetter(index) {
   return out;
 }
 
+// Sort key floor for tasks with no `seedOrder` (user-created tasks on a pillar
+// board). Curated seed chain first, user additions after, each group keeping
+// its own relative order.
+const USER_TASK_ORDER_FLOOR = 1e6;
+
+// Canonical chain order for ONE board. `seedOrder` is the curated seed index —
+// written at seed time from the seed task's `seq` (falling back to its array
+// position) and reconciled on every boot by project-store's backfill, so a
+// curated re-order reaches boards that already exist in localStorage. Tasks
+// without it (user-created) sort after the whole seed chain. Ties keep array
+// order: Array.prototype.sort is stable, and the explicit index tiebreak makes
+// that guarantee local rather than implied.
+//
+// Board-scoped ON PURPOSE — a merged cross-project pool must keep its build
+// order, since `seedOrder` is only meaningful within one board. That is the
+// Prophetic Path node popup's NON-prayer branch, which pools a whole node's
+// tasks across projects. Its prayer branch owns exactly one board
+// (`prayer_{id}_{phase}`) and so does call this. See decorateTaskChain below.
+export function orderBoardTasks(tasks) {
+  const list = tasks ?? [];
+  return list
+    .map((task, index) => ({
+      task,
+      index,
+      key: typeof task?.seedOrder === 'number'
+        ? task.seedOrder
+        : USER_TASK_ORDER_FLOOR + (typeof task?.order === 'number' ? task.order : index),
+    }))
+    .sort((a, b) => a.key - b.key || a.index - b.index)
+    .map((row) => row.task);
+}
+
+// Decorate an ordered task list with stepper display state + letter labels —
+// the [{ task, state, letter }] shape TaskStepper renders. Takes the list in
+// the order it is given — it does NOT sort, so every caller that owns a single
+// board must pass it through orderBoardTasks first (NodePhaseSlideUp's prayer
+// branch does). Board-free so a merged cross-project pool (the same popup's
+// non-prayer branch) can use it too.
+export function decorateTaskChain(tasks, todayKey) {
+  const list = tasks ?? [];
+  const currentTaskIndex = findCurrentTaskIndex(list);
+  return {
+    currentTaskIndex,
+    items: list.map((task, i) => ({
+      task,
+      state: taskPillState(i, currentTaskIndex, task, todayKey),
+      letter: taskLetter(i),
+    })),
+  };
+}
+
 // The full ordered task chain for one board, each task carrying its stepper
 // display state + letter label. `actionable` is true only when the board has a
 // current task that is NOT snoozed today — i.e. there is a step to act on now.
 export function deriveBoardSequence(project, tasks, todayKey) {
-  const list = tasks ?? [];
-  const currentTaskIndex = findCurrentTaskIndex(list);
+  const list = orderBoardTasks(tasks);
+  const { currentTaskIndex, items } = decorateTaskChain(list, todayKey);
   const currentTask = currentTaskIndex >= 0 ? list[currentTaskIndex] : null;
   const actionable = currentTaskIndex >= 0 && !isTaskSnoozedToday(currentTask, todayKey);
   const { submoduleId } = resolveSubmoduleFromProject(project);
@@ -115,11 +167,7 @@ export function deriveBoardSequence(project, tasks, todayKey) {
     submoduleId: submoduleId ?? null,
     currentTaskIndex,
     actionable,
-    tasks: list.map((task, i) => ({
-      task,
-      state: taskPillState(i, currentTaskIndex, task, todayKey),
-      letter: taskLetter(i),
-    })),
+    tasks: items,
   };
 }
 
@@ -329,6 +377,8 @@ export function recommendOrientation({ projects, tasksByProject, heldTaskKey, ov
 //   subtask/currentSubtaskIndex — the current step within that task
 //   steps                 — [{ subtask, state }] for the current task
 //   taskStats             — done/total subtasks within the current task
+//   seeded                — pillar owns ≥1 subtask across any tier; false → the
+//                            card renders "no steps yet" instead of "caught up"
 //   hasEligible           — false → render the card's "nothing right now" state
 export function buildOrientationCarousel({ projects, tasksByProject, todayKey }) {
   const recommended = recommendOrientation({ projects, tasksByProject, todayKey });
@@ -354,12 +404,22 @@ export function buildOrientationCarousel({ projects, tasksByProject, todayKey })
     let taskDone = 0;
     for (const st of subtasks) if (isSubtaskSatisfied(st)) taskDone += 1;
 
+    // "Seeded" = the pillar owns at least one subtask across ANY tier. The
+    // active-tier `total` below can be 0 for a fully-complete pillar whose last
+    // tier was never populated, so it can't tell "no tasks seeded yet" apart
+    // from "all done" — this can. Drives the card's empty-vs-caught-up face so a
+    // never-populated pillar never masquerades as "Nothing left for today".
+    const seeded = TIERS.some(
+      (t) => getPillarTierSubtaskStats(pillar.id, t, projects, tasksByProject).total > 0,
+    );
+
     return {
       pillar,
       tier: active.tier,
       ratio: active.ratio,
       done: active.done,
       total: active.total,
+      seeded,
       submoduleId: seq?.submoduleId ?? task?.submoduleId ?? null,
       project,
       board: seq,

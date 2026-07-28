@@ -6,6 +6,7 @@ export const HEALTH_SEED_TASKS = {
   // ── PHYSICAL HEALTH ──
   health_physical_core: [
     {
+      seq: 1,
       title: 'Audit your diet — eliminate haram and doubtful (mashbuh) consumables',
       priority: 'urgent', tags: ['diet', 'halal'],
       description: 'Conduct a thorough review of everything you consume — food, drink, supplements, and medications — to ensure nothing haram or doubtful enters your body.',
@@ -155,6 +156,7 @@ Rewrite your standard grocery list, replacing any removed items with their halal
       ],
     },
     {
+      seq: 2,
       title: 'Establish a consistent sleep schedule of 7–8 hours aligned with Fajr',
       priority: 'high', tags: ['sleep', 'sunnah'],
       description: 'Design your sleep rhythm around the Prophetic pattern — early to bed after Isha, rising before Fajr. Consistent sleep is the single most impactful health habit, affecting mood, cognitive function, immune strength, and spiritual energy for ibadah.',
@@ -343,6 +345,7 @@ Use a simple sleep log — note your bedtime, wake time, and how rested you feel
       ],
     },
     {
+      seq: 3,
       title: 'Begin a daily walk after Fajr or Asr (minimum 20 minutes)',
       priority: 'high', tags: ['exercise', 'sunnah'],
       description: 'Walking is the most accessible form of movement and carries immense physical and mental benefit. Scheduling it after Fajr or Asr ties it to an existing anchor, builds consistency, and provides time for reflection, dhikr, or beneficial audio content.',
@@ -519,6 +522,7 @@ Use a simple habit tracker — a checkbox on your calendar, a streak app, or a t
       ],
     },
     {
+      seq: 4,
       title: 'Book an annual comprehensive health screening',
       priority: 'high', tags: ['health', 'prevention'],
       description: 'The body is an amanah (trust) from Allah. Preventive health screenings catch issues early when they are most treatable. A comprehensive check-up covers blood work, cardiovascular markers, vision, dental health, and age-appropriate screenings.',
@@ -663,6 +667,7 @@ Schedule a follow-up consultation (in-person or phone) to review the results wit
       ],
     },
     {
+      seq: 0,
       title: 'Identify and remove harmful substances — tobacco, alcohol, processed foods',
       priority: 'urgent', tags: ['diet', 'tayyib'],
       description: 'Allah commands us to consume what is tayyib (pure and wholesome) and forbids what harms. Tobacco, alcohol, and heavily processed foods damage the body and dull the mind. Removing them is both a health imperative and an act of obedience.',
@@ -827,6 +832,7 @@ Go through your home — kitchen, bedroom, car, desk, and any hidden stashes. Co
   ],
   health_physical_growth: [
     {
+      seq: 3,
       title: 'Establish 3×/week strength or resistance training routine',
       priority: 'high', tags: ['exercise', 'fitness'],
       description: 'The strong believer is better and more beloved to Allah than the weak believer. Strength training preserves muscle mass, strengthens bones, boosts metabolism, and builds the physical resilience needed to serve your family, community, and deen actively.',
@@ -962,6 +968,7 @@ Every 4-6 weeks, review your training log and ask: Am I still progressing on key
       ],
     },
     {
+      seq: 0,
       title: 'Track daily water intake (target 2–3 litres)',
       priority: 'medium', tags: ['hydration', 'health'],
       description: 'Proper hydration is essential for cognitive function, digestion, joint health, and energy levels. Building a hydration habit supports every other health goal.',
@@ -1084,6 +1091,7 @@ On training days, add 500ml-1L extra around your workout. In hot weather, increa
       ],
     },
     {
+      seq: 4,
       title: 'Explore the Sunnah of intermittent fasting (Monday/Thursday) as a health practice',
       priority: 'medium', tags: ['fasting', 'sunnah'],
       description: 'Fasting on Mondays and Thursdays is a confirmed Sunnah with extraordinary health benefits — improved insulin sensitivity, cellular repair (autophagy), mental clarity, and weight management. It combines spiritual reward with measurable physical benefit.',
@@ -1237,6 +1245,7 @@ Once you have fasted consistently on your chosen day for at least 4 weeks with m
       ],
     },
     {
+      seq: 2,
       title: 'Prepare a home emergency medical kit (first aid, medications, contacts)',
       priority: 'medium', tags: ['safety', 'preparation'],
       description: 'Being prepared for medical emergencies is part of responsible stewardship over your household. A well-stocked, accessible first aid kit can prevent minor injuries from becoming serious and buy critical time in emergencies.',
@@ -1381,6 +1390,7 @@ Set a recurring calendar reminder every six months — a good anchor is the star
       ],
     },
     {
+      seq: 1,
       title: "Qaylulah — implement the prophetic midday rest",
       priority: "medium", tags: ["rest", "sleep", "sunnah", "transition:qaylulah"],
       description: "Qaylulah is the brief midday rest the Prophet (SAW) and his companions practised before Dhuhr. Allah names sleep among His signs, and a short midday pause restores afternoon alertness and offsets the sleep debt that night-prayer practice accumulates. The companions treated qaylulah as fuel for ibadah, not an alternative to it.",
@@ -1495,6 +1505,7 @@ Before lying down, silently say: "Ya Allah, I take this rest as a sunnah of Your
   ],
   health_physical_excellence: [
     {
+      seq: 1,
       title: 'Implement a nutrient-timing protocol (pre/post workout, suhoor/iftar optimisation)',
       priority: 'medium', tags: ['nutrition', 'performance'],
       description: 'Nutrient timing optimises when you eat specific macronutrients to maximise energy, recovery, and body composition. For Muslims, this also means strategically planning suhoor and iftar nutrition during Ramadan and voluntary fasts for sustained performance.',
@@ -1630,6 +1641,7 @@ Follow your nutrient-timing templates consistently for 30 days. Each day, rate y
       ],
     },
     {
+      seq: 0,
       title: 'Learn and practise an active Sunnah sport (swimming, archery, or horse riding)',
       priority: 'low', tags: ['sunnah', 'fitness'],
       description: 'Umar (RA) said: "Teach your children swimming, archery, and horse riding." These sports build confidence, discipline, and physical capability. Pursuing them honours the Sunnah and develops skills that connect you to a tradition of strength and readiness.',
@@ -1765,6 +1777,7 @@ Invite your spouse or children to join you for a session. Many facilities offer 
       ],
     },
     {
+      seq: 2,
       title: 'Develop a peak-performance body composition target and 90-day plan',
       priority: 'low', tags: ['fitness', 'planning'],
       description: 'Moving beyond basic health to peak physical performance is a form of ihsan (excellence) in stewardship of the body. Setting a clear body composition target with a structured plan brings intentionality and measurement to your physical development.',
@@ -1917,6 +1930,7 @@ At day 45, review all your data: compare your current measurements and photos to
   // ── MENTAL WELL-BEING ──
   health_mental_core: [
     {
+      seq: 2,
       title: 'Establish a morning routine: Fajr → Quran (minimum 1 page) → morning adhkar → journal',
       priority: 'urgent', tags: ['routine', 'adhkar'],
       description: 'How you start your morning determines the quality of your entire day. This Prophetic morning sequence — prayer, Quran, remembrance of Allah, and self-reflection — anchors your mind in purpose and protects against anxiety and aimlessness.',
@@ -2088,6 +2102,7 @@ Use a simple habit tracker — a printed calendar on the wall, a checklist in yo
       ],
     },
     {
+      seq: 0,
       title: 'Identify sources of haram media (music, content) and set firm boundaries',
       priority: 'high', tags: ['media', 'protection'],
       description: 'The eyes, ears, and heart are all accountable before Allah. Haram media — whether explicit content, idle entertainment that wastes time, or music that hardens the heart — erodes spiritual sensitivity and mental clarity. Setting boundaries is an act of self-preservation.',
@@ -2250,6 +2265,7 @@ Sit down with your spouse and agree on clear rules: what devices are allowed, wh
       ],
     },
     {
+      seq: 3,
       title: 'Practise daily dhikr for anxiety — recite Ayat al-Kursi, last two ayat of Al-Baqarah',
       priority: 'high', tags: ['dhikr', 'mental-health'],
       description: 'Allah says: "Verily, in the remembrance of Allah do hearts find rest" (13:28). Specific adhkar have been prescribed by the Prophet (SAW) for protection and tranquillity. Making these a non-negotiable daily practice builds a spiritual shield against anxiety and intrusive thoughts.',
@@ -2455,6 +2471,7 @@ Each evening, rate your anxiety on a simple 1-10 scale in your journal. Note whe
       ],
     },
     {
+      seq: 1,
       title: 'Limit social media use to defined time windows — set screen-time limits',
       priority: 'high', tags: ['digital-detox', 'focus'],
       description: 'Uncontrolled social media use fragments attention, feeds comparison, and steals hours that could be spent in worship, learning, or meaningful connection. Setting firm time windows turns a passive habit into a controlled, intentional tool.',
@@ -2599,6 +2616,7 @@ Identify your top 3 idle scrolling triggers (e.g., waiting for food, riding the 
       ],
     },
     {
+      seq: 4,
       title: 'Seek Islamic counselling or therapy if experiencing persistent anxiety or depression',
       priority: 'medium', tags: ['mental-health', 'help'],
       description: 'Seeking help is a sign of strength, not weakness.',
@@ -2754,6 +2772,7 @@ Make a commitment to yourself: attend at least 6 sessions before making any judg
   ],
   health_mental_growth: [
     {
+      seq: 1,
       title: 'Start a daily muhasaba (self-accounting) journal — 5 minutes before sleep',
       priority: 'high', tags: ['muhasaba', 'reflection'],
       description: 'Umar (RA) said: "Take account of yourselves before you are taken to account." Muhasaba is the practice of reviewing your day — what you did well, where you fell short, and what you intend for tomorrow. Five minutes of honest self-reflection accelerates personal growth dramatically.',
@@ -2880,6 +2899,7 @@ Every Friday (or another consistent day), read through your past week of entries
       ],
     },
     {
+      seq: 2,
       title: 'Designate one day per week as a digital-free unplugged day',
       priority: 'medium', tags: ['digital-detox', 'rest'],
       description: 'The mind needs genuine rest — not just sleep, but freedom from the constant stimulation of screens and notifications. An unplugged day restores mental clarity, deepens family bonds, and creates space for worship, nature, and unhurried thought.',
@@ -3015,6 +3035,7 @@ After each of your first three unplugged days, write a short journal entry answe
       ],
     },
     {
+      seq: 0,
       title: 'Study and practise Sunnah grounding techniques: wudu for anger, salah for stress, istighfar for guilt',
       priority: 'medium', tags: ['sunnah', 'mental-health'],
       description: 'The Prophet (SAW) prescribed specific spiritual actions for specific emotional states — wudu to cool anger, prayer to find relief in distress, and istighfar to release guilt. These are divinely guided coping mechanisms that address both the spiritual and psychological root of difficult emotions.',
@@ -3128,6 +3149,7 @@ After each time you use wudu for anger, salah for stress, or istighfar for guilt
       ],
     },
     {
+      seq: 3,
       title: 'Read one book on Islamic psychology or tazkiyah al-nafs per month',
       priority: 'medium', tags: ['study', 'tazkiyah'],
       description: 'Islamic tradition has a rich body of knowledge on the purification of the soul and the diseases of the heart. Reading works by scholars like Imam al-Ghazali, Ibn al-Qayyim, and contemporary Muslim psychologists deepens self-understanding and provides tools for genuine inner transformation.',
@@ -3265,6 +3287,7 @@ At the end of each book, review your notes and choose the single most impactful 
   ],
   health_mental_excellence: [
     {
+      seq: 1,
       title: 'Begin a cognitive training programme — Quran memorisation or language learning',
       priority: 'medium', tags: ['memorisation', 'cognitive'],
       description: 'The brain, like any muscle, grows stronger with consistent challenge. Quran memorisation is the pinnacle of cognitive training for a Muslim — it strengthens memory, builds discipline, and earns immense reward. Language learning (Arabic especially) opens doors to understanding the deen directly.',
@@ -3436,6 +3459,7 @@ Set a realistic monthly target based on your current pace. For hifz: 1 page per 
       ],
     },
     {
+      seq: 2,
       title: 'Engage a mentor, coach, or therapist for deep personal development',
       priority: 'medium', tags: ['mentorship', 'growth'],
       description: 'Every great companion had a mentor. Working with someone who can see your blind spots, challenge your assumptions, and hold you accountable accelerates growth in ways self-study alone cannot. This could be a shaykh, a professional coach, or a therapist depending on your needs.',
@@ -3562,6 +3586,7 @@ Keep a running note on your phone or in your journal labeled "For next session."
       ],
     },
     {
+      seq: 0,
       title: 'Write a personal soul-map: your psychological autobiography, values, wounds, and aspirations',
       priority: 'low', tags: ['reflection', 'tazkiyah'],
       description: 'A soul-map is a deep, honest written exploration of who you are — your formative experiences, core values, emotional wounds, recurring patterns, and highest aspirations. This exercise brings unconscious drivers into conscious awareness, enabling intentional change and genuine self-knowledge.',
@@ -3719,6 +3744,7 @@ Choose someone you deeply trust — your spouse, a close friend, a mentor, or a 
   // ── SAFETY & SECURITY ──
   health_safety_core: [
     {
+      seq: 1,
       title: 'Confirm stable, secure, and dignified housing for your household',
       priority: 'urgent', tags: ['housing', 'security'],
       description: 'Shelter is one of the most fundamental human needs and a prerequisite for stability in every other area of life. Dignified housing means a space that is safe, clean, adequately sized, and free from threats — a foundation upon which spiritual and professional life can be built.',
@@ -3854,6 +3880,7 @@ Define what "stable housing" looks like for your family — location, size, cost
       ],
     },
     {
+      seq: 0,
       title: 'Verify that all basic needs (food, clothing, shelter) are covered by halal income',
       priority: 'urgent', tags: ['provision', 'halal'],
       description: ' Ensuring these essentials are covered by halal income is both a spiritual obligation and the foundation of financial peace. Any haram source taints everything built upon it.',
@@ -3988,6 +4015,7 @@ For each haram income source identified, create an exit plan with a timeline. If
       ],
     },
     {
+      seq: 3,
       title: 'Build a 3-month emergency fund in a halal savings vehicle',
       priority: 'high', tags: ['finance', 'emergency'],
       description: 'An emergency fund provides a buffer against unexpected job loss, medical expenses, or urgent needs — reducing the temptation to take on riba-based debt in a crisis. Three months of essential expenses, held in a halal account, is the minimum safety net every Muslim household should have.',
@@ -4132,6 +4160,7 @@ Set a monthly reminder to check your emergency fund balance. Record the balance 
       ],
     },
     {
+      seq: 4,
       title: 'Obtain basic first aid and CPR certification',
       priority: 'high', tags: ['first-aid', 'preparation'],
       description: 'Knowing how to respond in a medical emergency can save a life — a family member, a colleague, or a stranger. First aid and CPR certification equips you with practical skills that fulfil the Islamic duty of preserving life (hifz al-nafs) in its most direct form.',
@@ -4236,6 +4265,7 @@ Note your certification expiry date and set a calendar reminder two months befor
       ],
     },
     {
+      seq: 2,
       title: 'Document an emergency contact plan — phone numbers, meeting point, exit routes',
       priority: 'medium', tags: ['emergency', 'planning'],
       description: 'In an emergency — fire, natural disaster, or security threat — panic is the enemy. A pre-documented plan with clear contacts, meeting points, and exit routes ensures your family can act quickly and reunite safely. Tawakkul in Allah does not negate taking practical precautions.',
@@ -4391,6 +4421,7 @@ Gather your entire household and walk through the emergency plan step by step. P
   ],
   health_safety_growth: [
     {
+      seq: 0,
       title: 'Improve living conditions — reduce overcrowding, noise, and environmental stressors',
       priority: 'high', tags: ['housing', 'well-being'],
       description: 'Your environment shapes your mental state. Overcrowding, excessive noise, clutter, and poor lighting create chronic stress that erodes well-being and makes ibadah, study, and family life harder. Improving your living conditions is an investment in every dimension of your life.',
@@ -4544,6 +4575,7 @@ Choose a clean, quiet corner of your home — it does not need to be an entire r
       ],
     },
     {
+      seq: 3,
       title: 'Research and obtain relevant Takaful (Islamic insurance) for health and property',
       priority: 'medium', tags: ['takaful', 'protection'],
       description: 'Takaful is the Islamic alternative to conventional insurance, based on mutual cooperation rather than riba and gharar. Securing takaful coverage for health and property protects your family from catastrophic financial loss while remaining within halal boundaries.',
@@ -4670,6 +4702,7 @@ Based on your comparison, select the health and property takaful plans that offe
       ],
     },
     {
+      seq: 1,
       title: 'Create a written home safety protocol (fire plan, emergency procedures)',
       priority: 'medium', tags: ['safety', 'planning'],
       description: 'A written safety protocol transforms vague intentions into clear, rehearsed actions. Covering fire escape, gas leaks, medical emergencies, and severe weather ensures your household is prepared for the most common domestic risks.',
@@ -4823,6 +4856,7 @@ Set a quarterly calendar reminder for a family fire drill. Sound the alarm (or s
       ],
     },
     {
+      seq: 2,
       title: 'Understand your legal rights as a Muslim in your jurisdiction (employment, religious accommodation)',
       priority: 'medium', tags: ['rights', 'knowledge'],
       description: 'Knowing your legal rights regarding religious practice — prayer breaks, hijab, dietary accommodation, holiday observance — empowers you to advocate for yourself professionally and protects you from unlawful discrimination. Knowledge here is both practical wisdom and a form of self-preservation.',
@@ -4978,6 +5012,7 @@ Research the formal complaint process for religious discrimination in your juris
   ],
   health_safety_excellence: [
     {
+      seq: 1,
       title: 'Contribute to a community safety initiative — neighbourhood watch, emergency response training',
       priority: 'low', tags: ['community', 'safety'],
       description: 'Extending safety beyond your own household to your community is a manifestation of the Prophetic principle that the best of people are those most beneficial to others. Community safety initiatives build social cohesion, deter harm, and create networks of mutual support.',
@@ -5122,6 +5157,7 @@ Think of two or three people in your community who are reliable and community-mi
       ],
     },
     {
+      seq: 0,
       title: 'Develop a family continuity plan — wills, guardianship, Islamic estate planning',
       priority: 'medium', tags: ['planning', 'family'],
       description: 'Islamic estate planning (mirath) is a fardh obligation, yet most Muslims die without a valid Islamic will. A family continuity plan ensures your assets are distributed according to Shariah, your children have designated guardians, and your family is not left in legal limbo during their most vulnerable moment.',
@@ -5324,6 +5360,7 @@ Have a direct conversation with your designated executor about their role and re
       ],
     },
     {
+      seq: 2,
       title: 'Pursue a leadership role in your neighbourhood or mosque safety committee',
       priority: 'low', tags: ['leadership', 'community'],
       description: 'Taking a leadership role in safety infrastructure — whether at the mosque, school, or neighbourhood level — multiplies your impact and ensures that safety planning is proactive rather than reactive. It is a form of khidmah (service) that protects the most vulnerable.',
@@ -5463,6 +5500,7 @@ Identify 3-5 community members who showed interest during events or training. In
   // ── SOCIAL CHARACTER ──
   health_social_core: [
     {
+      seq: 1,
       title: 'Master the Islamic greeting — give salam freely and respond completely',
       priority: 'high', tags: ['adab', 'sunnah'],
       description: ' Shall I not tell you of something that if you do it, you will love one another? Spread the salam amongst yourselves." The greeting of peace is the simplest, most powerful tool for building Muslim brotherhood.',
@@ -5594,6 +5632,7 @@ Model the behaviour — greet everyone with salam in front of your children and 
       ],
     },
     {
+      seq: 4,
       title: 'Fulfil social obligations consistently — attend weddings, funerals, and visit the sick',
       priority: 'high', tags: ['adab', 'community'],
       description: 'The Prophet (SAW) outlined five rights of a Muslim upon another Muslim, including visiting the sick, attending funerals, and accepting invitations. These are not optional courtesies — they are obligations that maintain the social fabric of the ummah and earn immense reward.',
@@ -5772,6 +5811,7 @@ After visiting the sick, attending a funeral, or going to a wedding, send a brie
       ],
     },
     {
+      seq: 0,
       title: 'Audit your speech — eliminate backbiting (gheebah), slander (buhtan), and lying',
       priority: 'urgent', tags: ['adab', 'character'],
       description: 'Allah compares backbiting to eating the flesh of your dead brother (49:12). The tongue is the most dangerous limb — it can destroy relationships, reputations, and your own akhirah. An honest audit of your speech habits is the starting point for purifying your social character.',
@@ -5934,6 +5974,7 @@ Choose a trusted friend, spouse, or colleague and explain your goal. Ask them to
       ],
     },
     {
+      seq: 3,
       title: 'Practise positive body language — eye contact, open posture, and full presence in conversations',
       priority: 'medium', tags: ['adab', 'communication'],
       description: ' Positive body language — eye contact, leaning in, putting down your phone — communicates respect and builds trust in every interaction.',
@@ -6047,6 +6088,7 @@ After practising the previous subtasks for two weeks, start paying attention to 
       ],
     },
     {
+      seq: 2,
       title: 'Respond to wrongdoing with patience (hilm) — implement a 24-hour rule before reacting',
       priority: 'medium', tags: ['character', 'patience'],
       description: '',
@@ -6210,6 +6252,7 @@ Keep a simple log — date, what triggered you, what you would have said or done
   ],
   health_social_growth: [
     {
+      seq: 1,
       title: 'Build a reputation for honesty and reliability in your professional and social circles',
       priority: 'high', tags: ['trust', 'character'],
       description: 'The Prophet (SAW) was known as al-Amin (the trustworthy) even before revelation. A reputation for honesty and reliability is built through consistent small actions — keeping promises, meeting deadlines, telling the truth even when it is inconvenient, and never overpromising.',
@@ -6363,6 +6406,7 @@ Choose one or two people who know you well in different contexts (work and perso
       ],
     },
     {
+      seq: 3,
       title: 'Perform a regular act of service (khidmah) — volunteer, help a neighbour, or assist at the mosque',
       priority: 'medium', tags: ['khidmah', 'community'],
       description: '',
@@ -6476,6 +6520,7 @@ Choose one family-friendly service activity per month: cooking meals for a shelt
       ],
     },
     {
+      seq: 2,
       title: 'Develop active listening skills — practise full presence and ask thoughtful follow-up questions',
       priority: 'medium', tags: ['communication', 'character'],
       description: 'Most people listen to respond, not to understand. Active listening — being fully present, reflecting back what you hear, and asking genuine follow-up questions — is one of the most powerful ways to honour another human being and build deep, trusting relationships.',
@@ -6611,6 +6656,7 @@ Search for a highly-rated book, podcast episode, or video on active listening. G
       ],
     },
     {
+      seq: 0,
       title: 'Identify and reconcile at least one broken or strained relationship this month',
       priority: 'high', tags: ['reconciliation', 'sulh'],
       description: ' Reconciliation — even when you were wronged — is one of the highest acts of character in Islam.',
@@ -6775,6 +6821,7 @@ Set realistic expectations: your goal is to move from hostility or silence to ba
   ],
   health_social_excellence: [
     {
+      seq: 1,
       title: 'Mentor a younger Muslim in character development and professional or spiritual growth',
       priority: 'medium', tags: ['mentorship', 'dawah'],
       description: 'The Prophet (SAW) invested deeply in individual mentorship — his companionship with Abu Bakr, his guidance of Ali, his nurturing of Anas. Mentoring a younger Muslim passes on hard-won wisdom, multiplies your impact, and fulfils the obligation of mutual enjoining of good (amr bil maruf).',
@@ -6910,6 +6957,7 @@ Set a recurring date — the first Sunday of each month, every other Friday afte
       ],
     },
     {
+      seq: 2,
       title: 'Represent Islam publicly through excellence in conduct — let your character be your dawah',
       priority: 'medium', tags: ['dawah', 'character'],
       description: 'The greatest dawah is not a speech or a pamphlet — it is your character. When non-Muslims see a Muslim who is honest, generous, patient, and excellent in their work, it speaks louder than any argument. This task is about being intentionally excellent in public-facing interactions as an act of worship.',
@@ -7090,6 +7138,7 @@ At the end of each month, set aside 15 minutes for honest reflection. Review you
       ],
     },
     {
+      seq: 0,
       title: 'Establish or join a circle of accountability (muhasaba group) with trusted peers',
       priority: 'low', tags: ['muhasaba', 'community'],
       description: 'Iron sharpens iron. A muhasaba circle is a small group of trusted Muslim peers who meet regularly to hold each other accountable in deen, character, and goals. This practice was modelled by the Sahaba and remains one of the most effective tools for sustained spiritual and personal growth.',

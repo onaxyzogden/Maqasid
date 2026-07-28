@@ -64,6 +64,22 @@ StageSidebar (BBOS pipeline navigation)
 - Change column behavior → modify KanbanColumn (droppable) + KanbanBoard drag handlers
 
 ## Gotchas
+- **`orderBoardTasks` is the ONE task comparator — never write `a.seedOrder - b.seedOrder` again.**
+  It lives in [orientation-selector.js](../../data/orientation-selector.js) and every sorting surface
+  imports it (KanbanBoard, ListView, StageSidebar, PillarLevelDashboard, ProjectBoard,
+  BbosTaskPanel). Key = `seedOrder`, else `1e6 + (order ?? index)`, so **user-created tasks sort
+  after the whole curated chain**. Ad-hoc copies using `seedOrder ?? order` put them *before* it and
+  made the boards disagree with the orientation chain — that is exactly the bug
+  [2026-07-27-milos-board-order-single-authority](../../../wiki/decisions/2026-07-27-milos-board-order-single-authority.md)
+  closed. `BbosTaskPanel` keeps stage as the primary key by grouping → ordering each group → flattening.
+- **Drag of a seeded card is column-only.** `moveTask` renumbers `order`, which `seedOrder` outranks,
+  so a same-column reorder of a seeded task was a phantom that snapped back on the next render. It is
+  now refused in `handleDragEnd` with a toast; **cross-column drag still works**. Order on seeded
+  boards changes by editing `seq` in the seed file, not from the UI.
+- **`position: fixed` does not escape `.pb-content__layer`** — that layer sets a `transform`, which
+  makes it the containing block for fixed descendants (an identity matrix is enough). A fixed toast
+  here rendered ~440 px below the fold. Use the shared `Toast` (`@store/toast-store`), which
+  `createPortal`s to `<body>`.
 - `ProjectSlideUp.css` is shared chrome — geometry changes there move ALL four popups (see file inventory). Consumer overrides win by import order at equal specificity, so renaming/splitting selectors breaks them silently
 - Moving to "Done" column does NOT auto-set `completedAt` — component must handle this
 - Gantt undated tasks render at bottom without bars

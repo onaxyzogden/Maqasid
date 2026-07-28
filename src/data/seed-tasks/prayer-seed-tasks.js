@@ -538,6 +538,55 @@ function classifyTask(task) {
   return FIVE_DAILY.map((p) => `prayer_${p}_${phase}`);
 }
 
+// --- Curated chain order for the generated boards ------------------------
+// A copied task carries its SOURCE board's `seq` (the spread at the push
+// below), which is meaningless here: `faith_salah_core`'s seq 5 landing on a
+// 3-task prayer board is out of range, two source boards can contribute the
+// same value, and seq 0 from `faith_salah_excellence` would sort an excellence
+// task ahead of the core adhkar. So each board's own position is assigned LAST
+// and wins — see wiki/decisions/2026-07-27-milos-prayer-board-ordering.md.
+//
+// The default is emission order, which is already tier-ascending because
+// SALAH_SOURCES runs core -> growth -> excellence. That is right for 15 of the
+// 18 boards. These three are re-ordered because the CLOCK disagrees with it.
+// Nothing is reclassified: every title below already lives on that board.
+export const PRAYER_ORDER_OVERRIDES = {
+  // You wake before you take siwak and make wudu.
+  prayer_fajr_before: [
+    "Reclaim the day with the waking du'a and morning adhkar",
+    "Observe the pre-prayer sunnah before every salah (siwak, wudu, adhan response)",
+    "Anchor the morning with Sayyid al-Istighfar and the daily-good du'a",
+  ],
+  // The evening adhkar are recited between Asr and Maghrib — i.e. before
+  // Maghrib's own preparation, not after it.
+  prayer_maghrib_before: [
+    "Recite the evening adhkar between Asr and Maghrib",
+    "Observe the pre-prayer sunnah before every salah (siwak, wudu, adhan response)",
+  ],
+  // The pre-sleep sunnah genuinely ends the night; the memorisation task is
+  // not time-bound, so it yields the last slot despite being excellence tier.
+  prayer_isha_after: [
+    "Complete the post-prayer adhkar after every salah (istighfar, tasbih, Ayat al-Kursi)",
+    "Memorise the prophetic supplications specific to each prayer",
+    "Complete the prophetic pre-sleep sunnah",
+  ],
+};
+
+// Assign the board's own 0..n-1 permutation, applying an override if one
+// exists. An unlisted title sorts to the end rather than throwing, so a newly
+// tagged faith task can never break the build; the drift guard in
+// __tests__/prayer-order.test.js is what makes a stale override loud.
+function curateBoardOrder(boardId, tasks) {
+  const override = PRAYER_ORDER_OVERRIDES[boardId];
+  const rank = (t) => {
+    const i = override.indexOf(t.title);
+    return i === -1 ? override.length : i;
+  };
+  const ordered = override ? [...tasks].sort((a, b) => rank(a) - rank(b)) : tasks;
+  // Spread order matters: our `seq` overwrites the inherited one.
+  return ordered.map((t, i) => ({ ...t, seq: i }));
+}
+
 function buildPrayerSeedTasks() {
   const out = {};
   for (const pillar of PRAYER_PILLARS) {
@@ -584,6 +633,13 @@ function buildPrayerSeedTasks() {
         tags: [...baseTags, 'reminder'],
       });
     }
+  }
+
+  // Curate LAST, once every board is fully populated — this is what replaces
+  // the inherited source-board `seq` and gives the six `during` boards (which
+  // never had one) an explicit permutation instead of an array-order fallback.
+  for (const boardId of Object.keys(out)) {
+    out[boardId] = curateBoardOrder(boardId, out[boardId]);
   }
 
   return out;

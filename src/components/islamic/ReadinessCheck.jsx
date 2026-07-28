@@ -11,9 +11,11 @@ function RCSection({ data }) {
   const rowCount = Math.max(gov.length, nyt.length);
   if (rowCount === 0) return null;
 
+  // Top-level framing lines ("Al-X asks: …") were removed from ceremony render
+  // 2026-07-27 per user request — `frame` stays in the data but is never shown.
+  // Per-attribute questions (attrFrame) still render in the interactive wizard.
   return (
     <div className="rc-section">
-      {data.frame && <p className="rc-frame">{data.frame}</p>}
       <div className="rc-paired">
         {/* Column headers */}
         <div className="rc-paired__headers">
@@ -74,7 +76,7 @@ function RCCardPair({ row, yesLabel, nytLabel, selections, onSelect }) {
 }
 
 // ── Interactive readiness — card wizard (one row per page) ──
-function RCInteractive({ rows, selections, onSelect, frame }) {
+function RCInteractive({ rows, selections, onSelect }) {
   const fmt = useArabic();
   const [currentIdx, setCurrentIdx] = useState(0);
   const [dir, setDir] = useState('next'); // 'next' | 'prev' | 'fade' — drives animation direction
@@ -133,7 +135,6 @@ function RCInteractive({ rows, selections, onSelect, frame }) {
       <p className="rc-card-wizard__instructions">
         Select the card that reflects where you are right now.
       </p>
-      {frame && <p className="rc-card-wizard__frame">{frame}</p>}
 
       {/* Animated wrapper — key forces remount on row change; dir class drives slide direction */}
       <div key={currentIdx} className={`rc-card-content rc-card-content--${dir}${exiting ? ' rc-card-content--exiting' : ''}`}>
@@ -188,7 +189,6 @@ export default function ReadinessCheck({ readiness, reflection, color, interacti
         rows={readiness.rows}
         selections={selections}
         onSelect={onSelect}
-        frame={readiness.frame}
       />
     );
   }

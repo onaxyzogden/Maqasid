@@ -80,7 +80,13 @@ function subtaskHasState(st) {
   return Boolean(st.done || st.notApplicable || st.snoozedUntilDayKey);
 }
 
-function taskHasState(task, boardId) {
+// Has the operator put any of themselves into this task? Used here to pick the
+// survivor of a title collision, and by the seed-dedupe prune in migration.js to
+// decide whether a de-duplicated task is safe to delete. Deliberately generous:
+// a false positive only leaves a stale row the operator can delete by hand, a
+// false negative destroys their work.
+export function taskHasState(task, boardId) {
+  if (!task) return false;
   if (task.completedAt || task.dueDate || task.notes) return true;
   if (Array.isArray(task.checklist) && task.checklist.length) return true;
   if (Array.isArray(task.attachments) && task.attachments.length) return true;

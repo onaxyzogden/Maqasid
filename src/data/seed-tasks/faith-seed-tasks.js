@@ -6,6 +6,7 @@ export const FAITH_SEED_TASKS = {
   // ── SHAHADA ──
   faith_shahada_core: [
     {
+      seq: 0,
       title: 'Testify there is no God but Allah',
       priority: 'urgent', tags: ['aqidah', 'shahada'],
       description: 'The Shahada \u2014 "Ashhadu an la ilaha illAllah wa ashhadu anna Muhammadan rasulullah" \u2014 is the first pillar of Islam and the gateway into the faith. Renew and deepen your understanding of this testimony, ensuring it is uttered with full knowledge, certainty, sincerity, and love. This is not merely a declaration but a covenant with Allah.',
@@ -237,6 +238,7 @@ The Shahada is not abstract theology — it is the core of your identity as a Mu
       ],
     },
     {
+      seq: 1,
       title: 'Study the meaning and conditions of La ilaha illAllah',
       priority: 'urgent', tags: ['aqidah'],
       description: 'Deeply understand the testimony of faith \u2014 its linguistic meaning, theological implications, and the conditions scholars have derived from the Quran and Sunnah that make it valid.',
@@ -454,6 +456,7 @@ Surah al-Ikhlas (112) defines Allah's oneness and absolute independence, serving
       ],
     },
     {
+      seq: 3,
       title: 'Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah)',
       priority: 'high', tags: ['aqidah'],
       description: 'The Shahada is not merely uttered \u2014 it requires seven conditions to be fulfilled for it to benefit the one who declares it. Study each condition with its evidence.',
@@ -789,6 +792,7 @@ Love for Allah and His Messenger must surpass love for all else. Allah says in Q
       ],
     },
     {
+      seq: 4,
       title: 'Study the six pillars of Iman',
       priority: 'high', tags: ['aqidah'],
       description: 'As described in the Hadith of Jibril, Iman consists of six pillars. Understand each pillar, its evidence, and what it demands of the believer.',
@@ -1126,6 +1130,7 @@ Belief in divine decree (*qadar*) means affirming that Allah's knowledge encompa
       ],
     },
     {
+      seq: 2,
       title: 'Identify and eliminate any practices that contradict Tawhid',
       priority: 'urgent', tags: ['aqidah', 'tawhid'],
       description: 'Conduct a personal audit to identify anything in your life that may compromise the purity of Tawhid \u2014 from superstitions to seeking barakah from objects or graves.',
@@ -1296,6 +1301,7 @@ Identifying contradictions to Tawhid is only the first step — removing them is
       ],
     },
     {
+      seq: 5,
       title: 'Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan',
       priority: 'medium', tags: ['hadith', 'aqidah'],
       description: 'This hadith is considered Umm al-Sunnah \u2014 the mother of the Sunnah. It defines Islam, Iman, and Ihsan in a single narration. Memorise it and understand its layers.',
@@ -1606,6 +1612,7 @@ The hadith of Jibril presents three levels — Islam, Iman, and Ihsan — as a l
   ],
   faith_shahada_growth: [
     {
+      seq: 3,
       title: 'Read a foundational aqidah text (e.g., Al-Aqidah al-Tahawiyyah)',
       priority: 'high', tags: ['study', 'aqidah'],
       description: 'Engage with a classical creed text to build a systematic understanding of Islamic theology as understood by the early generations.',
@@ -1810,6 +1817,7 @@ Summarising forces you to process and consolidate what you have read. It also re
       ],
     },
     {
+      seq: 2,
       title: 'Study the nullifiers of Islam (Nawaqid al-Islam)',
       priority: 'medium', tags: ['aqidah'],
       description: 'Learn the ten nullifiers identified by scholars so you can avoid them and understand the boundaries of the faith.',
@@ -1946,6 +1954,7 @@ Declaring someone a disbeliever (*takfir*) is one of the most serious acts in Is
       ],
     },
     {
+      seq: 1,
       title: 'Understand the difference between major and minor shirk',
       priority: 'medium', tags: ['tawhid'],
       description: 'Major shirk expels from Islam; minor shirk is a grave sin but does not. Learn to distinguish them with practical examples.',
@@ -2097,6 +2106,7 @@ The Prophet (SAW) called riya "hidden shirk" because it corrupts the sincerity o
       ],
     },
     {
+      seq: 0,
       title: 'Learn about the categories of Tawhid (Rububiyyah, Uluhiyyah, Asma wa Sifat)',
       priority: 'high', tags: ['tawhid'],
       description: 'Scholars have categorised Tawhid into three domains. Understanding this framework helps identify where deviations occur.',
@@ -2323,6 +2333,7 @@ The three categories of Tawhid are not isolated compartments — they form a uni
   ],
   faith_shahada_excellence: [
     {
+      seq: 2,
       title: 'Teach the Shahada and its conditions to a family member or student',
       priority: 'medium', tags: ['dawah'],
       description: 'The best way to solidify knowledge is to teach it. Share the meaning and conditions of the Shahada with someone in your household or community.',
@@ -2413,6 +2424,7 @@ The goal of teaching the Shahada's conditions is not to deliver a lecture — it
       ],
     },
     {
+      seq: 0,
       title: 'Study the relationship between Shahada and daily actions (amal)',
       priority: 'medium', tags: ['aqidah'],
       description: 'Explore how the declaration of faith should manifest in everyday decisions \u2014 from business ethics to interpersonal conduct.',
@@ -2522,6 +2534,7 @@ The Sahaba did not merely recite the Shahada — they lived it under the most ex
       ],
     },
     {
+      seq: 1,
       title: 'Reflect on how Tawhid governs every decision \u2014 write a personal reflection',
       priority: 'low', tags: ['reflection'],
       description: 'Write a personal reflection journal entry exploring how the oneness of Allah shapes your worldview, priorities, and decision-making.',
@@ -2644,6 +2657,7 @@ Reflection without action is incomplete. Committing to one concrete, actionable 
   // \u2500\u2500 SALAH \u2500\u2500
   faith_salah_core: [
     {
+      seq: 1,
       title: 'Establish all five daily prayers on time consistently',
       priority: 'urgent', tags: ['salah', 'fard', 'prayer-phase:main'],
       description: 'Salah is the first obligation after Shahada and the first thing judged on the Day of Resurrection. Make every prayer on time without exception.',
@@ -2811,6 +2825,7 @@ For one week, aim to begin each prayer within 15 minutes of the adhan. Note your
       ],
     },
     {
+      seq: 0,
       title: 'Learn the correct method of wudu with all fard and sunnah acts',
       priority: 'high', tags: ['salah', 'wudu', 'prayer-phase:main'],
       description: 'Wudu is the key to salah. Learn the obligatory and recommended acts to ensure your purification is valid and complete.',
@@ -2942,6 +2957,7 @@ After completing wudu, recite the Shahada followed by the du'a: "Allahummaj'alni
       ],
     },
     {
+      seq: 3,
       title: 'Memorise the adhkar recited in salah (Subhanaka, Tashahhud, Salawat)',
       priority: 'high', tags: ['salah', 'memorisation', 'prayer-phase:main'],
       description: 'Ensure you know the essential recitations of prayer with correct Arabic pronunciation and understand their meanings.',
@@ -3121,6 +3137,7 @@ Take each adhkar you have memorised (opening du'a, Tashahhud, Salawat, du'a befo
       ],
     },
     {
+      seq: 6,
       title: 'Pray in congregation (jama\'ah) whenever possible',
       priority: 'high', tags: ['salah', 'jamaah', 'prayer-phase:main'],
       description: 'Prayer in congregation carries 27 times the reward. Make it a priority to attend the masjid or pray with family when possible.',
@@ -3219,6 +3236,7 @@ If you cannot reach a masjid, establish jama'ah at home. Pray with your spouse, 
       ],
     },
     {
+      seq: 2,
       title: 'Learn the conditions that invalidate salah',
       priority: 'medium', tags: ['salah', 'fiqh', 'prayer-phase:main'],
       description: 'Know what actions or omissions break the prayer so you can avoid them and know when to repeat a prayer.',
@@ -3328,6 +3346,7 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
       ],
     },
     {
+      seq: 4,
       title: "Observe the pre-prayer sunnah before every salah (siwak, wudu, adhan response)",
       priority: "high",
       tags: ["salah", "sunnah", "prayer-phase:before"],
@@ -3465,6 +3484,7 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
       ],
     },
     {
+      seq: 5,
       title: "Complete the post-prayer adhkar after every salah (istighfar, tasbih, Ayat al-Kursi)",
       priority: "high",
       tags: ["salah", "sunnah", "prayer-phase:after"],
@@ -3542,6 +3562,7 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
       ],
     },
     {
+      seq: 8,
       title: "Reclaim the day with the waking du'a and morning adhkar",
       priority: "high",
       tags: ["salah", "sunnah", "adhkar", "prayer-phase:before", "transition:waking", "transition:morning-adhkar"],
@@ -3677,6 +3698,7 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
       ],
     },
     {
+      seq: 9,
       title: "Anchor the morning with Sayyid al-Istighfar and the daily-good du'a",
       priority: "high",
       tags: ["salah", "sunnah", "adhkar", "dua", "prayer-phase:before", "transition:morning-adhkar"],
@@ -3752,6 +3774,7 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
       ],
     },
     {
+      seq: 10,
       title: "Recite the evening adhkar between Asr and Maghrib",
       priority: "high",
       tags: ["salah", "sunnah", "adhkar", "prayer-phase:before", "transition:evening-adhkar"],
@@ -3875,6 +3898,7 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
       ],
     },
     {
+      seq: 11,
       title: "Complete the prophetic pre-sleep sunnah",
       priority: "high",
       tags: ["salah", "sunnah", "adhkar", "sleep", "prayer-phase:after", "transition:pre-sleep"],
@@ -4039,6 +4063,7 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
       ],
     },
     {
+      seq: 7,
       title: "Close the morning by praying Dhuhr at its first time",
       priority: "high",
       tags: ["salah", "sunnah", "prayer-phase:after", "transition:end-of-morning"],
@@ -4076,6 +4101,7 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
       ],
     },
     {
+      seq: 12,
       title: "Rise for Tahajjud with the prophetic waking protocol",
       priority: "high",
       tags: ["salah", "sunnah", "qiyam", "tahajjud", "prayer-phase:before", "transition:tahajjud-waking"],
@@ -4183,6 +4209,7 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
       ],
     },
     {
+      seq: 13,
       title: "Seal the night with the post-Witr adhkar and last-third du'a",
       priority: "high",
       tags: ["salah", "sunnah", "qiyam", "witr", "prayer-phase:after", "transition:post-witr"],
@@ -4283,6 +4310,7 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
   ],
   faith_salah_growth: [
     {
+      seq: 2,
       title: 'Establish the 12 regular Sunnah prayers (Rawatib)',
       priority: 'high', tags: ['salah', 'sunnah', 'prayer-phase:main'],
       description: 'The Prophet (SAW) regularly prayed 12 rak\'at of Sunnah with the fard prayers. A house in Jannah is built for whoever maintains them.',
@@ -4444,6 +4472,7 @@ Create a simple daily checklist with four entries: 2 before Fajr, 4+2 around Dhu
       ],
     },
     {
+      seq: 1,
       title: 'Learn the meanings of Surah Al-Fatihah and what you recite in salah',
       priority: 'high', tags: ['salah', 'quran', 'prayer-phase:main'],
       description: 'Al-Fatihah is recited in every rak\'ah. Understanding its meaning transforms your salah from ritual to conversation with Allah.',
@@ -4535,6 +4564,7 @@ Choose three surahs you commonly recite after Al-Fatihah (e.g., Al-Ikhlas, Al-Fa
       ],
     },
     {
+      seq: 10,
       title: 'Pray Tahajjud at least once a week',
       priority: 'medium', tags: ['salah', 'qiyam', 'prayer-phase:main'],
       description: 'The night prayer is among the most beloved voluntary acts. Start with even two rak\'at in the last third of the night.',
@@ -4652,6 +4682,7 @@ During the sujud of your Tahajjud prayer, make du'a in your own language. Bring 
       ],
     },
     {
+      seq: 3,
       title: 'Study the inner dimensions of salah (khushu\u02bf)',
       priority: 'medium', tags: ['salah', 'spirituality', 'prayer-phase:main'],
       description: 'Khushu\u02bf is the soul of salah. Study how scholars describe presence of heart, humility, and focus in prayer.',
@@ -4788,6 +4819,7 @@ Choose one technique to practice this week: pray in a clean, quiet space away fr
       ],
     },
     {
+      seq: 5,
       title: "Sit in remembrance after Fajr until sunrise (Ishraq reward)",
       priority: "medium",
       tags: ["salah", "sunnah", "prayer-phase:after", "prayer:fajr"],
@@ -4826,6 +4858,7 @@ Choose one technique to practice this week: pray in a clean, quiet space away fr
       ],
     },
     {
+      seq: 4,
       title: "Salat ad-Duha — establish the post-sunrise charity of the joints",
       priority: "high", tags: ["salah", "sunnah", "transition:duha"],
       description: "Salat ad-Duha is the prophetic morning prayer offered after the sun has fully risen. The Prophet (SAW) taught that two rak'at of Duha discharge a sadaqah owed by every joint in the body, making it the most efficient daily voluntary act of worship for the body Allah has entrusted to you.",
@@ -4945,6 +4978,7 @@ Time-anchored habits stick; floating intentions do not. The Duha window is rough
       ],
     },
     {
+      seq: 7,
       title: "Sunan al-Nawm — observe the prophetic etiquette of sleep",
       priority: "high", tags: ["sunnah", "adhkar", "transition:bedtime"],
       description: "The Prophet (SAW) treated sleep as a meaningful spiritual transition rather than mere unconsciousness. He prescribed wudu, dhikr, and specific recitations before sleeping so that the believer surrenders the night to Allah in the same state of remembrance they would want to die in.",
@@ -5068,6 +5102,7 @@ The Prophet (SAW) tied his last conscious words each night to Allah's name. Sayi
       ],
     },
     {
+      seq: 8,
       title: 'Salat al-Witr — seal the night with the odd prayer',
       priority: 'high',
       tags: ['salah', 'sunnah', 'transition:witr'],
@@ -5188,6 +5223,7 @@ The Prophet (SAW) taught these exact words to his grandson — a transmission of
       ],
     },
     {
+      seq: 9,
       title: 'Sleep with niyyah to rise for tahajjud',
       priority: 'high',
       tags: ['sunnah', 'qiyam', 'transition:qiyam-rest'],
@@ -5274,6 +5310,7 @@ Knowing what is happening in the last third changes how you sleep toward it. The
       ],
     },
     {
+      seq: 0,
       title: 'Respond to every adhan with the prophetic dua',
       priority: 'high',
       tags: ['salah', 'sunnah', 'adhan'],
@@ -5334,6 +5371,7 @@ The Prophet (SAW) tied his own shafa'ah to this exact text. Five adhans per day 
       ],
     },
     {
+      seq: 6,
       title: 'Honor the Friday Sunan — Jumu\u02bbah is the eid of the week',
       priority: 'high',
       tags: ['salah', 'sunnah', 'jumuah', 'friday', 'transition:jumuah'],
@@ -5498,6 +5536,7 @@ Friday carries an hour where no good asked is refused. The Prophet (SAW) gesture
       ],
     },
     {
+      seq: 11,
       title: 'Travel with the Prophet\u2019s \uFDFA structure',
       priority: 'high',
       tags: ['salah', 'sunnah', 'travel', 'qasr', 'transition:traveler-departure', 'transition:traveler-arrival'],
@@ -5663,6 +5702,7 @@ The arrival du\u02bba\u02bb names what the journey was for — repentance, worsh
   ],
   faith_salah_excellence: [
     {
+      seq: 1,
       title: 'Pray Duha prayer regularly',
       priority: 'medium', tags: ['salah', 'sunnah', 'prayer-phase:main'],
       description: 'Duha prayer (after sunrise until before Dhuhr) is a charity for every joint in the body. Start with 2 rak\'at and build up.',
@@ -5771,6 +5811,7 @@ Once you have established Duha three times per week for at least two weeks, begi
       ],
     },
     {
+      seq: 2,
       title: 'Master the prostration of recitation (Sujud al-Tilawah)',
       priority: 'low', tags: ['salah', 'fiqh', 'prayer-phase:main'],
       description: 'There are 15 places in the Quran where prostration is recommended when recited. Learn the ruling and practice.',
@@ -5925,6 +5966,7 @@ When you recite or hear an ayah of sajdah, prostrate immediately if you are in a
       ],
     },
     {
+      seq: 3,
       title: 'Develop a consistent Qiyam al-Layl routine',
       priority: 'medium', tags: ['salah', 'qiyam', 'prayer-phase:main'],
       description: 'Move from occasional Tahajjud to a regular nightly routine. The Prophet (SAW) never abandoned Qiyam al-Layl even when ill.',
@@ -6109,6 +6151,7 @@ Track your Qiyam streak for 30 consecutive days using a simple checklist or app.
       ],
     },
     {
+      seq: 0,
       title: "Memorise the prophetic supplications specific to each prayer",
       priority: "medium",
       tags: ["salah", "sunnah", "dua", "prayer-phase:after"],
@@ -6181,6 +6224,7 @@ Track your Qiyam streak for 30 consecutive days using a simple checklist or app.
   // \u2500\u2500 ZAKAH \u2500\u2500
   faith_zakah_core: [
     {
+      seq: 1,
       title: 'Calculate your nisab and determine if zakah is obligatory on you',
       priority: 'urgent', tags: ['zakah', 'fard'],
       description: 'Nisab is the minimum threshold of wealth that makes zakah obligatory. Calculate based on current gold/silver values and your total zakatable assets.',
@@ -6321,6 +6365,7 @@ Identify the date you first possessed nisab-level wealth. Mark this as your zaka
       ],
     },
     {
+      seq: 0,
       title: 'Learn which categories of wealth are zakatable (gold, silver, cash, trade goods, livestock)',
       priority: 'high', tags: ['zakah', 'fiqh'],
       description: 'Not all wealth is zakatable. Study the specific categories and their rates as defined by the Quran and Sunnah.',
@@ -6474,6 +6519,7 @@ Exclude from your zakah calculation: your primary residence, personal clothing, 
       ],
     },
     {
+      seq: 2,
       title: 'Identify the eight eligible recipients of zakah (Surah At-Tawbah 9:60)',
       priority: 'high', tags: ['zakah', 'fiqh'],
       description: 'Allah specified exactly eight categories of people eligible to receive zakah. Know them so your distribution is valid.',
@@ -6774,6 +6820,7 @@ If you encounter a traveller who is stranded and lacks funds to continue or retu
       ],
     },
     {
+      seq: 3,
       title: 'Pay any outstanding zakah immediately',
       priority: 'urgent', tags: ['zakah', 'fard'],
       description: 'If zakah is due and has not been paid, it remains a debt upon you. Settle it as soon as possible \u2014 delaying without reason is sinful.',
@@ -6885,6 +6932,7 @@ Pay the full calculated amount as soon as possible. Make a clear intention (niyy
   ],
   faith_zakah_growth: [
     {
+      seq: 0,
       title: 'Set up a zakah calendar with annual calculation date',
       priority: 'high', tags: ['zakah', 'planning'],
       description: 'Consistency in zakah requires a fixed annual date (hawl). Set it up and create a reminder system.',
@@ -6967,6 +7015,7 @@ Create a simple spreadsheet with columns for: asset type, description, and curre
       ],
     },
     {
+      seq: 1,
       title: 'Research local and international zakah-eligible organisations',
       priority: 'medium', tags: ['zakah', 'community'],
       description: 'Identify reputable organisations that distribute zakah to the correct recipients with transparency and accountability.',
@@ -7049,6 +7098,7 @@ For each organisation you are considering, check three things: (1) Do they have 
       ],
     },
     {
+      seq: 2,
       title: 'Learn the rulings of Zakah al-Fitr and its timing',
       priority: 'medium', tags: ['zakah', 'fiqh'],
       description: 'Zakah al-Fitr is obligatory at the end of Ramadan. Learn its amount, timing, and recipients.',
@@ -7140,6 +7190,7 @@ Count every person you are financially responsible for: yourself, your spouse, y
       ],
     },
     {
+      seq: 3,
       title: 'Study the spiritual purpose of zakah \u2014 purification and growth',
       priority: 'medium', tags: ['zakah', 'spirituality'],
       description: 'Zakah literally means purification and growth. Understand how it purifies the giver\'s soul and grows barakah in wealth.',
@@ -7269,6 +7320,7 @@ Study key hadith on zakah: the promise that wealth does not decrease from charit
   ],
   faith_zakah_excellence: [
     {
+      seq: 0,
       title: 'Establish a regular sadaqah habit beyond obligatory zakah',
       priority: 'medium', tags: ['sadaqah'],
       description: 'Voluntary charity is unlimited in reward. Set up recurring giving \u2014 even a small consistent amount is beloved to Allah.',
@@ -7386,6 +7438,7 @@ Create a simple log (spreadsheet, notes app, or journal) with columns for: date,
       ],
     },
     {
+      seq: 2,
       title: 'Explore setting up a waqf (endowment) for ongoing benefit',
       priority: 'low', tags: ['waqf', 'sadaqah-jariyah'],
       description: 'A waqf is an endowment whose benefits continue indefinitely \u2014 sadaqah jariyah in its highest form. Explore options suited to your capacity.',
@@ -7494,6 +7547,7 @@ Choose a waqf cause that resonates with you: a masjid, an Islamic school, a wate
       ],
     },
     {
+      seq: 1,
       title: 'Mentor someone on zakah calculation and distribution',
       priority: 'low', tags: ['zakah', 'dawah'],
       description: 'Many Muslims are uncertain about zakah calculation. Help someone in your circle understand their obligations.',
@@ -7616,6 +7670,7 @@ Briefly explain the eight categories from Surah At-Tawbah 9:60. Share your own l
   // \u2500\u2500 SIYAM \u2500\u2500
   faith_siyam_core: [
     {
+      seq: 0,
       title: 'Learn the fard requirements of Ramadan fasting (intention, abstaining, timing)',
       priority: 'urgent', tags: ['siyam', 'fard'],
       description: 'Fasting in Ramadan is the fourth pillar of Islam. Know what is required for a valid fast \u2014 the intention, what to abstain from, and the time boundaries.',
@@ -7747,6 +7802,7 @@ Exemptions include: the ill, the traveller, pregnant/nursing women, the elderly 
       ],
     },
     {
+      seq: 1,
       title: 'Understand the conditions that break the fast vs. those that do not',
       priority: 'high', tags: ['siyam', 'fiqh'],
       description: 'Many common situations cause confusion. Study the fiqh of what invalidates the fast versus what is permissible.',
@@ -7847,6 +7903,7 @@ Qada (making up) is required for any missed fast. Kaffarah (expiation \u2014 fre
       ],
     },
     {
+      seq: 2,
       title: 'Learn the rules for making up (qada) missed fasts',
       priority: 'high', tags: ['siyam', 'fiqh'],
       description: 'Anyone who misses obligatory fasts must make them up. Learn the rulings around timing, sequence, and fidyah for those unable to fast.',
@@ -7947,6 +8004,7 @@ The elderly or chronically ill who cannot fast pay fidyah: feeding one poor pers
       ],
     },
     {
+      seq: 3,
       title: 'Make up any missed Ramadan fasts from previous years',
       priority: 'urgent', tags: ['siyam', 'qada'],
       description: 'Outstanding fasts are a debt to Allah. Begin making them up systematically \u2014 even one per week adds up.',
@@ -8047,6 +8105,7 @@ Use a simple tally, spreadsheet, or app to count down your remaining fasts. Mark
       ],
     },
     {
+      seq: 4,
       title: 'Take suhur — the pre-dawn meal of barakah',
       priority: 'high',
       tags: ['siyam', 'sunnah', 'transition:sahari'],
@@ -8133,6 +8192,7 @@ The Prophet (SAW) framed suhur as identity, not just food. Skipping it without n
       ],
     },
     {
+      seq: 5,
       title: 'Observe Ramadan with the Prophet\u2019s \uFDFA structure',
       priority: 'high',
       tags: ['siyam', 'sunnah', 'ramadan', 'transition:maghrib-iftar', 'transition:isha-taraweeh', 'transition:laylat-al-qadr'],
@@ -8229,6 +8289,7 @@ The Prophet (SAW) taught one du\u02bba\u02bb for the night that is better than a
       ],
     },
     {
+      seq: 6,
       title: 'Keep the Sunan of \u02bb\u012ad al-Fitr',
       priority: 'high',
       tags: ['siyam', 'sunnah', 'eid', 'eid-fitr', 'transition:eid-prayer'],
@@ -8347,6 +8408,7 @@ The earth bears witness on the Day of Judgement to what passes over it. By varyi
       ],
     },
     {
+      seq: 7,
       title: 'Keep the Sunan of \u02bb\u012ad al-Adha',
       priority: 'high',
       tags: ['siyam', 'sunnah', 'eid', 'eid-adha', 'udhiyyah', 'transition:eid-prayer'],
@@ -8452,6 +8514,7 @@ The takbir muqayyad after every fard salah marks Tashreeq as a continuation of \
   ],
   faith_siyam_growth: [
     {
+      seq: 2,
       title: 'Fast the voluntary Mondays and Thursdays regularly',
       priority: 'medium', tags: ['siyam', 'sunnah'],
       description: 'The Prophet (SAW) used to fast Mondays and Thursdays. Deeds are presented to Allah on these days, and he loved to be fasting when his deeds were shown.',
@@ -8551,6 +8614,7 @@ Log each voluntary fast in a journal or app. After one month, review: How did fa
       ],
     },
     {
+      seq: 1,
       title: 'Fast the three white days (13th, 14th, 15th of each lunar month)',
       priority: 'medium', tags: ['siyam', 'sunnah'],
       description: ' It is like fasting the entire month due to the ten-fold reward.',
@@ -8651,6 +8715,7 @@ Add the white days to your calendar as a recurring monthly event. Prepare by eat
       ],
     },
     {
+      seq: 3,
       title: 'Study the inner dimensions of fasting \u2014 taqwa, patience, gratitude',
       priority: 'medium', tags: ['siyam', 'spirituality'],
       description: 'Fasting is not merely abstaining from food \u2014 it is training the nafs in taqwa, sabr, and shukr. Study these spiritual dimensions.',
@@ -8751,6 +8816,7 @@ Keep a small notebook or phone note dedicated to fasting reflections. After brea
       ],
     },
     {
+      seq: 0,
       title: 'Learn the Sunnah of iftar and suhoor',
       priority: 'low', tags: ['siyam', 'sunnah'],
       description: 'There is great barakah in suhoor and prescribed etiquette for breaking the fast. Follow the Prophetic way.',
@@ -8852,6 +8918,7 @@ Set an alarm for suhoor 20-30 minutes before Fajr so you eat close to the deadli
   ],
   faith_siyam_excellence: [
     {
+      seq: 0,
       title: 'Fast the day of Arafah (9th Dhul Hijjah) and Ashura (10th Muharram)',
       priority: 'medium', tags: ['siyam', 'sunnah'],
       description: 'The day of Arafah expiates sins of two years; Ashura expiates sins of one year. These are among the most rewarding voluntary fasts.',
@@ -8943,6 +9010,7 @@ Identify the 9th and 10th of Muharram on your Hijri calendar. Fast both days if 
       ],
     },
     {
+      seq: 1,
       title: 'Fast the six days of Shawwal after Ramadan',
       priority: 'medium', tags: ['siyam', 'sunnah'],
       description: 'Whoever fasts Ramadan and follows it with six days of Shawwal, it is as if they fasted the entire year.',
@@ -9034,6 +9102,7 @@ After completing the six fasts this year, immediately add a reminder for next Sh
       ],
     },
     {
+      seq: 2,
       title: 'Organise a community iftar for neighbours and those in need',
       priority: 'low', tags: ['siyam', 'community'],
       description: 'Feeding a fasting person earns the reward of their fast without diminishing it. Organise a shared iftar for your community.',
@@ -9138,6 +9207,7 @@ Create a welcoming atmosphere with simple decorations and warm greetings. Begin 
   // \u2500\u2500 HAJJ \u2500\u2500
   faith_hajj_core: [
     {
+      seq: 0,
       title: 'Learn the conditions that make Hajj obligatory (Islam, sanity, maturity, ability, provision)',
       priority: 'high', tags: ['hajj', 'fard'],
       description: 'Hajj is obligatory once in a lifetime for those who meet specific conditions. Understand each condition to determine your obligation.',
@@ -9256,6 +9326,7 @@ Review the five conditions against your current situation. If all are met, begin
       ],
     },
     {
+      seq: 1,
       title: 'Study the pillars (arkan) and obligatory acts (wajibat) of Hajj',
       priority: 'high', tags: ['hajj', 'fiqh'],
       description: 'Hajj has pillars without which it is invalid, and obligations whose omission requires a penalty. Know the difference.',
@@ -9374,6 +9445,7 @@ Learn that if you miss a wajib act, you must sacrifice a sheep or goat in Makkah
       ],
     },
     {
+      seq: 3,
       title: 'Learn the rites of Umrah and their sequence',
       priority: 'high', tags: ['umrah', 'fiqh'],
       description: 'Umrah is the lesser pilgrimage and excellent preparation for Hajj. Learn its rites in the correct order.',
@@ -9536,6 +9608,7 @@ Men shave their heads completely (preferred, as the Prophet made du'a three time
       ],
     },
     {
+      seq: 2,
       title: 'Begin saving for Hajj if financially able',
       priority: 'medium', tags: ['hajj', 'planning'],
       description: 'Hajj is a significant financial commitment. Start saving early with a dedicated fund to make this pillar achievable.',
@@ -9638,6 +9711,7 @@ Calculate how much you need to save monthly to reach your target by your intende
   ],
   faith_hajj_growth: [
     {
+      seq: 1,
       title: 'Study the spiritual meanings behind each Hajj rite (Tawaf, Sa\'i, Arafah, stoning)',
       priority: 'medium', tags: ['hajj', 'spirituality'],
       description: 'Each rite of Hajj carries profound spiritual symbolism. Understanding these transforms the physical acts into transformative experiences.',
@@ -9777,6 +9851,7 @@ Study the narration of Ibrahim (AS) being approached by Shaytan at each of the t
       ],
     },
     {
+      seq: 0,
       title: 'Learn the history of Ibrahim (AS) and the founding of the Ka\'bah',
       priority: 'medium', tags: ['hajj', 'seerah'],
       description: 'Hajj traces back to Ibrahim (AS). Understanding his story deepens the emotional and spiritual connection to the rites.',
@@ -9886,6 +9961,7 @@ Read Surah as-Saffat 37:99-111 with tafsir. Study how both father and son submit
       ],
     },
     {
+      seq: 2,
       title: 'Memorise the Talbiyah and key du\'as of Hajj',
       priority: 'medium', tags: ['hajj', 'memorisation'],
       description: 'The Talbiyah is the anthem of the pilgrim. Memorise it along with the key du\'as for each rite.',
@@ -10026,6 +10102,7 @@ Memorise: "La ilaha illAllahu wahdahu la sharika lah, lahul-mulku wa lahul-hamdu
       ],
     },
     {
+      seq: 3,
       title: 'Research accredited Hajj operators and packages',
       priority: 'low', tags: ['hajj', 'planning'],
       description: 'Choose a reputable Hajj operator who provides proper guidance and ensures a safe, compliant Hajj experience.',
@@ -10119,6 +10196,7 @@ Ask community members at your masjid who have recently performed Hajj about thei
   ],
   faith_hajj_excellence: [
     {
+      seq: 0,
       title: 'Perform Umrah as preparation for the full Hajj experience',
       priority: 'medium', tags: ['umrah'],
       description: 'Umrah familiarises you with the sacred sites and rites, making Hajj less overwhelming when the time comes.',
@@ -10228,6 +10306,7 @@ Write down practical lessons immediately after returning: what worked, what you 
       ],
     },
     {
+      seq: 2,
       title: 'Sponsor someone for Hajj who cannot afford it',
       priority: 'low', tags: ['hajj', 'sadaqah'],
       description: 'Enabling someone to fulfil this pillar is among the greatest acts of charity. Research sponsorship opportunities.',
@@ -10328,6 +10407,7 @@ Pray that Allah accepts their Hajj, forgives their sins, and returns them home r
       ],
     },
     {
+      seq: 1,
       title: 'Document and share your Hajj preparation journey for others',
       priority: 'low', tags: ['hajj', 'dawah'],
       description: 'Your preparation process can benefit others. Share what you learn \u2014 practical tips, fiqh notes, and spiritual reflections.',

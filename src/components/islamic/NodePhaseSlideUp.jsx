@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ArrowLeft, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import { useSettingsStore } from '@store/settings-store';
 import { useTaskStore } from '@store/task-store';
 import { useThresholdStore } from '@store/threshold-store';
@@ -10,15 +10,14 @@ import {
   getModuleGroups,
   LEVEL_FULL_LABEL,
 } from '@data/prophetic-path-submodules';
-import { findNextEligibleSubtask, isSubtaskSatisfied } from '@data/orientation-selector';
+import { decorateTaskChain, findCurrentSubtaskIndex, orderBoardTasks } from '@data/orientation-selector';
 import { PRAYER_BOARD_PREFIX } from '@data/prayer-pillars';
 import { computeTodayKey } from '@/utils/islamic-day-key';
 import '@components/work/ProjectSlideUp.css';
-import CeremonySummary from './CeremonySummary';
+import CeremonyFlow from './CeremonyFlow';
 import PrayerHeroDuring from './PrayerHeroDuring';
-import SubtaskStepDetail from '../shared/SubtaskStepDetail';
-import OrientationActions from '../orientation/OrientationActions';
-import { MirrorCard, PPTaskCard } from './PropheticPathMirror';
+import SequentialStepFlow from '../shared/SequentialStepFlow';
+import { MirrorCard } from './PropheticPathMirror';
 import { PRAYER_NODE_IDS, THRESHOLD_MODULE_BY_NODE } from './prophetic-path-constants';
 import './PropheticPath.css';
 import './NodePhaseSlideUp.css';
@@ -29,21 +28,22 @@ import './NodePhaseSlideUp.css';
 // thresholds were unreachable.
 //
 // Non-prayer nodes:
-//   Before → opening threshold ceremony preview only (CeremonySummary)
-//   During → the node's content (MirrorCard) + ALL of the node's tasks
-//   After  → closing threshold ceremony preview only (CeremonySummary)
+//   Before → the full opening ceremony, inline (CeremonyFlow)
+//   During → the node's content (MirrorCard); its Action view is the stepper
+//   After  → the full closing ceremony, inline (CeremonyFlow)
 // Prayer nodes:
-//   Before → that window's tasks · During → inline prayer guide (PrayerHeroDuring) · After → tasks
+//   Before → that window's stepper · During → inline prayer guide
+//   (PrayerHeroDuring) · After → that window's stepper
 //
 // Tasks for non-prayer nodes are deliberately consolidated onto During (the
-// whole node pool, phase-agnostic) so the Before/After tabs stay pure threshold
-// previews — see wiki decision 2026-07-25-milos-prayer-popup-consolidation.
+// whole node pool, phase-agnostic) so the Before/After tabs stay pure ceremony
+// surfaces — see wiki decision 2026-07-25-milos-prayer-popup-consolidation.
 //
-// Tapping a task row drills into an inline Orientation-style step detail
-// (<SubtaskStepDetail> + the 3-action footer) INSIDE this popup — no hand-off
-// to TaskDetailPanel. The drill-in is keyed by { projectId, taskId } and every
-// row/subtask fact is re-derived live from phaseTasks each render, so store
-// mutations (mark done / doesn't apply / snooze) advance the Now step in place.
+// Every task surface here is the shared one-step-at-a-time engine
+// (<SequentialStepFlow>, also the Orientation sheet's): lettered task pills,
+// numbered subtask chips, one step detail, and the 3-action footer pinned to
+// the TRUE current step — the old tap-a-row drill-in is gone. Store mutations
+// re-derive the chain live each render, so mark done / revert advance in place.
 
 const PHASES = [
   { id: 'before', label: 'Before' },
@@ -62,12 +62,24 @@ const PHASES = [
 // bleeds because the per-node content matchers are keyword-based: Tahajjud's
 // include /siwak|rawatib|witr/, so opening the faith-salah pool to it would
 // pull other prayers' tasks into its windows. The board is ground truth.
+//
+// Completed tasks are NOT filtered out — the stepper shows the whole chain
+// (done pills collapse to checks) and browsing back onto one is how revert
+// works. The Maghrib daily reset clears prayer boards for the new day.
+//
+// Sorted through `orderBoardTasks` — the ONE comparator, never an inline
+// `a.seedOrder - b.seedOrder`. This pool is a SINGLE board, so `seedOrder` is
+// meaningful across it; the unsorted path below is only correct for the merged
+// cross-project pool that non-prayer nodes build. Without this the stepper ran
+// on raw localStorage order and ignored the curated chain entirely — see
+// wiki/decisions/2026-07-27-milos-prayer-board-ordering.md. Note the Maghrib
+// reset collapses `order` to 0 (task-store.js), so `seedOrder` is the only
+// stable ordering these boards have.
 function buildPrayerPhaseTasks(prayerId, phase, projects, tasksByProject, submoduleName) {
   const projectId = `${PRAYER_BOARD_PREFIX}_${prayerId}_${phase}`;
   const project = (projects || []).find((p) => p.id === projectId);
   if (!project) return [];
-  return (tasksByProject?.[projectId] || [])
-    .filter((t) => !t.completedAt)
+  return orderBoardTasks(tasksByProject?.[projectId] || [])
     .map((t) => ({
       id: t.id,
       projectId,
@@ -77,10 +89,11 @@ function buildPrayerPhaseTasks(prayerId, phase, projects, tasksByProject, submod
       columnId: t.columnId,
       subtasks: t.subtasks || [],
       tags: t.tags || [],
+      snoozedUntilDayKey: t.snoozedUntilDayKey || null,
       // Prayer boards are keyed by window, not by Maqasid level. Leave _level
       // unset rather than letting it default to 3 ("Tahsiniyyat") — that would
       // assert a classification the data never makes, and would label Fajr's
-      // mu'akkadah rawatib an embellishment. PPTaskCard omits the chip.
+      // mu'akkadah rawatib an embellishment.
       _level: null,
       _submoduleId: 'faith-salah',
       _submoduleName: submoduleName,
@@ -99,18 +112,16 @@ export default function NodePhaseSlideUp({
   onClose,
 }) {
   const theme = useSettingsStore((s) => s.theme) ?? 'light';
-  const setOpeningModuleId = useThresholdStore((s) => s.setOpeningModuleId);
-  const setClosingModuleId = useThresholdStore((s) => s.setClosingModuleId);
+  const completeOpening = useThresholdStore((s) => s.completeOpening);
+  const completeClosing = useThresholdStore((s) => s.completeClosing);
   const toggleSubtask = useTaskStore((s) => s.toggleSubtask);
   const updateSubtask = useTaskStore((s) => s.updateSubtask);
+  const updateTask = useTaskStore((s) => s.updateTask);
 
   const [phase, setPhase] = useState('during');
   const moduleGroups = useMemo(() => getModuleGroups(node.id), [node.id]);
   const [moduleId, setModuleId] = useState(() => moduleGroups[0]?.id || null);
   const [viewMode, setViewMode] = useState('action');
-  // { projectId, taskId } of the row drilled into (null = task list). A key,
-  // not a snapshot — the row itself is re-found in phaseTasks each render.
-  const [detailKey, setDetailKey] = useState(null);
 
   // Islamic-day key for snooze targeting + eligibility, computed in an effect
   // so the wall-clock read stays out of render (react-hooks/purity) — same
@@ -149,101 +160,94 @@ export default function NodePhaseSlideUp({
     [isPrayerNode, node.id, phase, projects, tasksByProject, submoduleNameById, moduleId],
   );
 
-  const handleSelectTask = (taskId) => {
-    const row = phaseTasks.find((r) => r.id === taskId);
-    if (row) setDetailKey({ projectId: row.projectId, taskId: row.id });
-  };
-
-  // Tab switches leave the drill-in — each tab is its own task pool, so a held
-  // detailKey would either dangle or point at a different window's task.
-  const selectPhase = (id) => {
-    setPhase(id);
-    setDetailKey(null);
-  };
-  const selectModuleId = (id) => {
-    setModuleId(id);
-    setDetailKey(null);
-  };
-
-  // Live derivation — no snapshots. The decorated row is re-found in the
-  // freshly-built phaseTasks each render, so a store mutation advances the Now
-  // subtask (or flips to the complete state) without any bookkeeping. If the
-  // row leaves the pool entirely, detailRow is null and the body falls back to
-  // the task list.
-  const detailRow = detailKey
-    ? phaseTasks.find((r) => r.id === detailKey.taskId) || null
+  // Live chain derivation — no snapshots. Rebuilt from phaseTasks each render,
+  // so a store mutation advances (or reopens) the current step in place. The
+  // merged non-prayer pool spans projects; every handler reads the row's own
+  // projectId, never a shared board id.
+  const chain = decorateTaskChain(phaseTasks, todayKey);
+  const currentRow = chain.currentTaskIndex >= 0
+    ? chain.items[chain.currentTaskIndex].task
     : null;
-  const nowSubtask = detailRow ? findNextEligibleSubtask(detailRow, todayKey) : null;
-  const taskStats = detailRow
-    ? {
-      done: (detailRow.subtasks || []).filter(isSubtaskSatisfied).length,
-      total: (detailRow.subtasks || []).length,
-    }
+  const currentSubtaskIndex = currentRow ? findCurrentSubtaskIndex(currentRow) : -1;
+  const currentSubtask = currentRow && currentSubtaskIndex >= 0
+    ? currentRow.subtasks[currentSubtaskIndex]
     : null;
 
-  // Same store actions as Orientation's sheet. toggleSubtask never sets task
-  // completedAt, so acting on the last step keeps the row in the pool — the
-  // drill-in stays put and shows the complete state (no auto-navigation).
+  // Same store actions as Orientation. toggleSubtask never sets task
+  // completedAt, so acting on the last step keeps the row in the chain — the
+  // stepper stays put and shows the satisfied state (no auto-navigation).
   const handleMarkDone = () => {
-    if (!detailRow || !nowSubtask) return;
-    toggleSubtask(detailRow.projectId, detailRow.id, nowSubtask.id);
+    if (!currentRow || !currentSubtask) return;
+    toggleSubtask(currentRow.projectId, currentRow.id, currentSubtask.id);
   };
   const handleNotApplicable = () => {
-    if (!detailRow || !nowSubtask) return;
-    updateSubtask(detailRow.projectId, detailRow.id, nowSubtask.id, { notApplicable: true });
+    if (!currentRow || !currentSubtask) return;
+    updateSubtask(currentRow.projectId, currentRow.id, currentSubtask.id, { notApplicable: true });
   };
+  // Task-level snooze, matching Orientation's "Not now" semantics (the old
+  // drill-in snoozed a single subtask) — the whole current task is set aside
+  // for the day and its pill shows the moon.
   const handleNotToday = () => {
-    if (!detailRow || !nowSubtask) return;
-    updateSubtask(detailRow.projectId, detailRow.id, nowSubtask.id, { snoozedUntilDayKey: todayKey });
+    if (!currentRow) return;
+    updateTask(currentRow.projectId, currentRow.id, { snoozedUntilDayKey: todayKey });
+  };
+  // Revert acts on the PREVIEWED step the flow hands back: un-doing a done step
+  // routes through toggleSubtask (a Done-column task also travels back to its
+  // previous column); a "doesn't apply" step just clears the flag.
+  const handleRevert = (task, subtask) => {
+    if (!task || !subtask) return;
+    if (subtask.done) {
+      toggleSubtask(task.projectId, task.id, subtask.id);
+    } else if (subtask.notApplicable) {
+      updateSubtask(task.projectId, task.id, subtask.id, { notApplicable: false });
+    }
   };
 
-  // Hand off to the globally-mounted ThresholdModal (AppShell) and step out of
-  // the way — the ceremony owns the screen from here.
-  const beginCeremony = (type) => {
-    if (type === 'opening') setOpeningModuleId(thresholdModuleId);
-    else setClosingModuleId(thresholdModuleId);
-    onClose();
+  const getCrumbParts = (task) => [
+    task?._level != null ? LEVEL_FULL_LABEL[task._level] : null,
+    task?._submoduleName,
+  ];
+
+  // The ceremony runs fully inline in the Before/After tabs — no more hand-off
+  // to the globally-mounted ThresholdModal. Completing records to the same
+  // threshold-store actions the modal uses; the popup stays open and the key
+  // bump remounts the flow fresh (step 0, selections cleared).
+  const [ceremonyRun, setCeremonyRun] = useState(0);
+  const handleCeremonyComplete = (type) => {
+    if (type === 'opening') completeOpening(thresholdModuleId);
+    else completeClosing(thresholdModuleId);
+    setCeremonyRun((n) => n + 1);
   };
 
-  const taskList = phaseTasks.length === 0 ? (
-    <p className="pp-mirror-empty">No tasks queued for this window.</p>
-  ) : (
-    <div className="pp-task-list">
-      {phaseTasks.map((t, i) => (
-        <PPTaskCard key={t.id} task={t} index={i} onSelectTask={handleSelectTask} />
-      ))}
+  // The scrolling tab body. Rendered through a helper so the stepper phases can
+  // pair it with a pinned footer while keeping the tabpanel semantics.
+  const tabPanel = (children) => (
+    <div
+      className="pp-phase-panel__body"
+      role="tabpanel"
+      id={`pp-phase-body-${phase}`}
+      aria-labelledby={`pp-phase-tab-${phase}`}
+      tabIndex={-1}
+    >
+      {children}
     </div>
   );
 
-  let body;
-  if (detailRow) {
-    // Drill-in: inline step detail replaces whichever task list the row was
-    // tapped in (prayer Before/After list or non-prayer During mirror list).
-    // PrayerHeroDuring and CeremonySummary never reach here — those surfaces
-    // have no task rows.
-    body = (
-      <div className="pp-phase-detail">
-        <button
-          type="button"
-          className="pp-phase-detail__back"
-          onClick={() => setDetailKey(null)}
-        >
-          <ArrowLeft size={16} aria-hidden="true" />
-          Back to tasks
-        </button>
-        <SubtaskStepDetail
-          crumbParts={[
-            detailRow._level != null ? LEVEL_FULL_LABEL[detailRow._level] : null,
-            detailRow._submoduleName,
-          ]}
-          task={detailRow}
-          subtask={nowSubtask}
-          taskStats={taskStats}
-        />
-      </div>
-    );
-  } else if (phase === 'during') {
-    body = isPrayerNode ? (
+  const flowProps = {
+    items: chain.items,
+    currentTaskIndex: chain.currentTaskIndex,
+    currentSubtaskIndex,
+    resetKey: `${node.id}|${phase}|${moduleId ?? ''}`,
+    getCrumbParts,
+    onMarkDone: handleMarkDone,
+    onNotApplicable: handleNotApplicable,
+    onNotToday: handleNotToday,
+    onRevert: handleRevert,
+  };
+
+  let middle;
+  if (phase === 'during') {
+    middle = tabPanel(isPrayerNode ? (
       // The prayer itself — its own Before/During/After sunan surfaced inline
       // (rakaʿat, postures, adhkar) rather than a hand-off to a separate view.
       <PrayerHeroDuring pillarKey={node.id} />
@@ -251,7 +255,6 @@ export default function NodePhaseSlideUp({
       <MirrorCard
         node={node}
         tasks={phaseTasks}
-        onSelectTask={handleSelectTask}
         onSelectProject={onSelectProject}
         onSelectSubmodule={onSelectSubmodule}
         phaseLabel="Now"
@@ -259,25 +262,56 @@ export default function NodePhaseSlideUp({
         moduleGroups={moduleGroups}
         moduleId={moduleId}
         onViewMode={setViewMode}
-        onModuleId={selectModuleId}
+        onModuleId={setModuleId}
         showProjects={false}
+        taskContent={phaseTasks.length > 0 ? (
+          // Inline shell: the stepper lives inside the mirror card, so its
+          // actions sit at the end of the card content rather than pinned to
+          // the panel edge.
+          <SequentialStepFlow
+            {...flowProps}
+            renderShell={({ body, footer }) => (
+              <div className="pp-phase-detail">
+                {body}
+                <div className="pp-phase-detail__footer pp-phase-detail__footer--inline">
+                  {footer}
+                </div>
+              </div>
+            )}
+          />
+        ) : null}
       />
-    );
+    ));
   } else if (isPrayerNode) {
-    // Prayer nodes: tasks only. The per-prayer Sunnah rawatib summary was
-    // removed from this popup per user request; the tab label supplies the
-    // Before/After context. Rendered as a bare list (no separator wrapper) so
-    // it sits flush against the panel body's own padding.
-    body = taskList;
+    // Prayer Before/After: that window's board as a stepper, actions pinned
+    // below the scrolling body — same layout as the Orientation sheet.
+    middle = phaseTasks.length === 0
+      ? tabPanel(<p className="pp-mirror-empty">No tasks queued for this window.</p>)
+      : (
+        <SequentialStepFlow
+          {...flowProps}
+          renderShell={({ body, footer }) => (
+            <>
+              {tabPanel(<div className="pp-phase-detail">{body}</div>)}
+              <div className="pp-phase-detail__footer">{footer}</div>
+            </>
+          )}
+        />
+      );
   } else {
-    // Non-prayer Before/After: threshold ceremony preview only. The task list
-    // now lives on During (see the phaseTasks note above).
-    body = (
-      <CeremonySummary
-        moduleId={thresholdModuleId}
-        type={phase === 'before' ? 'opening' : 'closing'}
-        onBegin={() => beginCeremony(phase === 'before' ? 'opening' : 'closing')}
-      />
+    // Non-prayer Before/After: the full ceremony, inline. The task chain lives
+    // on During (see the phaseTasks note above). The key remounts the flow on
+    // tab/module switch or after a completion, resetting its step state.
+    const ceremonyType = phase === 'before' ? 'opening' : 'closing';
+    middle = tabPanel(
+      <div className="pp-ceremony-embed">
+        <CeremonyFlow
+          key={`${thresholdModuleId}|${ceremonyType}|${ceremonyRun}`}
+          moduleId={thresholdModuleId}
+          type={ceremonyType}
+          onComplete={() => handleCeremonyComplete(ceremonyType)}
+        />
+      </div>,
     );
   }
 
@@ -323,7 +357,7 @@ export default function NodePhaseSlideUp({
                   aria-controls={`pp-phase-body-${p.id}`}
                   className="pp-pill-switch__btn"
                   data-active={phase === p.id || undefined}
-                  onClick={() => selectPhase(p.id)}
+                  onClick={() => setPhase(p.id)}
                 >
                   {p.label}
                 </button>
@@ -331,25 +365,7 @@ export default function NodePhaseSlideUp({
             </div>
           </div>
 
-          <div
-            className="pp-phase-panel__body"
-            role="tabpanel"
-            id={`pp-phase-body-${phase}`}
-            aria-labelledby={`pp-phase-tab-${phase}`}
-            tabIndex={-1}
-          >
-            {body}
-          </div>
-
-          {detailRow && nowSubtask && (
-            <div className="pp-phase-detail__footer">
-              <OrientationActions
-                onMarkDone={handleMarkDone}
-                onNotApplicable={handleNotApplicable}
-                onNotToday={handleNotToday}
-              />
-            </div>
-          )}
+          {middle}
         </div>
       </div>
     </div>,

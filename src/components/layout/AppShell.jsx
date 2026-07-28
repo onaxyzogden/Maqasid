@@ -62,6 +62,10 @@ export default function AppShell() {
   const projects = useProjectStore((s) => s.projects);
   const loadTasks = useTaskStore((s) => s.loadTasks);
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
+  // Board seeder for every Maqasid pillar — invoked once at app-startup
+  // (effect below) so each pillar exists before any cross-pillar surface
+  // reads it. Skips the pillars whose boards already exist; see the action.
+  const ensureAllPillarProjects = useProjectStore((s) => s.ensureAllPillarProjects);
 
   // Presence awareness state
   const completedOpening = useThresholdStore((s) => s.completedOpening);
@@ -160,6 +164,22 @@ export default function AppShell() {
     // reason: setActiveModule is a stable store action; only react to URL changes
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
+
+  // Seed every Maqasid pillar's boards + tasks once, at app-startup, instead of
+  // lazily when each pillar's dashboard is first opened. Without this, a pillar
+  // the operator has never visited has zero boards, so cross-pillar surfaces
+  // (the Orientation carousel, the balance strip) render it as a bare "0/0".
+  // ensureAllPillarProjects skips any pillar whose boards already exist, so a
+  // returning operator pays one array diff instead of seven full seed passes.
+  // (It does not avoid the seed-chunk downloads — the bulk task-loader below
+  // needs those anyway to re-hydrate stripped descriptions; see the action.)
+  // Appending new boards grows projects.length, which fires that same loader
+  // to hydrate them into tasksByProject.
+  useEffect(() => {
+    ensureAllPillarProjects();
+    // reason: run once on mount; ensureAllPillarProjects is a stable store action
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Preload all project tasks so cross-project search works
   useEffect(() => {

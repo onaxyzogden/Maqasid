@@ -1,7 +1,7 @@
 import { Check, Ban, Clock } from 'lucide-react';
 import './OrientationActions.css';
 
-// Three actions on the open sheet: Mark done / Doesn't apply / Not today.
+// Three actions on the open sheet: Mark done / Doesn't apply / Not now.
 // "Something else" was dropped when the carousel became the pillar picker —
 // switching domains is a swipe, not a button (see orientation/CONTEXT.md).
 export default function OrientationActions({
@@ -9,23 +9,25 @@ export default function OrientationActions({
   onNotApplicable,
   onNotToday,
   primaryLabel = 'Mark done',
-  disabled = false,
+  primaryDisabled = false,
+  secondaryDisabled = false,
 }) {
-  // `disabled` guards all three actions while the host previews a locked or
-  // completed step; `primaryLabel` relabels the primary. Both are UI guards
-  // only -- every handler still writes to the true current step.
+  // The disables are split because the primary doubles as the revert control:
+  // while previewing an already-completed step it stays enabled (label
+  // "Completed", click = mark not done) while the two side actions lock.
+  // Both are UI guards only -- the host decides what each handler writes to.
   return (
     <div className="orient-actions">
       <button
         type="button"
         className="orient-actions__btn orient-actions__btn--primary"
         onClick={onMarkDone}
-        disabled={disabled}
+        disabled={primaryDisabled}
       >
         <Check size={18} aria-hidden="true" />
         {primaryLabel}
       </button>
-      <button type="button" className="orient-actions__btn" onClick={onNotApplicable} disabled={disabled}>
+      <button type="button" className="orient-actions__btn" onClick={onNotApplicable} disabled={secondaryDisabled}>
         <Ban size={18} aria-hidden="true" />
         Doesn&apos;t apply
       </button>
@@ -33,10 +35,10 @@ export default function OrientationActions({
         type="button"
         className="orient-actions__btn orient-actions__btn--ghost"
         onClick={onNotToday}
-        disabled={disabled}
+        disabled={secondaryDisabled}
       >
         <Clock size={18} aria-hidden="true" />
-        Not today
+        Not now
       </button>
     </div>
   );
