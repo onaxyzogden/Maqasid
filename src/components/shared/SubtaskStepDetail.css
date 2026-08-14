@@ -1,10 +1,19 @@
-/* Subtask step detail — the Orientation-style single-step view (crumb, task
-   title/progress, tag row, Now box, Why & how, Evidence) shared by the
-   orientation sheet and the Prophetic Path node popup drill-in. Rules moved
-   verbatim from OrientationSheet.css / Orientation.css; class names keep the
-   historical os-sheet__ / orient-evidence__ prefixes (see shared/CONTEXT.md).
+/* Subtask step detail — the Orientation-style single-step view (crumb with
+   task title + progress folded in, tag row, Now box, Why & how, Source) shared
+   by the orientation sheet and the Prophetic Path node popup drill-in. Rules
+   moved verbatim from OrientationSheet.css / Orientation.css; class names keep
+   the historical os-sheet__ / orient-evidence__ prefixes (see shared/CONTEXT.md).
    Colours are app design tokens throughout, so the view themes light/dark. */
 
+/* Crumb row: breadcrumb (level › submodule › task title) on the left, the
+   task's done/total progress pinned to the right — folded in so the header
+   carries one name instead of a separate task heading (see JSDoc above). */
+.os-sheet__crumb-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
 .os-sheet__crumb {
   margin: 0;
   font-family: var(--font-mono);
@@ -15,21 +24,6 @@
 }
 .os-sheet__crumb-sep {
   color: var(--text2);
-}
-
-.os-sheet__task {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--space-3);
-  margin: 0;
-}
-.os-sheet__task-title {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 17px;
-  line-height: 1.3;
-  color: var(--text);
 }
 .os-sheet__task-prog {
   flex-shrink: 0;

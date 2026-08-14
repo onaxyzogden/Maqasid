@@ -36,7 +36,7 @@ const FAQS = [
   },
   {
     q: 'What does MIOS actually tell me to do?',
-    a: "Open Orientation and it surfaces exactly one subtask \u2014 never a list. It is ranked by necessity tier across all seven objectives, and shown with the ladder it came from and the evidence behind it. Four exits are always open: mark it done, say it doesn\u2019t apply, ask for something else, or not today. None of them count against you.",
+    a: "Open Orientation and it surfaces exactly one subtask \u2014 never a list. It is ranked by necessity tier across all seven objectives, and shown with the ladder it came from and the evidence behind it. Four exits are always open: mark it done, say it doesn\u2019t apply, ask for something else, or not now. None of them count against you.",
   },
   {
     q: 'Where does the evidence come from?',
@@ -88,7 +88,7 @@ const ORIENTATION_POINTS = [
   },
 ];
 
-const ORIENTATION_EXITS = ['Mark done', 'Doesn\u2019t apply', 'Something else', 'Not today'];
+const ORIENTATION_EXITS = ['Mark done', 'Doesn\u2019t apply', 'Something else', 'Not now'];
 
 // Everything the demo card renders comes from LANDING_DEMO_DECK, which is
 // generated out of the seed files by scripts/generate-landing-demo.mjs and

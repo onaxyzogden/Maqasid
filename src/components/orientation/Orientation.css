@@ -95,6 +95,14 @@
   padding: var(--space-3) 11% 6px;
   scroll-padding-inline: 11%;
   scrollbar-width: none;
+  /* Fade the peeking neighbours into the edge instead of slicing them off
+     flat. Horizontal-only gradient - a vertical component would reach up into
+     the __flag overhang the top padding above exists to protect. Mask is
+     painted relative to the carousel's own (visible) box, not the scrolled
+     content, so the fade stays fixed at the track edges as cards scroll under
+     it. */
+  mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
 }
 .orient-carousel::-webkit-scrollbar {
   display: none;
