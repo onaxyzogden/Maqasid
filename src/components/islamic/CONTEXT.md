@@ -26,7 +26,8 @@ Spiritual UX layer: prayer awareness, ceremony gates, intention setting, readine
 | PropheticPath.jsx | The day's timeline spine. Renders `TimelineNode` cards (presentational) + the slide-ups (`NodePhaseSlideUp`, project/task panels) |
 | NodePhaseSlideUp.jsx | Node popup (centered modal) — Before / During / After tabs. The single entry point for every Prophetic Path node (replaced the old `.pp-satellite` buttons). Task lists render as Orientation-style one-at-a-time steppers (`shared/SequentialStepFlow`); non-prayer Before/After embed the full `CeremonyFlow` inline — no modal hand-off, no TaskDetailPanel hand-off |
 | PrayerHeroDuring.jsx | The inline "during the prayer" guide shown in the popup's **During** tab for the **six prayer** nodes (prop `pillarKey` = node id). Two self-contained modes over `PRAYER_SEQUENCES` (`@data/prayer-sequences`): **Reference** (vertical scroll — rakʿah sections, postures, recitations) and opt-in **Pray-Along** (swipeable step cards); falls back to a "coming soon" card for prayers without a sequence (all six prayer nodes now have one — Fajr/Dhuhr/Asr/Maghrib/Isha as fard, Tahajjud as nafl; the fallback card is now a defensive default). Brings its own CSS + data; consumed only by `NodePhaseSlideUp` |
-| PropheticPathMirror.jsx | `MirrorCard` / `PPTaskCard` / `EducationList` / `ProjectRow` — extracted from `PropheticPath.jsx` so the popup can reuse them without a circular import |
+| PropheticPathMirror.jsx | `MirrorCard` / `PPTaskCard` / `EducationList` / `ProjectRow` — extracted from `PropheticPath.jsx` so the popup can reuse them without a circular import. `MirrorCard` takes an optional `educationContent` prop (sibling to `taskContent`); `EducationList` (the submodule-picker fallback) is reached only when `educationContent` is null |
+| prophetic-path-education.js | `educationSubmoduleIds(nodeId, moduleId)` — submodule ids in scope for the Education view; prefers the pillar's canonical list, falls back to the node's moduleGroup scope. Its own file (not `PropheticPathMirror.jsx`) because it needs `getPillarSubmoduleIds` from `submodule-registry.js`, and a components-only file can't also export a function under `react-refresh/only-export-components`. Shared by `EducationList` (the picker) and `NodePhaseSlideUp`'s per-submodule study-tasks builder so the two can't drift |
 | prophetic-path-constants.js | `LEVEL_COLOR`, `PRAYER_NODE_IDS`, `THRESHOLD_MODULE_BY_NODE`, `isThresholdTriggerNode` — shared by `PropheticPath.jsx` and the popup; imports nothing from either |
 
 ## Architecture
@@ -109,6 +110,45 @@ Three tabs, default **During**:
   every non-prayer node, incl. `midday-labor`; the old `showProjects` projects view was
   dropped), or — on the 6 prayer nodes — `<PrayerHeroDuring pillarKey={node.id}>` rendered
   inline (the in-prayer guide itself)
+
+**Education is now the same working surface as Action, not a picker.** `MirrorCard`'s
+`educationContent` prop (sibling to `taskContent`) carries a second `SequentialStepFlow` —
+`NodePhaseSlideUp` builds it from `buildSubmoduleStudyTasks(submoduleId, level, …)`, one
+`getSubmoduleBoardId` lookup projected through `orderBoardTasks` and
+`prophetic-path-submodules.js`'s `projectTaskRow`. **One submodule at ONE level** — a pillar-wide
+pool would run 80+ tasks for Faith/Ummah, and even a single submodule's three levels concatenated
+run to 30 pills for `faith-salah` (14 core + 12 growth + 4 excellence). Split by level, no rail
+exceeds 14.
+
+Two scopes, two `.pp-pill-switch` rows (submodule above, level below), wrapped in
+`.pp-edu-switches` (NodePhaseSlideUp.css) so a narrow popup wraps instead of overflowing. The
+level row labels come from the canonical `TIER_META` / `TIERS` in `orientation-selector.js` — the
+local `EDUCATION_TIERS` duplicate is gone, per
+[wiki/decisions/2026-07-27-milos-tier-vocabulary-canon.md](../../../wiki/decisions/2026-07-27-milos-tier-vocabulary-canon.md).
+
+Both the submodule and the level are **derived during render**, not synced via effect, so a stale
+pick can't survive a switch:
+- submodule — `educationSubs.includes(id) ? id : educationSubs[0]`
+- level — an explicit pill click (`selectedLevel`) always wins, even onto an empty level;
+  otherwise the **first level with work left** (`findCurrentTaskIndex(rows, todayKey) >= 0`),
+  else the first level with any tasks at all, else `'core'`
+
+`resetKey` carries `education|<submoduleId>|<level>`, so switching either scope snaps the preview
+to the new chain. **Both pill rows live outside `SequentialStepFlow`'s `renderShell`** — they used
+to sit inside it and vanished whenever the pool came back empty, which would strand the operator
+on a level with no seeded board with no control to leave it. An empty level renders an inline
+"Nothing seeded at this level yet." beneath the still-present rows instead. `MirrorCard`'s
+`educationContent ?? <EducationList …>` fallback therefore now fires only when
+`educationSubs.length === 0` — a genuinely unscoped node, the case it was written for.
+
+Unlike the Action pool, **Education keeps completed rows** — `buildSubmoduleStudyTasks` does not
+filter `columnId`, matching the prayer-board branch: the stepper shows the whole curriculum chain,
+done pills collapse to checks, and browsing back onto one is how revert works.
+`educationSubmoduleIds(nodeId, moduleId)` (`prophetic-path-education.js`) is the single source of
+truth for which submodules are in scope, shared with `EducationList`. Action and Education each
+track their own current step independently — both flow through the shared
+`makeFlowProps(rows, viewKey)` factory in `NodePhaseSlideUp.jsx`, called once per pool, so the
+mark-done/doesn't-apply/not-now/revert handlers exist in one place instead of two.
 - **After** → the full `<CeremonyFlow type="closing">` embedded inline (non-prayer), or — on the
   6 prayer nodes — that window's task stepper
 
@@ -157,7 +197,7 @@ labelling Fajr's mu'akkadah rawatib an embellishment. Non-prayer rows keep the c
 
 **Task stepper (one step at a time, no drill-in).** Every task list in the popup (prayer
 Before/After boards and the non-prayer During pool) renders through
-`shared/SequentialStepFlow` — the same engine as the Orientation sheet: lettered **Task pills** +
+`shared/SequentialStepFlow` — the same engine as the Orientation sheet: numbered **Task pills** +
 numbered **Subtask chips**, one `<SubtaskStepDetail>` at a time, `<OrientationActions>` footer
 (Mark done / Doesn't apply / Not now) pinned to the true current step, locked steps ahead
 previewable, completed steps behind revertible (primary reads "Completed" but stays enabled —
@@ -171,9 +211,24 @@ fallback) is gone — the stepper *is* the detail. Mechanics:
 - `todayKey` comes from `computeTodayKey(maghribRaw)` in an effect (`@/utils/islamic-day-key`) —
   the wall-clock read stays out of render. `PropheticPath.jsx` passes `maghribRaw`.
 - Handlers: markDone → `toggleSubtask`; doesn't apply → `updateSubtask {notApplicable}`;
-  **"Not now" → task-level snooze** (`updateTask {snoozedUntilDayKey}`, matching Orientation — a
-  change from the old drill-in's subtask-level snooze); revert → `toggleSubtask` if done, else
-  clears `notApplicable`.
+  **"Not now" → subtask-level snooze** (`updateSubtask {snoozedUntilDayKey}`, popup-only —
+  Orientation still snoozes at task level, since its carousel fall-through reads that field). The
+  deferred step reads **amber**, not green ("in progress", not "done") — `subtaskChipState` and
+  `findCurrentSubtaskIndex` (`@data/orientation-selector`) both take an optional trailing
+  `todayKey`; the popup passes it, Orientation doesn't, so Orientation's behavior is unchanged.
+  Revert → `toggleSubtask` if done, clears `notApplicable` if not-applicable, **or clears
+  `snoozedUntilDayKey` if deferred** — the third `handleRevert` branch is how a deferred step gets
+  resumed, and `SequentialStepFlow` classifies a previewed snoozed step as *behind* (not ahead) so
+  the primary button stays enabled as "Resume step" instead of dead-ending.
+- **Deferring every remaining step of a task rolls the chain on to the next task.**
+  `findCurrentTaskIndex` / `decorateTaskChain` take the same optional `todayKey` and skip a task
+  that is *settled* — complete, or with no eligible subtask left today (`isTaskSettledToday`, see
+  orientation/CONTEXT.md and
+  [wiki/decisions/2026-08-13-milos-task-deferral-roll-forward.md](../../../wiki/decisions/2026-08-13-milos-task-deferral-roll-forward.md)).
+  The rolled-past task pill reads **amber with a Moon**, not green — `taskPillState` checks
+  deferred *before* the positional `index < currentTaskIndex → done` rule, mirroring
+  `subtaskChipState`. Clicking that pill opens on its first deferred step (`handlePreviewTask` in
+  `SequentialStepFlow`), not step 0, so "Resume step" is one click away.
 - Tab/module switches reset the preview via `resetKey` (`node.id|phase|moduleId`).
 - Known mismatch (deferred): `PPTaskCard`'s list-row done-count counts only `done`, so a
   notApplicable step advances stepper progress but not a list row's fraction where lists remain.
