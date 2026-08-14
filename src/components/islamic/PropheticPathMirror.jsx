@@ -1,17 +1,10 @@
 import { ArrowRight, BookOpen, Play } from 'lucide-react';
 import { PRIORITIES } from '@data/modules';
-import {
-  submodulesForNode,
-  LEVEL_LABEL,
-  LEVEL_FULL_LABEL,
-} from '@data/prophetic-path-submodules';
-import {
-  getSubmoduleDisplayLabel,
-  getSubmodulePillarColor,
-  getPillarSubmoduleIds,
-} from '@data/submodule-registry';
+import { LEVEL_LABEL, LEVEL_FULL_LABEL } from '@data/prophetic-path-submodules';
+import { getSubmoduleDisplayLabel, getSubmodulePillarColor } from '@data/submodule-registry';
 import DashboardTaskCard from '@components/shared/DashboardTaskCard';
 import { LEVEL_COLOR } from './prophetic-path-constants';
+import { educationSubmoduleIds } from './prophetic-path-education';
 
 // Mirror content for a Prophetic Path node: the task list, project rows, and
 // Action/Education switch. Extracted from `PropheticPath.jsx` so
@@ -96,11 +89,7 @@ export function ProjectRow({ project, onClick }) {
 }
 
 export function EducationList({ nodeId, moduleId, onSelectSubmodule }) {
-  // Prefer the pillar's canonical submodule list (e.g., Wealth → all 4) when
-  // moduleId is a registered pillar. Fall back to the node's moduleGroup scope
-  // for non-pillar groups like 'community'.
-  const pillarSubs = getPillarSubmoduleIds(moduleId);
-  const submoduleIds = pillarSubs.length > 0 ? pillarSubs : submodulesForNode(nodeId, moduleId);
+  const submoduleIds = educationSubmoduleIds(nodeId, moduleId);
   if (!submoduleIds || submoduleIds.length === 0) {
     return <p className="pp-mirror-empty">No submodules for this window.</p>;
   }
@@ -148,6 +137,12 @@ export function MirrorCard({
   // one-step-at-a-time <SequentialStepFlow> here while the desktop mirror keeps
   // the classic PPTaskCard list. Education/projects branches are unaffected.
   taskContent = null,
+  // Optional replacement for the Education view — symmetric with taskContent.
+  // The node popup slots its own submodule-scoped <SequentialStepFlow> here;
+  // `??` (not `||`) means a passed element is never swallowed, and omitting it
+  // keeps EducationList as the picker (desktop mirror, and the popup's own
+  // empty-pool fallback).
+  educationContent = null,
 }) {
   return (
     <aside className="pp-mirror-card">
@@ -199,7 +194,9 @@ export function MirrorCard({
         </div>
       </div>
       {viewMode === 'education' ? (
-        <EducationList nodeId={node.id} moduleId={moduleId} onSelectSubmodule={onSelectSubmodule} />
+        educationContent ?? (
+          <EducationList nodeId={node.id} moduleId={moduleId} onSelectSubmodule={onSelectSubmodule} />
+        )
       ) : showProjects ? (
         (projects || []).length === 0 ? (
           <p className="pp-mirror-empty">No projects in this scope yet.</p>
