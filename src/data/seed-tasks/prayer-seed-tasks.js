@@ -547,8 +547,8 @@ function classifyTask(task) {
 // and wins — see wiki/decisions/2026-07-27-milos-prayer-board-ordering.md.
 //
 // The default is emission order, which is already tier-ascending because
-// SALAH_SOURCES runs core -> growth -> excellence. That is right for 15 of the
-// 18 boards. These three are re-ordered because the CLOCK disagrees with it.
+// SALAH_SOURCES runs core -> growth -> excellence. That is right for 14 of the
+// 18 boards. These four are re-ordered because the CLOCK disagrees with it.
 // Nothing is reclassified: every title below already lives on that board.
 export const PRAYER_ORDER_OVERRIDES = {
   // You wake before you take siwak and make wudu.
@@ -556,6 +556,13 @@ export const PRAYER_ORDER_OVERRIDES = {
     "Reclaim the day with the waking du'a and morning adhkar",
     "Observe the pre-prayer sunnah before every salah (siwak, wudu, adhan response)",
     "Anchor the morning with Sayyid al-Istighfar and the daily-good du'a",
+  ],
+  // "Pause work the moment Dhuhr enters" is what opens the window; siwak/wudu
+  // follow it, not precede it — same shape as Fajr (wake first) and Maghrib
+  // (evening adhkar first) below.
+  prayer_dhuhr_before: [
+    'Close the morning by praying Dhuhr at its first time',
+    "Observe the pre-prayer sunnah before every salah (siwak, wudu, adhan response)",
   ],
   // The evening adhkar are recited between Asr and Maghrib — i.e. before
   // Maghrib's own preparation, not after it.

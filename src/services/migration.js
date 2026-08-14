@@ -10,6 +10,7 @@ const SCHEMA_VERSION = '5.0';
 const MOJIBAKE_FLAG = 'mojibake_titles_repaired';
 const DEDUPE_FLAG = 'seed_dedupe_v1';
 const FOLDIN_FLAG = 'seed_subtask_foldin_v1';
+const ORDER_V2_FLAG = 'seed_subtask_order_v2';
 
 // Tasks deleted from the seed files on 2026-07-27 as duplicates of a sibling on
 // the same board. Titles are byte-for-byte copies taken from the seed file
@@ -76,6 +77,43 @@ export const FOLDED_SUBTASK_ORDER = {
       'Explore establishing a community waqf (endowment) for long-term sustainability',
       'Form a waqf committee with financial, legal, and community representation',
       'Draft the waqf deed — define the purpose, beneficiaries, and management structure',
+    ],
+  },
+};
+
+// Curated subtask order for two Before/After sequence-correctness fixes (2026-08):
+// the adhan-response subtask moves ahead of siwak/wudu on the pre-prayer sunnah
+// task, and the Witr Qunut moves ahead of the post-Witr tasbih on the Tahajjud
+// after board. Unlike FOLDED_SUBTASK_ORDER above (which folds subtasks orphaned
+// by a seed deletion back onto a surviving sibling), this purely re-orders rows
+// that already exist on the board — same `alignSubtaskOrder` mechanism, reused.
+// The drift guard in src/data/seed-tasks/__tests__/prayer-order.test.js pins the
+// pre-prayer-sunnah order against the seed; see wiki/decisions for the Witr one.
+const PRE_PRAYER_SUNNAH_ORDER = {
+  'Observe the pre-prayer sunnah before every salah (siwak, wudu, adhan response)': [
+    "Repeat after the mu'adhdhin and make du'a after the adhan",
+    'Use the siwak before wudu and before prayer',
+    'Perform wudu thoroughly — wet every part, especially the heels',
+    'Use a sutrah (barrier) when praying in an open space',
+  ],
+};
+
+export const REORDERED_SUBTASK_ORDER = {
+  // Generic sunan, duplicated onto all five daily prayers' Before boards by
+  // classifyTask() in prayer-seed-tasks.js.
+  prayer_fajr_before: PRE_PRAYER_SUNNAH_ORDER,
+  prayer_dhuhr_before: PRE_PRAYER_SUNNAH_ORDER,
+  prayer_asr_before: PRE_PRAYER_SUNNAH_ORDER,
+  prayer_maghrib_before: PRE_PRAYER_SUNNAH_ORDER,
+  prayer_isha_before: PRE_PRAYER_SUNNAH_ORDER,
+  // "Seal the night with the post-Witr adhkar..." is tagged transition:post-witr,
+  // which classifyTask() routes to prayer_tahajjud_after (Witr closes Tahajjud,
+  // not Isha, in this app's model).
+  prayer_tahajjud_after: {
+    "Seal the night with the post-Witr adhkar and last-third du'a": [
+      "Recite the Witr Qunut du'a ('Allahumma-hdini fi man hadayt...')",
+      "Say 'Subhanal-Malikil-Quddus' three times after Witr, lengthening the third",
+      "Make du'a and istighfar in the last third of the night",
     ],
   },
 };
@@ -259,6 +297,33 @@ export function foldInSeedSubtasks() {
   }
 }
 
+// One-shot re-order of subtasks whose seed sequence was corrected after users
+// already had rows in storage (2026-08 Before/After sequence-correctness pass).
+// Independent of FOLDIN_FLAG/foldInSeedSubtasks — that flag already fired for
+// existing users and gates a different fix (orphaned rows, not a re-order), so
+// this needed its own flag or those users would never receive the new order.
+export function alignReorderedSubtasks() {
+  if (localStorage.getItem(PREFIX + ORDER_V2_FLAG) === '1') return;
+  let alignedCount = 0;
+  const skippedTitles = [];
+  for (const [boardId, orderTable] of Object.entries(REORDERED_SUBTASK_ORDER)) {
+    const key = `tasks_${boardId}`;
+    const tasks = read(key);
+    if (!Array.isArray(tasks) || tasks.length === 0) continue;
+    const { next, aligned, skipped } = alignSubtaskOrder(tasks, orderTable);
+    skippedTitles.push(...skipped);
+    if (next !== tasks) { write(key, next); alignedCount += aligned.length; }
+  }
+  localStorage.setItem(PREFIX + ORDER_V2_FLAG, '1');
+  if (alignedCount) console.info(`[bbiz] Subtask sequence fix: ${alignedCount} task(s) re-ordered.`);
+  if (skippedTitles.length) {
+    console.info(
+      `[bbiz] Subtask sequence fix: ${skippedTitles.length} task(s) left in their stored order because ` +
+      `they carry completed subtasks: ${skippedTitles.map((t) => `"${t}"`).join(', ')}`
+    );
+  }
+}
+
 export function runMigrations() {
   // Title repair first — before the SCHEMA_VERSION guard below returns early
   // for already-migrated users, and before React mounts / any hydration reads.
@@ -271,6 +336,10 @@ export function runMigrations() {
   // rows these subtasks came from) and must precede mount, because the boot
   // backfill would otherwise append them at the end of the array.
   foldInSeedSubtasks();
+  // Then re-order the two Before/After tasks whose sequence was corrected in the
+  // seed after users already had rows in storage. Independent of the fold-in
+  // above; order within runMigrations doesn't matter relative to it.
+  alignReorderedSubtasks();
 
   const version = localStorage.getItem(PREFIX + 'schema_version');
   if (version === SCHEMA_VERSION) return; // already migrated
