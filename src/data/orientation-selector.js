@@ -13,7 +13,15 @@
 // actionable. Everything else is visible but locked. Chain order is the CURATED
 // SEED ORDER (`task.seedOrder`, see orderBoardTasks), falling back to persisted
 // array order for tasks that have none; the display label `task.n` is never
-// consulted for sequencing. "Not today" snoozes the whole current task, so its board drops out
+// consulted for sequencing.
+//
+// TWO orders, both declared elsewhere and both honoured here. Which BOARD a
+// pillar surfaces is the canonical module order (see orderPillarBoards) — the
+// order the pillar's modules appear in the level navigators and the sidebar.
+// Which TASK that board surfaces is the curated seed chain above. Neither is
+// alphabetical, and neither is array order.
+//
+// "Not today" snoozes the whole current task, so its board drops out
 // for the day and selection falls through to the next actionable board in the
 // pillar, then to the next pillar.
 //
@@ -27,7 +35,7 @@
 // Pure functions only — no React, no Zustand subscriptions. Callers pass in
 // `projects`/`tasksByProject` snapshots read from the stores.
 
-import { MAQASID_CORE_PILLARS, getPillarById } from './maqasid';
+import { MAQASID_CORE_PILLARS, getPillarById, getPillarBoardSegments } from './maqasid';
 import { resolveSubmoduleFromProject } from './maqasid-resolve';
 import { getProjectLevel } from '../store/task-store';
 
@@ -195,6 +203,36 @@ export function orderBoardTasks(tasks) {
     .map((row) => row.task);
 }
 
+// Canonical BOARD order within one pillar — `orderBoardTasks`'s sibling, one
+// level up. Board ids are `{pillar}_{segment}_{level}`, and the segment order
+// comes from `getPillarBoardSegments`: the same module order the pillar is
+// presented in everywhere else (the level navigators, the sidebar, and
+// `PILLAR_SUBMODULES` in submodule-registry.js all agree with it).
+//
+// This walk used to be `id.localeCompare`, which is not an order anyone
+// declared — it is just how the strings happen to sort. That put Hajj ahead of
+// Shahada on Faith, Circulation ahead of Earning on Wealth, Home ahead of
+// Marriage on Family, and Mental ahead of Physical on Health: six of the seven
+// pillars opened Orientation on the wrong module.
+//
+// A board whose segment is NOT in the pillar's canonical list sorts after the
+// whole list, ties broken by id so the walk stays deterministic. That covers
+// user-created boards and the nine `ummah_moontrance-*` boards, which sit under
+// the `ummah_` prefix without being one of the Maqasid.
+export function orderPillarBoards(pillarId, projects) {
+  const segments = getPillarBoardSegments(pillarId);
+  const list = projects ?? [];
+  return list
+    .map((project, index) => {
+      const rank = segments.indexOf(String(project?.id ?? '').split('_')[1] ?? '');
+      return { project, index, rank: rank === -1 ? segments.length : rank };
+    })
+    .sort((a, b) => a.rank - b.rank
+      || String(a.project?.id ?? '').localeCompare(String(b.project?.id ?? ''))
+      || a.index - b.index)
+    .map((row) => row.project);
+}
+
 // Decorate an ordered task list with stepper display state + position labels —
 // the [{ task, state, label }] shape TaskStepper renders. Tasks are NUMBERED
 // (1, 2, 3…); their subtasks are lettered one level down. Takes the list in
@@ -307,17 +345,16 @@ function rankPillars(projects, tasksByProject) {
 }
 
 // The board (project) a pillar+tier should surface right now under sequential
-// locking. Boards are walked id-deterministically; a fully-complete board (no
-// current task) is skipped. The FIRST board whose current task is actionable
-// today wins. If none is actionable but some have only a snoozed current task,
-// the first such board is returned as a display fallback (its `seq.actionable`
-// is false) — callers that need real work check `seq.actionable` and fall
-// through. Returns { project, seq } or null when the pillar+tier has no
-// incomplete board at all.
+// locking. Boards are walked in CANONICAL MODULE ORDER (see orderPillarBoards),
+// so Faith reads Shahada → Salah → Zakah → Siyam → Hajj, exactly as the pillar
+// is presented everywhere else; a fully-complete board (no current task) is
+// skipped. The FIRST board whose current task is actionable today wins. If none
+// is actionable but some have only a snoozed current task, the first such board
+// is returned as a display fallback (its `seq.actionable` is false) — callers
+// that need real work check `seq.actionable` and fall through. Returns
+// { project, seq } or null when the pillar+tier has no incomplete board at all.
 export function findActiveBoardInPillarTier(pillarId, tier, projects, tasksByProject, todayKey) {
-  const tierProjects = getPillarProjectsAtTier(pillarId, tier, projects)
-    .slice()
-    .sort((a, b) => a.id.localeCompare(b.id));
+  const tierProjects = orderPillarBoards(pillarId, getPillarProjectsAtTier(pillarId, tier, projects));
   let fallback = null;
   for (const project of tierProjects) {
     const seq = deriveBoardSequence(project, tasksByProject[project.id] || [], todayKey);
