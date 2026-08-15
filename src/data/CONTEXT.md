@@ -15,8 +15,24 @@ Static configuration, content, and seed data organized into thematic subdirector
 | `module-overviews/` | Maqasid framework overviews per module (6 files) | — |
 
 ## Root-Level Files (stay here)
-- `maqasid.js` — `MAQASID_PILLARS` array (**8** entries — the 7 Maqasid + `moontrance`) and `MAQASID_CORE_PILLARS` (the 7, moontrance filtered out — what the orientation carousel and the landing wheel iterate). Helpers: `getPillarById()`, `getPillarForModule()`, `getPillarLabel()`, `getSubmoduleLabel()`, `getPillarStewardship()`, `getPillarDescription()`. The three `get*Label`-family helpers plus `getPillarDescription` all take `valuesLayer` and fall back to the Islamic string when no universal variant exists
+- `maqasid.js` — `MAQASID_PILLARS` array (**8** entries — the 7 Maqasid + `moontrance`) and `MAQASID_CORE_PILLARS` (the 7, moontrance filtered out — what the orientation carousel and the landing wheel iterate). Helpers: `getPillarById()`, `getPillarForModule()`, `getPillarLabel()`, `getSubmoduleLabel()`, `getPillarStewardship()`, `getPillarDescription()`, `getPillarBoardSegments()`. The three `get*Label`-family helpers plus `getPillarDescription` all take `valuesLayer` and fall back to the Islamic string when no universal variant exists
+- `maqasid-resolve.js` — `resolveSubmoduleFromBoardId()` / `resolveSubmoduleFromProject()`, the single place board ids are turned into a `{pillarId, submoduleId}` pair, plus the `FAITH_MODULE_TO_SUBMODULE` short-form table. Imported by `store/task-store.js` and `services/seed-hydrator.js`
 - `modules.js` — MODULES array (8 modules: people, work, money, tech, office, family, neighbors, community)
+
+## Board ids ↔ submoduleIds
+
+Board ids are `{pillarId}_{segment}_{level}` (`faith_salah_core`). **A pillar's id is not
+its submodule prefix.** Environment's pillar id is `environment` while its `subModuleIds`
+are `env-resource`, `env-waste`, `env-ecosystem`, `env-sourcing`; Community's are bare
+(`collective`, `neighbors`). So a board id can never be turned back into a submoduleId by
+reassembling `${pillarId}-${segment}` — that silently produced `submoduleId: null` for
+every Environment board until 2026-08-15.
+
+`getPillarBoardSegments(pillarId)` (maqasid.js) is the bridge: it returns each
+`subModuleIds` entry with its prefix stripped, **in the same order and of the same
+length**, so a matched segment's index reads straight back into `subModuleIds`. Both
+`maqasid-resolve.js` and `orientation-selector.js`'s `orderPillarBoards` key off it. Keep
+the two arrays aligned 1:1 — a test in `__tests__/maqasid-resolve.test.js` guards it.
 
 ## Key Data Shapes
 
