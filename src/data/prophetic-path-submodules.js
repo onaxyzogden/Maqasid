@@ -968,6 +968,50 @@ export function submodulesForNode(nodeId, moduleId = null) {
   return targetSubmodules;
 }
 
+// Canonical row shape shared by every task-pool builder in this file
+// (buildTasksForNode's matched pool, buildPrayerPhaseTasks in
+// NodePhaseSlideUp.jsx, and the Education submodule pool). `canonicalId`
+// overrides the moduleId->submodule lookup for callers who already know the
+// submodule directly (e.g. addressing a board BY submodule id) — deriving it
+// back from project.moduleId there would be a pointless round-trip.
+export function projectTaskRow(t, project, submoduleNameById, canonicalId = null) {
+  const canonical = canonicalId || MODULE_ID_TO_SUBMODULE_ID[project.moduleId] || project.moduleId;
+  return {
+    id: t.id,
+    projectId: project.id,
+    title: t.title,
+    priority: t.priority || 'medium',
+    dueDate: t.dueDate || null,
+    columnId: t.columnId,
+    subtasks: t.subtasks || [],
+    tags: t.tags || [],
+    // Carried so the node popup's stepper can show the snoozed (moon) pill
+    // state after a task-level "Not now" (see decorateTaskChain).
+    snoozedUntilDayKey: t.snoozedUntilDayKey || null,
+    _level: levelFromProjectId(project.id),
+    _submoduleId: canonical,
+    _submoduleName: submoduleNameById[canonical] || canonical,
+    _project: project,
+  };
+}
+
+// Dedupe by (normalized title + level) — legacy migrations sometimes leave
+// overlapping boards (e.g., faith_sawm_core + faith_siyam_core) with
+// identical seed tasks. Keeps the first occurrence in the given order and
+// caps the result at `limit`.
+export function dedupeTaskRows(rows, limit) {
+  const seen = new Set();
+  const deduped = [];
+  for (const row of rows) {
+    const key = `${row._level}|${(row.title || '').trim().toLowerCase()}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    deduped.push(row);
+    if (deduped.length >= limit) break;
+  }
+  return deduped;
+}
+
 function titleMatches(title, matchers) {
   if (!matchers) return true;
   const t = title || '';
@@ -975,6 +1019,17 @@ function titleMatches(title, matchers) {
     if (re.test(t)) return true;
   }
   return false;
+}
+
+// A row explicitly tagged `prayer:{id}` for a DIFFERENT prayer than the node
+// being built must not surface here — e.g. the Fajr "Sit in remembrance ...
+// (Ishraq reward)" task otherwise bleeds onto the Duha node because its title
+// happens to match Duha's `ishraq` content-matcher. Rows with no prayer:{id}
+// tag, or tagged for THIS node's own id, pass through unaffected.
+function belongsToPrayerNode(row, nodeId) {
+  const tag = (row.tags || []).find((t) => t.startsWith('prayer:'));
+  if (!tag) return true;
+  return tag.slice('prayer:'.length) === nodeId;
 }
 
 // A task matches a phase if any of its tags or title matches the phase regexes.
@@ -1013,26 +1068,9 @@ export function buildTasksForNode(nodeId, projects, tasksByProject, options = {}
   const scopePool = [];
   for (const project of matchingProjects) {
     const tasks = tasksByProject?.[project.id] || [];
-    const canonical = MODULE_ID_TO_SUBMODULE_ID[project.moduleId] || project.moduleId;
     for (const t of tasks) {
       if (t.completedAt) continue;
-      scopePool.push({
-        id: t.id,
-        projectId: project.id,
-        title: t.title,
-        priority: t.priority || 'medium',
-        dueDate: t.dueDate || null,
-        columnId: t.columnId,
-        subtasks: t.subtasks || [],
-        tags: t.tags || [],
-        // Carried so the node popup's stepper can show the snoozed (moon) pill
-        // state after a task-level "Not now" (see decorateTaskChain).
-        snoozedUntilDayKey: t.snoozedUntilDayKey || null,
-        _level: levelFromProjectId(project.id),
-        _submoduleId: canonical,
-        _submoduleName: submoduleNameById[canonical] || canonical,
-        _project: project,
-      });
+      scopePool.push(projectTaskRow(t, project, submoduleNameById));
     }
   }
 
@@ -1043,6 +1081,11 @@ export function buildTasksForNode(nodeId, projects, tasksByProject, options = {}
     const matched = scopePool.filter((r) => titleMatches(r.title, matchers));
     rows = matched.length > 0 ? matched : scopePool;
   }
+
+  // Cross-prayer exclusion runs AFTER matching (and its fallback), so a node
+  // whose matchers hit nothing still falls back to its full scope pool before
+  // this narrows it — the exclusion trims the result, it never widens it.
+  rows = rows.filter((r) => belongsToPrayerNode(r, nodeId));
 
   // Phase filter: before/after narrow the pool via phaseMatchers (title+tags);
   // main returns the remainder (tasks that are NOT before and NOT after).
@@ -1069,15 +1112,6 @@ export function buildTasksForNode(nodeId, projects, tasksByProject, options = {}
 
   // Dedupe by (normalized title + level) — legacy migrations sometimes leave
   // overlapping boards (e.g., faith_sawm_core + faith_siyam_core) with
-  // identical seed tasks. Keep the first occurrence in sorted order.
-  const seen = new Set();
-  const deduped = [];
-  for (const row of rows) {
-    const key = `${row._level}|${(row.title || '').trim().toLowerCase()}`;
-    if (seen.has(key)) continue;
-    seen.add(key);
-    deduped.push(row);
-    if (deduped.length >= limit) break;
-  }
-  return deduped;
+  // identical seed tasks. Keeps the first occurrence in sorted order.
+  return dedupeTaskRows(rows, limit);
 }

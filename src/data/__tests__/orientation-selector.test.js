@@ -5,6 +5,8 @@ import {
   isSubtaskSnoozedToday,
   isTaskComplete,
   isTaskSnoozedToday,
+  isTaskDeferredToday,
+  isTaskSettledToday,
   findCurrentTaskIndex,
   findCurrentSubtaskIndex,
   taskPillState,
@@ -110,6 +112,34 @@ describe('task-level predicates (sequential locking)', () => {
     expect(isTaskSnoozedToday(task('t', [subtask('a')], { snoozedUntilDayKey: '2026-07-22' }), TODAY)).toBe(false);
     expect(isTaskSnoozedToday(task('t', [subtask('a')]), TODAY)).toBe(false);
   });
+
+  it('isTaskDeferredToday: unfinished work, none of it reachable today', () => {
+    const t = task('t', [subtask('a', { done: true }), subtask('b', { snoozedUntilDayKey: TODAY })]);
+    expect(isTaskDeferredToday(t, TODAY)).toBe(true);
+    // still incomplete — deferral is not completion
+    expect(isTaskComplete(t)).toBe(false);
+    // one step still reachable ⇒ not deferred
+    expect(isTaskDeferredToday(task('t', [subtask('a', { snoozedUntilDayKey: TODAY }), subtask('b')]), TODAY)).toBe(false);
+    // omitting todayKey makes it inert
+    expect(isTaskDeferredToday(t)).toBe(false);
+  });
+
+  it('isTaskDeferredToday: a finished task is complete, never deferred', () => {
+    expect(isTaskDeferredToday(task('t', [subtask('a', { done: true })]), TODAY)).toBe(false);
+    expect(isTaskDeferredToday(task('t', []), TODAY)).toBe(false);
+  });
+
+  it('isTaskDeferredToday ignores the TASK-level snooze — that drops the board, not the step', () => {
+    const t = task('t', [subtask('a')], { snoozedUntilDayKey: TODAY });
+    expect(isTaskDeferredToday(t, TODAY)).toBe(false);
+    expect(isTaskSnoozedToday(t, TODAY)).toBe(true);
+  });
+
+  it('isTaskSettledToday covers both complete and deferred', () => {
+    expect(isTaskSettledToday(task('t', [subtask('a', { done: true })]), TODAY)).toBe(true);
+    expect(isTaskSettledToday(task('t', [subtask('a', { snoozedUntilDayKey: TODAY })]), TODAY)).toBe(true);
+    expect(isTaskSettledToday(task('t', [subtask('a')]), TODAY)).toBe(false);
+  });
 });
 
 describe('current-step finders (array order, never priority/n)', () => {
@@ -135,9 +165,34 @@ describe('current-step finders (array order, never priority/n)', () => {
     expect(findCurrentTaskIndex([task('t', [subtask('a', { done: true })])])).toBe(-1);
   });
 
+  it('findCurrentTaskIndex walks past a task whose every remaining step is deferred', () => {
+    const tasks = [
+      task('t-a', [subtask('a', { done: true }), subtask('b', { snoozedUntilDayKey: TODAY })]),
+      task('t-b', [subtask('c')]),
+    ];
+    expect(findCurrentTaskIndex(tasks, TODAY)).toBe(1);
+    // omitting todayKey reproduces the old "first not-complete" behaviour
+    expect(findCurrentTaskIndex(tasks)).toBe(0);
+  });
+
+  it('findCurrentTaskIndex does NOT walk past a task-level snooze — that drops the board instead', () => {
+    const tasks = [
+      task('t-a', [subtask('a')], { snoozedUntilDayKey: TODAY }),
+      task('t-b', [subtask('b')]),
+    ];
+    expect(findCurrentTaskIndex(tasks, TODAY)).toBe(0);
+  });
+
   it('findCurrentSubtaskIndex returns the first not-satisfied subtask; -1 when all satisfied', () => {
     expect(findCurrentSubtaskIndex(task('t', [subtask('a', { done: true }), subtask('b'), subtask('c')]))).toBe(1);
     expect(findCurrentSubtaskIndex(task('t', [subtask('a', { done: true }), subtask('b', { notApplicable: true })]))).toBe(-1);
+  });
+
+  it('findCurrentSubtaskIndex skips a subtask deferred today when todayKey is passed', () => {
+    const t = task('t', [subtask('a', { snoozedUntilDayKey: TODAY }), subtask('b')]);
+    expect(findCurrentSubtaskIndex(t, TODAY)).toBe(1);
+    // omitting todayKey reproduces the old "first not-satisfied" behaviour
+    expect(findCurrentSubtaskIndex(t)).toBe(0);
   });
 });
 
@@ -158,11 +213,27 @@ describe('stepper display-state helpers', () => {
     expect(taskPillState(0, -1, task('t', []), TODAY)).toBe('done');
   });
 
+  it('taskPillState: a deferred task the chain walked past reads snoozed, not done', () => {
+    const deferred = task('t', [subtask('a', { done: true }), subtask('b', { snoozedUntilDayKey: TODAY })]);
+    // index 0 sits BEHIND currentTaskIndex 1 — the positional rule alone would say 'done'
+    expect(taskPillState(0, 1, deferred, TODAY)).toBe('snoozed');
+    // and inert without todayKey
+    expect(taskPillState(0, 1, deferred)).toBe('done');
+  });
+
   it('subtaskChipState: done / current / locked by position', () => {
     expect(subtaskChipState(0, 1)).toBe('done');
     expect(subtaskChipState(1, 1)).toBe('current');
     expect(subtaskChipState(2, 1)).toBe('locked');
     expect(subtaskChipState(0, -1)).toBe('done'); // task complete → all done
+  });
+
+  it('subtaskChipState: a step deferred today reads snoozed only when todayKey is passed', () => {
+    const deferred = subtask('a', { snoozedUntilDayKey: TODAY });
+    // positionally "behind" current (index 0 < currentSubtaskIndex 2) — would
+    // read done without the subtask+todayKey args, which is the bug.
+    expect(subtaskChipState(0, 2, deferred, TODAY)).toBe('snoozed');
+    expect(subtaskChipState(0, 2, deferred)).toBe('done'); // no todayKey → inert, matches Orientation
   });
 });
 
@@ -197,7 +268,7 @@ describe('getPillarTierSubtaskStats / getPillarActiveTierRatio', () => {
 });
 
 describe('deriveBoardSequence', () => {
-  it('labels each task with its state + letter and flags the board actionable', () => {
+  it('labels each task with its state + number and flags the board actionable', () => {
     const p = project('wealth_earning_core');
     const tasks = [
       task('t-a', [subtask('a', { done: true })]), // complete → done
@@ -209,7 +280,7 @@ describe('deriveBoardSequence', () => {
     expect(seq.currentTaskIndex).toBe(1);
     expect(seq.actionable).toBe(true);
     expect(seq.tasks.map((t) => t.state)).toEqual(['done', 'current', 'locked']);
-    expect(seq.tasks.map((t) => t.letter)).toEqual(['A', 'B', 'C']);
+    expect(seq.tasks.map((t) => t.label)).toEqual(['1', '2', '3']);
   });
 
   it('is not actionable when the current task is snoozed today', () => {
@@ -223,6 +294,28 @@ describe('deriveBoardSequence', () => {
   it('a fully-complete board has currentTaskIndex -1 and is not actionable', () => {
     const p = project('wealth_earning_core');
     const seq = deriveBoardSequence(p, [task('t', [subtask('a', { done: true })])], TODAY);
+    expect(seq.currentTaskIndex).toBe(-1);
+    expect(seq.actionable).toBe(false);
+  });
+
+  it('rolls forward past a task whose every remaining step was deferred today', () => {
+    const p = project('wealth_earning_core');
+    const seq = deriveBoardSequence(p, [
+      task('t-a', [subtask('a', { done: true }), subtask('b', { snoozedUntilDayKey: TODAY })]),
+      task('t-b', [subtask('c')]),
+    ], TODAY);
+    expect(seq.currentTaskIndex).toBe(1);
+    expect(seq.actionable).toBe(true);
+    // A is set aside for the day, NOT finished — its pill must not read done.
+    expect(seq.tasks.map((t) => t.state)).toEqual(['snoozed', 'current']);
+  });
+
+  it('a board whose every task is deferred has currentTaskIndex -1 and is not actionable', () => {
+    const p = project('wealth_earning_core');
+    const seq = deriveBoardSequence(p, [
+      task('t-a', [subtask('a', { snoozedUntilDayKey: TODAY })]),
+      task('t-b', [subtask('b', { snoozedUntilDayKey: TODAY })]),
+    ], TODAY);
     expect(seq.currentTaskIndex).toBe(-1);
     expect(seq.actionable).toBe(false);
   });
@@ -294,6 +387,19 @@ describe('deriveSubtaskSteps', () => {
     expect(currentSubtaskIndex).toBe(1);
     expect(steps.map((s) => s.state)).toEqual(['done', 'current', 'locked']);
     expect(steps.map((s) => s.subtask.id)).toEqual(['x', 'y', 'z']);
+    // Steps are LETTERED, one level under the numbered task chain.
+    expect(steps.map((s) => s.label)).toEqual(['A', 'B', 'C']);
+  });
+
+  it('with todayKey, a deferred step reads snoozed and the flow advances past it', () => {
+    const t = task('t', [
+      subtask('x', { done: true }),
+      subtask('y', { snoozedUntilDayKey: TODAY }),
+      subtask('z'),
+    ]);
+    const { currentSubtaskIndex, steps } = deriveSubtaskSteps(t, TODAY);
+    expect(currentSubtaskIndex).toBe(2);
+    expect(steps.map((s) => s.state)).toEqual(['done', 'snoozed', 'current']);
   });
 });
 
@@ -504,7 +610,7 @@ describe('buildOrientationCarousel', () => {
     expect(health.currentTaskIndex).toBe(0);
     expect(health.currentSubtaskIndex).toBe(1);
     expect(health.board.currentTaskIndex).toBe(0);
-    expect(health.board.tasks[0].letter).toBe('A');
+    expect(health.board.tasks[0].label).toBe('1');
     expect(health.board.tasks[0].state).toBe('current');
     // subtask-level snooze is inert now: s3 shows as a locked step, not skipped
     expect(health.steps.map((s) => s.state)).toEqual(['done', 'current', 'locked']);

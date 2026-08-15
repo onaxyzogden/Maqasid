@@ -25,6 +25,7 @@ export const DAILY_CEREMONY_MODULES = [
   'faith-siyam',
   'work',
   'health-physical',
+  'family',
 ];
 
 export const useIslamicDayStore = create((set, get) => ({

@@ -84,7 +84,7 @@ function SubtaskWhyHow({ subtask }) {
 }
 
 // Collapsible section, closed on each mount (host popups remount per open, so
-// local state is enough). Shares the .orient-evidence__* look with the Evidence
+// local state is enough). Shares the .orient-evidence__* look with the Source
 // accordion stacked below it.
 function DetailSection({ label, children }) {
   const [open, setOpen] = useState(false);
@@ -108,12 +108,12 @@ function DetailSection({ label, children }) {
   );
 }
 
-// One subtask ("step") rendered Orientation-style: crumb → task title/progress →
-// tag row → Now box → Why and How accordions → Evidence accordion. Shared by the
-// orientation sheet and the Prophetic Path node popup drill-in. Purely
-// presentational — renders as a Fragment so the host body's flex gap spaces the
-// sections; class names keep the historical os-sheet__ / orient-evidence__
-// prefixes (see shared/CONTEXT.md).
+// One subtask ("step") rendered Orientation-style: crumb (task title folded in,
+// progress at the right) → tag row → Now box → Why and How accordions → Source
+// accordion. Shared by the orientation sheet and the Prophetic Path node popup
+// drill-in. Purely presentational — renders as a Fragment so the host body's
+// flex gap spaces the sections; class names keep the historical os-sheet__ /
+// orient-evidence__ prefixes (see shared/CONTEXT.md).
 //
 // `subtask == null` means the task has no eligible step left today (all done,
 // snoozed, or set aside) — rendered as a calm complete state, not an error.
@@ -139,29 +139,29 @@ export default function SubtaskStepDetail({
   const showPriority = KNOWN_PRIORITIES.has(priority);
   const amanahTier = deriveSubtaskTier(subtask);
   const grounded = isSubtaskGrounded(subtask);
-  const crumb = crumbParts.filter(Boolean);
+  // The task title folds into the crumb line as its last part, rather than
+  // getting its own heading — one name in the header instead of two.
+  const crumb = [...crumbParts.filter(Boolean), task?.title].filter(Boolean);
 
   return (
     <>
       {crumb.length > 0 && (
-        <p className="os-sheet__crumb">
-          {crumb.map((part, i) => (
-            <Fragment key={`${i}-${part}`}>
-              {i > 0 && <>{' '}<span className="os-sheet__crumb-sep">&rsaquo;</span>{' '}</>}
-              {part}
-            </Fragment>
-          ))}
-        </p>
+        <div className="os-sheet__crumb-row">
+          <p className="os-sheet__crumb">
+            {crumb.map((part, i) => (
+              <Fragment key={`${i}-${part}`}>
+                {i > 0 && <>{' '}<span className="os-sheet__crumb-sep">&rsaquo;</span>{' '}</>}
+                {part}
+              </Fragment>
+            ))}
+          </p>
+          {taskStats && (
+            <span className="os-sheet__task-prog">{taskStats.done}/{taskStats.total}</span>
+          )}
+        </div>
       )}
 
       {taskStepper}
-
-      <h3 className="os-sheet__task">
-        <span className="os-sheet__task-title">{task.title}</span>
-        {taskStats && (
-          <span className="os-sheet__task-prog">{taskStats.done}/{taskStats.total}</span>
-        )}
-      </h3>
 
       <div className="os-sheet__tags">
         {showPriority && (
@@ -184,7 +184,7 @@ export default function SubtaskStepDetail({
           the step advances within a held task (spec: collapsed each open). */}
       <SubtaskWhyHow key={`wh-${subtask.id}`} subtask={subtask} />
 
-      <SubtaskEvidence key={`ev-${subtask.id}`} subtask={subtask} label="Evidence" />
+      <SubtaskEvidence key={`ev-${subtask.id}`} subtask={subtask} label="Source" />
     </>
   );
 }

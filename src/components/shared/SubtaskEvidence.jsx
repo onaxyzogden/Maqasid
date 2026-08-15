@@ -27,10 +27,10 @@ function SourcesSkeleton() {
 }
 
 // `label`/`defaultOpen` let the same lazy-sources accordion serve as a detail
-// view's "Evidence" section (collapsed until asked, so the 1.8 MB hadith/Qur'an
+// view's "Source" section (collapsed until asked, so the 1.8 MB hadith/Qur'an
 // chunk only loads on demand). Defaults suit that primary use. Class names keep
 // the historical orient-evidence__ prefix (moved here from orientation/).
-export default function SubtaskEvidence({ subtask, label = 'Evidence', defaultOpen = false }) {
+export default function SubtaskEvidence({ subtask, label = 'Source', defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen);
 
   return (
@@ -50,7 +50,7 @@ export default function SubtaskEvidence({ subtask, label = 'Evidence', defaultOp
       </button>
       {open && (
         <div className="orient-evidence__body">
-          <ChunkErrorBoundary label="Could not load evidence.">
+          <ChunkErrorBoundary label="Could not load sources.">
             <Suspense fallback={<SourcesSkeleton />}>
               <SubtaskSources subtask={subtask} />
             </Suspense>

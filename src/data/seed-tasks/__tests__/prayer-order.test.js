@@ -15,6 +15,7 @@
 
 import { describe, it, expect } from 'vitest';
 import { PRAYER_SEED_TASKS, PRAYER_ORDER_OVERRIDES } from '../prayer-seed-tasks';
+import { REORDERED_SUBTASK_ORDER } from '../../../services/migration';
 
 const CORE_ADHKAR = 'Complete the post-prayer adhkar after every salah (istighfar, tasbih, Ayat al-Kursi)';
 const MEMORISE = 'Memorise the prophetic supplications specific to each prayer';
@@ -67,6 +68,24 @@ describe('prayer board order (generated)', () => {
     for (const [boardId, order] of Object.entries(PRAYER_ORDER_OVERRIDES)) {
       expect(PRAYER_SEED_TASKS[boardId], `${boardId} is not a generated board`).toBeDefined();
       expect([...order].sort(), boardId).toEqual([...titles(boardId)].sort());
+    }
+  });
+
+  // src/services/migration.js hardcodes REORDERED_SUBTASK_ORDER to re-order two
+  // subtask sequences that were wrong when they first shipped (adhan-response
+  // sat after siwak/wudu; the Witr Qunut sat after the post-Witr tasbih). The
+  // boot path cannot import the lazy-loaded seed modules, so that table is a
+  // hand-copied mirror of the seed — same shape as the FOLDED_SUBTASK_ORDER
+  // drift guard in subtask-foldin.test.js, applied to this generated layer.
+  describe('REORDERED_SUBTASK_ORDER drift guard', () => {
+    for (const [boardId, orderTable] of Object.entries(REORDERED_SUBTASK_ORDER)) {
+      for (const [taskTitle, order] of Object.entries(orderTable)) {
+        it(`${boardId} / "${taskTitle}" matches the seed exactly`, () => {
+          const task = PRAYER_SEED_TASKS[boardId]?.find((t) => t.title === taskTitle);
+          expect(task, 'task title in the migration table no longer exists on this board').toBeDefined();
+          expect(task.subtasks.map((s) => s.title)).toEqual(order);
+        });
+      }
     }
   });
 });
