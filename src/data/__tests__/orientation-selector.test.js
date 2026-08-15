@@ -12,6 +12,7 @@ import {
   taskPillState,
   subtaskChipState,
   orderBoardTasks,
+  orderPillarBoards,
   decorateTaskChain,
   deriveBoardSequence,
   deriveSubtaskSteps,
@@ -22,7 +23,8 @@ import {
   recommendOrientation,
   buildOrientationCarousel,
 } from '../orientation-selector';
-import { MAQASID_CORE_PILLARS } from '../maqasid';
+import { MAQASID_CORE_PILLARS, getPillarBoardSegments } from '../maqasid';
+import { getPillarBoardIds } from '../submodule-registry';
 
 const TODAY = '2026-07-23';
 
@@ -380,6 +382,100 @@ describe('orderBoardTasks (curated seed order)', () => {
   });
 });
 
+describe('orderPillarBoards (canonical module order)', () => {
+  it('walks Faith as Shahada → Salah → Zakah → Siyam → Hajj, not alphabetically', () => {
+    // Alphabetically these ids read hajj, salah, shahada, siyam, zakah — which
+    // is why Orientation used to open Faith on a Hajj task. Shuffled on input
+    // so neither array order nor id order can pass this by accident.
+    const projects = [
+      project('faith_siyam_core'),
+      project('faith_hajj_core'),
+      project('faith_shahada_core'),
+      project('faith_zakah_core'),
+      project('faith_salah_core'),
+    ];
+    expect(orderPillarBoards('faith', projects).map((p) => p.id)).toEqual([
+      'faith_shahada_core',
+      'faith_salah_core',
+      'faith_zakah_core',
+      'faith_siyam_core',
+      'faith_hajj_core',
+    ]);
+  });
+
+  it('orders every other pillar by its declared modules, not by id', () => {
+    const first = (pillarId, ids) => orderPillarBoards(pillarId, ids.map(project))[0].id;
+    // Each list is given in ALPHABETICAL order, so a passing assertion proves
+    // the sort moved something.
+    expect(first('health', ['health_mental_core', 'health_physical_core', 'health_safety_core', 'health_social_core']))
+      .toBe('health_physical_core');
+    expect(first('intellect', ['intellect_cognitive_core', 'intellect_learning_core', 'intellect_professional_core', 'intellect_thinking_core']))
+      .toBe('intellect_learning_core');
+    expect(first('family', ['family_home_core', 'family_kinship_core', 'family_marriage_core', 'family_parenting_core']))
+      .toBe('family_marriage_core');
+    expect(first('wealth', ['wealth_circulation_core', 'wealth_earning_core', 'wealth_financial_core', 'wealth_ownership_core']))
+      .toBe('wealth_earning_core');
+    expect(first('environment', ['environment_ecosystem_core', 'environment_resource_core', 'environment_sourcing_core', 'environment_waste_core']))
+      .toBe('environment_resource_core');
+    expect(first('ummah', ['ummah_collective_core', 'ummah_community_core', 'ummah_neighbors_core']))
+      .toBe('ummah_collective_core');
+  });
+
+  it('sorts Community canonically, so Neighbors precedes Community', () => {
+    const projects = ['ummah_community_core', 'ummah_neighbors_core', 'ummah_collective_core'].map(project);
+    expect(orderPillarBoards('ummah', projects).map((p) => p.id))
+      .toEqual(['ummah_collective_core', 'ummah_neighbors_core', 'ummah_community_core']);
+  });
+
+  it('puts a board with no canonical segment after the whole declared list', () => {
+    // The Moontrance boards sit under the `ummah_` prefix without being one of
+    // the Maqasid, so they must never outrank a real Community module.
+    const projects = [
+      project('ummah_moontrance-land_core'),
+      project('ummah_neighbors_core'),
+      project('ummah_collective_core'),
+    ];
+    expect(orderPillarBoards('ummah', projects).map((p) => p.id))
+      .toEqual(['ummah_collective_core', 'ummah_neighbors_core', 'ummah_moontrance-land_core']);
+  });
+
+  it('breaks ties among unknown segments by id, so the walk stays deterministic', () => {
+    const projects = [
+      project('ummah_moontrance-seasonal_core'),
+      project('ummah_moontrance-land_core'),
+      project('ummah_collective_core'),
+    ];
+    expect(orderPillarBoards('ummah', projects).map((p) => p.id)).toEqual([
+      'ummah_collective_core',
+      'ummah_moontrance-land_core',
+      'ummah_moontrance-seasonal_core',
+    ]);
+  });
+
+  it('tolerates an unknown pillar and a null list', () => {
+    const projects = [project('nope_b_core'), project('nope_a_core')];
+    // No declared order at all → every board is unranked, id decides.
+    expect(orderPillarBoards('nope', projects).map((p) => p.id)).toEqual(['nope_a_core', 'nope_b_core']);
+    expect(orderPillarBoards('faith', null)).toEqual([]);
+  });
+
+  it('agrees with submodule-registry for all seven pillars (drift guard)', () => {
+    // getPillarBoardSegments derives from maqasid.js `subModuleIds`;
+    // getPillarBoardIds derives from PILLAR_SUBMODULES in submodule-registry.js.
+    // The selector reads the first because the second imports page constants —
+    // this pins the two declarations together so the copies cannot rot apart.
+    for (const pillar of MAQASID_CORE_PILLARS) {
+      const boardIds = getPillarBoardIds(pillar.id, 'core');
+      const fromSegments = getPillarBoardSegments(pillar.id)
+        .map((segment) => `${pillar.id}_${segment}_core`)
+        // subModuleIds also carries non-board entries (`sources`,
+        // `family-office`, `work`/`money`/…); keep only what is a real board.
+        .filter((id) => boardIds.includes(id));
+      expect(fromSegments).toEqual(boardIds);
+    }
+  });
+});
+
 describe('deriveSubtaskSteps', () => {
   it('marks done/current/locked chips and reports the current index', () => {
     const t = task('t', [subtask('x', { done: true }), subtask('y'), subtask('z')]);
@@ -410,6 +506,28 @@ describe('findActiveBoardInPillarTier / findNextEligibleSubtask', () => {
     expect(found.project.id).toBe('health_physical_core');
     expect(found.seq.actionable).toBe(true);
     expect(found.seq.currentTaskIndex).toBe(0);
+  });
+
+  it('surfaces Shahada over Hajj when both are actionable (the reported bug)', () => {
+    const projects = [project('faith_hajj_core'), project('faith_shahada_core')];
+    const tasksByProject = {
+      faith_hajj_core: [task('t-hajj', [subtask('a')])],
+      faith_shahada_core: [task('t-shahada', [subtask('b')])],
+    };
+    const found = findActiveBoardInPillarTier('faith', 'core', projects, tasksByProject, TODAY);
+    expect(found.project.id).toBe('faith_shahada_core');
+    expect(found.seq.actionable).toBe(true);
+  });
+
+  it('falls through to the next CANONICAL board once Shahada is complete, not the next alphabetical one', () => {
+    const projects = ['faith_hajj_core', 'faith_salah_core', 'faith_shahada_core'].map(project);
+    const tasksByProject = {
+      faith_hajj_core: [task('t-hajj', [subtask('a')])],
+      faith_salah_core: [task('t-salah', [subtask('b')])],
+      faith_shahada_core: [task('t-shahada', [subtask('c', { done: true })])],
+    };
+    const found = findActiveBoardInPillarTier('faith', 'core', projects, tasksByProject, TODAY);
+    expect(found.project.id).toBe('faith_salah_core');
   });
 
   it('skips a fully-complete board and returns the next incomplete one (cross-board)', () => {

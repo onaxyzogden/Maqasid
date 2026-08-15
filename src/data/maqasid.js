@@ -179,6 +179,39 @@ export function getPillarForModule(moduleId) {
   return MAQASID_PILLARS.find((p) => p.subModuleIds.includes(moduleId)) || null;
 }
 
+/**
+ * The pillar's modules in CANONICAL order, as board-id segments.
+ *
+ * Board ids are `{pillar}_{segment}_{level}` (`faith_shahada_core`), so the
+ * segment is a submoduleId with its pillar prefix stripped — everything up to
+ * and including the first `-`, or the id unchanged when it has none:
+ *
+ *   faith-shahada → shahada      env-resource → resource      collective → collective
+ *
+ * The abbreviation is why this returns segments rather than submoduleIds:
+ * Environment's boards are `environment_resource_core` while its canonical
+ * submoduleId is `env-resource`, so the two forms cannot be compared directly.
+ *
+ * This is the same order as `PILLAR_SUBMODULES` in submodule-registry.js and
+ * the seven `*_PILLARS` navigator arrays under src/pages — pinned against the
+ * registry by a drift guard in orientation-selector.test.js. It lives HERE
+ * rather than being read off `getPillarBoardIds` because submodule-registry.js
+ * imports seven `@pages/*` constant files, and the caller
+ * (orientation-selector.js) is a pure data module that six board surfaces
+ * import for `orderBoardTasks`.
+ *
+ * Entries that are not boards (`sources`, `family-office`, `work`/`money`/…)
+ * simply hold slots no board id matches. Unknown pillar → [].
+ */
+export function getPillarBoardSegments(pillarId) {
+  const pillar = getPillarById(pillarId);
+  if (!pillar) return [];
+  return pillar.subModuleIds.map((id) => {
+    const dash = id.indexOf('-');
+    return dash === -1 ? id : id.slice(dash + 1);
+  });
+}
+
 /** Get display label based on values layer */
 export function getPillarLabel(pillar, valuesLayer) {
   return valuesLayer === 'islamic' ? pillar.sidebarLabel : pillar.universalLabel;
