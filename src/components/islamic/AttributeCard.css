@@ -38,3 +38,39 @@
   line-height: 1.7;
   white-space: pre-line;
 }
+
+/* Zone 1 — who the Name is. Registry-owned, identical wherever the Name appears.
+   Carries full text colour so it reads as the definition and the application
+   below it reads as commentary; without the contrast the two merge into one
+   block, which is the wall of prose these zones exist to break up. */
+.attr-card-gloss {
+  font-size: var(--text-sm-plus);
+  color: var(--text);
+  line-height: 1.55;
+  margin-bottom: var(--space-2);
+}
+
+/* Zone 3 — the attestation. Quiet by design; present on every Name. */
+.attr-card-source {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--border);
+  font-size: var(--text-xs);
+  color: var(--text3);
+  line-height: 1.5;
+}
+
+.attr-card-source-ref {
+  font-style: normal;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.attr-card-source-quote {
+  flex: 1 1 12rem;
+  min-width: 0;
+}
