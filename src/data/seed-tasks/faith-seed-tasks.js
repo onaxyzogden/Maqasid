@@ -3353,6 +3353,36 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
       description: "The Prophet (SAW) prepared for every salah with specific ritual acts: cleaning the mouth with the siwak, a thorough wudu, and repeating the words of the adhan. These acts transform ordinary approach into worshipful arrival.",
       subtasks: [
         {
+          title: "Repeat after the mu'adhdhin and make du'a after the adhan",
+          done: false,
+          tier: "T2",
+          amanahRationale: "Direct prophetic instruction with two sahih sources.",
+          why: "Responding to the adhan is an easy sunnah with an immense reward: the Prophet \uFDFA said that whoever says the post-adhan du'a will receive his intercession on the Day of Judgement. Every muezzin\u2019s call is therefore an open door to shafa'ah.",
+          how: "When you hear the adhan, pause and repeat each phrase after the muezzin \u2014 except at 'Hayya \u02bbala as-salah' and 'Hayya \u02bbala al-falah', where you say 'La hawla wa la quwwata illa billah'. After the adhan ends, send salawat on the Prophet \uFDFA, then recite the post-adhan du'a (the 'al-wasilah' du\u02bba).",
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 611",
+              arabic: "قَالَ رَسُولُ اللَّهِ ﷺ \"إِذَا سَمِعْتُمُ النِّدَاءَ فَقُولُوا مِثْلَ مَا يَقُولُ الْمُؤَذِّنُ\".",
+              translation: "Narrated Abu Sa'id al-Khudri (RA): Allah's Messenger \uFDFA said, \"Whenever you hear the adhan, say what the muezzin is saying.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Explicit prophetic command to repeat after the muezzin \u2014 the textual basis for the first half of this subtask."
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 614",
+              arabic: "قَالَ رَسُولُ اللَّهِ ﷺ \"مَنْ قَالَ حِينَ يَسْمَعُ النِّدَاءَ: اللَّهُمَّ رَبَّ هَذِهِ الدَّعْوَةِ التَّامَّةِ وَالصَّلاَةِ الْقَائِمَةِ آتِ مُحَمَّدًا الْوَسِيلَةَ وَالْفَضِيلَةَ وَابْعَثْهُ مَقَامًا مَحْمُودًا الَّذِي وَعَدْتَهُ، حَلَّتْ لَهُ شَفَاعَتِي يَوْمَ الْقِيَامَةِ\".",
+              translation: "Narrated Jabir ibn Abdullah (RA): Allah's Messenger \uFDFA said, \"Whoever, upon hearing the adhan, says: 'O Allah, Lord of this perfect call and of the prayer to be established, grant Muhammad al-wasilah and al-fadilah, and raise him to the praiseworthy station which You promised him,' \u2014 my intercession on the Day of Resurrection will be permitted for him.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Gives the exact wording of the post-adhan du\u02bba and ties it to the Prophet\u2019s intercession \u2014 the textual basis for the second half of this subtask."
+            }
+          ]
+        },
+        {
           title: "Use the siwak before wudu and before prayer",
           done: false,
           tier: "T1",
@@ -3418,36 +3448,6 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
               rationale: "Prophetic warning specifying the heels \u2014 the operative basis for the 'especially the heels' clause in this subtask."
-            }
-          ]
-        },
-        {
-          title: "Repeat after the mu'adhdhin and make du'a after the adhan",
-          done: false,
-          tier: "T2",
-          amanahRationale: "Direct prophetic instruction with two sahih sources.",
-          why: "Responding to the adhan is an easy sunnah with an immense reward: the Prophet \uFDFA said that whoever says the post-adhan du'a will receive his intercession on the Day of Judgement. Every muezzin\u2019s call is therefore an open door to shafa'ah.",
-          how: "When you hear the adhan, pause and repeat each phrase after the muezzin \u2014 except at 'Hayya \u02bbala as-salah' and 'Hayya \u02bbala al-falah', where you say 'La hawla wa la quwwata illa billah'. After the adhan ends, send salawat on the Prophet \uFDFA, then recite the post-adhan du'a (the 'al-wasilah' du\u02bba).",
-          sources: [
-            {
-              kind: "hadith",
-              ref: "Sahih al-Bukhari 611",
-              arabic: "قَالَ رَسُولُ اللَّهِ ﷺ \"إِذَا سَمِعْتُمُ النِّدَاءَ فَقُولُوا مِثْلَ مَا يَقُولُ الْمُؤَذِّنُ\".",
-              translation: "Narrated Abu Sa'id al-Khudri (RA): Allah's Messenger \uFDFA said, \"Whenever you hear the adhan, say what the muezzin is saying.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Explicit prophetic command to repeat after the muezzin \u2014 the textual basis for the first half of this subtask."
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih al-Bukhari 614",
-              arabic: "قَالَ رَسُولُ اللَّهِ ﷺ \"مَنْ قَالَ حِينَ يَسْمَعُ النِّدَاءَ: اللَّهُمَّ رَبَّ هَذِهِ الدَّعْوَةِ التَّامَّةِ وَالصَّلاَةِ الْقَائِمَةِ آتِ مُحَمَّدًا الْوَسِيلَةَ وَالْفَضِيلَةَ وَابْعَثْهُ مَقَامًا مَحْمُودًا الَّذِي وَعَدْتَهُ، حَلَّتْ لَهُ شَفَاعَتِي يَوْمَ الْقِيَامَةِ\".",
-              translation: "Narrated Jabir ibn Abdullah (RA): Allah's Messenger \uFDFA said, \"Whoever, upon hearing the adhan, says: 'O Allah, Lord of this perfect call and of the prayer to be established, grant Muhammad al-wasilah and al-fadilah, and raise him to the praiseworthy station which You promised him,' \u2014 my intercession on the Day of Resurrection will be permitted for him.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Gives the exact wording of the post-adhan du\u02bba and ties it to the Prophet\u2019s intercession \u2014 the textual basis for the second half of this subtask."
             }
           ]
         },
@@ -4216,36 +4216,6 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
       description: "The Prophet \u2ADC never ended Witr without three tasbihs of 'Subhanal-Malikil-Quddus', taught the Qunut du'a of Witr to al-Hasan ibn Ali, and pointed to the last third of the night as the hour of Allah's descent \u2014 the moment of answered du'a and granted forgiveness. These close the night in the way the Messenger ﷺ closed his.",
       subtasks: [
         {
-          title: "Say 'Subhanal-Malikil-Quddus' three times after Witr, lengthening the third",
-          done: false,
-          tier: "T1",
-          amanahRationale: "Sunan an-Nasa'i 1733 / Sunan Abi Dawud 1430 record Ubayy ibn Ka'b's testimony to the Prophet's \uFDFA exact post-Witr adhkar.",
-          why: "The Sovereign and the Holy \u2014 the two names that seal a night of worship by returning all sovereignty and all purity to their Owner. The lengthening of the third is prophetic emphasis, not mere repetition.",
-          how: "After the salam of Witr, remain seated. Say 'Subhanal-Malikil-Quddus' thrice, pronouncing the third with deliberate length. Then proceed to other adhkar or du'a.",
-          sources: [
-            {
-              kind: 'hadith',
-              ref: "Sunan an-Nasa'i 1733",
-              arabic: 'عَنْ أُبَيِّ بْنِ كَعْبٍ قَالَ كَانَ رَسُولُ اللَّهِ ﷺ إِذَا سَلَّمَ فِي الْوِتْرِ قَالَ \u201Cسُبْحَانَ الْمَلِكِ الْقُدُّوسِ\u201D ثَلَاثَ مَرَّاتٍ، يُطِيلُ فِي آخِرِهِنَّ.',
-              translation: "Ubayy ibn Ka'b (RA) reported: When the Messenger of Allah \uFDFA gave the salam in witr, he would say, \"Subhana al-Malik al-Quddus\" (\"Glory to the Sovereign, the Most Holy\") three times, lengthening the last of them.",
-              relevance: 'direct',
-              provenanceTier: 'Bayyinah',
-              hadithGrade: 'Sahih',
-              rationale: "Direct prophetic practice for post-Witr adhkar \u2014 including the deliberate lengthening of the third repetition."
-            },
-            {
-              kind: 'hadith',
-              ref: 'Sunan Abi Dawud 1430',
-              arabic: 'عَنْ عَبْدِ الرَّحْمَنِ بْنِ أَبْزَى قَالَ كَانَ النَّبِيُّ ﷺ يَقُولُ إِذَا سَلَّمَ مِنَ الْوِتْرِ \u201Cسُبْحَانَ الْمَلِكِ الْقُدُّوسِ\u201D ثَلَاثَ مَرَّاتٍ، وَيَمُدُّ بِهَا صَوْتَهُ فِي الثَّالِثَةِ.',
-              translation: "Abd ar-Rahman ibn Abza (RA) reported: When the Prophet \uFDFA gave the salam in witr, he would say \"Subhana al-Malik al-Quddus\" three times, raising his voice on the third.",
-              relevance: 'contextual',
-              provenanceTier: 'Bayyinah',
-              hadithGrade: 'Sahih',
-              rationale: "Second sahih chain confirming both the formula and the vocal lengthening on the third \u2014 strengthens the basis to mutawatir-adjacent."
-            }
-          ]
-        },
-        {
           title: "Recite the Witr Qunut du'a ('Allahumma-hdini fi man hadayt...')",
           done: false,
           tier: "T2",
@@ -4272,6 +4242,36 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
               provenanceTier: 'Bayyinah',
               hadithGrade: 'Hasan',
               rationale: "Tirmidhi's explicit assessment that no other Qunut text is more authentic \u2014 strengthens exclusivity of this formula."
+            }
+          ]
+        },
+        {
+          title: "Say 'Subhanal-Malikil-Quddus' three times after Witr, lengthening the third",
+          done: false,
+          tier: "T1",
+          amanahRationale: "Sunan an-Nasa'i 1733 / Sunan Abi Dawud 1430 record Ubayy ibn Ka'b's testimony to the Prophet's \uFDFA exact post-Witr adhkar.",
+          why: "The Sovereign and the Holy \u2014 the two names that seal a night of worship by returning all sovereignty and all purity to their Owner. The lengthening of the third is prophetic emphasis, not mere repetition.",
+          how: "After the salam of Witr, remain seated. Say 'Subhanal-Malikil-Quddus' thrice, pronouncing the third with deliberate length. Then proceed to other adhkar or du'a.",
+          sources: [
+            {
+              kind: 'hadith',
+              ref: "Sunan an-Nasa'i 1733",
+              arabic: 'عَنْ أُبَيِّ بْنِ كَعْبٍ قَالَ كَانَ رَسُولُ اللَّهِ ﷺ إِذَا سَلَّمَ فِي الْوِتْرِ قَالَ \u201Cسُبْحَانَ الْمَلِكِ الْقُدُّوسِ\u201D ثَلَاثَ مَرَّاتٍ، يُطِيلُ فِي آخِرِهِنَّ.',
+              translation: "Ubayy ibn Ka'b (RA) reported: When the Messenger of Allah \uFDFA gave the salam in witr, he would say, \"Subhana al-Malik al-Quddus\" (\"Glory to the Sovereign, the Most Holy\") three times, lengthening the last of them.",
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              rationale: "Direct prophetic practice for post-Witr adhkar \u2014 including the deliberate lengthening of the third repetition."
+            },
+            {
+              kind: 'hadith',
+              ref: 'Sunan Abi Dawud 1430',
+              arabic: 'عَنْ عَبْدِ الرَّحْمَنِ بْنِ أَبْزَى قَالَ كَانَ النَّبِيُّ ﷺ يَقُولُ إِذَا سَلَّمَ مِنَ الْوِتْرِ \u201Cسُبْحَانَ الْمَلِكِ الْقُدُّوسِ\u201D ثَلَاثَ مَرَّاتٍ، وَيَمُدُّ بِهَا صَوْتَهُ فِي الثَّالِثَةِ.',
+              translation: "Abd ar-Rahman ibn Abza (RA) reported: When the Prophet \uFDFA gave the salam in witr, he would say \"Subhana al-Malik al-Quddus\" three times, raising his voice on the third.",
+              relevance: 'contextual',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              rationale: "Second sahih chain confirming both the formula and the vocal lengthening on the third \u2014 strengthens the basis to mutawatir-adjacent."
             }
           ]
         },

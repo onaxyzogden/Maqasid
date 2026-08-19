@@ -13,14 +13,29 @@
 // actionable. Everything else is visible but locked. Chain order is the CURATED
 // SEED ORDER (`task.seedOrder`, see orderBoardTasks), falling back to persisted
 // array order for tasks that have none; the display label `task.n` is never
-// consulted for sequencing. "Not today" snoozes the whole current task, so its board drops out
+// consulted for sequencing.
+//
+// TWO orders, both declared elsewhere and both honoured here. Which BOARD a
+// pillar surfaces is the canonical module order (see orderPillarBoards) — the
+// order the pillar's modules appear in the level navigators and the sidebar.
+// Which TASK that board surfaces is the curated seed chain above. Neither is
+// alphabetical, and neither is array order.
+//
+// "Not today" snoozes the whole current task, so its board drops out
 // for the day and selection falls through to the next actionable board in the
 // pillar, then to the next pillar.
+//
+// The Prophetic Path node popup defers a single STEP instead ("Not now" writes
+// snoozedUntilDayKey on the subtask). That never drops the board: the chain
+// advances past the step, and past the whole task once no step in it is
+// reachable today (see isTaskDeferredToday). The two are kept apart on purpose
+// — a whole-task snooze is "not this board today", a step defer is "not this
+// step now".
 //
 // Pure functions only — no React, no Zustand subscriptions. Callers pass in
 // `projects`/`tasksByProject` snapshots read from the stores.
 
-import { MAQASID_CORE_PILLARS, getPillarById } from './maqasid';
+import { MAQASID_CORE_PILLARS, getPillarById, getPillarBoardSegments } from './maqasid';
 import { resolveSubmoduleFromProject } from './maqasid-resolve';
 import { getProjectLevel } from '../store/task-store';
 
@@ -60,39 +75,93 @@ export function isTaskSnoozedToday(task, todayKey) {
   return !!(task?.snoozedUntilDayKey && todayKey && task.snoozedUntilDayKey === todayKey);
 }
 
-// Index of a board's current task = first task (in ARRAY ORDER) not yet
-// complete. -1 ⇒ every task is complete (the board is done). Array order is the
-// whole sequence; priority and `task.n` are never consulted here.
-export function findCurrentTaskIndex(tasks) {
-  return (tasks ?? []).findIndex((t) => !isTaskComplete(t));
+// A task is DEFERRED for today when it still has real work but none of it is
+// reachable now — every unsatisfied subtask was set aside with the popup's
+// per-step "Not now". Deliberately NOT completion: isTaskComplete stays the
+// honest "all satisfied" verdict, and getPillarTierSubtaskStats keeps counting
+// progress off isSubtaskSatisfied alone, so a deferred task can never inflate a
+// pillar ratio.
+//
+// Task-level `snoozedUntilDayKey` is EXCLUDED on purpose. That is Orientation's
+// "Not today", and it works by dropping the whole BOARD out of selection via
+// deriveBoardSequence's `actionable` flag — the cross-pillar fall-through
+// depends on the chain NOT advancing past it. Only subtask-level deferral
+// (which Orientation never writes) rolls the chain forward.
+export function isTaskDeferredToday(task, todayKey) {
+  const subs = task?.subtasks ?? [];
+  if (subs.length === 0) return false;
+  if (subs.every(isSubtaskSatisfied)) return false; // genuinely complete
+  return !subs.some((st) => isSubtaskEligible(st, todayKey));
 }
 
-// Index of the current subtask within a task = first not-satisfied subtask.
-// -1 ⇒ the task is complete.
-export function findCurrentSubtaskIndex(task) {
-  return (task?.subtasks ?? []).findIndex((st) => !isSubtaskSatisfied(st));
+// Settled = nothing left to do on this task today, whether because it is
+// finished or because every remaining step was deferred. This is what the chain
+// walks past; `isTaskComplete` is what progress counts.
+export function isTaskSettledToday(task, todayKey) {
+  return isTaskComplete(task) || isTaskDeferredToday(task, todayKey);
 }
 
-// Display state of a task pill relative to the board's current task. `snoozed`
-// is latent under cross-board selection (a board whose current task is snoozed
-// is skipped, not surfaced) but kept so the model — and any future surface that
-// does show it — stays honest.
+// Index of a board's current task = first task (in ARRAY ORDER) not yet settled
+// for today. -1 ⇒ nothing left on the board. Array order is the whole sequence;
+// priority and `task.n` are never consulted here.
+//
+// `todayKey` is OPTIONAL and behaviour-preserving when omitted: with a falsy
+// key, isSubtaskEligible(st, undefined) reduces to !isSubtaskSatisfied(st), so
+// isTaskDeferredToday can only return false and the predicate collapses to the
+// original !isTaskComplete(t). Same opt-in pattern as findCurrentSubtaskIndex.
+export function findCurrentTaskIndex(tasks, todayKey) {
+  return (tasks ?? []).findIndex((t) => !isTaskSettledToday(t, todayKey));
+}
+
+// Index of the current subtask within a task = first ELIGIBLE subtask (not
+// satisfied, and not deferred today). -1 ⇒ nothing actionable in this task
+// right now. `todayKey` is OPTIONAL: every existing caller omits it, and
+// isSubtaskEligible(st, undefined) is byte-identical to the old "first
+// not-satisfied" rule (isSubtaskSnoozedToday short-circuits on a falsy
+// todayKey) — so this signature change is behaviour-preserving for them.
+// A caller that DOES pass todayKey (the node popup's per-subtask "Not now")
+// gets the flow advancing past a step deferred today instead of stalling on it.
+export function findCurrentSubtaskIndex(task, todayKey) {
+  return (task?.subtasks ?? []).findIndex((st) => isSubtaskEligible(st, todayKey));
+}
+
+// Display state of a task pill relative to the board's current task.
+//
+// The deferred check comes FIRST, mirroring subtaskChipState below and for the
+// same reason one level up: once findCurrentTaskIndex walks past a task whose
+// every remaining step was deferred, that task sits BEHIND the current index,
+// and the positional rule on the next line would paint it done/green — work
+// that was set aside, not finished.
+//
+// Task-level snooze (Orientation's "Not today") never advances the index, so it
+// is still resolved in the `index === currentTaskIndex` branch.
 export function taskPillState(index, currentTaskIndex, task, todayKey) {
+  if (isTaskDeferredToday(task, todayKey)) return 'snoozed';
   if (currentTaskIndex < 0 || index < currentTaskIndex) return 'done';
   if (index > currentTaskIndex) return 'locked';
   return isTaskSnoozedToday(task, todayKey) ? 'snoozed' : 'current';
 }
 
-// Display state of a subtask chip relative to the current subtask.
-export function subtaskChipState(index, currentSubtaskIndex) {
+// Display state of a subtask chip relative to the current subtask. `subtask` /
+// `todayKey` are OPTIONAL: a caller that omits them gets the pure positional
+// verdict (Orientation's historical behaviour — todayKey is never threaded
+// through buildOrientationCarousel on purpose, so subtask-level snooze stays
+// inert there). A caller that passes them gets `snoozed` checked FIRST — a
+// step deferred with "Not now" sits BEHIND the current index once the flow
+// advances past it, so the positional rule alone would paint it done/green.
+export function subtaskChipState(index, currentSubtaskIndex, subtask, todayKey) {
+  if (isSubtaskSnoozedToday(subtask, todayKey)) return 'snoozed';
   if (currentSubtaskIndex < 0 || index < currentSubtaskIndex) return 'done';
   if (index > currentSubtaskIndex) return 'locked';
   return 'current';
 }
 
-// Spreadsheet-style label (A…Z, AA, AB, …) so a long task chain never produces a
-// non-letter glyph past 'Z'.
-function taskLetter(index) {
+// Spreadsheet-style label (A…Z, AA, AB, …) so a long chain never produces a
+// non-letter glyph past 'Z'. Labels the SUBTASK steps: the outline reads
+// numbered tasks (1, 2, 3…) with lettered steps (A, B, C…) beneath them. Seeded
+// tasks top out at 8 subtasks, but a user can add more, so the wrap past 'Z'
+// stays.
+function alphaLabel(index) {
   let n = index;
   let out = '';
   do {
@@ -134,27 +203,58 @@ export function orderBoardTasks(tasks) {
     .map((row) => row.task);
 }
 
-// Decorate an ordered task list with stepper display state + letter labels —
-// the [{ task, state, letter }] shape TaskStepper renders. Takes the list in
+// Canonical BOARD order within one pillar — `orderBoardTasks`'s sibling, one
+// level up. Board ids are `{pillar}_{segment}_{level}`, and the segment order
+// comes from `getPillarBoardSegments`: the same module order the pillar is
+// presented in everywhere else (the level navigators, the sidebar, and
+// `PILLAR_SUBMODULES` in submodule-registry.js all agree with it).
+//
+// This walk used to be `id.localeCompare`, which is not an order anyone
+// declared — it is just how the strings happen to sort. That put Hajj ahead of
+// Shahada on Faith, Circulation ahead of Earning on Wealth, Home ahead of
+// Marriage on Family, and Mental ahead of Physical on Health: six of the seven
+// pillars opened Orientation on the wrong module.
+//
+// A board whose segment is NOT in the pillar's canonical list sorts after the
+// whole list, ties broken by id so the walk stays deterministic. That covers
+// user-created boards and the nine `ummah_moontrance-*` boards, which sit under
+// the `ummah_` prefix without being one of the Maqasid.
+export function orderPillarBoards(pillarId, projects) {
+  const segments = getPillarBoardSegments(pillarId);
+  const list = projects ?? [];
+  return list
+    .map((project, index) => {
+      const rank = segments.indexOf(String(project?.id ?? '').split('_')[1] ?? '');
+      return { project, index, rank: rank === -1 ? segments.length : rank };
+    })
+    .sort((a, b) => a.rank - b.rank
+      || String(a.project?.id ?? '').localeCompare(String(b.project?.id ?? ''))
+      || a.index - b.index)
+    .map((row) => row.project);
+}
+
+// Decorate an ordered task list with stepper display state + position labels —
+// the [{ task, state, label }] shape TaskStepper renders. Tasks are NUMBERED
+// (1, 2, 3…); their subtasks are lettered one level down. Takes the list in
 // the order it is given — it does NOT sort, so every caller that owns a single
 // board must pass it through orderBoardTasks first (NodePhaseSlideUp's prayer
 // branch does). Board-free so a merged cross-project pool (the same popup's
 // non-prayer branch) can use it too.
 export function decorateTaskChain(tasks, todayKey) {
   const list = tasks ?? [];
-  const currentTaskIndex = findCurrentTaskIndex(list);
+  const currentTaskIndex = findCurrentTaskIndex(list, todayKey);
   return {
     currentTaskIndex,
     items: list.map((task, i) => ({
       task,
       state: taskPillState(i, currentTaskIndex, task, todayKey),
-      letter: taskLetter(i),
+      label: String(i + 1),
     })),
   };
 }
 
 // The full ordered task chain for one board, each task carrying its stepper
-// display state + letter label. `actionable` is true only when the board has a
+// display state + number label. `actionable` is true only when the board has a
 // current task that is NOT snoozed today — i.e. there is a step to act on now.
 export function deriveBoardSequence(project, tasks, todayKey) {
   const list = orderBoardTasks(tasks);
@@ -171,14 +271,17 @@ export function deriveBoardSequence(project, tasks, todayKey) {
   };
 }
 
-// The ordered subtask "steps" of a task, each with its chip display state.
-export function deriveSubtaskSteps(task) {
-  const currentSubtaskIndex = findCurrentSubtaskIndex(task);
+// The ordered subtask "steps" of a task, each with its chip display state and
+// its LETTER label (A, B, C…) — the level below decorateTaskChain's numbers.
+// `todayKey` optional — see findCurrentSubtaskIndex / subtaskChipState.
+export function deriveSubtaskSteps(task, todayKey) {
+  const currentSubtaskIndex = findCurrentSubtaskIndex(task, todayKey);
   return {
     currentSubtaskIndex,
     steps: (task?.subtasks ?? []).map((subtask, i) => ({
       subtask,
-      state: subtaskChipState(i, currentSubtaskIndex),
+      state: subtaskChipState(i, currentSubtaskIndex, subtask, todayKey),
+      label: alphaLabel(i),
     })),
   };
 }
@@ -242,17 +345,16 @@ function rankPillars(projects, tasksByProject) {
 }
 
 // The board (project) a pillar+tier should surface right now under sequential
-// locking. Boards are walked id-deterministically; a fully-complete board (no
-// current task) is skipped. The FIRST board whose current task is actionable
-// today wins. If none is actionable but some have only a snoozed current task,
-// the first such board is returned as a display fallback (its `seq.actionable`
-// is false) — callers that need real work check `seq.actionable` and fall
-// through. Returns { project, seq } or null when the pillar+tier has no
-// incomplete board at all.
+// locking. Boards are walked in CANONICAL MODULE ORDER (see orderPillarBoards),
+// so Faith reads Shahada → Salah → Zakah → Siyam → Hajj, exactly as the pillar
+// is presented everywhere else; a fully-complete board (no current task) is
+// skipped. The FIRST board whose current task is actionable today wins. If none
+// is actionable but some have only a snoozed current task, the first such board
+// is returned as a display fallback (its `seq.actionable` is false) — callers
+// that need real work check `seq.actionable` and fall through. Returns
+// { project, seq } or null when the pillar+tier has no incomplete board at all.
 export function findActiveBoardInPillarTier(pillarId, tier, projects, tasksByProject, todayKey) {
-  const tierProjects = getPillarProjectsAtTier(pillarId, tier, projects)
-    .slice()
-    .sort((a, b) => a.id.localeCompare(b.id));
+  const tierProjects = orderPillarBoards(pillarId, getPillarProjectsAtTier(pillarId, tier, projects));
   let fallback = null;
   for (const project of tierProjects) {
     const seq = deriveBoardSequence(project, tasksByProject[project.id] || [], todayKey);

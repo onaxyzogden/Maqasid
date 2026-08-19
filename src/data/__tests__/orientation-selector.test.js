@@ -5,11 +5,14 @@ import {
   isSubtaskSnoozedToday,
   isTaskComplete,
   isTaskSnoozedToday,
+  isTaskDeferredToday,
+  isTaskSettledToday,
   findCurrentTaskIndex,
   findCurrentSubtaskIndex,
   taskPillState,
   subtaskChipState,
   orderBoardTasks,
+  orderPillarBoards,
   decorateTaskChain,
   deriveBoardSequence,
   deriveSubtaskSteps,
@@ -20,7 +23,8 @@ import {
   recommendOrientation,
   buildOrientationCarousel,
 } from '../orientation-selector';
-import { MAQASID_CORE_PILLARS } from '../maqasid';
+import { MAQASID_CORE_PILLARS, getPillarBoardSegments } from '../maqasid';
+import { getPillarBoardIds } from '../submodule-registry';
 
 const TODAY = '2026-07-23';
 
@@ -110,6 +114,34 @@ describe('task-level predicates (sequential locking)', () => {
     expect(isTaskSnoozedToday(task('t', [subtask('a')], { snoozedUntilDayKey: '2026-07-22' }), TODAY)).toBe(false);
     expect(isTaskSnoozedToday(task('t', [subtask('a')]), TODAY)).toBe(false);
   });
+
+  it('isTaskDeferredToday: unfinished work, none of it reachable today', () => {
+    const t = task('t', [subtask('a', { done: true }), subtask('b', { snoozedUntilDayKey: TODAY })]);
+    expect(isTaskDeferredToday(t, TODAY)).toBe(true);
+    // still incomplete — deferral is not completion
+    expect(isTaskComplete(t)).toBe(false);
+    // one step still reachable ⇒ not deferred
+    expect(isTaskDeferredToday(task('t', [subtask('a', { snoozedUntilDayKey: TODAY }), subtask('b')]), TODAY)).toBe(false);
+    // omitting todayKey makes it inert
+    expect(isTaskDeferredToday(t)).toBe(false);
+  });
+
+  it('isTaskDeferredToday: a finished task is complete, never deferred', () => {
+    expect(isTaskDeferredToday(task('t', [subtask('a', { done: true })]), TODAY)).toBe(false);
+    expect(isTaskDeferredToday(task('t', []), TODAY)).toBe(false);
+  });
+
+  it('isTaskDeferredToday ignores the TASK-level snooze — that drops the board, not the step', () => {
+    const t = task('t', [subtask('a')], { snoozedUntilDayKey: TODAY });
+    expect(isTaskDeferredToday(t, TODAY)).toBe(false);
+    expect(isTaskSnoozedToday(t, TODAY)).toBe(true);
+  });
+
+  it('isTaskSettledToday covers both complete and deferred', () => {
+    expect(isTaskSettledToday(task('t', [subtask('a', { done: true })]), TODAY)).toBe(true);
+    expect(isTaskSettledToday(task('t', [subtask('a', { snoozedUntilDayKey: TODAY })]), TODAY)).toBe(true);
+    expect(isTaskSettledToday(task('t', [subtask('a')]), TODAY)).toBe(false);
+  });
 });
 
 describe('current-step finders (array order, never priority/n)', () => {
@@ -135,9 +167,34 @@ describe('current-step finders (array order, never priority/n)', () => {
     expect(findCurrentTaskIndex([task('t', [subtask('a', { done: true })])])).toBe(-1);
   });
 
+  it('findCurrentTaskIndex walks past a task whose every remaining step is deferred', () => {
+    const tasks = [
+      task('t-a', [subtask('a', { done: true }), subtask('b', { snoozedUntilDayKey: TODAY })]),
+      task('t-b', [subtask('c')]),
+    ];
+    expect(findCurrentTaskIndex(tasks, TODAY)).toBe(1);
+    // omitting todayKey reproduces the old "first not-complete" behaviour
+    expect(findCurrentTaskIndex(tasks)).toBe(0);
+  });
+
+  it('findCurrentTaskIndex does NOT walk past a task-level snooze — that drops the board instead', () => {
+    const tasks = [
+      task('t-a', [subtask('a')], { snoozedUntilDayKey: TODAY }),
+      task('t-b', [subtask('b')]),
+    ];
+    expect(findCurrentTaskIndex(tasks, TODAY)).toBe(0);
+  });
+
   it('findCurrentSubtaskIndex returns the first not-satisfied subtask; -1 when all satisfied', () => {
     expect(findCurrentSubtaskIndex(task('t', [subtask('a', { done: true }), subtask('b'), subtask('c')]))).toBe(1);
     expect(findCurrentSubtaskIndex(task('t', [subtask('a', { done: true }), subtask('b', { notApplicable: true })]))).toBe(-1);
+  });
+
+  it('findCurrentSubtaskIndex skips a subtask deferred today when todayKey is passed', () => {
+    const t = task('t', [subtask('a', { snoozedUntilDayKey: TODAY }), subtask('b')]);
+    expect(findCurrentSubtaskIndex(t, TODAY)).toBe(1);
+    // omitting todayKey reproduces the old "first not-satisfied" behaviour
+    expect(findCurrentSubtaskIndex(t)).toBe(0);
   });
 });
 
@@ -158,11 +215,27 @@ describe('stepper display-state helpers', () => {
     expect(taskPillState(0, -1, task('t', []), TODAY)).toBe('done');
   });
 
+  it('taskPillState: a deferred task the chain walked past reads snoozed, not done', () => {
+    const deferred = task('t', [subtask('a', { done: true }), subtask('b', { snoozedUntilDayKey: TODAY })]);
+    // index 0 sits BEHIND currentTaskIndex 1 — the positional rule alone would say 'done'
+    expect(taskPillState(0, 1, deferred, TODAY)).toBe('snoozed');
+    // and inert without todayKey
+    expect(taskPillState(0, 1, deferred)).toBe('done');
+  });
+
   it('subtaskChipState: done / current / locked by position', () => {
     expect(subtaskChipState(0, 1)).toBe('done');
     expect(subtaskChipState(1, 1)).toBe('current');
     expect(subtaskChipState(2, 1)).toBe('locked');
     expect(subtaskChipState(0, -1)).toBe('done'); // task complete → all done
+  });
+
+  it('subtaskChipState: a step deferred today reads snoozed only when todayKey is passed', () => {
+    const deferred = subtask('a', { snoozedUntilDayKey: TODAY });
+    // positionally "behind" current (index 0 < currentSubtaskIndex 2) — would
+    // read done without the subtask+todayKey args, which is the bug.
+    expect(subtaskChipState(0, 2, deferred, TODAY)).toBe('snoozed');
+    expect(subtaskChipState(0, 2, deferred)).toBe('done'); // no todayKey → inert, matches Orientation
   });
 });
 
@@ -197,7 +270,7 @@ describe('getPillarTierSubtaskStats / getPillarActiveTierRatio', () => {
 });
 
 describe('deriveBoardSequence', () => {
-  it('labels each task with its state + letter and flags the board actionable', () => {
+  it('labels each task with its state + number and flags the board actionable', () => {
     const p = project('wealth_earning_core');
     const tasks = [
       task('t-a', [subtask('a', { done: true })]), // complete → done
@@ -209,7 +282,7 @@ describe('deriveBoardSequence', () => {
     expect(seq.currentTaskIndex).toBe(1);
     expect(seq.actionable).toBe(true);
     expect(seq.tasks.map((t) => t.state)).toEqual(['done', 'current', 'locked']);
-    expect(seq.tasks.map((t) => t.letter)).toEqual(['A', 'B', 'C']);
+    expect(seq.tasks.map((t) => t.label)).toEqual(['1', '2', '3']);
   });
 
   it('is not actionable when the current task is snoozed today', () => {
@@ -223,6 +296,28 @@ describe('deriveBoardSequence', () => {
   it('a fully-complete board has currentTaskIndex -1 and is not actionable', () => {
     const p = project('wealth_earning_core');
     const seq = deriveBoardSequence(p, [task('t', [subtask('a', { done: true })])], TODAY);
+    expect(seq.currentTaskIndex).toBe(-1);
+    expect(seq.actionable).toBe(false);
+  });
+
+  it('rolls forward past a task whose every remaining step was deferred today', () => {
+    const p = project('wealth_earning_core');
+    const seq = deriveBoardSequence(p, [
+      task('t-a', [subtask('a', { done: true }), subtask('b', { snoozedUntilDayKey: TODAY })]),
+      task('t-b', [subtask('c')]),
+    ], TODAY);
+    expect(seq.currentTaskIndex).toBe(1);
+    expect(seq.actionable).toBe(true);
+    // A is set aside for the day, NOT finished — its pill must not read done.
+    expect(seq.tasks.map((t) => t.state)).toEqual(['snoozed', 'current']);
+  });
+
+  it('a board whose every task is deferred has currentTaskIndex -1 and is not actionable', () => {
+    const p = project('wealth_earning_core');
+    const seq = deriveBoardSequence(p, [
+      task('t-a', [subtask('a', { snoozedUntilDayKey: TODAY })]),
+      task('t-b', [subtask('b', { snoozedUntilDayKey: TODAY })]),
+    ], TODAY);
     expect(seq.currentTaskIndex).toBe(-1);
     expect(seq.actionable).toBe(false);
   });
@@ -287,6 +382,100 @@ describe('orderBoardTasks (curated seed order)', () => {
   });
 });
 
+describe('orderPillarBoards (canonical module order)', () => {
+  it('walks Faith as Shahada → Salah → Zakah → Siyam → Hajj, not alphabetically', () => {
+    // Alphabetically these ids read hajj, salah, shahada, siyam, zakah — which
+    // is why Orientation used to open Faith on a Hajj task. Shuffled on input
+    // so neither array order nor id order can pass this by accident.
+    const projects = [
+      project('faith_siyam_core'),
+      project('faith_hajj_core'),
+      project('faith_shahada_core'),
+      project('faith_zakah_core'),
+      project('faith_salah_core'),
+    ];
+    expect(orderPillarBoards('faith', projects).map((p) => p.id)).toEqual([
+      'faith_shahada_core',
+      'faith_salah_core',
+      'faith_zakah_core',
+      'faith_siyam_core',
+      'faith_hajj_core',
+    ]);
+  });
+
+  it('orders every other pillar by its declared modules, not by id', () => {
+    const first = (pillarId, ids) => orderPillarBoards(pillarId, ids.map(project))[0].id;
+    // Each list is given in ALPHABETICAL order, so a passing assertion proves
+    // the sort moved something.
+    expect(first('health', ['health_mental_core', 'health_physical_core', 'health_safety_core', 'health_social_core']))
+      .toBe('health_physical_core');
+    expect(first('intellect', ['intellect_cognitive_core', 'intellect_learning_core', 'intellect_professional_core', 'intellect_thinking_core']))
+      .toBe('intellect_learning_core');
+    expect(first('family', ['family_home_core', 'family_kinship_core', 'family_marriage_core', 'family_parenting_core']))
+      .toBe('family_marriage_core');
+    expect(first('wealth', ['wealth_circulation_core', 'wealth_earning_core', 'wealth_financial_core', 'wealth_ownership_core']))
+      .toBe('wealth_earning_core');
+    expect(first('environment', ['environment_ecosystem_core', 'environment_resource_core', 'environment_sourcing_core', 'environment_waste_core']))
+      .toBe('environment_resource_core');
+    expect(first('ummah', ['ummah_collective_core', 'ummah_community_core', 'ummah_neighbors_core']))
+      .toBe('ummah_collective_core');
+  });
+
+  it('sorts Community canonically, so Neighbors precedes Community', () => {
+    const projects = ['ummah_community_core', 'ummah_neighbors_core', 'ummah_collective_core'].map(project);
+    expect(orderPillarBoards('ummah', projects).map((p) => p.id))
+      .toEqual(['ummah_collective_core', 'ummah_neighbors_core', 'ummah_community_core']);
+  });
+
+  it('puts a board with no canonical segment after the whole declared list', () => {
+    // The Moontrance boards sit under the `ummah_` prefix without being one of
+    // the Maqasid, so they must never outrank a real Community module.
+    const projects = [
+      project('ummah_moontrance-land_core'),
+      project('ummah_neighbors_core'),
+      project('ummah_collective_core'),
+    ];
+    expect(orderPillarBoards('ummah', projects).map((p) => p.id))
+      .toEqual(['ummah_collective_core', 'ummah_neighbors_core', 'ummah_moontrance-land_core']);
+  });
+
+  it('breaks ties among unknown segments by id, so the walk stays deterministic', () => {
+    const projects = [
+      project('ummah_moontrance-seasonal_core'),
+      project('ummah_moontrance-land_core'),
+      project('ummah_collective_core'),
+    ];
+    expect(orderPillarBoards('ummah', projects).map((p) => p.id)).toEqual([
+      'ummah_collective_core',
+      'ummah_moontrance-land_core',
+      'ummah_moontrance-seasonal_core',
+    ]);
+  });
+
+  it('tolerates an unknown pillar and a null list', () => {
+    const projects = [project('nope_b_core'), project('nope_a_core')];
+    // No declared order at all → every board is unranked, id decides.
+    expect(orderPillarBoards('nope', projects).map((p) => p.id)).toEqual(['nope_a_core', 'nope_b_core']);
+    expect(orderPillarBoards('faith', null)).toEqual([]);
+  });
+
+  it('agrees with submodule-registry for all seven pillars (drift guard)', () => {
+    // getPillarBoardSegments derives from maqasid.js `subModuleIds`;
+    // getPillarBoardIds derives from PILLAR_SUBMODULES in submodule-registry.js.
+    // The selector reads the first because the second imports page constants —
+    // this pins the two declarations together so the copies cannot rot apart.
+    for (const pillar of MAQASID_CORE_PILLARS) {
+      const boardIds = getPillarBoardIds(pillar.id, 'core');
+      const fromSegments = getPillarBoardSegments(pillar.id)
+        .map((segment) => `${pillar.id}_${segment}_core`)
+        // subModuleIds also carries non-board entries (`sources`,
+        // `family-office`, `work`/`money`/…); keep only what is a real board.
+        .filter((id) => boardIds.includes(id));
+      expect(fromSegments).toEqual(boardIds);
+    }
+  });
+});
+
 describe('deriveSubtaskSteps', () => {
   it('marks done/current/locked chips and reports the current index', () => {
     const t = task('t', [subtask('x', { done: true }), subtask('y'), subtask('z')]);
@@ -294,6 +483,19 @@ describe('deriveSubtaskSteps', () => {
     expect(currentSubtaskIndex).toBe(1);
     expect(steps.map((s) => s.state)).toEqual(['done', 'current', 'locked']);
     expect(steps.map((s) => s.subtask.id)).toEqual(['x', 'y', 'z']);
+    // Steps are LETTERED, one level under the numbered task chain.
+    expect(steps.map((s) => s.label)).toEqual(['A', 'B', 'C']);
+  });
+
+  it('with todayKey, a deferred step reads snoozed and the flow advances past it', () => {
+    const t = task('t', [
+      subtask('x', { done: true }),
+      subtask('y', { snoozedUntilDayKey: TODAY }),
+      subtask('z'),
+    ]);
+    const { currentSubtaskIndex, steps } = deriveSubtaskSteps(t, TODAY);
+    expect(currentSubtaskIndex).toBe(2);
+    expect(steps.map((s) => s.state)).toEqual(['done', 'snoozed', 'current']);
   });
 });
 
@@ -304,6 +506,28 @@ describe('findActiveBoardInPillarTier / findNextEligibleSubtask', () => {
     expect(found.project.id).toBe('health_physical_core');
     expect(found.seq.actionable).toBe(true);
     expect(found.seq.currentTaskIndex).toBe(0);
+  });
+
+  it('surfaces Shahada over Hajj when both are actionable (the reported bug)', () => {
+    const projects = [project('faith_hajj_core'), project('faith_shahada_core')];
+    const tasksByProject = {
+      faith_hajj_core: [task('t-hajj', [subtask('a')])],
+      faith_shahada_core: [task('t-shahada', [subtask('b')])],
+    };
+    const found = findActiveBoardInPillarTier('faith', 'core', projects, tasksByProject, TODAY);
+    expect(found.project.id).toBe('faith_shahada_core');
+    expect(found.seq.actionable).toBe(true);
+  });
+
+  it('falls through to the next CANONICAL board once Shahada is complete, not the next alphabetical one', () => {
+    const projects = ['faith_hajj_core', 'faith_salah_core', 'faith_shahada_core'].map(project);
+    const tasksByProject = {
+      faith_hajj_core: [task('t-hajj', [subtask('a')])],
+      faith_salah_core: [task('t-salah', [subtask('b')])],
+      faith_shahada_core: [task('t-shahada', [subtask('c', { done: true })])],
+    };
+    const found = findActiveBoardInPillarTier('faith', 'core', projects, tasksByProject, TODAY);
+    expect(found.project.id).toBe('faith_salah_core');
   });
 
   it('skips a fully-complete board and returns the next incomplete one (cross-board)', () => {
@@ -504,7 +728,7 @@ describe('buildOrientationCarousel', () => {
     expect(health.currentTaskIndex).toBe(0);
     expect(health.currentSubtaskIndex).toBe(1);
     expect(health.board.currentTaskIndex).toBe(0);
-    expect(health.board.tasks[0].letter).toBe('A');
+    expect(health.board.tasks[0].label).toBe('1');
     expect(health.board.tasks[0].state).toBe('current');
     // subtask-level snooze is inert now: s3 shows as a locked step, not skipped
     expect(health.steps.map((s) => s.state)).toEqual(['done', 'current', 'locked']);

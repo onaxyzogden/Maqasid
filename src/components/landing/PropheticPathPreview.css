@@ -81,6 +81,26 @@
   text-transform: uppercase;
 }
 
+/* Scroll-progress bar — how far through the day the section has carried you.
+   Driven directly by the rAF-updated --ppp-progress, so it carries no
+   transition of its own: the value itself is already the animation. */
+.ppp-progress {
+  height: 2px;
+  margin: 0 4px 10px;
+  border-radius: 2px;
+  background: var(--ppp-gold-faint);
+  overflow: hidden;
+}
+
+.ppp-progress-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--ppp-gold-soft), var(--ppp-gold));
+  transform: scaleX(var(--ppp-progress, 0));
+  transform-origin: left center;
+}
+
 /* Spine + nodes */
 .ppp-spine-wrap {
   position: relative;

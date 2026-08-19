@@ -5,7 +5,7 @@ import OrientationActions from '../orientation/OrientationActions';
 import { TaskStepper, SubtaskStepper } from '../orientation/OrientationSteppers';
 
 // One-step-at-a-time flow over a sequentially-locked task chain: Task stepper
-// (lettered pills) → Subtask stepper (numbered chips) → <SubtaskStepDetail> for
+// (numbered pills) → Subtask stepper (lettered chips) → <SubtaskStepDetail> for
 // the previewed step → the 3-action footer. Extracted from OrientationSheet so
 // the Orientation sheet and the Prophetic Path node popup share one preview
 // engine (see orientation/CONTEXT.md).
@@ -18,7 +18,7 @@ import { TaskStepper, SubtaskStepper } from '../orientation/OrientationSteppers'
 // viewing the current step.
 //
 // Props:
-//   items          — decorated [{ task, state, letter }] rows (deriveBoardSequence
+//   items          — decorated [{ task, state, label }] rows (deriveBoardSequence
 //                    .tasks or decorateTaskChain(...).items)
 //   resetKey       — identity of the chain (project id, node|phase|module …);
 //                    preview snaps back to the current step when it — or either
@@ -30,6 +30,12 @@ import { TaskStepper, SubtaskStepper } from '../orientation/OrientationSteppers'
 //   onRevert       — (task, subtask) => un-complete the previewed satisfied step
 //   renderShell    — ({ body, footer }) => host chrome; defaults to the
 //                    Orientation sheet's body/footer wrappers
+//   todayKey       — OPTIONAL Islamic-day key (see islamic-day-store.js). When
+//                    supplied, subtask-level `snoozedUntilDayKey` is honoured:
+//                    the flow advances past a step deferred today and its chip
+//                    renders `snoozed` (amber) instead of the positional
+//                    done/locked verdict. Omitted (Orientation) ⇒ inert —
+//                    identical to today's behaviour.
 function defaultShell({ body, footer }) {
   return (
     <>
@@ -50,6 +56,7 @@ export default function SequentialStepFlow({
   onNotToday,
   onRevert,
   renderShell = defaultShell,
+  todayKey = null,
 }) {
   // Which task/subtask the operator is *looking at*. Snaps to the true current
   // step whenever the chain advances (mark done / revert) or a different chain
@@ -78,7 +85,7 @@ export default function SequentialStepFlow({
   const clampedTask = Math.min(Math.max(preview.taskIndex, 0), items.length - 1);
   const previewedTask = items[clampedTask]?.task ?? null;
   const previewedSteps = previewedTask
-    ? deriveSubtaskSteps(previewedTask)
+    ? deriveSubtaskSteps(previewedTask, todayKey)
     : { currentSubtaskIndex: -1, steps: [] };
   const stepCount = previewedSteps.steps.length;
   const clampedSub = stepCount > 0 ? Math.min(Math.max(preview.subtaskIndex, 0), stepCount - 1) : -1;
@@ -95,16 +102,31 @@ export default function SequentialStepFlow({
   // (already satisfied — every non-current, non-ahead step is, since current is
   // the FIRST unsatisfied step)? A chain with no current step at all
   // (currentTaskIndex -1) is entirely behind.
+  //
+  // A step deferred today (`snoozed`) is DISPATCHED, not pending, so it is
+  // classified behind rather than ahead even though findCurrentSubtaskIndex
+  // has skipped past it. Without this: deferring the LAST eligible step of a
+  // task drives currentSubtaskIndex to -1 while currentTaskIndex stays >= 0,
+  // every step in the task reads "ahead", and the whole footer locks with no
+  // way back to the deferred step — a genuine dead end.
+  const previewedSnoozed = previewedSteps.steps[clampedSub]?.state === 'snoozed';
   const chainComplete = currentTaskIndex < 0;
   const viewingCurrent =
     !chainComplete && clampedTask === currentTaskIndex && clampedSub === currentSubtaskIndex;
   const viewingAhead =
-    !chainComplete &&
+    !chainComplete && !previewedSnoozed &&
     (clampedTask > currentTaskIndex ||
       (clampedTask === currentTaskIndex && clampedSub > currentSubtaskIndex));
   const viewingBehind = !viewingCurrent && !viewingAhead;
-  const primaryLabel = viewingCurrent ? 'Mark done' : viewingAhead ? 'Complete prior steps' : 'Completed';
-  // The primary stays enabled on a satisfied step — it is the revert control.
+  const primaryLabel = viewingCurrent
+    ? 'Mark done'
+    : viewingAhead
+    ? 'Complete prior steps'
+    : previewedSnoozed
+    ? 'Resume step'
+    : 'Completed';
+  // The primary stays enabled on a satisfied OR deferred step — both are the
+  // revert control (deferred: un-defer; satisfied: un-complete).
   const primaryDisabled = viewingAhead || (viewingBehind && !previewedSubtask);
   const secondaryDisabled = !viewingCurrent;
   const handlePrimary = viewingCurrent
@@ -115,7 +137,15 @@ export default function SequentialStepFlow({
   // clicking a subtask chip moves within the previewed task.
   const handlePreviewTask = (i) => {
     const t = items[i]?.task;
-    const cur = t ? deriveSubtaskSteps(t).currentSubtaskIndex : -1;
+    const derived = t ? deriveSubtaskSteps(t, todayKey) : { currentSubtaskIndex: -1, steps: [] };
+    // No current step means the task is settled — either finished, or every
+    // remaining step was deferred and the chain has rolled past it. In the
+    // deferred case land on the first deferred step rather than step 0: the pill
+    // is amber precisely because there is work set aside here, and opening on an
+    // already-finished step above it would contradict that. A genuinely complete
+    // task has no deferred step, so it still opens at 0, unchanged.
+    const deferred = derived.steps.findIndex((s) => s.state === 'snoozed');
+    const cur = derived.currentSubtaskIndex >= 0 ? derived.currentSubtaskIndex : deferred;
     setPreview({ taskIndex: i, subtaskIndex: cur < 0 ? 0 : cur });
   };
   const handlePreviewSubtask = (j) => {

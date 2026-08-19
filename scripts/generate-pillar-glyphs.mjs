@@ -30,7 +30,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, resolve } from 'node:path';
-import { createServer } from 'vite';
+import { ssrLoad as ssrLoadModule, closeSsr } from './lib/ssr-load.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO = resolve(HERE, '..');
@@ -208,36 +208,8 @@ function injectRegion(css, variant, body, EOL) {
 // Plain Node ESM can't load it, so evaluate through Vite's SSR loader -- the
 // same resolution the app build uses. This also lets Phase A read `Icon.displayName`
 // off the real lucide component bindings the constants files import.
-let _viteServer;
-async function ssrLoad(rootRelPath) {
-  if (!_viteServer) {
-    // configFile:false is load-bearing: letting createServer load the app's
-    // vite.config.js makes every SSR fetchModule pathologically slow in this
-    // environment (~10-60s per module, tripping the module runner's fixed 60s
-    // transport timeout -- worse with a dev server running). The same config
-    // VALUES passed inline are fast (<150ms/module), so import the app config
-    // directly and reuse its alias map; everything else the generator needs is
-    // Vite's defaults.
-    const appConfig = (await import(pathToFileURL(resolve(REPO, 'vite.config.js')).href)).default;
-    _viteServer = await createServer({
-      configFile: false,
-      root: REPO,
-      appType: 'custom',
-      logLevel: 'silent',
-      server: { middlewareMode: true, hmr: false, watch: null },
-      resolve: { alias: appConfig.resolve.alias },
-      optimizeDeps: { noDiscovery: true },
-    });
-  }
-  return _viteServer.ssrLoadModule(rootRelPath);
-}
-async function closeSsr() {
-  if (_viteServer) {
-    const server = _viteServer;
-    _viteServer = undefined;
-    await server.close();
-  }
-}
+// Shared with generate-landing-demo.mjs; see scripts/lib/ssr-load.mjs.
+const ssrLoad = (rootRelPath) => ssrLoadModule(rootRelPath, REPO);
 
 // ---- data source ----------------------------------------------------------
 // 7 pillars: MAQASID_CORE_PILLARS[].icon is a PascalCase lucide name (string).

@@ -51,6 +51,17 @@
   gap: var(--space-4);
 }
 
+/* Education's two scope switches — submodule above, level below. They stack in
+   a narrow popup and sit side by side when there is room; each row keeps its
+   own .pp-pill-switch wrapping, so a long submodule name never pushes the level
+   pills out of reach. */
+.pp-edu-switches {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
 /* Sits after the scrolling body inside the panel, like .os-sheet__footer. */
 .pp-phase-detail__footer {
   flex-shrink: 0;
