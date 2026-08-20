@@ -6,7 +6,7 @@
 // Before this file existed, every module re-authored its own gloss for the same
 // Name (Al-Hafiz appeared 8 times with 6 different opening paragraphs) and the
 // BBOS stage attributes carried no source at all. Module data now stores only
-// `{ nameKey, application }` — the Name itself is owned here.
+// `{ nameKey, description }` — the Name itself is owned here.
 //
 // `source` mirrors the seeded-subtask grounding schema (docs/grounding-schema.md):
 //   kind            'quran' | 'hadith'
@@ -1088,17 +1088,6 @@ export const DIVINE_NAMES = {
       rationale: 'Allah describes Himself as qarib directly; the nominal form also appears at Quran 11:61.',
     },
   },
-  'at-tahir': {
-    name: 'Aṭ-Ṭāhir', name_ar: 'الطاهر', title: 'The Pure',
-    inNinetyNine: false, needsReview: true,
-    gloss: 'Pure in Himself and accepting only what is pure — cleanliness of substance, not only of surface.',
-    source: {
-      kind: 'hadith', ref: 'Sahih Muslim 1015', arabic: 'إِنَّ اللَّهَ طَيِّبٌ لَا يَقْبَلُ إِلَّا طَيِّبًا',
-      translation: 'Indeed Allah is Pure and accepts only what is pure.',
-      relevance: 'contextual', provenanceTier: 'Qarina',
-      rationale: "At-Tahir is not an established Name of Allah. The attested Name carrying this meaning is At-Tayyib (Sahih Muslim 1015). Flagged for Scholar Council review — the module using it should most likely be re-pointed to at-tayyib.",
-    },
-  },
   'at-tayyib': {
     name: 'Aṭ-Ṭayyib', name_ar: 'الطيب', title: 'The Pure and Wholesome', inNinetyNine: false,
     gloss: 'Pure in Himself and accepting only what is pure — what is earned or given must be clean at its source.',
@@ -1126,11 +1115,14 @@ export function getDivineName(key) {
 }
 
 /**
- * Merge a module's `{ nameKey, application }` entries with the registry.
+ * Merge a module's `{ nameKey, description }` entries with the registry.
  *
- * Returns entries carrying both the new fields (`gloss`, `application`, `source`)
- * and a recomposed `body`, so consumers written against the old shape — the AI
- * prompt builder and the BBOS dashboard adapter — keep working untouched.
+ * The module's `description` is a single authored blend — it leads with what the
+ * Name asks of this module and folds the definition in — so the registry `gloss`
+ * stays the canonical definition of record but is no longer rendered beside it.
+ * `body` is recomposed from description + source line, so consumers written
+ * against the old shape (the AI prompt builder, the BBOS dashboard adapter) keep
+ * working untouched.
  *
  * Entries that already carry a literal `name` (the universal-values layer, which
  * has principles rather than Names) pass through unchanged.
@@ -1151,9 +1143,9 @@ export function hydrateAttrs(attrs) {
       return null;
     }
 
-    const application = attr.application || '';
+    const description = attr.description || '';
     const sourceLine = `Source: ${entry.source.ref} — "${entry.source.translation}"`;
-    const body = [entry.gloss, application, sourceLine].filter(Boolean).join('\n\n');
+    const body = [description, sourceLine].filter(Boolean).join('\n\n');
 
     return {
       nameKey: attr.nameKey,
@@ -1161,7 +1153,7 @@ export function hydrateAttrs(attrs) {
       name_ar: entry.name_ar,
       title: entry.title,
       gloss: entry.gloss,
-      application,
+      description,
       source: entry.source,
       inNinetyNine: entry.inNinetyNine,
       body,

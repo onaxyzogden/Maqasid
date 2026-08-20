@@ -10,11 +10,11 @@ export const BBOS_STAGE_ISLAMIC = {
     attrs: [
       {
         nameKey: 'al-awwal',
-        application: "Al-Awwal precedes all creation. Every business begins not with your decision but with His permission. Founding a venture in His name anchors it to the only source that cannot be taken away.",
+        description: "Every business begins not with your decision but with His permission, and founding a venture in His name anchors it to the only source that cannot be taken away. Al-Awwal is before everything, with nothing before Him — there was no moment in which He was not.",
       },
       {
         nameKey: 'al-badi',
-        application: "Al-Badi creates without precedent. Your foundation need not copy what already exists — it is an invitation for Him to originate something new through your effort and surrender.",
+        description: "Your foundation need not copy what already exists — it is an invitation for Al-Badīʿ, who originates without precedent and copied nothing from a prior pattern, to bring something new through your effort and surrender.",
       },
     ],
     dua: {
@@ -89,11 +89,11 @@ export const BBOS_STAGE_ISLAMIC = {
     attrs: [
       {
         nameKey: 'al-mumin',
-        application: "Al-Mu'min establishes security through truth. Trust in a business is not manufactured — it is earned by consistent truthfulness, authenticated claims, and promises kept. Build your credibility as an act of worship.",
+        description: "Trust in a business is not manufactured — it is earned by consistent truthfulness, authenticated claims and promises kept, so build credibility as an act of worship. Al-Mu'min makes hearts safe and keeps every promise He has made; security is granted by Him, not against Him.",
       },
       {
         nameKey: 'al-wakil',
-        application: "Al-Wakil holds the outcomes. You are responsible for the truth you put into the world; He is responsible for what grows from it. Make every claim honest, then trust the Trustee with the result.",
+        description: "You are responsible for the truth you put into the world; He is responsible for what grows from it. Make every claim honest, then hand the result to Al-Wakīl, who disposes of a matter given to Him better than you could — outcomes are His department, not your burden.",
       },
     ],
     dua: {
@@ -168,11 +168,11 @@ export const BBOS_STAGE_ISLAMIC = {
     attrs: [
       {
         nameKey: 'al-musawwir',
-        application: "Al-Musawwir gives shape to creation. Strategy is the act of fashioning form from possibility — defining how things will be arranged. Bring His precision to your operational design.",
+        description: "Strategy is the act of fashioning form from possibility — defining how things will be arranged — so bring precision to your operational design. Al-Muṣawwir gives each created thing its own shape, face and colour: form is assigned, never accidental.",
       },
       {
         nameKey: 'al-mudabbir',
-        application: "Al-Mudabbir arranges all affairs with perfect wisdom. Your strategy is not a substitute for His planning — it is your faithful cooperation with the order He has made possible. Plan thoroughly, then release the arrangement to Him.",
+        description: "Your strategy is not a substitute for His planning but your faithful cooperation with the order He has made possible: plan thoroughly, then release the arrangement. Al-Mudabbir arranges every matter to its proper end — sequence and timing are managed, not left to drift.",
       },
     ],
     dua: {
@@ -247,11 +247,11 @@ export const BBOS_STAGE_ISLAMIC = {
     attrs: [
       {
         nameKey: 'ar-razzaq',
-        application: "All provision flows from Ar-Razzaq. Pricing your offering is an act of stewardship, not extraction — you name a price that reflects genuine value and trust that He will bring the right clients. Greed constricts; trust opens.",
+        description: "Pricing your offering is stewardship, not extraction: name a price that reflects genuine value and trust that the right clients will come. Ar-Razzāq provides for every living thing, so greed constricts what trust opens — the provision was never yours to force.",
       },
       {
         nameKey: 'al-karim',
-        application: "Al-Karim gives beyond what is deserved, with nobility. Build generosity into your offer — not as a loss-leader tactic, but as an expression of His character flowing through your work. Generosity in the offer is barakah in the business.",
+        description: "Build generosity into your offer — not as a loss-leader tactic but as an expression of His character flowing through your work, because generosity in the offer is barakah in the business. Al-Karīm gives without depletion and without being asked, owing the recipient nothing.",
       },
     ],
     dua: {
@@ -326,11 +326,11 @@ export const BBOS_STAGE_ISLAMIC = {
     attrs: [
       {
         nameKey: 'al-hadi',
-        application: "Al-Hadi guides whom He wills to the straight path. Ethical outreach is guidance, not manipulation — you put the right thing in front of the right people and trust Him with who responds. You are not engineering consent; you are extending an invitation.",
+        description: "Ethical outreach is guidance, not manipulation: put the right thing in front of the right people and trust Him with who responds. You are not engineering consent but extending an invitation, because Al-Hādī grants guidance — He shows the way and makes the heart accept it.",
       },
       {
         nameKey: 'an-nur',
-        application: "An-Nur is the Light of the heavens and the earth. Your outreach carries His light when it illuminates a real problem and offers a genuine path forward — not when it uses darkness (fear, scarcity, pressure) to drive action.",
+        description: "Your outreach carries light when it illuminates a real problem and offers a genuine path forward — not when it uses fear, scarcity or pressure to drive action. An-Nūr is the light of the heavens and the earth, illuminating what is real and what to do next.",
       },
     ],
     dua: {
@@ -405,11 +405,11 @@ export const BBOS_STAGE_ISLAMIC = {
     attrs: [
       {
         nameKey: 'as-sami',
-        application: "As-Sami hears every word spoken and every word left unsaid. Sales is not a performance — it is a conversation witnessed by the All-Hearing. Every claim, every promise, and every silence is on the record. Sell as though Allah is listening, because He is.",
+        description: "Sales is not a performance but a conversation witnessed: every claim, every promise and every silence is on the record. As-Samīʿ receives every sound, whisper and unspoken plea, and nothing is ever mislaid on Him — so sell as though Allah is listening, because He is.",
       },
       {
         nameKey: 'al-basir',
-        application: "Al-Basir sees the full reality of the person in front of you — their need, their capacity, their situation. Consultative selling begins with genuine sight: seeing what the prospect actually needs, not what would benefit you most.",
+        description: "Consultative selling begins with genuine sight: seeing what the prospect actually needs, not what would benefit you most — their need, their capacity, their situation. The sight of Al-Baṣīr reaches what no observer, instrument or record could, and nothing is hidden from Him.",
       },
     ],
     dua: {
@@ -484,11 +484,11 @@ export const BBOS_STAGE_ISLAMIC = {
     attrs: [
       {
         nameKey: 'al-muhsin',
-        application: "Al-Muhsin perfects rather than merely fulfils. Delivery with ihsan means exceeding the specification not for commercial advantage but because the work deserves to be done well. Every deliverable is an act of worship when it carries genuine excellence.",
+        description: "Delivery with ihsan exceeds the specification not for commercial advantage but because the work deserves to be done well; every deliverable carrying genuine excellence is an act of worship. Al-Muḥsin does everything with perfect care and prescribes the same care of us.",
       },
       {
         nameKey: 'al-latif',
-        application: "Al-Latif attends to the finest details — the subtleties that others miss. In delivery, this means attending to what the client did not explicitly ask for but genuinely needs: the communication, the care, the quality of presence, the unspoken expectation.",
+        description: "Delivery means attending to what the client did not explicitly ask for but genuinely needs: the communication, the care, the quality of presence, the unspoken expectation. Al-Laṭīf works through details too fine to notice, arriving at exactly the moment they were needed.",
       },
     ],
     dua: {
@@ -563,11 +563,11 @@ export const BBOS_STAGE_ISLAMIC = {
     attrs: [
       {
         nameKey: 'al-wadud',
-        application: "Al-Wadud loves with constancy — not conditional on performance. Client retention rooted in genuine care outlasts retention built on tactics. Love the client enough to tell them hard truths, to invest in their growth, to remember them when there is nothing to sell.",
+        description: "Retention rooted in genuine care outlasts retention built on tactics: love the client enough to tell them hard truths, invest in their growth, remember them when there is nothing to sell. Al-Wadūd loves warmly and steadily, never switching off when a person slips.",
       },
       {
         nameKey: 'al-hafiz',
-        application: "Al-Hafiz preserves and protects what has been entrusted. Every client relationship is an amanah — a trust placed in your care. Retention is faithful stewardship of that trust: remembering, protecting, and nurturing what was built.",
+        description: "Every client relationship is an amanah — a trust placed in your care — and retention is faithful stewardship of it: remembering, protecting and nurturing what was built. Al-Ḥafīẓ keeps and protects what is entrusted to Him, and nothing He guards is ever lost.",
       },
     ],
     dua: {
@@ -642,11 +642,11 @@ export const BBOS_STAGE_ISLAMIC = {
     attrs: [
       {
         nameKey: 'al-hasib',
-        application: "Al-Hasib keeps perfect account of every act. Optimization begins with honest reckoning — what worked, what did not, and why. Fudging the numbers or avoiding the hard truth delays the accountability that Al-Hasib has already completed.",
+        description: "Optimization begins with honest reckoning — what worked, what did not, and why — because fudging the numbers only delays an accountability already complete. Al-Ḥasīb keeps the full account of every act: nothing is lost from that record and nothing is added to it.",
       },
       {
         nameKey: 'al-khabir',
-        application: "Al-Khabir is aware of the subtlest dynamics — the hidden causes, the lagging indicators, the patterns not yet visible. Review your outcomes not just with metrics but with wisdom: what did the results actually tell you, and what did you miss?",
+        description: "Review your outcomes not just with metrics but with wisdom: what did the results actually tell you, and what did you miss? Al-Khabīr knows the inner reality of things — the hidden causes, the lagging indicators, the motive underneath an action explained differently.",
       },
     ],
     dua: {

@@ -32,6 +32,8 @@
   color: var(--text3);
 }
 
+/* The one description. `pre-line` is load-bearing: UNIVERSAL_EQUIV principles
+   pass `{ name, body }` with embedded newlines through this same element. */
 .attr-card-body {
   font-size: var(--text-sm-plus);
   color: var(--text2);
@@ -39,18 +41,7 @@
   white-space: pre-line;
 }
 
-/* Zone 1 — who the Name is. Registry-owned, identical wherever the Name appears.
-   Carries full text colour so it reads as the definition and the application
-   below it reads as commentary; without the contrast the two merge into one
-   block, which is the wall of prose these zones exist to break up. */
-.attr-card-gloss {
-  font-size: var(--text-sm-plus);
-  color: var(--text);
-  line-height: 1.55;
-  margin-bottom: var(--space-2);
-}
-
-/* Zone 3 — the attestation. Quiet by design; present on every Name. */
+/* The attestation. Quiet by design; present on every Name. */
 .attr-card-source {
   display: flex;
   flex-wrap: wrap;

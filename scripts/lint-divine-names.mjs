@@ -2,10 +2,11 @@
 // Ratchet for the Divine Names registry, mirroring lint-grounding.mjs.
 //
 // The registry (src/data/islamic/divine-names.js) is the single canonical
-// definition of each Name. Module data holds only `{ nameKey, application }`.
+// definition of each Name. Module data holds only `{ nameKey, description }`.
 // This gate fails when that contract breaks — an unresolved key, an entry with
-// no attestation, a gloss or application that has drifted long again, or a
-// literal name/body creeping back into module data.
+// no attestation, a gloss or description that has drifted long again, a
+// description that no longer names its Name, or a literal name/body creeping
+// back into module data.
 //
 // Run: node scripts/lint-divine-names.mjs
 // The vitest equivalent is src/data/islamic/__tests__/divine-names.test.js;
@@ -37,7 +38,19 @@ const VALID_TIERS = new Set(['Bayyinah', 'Qarina', 'Niyyah']);
 const VALID_RELEVANCE = new Set(['direct', 'contextual', 'thematic']);
 
 const GLOSS_MAX = 130;
-const APPLICATION_MAX = 280;
+// The description now carries the definition too, so the budget rises while the
+// card's total visible text falls — the win here is redundancy, not length.
+const DESCRIPTION_MAX = 320;
+
+// Strip diacritics and the ʿayn/hamza marks so "Al-Ḥafīẓ" and "Al-Hafiz" compare
+// equal. Both `Al-Walī` and `Al-Wālī` fold to the same string, which is why the
+// registry disambiguates those keys explicitly rather than relying on this.
+const fold = (s) =>
+  s
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[ʿʾ'’`]/g, '')
+    .toLowerCase();
 
 const errors = [];
 const fail = (msg) => errors.push(msg);
@@ -99,9 +112,18 @@ for (const [label, table] of [['MODULE_ATTRS', MODULE_ATTRS], ['BBOS_STAGE_ISLAM
       if (!DIVINE_NAMES[attr.nameKey]) {
         fail(`${where}: nameKey does not resolve in the registry`);
       }
-      if (!attr.application) fail(`${where}: no application paragraph`);
-      else if (attr.application.length > APPLICATION_MAX) {
-        fail(`${where}: application is ${attr.application.length}ch (max ${APPLICATION_MAX})`);
+      if (!attr.description) fail(`${where}: no description paragraph`);
+      else {
+        if (attr.description.length > DESCRIPTION_MAX) {
+          fail(`${where}: description is ${attr.description.length}ch (max ${DESCRIPTION_MAX})`);
+        }
+        // The description is the only place the reader now meets the Name, so it
+        // has to name it. This is what stops an edit quietly reverting to a bare
+        // application with the definition dropped rather than folded in.
+        const entry = DIVINE_NAMES[attr.nameKey];
+        if (entry && !fold(attr.description).includes(fold(entry.name))) {
+          fail(`${where}: description never names ${entry.name} — the definition was dropped, not folded in`);
+        }
       }
       for (const owned of ['name', 'name_ar', 'title', 'gloss', 'body', 'source']) {
         if (attr[owned] !== undefined) {

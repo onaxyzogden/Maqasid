@@ -2,7 +2,7 @@
 //
 // The registry is the single canonical definition of each Name (transliteration,
 // Arabic, title, plain-language gloss, structured attestation). Module data holds
-// only `{ nameKey, application }` and is merged against the registry at the
+// only `{ nameKey, description }` and is merged against the registry at the
 // accessor. These assertions keep that contract honest:
 //
 //   - every nameKey a module references actually resolves
@@ -23,9 +23,21 @@ const VALID_TIERS = new Set(['Bayyinah', 'Qarina', 'Niyyah']);
 const VALID_RELEVANCE = new Set(['direct', 'contextual', 'thematic']);
 
 const GLOSS_MAX = 130;
-const APPLICATION_MAX = 280;
+// The description now carries the definition too, so the budget rises while the
+// card's total visible text falls — the win here is redundancy, not length.
+const DESCRIPTION_MAX = 320;
 
-/** Every `{ nameKey, application }` entry across both data sources. */
+// Strip diacritics and the ʿayn/hamza marks so "Al-Ḥafīẓ" and "Al-Hafiz" compare
+// equal. Both `Al-Walī` and `Al-Wālī` fold to the same string, which is why the
+// registry disambiguates those keys explicitly rather than relying on this.
+const fold = (s) =>
+  s
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[ʿʾ'’`]/g, '')
+    .toLowerCase();
+
+/** Every `{ nameKey, description }` entry across both data sources. */
 function allModuleAttrs() {
   const out = [];
   for (const [id, data] of Object.entries(MODULE_ATTRS)) {
@@ -97,10 +109,10 @@ describe('module attribute entries', () => {
     expect(unresolved).toEqual([]);
   });
 
-  it('carry a nameKey and an application, and nothing the registry owns', () => {
+  it('carry a nameKey and a description, and nothing the registry owns', () => {
     for (const { source, attr } of allModuleAttrs()) {
       expect(attr.nameKey, `${source}: missing nameKey`).toBeTruthy();
-      expect(attr.application, `${source}/${attr.nameKey}: missing application`).toBeTruthy();
+      expect(attr.description, `${source}/${attr.nameKey}: missing description`).toBeTruthy();
       // Name identity lives in the registry — a literal here would silently
       // reintroduce the per-module drift this refactor removed.
       expect(attr.name, `${source}/${attr.nameKey}: literal name`).toBeUndefined();
@@ -109,11 +121,24 @@ describe('module attribute entries', () => {
     }
   });
 
-  it('keep applications short enough to read on a ceremony card', () => {
+  it('keep descriptions short enough to read on a ceremony card', () => {
     const over = allModuleAttrs()
-      .filter(({ attr }) => (attr.application || '').length > APPLICATION_MAX)
-      .map(({ source, attr }) => `${source}/${attr.nameKey} (${attr.application.length}ch)`);
+      .filter(({ attr }) => (attr.description || '').length > DESCRIPTION_MAX)
+      .map(({ source, attr }) => `${source}/${attr.nameKey} (${attr.description.length}ch)`);
     expect(over).toEqual([]);
+  });
+
+  // The description is the only place the reader now meets the Name, so it has to
+  // name it. This is what stops an edit quietly reverting to a bare application
+  // with the definition dropped rather than folded in.
+  it('name their Name inside the description', () => {
+    const silent = allModuleAttrs()
+      .filter(({ attr }) => {
+        const entry = DIVINE_NAMES[attr.nameKey];
+        return entry && !fold(attr.description || '').includes(fold(entry.name));
+      })
+      .map(({ source, attr }) => `${source}/${attr.nameKey}`);
+    expect(silent).toEqual([]);
   });
 });
 
@@ -134,7 +159,7 @@ describe('hydration', () => {
         expect(attr.source, `${id}/${attr.nameKey}: hydrated attr missing source`).toBeTruthy();
         // Legacy consumers (AI prompt builder, BBOS dashboard adapter) read `body`.
         expect(attr.body, `${id}/${attr.nameKey}: hydrated attr missing body`).toBeTruthy();
-        expect(attr.body).toContain(attr.gloss);
+        expect(attr.body).toContain(attr.description);
         expect(attr.body).toContain(attr.source.ref);
       }
     }

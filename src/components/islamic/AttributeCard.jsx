@@ -1,7 +1,8 @@
 import './AttributeCard.css';
 
-// Three zones, in order of how the reader needs them: who the Name is (gloss),
-// what it asks of this module (application), and what attests it (source).
+// Two zones: one description that leads with what the Name asks of this module
+// and folds the definition in, then what attests it (source). The registry gloss
+// is deliberately not rendered — shown above the description it restated it.
 // The universal-values layer passes principles that have only `{ name, body }`,
 // so every zone past the header is conditional.
 export default function AttributeCard({ attr, color }) {
@@ -21,9 +22,7 @@ export default function AttributeCard({ attr, color }) {
         <span className="attr-card-title">{attr.title}</span>
       </div>
 
-      {attr.gloss && <p className="attr-card-gloss">{attr.gloss}</p>}
-
-      <p className="attr-card-body">{attr.application ?? attr.body}</p>
+      <p className="attr-card-body">{attr.description ?? attr.body}</p>
 
       {attr.source && (
         <p className="attr-card-source">

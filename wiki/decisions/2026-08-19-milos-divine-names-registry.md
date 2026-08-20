@@ -92,6 +92,15 @@ and accepts only what is ṭayyib"*). The module was **not silently re-pointed**
 flagged `needsReview: true` with an explicit rationale, and a proper `at-tayyib` entry sits beside
 it. Which Name governs the module is the operator's call, not a refactor's.
 
+> **Resolved 2026-08-20 by operator instruction — *"re-point the module to Aṭ-Ṭayyib"*.**
+> `env-waste` attr 2 now carries `nameKey: 'at-tayyib'`, and the `at-tahir` registry entry was
+> **deleted** rather than left flagged: with no consumer remaining, an unattested Name sitting in a
+> registry of Divine Names *is* the defect the flag described. Registry now holds **106** entries
+> (99 of the ninety-nine + 7 off-list). The module description was rewritten to name Aṭ-Ṭayyib and
+> to carry his sense — *wholesome at its source rather than clean on its surface* — so the attestation
+> the card shows (*Sahih Muslim* 1015, `direct` / `Bayyinah`) is now the Name's own rather than a
+> `contextual` / `Qarina` stand-in.
+
 **Eight supplied glosses were rewritten for oversimplification** — Al-Jabbār ("decisions are
 unstoppable" → restores the *jabr* sense of mending what is broken), Al-Mutakabbir, Al-Hādī (dropped
 a GPS metaphor — *hidāyah* is granted, not navigated to), Ar-Rashīd, Al-Wājid ("always has

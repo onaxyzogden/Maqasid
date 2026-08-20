@@ -22,7 +22,9 @@ import {
 import { getSubmoduleBoardId } from '@data/submodule-registry';
 import { PRAYER_BOARD_PREFIX } from '@data/prayer-pillars';
 import { computeTodayKey } from '@/utils/islamic-day-key';
+import { getModuleData } from '@data/islamic/islamic-data';
 import '@components/work/ProjectSlideUp.css';
+import AttributeCard from './AttributeCard';
 import CeremonyFlow from './CeremonyFlow';
 import PrayerHeroDuring from './PrayerHeroDuring';
 import SequentialStepFlow from '../shared/SequentialStepFlow';
@@ -144,6 +146,7 @@ export default function NodePhaseSlideUp({
   onClose,
 }) {
   const theme = useSettingsStore((s) => s.theme) ?? 'light';
+  const valuesLayer = useSettingsStore((s) => s.valuesLayer) ?? 'islamic';
   const completeOpening = useThresholdStore((s) => s.completeOpening);
   const completeClosing = useThresholdStore((s) => s.completeClosing);
   const toggleSubtask = useTaskStore((s) => s.toggleSubtask);
@@ -316,6 +319,21 @@ export default function NodePhaseSlideUp({
     setCeremonyRun((n) => n + 1);
   };
 
+  const accentColor = isPrayerNode ? '#C8A96E' : '#70d8c8';
+
+  // The Names governing this node's threshold module (or the universal layer's
+  // principles). The Before/After ceremony already surfaces them on its own
+  // Attributes step, so they are rendered here only where no <CeremonyFlow> is
+  // embedded — every tab of a prayer node, and the During tab of the others —
+  // which is what keeps them from appearing twice in one panel.
+  const showNames = isPrayerNode || phase === 'during';
+  const namesData = useMemo(
+    () => (showNames ? getModuleData(thresholdModuleId, valuesLayer) : null),
+    [showNames, thresholdModuleId, valuesLayer],
+  );
+  const isIslamicLayer = valuesLayer === 'islamic';
+  const nameCards = (isIslamicLayer ? namesData?.attrs : namesData?.principles) || [];
+
   // The scrolling tab body. Rendered through a helper so the stepper phases can
   // pair it with a pinned footer while keeping the tabpanel semantics.
   const tabPanel = (children) => (
@@ -327,6 +345,16 @@ export default function NodePhaseSlideUp({
       tabIndex={-1}
     >
       {children}
+      {nameCards.length > 0 && (
+        <section className="pp-phase-names">
+          <h3 className="pp-phase-names__title">
+            {isIslamicLayer ? 'Governing Attributes' : 'Guiding Principles'}
+          </h3>
+          {nameCards.map((attr, i) => (
+            <AttributeCard key={attr.nameKey || attr.name || i} attr={attr} color={accentColor} />
+          ))}
+        </section>
+      )}
     </div>
   );
 
@@ -497,7 +525,7 @@ export default function NodePhaseSlideUp({
             <div className="pp-slideup__title-wrap">
               <span
                 className="pp-slideup__swatch"
-                style={{ background: isPrayerNode ? '#C8A96E' : '#70d8c8' }}
+                style={{ background: accentColor }}
                 aria-hidden="true"
               />
               <h2 className="pp-slideup__title">{node.title}</h2>

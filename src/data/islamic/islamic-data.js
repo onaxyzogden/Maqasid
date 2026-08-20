@@ -9,11 +9,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-muhsin',
-        application: "Al-Muhsin perfects rather than merely fulfils. Every task completed with ihsan carries a quality that transcends the specification — it is work done as though God sees it, because He does.",
+        description: "Work done with ihsan carries a quality beyond its specification — completed as though God sees it, because He does. That standard is Al-Muḥsin's own: He does everything with perfect care, and prescribes the same care of us.",
       },
       {
         nameKey: 'al-wakil',
-        application: "The outcomes belong to Al-Wakil. You do the work with excellence; He determines what it produces. Trusting Him with outcomes is not passivity — it is the freedom to work without anxiety about results.",
+        description: "You do the work with excellence; what it produces is not yours to determine. Outcomes are the department of Al-Wakīl, who disposes of a matter handed to Him better than you could — which makes trust not passivity but the freedom to work without anxiety.",
       },
     ],
     dua: {
@@ -129,11 +129,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'ar-razzaq',
-        application: "All provision comes from Ar-Razzāq. Financial stewardship means managing what He has entrusted, not hoarding what you fear losing. The believer earns with effort and trusts that sufficiency is already decreed.",
+        description: "Financial stewardship means managing what has been entrusted, not hoarding what you fear losing. Ar-Razzāq provides for every living thing — the ant in the ground and the fish in the deep are on the same register — so earn with effort and trust that sufficiency is decreed.",
       },
       {
         nameKey: 'al-hasib',
-        application: "Al-Ḥasīb accounts for every transaction. Honest reckoning in finances is not just good practice — it is an act of worship. Every number must tell the truth, because He already knows it.",
+        description: "Honest reckoning in finances is worship, not merely good practice. Every number must tell the truth because Al-Ḥasīb already knows it — He keeps the full account of every act, and nothing is lost from that record or added to it.",
       },
     ],
     dua: {
@@ -226,11 +226,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-wadud',
-        application: "Al-Wadūd loves His creation with a love that precedes merit. Leading people with wadud means caring for their growth before their output, seeing their potential before their performance gaps.",
+        description: "Leading people means caring for their growth before their output and seeing their potential before their performance gaps. That is the love of Al-Wadūd, warm and steady and inexhaustible — it does not switch off when a person slips, and it precedes merit.",
       },
       {
         nameKey: 'al-adl',
-        application: "Al-ʿAdl establishes justice without partiality. Fair treatment of every team member — in compensation, recognition, and opportunity — is not generosity; it is the minimum standard of stewardship.",
+        description: "Fair treatment of every team member — in compensation, recognition and opportunity — is not generosity but the minimum standard of stewardship. Al-ʿAdl gives no one less than their due and wrongs no one by His decree; justice without partiality is the floor, not the ceiling.",
       },
     ],
     dua: {
@@ -323,11 +323,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'as-sami',
-        application: "As-Samīʿ hears every word — spoken and unspoken. True communication begins with listening. Before you speak, write, or decide, have you truly heard what others are saying?",
+        description: "True communication begins with listening: before you speak, write or decide, have you actually heard what others are saying? As-Samīʿ receives every sound, whisper and unspoken plea — nothing is ever mislaid on Him, which is the standard your own attention answers to.",
       },
       {
         nameKey: 'al-alim',
-        application: "Al-ʿAlīm knows what is hidden and what is manifest. In organizational knowledge, this means documenting the truth, sharing information honestly, and never using knowledge as a tool of power over others.",
+        description: "Organizational knowledge means documenting the truth, sharing information honestly, and never using what you know as power over others. Al-ʿAlīm knows the hidden and the manifest alike — past, present, what has not happened yet, and the thoughts you have told no one.",
       },
     ],
     dua: {
@@ -420,11 +420,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-muhaymin',
-        application: "Al-Muhaymin watches over and protects. Technical stewardship means guarding systems, data, and infrastructure with the same vigilance — every security measure is an act of amanah over what has been entrusted to you.",
+        description: "Technical stewardship guards systems, data and infrastructure as amanah — every security measure is care over what was entrusted to you. Al-Muhaymin keeps that same watch at a scale you cannot: nothing occurs outside His seeing and His safekeeping.",
       },
       {
         nameKey: 'al-hafiz',
-        application: "Al-Ḥafīẓ preserves what matters. In technology, this means protecting user data, maintaining system integrity, and building with durability rather than disposability.",
+        description: "In technology this means protecting user data, maintaining system integrity, and building for durability rather than disposability. Al-Ḥafīẓ keeps what is entrusted to Him and loses nothing He guards — preservation is His attribute before it is your practice.",
       },
     ],
     dua: {
@@ -517,11 +517,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-khaliq',
-        application: "Every acre of land, every watershed, every soil microbiome exists by His design. To steward land is to participate in the ongoing expression of His creative will — not as owner, but as khalīfah entrusted with what He made.",
+        description: "Every acre, every watershed, every soil microbiome exists by His design, and to steward land is to serve as khalīfah over what He made rather than as owner. Al-Khāliq brings all of it into being out of nothing — stars, oceans and people exist because He determined they should.",
       },
       {
         nameKey: 'ar-razzaq',
-        application: "Ar-Razzaq provides through the earth itself — rain becomes river, seed becomes harvest, land becomes sustenance. A faith-rooted land project is an act of trust in His provision: plant with effort, tend with care, and know that the yield belongs to Him.",
+        description: "A faith-rooted land project plants with effort, tends with care, and knows the yield belongs to Him. Ar-Razzāq provides through the earth itself — rain becomes river, seed becomes harvest, land becomes sustenance — and every living thing on it is on the same register.",
       },
     ],
     dua: {
@@ -618,11 +618,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-mutakabbir',
-        application: "Al-Mutakabbir dissolves the subtle inflations of pride — performing worship for recognition, measuring devotion against others, approaching knowledge as acquisition rather than gift. Pride corrupts Faith not through dramatic arrogance but through these interior distortions.",
+        description: "Pride corrupts Faith not through dramatic arrogance but through interior distortions: worship performed for recognition, devotion measured against others, knowledge approached as acquisition. Al-Mutakabbir dissolves them — greatness belongs to Him alone, as plain truth.",
       },
       {
         nameKey: 'al-wakil',
-        application: "Al-Wakīl asks for action taken without the anxiety of needing to control the result. Doubt erodes Faith not primarily through intellectual objection but through the refusal to release outcomes. The operator who acts but cannot release is still holding what should be entrusted.",
+        description: "Doubt erodes Faith less through intellectual objection than through the refusal to release outcomes; the operator who acts but cannot let go is still holding what should be entrusted. Al-Wakīl disposes of a matter handed to Him better than you could — outcomes are His.",
       },
     ],
     dua: {
@@ -736,11 +736,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-ahad',
-        application: "Al-Ahad is oneness that permits no division. The Shahada is not the addition of one belief to a set of beliefs — it is the collapse of every rival claim on the heart. Wherever something else carries the weight only Allah should carry, Al-Ahad exposes it.",
+        description: "The Shahada is not one belief added to a set of beliefs — it is the collapse of every rival claim on the heart. Al-Aḥad is one in a way that cannot be divided, added to or compared with anything, so wherever something else carries the weight only Allah should, He exposes it.",
       },
       {
         nameKey: 'as-samad',
-        application: "As-Samad is the One to whom all turn in need and who turns to no one. To say the Shahada from As-Samad is to acknowledge that every dependency you carry — on wealth, reputation, people, outcomes — terminates, properly, in Him alone.",
+        description: "To say the Shahada is to acknowledge that every dependency you carry — on wealth, reputation, people, outcomes — terminates properly in Him alone. Aṣ-Ṣamad is the One all turn to in need and who turns to no one: the Source, never a channel.",
       },
     ],
     dua: {
@@ -840,11 +840,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-qarib',
-        application: "Al-Qarib is closer than the jugular vein. Salah does not transport you to Him — it corrects your posture toward a nearness that was never suspended. The forgetting is ours; the nearness is His.",
+        description: "Salah does not transport you to Him; it corrects your posture toward a nearness that was never suspended. Al-Qarīb is nearer than the distance any call has to travel and needs no intermediary — the forgetting is ours, the nearness is His.",
       },
       {
         nameKey: 'al-mujib',
-        application: "Al-Mujib answers the one who calls. Salah is not a monologue — it is framed supplication inside a conversation Allah promises to enter. To pray from Al-Mujib is to believe that the answer is already on its way.",
+        description: "Salah is not a monologue but framed supplication inside a conversation Allah promises to enter. Al-Mujīb answers every call — sometimes with what was asked for, sometimes with something better — so to pray is to believe the answer is already on its way.",
       },
     ],
     dua: {
@@ -964,11 +964,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'ar-razzaq',
-        application: "Ar-Razzāq is the source of every dirham in your account. Zakah is not a tax on what you earned — it is a return of what He circulated through you to the chambers He designated. To give zakah is to admit it was never wholly yours.",
+        description: "Zakah is not a tax on what you earned but a return of what was circulated through you to the chambers He designated; to give it is to admit it was never wholly yours. Ar-Razzāq is the source of every dirham in your account, as He is of every creature's provision.",
       },
       {
         nameKey: 'al-karim',
-        application: "Al-Karīm gives without calculation. Giving zakah with Al-Karīm in mind means giving as He gives — without keeping score, without reminding the recipient, without using the gift as leverage. The minimum fulfills the fard; the adab perfects it.",
+        description: "Give as He gives — without keeping score, without reminding the recipient, without using the gift as leverage. Al-Karīm gives without depletion and without being asked, owing the recipient nothing: the minimum fulfils the fard, and this adab perfects it.",
       },
     ],
     dua: {
@@ -1068,11 +1068,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'as-sabur',
-        application: "As-Sabūr does not rush. Siyam is not primarily about food — it is an apprenticeship in the sabr of waiting. The fast trains you to sit with hunger, with lowered expectation, with delayed reward, and to do so without dropping your adab.",
+        description: "Siyam is not primarily about food; it is an apprenticeship in the sabr of waiting — sitting with hunger, lowered expectation and delayed reward without dropping your adab. Aṣ-Ṣabūr is hurried by nothing, patient under no pressure that would make Him hasten.",
       },
       {
         nameKey: 'ash-shakur',
-        application: "Ash-Shakūr notices the smallest exertion. Ramadan exhausts, and Ash-Shakūr catches each restrained tongue, each held patience, each night of qiyam. The fast offered sincerely is multiplied without measure — that is the shape of His shukr toward His servants.",
+        description: "Ramadan exhausts, and each restrained tongue, each held patience, each night of qiyam is caught. Ash-Shakūr rewards a small deed far beyond its size and notices effort no one else recorded — the fast offered sincerely is multiplied without measure.",
       },
     ],
     dua: {
@@ -1172,11 +1172,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-malik',
-        application: "Al-Malik owns every place and permits the pilgrim to approach one. Hajj strips the wealth, the title, the clothing that distinguished you — returning you to the two white cloths of a pauper before the Sovereign. What sovereignty you thought you held is recalled at the miqat.",
+        description: "Hajj strips the wealth, the title, the clothing that distinguished you, returning you to two white cloths at the miqat. Al-Malik is the only real king — every other throne is borrowed — so whatever sovereignty you thought you held is recalled there.",
       },
       {
         nameKey: 'al-quddus',
-        application: "Al-Quddūs demands that the pilgrim come purified — from shirk, from grudges, from unlawful wealth. Hajj is the one worship where the form is the purification: the tawaf, the sa'y, the wuquf are not symbolic; they are the scrubbing.",
+        description: "Hajj is the one worship whose form is the purification: the tawaf, the sa'y, the wuquf are not symbolic, they are the scrubbing. Al-Quddūs is free of every defect and limitation, and asks the pilgrim to arrive clear of shirk, grudges and unlawful wealth.",
       },
     ],
     dua: {
@@ -1276,11 +1276,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-hadi',
-        application: "Al-Hādī guides the one who asks to be guided. The sources — Qur'an, Sunnah, the transmitted tradition — do not disclose themselves to the careless reader. Al-Hādī meets the adab you bring. Come as a student; leave as a student.",
+        description: "The sources — Qur'an, Sunnah, the transmitted tradition — do not disclose themselves to a careless reader; come as a student and leave as a student. Al-Hādī grants guidance rather than letting it be navigated to, and meets the adab you bring.",
       },
       {
         nameKey: 'al-alim',
-        application: "Al-ʿAlīm knows what you do not and what you pretend to. To open the sources under Al-ʿAlīm is to come without the pose of knowing — neither inflating what you understand nor denying what you do not.",
+        description: "To open the sources is to come without the pose of knowing — neither inflating what you understand nor denying what you do not. Al-ʿAlīm knows everything you do not and everything you pretend to, including the thoughts you have told no one.",
       },
     ],
     dua: {
@@ -1380,11 +1380,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-muhyi',
-        application: "Al-Muḥyī gives life to what would otherwise be inert. The Daruriyyat are not optional; they are the life-support of the deen. To miss the fard is not to miss an embellishment — it is to let something die that Al-Muḥyī meant to keep alive in you.",
+        description: "The Daruriyyat are not optional; they are the life-support of the deen, and to miss the fard is not to lose an embellishment but to let something die. Al-Muḥyī gives life — to bodies, to dead land after rain, and to hearts that had gone quiet — and meant to keep it alive in you.",
       },
       {
         nameKey: 'al-qayyum',
-        application: "Al-Qayyūm is the One upon whom everything stands. The Daruriyyat are the minimum load-bearing members of the deen's structure. Remove them and the rest gives way. The Core board is not about doing more — it is about not letting the load-bearing walls fail.",
+        description: "The Daruriyyat are the load-bearing members of the deen's structure: remove them and the rest gives way, so this board is not about doing more but about not letting the walls fail. Al-Qayyūm stands by Himself while everything else stands by Him.",
       },
     ],
     dua: {
@@ -1477,11 +1477,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'ar-rafi',
-        application: "Ar-Rāfiʿ raises in station the one who reaches beyond the floor. The Hajiyyat are not fard, but they are the difference between a deen that survives and one that grows. To neglect them is not kufr — it is a refusal of the ascent Ar-Rāfiʿ is offering.",
+        description: "The Hajiyyat are not fard, but they are the difference between a deen that survives and one that grows; to neglect them is not kufr but a refusal of an ascent being offered. Ar-Rāfiʿ raises whom He wills — the unnoticed are lifted by Him, not by their own positioning.",
       },
       {
         nameKey: 'al-fattah',
-        application: "Al-Fattāḥ opens what was closed. Growth in the deen is not linear — it moves through openings: a suddenly-held adhkar, a newly-kept night, an understanding finally received. To walk Hajiyyat with Al-Fattāḥ is to keep knocking.",
+        description: "Growth in the deen is not linear; it moves through openings — a suddenly-held adhkar, a newly-kept night, an understanding finally received. Al-Fattāḥ opens what is shut, in circumstances and in the understanding of a closed heart, so walking the Hajiyyat means to keep knocking.",
       },
     ],
     dua: {
@@ -1581,11 +1581,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-muhsin',
-        application: "Every act of ihsan you perform is His excellence operating through you when you let it. The Tahsiniyyat are ornaments, but ihsan is the soul of the deen — \"worship Allah as though you see Him\" (Hadith Jibril) is the aim of this board.",
+        description: "The Tahsiniyyat are ornaments, but ihsan is the soul of the deen — worship Allah as though you see Him is the aim of this board. Every act of ihsan you perform is Al-Muḥsin's own perfect care operating through you when you let it.",
       },
       {
         nameKey: 'al-jamil',
-        application: "Al-Jamīl loves beauty — not the beauty of display, but the beauty of manner. The Tahsiniyyat are the refinements that beautify a deen already structurally sound: the adab in the greeting, the care in the wording, the quality in what is offered to guests and to worship.",
+        description: "The Tahsiniyyat refine a deen already structurally sound: the adab in the greeting, the care in the wording, the quality of what is offered to guests and to worship. Al-Jamīl is beautiful in Himself and pleased by beauty — care over how a thing is made is worship, not vanity.",
       },
     ],
     dua: {
@@ -1685,11 +1685,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-qawi',
-        application: "Strength here is the capacity to meet adversity without being unmade by it. Its absence shows as quiet attrition — the gradual shrinking of the self under accumulated demand, drawing down what has not been replenished.",
+        description: "Strength here is the capacity to meet adversity without being unmade by it; its absence shows as quiet attrition, the self shrinking under demand that was never replenished. Al-Qawiyy is strength without fatigue — He does not tire, weaken or need to recover, and you do.",
       },
       {
         nameKey: 'al-latif',
-        application: "Al-Laṭīf notices the subtle signal before it becomes a crisis, and asks the same perception of you. Its absence shows in the accumulation of small unattended needs: the rest not taken, the conversation not had, the inner state not named.",
+        description: "Its absence shows in small unattended needs accumulating: the rest not taken, the conversation not had, the inner state not named. Al-Laṭīf works through details too fine to notice, arriving exactly when needed — and asks the same perception of you, before a signal becomes a crisis.",
       },
     ],
     dua: {
@@ -1803,11 +1803,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-muhyi',
-        application: "The body is not yours to drive into the ground; it is an amanah Al-Muḥyī placed in your care. To neglect it is to treat a trust as disposable; to tend it is to cooperate with the One who keeps you alive.",
+        description: "The body is not yours to drive into the ground; it is an amanah placed in your care, and to neglect it is to treat a trust as disposable. Tending it is cooperation with Al-Muḥyī, who gives life to bodies, to dead land after rain, and to hearts that had gone quiet.",
       },
       {
         nameKey: 'ash-shafi',
-        application: "A meal, a walk, a night of sleep heal nothing on their own — they are causes Ash-Shāfī either permits to reach their effect or does not. Health pursued as self-optimization forgets Him; health pursued as cooperation keeps the heart oriented while the body is tended.",
+        description: "A meal, a walk, a night of sleep heal nothing on their own — they are means Ash-Shāfī either permits to reach their effect or does not, because healing comes from Him and never from the medicine. Health as self-optimization forgets Him; health as cooperation does not.",
       },
     ],
     dua: {
@@ -1914,11 +1914,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'as-salam',
-        application: "A mind aligned with As-Salām is not one that never meets anxiety; it is one that returns to tranquility by remembrance rather than by distraction. Its absence shows as perpetual low-grade alarm — a mind that cannot settle because it has forgotten where settling comes from.",
+        description: "An aligned mind is not one that never meets anxiety but one that returns to tranquility by remembrance rather than distraction. Peace originates in As-Salām and is given from Him — a settledness the heart cannot manufacture — so its absence is alarm that cannot resolve.",
       },
       {
         nameKey: 'al-latif',
-        application: "He perceives the tremor before the tear, the tension before the thought becomes conscious. To tend your mental well-being under Al-Laṭīf is to extend that subtlety to yourself, treating your inner state with the gentleness He already brings to it.",
+        description: "Tending your inner state means extending to yourself the gentleness He already brings to it — noticing the tremor before the tear, the tension before the thought becomes conscious. Al-Laṭīf works through details too fine to notice, arriving at exactly the moment needed.",
       },
     ],
     dua: {
@@ -2025,11 +2025,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-muhaymin',
-        application: "No harm reaches anyone without His knowledge, and no protection arrives without His permission. Safety under Al-Muhaymin is full diligence held inside tawakkul — neither paranoia nor recklessness, but prudent action whose outcome is already witnessed.",
+        description: "Safety is full diligence held inside tawakkul — neither paranoia nor recklessness, but prudent action whose outcome is already witnessed. No harm reaches anyone outside the seeing of Al-Muhaymin, who holds everything in view, and no protection arrives without His permission.",
       },
       {
         nameKey: 'al-hafiz',
-        application: "A locked door, a seatbelt, a careful word are asbab placed in your hand so that you participate in preservation; He is the One who makes them effective. Forget Him and the checklist becomes anxiety; remember Him and the checklist becomes worship.",
+        description: "A locked door, a seatbelt, a careful word are asbab placed in your hand so that you participate in preservation. Al-Ḥafīẓ is the One who makes them effective, keeping what is entrusted to Him — forget Him and the checklist becomes anxiety; remember Him and it becomes worship.",
       },
     ],
     dua: {
@@ -2136,11 +2136,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-wadud',
-        application: "In social life His love is the warmth extended to the stranger, the patience kept with the difficult colleague, the smile given to someone who has not earned it. Its absence turns every interaction into a transaction and every relationship into a ledger.",
+        description: "In social life this is the warmth extended to the stranger, the patience kept with the difficult colleague, the smile given to someone who has not earned it. Al-Wadūd loves steadily and inexhaustibly, never switching off when a person slips; its absence makes every tie a ledger.",
       },
       {
         nameKey: 'al-muhsin',
-        application: "\"Ahsin kama ahsana-llahu ilayk\" — do good as Allah has done good to you. Social presence under Al-Muhsin is the refusal to meet rudeness with rudeness, to give back exactly what was given, or to carry grudges at interest.",
+        description: "Ahsin kama ahsana-llahu ilayk — do good as Allah has done good to you. Al-Muḥsin does everything with perfect care and prescribes the same of us: the refusal to meet rudeness with rudeness, to give back exactly what was given, or to carry grudges at interest.",
       },
     ],
     dua: {
@@ -2247,11 +2247,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-fattah',
-        application: "Its absence here is not ignorance but closure: approaching learning already knowing what you will find, engaging new ideas only to confirm prior positions, mistaking familiarity for mastery. The precondition of genuine learning is a mind that can actually be changed.",
+        description: "Its absence here is not ignorance but closure: approaching learning already knowing what you will find, engaging ideas only to confirm prior positions, mistaking familiarity for mastery. Al-Fattāḥ opens what is shut, including the understanding of a heart that has closed.",
       },
       {
         nameKey: 'al-alim',
-        application: "Al-ʿAlīm orients the learner toward knowledge as a trust to steward rather than a resource to acquire. Its absence corrupts through the wrong relationship with knowing: accumulation without application, sharing without accountability, criticism without humility.",
+        description: "Knowledge is a trust to steward rather than a resource to acquire; the wrong relationship with it corrupts through accumulation without application, sharing without accountability, criticism without humility. Al-ʿAlīm knows all of it — including thoughts you have told no one.",
       },
     ],
     dua: {
@@ -2365,11 +2365,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-alim',
-        application: "To seek knowledge is not to manufacture it; it is to receive what He has permitted of a knowledge already complete in Him. Its absence shows in learning that accumulates as ego rather than settling as humility — treating what one knows as achievement rather than amanah.",
+        description: "To seek knowledge is not to manufacture it but to receive what He has permitted of a knowledge already complete in Al-ʿAlīm, who knows past, present and what has not yet happened. Its absence is learning that accumulates as ego — achievement rather than amanah.",
       },
       {
         nameKey: 'al-khabir',
-        application: "Learning under Al-Khabīr pushes past the shallow grasp toward the real structure of a thing — the cause behind the effect, the principle behind the instance. Its absence leaves the learner with confident vocabulary and no genuine understanding.",
+        description: "Learning pushes past the shallow grasp toward the real structure of a thing — the cause behind the effect, the principle behind the instance. Al-Khabīr knows that inner reality of everything, including the motive underneath an action you have explained differently.",
       },
     ],
     dua: {
@@ -2476,11 +2476,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-hakim',
-        application: "Wisdom is not raw intelligence but the discernment of what is fitting here, now, for this person. Thinking under Al-Ḥakīm refuses the clever answer that is out of proportion to the question; its absence is sharp reasoning serving small or misdirected ends.",
+        description: "Wisdom is not raw intelligence but the discernment of what is fitting here, now, for this person; its absence is sharp reasoning serving small ends. Al-Ḥakīm holds a reason for every decree in perfect wisdom, disclosed or not — never an answer out of proportion to its question.",
       },
       {
         nameKey: 'al-basir',
-        application: "To think under Al-Baṣīr is to refuse the surface story and keep looking until what is actually the case comes into view. Its absence is the willingness to accept the convenient narrative because examining it more closely would cost something.",
+        description: "To think well is to refuse the surface story and keep looking until what is actually the case comes into view. The sight of Al-Baṣīr reaches what no observer, instrument or record could — so accepting a convenient narrative because examining it would cost something fools no one.",
       },
     ],
     dua: {
@@ -2587,11 +2587,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-muhaymin',
-        application: "Under Al-Muhaymin the mind is something to be guarded: your attention is a resource He gave you, and what you let in through it becomes what you become. Its absence is a mind that accepts whatever is placed in front of it, outsourcing its formation to the nearest feed.",
+        description: "Your attention is a resource He gave you, and what you let in through it becomes what you become; a mind that accepts whatever is placed in front of it outsources its formation to the nearest feed. Al-Muhaymin holds everything in view — guard the mind as He guards what is His.",
       },
       {
         nameKey: 'al-hafiz',
-        application: "Attention is among the most valuable amanāt — it is what you trade for everything else in your life. Preserving it is not a productivity technique but stewardship of a finite, sacred capacity; its absence is a shattered attention that still believes it is functioning normally.",
+        description: "Attention is among the most valuable amanāt — what you trade for everything else in your life — so preserving it is stewardship of a finite, sacred capacity, not a productivity technique. Al-Ḥafīẓ loses nothing He guards; a shattered attention still believes it functions.",
       },
     ],
     dua: {
@@ -2698,11 +2698,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-musawwir',
-        application: "In craft, skill is not merely competence — it is the shaping of a thing into the form it was meant to take. Its absence leaves work that functions without beauty, output that is acceptable without being right.",
+        description: "In craft, skill is not competence but the shaping of a thing into the form it was meant to take. Al-Muṣawwir gives every created thing its own shape, face and colour — form is assigned, never accidental — and its absence leaves work that functions without being right.",
       },
       {
         nameKey: 'al-bari',
-        application: "Mastery under Al-Bāriʾ is not producing a copy of someone else's excellence; it is bringing into being the specific contribution only you, with your training and your niyyah, can bring. Its absence is competent imitation mistaken for mastery.",
+        description: "Mastery is not producing a copy of someone else's excellence but bringing into being the contribution only you, with your training and your niyyah, can bring. Al-Bāri' originates without copying a model — every creature is a first — and competent imitation is not mastery.",
       },
     ],
     dua: {
@@ -2809,11 +2809,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-wadud',
-        application: "In the family this is the love that precedes approval — the parent who loves the child before the child earns it, the spouse who loves before the spouse deserves it. Its absence turns the home into a place where belonging must be bought.",
+        description: "In the family this is the love that precedes approval — the parent who loves the child before the child earns it, the spouse who loves before the spouse deserves it. Al-Wadūd loves inexhaustibly, never switching off when a person slips; its absence makes belonging a purchase.",
       },
       {
         nameKey: 'ar-rahman',
-        application: "Rahmah is the atmosphere in which families either flourish or suffocate. To lead a household in rahmah is to default to compassion before correction, to assume the best before demanding proof, and to make the home a place where weakness is not weaponized.",
+        description: "To lead a household in rahmah is to default to compassion before correction, assume the best before demanding proof, and make the home a place where weakness is not weaponized. The kindness of Ar-Raḥmān falls on those who thank Him and those who forget Him alike.",
       },
     ],
     dua: {
@@ -2920,11 +2920,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-wadud',
-        application: "Marriage is the most public school of wadud: loving through the days that earn love and the days that do not. The nikah binds the covenant; wadud is what makes it habitable. Its absence turns a marriage into a contract where both parties audit the other.",
+        description: "Marriage is the most public school of wadud: loving through the days that earn love and the days that do not. The nikah binds the covenant; the steady, inexhaustible love of Al-Wadūd — which does not switch off when a person slips — is what makes it habitable rather than audited.",
       },
       {
         nameKey: 'as-salam',
-        application: "A marriage aligned with As-Salam is one where neither spouse fears the other, where tongues are kept, and where silence is not punishment. \"Litaskunū ilayhā\" — that you may find tranquility in her — is not a wish; it is the aim.",
+        description: "A marriage aligned with peace is one where neither spouse fears the other, tongues are kept, and silence is not punishment. Litaskunū ilayhā — that you may find tranquility in her — is the aim, and that settledness originates in As-Salām, never manufactured by the heart.",
       },
     ],
     dua: {
@@ -3024,11 +3024,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'ar-rabb',
-        application: "To parent in the likeness of Ar-Rabb is to grow a soul, not shape a product — accepting that tarbiyah unfolds in seasons that will not match the calendar of your convenience.",
+        description: "To parent is to grow a soul, not shape a product — accepting that tarbiyah unfolds in seasons that will not match the calendar of your convenience. Ar-Rabb is owner, sustainer and raiser at once: He does not only possess creation, He brings it to maturity.",
       },
       {
         nameKey: 'al-hafiz',
-        application: "Your children are an amanah before they are yours. To parent under Al-Hafiz is to guard them from what would harm them without suffocating what must grow — including harm that wears your own face when you are tired or short.",
+        description: "Your children are an amanah before they are yours — to be guarded from what would harm them without suffocating what must grow, including harm that wears your own face when you are tired or short. Al-Ḥafīẓ keeps what is entrusted to Him, and nothing He guards is ever lost.",
       },
     ],
     dua: {
@@ -3135,11 +3135,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-wakil',
-        application: "Silat al-rahim is a trust placed in you that no contract names. Al-Wakil holds outcomes you cannot — whether a reconciled aunt, a returned phone call, a softened cousin. Your role is to maintain the tie; the result of that maintenance is returned to Him.",
+        description: "Silat al-rahim is a trust placed in you that no contract names: your role is to maintain the tie, and the result of that maintenance is returned to Him. Al-Wakīl holds the outcomes you cannot — a reconciled aunt, a returned call, a softened cousin — better than you could.",
       },
       {
         nameKey: 'ash-shakur',
-        application: "Ash-Shakur magnifies the small act. A check-in call, a remembered birthday, a visit to the elder who cannot leave the house — these are not small to Him. To walk kinship under Ash-Shakur is to believe the five-minute call matters and to make it anyway.",
+        description: "A check-in call, a remembered birthday, a visit to the elder who cannot leave the house are not small to Him. Ash-Shakūr rewards a small deed far beyond its size and notices effort no one else recorded — so believe the five-minute call matters, and make it anyway.",
       },
     ],
     dua: {
@@ -3239,11 +3239,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'as-salam',
-        application: "As-Salam makes the home a place where the nervous system can rest — quieter in its conflicts, gentler in its rhythms, safer in its tongues than the street outside. When He departs a home, everyone learns to brace as they walk through the door.",
+        description: "A home where the nervous system can rest is quieter in its conflicts, gentler in its rhythms and safer in its tongues than the street outside; when that departs, everyone learns to brace at the door. As-Salām is where such settledness originates and from whom it is given.",
       },
       {
         nameKey: 'al-quddus',
-        application: "A home aligned with Al-Quddus is attentive to what crosses its threshold — what is watched, what is spoken, what is consumed — not to become sterile, but to remain a place where hearts stay soft and revelation still reaches them.",
+        description: "A home stays attentive to what crosses its threshold — what is watched, what is spoken, what is consumed — not to become sterile but to remain a place where hearts stay soft and revelation still reaches them. Al-Quddūs is pure in having nothing at all to correct.",
       },
     ],
     dua: {
@@ -3350,11 +3350,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-jami',
-        application: "The Family Office is the mechanism through which a household is gathered — its calendar, its announcements, its shared documents. To steward it is to make it easy for your people to find each other, not one more place they get lost.",
+        description: "The Family Office is the mechanism through which a household is gathered — its calendar, its announcements, its shared documents — so steward it to make finding each other easy, not to add one more place people get lost. Al-Jāmiʿ brings together what was scattered.",
       },
       {
         nameKey: 'al-hafiz',
-        application: "The Family Office holds things that matter: decisions made, agreements reached, documents the family will need again. To run it under Al-Hafiz is to treat the record as an amanah, not an inbox.",
+        description: "The Family Office holds what matters: decisions made, agreements reached, documents the family will need again. Treat the record as an amanah rather than an inbox, in the manner of Al-Ḥafīẓ, who keeps what is entrusted to Him so that nothing He guards is ever lost.",
       },
     ],
     dua: {
@@ -3454,11 +3454,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'ar-rahim',
-        application: "In the People domain, raḥmah is active mercy that reaches out rather than waiting to be earned. Its absence corrupts not through cruelty but through treating people as roles, extracting from relationships, or letting difference become distance.",
+        description: "In the People domain raḥmah is active mercy that reaches out rather than waiting to be earned; its absence corrupts not through cruelty but through treating people as roles. Ar-Raḥīm sustains that mercy toward those who try — nearer than earned, always ready to forgive.",
       },
       {
         nameKey: 'al-jami',
-        application: "Al-Jāmiʿ is not uniformity; it is the orientation toward a shared centre that makes difference generative rather than fragmenting. The operator entering this domain is asked whether their presence here builds or disperses the social fabric.",
+        description: "This is not uniformity but the orientation toward a shared centre that makes difference generative rather than fragmenting, and the operator entering here is asked whether their presence builds or disperses the social fabric. Al-Jāmiʿ brings together what was scattered.",
       },
     ],
     dua: {
@@ -3554,11 +3554,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-wadud',
-        application: "Neighbor-right is love expressed as active care for whoever Allah placed at your door. Jibrīl kept enjoining care for the neighbor until the Prophet ﷺ thought he would be made an heir; its absence is the hardness that lets a family behind a wall become invisible.",
+        description: "Neighbor-right is love expressed as active care for whoever Allah placed at your door; Jibrīl kept enjoining it until the Prophet ﷺ thought the neighbor would be made an heir. Al-Wadūd loves steadily, and its absence lets a family behind a wall become invisible.",
       },
       {
         nameKey: 'al-muhsin',
-        application: "Iḥsān in neighbor-right is to anticipate need rather than respond only when pressed — doing good without counting, without the neighbor having to ask. Its absence is minimum-standard politeness that fulfils no ḥaqq: civility without care, presence without attention.",
+        description: "Iḥsān in neighbor-right anticipates need rather than responding only when pressed — doing good without counting, without the neighbor having to ask. Al-Muḥsin does everything with perfect care; its absence is civility without care, presence without attention.",
       },
     ],
     dua: {
@@ -3665,11 +3665,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-jami',
-        application: "Beyond the household and the neighbor, Al-Jāmiʿ asks whether your presence builds or disperses the wider jamāʿah. Its absence is the drift into faction: preference becomes party, difference hardens into camp, and the shared center is abandoned in the name of identity.",
+        description: "Beyond the household and the neighbor, the question is whether your presence builds or disperses the wider jamāʿah. Al-Jāmiʿ brings together what was scattered; its absence is the drift into faction — preference becomes party, difference hardens into camp, the centre abandoned.",
       },
       {
         nameKey: 'al-wali',
-        application: "Al-Walī in community life is the refusal to let the collective be a vehicle for personal brand while its weakest members go unprotected. Its absence is the community that performs unity in public while leaving the grieving, the sick, and the new unattended in private.",
+        description: "Community life refuses to let the collective become a vehicle for personal brand while its weakest members go unprotected. Al-Walī is the guardian who stays close and does not leave — nearness that is protection — while its absence performs unity and leaves the grieving alone.",
       },
     ],
     dua: {
@@ -3776,11 +3776,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-khaliq',
-        application: "Every horizon of MTC land is māddah He originated — not property you own but a living āyah you are answerable for. Its absence shows as treating the land as inert inventory to be scraped or traded rather than read.",
+        description: "Every horizon of MTC land is māddah He originated — not property you own but a living āyah you are answerable for. Al-Khāliq brings everything into being out of nothing; its absence treats land as inert inventory to be scraped or traded rather than read.",
       },
       {
         nameKey: 'al-bari',
-        application: "Under Al-Bāriʾ the land steward refuses to overwrite what Allah has already shaped; regenerative practice is a return to His design, not an imposition on it. Its absence is the extraction that flattens a site's native intelligence to fit a spreadsheet.",
+        description: "The land steward refuses to overwrite what Allah has already shaped: regenerative practice is a return to His design, not an imposition on it. Al-Bāri' originates without copying a model, and its absence is extraction that flattens a site's native intelligence to fit a spreadsheet.",
       },
     ],
     dua: {
@@ -3887,11 +3887,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-mudabbir',
-        application: "A seasonal land pathway submits to His ordering of rain, rest and harvest rather than imposing a commercial calendar on a living system. Its absence is the year-round uniform extraction that denies fallow and treats every month as yield-month.",
+        description: "A seasonal land pathway submits to His ordering of rain, rest and harvest rather than imposing a commercial calendar on a living system. Al-Mudabbir arranges every matter to its proper end, sequence and timing managed rather than left to drift; its absence denies fallow entirely.",
       },
       {
         nameKey: 'al-fattah',
-        application: "Al-Fattāḥ opens the seed, the rain-cloud, the bound potential inside soil — He decides whether planting opens into harvest. Your task is iḥsān in tending; the opening of rizq is His. Its absence is the grasping that treats yield as earned rather than granted.",
+        description: "Your task is iḥsān in tending; the opening of rizq is His. Al-Fattāḥ opens what is shut — the seed, the rain-cloud, the bound potential inside soil — and decides whether planting opens into harvest. Its absence is the grasping that treats yield as earned rather than granted.",
       },
     ],
     dua: {
@@ -3998,11 +3998,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-wali',
-        application: "Walāʾ is what made Ansar and Muhajirūn a single household — a residency stands or falls on it, because co-location alone does not make people a community. Its absence is the intentional community that is many households sharing infrastructure with no binding duty.",
+        description: "Walāʾ is what made Ansar and Muhajirūn a single household — a residency stands or falls on it, because co-location alone does not make people a community. Al-Walī stays close and does not leave; its absence is households sharing infrastructure with no binding duty.",
       },
       {
         nameKey: 'al-hafiz',
-        application: "A residency is not a program but a durable social form. Under Al-Ḥafīẓ the operator asks whether today's structures will preserve this community through the generation that inherits it; its absence is the initiative that dies with its founder.",
+        description: "A residency is not a program but a durable social form: ask whether today's structures will preserve this community through the generation that inherits it. Al-Ḥafīẓ keeps what is entrusted to Him and loses nothing He guards; its absence is what dies with its founder.",
       },
     ],
     dua: {
@@ -4109,11 +4109,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'ar-razzaq',
-        application: "At this level wealth is not personal achievement to protect or expand but rizq entrusted for a purpose. Its absence corrupts through accumulation that crowds out generosity, compromise justified by financial pressure, and the anxiety of holding rather than trusting.",
+        description: "At this level wealth is not personal achievement to protect or expand but rizq entrusted for a purpose. Ar-Razzāq provides for every living thing; its absence corrupts through accumulation that crowds out generosity, and the anxiety of holding rather than trusting.",
       },
       {
         nameKey: 'al-hasib',
-        application: "Al-Ḥasīb is not anxiety about outcomes — it is the quality of attention that ensures stewardship is legible, both to the operator and to Allah. Its absence shows in recklessness: decisions made without counting the cost, resources deployed without tracking their effect.",
+        description: "This is not anxiety about outcomes but the quality of attention that makes stewardship legible, to the operator and to Allah. Al-Ḥasīb keeps the full account of every act, nothing lost from the record and nothing added; its absence is decisions made without counting the cost.",
       },
     ],
     dua: {
@@ -4209,11 +4209,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'ar-razzaq',
-        application: "The employer, the client, the market are means He uses — not the source. To earn under Ar-Razzāq is to take the sabab seriously without believing the effort is the provider; its absence is panic in scarcity and arrogance in abundance.",
+        description: "The employer, the client, the market are means He uses — not the source. To earn is to take the sabab seriously without believing the effort is the provider, because Ar-Razzāq provides for every living thing; its absence is panic in scarcity and arrogance in abundance.",
       },
       {
         nameKey: 'al-fattah',
-        application: "Earning under Al-Fattāḥ is the confidence that a door closed to you is closed for your benefit, and the willingness to keep knocking on the next one. Its absence is either despair at closure or the insistence on forcing a door Allah has shut.",
+        description: "Earning well is the confidence that a door closed to you is closed for your benefit, and the willingness to keep knocking on the next one. Al-Fattāḥ opens what is shut, in circumstances and in provision; its absence is despair at closure, or forcing a door Allah has shut.",
       },
     ],
     dua: {
@@ -4320,11 +4320,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'ar-razzaq',
-        application: "Managing wealth under Ar-Razzāq means treating every unit as provision entrusted for a purpose, not earnings to spend by appetite. Its absence turns a budget into an indulgence log and a portfolio into a trophy case.",
+        description: "Managing wealth means treating every unit as provision entrusted for a purpose, not earnings to spend by appetite. Ar-Razzāq provides for every living thing — the ant in the ground and the fish in the deep — and its absence turns a budget into an indulgence log.",
       },
       {
         nameKey: 'al-ghani',
-        application: "To manage finances under Al-Ghanī is to steward money with a heart that does not need it for security, even as the hands use it competently. Its absence is management driven by the belief that the balance determines your worth and your safety.",
+        description: "To manage finances well is to steward money with a heart that does not need it for security, even as the hands use it competently. Al-Ghanī needs nothing from anyone — your worship adds nothing to Him and your neglect takes nothing away; the balance is not your worth.",
       },
     ],
     dua: {
@@ -4431,11 +4431,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-adl',
-        application: "In ownership, Al-ʿAdl governs contracts, inheritance, partnerships, and promises. Its absence shows in paperwork that favors the strong, inheritances that sideline the weak, and contracts that keep options open at the other party's expense.",
+        description: "In ownership this governs contracts, inheritance, partnerships and promises. Al-ʿAdl gives no one less than their due and wrongs no one by His decree; its absence shows in paperwork favoring the strong, inheritances sidelining the weak, and options kept open at another's expense.",
       },
       {
         nameKey: 'al-muqsit',
-        application: "Where Al-ʿAdl is the absolute standard, Al-Muqsiṭ is the careful apportioning in practice. Its absence is the generic \"it's fair\" that has not actually counted what each party carries, contributes, or is owed.",
+        description: "Where Al-ʿAdl is the absolute standard, Al-Muqsiṭ is the careful apportioning in practice — exact fairness that restores what was taken and returns each right to its owner. Its absence is the generic it-is-fair that never counted what each party carries or is owed.",
       },
     ],
     dua: {
@@ -4542,11 +4542,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-karim',
-        application: "To circulate wealth under Al-Karīm is to refuse the calculus that asks what a gift will return — the giving is the return. Its absence reduces sadaqah to PR, zakat to compliance, and the hand of generosity to a spreadsheet of expected dividends.",
+        description: "To circulate wealth is to refuse the calculus that asks what a gift will return — the giving is the return. Al-Karīm gives without depletion and without being asked, owing the recipient nothing; its absence reduces sadaqah to PR and zakat to compliance.",
       },
       {
         nameKey: 'al-wahhab',
-        application: "Circulating wealth under Al-Wahhāb is learning to pass on what was freely given as something that is meant to keep flowing. Its absence hoards provision as if it were finite, treating what was gifted as if it were earned.",
+        description: "Circulating wealth is learning to pass on what was freely given as something meant to keep flowing. Al-Wahhāb gives as gift rather than exchange — nothing good you hold was earned into existence — and its absence hoards provision as if it were finite.",
       },
     ],
     dua: {
@@ -4653,11 +4653,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-wakil',
-        application: "Al-Wakīl frames the earth as entrusted — not owned, not inherited as a right, but held in custody for those who come after. A trustee has obligations to the one who entrusted, and the ground beneath you is the trust.",
+        description: "The earth is entrusted — not owned, not inherited as a right, but held in custody for those who come after, and a trustee has obligations to the one who entrusted. Al-Wakīl disposes of a matter handed to Him better than you could; the ground beneath you is that trust.",
       },
       {
         nameKey: 'al-hakim',
-        application: "Al-Ḥakīm is the antidote to short-sightedness — not merely prudence, but the quality of perception that sees how present choices propagate into future conditions. Its absence corrupts through the accumulated weight of small decisions made without seeing their full arc.",
+        description: "This is the antidote to short-sightedness: not merely prudence but the perception that sees how present choices propagate into future conditions. Al-Ḥakīm holds a reason for every decree in perfect wisdom, disclosed or not; its absence is small decisions made without their arc.",
       },
     ],
     dua: {
@@ -4771,11 +4771,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-muhyi',
-        application: "Every drop of water you use today was life He extended. To consume under Al-Muḥyī is to remember that the tap, the switch and the field are thin interfaces over a miracle — not infinite, not owed.",
+        description: "Every drop of water you use today was life He extended, and the tap, the switch and the field are thin interfaces over a miracle — not infinite, not owed. Al-Muḥyī gives life to bodies, to dead land after rain, and to hearts that had gone quiet.",
       },
       {
         nameKey: 'al-badi',
-        application: "The aquifer behind the tap, the forest behind the lumber, the grid behind the light — He originated all of it. To use resources under Al-Badīʿ is to honor the design by not wasting it; its absence sees only the endpoint and forgets the dependency behind it.",
+        description: "The aquifer behind the tap, the forest behind the lumber, the grid behind the light — Al-Badīʿ originated all of it without precedent, copying nothing from a prior pattern. Honor the design by not wasting it; its absence sees only the endpoint and forgets the dependency.",
       },
     ],
     dua: {
@@ -4882,11 +4882,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-quddus',
-        application: "The earth He entrusted is meant to remain fit to live on. To manage waste under Al-Quddūs is to refuse to dump your impurity into what is held in common — its absence is the casual pollution of air, water and soil by those who treat the commons as a sink.",
+        description: "The earth He entrusted is meant to remain fit to live on, so refuse to dump your impurity into what is held in common. Al-Quddūs is free of every defect — purity as the absence of anything to correct — and its absence is casual pollution of air, water and soil.",
       },
       {
-        nameKey: 'at-tahir',
-        application: "The believer is commanded to leave a place cleaner than they found it — \"an-naẓāfatu min al-īmān.\" Its absence is the mess left behind, the wrapper dropped, the byproduct externalized, the litter that says \"someone else will clean this.\"",
+        nameKey: 'at-tayyib',
+        description: "The believer is commanded to leave a place cleaner than they found it — an-naẓāfatu min al-īmān. Aṭ-Ṭayyib is pure in Himself and accepts only what is pure, wholesome at its source rather than clean on its surface; its absence is the wrapper dropped, the byproduct externalized.",
       },
     ],
     dua: {
@@ -4993,11 +4993,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-hafiz',
-        application: "The biodiversity of a forest, the fertility of a soil, the integrity of a watershed are all entrusted, and your diligence is one of the means by which He preserves them. Its absence shows as passive complicity in what is being lost.",
+        description: "The biodiversity of a forest, the fertility of a soil, the integrity of a watershed are entrusted, and your diligence is one of the means by which they are kept. Al-Ḥafīẓ preserves what is entrusted to Him and loses nothing He guards; its absence is passive complicity.",
       },
       {
         nameKey: 'ar-raqib',
-        application: "Nothing done to creation passes Him unnoticed — not the felled tree, not the wasted field, not the species extinguished. To act toward ecosystems under Ar-Raqīb is to act as if you were already being watched, because you are.",
+        description: "Nothing done to creation passes unnoticed — not the felled tree, not the wasted field, not the species extinguished. Ar-Raqīb is always watching and never inattentive, seeing you in company and seeing you alone; act as if you were already being watched, because you are.",
       },
     ],
     dua: {
@@ -5104,11 +5104,11 @@ export const MODULE_ATTRS = {
     attrs: [
       {
         nameKey: 'al-alim',
-        application: "He knows the entire chain — the hand that mined, the field that grew, the river that was diverted. To source under Al-ʿAlīm is to refuse the comfort of ignorance; its absence is deliberate blindness to upstream ethics maintained by refusing to ask.",
+        description: "To source well is to refuse the comfort of ignorance; its absence is deliberate blindness to upstream ethics maintained by refusing to ask. Al-ʿAlīm knows the entire chain — the hand that mined, the field that grew, the river that was diverted — and what you told no one.",
       },
       {
         nameKey: 'ar-rashid',
-        application: "Sourcing under Ar-Rashīd chooses the fitting path between extremes: neither pious withdrawal from all commerce nor cynical participation in whatever is cheapest. Its absence is paralysis because nothing is perfect, or compromise because everything is broken.",
+        description: "Sourcing chooses the fitting path between extremes: neither pious withdrawal from all commerce nor cynical participation in whatever is cheapest. Ar-Rashīd directs every affair to its right end; its absence is paralysis because nothing is perfect, or compromise because all is broken.",
       },
     ],
     dua: {
