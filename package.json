@@ -6,11 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "npm run lint:eslint && npm run lint:grounding-strict && npm run audit:inline-refs && npm run generate:pillar-glyphs:check && npm run generate:landing-demo:check",
+    "lint": "npm run lint:eslint && npm run lint:grounding-strict && npm run audit:inline-refs && npm run lint:divine-names && npm run generate:pillar-glyphs:check && npm run generate:landing-demo:check",
     "lint:eslint": "eslint .",
     "lint:grounding": "node scripts/lint-grounding.mjs",
     "lint:grounding-strict": "node scripts/lint-grounding.mjs --strict",
     "audit:inline-refs": "node scripts/audit-inline-refs.mjs --strict",
+    "lint:divine-names": "node scripts/lint-divine-names.mjs",
     "test": "vitest run",
     "preview": "vite preview",
     "audit:sources": "node scripts/audit-source-refs.mjs --fail-on=increase",

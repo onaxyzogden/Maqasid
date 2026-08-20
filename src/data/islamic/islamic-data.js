@@ -2,21 +2,18 @@
 // Each module maps to 2 governing divine attributes, a dua, readiness check, and reflection
 
 import { getPillarForModule } from '../maqasid';
+import { hydrateAttrs } from './divine-names';
 
 export const MODULE_ATTRS = {
   work: {
     attrs: [
       {
-        name: 'Al-Muhsin',
-        name_ar: 'المحسن',
-        title: 'The Excellence-Giver',
-        body: 'Allah loves people who do things with full care — finishing well even when no one is checking. That kind of care is called ihsan, and it turns ordinary work into worship.\n\nAl-Muhsin perfects rather than merely fulfils. Every task completed with ihsan carries a quality that transcends the specification — it is work done as though God sees it, because He does.\n\nSource: Quran 2:195 — "And do good; indeed, Allah loves the doers of good (muhsinīn)."',
+        nameKey: 'al-muhsin',
+        description: "Work done with ihsan carries a quality beyond its specification — completed as though God sees it, because He does. That standard is Al-Muḥsin's own: He does everything with perfect care, and prescribes the same care of us.",
       },
       {
-        name: 'Al-Wakil',
-        name_ar: 'الوكيل',
-        title: 'The Trustee',
-        body: 'Allah is the best helper to trust with your worries. When you hand your problems over to Him, He takes care of them better than you ever could.\n\nThe outcomes belong to Al-Wakil. You do the work with excellence; He determines what it produces. Trusting Him with outcomes is not passivity — it is the freedom to work without anxiety about results.\n\nSource: Quran 3:173 — "Sufficient for us is Allah, and He is the best Disposer of affairs (wakīl)."',
+        nameKey: 'al-wakil',
+        description: "You do the work with excellence; what it produces is not yours to determine. Outcomes are the department of Al-Wakīl, who disposes of a matter handed to Him better than you could — which makes trust not passivity but the freedom to work without anxiety.",
       },
     ],
     dua: {
@@ -131,16 +128,12 @@ export const MODULE_ATTRS = {
   money: {
     attrs: [
       {
-        name: 'Ar-Razzaq',
-        name_ar: 'الرزّاق',
-        title: 'The Provider',
-        body: 'Allah gives every single living thing what it needs to survive. Even a tiny ant in the desert and a fish deep in the ocean get their food from Him.\n\nAll provision comes from Ar-Razzāq. Financial stewardship means managing what He has entrusted, not hoarding what you fear losing. The believer earns with effort and trusts that sufficiency is already decreed.\n\nSource: Quran 51:58 — "Indeed, it is Allah who is the Provider (Ar-Razzāq), the firm possessor of strength."',
+        nameKey: 'ar-razzaq',
+        description: "Financial stewardship means managing what has been entrusted, not hoarding what you fear losing. Ar-Razzāq provides for every living thing — the ant in the ground and the fish in the deep are on the same register — so earn with effort and trust that sufficiency is decreed.",
       },
       {
-        name: 'Al-Hasib',
-        name_ar: 'الحسيب',
-        title: 'The Reckoner',
-        body: 'Allah keeps track of every single thing people do, both big and small. Nothing is ever forgotten or missed, even the tiniest kind thing done when no one is watching.\n\nAl-Ḥasīb accounts for every transaction. Honest reckoning in finances is not just good practice — it is an act of worship. Every number must tell the truth, because He already knows it.\n\nSource: Quran 4:6 — "And sufficient is Allah as Accountant (Ḥasīb)."',
+        nameKey: 'al-hasib',
+        description: "Honest reckoning in finances is worship, not merely good practice. Every number must tell the truth because Al-Ḥasīb already knows it — He keeps the full account of every act, and nothing is lost from that record or added to it.",
       },
     ],
     dua: {
@@ -232,16 +225,12 @@ export const MODULE_ATTRS = {
   people: {
     attrs: [
       {
-        name: 'Al-Wadud',
-        name_ar: 'الودود',
-        title: 'The Loving',
-        body: 'Allah loves people who try to be good — even more than parents love their kids. His love is warm, steady, and never runs out.\n\nAl-Wadūd loves His creation with a love that precedes merit. Leading people with wadud means caring for their growth before their output, seeing their potential before their performance gaps.\n\nSource: Quran 11:90 — "Indeed, my Lord is Merciful and Loving (Wadūd)."',
+        nameKey: 'al-wadud',
+        description: "Leading people means caring for their growth before their output and seeing their potential before their performance gaps. That is the love of Al-Wadūd, warm and steady and inexhaustible — it does not switch off when a person slips, and it precedes merit.",
       },
       {
-        name: 'Al-Adl',
-        name_ar: 'العدل',
-        title: 'The Just',
-        body: 'Allah is totally fair — He never gives anyone less than they deserve. He treats every creature with perfect fairness, never favouring one over another by whim.\n\nAl-ʿAdl establishes justice without partiality. Fair treatment of every team member — in compensation, recognition, and opportunity — is not generosity; it is the minimum standard of stewardship.\n\nSource: Quran 6:115 — "The word of your Lord is perfected in truth and in justice (ʿadl)."',
+        nameKey: 'al-adl',
+        description: "Fair treatment of every team member — in compensation, recognition and opportunity — is not generosity but the minimum standard of stewardship. Al-ʿAdl gives no one less than their due and wrongs no one by His decree; justice without partiality is the floor, not the ceiling.",
       },
     ],
     dua: {
@@ -333,16 +322,12 @@ export const MODULE_ATTRS = {
   office: {
     attrs: [
       {
-        name: 'As-Sami',
-        name_ar: 'السميع',
-        title: 'The All-Hearing',
-        body: 'Allah hears every single sound, even a whisper or a thought you almost said. No word is lost to Him; He catches every quiet sentence you speak.\n\nAs-Samīʿ hears every word — spoken and unspoken. True communication begins with listening. Before you speak, write, or decide, have you truly heard what others are saying?\n\nSource: Quran 2:127 — "Indeed, You are the All-Hearing (Samīʿ), the All-Knowing."',
+        nameKey: 'as-sami',
+        description: "True communication begins with listening: before you speak, write or decide, have you actually heard what others are saying? As-Samīʿ receives every sound, whisper and unspoken plea — nothing is ever mislaid on Him, which is the standard your own attention answers to.",
       },
       {
-        name: 'Al-Alim',
-        name_ar: 'العليم',
-        title: 'The All-Knowing',
-        body: 'Allah knows absolutely everything — past, present, and future. He knows what you are thinking right now and what you will dream about tonight.\n\nAl-ʿAlīm knows what is hidden and what is manifest. In organizational knowledge, this means documenting the truth, sharing information honestly, and never using knowledge as a tool of power over others.\n\nSource: Quran 2:29 — "And He is, of all things, Knowing (ʿAlīm)."',
+        nameKey: 'al-alim',
+        description: "Organizational knowledge means documenting the truth, sharing information honestly, and never using what you know as power over others. Al-ʿAlīm knows the hidden and the manifest alike — past, present, what has not happened yet, and the thoughts you have told no one.",
       },
     ],
     dua: {
@@ -434,16 +419,12 @@ export const MODULE_ATTRS = {
   tech: {
     attrs: [
       {
-        name: 'Al-Muhaymin',
-        name_ar: 'المهيمن',
-        title: 'The Guardian',
-        body: 'Allah watches over everything and keeps it safe. Nothing happens without Him seeing it, and He protects the people and things He loves.\n\nAl-Muhaymin watches over and protects. Technical stewardship means guarding systems, data, and infrastructure with the same vigilance — every security measure is an act of amanah over what has been entrusted to you.\n\nSource: Quran 59:23 — "He is Allah... the Guardian (Al-Muhaymin) over all."',
+        nameKey: 'al-muhaymin',
+        description: "Technical stewardship guards systems, data and infrastructure as amanah — every security measure is care over what was entrusted to you. Al-Muhaymin keeps that same watch at a scale you cannot: nothing occurs outside His seeing and His safekeeping.",
       },
       {
-        name: 'Al-Hafiz',
-        name_ar: 'الحفيظ',
-        title: 'The Protector',
-        body: 'Allah keeps and protects what matters. He remembers every word of the Qur\'an and every good deed you have ever done — nothing He keeps is ever lost.\n\nAl-Ḥafīẓ preserves what matters. In technology, this means protecting user data, maintaining system integrity, and building with durability rather than disposability.\n\nSource: Quran 11:57 — "Indeed, my Lord is, over all things, a Preserver (Ḥafīẓ)."',
+        nameKey: 'al-hafiz',
+        description: "In technology this means protecting user data, maintaining system integrity, and building for durability rather than disposability. Al-Ḥafīẓ keeps what is entrusted to Him and loses nothing He guards — preservation is His attribute before it is your practice.",
       },
     ],
     dua: {
@@ -535,16 +516,12 @@ export const MODULE_ATTRS = {
   collective: {
     attrs: [
       {
-        name: 'Al-Khaliq',
-        name_ar: 'الخالق',
-        title: 'The Creator',
-        body: 'Allah made everything from nothing — the soil, the watershed, the seed, and you. He didn\'t copy anyone; He just decided things should exist and they came to be.\n\nEvery acre of land, every watershed, every soil microbiome exists by His design. To steward land is to participate in the ongoing expression of His creative will — not as owner, but as khalīfah entrusted with what He made.\n\nSource: Quran 59:24 — "He is Allah, the Creator, the Originator, the Fashioner of forms."',
+        nameKey: 'al-khaliq',
+        description: "Every acre, every watershed, every soil microbiome exists by His design, and to steward land is to serve as khalīfah over what He made rather than as owner. Al-Khāliq brings all of it into being out of nothing — stars, oceans and people exist because He determined they should.",
       },
       {
-        name: 'Ar-Razzaq',
-        name_ar: 'الرزّاق',
-        title: 'The Provider',
-        body: 'Allah feeds every single thing He made — from the tiniest bug to the biggest whale. He never forgets anyone, and He never runs out.\n\nAr-Razzaq provides through the earth itself — rain becomes river, seed becomes harvest, land becomes sustenance. A faith-rooted land project is an act of trust in His provision: plant with effort, tend with care, and know that the yield belongs to Him.\n\nSource: Quran 51:58 — "Indeed, it is Allah who is the Provider, the firm possessor of strength."',
+        nameKey: 'ar-razzaq',
+        description: "A faith-rooted land project plants with effort, tends with care, and knows the yield belongs to Him. Ar-Razzāq provides through the earth itself — rain becomes river, seed becomes harvest, land becomes sustenance — and every living thing on it is on the same register.",
       },
     ],
     dua: {
@@ -640,16 +617,12 @@ export const MODULE_ATTRS = {
   faith: {
     attrs: [
       {
-        name: 'Al-Mutakabbir',
-        name_ar: 'الْمُتَكَبِّر',
-        title: 'The Supremely Great',
-        body: 'Allah is the greatest of all, and only He truly deserves to be called the very best. It is wrong for people to act like they are better than everyone else — that kind of greatness belongs only to Him.\n\nAl-Mutakabbir dissolves the subtle inflations of pride — performing worship for recognition, measuring devotion against others, approaching knowledge as acquisition rather than gift. Pride corrupts Faith not through dramatic arrogance but through these interior distortions.\n\nSource: Quran 59:23 — "He is Allah... the Supreme (Al-Mutakabbir). Exalted is Allah above whatever they associate with Him."',
+        nameKey: 'al-mutakabbir',
+        description: "Pride corrupts Faith not through dramatic arrogance but through interior distortions: worship performed for recognition, devotion measured against others, knowledge approached as acquisition. Al-Mutakabbir dissolves them — greatness belongs to Him alone, as plain truth.",
       },
       {
-        name: 'Al-Wakīl',
-        name_ar: 'الْوَكِيل',
-        title: 'The Trustworthy Disposer',
-        body: 'Allah is the best helper to trust with your worries. When you hand your problems over to Him, He takes care of them better than you ever could.\n\nAl-Wakīl asks for action taken without the anxiety of needing to control the result. Doubt erodes Faith not primarily through intellectual objection but through the refusal to release outcomes. The operator who acts but cannot release is still holding what should be entrusted.\n\nSource: Quran 3:173 — "Sufficient for us is Allah, and He is the best Disposer of affairs (wakīl)."',
+        nameKey: 'al-wakil',
+        description: "Doubt erodes Faith less through intellectual objection than through the refusal to release outcomes; the operator who acts but cannot let go is still holding what should be entrusted. Al-Wakīl disposes of a matter handed to Him better than you could — outcomes are His.",
       },
     ],
     dua: {
@@ -762,16 +735,12 @@ export const MODULE_ATTRS = {
   'faith-shahada': {
     attrs: [
       {
-        name: 'Al-Ahad',
-        name_ar: 'الأحد',
-        title: 'The One',
-        body: 'Allah is one of a kind — no one is like Him in any way. He does not have kids, parents, or anyone who matches Him.\n\nAl-Ahad is oneness that permits no division. The Shahada is not the addition of one belief to a set of beliefs — it is the collapse of every rival claim on the heart. Wherever something else carries the weight only Allah should carry, Al-Ahad exposes it.\n\nSource: Quran 112:1 — "Say, He is Allah, the One (Aḥad)."',
+        nameKey: 'al-ahad',
+        description: "The Shahada is not one belief added to a set of beliefs — it is the collapse of every rival claim on the heart. Al-Aḥad is one in a way that cannot be divided, added to or compared with anything, so wherever something else carries the weight only Allah should, He exposes it.",
       },
       {
-        name: 'As-Samad',
-        name_ar: 'الصمد',
-        title: 'The Self-Sufficient Absolute',
-        body: 'Allah is the One everyone turns to for help, but He needs nothing from anyone. When you are stuck or scared, He is the safe place to run to.\n\nAs-Samad is the One to whom all turn in need and who turns to no one. To say the Shahada from As-Samad is to acknowledge that every dependency you carry — on wealth, reputation, people, outcomes — terminates, properly, in Him alone.\n\nSource: Quran 112:2 — "Allah, the Eternal Refuge (Aṣ-Ṣamad)."',
+        nameKey: 'as-samad',
+        description: "To say the Shahada is to acknowledge that every dependency you carry — on wealth, reputation, people, outcomes — terminates properly in Him alone. Aṣ-Ṣamad is the One all turn to in need and who turns to no one: the Source, never a channel.",
       },
     ],
     dua: {
@@ -870,16 +839,12 @@ export const MODULE_ATTRS = {
   'faith-salah': {
     attrs: [
       {
-        name: 'Al-Qarib',
-        name_ar: 'القريب',
-        title: 'The Near',
-        body: 'Allah is closer to you than anyone in the whole world — even closer than the vein in your neck. You never have to shout; He is always right there listening.\n\nAl-Qarib is closer than the jugular vein. Salah does not transport you to Him — it corrects your posture toward a nearness that was never suspended. The forgetting is ours; the nearness is His.\n\nSource: Quran 2:186 — "When My servants ask you concerning Me, indeed I am near (qarīb). I respond to the call of the caller when he calls."',
+        nameKey: 'al-qarib',
+        description: "Salah does not transport you to Him; it corrects your posture toward a nearness that was never suspended. Al-Qarīb is nearer than the distance any call has to travel and needs no intermediary — the forgetting is ours, the nearness is His.",
       },
       {
-        name: 'Al-Mujib',
-        name_ar: 'المجيب',
-        title: 'The Responsive',
-        body: 'Allah listens and answers when people pray to Him. Sometimes He says yes, sometimes later, and sometimes gives something even better — but He always hears.\n\nAl-Mujib answers the one who calls. Salah is not a monologue — it is framed supplication inside a conversation Allah promises to enter. To pray from Al-Mujib is to believe that the answer is already on its way.\n\nSource: Quran 11:61 — "Indeed, my Lord is near and responsive (Mujīb)."',
+        nameKey: 'al-mujib',
+        description: "Salah is not a monologue but framed supplication inside a conversation Allah promises to enter. Al-Mujīb answers every call — sometimes with what was asked for, sometimes with something better — so to pray is to believe the answer is already on its way.",
       },
     ],
     dua: {
@@ -998,16 +963,12 @@ export const MODULE_ATTRS = {
   'faith-zakah': {
     attrs: [
       {
-        name: 'Ar-Razzaq',
-        name_ar: 'الرزّاق',
-        title: 'The Provider',
-        body: 'Allah gives every single living thing what it needs to live. Even a tiny ant in the desert and a fish deep in the ocean get their food from Him — and so does every coin that reaches your hand.\n\nAr-Razzāq is the source of every dirham in your account. Zakah is not a tax on what you earned — it is a return of what He circulated through you to the chambers He designated. To give zakah is to admit it was never wholly yours.\n\nSource: Quran 51:58 — "Indeed, it is Allah who is the Provider (Ar-Razzāq), the firm possessor of strength."',
+        nameKey: 'ar-razzaq',
+        description: "Zakah is not a tax on what you earned but a return of what was circulated through you to the chambers He designated; to give it is to admit it was never wholly yours. Ar-Razzāq is the source of every dirham in your account, as He is of every creature's provision.",
       },
       {
-        name: 'Al-Karim',
-        name_ar: 'الكريم',
-        title: 'The Generous',
-        body: 'Allah gives and gives without ever running out or getting tired. He even gives to people who forget to say thank you, because that is how generous He is.\n\nAl-Karīm gives without calculation. Giving zakah with Al-Karīm in mind means giving as He gives — without keeping score, without reminding the recipient, without using the gift as leverage. The minimum fulfills the fard; the adab perfects it.\n\nSource: Quran 27:40 — "Indeed, my Lord is Self-Sufficient, Most Generous (Karīm)."',
+        nameKey: 'al-karim',
+        description: "Give as He gives — without keeping score, without reminding the recipient, without using the gift as leverage. Al-Karīm gives without depletion and without being asked, owing the recipient nothing: the minimum fulfils the fard, and this adab perfects it.",
       },
     ],
     dua: {
@@ -1106,16 +1067,12 @@ export const MODULE_ATTRS = {
   'faith-siyam': {
     attrs: [
       {
-        name: 'As-Sabur',
-        name_ar: 'الصبور',
-        title: 'The Patient',
-        body: 'Allah is super patient with people, giving them time to learn and change. Even when people forget Him for years, He keeps waiting for them to come back.\n\nAs-Sabūr does not rush. Siyam is not primarily about food — it is an apprenticeship in the sabr of waiting. The fast trains you to sit with hunger, with lowered expectation, with delayed reward, and to do so without dropping your adab.\n\nSource: Tirmidhi 3507 — one of the ninety-nine Names, reflecting forbearance attested throughout the Qur\'an and Sunnah.',
+        nameKey: 'as-sabur',
+        description: "Siyam is not primarily about food; it is an apprenticeship in the sabr of waiting — sitting with hunger, lowered expectation and delayed reward without dropping your adab. Aṣ-Ṣabūr is hurried by nothing, patient under no pressure that would make Him hasten.",
       },
       {
-        name: 'Ash-Shakur',
-        name_ar: 'الشكور',
-        title: 'The Appreciative',
-        body: 'Allah notices every small good thing we do and rewards it way more than it is worth. Even giving a drop of water to a thirsty kitten can earn you something huge from Him.\n\nAsh-Shakūr notices the smallest exertion. Ramadan exhausts, and Ash-Shakūr catches each restrained tongue, each held patience, each night of qiyam. The fast offered sincerely is multiplied without measure — that is the shape of His shukr toward His servants.\n\nSource: Quran 35:30 — "Indeed, He is Forgiving and Appreciative (Shakūr)."',
+        nameKey: 'ash-shakur',
+        description: "Ramadan exhausts, and each restrained tongue, each held patience, each night of qiyam is caught. Ash-Shakūr rewards a small deed far beyond its size and notices effort no one else recorded — the fast offered sincerely is multiplied without measure.",
       },
     ],
     dua: {
@@ -1214,16 +1171,12 @@ export const MODULE_ATTRS = {
   'faith-hajj': {
     attrs: [
       {
-        name: 'Al-Malik',
-        name_ar: 'الملك',
-        title: 'The Sovereign',
-        body: 'Allah is the real King of everything — the whole universe belongs to Him. He is in charge of every king, queen, person, and creature that exists.\n\nAl-Malik owns every place and permits the pilgrim to approach one. Hajj strips the wealth, the title, the clothing that distinguished you — returning you to the two white cloths of a pauper before the Sovereign. What sovereignty you thought you held is recalled at the miqat.\n\nSource: Quran 59:23 — "He is Allah, other than whom there is no deity, the Sovereign (Al-Malik), the Pure."',
+        nameKey: 'al-malik',
+        description: "Hajj strips the wealth, the title, the clothing that distinguished you, returning you to two white cloths at the miqat. Al-Malik is the only real king — every other throne is borrowed — so whatever sovereignty you thought you held is recalled there.",
       },
       {
-        name: 'Al-Quddus',
-        name_ar: 'القدوس',
-        title: 'The Pure',
-        body: 'Allah is perfectly pure and clean from anything bad or wrong. He has no mistakes or flaws — like the clearest, cleanest thing you can imagine, but even more.\n\nAl-Quddūs demands that the pilgrim come purified — from shirk, from grudges, from unlawful wealth. Hajj is the one worship where the form is the purification: the tawaf, the sa\'y, the wuquf are not symbolic; they are the scrubbing.\n\nSource: Quran 59:23 — "He is Allah... the Most Holy (Al-Quddūs), the Source of Peace."',
+        nameKey: 'al-quddus',
+        description: "Hajj is the one worship whose form is the purification: the tawaf, the sa'y, the wuquf are not symbolic, they are the scrubbing. Al-Quddūs is free of every defect and limitation, and asks the pilgrim to arrive clear of shirk, grudges and unlawful wealth.",
       },
     ],
     dua: {
@@ -1322,16 +1275,12 @@ export const MODULE_ATTRS = {
   sources: {
     attrs: [
       {
-        name: 'Al-Hadi',
-        name_ar: 'الهادي',
-        title: 'The Guide',
-        body: 'Allah shows people the right way to live. Like a GPS for your heart, He points you toward kindness, honesty, and goodness.\n\nAl-Hādī guides the one who asks to be guided. The sources — Qur\'an, Sunnah, the transmitted tradition — do not disclose themselves to the careless reader. Al-Hādī meets the adab you bring. Come as a student; leave as a student.\n\nSource: Quran 22:54 — "Indeed, Allah is the Guide (Hādī) of those who believe to a straight path."',
+        nameKey: 'al-hadi',
+        description: "The sources — Qur'an, Sunnah, the transmitted tradition — do not disclose themselves to a careless reader; come as a student and leave as a student. Al-Hādī grants guidance rather than letting it be navigated to, and meets the adab you bring.",
       },
       {
-        name: 'Al-Alim',
-        name_ar: 'العليم',
-        title: 'The All-Knowing',
-        body: 'Allah knows absolutely everything — past, present, and future. He knows what you are thinking right now and what you will dream about tonight.\n\nAl-ʿAlīm knows what you do not and what you pretend to. To open the sources under Al-ʿAlīm is to come without the pose of knowing — neither inflating what you understand nor denying what you do not.\n\nSource: Quran 2:29 — "And He is, of all things, Knowing (ʿAlīm)."',
+        nameKey: 'al-alim',
+        description: "To open the sources is to come without the pose of knowing — neither inflating what you understand nor denying what you do not. Al-ʿAlīm knows everything you do not and everything you pretend to, including the thoughts you have told no one.",
       },
     ],
     dua: {
@@ -1430,16 +1379,12 @@ export const MODULE_ATTRS = {
   'faith-core': {
     attrs: [
       {
-        name: 'Al-Muhyi',
-        name_ar: 'المحيي',
-        title: 'The Giver of Life',
-        body: 'Allah gives life to everything — flowers in spring, babies being born, your own beating heart. Without Him, nothing would be alive.\n\nAl-Muḥyī gives life to what would otherwise be inert. The Daruriyyat are not optional; they are the life-support of the deen. To miss the fard is not to miss an embellishment — it is to let something die that Al-Muḥyī meant to keep alive in you.\n\nSource: Quran 30:50 — "Indeed, that [same One] will give life (Muḥyī) to the dead, and He is over all things competent."',
+        nameKey: 'al-muhyi',
+        description: "The Daruriyyat are not optional; they are the life-support of the deen, and to miss the fard is not to lose an embellishment but to let something die. Al-Muḥyī gives life — to bodies, to dead land after rain, and to hearts that had gone quiet — and meant to keep it alive in you.",
       },
       {
-        name: 'Al-Qayyum',
-        name_ar: 'القيوم',
-        title: 'The Self-Subsisting Sustainer',
-        body: 'Allah does not need food, sleep, or anyone to keep Him going — but everything else needs Him. Like the sun holds the planets in place, He holds everything together without any help.\n\nAl-Qayyūm is the One upon whom everything stands. The Daruriyyat are the minimum load-bearing members of the deen\'s structure. Remove them and the rest gives way. The Core board is not about doing more — it is about not letting the load-bearing walls fail.\n\nSource: Quran 2:255 — "Allah — there is no deity except Him, the Ever-Living (Al-Ḥayy), the Self-Sustaining (Al-Qayyūm)."',
+        nameKey: 'al-qayyum',
+        description: "The Daruriyyat are the load-bearing members of the deen's structure: remove them and the rest gives way, so this board is not about doing more but about not letting the walls fail. Al-Qayyūm stands by Himself while everything else stands by Him.",
       },
     ],
     dua: {
@@ -1531,16 +1476,12 @@ export const MODULE_ATTRS = {
   'faith-growth': {
     attrs: [
       {
-        name: 'Ar-Rafi',
-        name_ar: 'الرافع',
-        title: 'The Exalter',
-        body: 'Allah lifts up people who are humble and kind. He can raise someone from nothing to being loved and respected — like a quiet helper who becomes a hero.\n\nAr-Rāfiʿ raises in station the one who reaches beyond the floor. The Hajiyyat are not fard, but they are the difference between a deen that survives and one that grows. To neglect them is not kufr — it is a refusal of the ascent Ar-Rāfiʿ is offering.\n\nSource: Quran 58:11 — "Allah will raise (yarfaʿ) those who have believed among you and those who were given knowledge, by degrees."',
+        nameKey: 'ar-rafi',
+        description: "The Hajiyyat are not fard, but they are the difference between a deen that survives and one that grows; to neglect them is not kufr but a refusal of an ascent being offered. Ar-Rāfiʿ raises whom He wills — the unnoticed are lifted by Him, not by their own positioning.",
       },
       {
-        name: 'Al-Fattah',
-        name_ar: 'الفتاح',
-        title: 'The Opener',
-        body: 'Allah opens doors that seem closed — in our hearts, our lives, and our understanding. When something feels impossible, He can make a way that no one saw coming.\n\nAl-Fattāḥ opens what was closed. Growth in the deen is not linear — it moves through openings: a suddenly-held adhkar, a newly-kept night, an understanding finally received. To walk Hajiyyat with Al-Fattāḥ is to keep knocking.\n\nSource: Quran 34:26 — "And He is the Opener (Al-Fattāḥ), the Knowing."',
+        nameKey: 'al-fattah',
+        description: "Growth in the deen is not linear; it moves through openings — a suddenly-held adhkar, a newly-kept night, an understanding finally received. Al-Fattāḥ opens what is shut, in circumstances and in the understanding of a closed heart, so walking the Hajiyyat means to keep knocking.",
       },
     ],
     dua: {
@@ -1639,16 +1580,12 @@ export const MODULE_ATTRS = {
   'faith-excellence': {
     attrs: [
       {
-        name: 'Al-Muhsin',
-        name_ar: 'المحسن',
-        title: 'The Excellence-Giver',
-        body: 'Allah loves people who do things with full care — finishing beautifully even when no one is watching. That kind of care is called ihsan, and it turns ordinary actions into worship.\n\nAl-Muhsin is the source of every act of ihsan you perform — it is His excellence operating through you when you let it. The Tahsiniyyat are the ornaments, yes, but ihsan itself is the soul of the deen. "Worship Allah as though you see Him" (Hadith Jibril) is the aim of this board.\n\nSource: Quran 2:195 — "And do good; indeed, Allah loves the doers of good (muhsinīn)."',
+        nameKey: 'al-muhsin',
+        description: "The Tahsiniyyat are ornaments, but ihsan is the soul of the deen — worship Allah as though you see Him is the aim of this board. Every act of ihsan you perform is Al-Muḥsin's own perfect care operating through you when you let it.",
       },
       {
-        name: 'Al-Jamil',
-        name_ar: 'الجميل',
-        title: 'The Beautiful',
-        body: 'Allah is beautiful and loves beauty — the kind beauty of a soft word, the gentle beauty of good manners, the quiet beauty of a clean and tidy space. He made beautiful things because He loves them.\n\nAl-Jamīl loves beauty — not the beauty of display, but the beauty of manner. The Tahsiniyyat are the refinements that beautify a deen already structurally sound: the adab in the greeting, the care in the wording, the quality in what is offered to guests and to worship.\n\nSource: Sahih Muslim 91 — "Allah is beautiful (Jamīl) and loves beauty."',
+        nameKey: 'al-jamil',
+        description: "The Tahsiniyyat refine a deen already structurally sound: the adab in the greeting, the care in the wording, the quality of what is offered to guests and to worship. Al-Jamīl is beautiful in Himself and pleased by beauty — care over how a thing is made is worship, not vanity.",
       },
     ],
     dua: {
@@ -1747,16 +1684,12 @@ export const MODULE_ATTRS = {
   life: {
     attrs: [
       {
-        name: 'Al-Qawī',
-        name_ar: 'الْقَوِيّ',
-        title: 'The All-Strong',
-        body: 'Allah is the strongest of all — nothing and no one can push Him around. His strength never gets tired or weak.\n\nAl-Qawī is strength that does not break under pressure — not rigidity, but the capacity to meet adversity without being unmade by it. Its absence shows in quiet attrition: the gradual shrinking of the self under accumulated demand. Al-Qawī asks whether you are drawing from a renewable source or depleting what you have not replenished.\n\nSource: Quran 22:40 — "Indeed, Allah is All-Strong (Qawī) and Mighty."',
+        nameKey: 'al-qawi',
+        description: "Strength here is the capacity to meet adversity without being unmade by it; its absence shows as quiet attrition, the self shrinking under demand that was never replenished. Al-Qawiyy is strength without fatigue — He does not tire, weaken or need to recover, and you do.",
       },
       {
-        name: 'Al-Laṭīf',
-        name_ar: 'اللَّطِيف',
-        title: 'The Subtly Kind',
-        body: 'Allah is gentle and kind in ways we do not even notice. He takes care of tiny details in our lives — like putting the right person in our path at exactly the right moment.\n\nAl-Laṭīf is attentiveness so fine it perceives what is needed before neglect takes hold — not softness, but the quality of perception that notices the subtle signal before it becomes a crisis. Its absence shows in the accumulation of small unattended needs: the rest not taken, the conversation not had, the inner state not named.\n\nSource: Quran 6:103 — "And He is the Subtle (Laṭīf), the Acquainted."',
+        nameKey: 'al-latif',
+        description: "Its absence shows in small unattended needs accumulating: the rest not taken, the conversation not had, the inner state not named. Al-Laṭīf works through details too fine to notice, arriving exactly when needed — and asks the same perception of you, before a signal becomes a crisis.",
       },
     ],
     dua: {
@@ -1869,16 +1802,12 @@ export const MODULE_ATTRS = {
   'health-physical': {
     attrs: [
       {
-        name: 'Al-Muhyi',
-        name_ar: 'المحيي',
-        title: 'The Giver of Life',
-        body: 'Allah gives life to everything — flowers in spring, babies being born, your own beating heart. Without Him, nothing would be alive.\n\nAl-Muḥyī is the One who gives life — breath, heartbeat, the quiet reanimation of tired limbs after rest. The body is not yours to drive into the ground; it is an amanah that Al-Muḥyī placed in your care. To neglect it is to treat a trust as disposable. To tend to it is to cooperate with the One who keeps you alive.\n\nSource: Quran 30:50 — "Indeed, that [same One] will give life (Muḥyī) to the dead, and He is over all things competent."',
+        nameKey: 'al-muhyi',
+        description: "The body is not yours to drive into the ground; it is an amanah placed in your care, and to neglect it is to treat a trust as disposable. Tending it is cooperation with Al-Muḥyī, who gives life to bodies, to dead land after rain, and to hearts that had gone quiet.",
       },
       {
-        name: 'Ash-Shafi',
-        name_ar: 'الشافي',
-        title: 'The Healer',
-        body: 'Allah is the real Healer. Medicine and doctors help, but only Allah actually makes a sick body better. Every time someone heals, His mercy is the reason behind it.\n\nAsh-Shāfī is the only healer; means are only means. A meal, a walk, a night of sleep — none of these heal on their own. They are causes that Ash-Shāfī either permits to reach their effect or does not. Approaching physical health as self-optimization forgets Him; approaching it as cooperation with the Healer keeps the heart oriented while the body is tended.\n\nSource: Sahih Bukhari 5675 — The Prophet ﷺ would say: "Remove the affliction, O Lord of mankind, and grant healing (shifāʾ). You are the Healer (Shāfī)."',
+        nameKey: 'ash-shafi',
+        description: "A meal, a walk, a night of sleep heal nothing on their own — they are means Ash-Shāfī either permits to reach their effect or does not, because healing comes from Him and never from the medicine. Health as self-optimization forgets Him; health as cooperation does not.",
       },
     ],
     dua: {
@@ -1984,16 +1913,12 @@ export const MODULE_ATTRS = {
   'health-mental': {
     attrs: [
       {
-        name: 'As-Salam',
-        name_ar: 'السلام',
-        title: 'The Source of Peace',
-        body: 'Allah is where peace comes from, and He gives peace to people\'s hearts. When you feel scared or worried, asking Him for help can calm you down inside.\n\nAs-Salām is peace itself — not the absence of difficulty, but the wholeness that holds through it. A mind aligned with As-Salām is not one that never encounters anxiety; it is one that returns to tranquility by remembrance rather than by distraction. Its absence shows as perpetual low-grade alarm, a mind that cannot settle because it has forgotten where settling comes from.\n\nSource: Quran 59:23 — "He is Allah... the Source of Peace (As-Salām)."',
+        nameKey: 'as-salam',
+        description: "An aligned mind is not one that never meets anxiety but one that returns to tranquility by remembrance rather than distraction. Peace originates in As-Salām and is given from Him — a settledness the heart cannot manufacture — so its absence is alarm that cannot resolve.",
       },
       {
-        name: 'Al-Latif',
-        name_ar: 'اللطيف',
-        title: 'The Subtly Kind',
-        body: 'Allah is gentle and kind in ways we do not even notice. He takes care of tiny details inside our hearts — the tremor before a tear, the quiet tug of a feeling we have not named yet.\n\nAl-Laṭīf perceives the finest movements of the heart — the tremor before the tear, the tension before the thought becomes conscious. To tend to mental well-being under Al-Laṭīf is to extend that same subtlety to yourself: to notice the small signals before they become crises, and to treat your inner state with the gentleness He already brings to it.\n\nSource: Quran 6:103 — "And He is the Subtle (Laṭīf), the Acquainted."',
+        nameKey: 'al-latif',
+        description: "Tending your inner state means extending to yourself the gentleness He already brings to it — noticing the tremor before the tear, the tension before the thought becomes conscious. Al-Laṭīf works through details too fine to notice, arriving at exactly the moment needed.",
       },
     ],
     dua: {
@@ -2099,16 +2024,12 @@ export const MODULE_ATTRS = {
   'health-safety': {
     attrs: [
       {
-        name: 'Al-Muhaymin',
-        name_ar: 'المهيمن',
-        title: 'The Guardian Overseer',
-        body: 'Allah watches over everything and keeps it safe. Nothing happens without Him seeing it, and He protects the people and things He loves.\n\nAl-Muhaymin watches over all things — no harm reaches anyone without His knowledge, and no protection arrives without His permission. To tend to safety under Al-Muhaymin is to act with full diligence while trusting that the outcome is already witnessed. It is neither paranoia nor recklessness; it is prudent action held inside tawakkul.\n\nSource: Quran 59:23 — "He is Allah... the Guardian (Al-Muhaymin) over all."',
+        nameKey: 'al-muhaymin',
+        description: "Safety is full diligence held inside tawakkul — neither paranoia nor recklessness, but prudent action whose outcome is already witnessed. No harm reaches anyone outside the seeing of Al-Muhaymin, who holds everything in view, and no protection arrives without His permission.",
       },
       {
-        name: 'Al-Hafiz',
-        name_ar: 'الحفيظ',
-        title: 'The Preserver',
-        body: 'Allah keeps and protects what matters. He remembers every word of the Qur\'an and every good deed you have ever done — nothing He keeps is ever lost.\n\nAl-Ḥafīẓ preserves — the body, the home, the lineage, the deen. Human diligence is a cause, not the cause. A locked door, a seatbelt, a careful word — these are asbab placed in your hand so that you participate in preservation. Al-Ḥafīẓ is the One who makes them effective. Forget Him and the checklist becomes anxiety; remember Him and the checklist becomes worship.\n\nSource: Quran 11:57 — "Indeed, my Lord is, over all things, a Preserver (Ḥafīẓ)."',
+        nameKey: 'al-hafiz',
+        description: "A locked door, a seatbelt, a careful word are asbab placed in your hand so that you participate in preservation. Al-Ḥafīẓ is the One who makes them effective, keeping what is entrusted to Him — forget Him and the checklist becomes anxiety; remember Him and it becomes worship.",
       },
     ],
     dua: {
@@ -2214,16 +2135,12 @@ export const MODULE_ATTRS = {
   'health-social': {
     attrs: [
       {
-        name: 'Al-Wadud',
-        name_ar: 'الودود',
-        title: 'The Ever-Loving',
-        body: 'Allah loves people who try to be good — even more than parents love their kids. His love is warm, steady, and never runs out.\n\nAl-Wadūd loves in a way that does not wait for the other to be lovable first. In social life this is the warmth extended to the stranger, the patience kept with the difficult colleague, the smile given to someone who has not yet earned it. Its absence turns every interaction into a transaction and every relationship into a ledger.\n\nSource: Quran 11:90 — "Indeed, my Lord is Merciful and Loving (Wadūd)."',
+        nameKey: 'al-wadud',
+        description: "In social life this is the warmth extended to the stranger, the patience kept with the difficult colleague, the smile given to someone who has not earned it. Al-Wadūd loves steadily and inexhaustibly, never switching off when a person slips; its absence makes every tie a ledger.",
       },
       {
-        name: 'Al-Muhsin',
-        name_ar: 'المحسن',
-        title: 'The Doer of Good',
-        body: 'Allah loves people who do things with full care — finishing beautifully even when no one is checking. That kind of care, called ihsan, turns ordinary kindness into worship.\n\nAl-Muhsin brings ihsan — goodness beyond what was required or deserved. "Ahsin kama ahsana-llahu ilayk" — do good as Allah has done good to you. Social presence under Al-Muhsin is the refusal to meet a rude person rudely, the refusal to give exactly what was given, the refusal to carry grudges at interest. It is excellence of conduct that makes you recognizable even to those who do not know you.\n\nSource: Quran 28:77 — "And do good as Allah has done good to you (aḥsin kamā aḥsana-llāhu ilayk)."',
+        nameKey: 'al-muhsin',
+        description: "Ahsin kama ahsana-llahu ilayk — do good as Allah has done good to you. Al-Muḥsin does everything with perfect care and prescribes the same of us: the refusal to meet rudeness with rudeness, to give back exactly what was given, or to carry grudges at interest.",
       },
     ],
     dua: {
@@ -2329,16 +2246,12 @@ export const MODULE_ATTRS = {
   intellect: {
     attrs: [
       {
-        name: 'Al-Fattāḥ',
-        name_ar: 'الْفَتَّاح',
-        title: 'The Opener',
-        body: 'Allah opens doors that seem closed — in our hearts, our lives, and our understanding. When something feels impossible, He can make a way that no one saw coming.\n\nAl-Fattāḥ opens what is closed — including the mind that has settled into its current shape. Its absence is not ignorance but closure: approaching learning already knowing what you will find, engaging with new ideas only to confirm prior positions, mistaking familiarity for mastery. The precondition of all genuine learning is a mind that can actually be changed.\n\nSource: Quran 34:26 — "And He is the Opener (Al-Fattāḥ), the Knowing."',
+        nameKey: 'al-fattah',
+        description: "Its absence here is not ignorance but closure: approaching learning already knowing what you will find, engaging ideas only to confirm prior positions, mistaking familiarity for mastery. Al-Fattāḥ opens what is shut, including the understanding of a heart that has closed.",
       },
       {
-        name: 'Al-ʿAlīm',
-        name_ar: 'الْعَلِيم',
-        title: 'The All-Knowing',
-        body: 'Allah knows absolutely everything — past, present, and future. He knows what you are thinking right now and what you will dream about tonight.\n\nKnowledge belongs to Allah completely. Al-ʿAlīm orients the learner toward knowledge not as a resource to acquire but as a trust to steward. Its absence corrupts through the wrong relationship with knowing: accumulation without application, sharing without accountability, criticism without humility, and treating the limit of current knowledge as the limit of what is knowable.\n\nSource: Quran 2:29 — "And He is, of all things, Knowing (ʿAlīm)."',
+        nameKey: 'al-alim',
+        description: "Knowledge is a trust to steward rather than a resource to acquire; the wrong relationship with it corrupts through accumulation without application, sharing without accountability, criticism without humility. Al-ʿAlīm knows all of it — including thoughts you have told no one.",
       },
     ],
     dua: {
@@ -2451,16 +2364,12 @@ export const MODULE_ATTRS = {
   'intellect-learning': {
     attrs: [
       {
-        name: 'Al-ʿAlīm',
-        name_ar: 'العليم',
-        title: 'The All-Knowing',
-        body: 'Allah knows absolutely everything — past, present, and future. He knows what you are thinking right now and what you will dream about tonight.\n\nAl-ʿAlīm knows everything that was, is, and will be — and every act of learning is an approach toward a knowledge that is already complete in Him. To seek knowledge is not to manufacture it; it is to receive what He has permitted. Its absence shows in learning that accumulates as ego rather than settles as humility — treating what one knows as achievement rather than as amanah.\n\nSource: Quran 2:29 — "And He is, of all things, Knowing (ʿAlīm)."',
+        nameKey: 'al-alim',
+        description: "To seek knowledge is not to manufacture it but to receive what He has permitted of a knowledge already complete in Al-ʿAlīm, who knows past, present and what has not yet happened. Its absence is learning that accumulates as ego — achievement rather than amanah.",
       },
       {
-        name: 'Al-Khabīr',
-        name_ar: 'الخبير',
-        title: 'The All-Aware',
-        body: 'Allah knows the deep secrets inside everything, not just what things look like on the outside. He knows why you really did something, even if you do not tell anyone.\n\nAl-Khabīr is aware of the depth beneath the surface — the cause behind the effect, the principle behind the instance. Learning under Al-Khabīr pushes past the shallow grasp toward the real structure of a thing. Its absence leaves the learner with confident vocabulary and no genuine understanding — the appearance of knowing without the substance of it.\n\nSource: Quran 6:18 — "And He is the All-Wise, the All-Aware (Al-Khabīr)."',
+        nameKey: 'al-khabir',
+        description: "Learning pushes past the shallow grasp toward the real structure of a thing — the cause behind the effect, the principle behind the instance. Al-Khabīr knows that inner reality of everything, including the motive underneath an action you have explained differently.",
       },
     ],
     dua: {
@@ -2566,16 +2475,12 @@ export const MODULE_ATTRS = {
   'intellect-thinking': {
     attrs: [
       {
-        name: 'Al-Ḥakīm',
-        name_ar: 'الحكيم',
-        title: 'The All-Wise',
-        body: 'Allah always knows the best thing to do in every situation. Even when life feels confusing, He has a wise reason for everything that happens.\n\nAl-Ḥakīm places every matter in its right place. Wisdom is not raw intelligence — it is the discernment that knows what is fitting here, now, for this person. Thinking under Al-Ḥakīm refuses the clever answer that is out of proportion to the question. Its absence shows as sharp reasoning serving small or misdirected ends — intelligence without wisdom.\n\nSource: Quran 2:129 — "Indeed, You are the Exalted in Might, the Wise (Ḥakīm)."',
+        nameKey: 'al-hakim',
+        description: "Wisdom is not raw intelligence but the discernment of what is fitting here, now, for this person; its absence is sharp reasoning serving small ends. Al-Ḥakīm holds a reason for every decree in perfect wisdom, disclosed or not — never an answer out of proportion to its question.",
       },
       {
-        name: 'Al-Baṣīr',
-        name_ar: 'البصير',
-        title: 'The All-Seeing',
-        body: 'Allah sees everything — even an ant walking on a black rock on a dark night. Nothing you do is hidden from Him, even when no one else is looking.\n\nAl-Baṣīr sees the reality behind the presentation — what is actually the case, not what was performed. To think under Al-Baṣīr is to refuse to settle for the surface story, to keep looking until what is real comes into view. Its absence is the willingness to accept the convenient narrative because examining it more closely would cost something.\n\nSource: Quran 4:58 — "Indeed, Allah is ever Hearing and Seeing (Baṣīr)."',
+        nameKey: 'al-basir',
+        description: "To think well is to refuse the surface story and keep looking until what is actually the case comes into view. The sight of Al-Baṣīr reaches what no observer, instrument or record could — so accepting a convenient narrative because examining it would cost something fools no one.",
       },
     ],
     dua: {
@@ -2681,16 +2586,12 @@ export const MODULE_ATTRS = {
   'intellect-cognitive': {
     attrs: [
       {
-        name: 'Al-Muhaymin',
-        name_ar: 'المهيمن',
-        title: 'The Guardian Overseer',
-        body: 'Allah watches over everything and keeps it safe. Nothing happens without Him seeing it, and He protects the people and things He loves.\n\nAl-Muhaymin watches over all things. Under Al-Muhaymin, the mind is understood as something to be guarded — its attention is a resource He gave you, and what you let in through it becomes what you become. Its absence shows in a mind that accepts whatever is placed in front of it, outsourcing its formation to the nearest feed.\n\nSource: Quran 59:23 — "He is Allah... the Guardian (Al-Muhaymin) over all."',
+        nameKey: 'al-muhaymin',
+        description: "Your attention is a resource He gave you, and what you let in through it becomes what you become; a mind that accepts whatever is placed in front of it outsources its formation to the nearest feed. Al-Muhaymin holds everything in view — guard the mind as He guards what is His.",
       },
       {
-        name: 'Al-Ḥafīẓ',
-        name_ar: 'الحفيظ',
-        title: 'The Preserver',
-        body: 'Allah keeps and protects what matters. He remembers every word of the Qur\'an and every good deed you have ever done — nothing He keeps is ever lost.\n\nAl-Ḥafīẓ preserves what is entrusted. The attention is among the most valuable amanāt — it is what you trade for everything else in your life. Preserving it is not a productivity technique; it is stewardship of a finite, sacred capacity. Its absence shows as a shattered attention that still believes it is functioning normally.\n\nSource: Quran 11:57 — "Indeed, my Lord is, over all things, a Preserver (Ḥafīẓ)."',
+        nameKey: 'al-hafiz',
+        description: "Attention is among the most valuable amanāt — what you trade for everything else in your life — so preserving it is stewardship of a finite, sacred capacity, not a productivity technique. Al-Ḥafīẓ loses nothing He guards; a shattered attention still believes it functions.",
       },
     ],
     dua: {
@@ -2796,16 +2697,12 @@ export const MODULE_ATTRS = {
   'intellect-professional': {
     attrs: [
       {
-        name: 'Al-Muṣawwir',
-        name_ar: 'المصور',
-        title: 'The Fashioner',
-        body: 'Allah gives every creature its own special shape, face, and colors. No two people look exactly the same — not even twins — because He designed each one uniquely.\n\nAl-Muṣawwir gives every creation its distinct form. In craft, this Name honors the fact that skill is not merely competence — it is the shaping of something into its proper form, the form it was meant to take. Its absence leaves work that functions without beauty, output that is acceptable without being right.\n\nSource: Quran 59:24 — "He is Allah, the Creator, the Originator, the Fashioner of forms (Al-Muṣawwir)."',
+        nameKey: 'al-musawwir',
+        description: "In craft, skill is not competence but the shaping of a thing into the form it was meant to take. Al-Muṣawwir gives every created thing its own shape, face and colour — form is assigned, never accidental — and its absence leaves work that functions without being right.",
       },
       {
-        name: 'Al-Bāriʾ',
-        name_ar: 'البارئ',
-        title: 'The Originator',
-        body: 'Allah makes everything without copying from anyone or anything. He came up with the idea for every animal, plant, and planet all on His own.\n\nAl-Bāriʾ brings things into being with precision and without imitation. Mastery of a craft under Al-Bāriʾ is not about producing a copy of someone else\'s excellence — it is about bringing into being the specific contribution only you, with your training and your niyyah, can bring. Its absence is competent imitation mistaken for mastery.\n\nSource: Quran 59:24 — "He is Allah, the Creator, the Originator (Al-Bāriʾ), the Fashioner of forms."',
+        nameKey: 'al-bari',
+        description: "Mastery is not producing a copy of someone else's excellence but bringing into being the contribution only you, with your training and your niyyah, can bring. Al-Bāri' originates without copying a model — every creature is a first — and competent imitation is not mastery.",
       },
     ],
     dua: {
@@ -2911,16 +2808,12 @@ export const MODULE_ATTRS = {
   family: {
     attrs: [
       {
-        name: 'Al-Wadud',
-        name_ar: 'الودود',
-        title: 'The Ever-Loving',
-        body: 'Allah loves the people who believe and do good with a warm, steady love that is always there for them. His love doesn\'t switch off when they slip — He keeps loving them back toward Him.\n\nIn the family, this is the love that precedes approval — the parent who loves the child before the child earns it, the spouse who loves the spouse before the spouse deserves it. Its absence turns the home into a place where belonging must be bought and where mistakes become unforgivable.\n\nSource: Quran 85:14 — "And He is the Forgiving, the Affectionate."',
+        nameKey: 'al-wadud',
+        description: "In the family this is the love that precedes approval — the parent who loves the child before the child earns it, the spouse who loves before the spouse deserves it. Al-Wadūd loves inexhaustibly, never switching off when a person slips; its absence makes belonging a purchase.",
       },
       {
-        name: 'Ar-Rahman',
-        name_ar: 'الرحمن',
-        title: 'The Most Merciful',
-        body: 'Allah\'s mercy is so huge it reaches everyone — even people who have forgotten Him. He feeds, heals, and forgives without waiting to be asked.\n\nRahmah is the atmosphere in which families either flourish or suffocate. To lead a household in rahmah is to default to compassion before correction, to assume the best before demanding proof, and to make the home a place where weakness is not weaponized.\n\nSource: Quran 55:1-3 — "The Most Merciful. Taught the Quran. Created man."',
+        nameKey: 'ar-rahman',
+        description: "To lead a household in rahmah is to default to compassion before correction, assume the best before demanding proof, and make the home a place where weakness is not weaponized. The kindness of Ar-Raḥmān falls on those who thank Him and those who forget Him alike.",
       },
     ],
     dua: {
@@ -3026,16 +2919,12 @@ export const MODULE_ATTRS = {
   'family-marriage': {
     attrs: [
       {
-        name: 'Al-Wadud',
-        name_ar: 'الودود',
-        title: 'The Ever-Loving',
-        body: 'Allah loves with a love that does not switch off when someone stumbles. He keeps loving them back toward Him, even through their worst days.\n\nMarriage is the most public school of wadud: loving through the days that earn love and the days that do not. The nikah binds the covenant; wadud is what makes it habitable. Its absence turns a marriage into a contract where both parties audit the other.\n\nSource: Quran 85:14 — "And He is the Forgiving, the Affectionate."',
+        nameKey: 'al-wadud',
+        description: "Marriage is the most public school of wadud: loving through the days that earn love and the days that do not. The nikah binds the covenant; the steady, inexhaustible love of Al-Wadūd — which does not switch off when a person slips — is what makes it habitable rather than audited.",
       },
       {
-        name: 'As-Salam',
-        name_ar: 'السلام',
-        title: 'The Source of Peace',
-        body: 'Allah is perfect peace in Himself — free from every fault, every worry, every broken edge. He is the One who gives real calm to hearts that come to Him.\n\nA marriage aligned with As-Salam is one where neither spouse fears the other, where tongues are kept, and where silence is not punishment. "Litaskunū ilayhā" — that you may find tranquility in her — is not a wish; it is the aim.\n\nSource: Quran 59:23 — "The Sovereign, the Pure, the Source of Peace."',
+        nameKey: 'as-salam',
+        description: "A marriage aligned with peace is one where neither spouse fears the other, tongues are kept, and silence is not punishment. Litaskunū ilayhā — that you may find tranquility in her — is the aim, and that settledness originates in As-Salām, never manufactured by the heart.",
       },
     ],
     dua: {
@@ -3134,16 +3023,12 @@ export const MODULE_ATTRS = {
   'family-parenting': {
     attrs: [
       {
-        name: 'Ar-Rabb',
-        name_ar: 'الرب',
-        title: 'The Nurturer',
-        body: 'Allah is your Rabb — the Lord who raises you up bit by bit. He feeds you, teaches you, fixes what is broken in you, and is patient with every slow step of your growing.\n\nTo parent in the likeness of Ar-Rabb is to grow a soul, not shape a product — accepting that tarbiyah unfolds in seasons that will not match the calendar of your convenience.\n\nSource: Quran 1:2 — "All praise is for Allah, Lord of all worlds."',
+        nameKey: 'ar-rabb',
+        description: "To parent is to grow a soul, not shape a product — accepting that tarbiyah unfolds in seasons that will not match the calendar of your convenience. Ar-Rabb is owner, sustainer and raiser at once: He does not only possess creation, He brings it to maturity.",
       },
       {
-        name: 'Al-Hafiz',
-        name_ar: 'الحفيظ',
-        title: 'The Preserver',
-        body: 'Allah keeps safe what He wants kept. Nothing slips past His watch — every word spoken, every life lived, every trust given is held under His care.\n\nYour children are an amanah before they are yours. To parent under Al-Hafiz is to guard them from what would harm them without suffocating what must grow — including harm that wears your own face when you are tired or short.\n\nSource: Quran 11:57 — "Indeed, my Lord is, over all things, Guardian."',
+        nameKey: 'al-hafiz',
+        description: "Your children are an amanah before they are yours — to be guarded from what would harm them without suffocating what must grow, including harm that wears your own face when you are tired or short. Al-Ḥafīẓ keeps what is entrusted to Him, and nothing He guards is ever lost.",
       },
     ],
     dua: {
@@ -3249,16 +3134,12 @@ export const MODULE_ATTRS = {
   'family-kinship': {
     attrs: [
       {
-        name: 'Al-Wakil',
-        name_ar: 'الوكيل',
-        title: 'The Trustee',
-        body: 'Allah is the One you can hand all your worries and outcomes to. You do your part; He handles the rest — the things you cannot make happen no matter how hard you push.\n\nSilat al-rahim is a trust placed in you that no contract names. Al-Wakil holds outcomes you cannot — whether a reconciled aunt, a returned phone call, a softened cousin. Your role is to maintain the tie; the result of that maintenance is returned to Him.\n\nSource: Quran 3:173 — "Sufficient for us is Allah, and the best Disposer of affairs."',
+        nameKey: 'al-wakil',
+        description: "Silat al-rahim is a trust placed in you that no contract names: your role is to maintain the tie, and the result of that maintenance is returned to Him. Al-Wakīl holds the outcomes you cannot — a reconciled aunt, a returned call, a softened cousin — better than you could.",
       },
       {
-        name: 'Ash-Shakur',
-        name_ar: 'الشكور',
-        title: 'The Appreciative',
-        body: 'Allah notices every small good thing a person does and rewards it far beyond what it looks like. Nothing is too small for Him to see or to multiply.\n\nAsh-Shakur magnifies the small act. A check-in call, a remembered birthday, a visit to the elder who cannot leave the house — these are not small to Him. To walk kinship under Ash-Shakur is to believe the five-minute call matters and to make it anyway.\n\nSource: Quran 35:30 — "Indeed, He is Forgiving and Appreciative."',
+        nameKey: 'ash-shakur',
+        description: "A check-in call, a remembered birthday, a visit to the elder who cannot leave the house are not small to Him. Ash-Shakūr rewards a small deed far beyond its size and notices effort no one else recorded — so believe the five-minute call matters, and make it anyway.",
       },
     ],
     dua: {
@@ -3357,16 +3238,12 @@ export const MODULE_ATTRS = {
   'family-home': {
     attrs: [
       {
-        name: 'As-Salam',
-        name_ar: 'السلام',
-        title: 'The Source of Peace',
-        body: 'Allah is perfect peace — free from every fault, every worry, every broken thing. He is the One from whom all real calm flows.\n\nAs-Salam makes the home a place where the nervous system can rest. A Muslim home should feel different from the street outside it — quieter in its conflicts, gentler in its rhythms, safer in its tongues. When As-Salam departs a home, everyone learns to brace as they walk through the door.\n\nSource: Quran 59:23 — "The Sovereign, the Pure, the Source of Peace."',
+        nameKey: 'as-salam',
+        description: "A home where the nervous system can rest is quieter in its conflicts, gentler in its rhythms and safer in its tongues than the street outside; when that departs, everyone learns to brace at the door. As-Salām is where such settledness originates and from whom it is given.",
       },
       {
-        name: 'Al-Quddus',
-        name_ar: 'القدوس',
-        title: 'The Pure',
-        body: 'Allah is perfectly pure — free from every flaw, every dirt, every shadow. Nothing mean or low belongs anywhere near Him.\n\nA home aligned with Al-Quddus is attentive to what crosses its threshold — what is watched, what is spoken, what is consumed — not to become sterile, but to remain a place where hearts stay soft and revelation still reaches them.\n\nSource: Quran 62:1 — "Whatever is in the heavens and earth exalts Allah, the Sovereign, the Pure."',
+        nameKey: 'al-quddus',
+        description: "A home stays attentive to what crosses its threshold — what is watched, what is spoken, what is consumed — not to become sterile but to remain a place where hearts stay soft and revelation still reaches them. Al-Quddūs is pure in having nothing at all to correct.",
       },
     ],
     dua: {
@@ -3472,16 +3349,12 @@ export const MODULE_ATTRS = {
   'family-office': {
     attrs: [
       {
-        name: 'Al-Jami',
-        name_ar: 'الجامع',
-        title: 'The Gatherer',
-        body: 'Allah gathers everything and everyone at the right time — scattered families, lost friends, all of humankind on the Last Day. Nothing stays scattered forever under His hand.\n\nThe Family Office is the mechanism through which a household is gathered — its calendar, its announcements, its shared documents. To steward it is to make it easy for your people to find each other, not one more place they get lost.\n\nSource: Quran 3:9 — "Our Lord, You will surely gather the people for a Day about which there is no doubt."',
+        nameKey: 'al-jami',
+        description: "The Family Office is the mechanism through which a household is gathered — its calendar, its announcements, its shared documents — so steward it to make finding each other easy, not to add one more place people get lost. Al-Jāmiʿ brings together what was scattered.",
       },
       {
-        name: 'Al-Hafiz',
-        name_ar: 'الحفيظ',
-        title: 'The Preserver',
-        body: 'Allah keeps safe what He wants kept. Nothing slips past His watch — every word spoken, every record of what was promised, every trust given is held under His care.\n\nThe Family Office holds things that matter: decisions made, agreements reached, documents the family will need again. To run it under Al-Hafiz is to treat the record as an amanah, not an inbox.\n\nSource: Quran 11:57 — "Indeed, my Lord is, over all things, Guardian."',
+        nameKey: 'al-hafiz',
+        description: "The Family Office holds what matters: decisions made, agreements reached, documents the family will need again. Treat the record as an amanah rather than an inbox, in the manner of Al-Ḥafīẓ, who keeps what is entrusted to Him so that nothing He guards is ever lost.",
       },
     ],
     dua: {
@@ -3580,16 +3453,12 @@ export const MODULE_ATTRS = {
   ummah: {
     attrs: [
       {
-        name: 'Al-Raḥīm',
-        name_ar: 'الرَّحِيم',
-        title: 'The Merciful',
-        body: 'Allah has a special, close mercy He pours over the people who turn to Him. It is steady, personal, and shows up as real care — not just a feeling, but attention given.\n\nIn the People domain, raḥmah is active mercy that reaches out rather than waiting to be earned. Its absence corrupts this domain not through cruelty but through treating people as roles, extracting from relationships rather than contributing, or allowing difference to become distance.\n\nSource: Quran 33:43 — "He is ever, to the believers, Merciful."',
+        nameKey: 'ar-rahim',
+        description: "In the People domain raḥmah is active mercy that reaches out rather than waiting to be earned; its absence corrupts not through cruelty but through treating people as roles. Ar-Raḥīm sustains that mercy toward those who try — nearer than earned, always ready to forgive.",
       },
       {
-        name: 'Al-Jāmiʿ',
-        name_ar: 'الْجَامِع',
-        title: 'The Gatherer',
-        body: 'Allah gathers what is scattered — lost families, separated friends, all of humankind on the Last Day. Nothing He wills to bring together stays apart forever.\n\nAl-Jāmiʿ is not uniformity; it is the orientation toward a shared centre that makes difference generative rather than fragmenting. The operator entering this domain is asked whether their presence here builds or disperses the social fabric.\n\nSource: Quran 3:9 — "Our Lord, You will surely gather the people for a Day about which there is no doubt."',
+        nameKey: 'al-jami',
+        description: "This is not uniformity but the orientation toward a shared centre that makes difference generative rather than fragmenting, and the operator entering here is asked whether their presence builds or disperses the social fabric. Al-Jāmiʿ brings together what was scattered.",
       },
     ],
     dua: {
@@ -3684,16 +3553,12 @@ export const MODULE_ATTRS = {
   neighbors: {
     attrs: [
       {
-        name: 'Al-Wadūd',
-        name_ar: 'الودود',
-        title: 'The Loving',
-        body: 'Allah loves with a warm, steady love that keeps showing up — not just as a feeling, but as real care for the people He places in our lives.\n\nAl-Wadūd in neighbor-right is love expressed as active care for those placed near you — not the neighbor you chose, but the neighbor Allah placed at your door. The Prophet ﷺ said Jibrīl kept enjoining care for the neighbor until he thought the neighbor would be made an heir. Its absence shows as the ordinary hardness that lets a family on the other side of a wall become invisible — unknown names, unoffered food, unheard trouble.\n\nSource: Quran 85:14 — "And He is the Forgiving, the Affectionate."',
+        nameKey: 'al-wadud',
+        description: "Neighbor-right is love expressed as active care for whoever Allah placed at your door; Jibrīl kept enjoining it until the Prophet ﷺ thought the neighbor would be made an heir. Al-Wadūd loves steadily, and its absence lets a family behind a wall become invisible.",
       },
       {
-        name: 'Al-Muḥsin',
-        name_ar: 'المحسن',
-        title: 'The Benevolent',
-        body: 'Allah does the most beautiful, most thoughtful thing in every situation — going beyond what is owed. He gives before being asked, and more than was earned.\n\nAl-Muḥsin is iḥsān directed outward — doing good without counting, without the neighbor needing to ask. Iḥsān in neighbor-right is to anticipate need rather than respond only when pressed. Its absence is the minimum-standard politeness that fulfills no ḥaqq (right) — civility without care, presence without attention.\n\nSource: Sahih Muslim 1955 — "Allah has prescribed iḥsān in everything."',
+        nameKey: 'al-muhsin',
+        description: "Iḥsān in neighbor-right anticipates need rather than responding only when pressed — doing good without counting, without the neighbor having to ask. Al-Muḥsin does everything with perfect care; its absence is civility without care, presence without attention.",
       },
     ],
     dua: {
@@ -3799,16 +3664,12 @@ export const MODULE_ATTRS = {
   community: {
     attrs: [
       {
-        name: 'Al-Jāmiʿ',
-        name_ar: 'الجامع',
-        title: 'The Gatherer',
-        body: 'Allah gathers everyone and everything at the right time — scattered families, lost friends, all of humankind on the Last Day. Nothing He wills to bring together stays apart forever.\n\nAt the community level — beyond the household, beyond the neighbor — Al-Jāmiʿ asks whether the operator\u2019s presence builds or disperses the wider jamāʿah. Its absence is the quiet drift into faction: personal preference becomes party, difference hardens into camp, and the shared center is abandoned in the name of identity.\n\nSource: Quran 3:9 — "Our Lord, You will surely gather the people for a Day about which there is no doubt."',
+        nameKey: 'al-jami',
+        description: "Beyond the household and the neighbor, the question is whether your presence builds or disperses the wider jamāʿah. Al-Jāmiʿ brings together what was scattered; its absence is the drift into faction — preference becomes party, difference hardens into camp, the centre abandoned.",
       },
       {
-        name: 'Al-Walī',
-        name_ar: 'الولي',
-        title: 'The Protecting Friend',
-        body: 'Allah is the close Friend and Protector of the believers — He stands beside them, handles what they cannot, and keeps faith with them when everyone else walks away.\n\nAl-Walī in community life is the refusal to let the collective be a vehicle for personal brand while its weakest members go unprotected. Its absence is the community that performs unity in public while leaving the grieving, the sick, and the new unattended in private.\n\nSource: Quran 2:257 — "Allah is the Ally of those who believe."',
+        nameKey: 'al-wali',
+        description: "Community life refuses to let the collective become a vehicle for personal brand while its weakest members go unprotected. Al-Walī is the guardian who stays close and does not leave — nearness that is protection — while its absence performs unity and leaves the grieving alone.",
       },
     ],
     dua: {
@@ -3914,16 +3775,12 @@ export const MODULE_ATTRS = {
   'moontrance-land': {
     attrs: [
       {
-        name: 'Al-Khāliq',
-        name_ar: 'الخالق',
-        title: 'The Creator',
-        body: 'Allah made everything from nothing — the soil, the watershed, the seed, and you. He didn\'t copy anyone; He just decided things should exist and they came to be.\n\nEvery horizon of MTC land is māddah (matter) He originated. To stand on it as a steward is to hold a trust He placed in your hand — not property you own, but a living āyah you are answerable for. Its absence shows as treating the land as inert inventory to be scraped or traded rather than read.\n\nSource: Quran 59:24 — "He is Allah, the Creator, the Originator, the Fashioner of forms."',
+        nameKey: 'al-khaliq',
+        description: "Every horizon of MTC land is māddah He originated — not property you own but a living āyah you are answerable for. Al-Khāliq brings everything into being out of nothing; its absence treats land as inert inventory to be scraped or traded rather than read.",
       },
       {
-        name: 'Al-Bāriʾ',
-        name_ar: 'البارئ',
-        title: 'The Shaper',
-        body: 'Allah makes everything without copying from anyone or anything. He came up with the idea for every animal, plant, and planet all on His own.\n\nAl-Bāriʾ shapes what is created with precise differentiation — nothing is left crude. Under Al-Bāriʾ, the land steward refuses to overwrite what Allah has already shaped; regenerative practice is a return to His design, not imposition on it. Its absence is the violence of extraction that flattens the site\u2019s native intelligence in favor of a business case that fits a spreadsheet.\n\nSource: Quran 59:24 — "He is Allah, the Creator, the Originator (Al-Bāriʾ), the Fashioner of forms."',
+        nameKey: 'al-bari',
+        description: "The land steward refuses to overwrite what Allah has already shaped: regenerative practice is a return to His design, not an imposition on it. Al-Bāri' originates without copying a model, and its absence is extraction that flattens a site's native intelligence to fit a spreadsheet.",
       },
     ],
     dua: {
@@ -4029,16 +3886,12 @@ export const MODULE_ATTRS = {
   'moontrance-seasonal': {
     attrs: [
       {
-        name: 'Al-Mudabbir',
-        name_ar: 'المدبّر',
-        title: 'The Orderer of Affairs',
-        body: 'Allah arranges everything in the right order and at the right time — the seasons, the rain, the sunrise, the harvest. Nothing in nature happens by accident; He schedules it all.\n\nAl-Mudabbir arranges affairs in their proper order — the rotation of seasons, the timing of rain, the alternation of night and day. A seasonal land pathway submits to His order rather than imposing a commercial calendar on a living system. Its absence is the year-round uniform extraction that denies fallow, denies rest, and treats every month as yield-month.\n\nSource: Quran 10:3 — "He directs the affair (yudabbiru l-amr); no intercessor except after His permission."',
+        nameKey: 'al-mudabbir',
+        description: "A seasonal land pathway submits to His ordering of rain, rest and harvest rather than imposing a commercial calendar on a living system. Al-Mudabbir arranges every matter to its proper end, sequence and timing managed rather than left to drift; its absence denies fallow entirely.",
       },
       {
-        name: 'Al-Fattāḥ',
-        name_ar: 'الفتّاح',
-        title: 'The Opener',
-        body: 'Allah opens doors that seem closed — in our hearts, our lives, and our fields. When something feels impossible, He can make a way that no one saw coming.\n\nAl-Fattāḥ opens what was closed — the seed, the rain-cloud, the bound potential inside soil. In the seasonal rhythm, Al-Fattāḥ is the One who decides whether the planting opens into harvest. The operator\u2019s task is iḥsān in tending; the opening of rizq is His. Its absence is the grasping that treats yield as earned rather than granted.\n\nSource: Quran 34:26 — "And He is the Opener (Al-Fattāḥ), the Knowing."',
+        nameKey: 'al-fattah',
+        description: "Your task is iḥsān in tending; the opening of rizq is His. Al-Fattāḥ opens what is shut — the seed, the rain-cloud, the bound potential inside soil — and decides whether planting opens into harvest. Its absence is the grasping that treats yield as earned rather than granted.",
       },
     ],
     dua: {
@@ -4144,16 +3997,12 @@ export const MODULE_ATTRS = {
   'moontrance-residency': {
     attrs: [
       {
-        name: 'Al-Walī',
-        name_ar: 'الولي',
-        title: 'The Protecting Friend',
-        body: 'Allah is the best friend and protector for people who love Him. He stands by them and helps them, like a guardian who never leaves.\n\nAl-Walī binds people to one another in covenant — the walāʾ that made Ansar and Muhajirūn a single household. A residency model stands or falls on this name: it is not co-location but walāʾ that makes people a community. Its absence is the intentional community that is structurally many households sharing infrastructure, with no binding duty between them.\n\nSource: Quran 42:28 — "And He is the Protecting Friend (Al-Walī), the Praiseworthy."',
+        nameKey: 'al-wali',
+        description: "Walāʾ is what made Ansar and Muhajirūn a single household — a residency stands or falls on it, because co-location alone does not make people a community. Al-Walī stays close and does not leave; its absence is households sharing infrastructure with no binding duty.",
       },
       {
-        name: 'Al-Ḥafīẓ',
-        name_ar: 'الحفيظ',
-        title: 'The Preserver',
-        body: 'Allah keeps and protects what matters. He remembers every word of the Qur\'an and every good deed ever done — nothing He keeps is ever lost.\n\nAl-Ḥafīẓ preserves what is meant to endure — covenant, trust, memory, inheritance. A residency is not a program but a durable social form; under Al-Ḥafīẓ, the operator asks whether the structures in place today will preserve this community through the generation that inherits it. Its absence is the initiative that dies with its founder because nothing durable was set underneath it.\n\nSource: Quran 11:57 — "Indeed, my Lord is, over all things, a Preserver (Ḥafīẓ)."',
+        nameKey: 'al-hafiz',
+        description: "A residency is not a program but a durable social form: ask whether today's structures will preserve this community through the generation that inherits it. Al-Ḥafīẓ keeps what is entrusted to Him and loses nothing He guards; its absence is what dies with its founder.",
       },
     ],
     dua: {
@@ -4259,16 +4108,12 @@ export const MODULE_ATTRS = {
   wealth: {
     attrs: [
       {
-        name: 'Al-Razzāq',
-        name_ar: 'الرَّزَّاق',
-        title: 'The Provider',
-        body: 'Allah feeds every single thing He made — from the tiniest bug to the biggest whale. He never forgets anyone, and He never runs out.\n\nAt this level, Al-Razzāq orients toward wealth not as personal achievement to protect or expand but as rizq — provision entrusted for a purpose. Its absence corrupts through accumulation that crowds out generosity, ethical compromise justified by financial pressure, treating wealth as evidence of personal worth, and the anxiety of holding rather than trusting.\n\nSource: Quran 51:58 — "Indeed, it is Allah who is the Provider, the firm possessor of strength."',
+        nameKey: 'ar-razzaq',
+        description: "At this level wealth is not personal achievement to protect or expand but rizq entrusted for a purpose. Ar-Razzāq provides for every living thing; its absence corrupts through accumulation that crowds out generosity, and the anxiety of holding rather than trusting.",
       },
       {
-        name: 'Al-Ḥasīb',
-        name_ar: 'الْحَسِيب',
-        title: 'The Reckoner',
-        body: 'Allah is the One who takes account of everything — every good deed, every wrong, every small choice. His reckoning is perfect and nothing slips past it.\n\nAl-Ḥasīb is not anxiety about outcomes — it is the quality of attention that ensures stewardship is legible, both to the operator and to Allah. Its absence shows in recklessness: decisions made without counting the cost, resources deployed without tracking their effect.\n\nSource: Quran 4:6 — "And sufficient is Allah as Accountant."',
+        nameKey: 'al-hasib',
+        description: "This is not anxiety about outcomes but the quality of attention that makes stewardship legible, to the operator and to Allah. Al-Ḥasīb keeps the full account of every act, nothing lost from the record and nothing added; its absence is decisions made without counting the cost.",
       },
     ],
     dua: {
@@ -4363,16 +4208,12 @@ export const MODULE_ATTRS = {
   'wealth-earning': {
     attrs: [
       {
-        name: 'Ar-Razzāq',
-        name_ar: 'الرزاق',
-        title: 'The Provider',
-        body: 'Allah feeds every single thing He made — from the tiniest bug to the biggest whale. He never forgets anyone, and He never runs out.\n\nThe employer, the client, the market are means He uses — they are not the source. To earn under Ar-Razzāq is to take the sabab seriously (apply, work, negotiate) without believing the effort itself is the provider. Its absence shows as panic in scarcity and arrogance in abundance — two forms of having forgotten where rizq actually comes from.\n\nSource: Quran 51:58 — "Indeed, it is Allah who is the Provider, the firm possessor of strength."',
+        nameKey: 'ar-razzaq',
+        description: "The employer, the client, the market are means He uses — not the source. To earn is to take the sabab seriously without believing the effort is the provider, because Ar-Razzāq provides for every living thing; its absence is panic in scarcity and arrogance in abundance.",
       },
       {
-        name: 'Al-Fattāḥ',
-        name_ar: 'الفتاح',
-        title: 'The Opener',
-        body: 'Allah opens doors no one else can open, and closes the ones that would have hurt you. He is the One who solves what looks impossible.\n\nEarning under Al-Fattāḥ is the confidence that a door closed to you is closed for your benefit, and the willingness to keep knocking on the next one. Its absence is either despair at closure or the insistence on forcing a door Allah has shut.\n\nSource: Quran 34:26 — "He is the Judge, the Knowing — the Opener."',
+        nameKey: 'al-fattah',
+        description: "Earning well is the confidence that a door closed to you is closed for your benefit, and the willingness to keep knocking on the next one. Al-Fattāḥ opens what is shut, in circumstances and in provision; its absence is despair at closure, or forcing a door Allah has shut.",
       },
     ],
     dua: {
@@ -4478,16 +4319,12 @@ export const MODULE_ATTRS = {
   'wealth-financial': {
     attrs: [
       {
-        name: 'Ar-Razzāq',
-        name_ar: 'الرزاق',
-        title: 'The Provider',
-        body: 'Allah feeds every single thing He made — from the tiniest bug to the biggest whale. He never forgets anyone, and He never runs out.\n\nManaging wealth under Ar-Razzāq means treating every unit of it as rizq — provision entrusted for a purpose, not earnings to be spent according to appetite. Its absence turns a budget into an indulgence log and a portfolio into a trophy case. Presence of Ar-Razzāq treats planning, saving, and deploying money as dhikr through numbers.\n\nSource: Quran 51:58 — "Indeed, it is Allah who is the Provider, the firm possessor of strength."',
+        nameKey: 'ar-razzaq',
+        description: "Managing wealth means treating every unit as provision entrusted for a purpose, not earnings to spend by appetite. Ar-Razzāq provides for every living thing — the ant in the ground and the fish in the deep — and its absence turns a budget into an indulgence log.",
       },
       {
-        name: 'Al-Ghanī',
-        name_ar: 'الغني',
-        title: 'The Self-Sufficient',
-        body: 'Allah doesn\'t need anything or anyone. Everyone else needs Him for every breath and every bite, but He is complete on His own.\n\nTo manage finances under Al-Ghanī is to steward money with a heart that does not need it for its security, even as the hands use it competently. Its absence is financial management driven by the anxious belief that the account balance determines your worth, your safety, and your standing.\n\nSource: Quran 35:15 — "O mankind, you are those in need of Allah, while Allah is the Free of need, the Praiseworthy."',
+        nameKey: 'al-ghani',
+        description: "To manage finances well is to steward money with a heart that does not need it for security, even as the hands use it competently. Al-Ghanī needs nothing from anyone — your worship adds nothing to Him and your neglect takes nothing away; the balance is not your worth.",
       },
     ],
     dua: {
@@ -4593,16 +4430,12 @@ export const MODULE_ATTRS = {
   'wealth-ownership': {
     attrs: [
       {
-        name: 'Al-ʿAdl',
-        name_ar: 'العدل',
-        title: 'The Utterly Just',
-        body: 'Allah is perfectly fair. He gives every person exactly what is theirs — nothing less, nothing more — and no one can twist things past Him.\n\nIn ownership, Al-ʿAdl governs contracts, inheritance, partnerships, and promises. Its absence shows in paperwork that favors the strong, inheritances that sideline the weak, and contracts that keep options open at the other party\'s expense.\n\nSource: Quran 16:90 — "Indeed, Allah commands justice, excellence, and giving to the near of kin."',
+        nameKey: 'al-adl',
+        description: "In ownership this governs contracts, inheritance, partnerships and promises. Al-ʿAdl gives no one less than their due and wrongs no one by His decree; its absence shows in paperwork favoring the strong, inheritances sidelining the weak, and options kept open at another's expense.",
       },
       {
-        name: 'Al-Muqsiṭ',
-        name_ar: 'المقسط',
-        title: 'The Equitable',
-        body: 'Allah divides things up fairly, piece by piece, with real care. Every share He hands out is the right share for that person.\n\nWhere Al-ʿAdl is the absolute standard, Al-Muqsiṭ is the careful apportioning in practice. Its absence is the generic "it\'s fair" that has not actually counted what each party carries, contributes, or is owed.\n\nSource: Quran 49:9 — "Indeed, Allah loves those who act justly."',
+        nameKey: 'al-muqsit',
+        description: "Where Al-ʿAdl is the absolute standard, Al-Muqsiṭ is the careful apportioning in practice — exact fairness that restores what was taken and returns each right to its owner. Its absence is the generic it-is-fair that never counted what each party carries or is owed.",
       },
     ],
     dua: {
@@ -4708,16 +4541,12 @@ export const MODULE_ATTRS = {
   'wealth-circulation': {
     attrs: [
       {
-        name: 'Al-Karīm',
-        name_ar: 'الكريم',
-        title: 'The Generous',
-        body: 'Allah gives again and again — to people who ask and to people who don\'t, to people who thank Him and to people who forget. His giving never runs thin.\n\nTo circulate wealth under Al-Karīm is to refuse the calculus that asks what a gift will return — the giving is the return. Its absence reduces sadaqah to PR, zakat to compliance, and the hand of generosity to a spreadsheet of expected dividends.\n\nSource: Quran 27:40 — "My Lord is Free of need and Generous."',
+        nameKey: 'al-karim',
+        description: "To circulate wealth is to refuse the calculus that asks what a gift will return — the giving is the return. Al-Karīm gives without depletion and without being asked, owing the recipient nothing; its absence reduces sadaqah to PR and zakat to compliance.",
       },
       {
-        name: 'Al-Wahhāb',
-        name_ar: 'الوهاب',
-        title: 'The Bestower',
-        body: 'Allah keeps handing out gifts for free — health, family, rain, sight, hearing — long before anyone earned them. His giving is not triggered by our deserving.\n\nCirculating wealth under Al-Wahhāb is learning to pass on what was freely given as something that is meant to keep flowing. Its absence hoards provision as if it were finite, treating what was gifted as if it were earned.\n\nSource: Quran 3:8 — "Grant us from Yourself mercy. Indeed, You are the Bestower."',
+        nameKey: 'al-wahhab',
+        description: "Circulating wealth is learning to pass on what was freely given as something meant to keep flowing. Al-Wahhāb gives as gift rather than exchange — nothing good you hold was earned into existence — and its absence hoards provision as if it were finite.",
       },
     ],
     dua: {
@@ -4823,16 +4652,12 @@ export const MODULE_ATTRS = {
   environment: {
     attrs: [
       {
-        name: 'Al-Wakīl',
-        name_ar: 'الْوَكِيل',
-        title: 'The Trustworthy Disposer',
-        body: 'Allah is the One you can hand every worry and outcome to. You do your part; He handles what you cannot.\n\nIn the Environment domain, Al-Wakīl frames the earth as something entrusted — not owned, not inherited as a right, but held in custody for those who come after. The operator is asked whether they understand that the ground beneath them is a trust, and that a trustee has obligations to the one who entrusted.\n\nSource: Quran 3:173 — "Sufficient for us is Allah, and the best Disposer of affairs."',
+        nameKey: 'al-wakil',
+        description: "The earth is entrusted — not owned, not inherited as a right, but held in custody for those who come after, and a trustee has obligations to the one who entrusted. Al-Wakīl disposes of a matter handed to Him better than you could; the ground beneath you is that trust.",
       },
       {
-        name: 'Al-Ḥakīm',
-        name_ar: 'الْحَكِيم',
-        title: 'The All-Wise',
-        body: 'Allah knows the right thing to do, the right time, and the right way — always. His wisdom never makes a mistake and never misses a consequence.\n\nAl-Ḥakīm is the antidote to short-sightedness — not merely prudence, but the quality of perception that sees how present choices propagate into future conditions. Its absence corrupts through the accumulated weight of small decisions made without seeing their full arc.\n\nSource: Quran 2:32 — "Indeed, it is You who is the Knowing, the Wise."',
+        nameKey: 'al-hakim',
+        description: "This is the antidote to short-sightedness: not merely prudence but the perception that sees how present choices propagate into future conditions. Al-Ḥakīm holds a reason for every decree in perfect wisdom, disclosed or not; its absence is small decisions made without their arc.",
       },
     ],
     dua: {
@@ -4945,16 +4770,12 @@ export const MODULE_ATTRS = {
   'env-resource': {
     attrs: [
       {
-        name: 'Al-Muḥyī',
-        name_ar: 'المحيي',
-        title: 'The Giver of Life',
-        body: 'Allah is the One who gives life — waking seeds in the soil, putting breath in every baby, bringing back what seemed gone. No life begins or continues without Him.\n\nEvery drop of water you use today was life He extended. To consume resources under Al-Muḥyī is to remember that the tap, the switch, and the field are thin interfaces over a miracle — not infinite, not owed. Its absence shows as unreflective consumption that takes as if it were owed.\n\nSource: Quran 30:50 — "That is the Giver of Life to the dead, and He is, over all things, competent."',
+        nameKey: 'al-muhyi',
+        description: "Every drop of water you use today was life He extended, and the tap, the switch and the field are thin interfaces over a miracle — not infinite, not owed. Al-Muḥyī gives life to bodies, to dead land after rain, and to hearts that had gone quiet.",
       },
       {
-        name: 'Al-Badīʿ',
-        name_ar: 'البديع',
-        title: 'The Originator of Wonders',
-        body: 'Allah invents things no one has ever seen before. He designs without a pattern and makes without copying — every snowflake, every eye, every galaxy is His original.\n\nAl-Badīʿ originates the fine, intricate systems beneath what looks like a simple resource — the aquifer behind the tap, the forest behind the lumber, the grid behind the light. To use resources under Al-Badīʿ is to honor the design by not wasting it. Its absence is the laziness that sees only the endpoint and forgets the whole dependency behind it.\n\nSource: Quran 2:117 — "Originator of the heavens and the earth."',
+        nameKey: 'al-badi',
+        description: "The aquifer behind the tap, the forest behind the lumber, the grid behind the light — Al-Badīʿ originated all of it without precedent, copying nothing from a prior pattern. Honor the design by not wasting it; its absence sees only the endpoint and forgets the dependency.",
       },
     ],
     dua: {
@@ -5060,16 +4881,12 @@ export const MODULE_ATTRS = {
   'env-waste': {
     attrs: [
       {
-        name: 'Al-Quddūs',
-        name_ar: 'القدوس',
-        title: 'The Absolutely Pure',
-        body: 'Allah is perfectly pure — free from every flaw, every dirt, every shadow. Nothing mean or low belongs anywhere near Him.\n\nThe earth He entrusted is meant to remain fit to live on. To manage waste under Al-Quddūs is to refuse to dump your impurity into what is held in common. Its absence shows in the casual pollution of air, water, and soil by those who treat the commons as a sink for their private convenience.\n\nSource: Quran 62:1 — "Whatever is in the heavens and earth exalts Allah, the Sovereign, the Pure."',
+        nameKey: 'al-quddus',
+        description: "The earth He entrusted is meant to remain fit to live on, so refuse to dump your impurity into what is held in common. Al-Quddūs is free of every defect — purity as the absence of anything to correct — and its absence is casual pollution of air, water and soil.",
       },
       {
-        name: 'Aṭ-Ṭāhir',
-        name_ar: 'الطاهر',
-        title: 'The Pure One',
-        body: 'Allah is pure in every way, and He loves it when His creation and His servants keep themselves pure — clean hands, clean hearts, clean ground.\n\nThe believer is commanded to leave a place cleaner than they found it — "an-naẓāfatu min al-īmān." Its absence is the mess left behind, the wrapper dropped, the byproduct externalized, the litter that says "someone else will clean this."\n\nSource: Quran 2:222 — "Indeed, Allah loves those who purify themselves."',
+        nameKey: 'at-tayyib',
+        description: "The believer is commanded to leave a place cleaner than they found it — an-naẓāfatu min al-īmān. Aṭ-Ṭayyib is pure in Himself and accepts only what is pure, wholesome at its source rather than clean on its surface; its absence is the wrapper dropped, the byproduct externalized.",
       },
     ],
     dua: {
@@ -5175,16 +4992,12 @@ export const MODULE_ATTRS = {
   'env-ecosystem': {
     attrs: [
       {
-        name: 'Al-Ḥafīẓ',
-        name_ar: 'الحفيظ',
-        title: 'The Preserver',
-        body: 'Allah keeps safe what He wants kept. Nothing slips past His watch — every word, every life, every trust is held under His care.\n\nTo approach the living world under Al-Ḥafīẓ is to understand that the biodiversity of a forest, the fertility of a soil, the integrity of a watershed are all entrusted — your diligence is one of the means by which He preserves what He has decreed to preserve. Its absence shows as passive complicity in what is being lost.\n\nSource: Quran 11:57 — "Indeed, my Lord is, over all things, Guardian."',
+        nameKey: 'al-hafiz',
+        description: "The biodiversity of a forest, the fertility of a soil, the integrity of a watershed are entrusted, and your diligence is one of the means by which they are kept. Al-Ḥafīẓ preserves what is entrusted to Him and loses nothing He guards; its absence is passive complicity.",
       },
       {
-        name: 'Ar-Raqīb',
-        name_ar: 'الرقيب',
-        title: 'The Watchful',
-        body: 'Allah is watching over everything, all the time — no camera needed, nothing hidden from Him. Even the smallest thing done in the dark is fully seen.\n\nNothing done to creation passes Him unnoticed — not the felled tree, not the wasted field, not the species extinguished. To act toward ecosystems under Ar-Raqīb is to act as if you were already being watched, because you are. Its absence is the behavior people change when they believe no one is looking.\n\nSource: Quran 4:1 — "Indeed Allah is ever, over you, an Observer."',
+        nameKey: 'ar-raqib',
+        description: "Nothing done to creation passes unnoticed — not the felled tree, not the wasted field, not the species extinguished. Ar-Raqīb is always watching and never inattentive, seeing you in company and seeing you alone; act as if you were already being watched, because you are.",
       },
     ],
     dua: {
@@ -5290,16 +5103,12 @@ export const MODULE_ATTRS = {
   'env-sourcing': {
     attrs: [
       {
-        name: 'Al-ʿAlīm',
-        name_ar: 'العليم',
-        title: 'The All-Knowing',
-        body: 'Allah knows everything — what you say, what you think, what you did when no one was watching. Nothing slips out of His knowing.\n\nAl-ʿAlīm knows the entire chain — the hand that mined, the field that grew, the river that was diverted. To source under Al-ʿAlīm is to refuse the comfort of ignorance about where things come from. Its absence shows as deliberate blindness to upstream ethics, the "I didn\'t know" stance maintained by refusing to ask.\n\nSource: Quran 2:32 — "Indeed, it is You who is the Knowing, the Wise."',
+        nameKey: 'al-alim',
+        description: "To source well is to refuse the comfort of ignorance; its absence is deliberate blindness to upstream ethics maintained by refusing to ask. Al-ʿAlīm knows the entire chain — the hand that mined, the field that grew, the river that was diverted — and what you told no one.",
       },
       {
-        name: 'Ar-Rashīd',
-        name_ar: 'الرشيد',
-        title: 'The Guide to Right Conduct',
-        body: 'Allah guides people to the right, mature path — not too strict, not too lazy, exactly what fits. He shows the balanced way through every hard choice.\n\nSourcing under Ar-Rashīd chooses the fitting path between extremes: neither pious withdrawal from all commerce, nor cynical participation in whatever system is cheapest. Its absence is the paralysis that does nothing because nothing is perfect, or the compromise that does anything because everything is broken.\n\nSource: Quran 11:87 — "Indeed you are the forbearing, the guide to right conduct."',
+        nameKey: 'ar-rashid',
+        description: "Sourcing chooses the fitting path between extremes: neither pious withdrawal from all commerce nor cynical participation in whatever is cheapest. Ar-Rashīd directs every affair to its right end; its absence is paralysis because nothing is perfect, or compromise because all is broken.",
       },
     ],
     dua: {
@@ -6132,7 +5941,13 @@ export const ONGOING_UNIVERSAL = {
 };
 
 export function getModuleData(moduleId, valuesLayer) {
-  if (valuesLayer === 'islamic') return MODULE_ATTRS[moduleId] || null;
+  if (valuesLayer === 'islamic') {
+    const data = MODULE_ATTRS[moduleId];
+    // Attribute entries store only `{ nameKey, application }`; the Name itself
+    // (arabic, title, gloss, source) is owned by the divine-names registry and
+    // merged in here, so every consumer downstream sees a complete attribute.
+    return data ? { ...data, attrs: hydrateAttrs(data.attrs) } : null;
+  }
   if (UNIVERSAL_EQUIV[moduleId]) return UNIVERSAL_EQUIV[moduleId];
   const pillar = getPillarForModule(moduleId);
   if (pillar && UNIVERSAL_EQUIV[pillar.id]) return UNIVERSAL_EQUIV[pillar.id];
