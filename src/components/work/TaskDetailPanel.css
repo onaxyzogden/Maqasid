@@ -894,7 +894,7 @@
   margin: 0;
   font-size: 12px;
   line-height: 1.55;
-  color: var(--text-secondary);
+  color: var(--text2);
   font-style: italic;
 }
 
@@ -910,12 +910,12 @@
 .tdp-sources-trust--suggestive {
   background: color-mix(in oklab, var(--accent-warning, #d97706) 8%, transparent);
   border-left-color: var(--accent-warning, #d97706);
-  color: var(--text-primary);
+  color: var(--text);
 }
 .tdp-sources-trust--reviewed {
   background: color-mix(in oklab, var(--accent-success, #059669) 8%, transparent);
   border-left-color: var(--accent-success, #059669);
-  color: var(--text-primary);
+  color: var(--text);
 }
 .tdp-sources-trust strong {
   font-weight: 600;
@@ -931,13 +931,13 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--text-secondary, #64748b);
+  color: var(--text2);
 }
 .tdp-subtask-section__text {
   margin: 0;
   font-size: 14px;
   line-height: 1.6;
-  color: var(--text-primary);
+  color: var(--text);
 }
 
 /* ── Grounding source cards (structured sources[]) ─────────── */

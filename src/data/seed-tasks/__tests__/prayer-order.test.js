@@ -15,7 +15,12 @@
 
 import { describe, it, expect } from 'vitest';
 import { PRAYER_SEED_TASKS, PRAYER_ORDER_OVERRIDES } from '../prayer-seed-tasks';
-import { REORDERED_SUBTASK_ORDER } from '../../../services/migration';
+import {
+  REORDERED_SUBTASK_ORDER,
+  REORDERED_SUBTASK_ORDER_V3,
+  SEED_SUBTASK_RENAMES,
+} from '../../../services/migration';
+import { FAITH_SEED_TASKS } from '../faith-seed-tasks';
 
 const CORE_ADHKAR = 'Complete the post-prayer adhkar after every salah (istighfar, tasbih, Ayat al-Kursi)';
 const MEMORISE = 'Memorise the prophetic supplications specific to each prayer';
@@ -85,6 +90,51 @@ describe('prayer board order (generated)', () => {
           expect(task, 'task title in the migration table no longer exists on this board').toBeDefined();
           expect(task.subtasks.map((s) => s.title)).toEqual(order);
         });
+      }
+    }
+  });
+  // The 2026-08-27 pass (Tahajjud waking protocol, Sunan al-Nawm) lists SOURCE
+  // boards as well as generated ones, because both tasks render on two surfaces
+  // and the 2026-08 table covered only the prayer_* copy. Resolve across both.
+  const boardTasks = (boardId) => PRAYER_SEED_TASKS[boardId] || FAITH_SEED_TASKS[boardId];
+
+  describe('REORDERED_SUBTASK_ORDER_V3 drift guard', () => {
+    for (const [boardId, orderTable] of Object.entries(REORDERED_SUBTASK_ORDER_V3)) {
+      for (const [taskTitle, order] of Object.entries(orderTable)) {
+        it(`${boardId} / "${taskTitle}" matches the seed exactly`, () => {
+          const tasks = boardTasks(boardId);
+          expect(tasks, `${boardId} is neither a generated nor a faith seed board`).toBeDefined();
+          const task = tasks.find((t) => t.title === taskTitle);
+          expect(task, 'task title in the migration table no longer exists on this board').toBeDefined();
+          expect(task.subtasks.map((s) => s.title)).toEqual(order);
+        });
+      }
+    }
+  });
+
+  // A rename table is only correct while the NEW title is what the seed says
+  // and the OLD one is gone. If a later edit reverted the seed title, the
+  // migration would rewrite storage to a title nothing hydrates.
+  describe('SEED_SUBTASK_RENAMES drift guard', () => {
+    for (const [boardId, renameTable] of Object.entries(SEED_SUBTASK_RENAMES)) {
+      for (const [taskTitle, map] of Object.entries(renameTable)) {
+        for (const [from, to] of Object.entries(map)) {
+          it(`${boardId} / "${from}" -> "${to}" agrees with the seed`, () => {
+            const tasks = boardTasks(boardId);
+            expect(tasks, `${boardId} is neither a generated nor a faith seed board`).toBeDefined();
+            const task = tasks.find((t) => t.title === taskTitle);
+            expect(task, 'task title in the rename table no longer exists on this board').toBeDefined();
+            const subs = task.subtasks.map((s) => s.title);
+            expect(subs, 'rename target missing from the seed').toContain(to);
+            expect(subs, 'rename source still present in the seed').not.toContain(from);
+            // The rename exists to make the v3 order table joinable; if the
+            // order table ever stops listing the new title they have drifted.
+            expect(
+              REORDERED_SUBTASK_ORDER_V3[boardId]?.[taskTitle],
+              'renamed subtask has no v3 order entry to join against'
+            ).toContain(to);
+          });
+        }
       }
     }
   });
