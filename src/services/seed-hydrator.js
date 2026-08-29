@@ -115,6 +115,20 @@ export function hydrateTask(task, boardId, boardTags) {
     };
   }
 
+  // Union the seed's `tags` in. A routing tag added to a seed AFTER a user's
+  // board was written never reaches storage otherwise — nothing anywhere
+  // refreshes `task.tags`, and the boot backfill only appends whole tasks. That
+  // is how `prayer:fajr` (the tag `belongsToPrayerNode` keys on) stayed absent
+  // from existing boards, leaking the Fajr remembrance task onto the Duha node.
+  // Union, never replace: a tag the operator added by hand is never dropped.
+  const seedTags = seedTask.tags;
+  let mergedTags = null;
+  if (Array.isArray(seedTags) && seedTags.length > 0) {
+    const stored = Array.isArray(task.tags) ? task.tags : [];
+    const missing = seedTags.filter((t) => !stored.includes(t));
+    if (missing.length > 0) mergedTags = [...stored, ...missing];
+  }
+
   let subtasks = task.subtasks;
   if (subtasks && subtasks.length > 0) {
     const seedSubMap = new Map();
@@ -134,6 +148,7 @@ export function hydrateTask(task, boardId, boardTags) {
   }
 
   const hydrated = { ...task };
+  if (mergedTags) hydrated.tags = mergedTags;
   if (!task.description && seedTask.description) hydrated.description = seedTask.description;
   if (subtasks !== task.subtasks) hydrated.subtasks = subtasks;
   if (needsPillarTag) hydrated.pillarId = tags.pillarId;

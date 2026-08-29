@@ -4105,15 +4105,35 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
       title: "Rise for Tahajjud with the prophetic waking protocol",
       priority: "high",
       tags: ["salah", "sunnah", "qiyam", "tahajjud", "prayer-phase:before", "transition:tahajjud-waking"],
-      description: "The Prophet \u2ADC, when he woke at night for Qiyam, followed a deliberate entry: wipe sleep from the face, recite the last ten verses of Al-Imran, say the wake-du'a of tawhid and hamd, use the siwak, then open the prayer with the istiftah of Tahajjud. Each step was narrated and each earned its place \u2014 together they shape a prophetic waking, not a generic one.",
+      description: "The Prophet \u2ADC, when he woke at night for Qiyam, followed a deliberate entry: say the wake-du'a of tawhid and hamd, wipe sleep from the face and recite the last ten verses of Al-Imran, use the siwak, make wudu, then open the prayer with the istiftah of Tahajjud. Each step was narrated and each earned its place \u2014 together they shape a prophetic waking, not a generic one.",
       subtasks: [
+        {
+          title: "Recite the wake-during-night du'a of tawhid, hamd, and istighfar",
+          done: false,
+          tier: "T1",
+          amanahRationale: "Sahih al-Bukhari 1154 preserves an explicit prophetic promise: the du'a, followed by istighfar or prayer, is answered and accepted.",
+          why: "This is not a background dhikr \u2014 the hadith promises that what follows it (du'a or prayer) is answered and accepted. It is the key that opens the door of night-worship.",
+          how: "The moment you sit up from sleep, before reaching for the phone or the light, recite the formula from memory. Then ask Allah for forgiveness or make a specific du'a; the rest of the waking protocol follows from here.",
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 1154',
+              arabic: 'عَنْ عُبَادَةَ بْنِ الصَّامِتِ عَنِ النَّبِيِّ ﷺ قَالَ \u201Cمَنْ تَعَارَّ مِنَ اللَّيْلِ فَقَالَ: لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، الْحَمْدُ لِلَّهِ، وَسُبْحَانَ اللَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ، ثُمَّ قَالَ: اللَّهُمَّ اغْفِرْ لِي، أَوْ دَعَا، اسْتُجِيبَ لَهُ، فَإِنْ تَوَضَّأَ وَصَلَّى قُبِلَتْ صَلَاتُهُ\u201D.',
+              translation: "Ubada ibn as-Samit (RA) reported: The Prophet \uFDFA said, \"Whoever wakes at night and says: 'La ilaha illa Allah wahdahu la sharika lahu, lahu al-mulk wa lahu al-hamd, wa huwa 'ala kulli shay'in qadir. Al-hamdu lillah, wa subhana Allah, wa la ilaha illa Allah, wa Allahu akbar, wa la hawla wa la quwwata illa billah' \u2014 ('There is no deity except Allah alone, without partner. To Him belongs the dominion and to Him belongs all praise, and He is over all things Omnipotent. Praise is to Allah, glory to Allah, there is no deity except Allah, Allah is the Greatest, and there is no power nor might except with Allah') \u2014 and then says 'Allahumma-ghfir li' ('O Allah, forgive me') or supplicates, it will be answered for him. And if he performs wudu and prays, his prayer is accepted.\"",
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              rationale: "Direct prophetic text with an attached promise of acceptance \u2014 the operative basis for the waking-at-night dhikr."
+            }
+          ]
+        },
         {
           title: "Wipe sleep from the face and recite the last 10 verses of Al-Imran (3:190-200)",
           done: false,
           tier: "T1",
           amanahRationale: "Direct sahih narration from Ibn Abbas in Sahih al-Bukhari 183 / 4569 describing the Prophet's \uFDFA exact practice upon waking for Tahajjud.",
           why: "The Prophet \uFDFA treated waking itself as an act of worship. The physical wipe reorients the body; reciting 3:190\u2013200 reorients the heart to creation as a sign of its Creator before the first prostration.",
-          how: "On waking for Qiyam, sit up, wipe your face with both palms, then quietly recite 3:190\u2013200 (or as many as you have memorised, building up over nights). Keep a mushaf or Quran app at the bedside if needed.",
+          how: "With the waking du'a said, wipe your face with both palms, then quietly recite 3:190\u2013200 (or as many as you have memorised, building up over nights). Keep a mushaf or Quran app at the bedside if needed.",
           sources: [
             {
               kind: 'quran',
@@ -4133,26 +4153,6 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
               provenanceTier: 'Bayyinah',
               hadithGrade: 'Sahih',
               rationale: "Eyewitness testimony of the Prophet's \uFDFA exact waking protocol for Tahajjud \u2014 the operative basis for wipe + recitation."
-            }
-          ]
-        },
-        {
-          title: "Recite the wake-during-night du'a of tawhid, hamd, and istighfar",
-          done: false,
-          tier: "T1",
-          amanahRationale: "Sahih al-Bukhari 1154 preserves an explicit prophetic promise: the du'a, followed by istighfar or prayer, is answered and accepted.",
-          why: "This is not a background dhikr \u2014 the hadith promises that what follows it (du'a or prayer) is answered and accepted. It is the key that opens the door of night-worship.",
-          how: "The moment you sit up from sleep, before reaching for the phone or the light, recite the formula from memory. Then ask Allah for forgiveness, make a specific du'a, or stand for wudu.",
-          sources: [
-            {
-              kind: 'hadith',
-              ref: 'Sahih al-Bukhari 1154',
-              arabic: 'عَنْ عُبَادَةَ بْنِ الصَّامِتِ عَنِ النَّبِيِّ ﷺ قَالَ \u201Cمَنْ تَعَارَّ مِنَ اللَّيْلِ فَقَالَ: لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، الْحَمْدُ لِلَّهِ، وَسُبْحَانَ اللَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ، ثُمَّ قَالَ: اللَّهُمَّ اغْفِرْ لِي، أَوْ دَعَا، اسْتُجِيبَ لَهُ، فَإِنْ تَوَضَّأَ وَصَلَّى قُبِلَتْ صَلَاتُهُ\u201D.',
-              translation: "Ubada ibn as-Samit (RA) reported: The Prophet \uFDFA said, \"Whoever wakes at night and says: 'La ilaha illa Allah wahdahu la sharika lahu, lahu al-mulk wa lahu al-hamd, wa huwa 'ala kulli shay'in qadir. Al-hamdu lillah, wa subhana Allah, wa la ilaha illa Allah, wa Allahu akbar, wa la hawla wa la quwwata illa billah' \u2014 ('There is no deity except Allah alone, without partner. To Him belongs the dominion and to Him belongs all praise, and He is over all things Omnipotent. Praise is to Allah, glory to Allah, there is no deity except Allah, Allah is the Greatest, and there is no power nor might except with Allah') \u2014 and then says 'Allahumma-ghfir li' ('O Allah, forgive me') or supplicates, it will be answered for him. And if he performs wudu and prays, his prayer is accepted.\"",
-              relevance: 'direct',
-              provenanceTier: 'Bayyinah',
-              hadithGrade: 'Sahih',
-              rationale: "Direct prophetic text with an attached promise of acceptance \u2014 the operative basis for the waking-at-night dhikr."
             }
           ]
         },
@@ -4183,6 +4183,26 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
               provenanceTier: 'Bayyinah',
               hadithGrade: 'Sahih',
               rationale: "General prophetic statement on siwak's two benefits \u2014 physical purification and pleasing Allah \u2014 both amplified at Tahajjud."
+            }
+          ]
+        },
+        {
+          title: "Make wudu before standing for Qiyam",
+          done: false,
+          tier: "T1",
+          amanahRationale: "Sahih al-Bukhari 1154 ties acceptance of the night prayer to wudu explicitly: \"and if he performs wudu and prays, his prayer is accepted.\"",
+          why: "Wudu is the condition of the prayer, and at Tahajjud it is also the hinge of the promise \u2014 the same narration that answers the waking du'a makes acceptance of the prayer conditional on rising to purify and stand. It is the step that turns waking into worship.",
+          how: "After the siwak, perform a full wudu without rushing. Use cool water if sleep is still heavy \u2014 it is the traditional remedy. Then go directly to the place of prayer; do not sit back down.",
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 1154',
+              arabic: 'فَإِنْ تَوَضَّأَ وَصَلَّى قُبِلَتْ صَلَاتُهُ.',
+              translation: "Ubada ibn as-Samit (RA) reported that the Prophet \uFDFA said, of the one who wakes at night and makes the dhikr of tawhid and praise: \"And if he performs wudu and prays, his prayer is accepted.\"",
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              rationale: "The operative clause of the same narration that grounds the waking du'a \u2014 it names wudu as the act that carries the sleeper from dhikr into accepted prayer."
             }
           ]
         },
@@ -5015,41 +5035,8 @@ The Prophet (SAW) said one who sleeps in wudu after the prescribed dhikr dies �
 
 1. Make wudu in the bathroom right before bed — the same wudu you would make for salah.
 2. Walk straight to bed without breaking it (don't stop to scroll, don't drink, don't eat).
-3. Lie on your right side with your right palm under your right cheek.
+3. Get into bed with the wudu intact — the recitations that follow are said from there.
 4. Benchmark: 5 of 7 nights for two weeks. The friction is highest on the first 3 nights — push through.` },
-        { title: "Recite Ayat al-Kursi as the last thing said before sleep", done: false,
-          tier: "T1",
-          amanahRationale: "Sahih al-Bukhari names Ayat al-Kursi explicitly as the recitation that secures a guardian from Allah and protection from shaytan throughout the night, providing direct prophetic proof for this core subtask.",
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 2:255",
-              arabic: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",
-              translation: "God: there is no god but Him, the Ever Living, the Ever Watchful. Neither slumber nor sleep overtakes Him. All that is in the heavens and in the earth belongs to Him. Who is there that can intercede with Him except by His leave? He knows what is before them and what is behind them, but they do not comprehend any of His knowledge except what He wills. His throne extends over the heavens and the earth; it does not weary Him to preserve them both. He is the Most High, the Tremendous.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Ayat al-Kursi is the verse the prophetic guarantee of nightly protection is attached to — its inclusion is required because the subtask names it directly.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih al-Bukhari 5010",
-              translation: "Abu Hurayrah (RA) reported: The Prophet (SAW) said about Ayat al-Kursi: \"Whoever recites it when he goes to bed, Allah will appoint a guardian over him, and shaytan will not come near him until morning.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Direct prophetic promise of all-night protection conditional on reciting Ayat al-Kursi at sleep — the operative reward for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-The Prophet (SAW) promised a guardian from Allah over anyone who recites Ayat al-Kursi as their last action before sleep, with shaytan kept away until morning. Eight to ten seconds of speech buys eight hours of guardianship.
-
-**How?**
-
-1. Memorise Ayat al-Kursi (Quran 2:255) if you have not already — it is one ayah.
-2. After lying down on your right side, recite it audibly enough that you can hear yourself.
-3. Do not speak after it. If something interrupts, recite again before sleeping.
-4. Benchmark: 7 of 7 nights for one week before declaring this subtask habituated.` },
         { title: "Recite Surah al-Mulk before sleep on at least 4 nights this week", done: false,
           tier: "T2",
           amanahRationale: "Jami at-Tirmidhi explicitly attributes nightly recitation of Surah al-Mulk to protection from the punishment of the grave, providing direct prophetic proof for this intermediate-tier subtask.",
@@ -5074,10 +5061,52 @@ The Sahabah called Surah al-Mulk al-mani'ah — the protector — because of its
 2. Recite after wudu and before lying down.
 3. Start with 4 nights this week. Over time, build to all 7.
 4. Benchmark: 4 of 7 nights for two consecutive weeks.` },
+        { title: "Recite Ayat al-Kursi on going to bed", done: false,
+          tier: "T1",
+          amanahRationale: "Sahih al-Bukhari names Ayat al-Kursi explicitly as the recitation that secures a guardian from Allah and protection from shaytan throughout the night, providing direct prophetic proof for this core subtask.",
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:255",
+              arabic: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",
+              translation: "God: there is no god but Him, the Ever Living, the Ever Watchful. Neither slumber nor sleep overtakes Him. All that is in the heavens and in the earth belongs to Him. Who is there that can intercede with Him except by His leave? He knows what is before them and what is behind them, but they do not comprehend any of His knowledge except what He wills. His throne extends over the heavens and the earth; it does not weary Him to preserve them both. He is the Most High, the Tremendous.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Ayat al-Kursi is the verse the prophetic guarantee of nightly protection is attached to — its inclusion is required because the subtask names it directly.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 5010",
+              translation: "Abu Hurayrah (RA) reported: The Prophet (SAW) said about Ayat al-Kursi: \"Whoever recites it when he goes to bed, Allah will appoint a guardian over him, and shaytan will not come near him until morning.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Direct prophetic promise of all-night protection conditional on reciting Ayat al-Kursi at sleep — the operative reward for this subtask.",
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) promised a guardian from Allah over anyone who recites Ayat al-Kursi on going to bed, with shaytan kept away until morning. Eight to ten seconds of speech buys eight hours of guardianship.
+
+**How?**
+
+1. Memorise Ayat al-Kursi (Quran 2:255) if you have not already — it is one ayah.
+2. Once you are in bed, recite it audibly enough that you can hear yourself.
+3. Then turn onto your right side and seal the night with the dua of sleeping. If something interrupts, recite again before sleeping.
+4. Benchmark: 7 of 7 nights for one week before declaring this subtask habituated.` },
         { title: "Sleep on the right side and recite the dua of sleeping", done: false,
           tier: "T2",
           amanahRationale: "Sahih al-Bukhari names the specific dua the Prophet (SAW) recited on lying down, providing explicit prophetic proof for this subtask.",
           sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 247",
+              translation: "Al-Bara' bin 'Azib (RA) reported: The Prophet (SAW) taught him the surrender dua of sleep and said: \"And let them be the last words you say.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "The narration that establishes WHICH utterance closes the night: the surrender dua is explicitly designated the last words spoken, which is why this subtask sits last in the chain.",
+            },
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 6324",
@@ -5091,11 +5120,11 @@ The Sahabah called Surah al-Mulk al-mani'ah — the protector — because of its
           ],
           description: `**Why?**
 
-The Prophet (SAW) tied his last conscious words each night to Allah's name. Saying "In Your name, O Allah, I die and I live" surrenders the night and reframes sleep as something Allah does to you, not something you do to yourself.
+The Prophet (SAW) tied his last conscious words each night to Allah's name, and told al-Bara' (Sahih al-Bukhari 247) to make the surrender dua the last thing he said. Saying "In Your name, O Allah, I die and I live" surrenders the night and reframes sleep as something Allah does to you, not something you do to yourself.
 
 **How?**
 
-1. After Ayat al-Kursi, lie on your right side with your right palm under your right cheek.
+1. After Ayat al-Kursi, lie on your right side with your right palm under your right cheek — nothing else is said after this.
 2. Quietly say: "Bismika Allahumma amutu wa ahya."
 3. Do not turn to the left side until morning if you can help it.
 4. Benchmark: the dua is automatic on lying down for 10 of 14 nights.` },
