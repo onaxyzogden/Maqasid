@@ -1079,6 +1079,589 @@ export const MODULE_ATTRS = {
   },
 
 
+  // Friday is not a bigger Dhuhr, and its threshold is not Salah's. Routed to
+  // 'faith-salah', the ceremony opened on "Before Standing in Salah" and asked
+  // what the operator was bringing into a prayer — which is the one question
+  // Jumuʻah does not turn on. What it asks is whether you came early enough to
+  // be part of a gathering, and whether anything said there lights the week.
+  'jumuah': {
+    // Declared rather than inherited. getPillarForModule() returns null for
+    // this id — it is a node, not a registered submodule — so without this key
+    // the readiness pause-ayah lookup is silently skipped. 4 rows build a
+    // 4-bit key that the six-bit faith matrix does not hold, so no ayah surfaces
+    // today; the key is here so the module declares its own registry rather
+    // than depending on a parent it does not have.
+    readinessAyatKey: 'faith',
+    attrs: [
+      {
+        nameKey: 'al-jami',
+        description: 'Friday gathers what the week scattered — one street, one imam, one khutbah. Al-Jāmiʿ is the Name behind that: He brings together what was dispersed, and the congregation you walk into is a small rehearsal of the Day He gathers everyone.',
+      },
+      {
+        nameKey: 'an-nur',
+        description: 'Al-Kahf on Friday is described as light between the two Fridays — light you then read the week by. An-Nūr is the light of the heavens and the earth: He illuminates what is real and what to do next, which is the whole work of a khutbah.',
+      },
+    ],
+    dua: {
+      title: 'Before Jumuʻah',
+      resumeTitle: 'Before Returning to Jumuʻah',
+      arabic: 'يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ إِذَا نُودِىَ لِلصَّلَوٰةِ مِن يَوْمِ ٱلْجُمُعَةِ فَٱسْعَوْا۟ إِلَىٰ ذِكْرِ ٱللَّهِ وَذَرُوا۟ ٱلْبَيْعَ ۚ ذَٰلِكُمْ خَيْرٌۭ لَّكُمْ إِن كُنتُمْ تَعْلَمُونَ',
+      trans: 'Yā ayyuha-lladhīna āmanū idhā nūdiya li-ṣ-ṣalāti min yawmi-l-jumuʿati fa-sʿaw ilā dhikri-llāhi wa dharu-l-bayʿ; dhālikum khayrun lakum in kuntum taʿlamūn',
+      meaning: 'Believers! When the call to prayer is made on the day of congregation, hurry towards the reminder of God and leave off your trading — that is better for you, if only you knew.',
+      source: 'Surah Al-Jumuah 62:9',
+    },
+    closingDua: {
+      title: 'After Jumuʻah',
+      arabic: 'فَإِذَا قُضِيَتِ ٱلصَّلَوٰةُ فَٱنتَشِرُوا۟ فِى ٱلْأَرْضِ وَٱبْتَغُوا۟ مِن فَضْلِ ٱللَّهِ وَٱذْكُرُوا۟ ٱللَّهَ كَثِيرًۭا لَّعَلَّكُمْ تُفْلِحُونَ',
+      trans: 'Fa-idhā quḍiyati-ṣ-ṣalātu fa-ntashirū fi-l-arḍi wa-btaghū min faḍli-llāhi wa-dhkuru-llāha kathīran laʿallakum tufliḥūn',
+      meaning: 'Then when the prayer has ended, disperse in the land and seek out God’s bounty. Remember God often, so that you may prosper.',
+      source: 'Surah Al-Jumuah 62:10',
+    },
+    readiness: {
+      frame: 'What am I bringing into Jumuʻah?',
+      instruction: 'Name honestly — this is a moment of self-witness, not a gate.',
+      yesLabel: 'I am bringing',
+      notYetLabel: 'I am carrying',
+      rows: [
+        {
+          id: 'J1', attr: 'Al-Jami', attr_ar: 'الجامع', attrTitle: 'The Gatherer',
+          attrFrame: 'What am I bringing to the One who gathers?',
+          yesLabel: 'I am bringing',
+          notYetLabel: 'I am carrying',
+          governing: 'I am bringing myself early enough to sit down before the khutbah starts.',
+          notYet: 'I am carrying a plan to slip in at the last takbir and count that as attendance.',
+        },
+        {
+          id: 'J2', attr: 'Al-Jami',
+          governing: 'I am bringing the trading and the messages to a full stop — the call has gone and they can wait.',
+          notYet: 'I am carrying work into the one hour of the week Allah asked me to leave it for.',
+        },
+        {
+          id: 'N1', attr: 'An-Nur', attr_ar: 'النور', attrTitle: 'The Light',
+          attrFrame: 'What am I bringing to the One who is Light?',
+          yesLabel: 'I am bringing',
+          notYetLabel: 'I am carrying',
+          governing: 'I am bringing Surah al-Kahf read today rather than intended today.',
+          notYet: 'I am carrying another Friday where al-Kahf stayed a good intention.',
+        },
+        {
+          id: 'N2', attr: 'An-Nur',
+          governing: 'I am bringing ears that will listen to the khutbah in silence.',
+          notYet: 'I am carrying a phone I already know I will look at while he is speaking.',
+        },
+      ],
+      governing: [
+        'I am bringing myself early enough to sit down before the khutbah starts.',
+        'I am bringing the trading and the messages to a full stop — the call has gone and they can wait.',
+        'I am bringing Surah al-Kahf read today rather than intended today.',
+        'I am bringing ears that will listen to the khutbah in silence.',
+      ],
+      notYet: [
+        'I am carrying a plan to slip in at the last takbir and count that as attendance.',
+        'I am carrying work into the one hour of the week Allah asked me to leave it for.',
+        'I am carrying another Friday where al-Kahf stayed a good intention.',
+        'I am carrying a phone I already know I will look at while he is speaking.',
+      ],
+    },
+    reflection: {
+      frame: 'Al-Jami gathered the street into one room. An-Nur was the light the khutbah was for.',
+      yesLabel: 'Jumuʻah landed when',
+      notYetLabel: 'Jumuʻah passed when',
+      rows: [
+        {
+          id: 'RJ1', attr: 'Al-Jami', attr_ar: 'الجامع', attrTitle: 'The Gatherer',
+          attrFrame: 'Did I gather, or did I only attend?',
+          yesLabel: 'I gathered when',
+          notYetLabel: 'I only attended when',
+          governing: 'I came early, sat with the congregation, and spoke to someone before I left.',
+          notYet: 'I arrived late, prayed, and left without a word to anyone.',
+        },
+        {
+          id: 'RN1', attr: 'An-Nur', attr_ar: 'النور', attrTitle: 'The Light',
+          attrFrame: 'Did anything from today light the week?',
+          yesLabel: 'Something carried when',
+          notYetLabel: 'Nothing carried when',
+          governing: 'One thing from the khutbah or from al-Kahf is coming home with me into the week.',
+          notYet: 'I could not now say what the khutbah was about.',
+        },
+      ],
+      governing: [
+        'I came early, sat with the congregation, and spoke to someone before I left.',
+        'One thing from the khutbah or from al-Kahf is coming home with me into the week.',
+      ],
+      notYet: [
+        'I arrived late, prayed, and left without a word to anyone.',
+        'I could not now say what the khutbah was about.',
+      ],
+    },
+  },
+
+  // ʻĪd shared Salah's threshold, so a day of reward opened by asking what the
+  // operator was bringing into a prayer. ʻĪd is not primarily a prayer question:
+  // it asks whether the day is received as a gift and whether the generosity
+  // leaves the house. Its readiness registry is 'community' rather than faith
+  // for the same reason — the day is measured at the door, not on the prayer mat.
+  'eid-prayer': {
+    // Declared rather than inherited. getPillarForModule() returns null for
+    // this id — it is a node, not a registered submodule — so without this key
+    // the readiness pause-ayah lookup is silently skipped. 4 rows build a
+    // 4-bit key that the six-bit community matrix does not hold, so no ayah surfaces
+    // today; the key is here so the module declares its own registry rather
+    // than depending on a parent it does not have.
+    readinessAyatKey: 'community',
+    attrs: [
+      {
+        nameKey: 'ash-shakur',
+        description: 'ʻĪd is the receipt for a month of fasting or a rite completed — a day of reward, not a day of more work. Ash-Shakūr rewards a small deed far beyond its size and notices effort no one else recorded, including the fasts nobody saw you keep.',
+      },
+      {
+        nameKey: 'al-karim',
+        description: 'None of the day was earned: not the guidance, not the strength to fast, not the food on the table. Al-Karīm gives without depletion and without being asked — which is why the day is spent passing it on before anyone has to ask you either.',
+      },
+    ],
+    dua: {
+      title: 'Before the ʻĪd Prayer',
+      resumeTitle: 'Before Returning to the ʻĪd Prayer',
+      arabic: 'ذَٰلِكَ وَمَن يُعَظِّمْ شَعَـٰٓئِرَ ٱللَّهِ فَإِنَّهَا مِن تَقْوَى ٱلْقُلُوبِ',
+      trans: 'Dhālika wa man yuʿaẓẓim shaʿāʾira-llāhi fa-innahā min taqwa-l-qulūb',
+      meaning: 'And whoever honours the symbols of God — that comes from the piety of hearts.',
+      source: 'Surah Al-Hajj 22:32',
+    },
+    closingDua: {
+      title: 'After the ʻĪd Prayer',
+      arabic: 'لَن يَنَالَ ٱللَّهَ لُحُومُهَا وَلَا دِمَآؤُهَا وَلَـٰكِن يَنَالُهُ ٱلتَّقْوَىٰ مِنكُمْ ۚ كَذَٰلِكَ سَخَّرَهَا لَكُمْ لِتُكَبِّرُوا۟ ٱللَّهَ عَلَىٰ مَا هَدَىٰكُمْ ۗ وَبَشِّرِ ٱلْمُحْسِنِينَ',
+      trans: 'Lan yanāla-llāha luḥūmuhā wa lā dimāʾuhā wa lākin yanāluhu-t-taqwā minkum; kadhālika sakhkharahā lakum li-tukabbiru-llāha ʿalā mā hadākum; wa bashshiri-l-muḥsinīn',
+      meaning: 'It is neither their meat nor their blood that reaches God, but your piety. He has subjected them to you in this way so that you may glorify God for having guided you. Give good news to those who do good.',
+      source: 'Surah Al-Hajj 22:37',
+    },
+    readiness: {
+      frame: 'What am I bringing into ʻĪd?',
+      instruction: 'Name honestly — this is a moment of self-witness, not a gate.',
+      yesLabel: 'I am bringing',
+      notYetLabel: 'I am carrying',
+      rows: [
+        {
+          id: 'S1', attr: 'Ash-Shakur', attr_ar: 'الشكور', attrTitle: 'The Appreciative',
+          attrFrame: 'What am I bringing to the One who appreciates?',
+          yesLabel: 'I am bringing',
+          notYetLabel: 'I am carrying',
+          governing: 'I am bringing gratitude for what He carried me through to get here — the fasts or the rite, completed.',
+          notYet: 'I am carrying a tally of everything I fell short of into a day He made for thanks.',
+        },
+        {
+          id: 'S2', attr: 'Ash-Shakur',
+          governing: 'I am bringing the takbir aloud on the way — the day gets said out loud, not only thought.',
+          notYet: 'I am carrying the day silently, as if it were an ordinary morning in better clothes.',
+        },
+        {
+          id: 'K1', attr: 'Al-Karim', attr_ar: 'الكريم', attrTitle: 'The Most Generous',
+          attrFrame: 'What am I bringing to the Most Generous?',
+          yesLabel: 'I am bringing',
+          notYetLabel: 'I am carrying',
+          governing: 'I am bringing Zakat al-Fitr already paid — before the prayer, while it still counts as what it is.',
+          notYet: 'I am carrying an intention to pay it after the prayer, when it becomes ordinary charity.',
+        },
+        {
+          id: 'K2', attr: 'Al-Karim',
+          governing: 'I am bringing a name — someone whose ʻĪd is thin unless somebody remembers them today.',
+          notYet: 'I am carrying a day planned entirely around my own household.',
+        },
+      ],
+      governing: [
+        'I am bringing gratitude for what He carried me through to get here — the fasts or the rite, completed.',
+        'I am bringing the takbir aloud on the way — the day gets said out loud, not only thought.',
+        'I am bringing Zakat al-Fitr already paid — before the prayer, while it still counts as what it is.',
+        'I am bringing a name — someone whose ʻĪd is thin unless somebody remembers them today.',
+      ],
+      notYet: [
+        'I am carrying a tally of everything I fell short of into a day He made for thanks.',
+        'I am carrying the day silently, as if it were an ordinary morning in better clothes.',
+        'I am carrying an intention to pay it after the prayer, when it becomes ordinary charity.',
+        'I am carrying a day planned entirely around my own household.',
+      ],
+    },
+    reflection: {
+      frame: 'Ash-Shakur was recording a day of reward. Al-Karim gave the whole of it before anyone asked.',
+      yesLabel: 'The day landed when',
+      notYetLabel: 'The day passed when',
+      rows: [
+        {
+          id: 'RS1', attr: 'Ash-Shakur', attr_ar: 'الشكور', attrTitle: 'The Appreciative',
+          attrFrame: 'Did I receive the day, or work through it?',
+          yesLabel: 'I received it when',
+          notYetLabel: 'I worked through it when',
+          governing: 'I let it be a day of eating, gathering and takbir rather than catching up on everything else.',
+          notYet: 'By evening it was indistinguishable from any other day off.',
+        },
+        {
+          id: 'RK1', attr: 'Al-Karim', attr_ar: 'الكريم', attrTitle: 'The Most Generous',
+          attrFrame: 'Did the generosity leave the house?',
+          yesLabel: 'It went out when',
+          notYetLabel: 'It stayed in when',
+          governing: 'Something went out from us today — the Fitr, the meat, an invitation, a visit.',
+          notYet: 'We received all day and nothing left the door.',
+        },
+      ],
+      governing: [
+        'I let it be a day of eating, gathering and takbir rather than catching up on everything else.',
+        'Something went out from us today — the Fitr, the meat, an invitation, a visit.',
+      ],
+      notYet: [
+        'By evening it was indistinguishable from any other day off.',
+        'We received all day and nothing left the door.',
+      ],
+    },
+  },
+
+  // The midday rest borrowed 'health-physical', whose threshold is authored for
+  // the body as a project — training, food, the long arc. The qaylulah is a
+  // single hinge in the middle of one day: did the morning actually get put
+  // down, and did the rest stay a portion instead of eating the afternoon.
+  'qaylulah': {
+    // Declared rather than inherited. getPillarForModule() returns null for
+    // this id — it is a node, not a registered submodule — so without this key
+    // the readiness pause-ayah lookup is silently skipped. 4 rows build a
+    // 4-bit key that the six-bit rest matrix does not hold, so no ayah surfaces
+    // today; the key is here so the module declares its own registry rather
+    // than depending on a parent it does not have.
+    readinessAyatKey: 'rest',
+    attrs: [
+      {
+        nameKey: 'as-salam',
+        description: 'The midday rest is not a productivity trick; it is a handover. As-Salām is the settledness a heart cannot manufacture for itself — you can lie down, but the quiet that arrives is given, and it comes from the Name that is Peace itself.',
+      },
+      {
+        nameKey: 'al-muqit',
+        description: 'Sleep is apportioned like food, and the body keeps the account whether or not you do. Al-Muqīt apportions the nourishment and strength each thing needs — the qaylulah takes the portion set for the middle of the day instead of borrowing it from the night.',
+      },
+    ],
+    dua: {
+      title: 'Before the Qaylulah',
+      resumeTitle: 'Before Returning to the Qaylulah',
+      arabic: 'وَمِنْ آيَاتِهِ مَنَامُكُم بِاللَّيْلِ وَالنَّهَارِ وَابْتِغَاؤُكُم مِّن فَضْلِهِ ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَسْمَعُونَ',
+      trans: 'Wa min āyātihi manāmukum bi-l-layli wa-n-nahāri wa-btighāʾukum min faḍlih; inna fī dhālika la-āyātin li-qawmin yasmaʿūn',
+      meaning: 'Among His signs are your sleep, by night and by day, and your seeking His bounty. There truly are signs in this for those who can hear.',
+      source: 'Surah Ar-Rum 30:23',
+    },
+    closingDua: {
+      title: 'On Waking',
+      arabic: 'الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ',
+      trans: 'Al-ḥamdu li-llāhi-lladhī aḥyānā baʿda mā amātanā wa ilayhi-n-nushūr',
+      meaning: 'All praise is for Allah, who gave us life after He caused us to die, and to Him is the resurrection.',
+      source: 'Sahih al-Bukhari 6314',
+    },
+    readiness: {
+      frame: 'What am I bringing into this rest?',
+      instruction: 'Name honestly — this is a moment of self-witness, not a gate.',
+      yesLabel: 'I am bringing',
+      notYetLabel: 'I am carrying',
+      rows: [
+        {
+          id: 'S1', attr: 'As-Salam', attr_ar: 'السلام', attrTitle: 'The Source of Peace',
+          attrFrame: 'What am I bringing to the Source of Peace?',
+          yesLabel: 'I am bringing',
+          notYetLabel: 'I am carrying',
+          governing: 'I am bringing a stopped morning — the work is set down, not paused mid-sentence.',
+          notYet: 'I am carrying an unfinished thread I will keep rehearsing with my eyes shut.',
+        },
+        {
+          id: 'S2', attr: 'As-Salam',
+          governing: 'I am bringing this as a Sunnah with a place in the day, not as a collapse.',
+          notYet: 'I am carrying guilt about lying down in the middle of a working day.',
+        },
+        {
+          id: 'M1', attr: 'Al-Muqit', attr_ar: 'المقيت', attrTitle: 'The Sustainer',
+          attrFrame: 'What am I bringing to the One who apportions?',
+          yesLabel: 'I am bringing',
+          notYetLabel: 'I am carrying',
+          governing: 'I am bringing a set length and a set end, so the rest stays a portion and not a debt.',
+          notYet: 'I am carrying no end time, which is how a qaylulah eats the afternoon.',
+        },
+        {
+          id: 'M2', attr: 'Al-Muqit',
+          governing: 'I am bringing the adab with me — wudu first, and lying down the way he was taught to.',
+          notYet: 'I am carrying myself to the couch mid-scroll and calling that the Sunnah.',
+        },
+      ],
+      governing: [
+        'I am bringing a stopped morning — the work is set down, not paused mid-sentence.',
+        'I am bringing this as a Sunnah with a place in the day, not as a collapse.',
+        'I am bringing a set length and a set end, so the rest stays a portion and not a debt.',
+        'I am bringing the adab with me — wudu first, and lying down the way he was taught to.',
+      ],
+      notYet: [
+        'I am carrying an unfinished thread I will keep rehearsing with my eyes shut.',
+        'I am carrying guilt about lying down in the middle of a working day.',
+        'I am carrying no end time, which is how a qaylulah eats the afternoon.',
+        'I am carrying myself to the couch mid-scroll and calling that the Sunnah.',
+      ],
+    },
+    reflection: {
+      frame: 'As-Salam gave what the morning could not. Al-Muqit measured out exactly the strength the rest of the day needs.',
+      yesLabel: 'The rest landed when',
+      notYetLabel: 'The rest slipped when',
+      rows: [
+        {
+          id: 'RS1', attr: 'As-Salam', attr_ar: 'السلام', attrTitle: 'The Source of Peace',
+          attrFrame: 'Did I actually put the morning down?',
+          yesLabel: 'I put it down when',
+          notYetLabel: 'I kept holding it when',
+          governing: 'I got up settled rather than still mid-argument with the morning.',
+          notYet: 'I lay there working the same problem and got up more tired than I lay down.',
+        },
+        {
+          id: 'RM1', attr: 'Al-Muqit', attr_ar: 'المقيت', attrTitle: 'The Sustainer',
+          attrFrame: 'Did it stay a portion?',
+          yesLabel: 'It stayed a portion when',
+          notYetLabel: 'It ran over when',
+          governing: 'I woke when I meant to, said the waking dhikr, and stood into the second half of the day.',
+          notYet: 'It ran long and took the afternoon with it.',
+        },
+      ],
+      governing: [
+        'I got up settled rather than still mid-argument with the morning.',
+        'I woke when I meant to, said the waking dhikr, and stood into the second half of the day.',
+      ],
+      notYet: [
+        'I lay there working the same problem and got up more tired than I lay down.',
+        'It ran long and took the afternoon with it.',
+      ],
+    },
+  },
+
+  // Setting out had no threshold entry at all, so it fell through to the Work
+  // ceremony — a departure opened by asking what the operator was bringing into
+  // a working session. Leaving asks something else entirely: whether the matter
+  // has been handed over, and whether the prayers are travelling too.
+  'traveler-departure': {
+    // Declared rather than inherited. getPillarForModule() returns null for
+    // this id — it is a node, not a registered submodule — so without this key
+    // the readiness pause-ayah lookup is silently skipped. 4 rows build a
+    // 4-bit key that the six-bit faith matrix does not hold, so no ayah surfaces
+    // today; the key is here so the module declares its own registry rather
+    // than depending on a parent it does not have.
+    readinessAyatKey: 'faith',
+    attrs: [
+      {
+        nameKey: 'al-wakil',
+        description: 'Setting out is the moment you stop being able to control the day. Al-Wakīl is the Name for exactly that: hand Him the matter and He disposes of it better than you could. The packing is yours; the road and what happens on it are His department.',
+      },
+      {
+        nameKey: 'al-hafiz',
+        description: 'You leave a house, people and work behind and take none of it with you. Al-Ḥafīẓ keeps what is entrusted to Him — nothing He guards is ever lost — so the departure duʿāʾ asks Him to hold both ends: the traveller, and everything left at home.',
+      },
+    ],
+    dua: {
+      title: 'Before Setting Out',
+      resumeTitle: 'Before Returning to the Journey',
+      arabic: 'سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ، اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى',
+      trans: 'Subḥāna-lladhī sakhkhara lanā hādhā wa mā kunnā lahu muqrinīn, wa innā ilā rabbinā la-munqalibūn. Allāhumma innā nasʾaluka fī safarinā hādhā-l-birra wa-t-taqwā',
+      meaning: 'Glory to Him who has subjected this to us, and we ourselves were not capable of it; surely to our Lord we are returning. O Allah, we ask You on this journey of ours righteousness and piety.',
+      source: 'Sahih Muslim 1342',
+    },
+    closingDua: {
+      title: 'On the Road',
+      arabic: 'وَٱلَّذِينَ جَـٰهَدُوا۟ فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا ۚ وَإِنَّ ٱللَّهَ لَمَعَ ٱلْمُحْسِنِينَ',
+      trans: 'Wa-lladhīna jāhadū fīnā la-nahdiyannahum subulanā; wa inna-llāha la-maʿa-l-muḥsinīn',
+      meaning: 'And those who strive for Us — We will surely guide them to Our ways. And indeed, God is with those who do good.',
+      source: 'Surah Al-Ankabut 29:69',
+    },
+    readiness: {
+      frame: 'What am I bringing onto the road?',
+      instruction: 'Name honestly — this is a moment of self-witness, not a gate.',
+      yesLabel: 'I am bringing',
+      notYetLabel: 'I am carrying',
+      rows: [
+        {
+          id: 'W1', attr: 'Al-Wakil', attr_ar: 'الوكيل', attrTitle: 'The Trustee',
+          attrFrame: 'What am I bringing to the Trustee?',
+          yesLabel: 'I am bringing',
+          notYetLabel: 'I am carrying',
+          governing: 'I am bringing the duʿāʾ of travel said on mounting, not remembered two hours in.',
+          notYet: 'I am carrying a departure that began with the map and never named Him at all.',
+        },
+        {
+          id: 'W2', attr: 'Al-Wakil',
+          governing: 'I am bringing a purpose I could say out loud — this journey is for something.',
+          notYet: 'I am carrying a trip I am taking mostly to be somewhere other than here.',
+        },
+        {
+          id: 'H1', attr: 'Al-Hafiz', attr_ar: 'الحفيظ', attrTitle: 'The Preserver',
+          attrFrame: 'What am I bringing to the Preserver?',
+          yesLabel: 'I am bringing',
+          notYetLabel: 'I am carrying',
+          governing: 'I am bringing the prayers with me — qasr and combining are concessions, not an exemption.',
+          notYet: 'I am carrying the quiet assumption that travel suspends the five prayers.',
+        },
+        {
+          id: 'H2', attr: 'Al-Hafiz',
+          governing: 'I am bringing the house left in order and the people in it told where I am going.',
+          notYet: 'I am carrying a door I pulled shut on obligations I have handed to nobody.',
+        },
+      ],
+      governing: [
+        'I am bringing the duʿāʾ of travel said on mounting, not remembered two hours in.',
+        'I am bringing a purpose I could say out loud — this journey is for something.',
+        'I am bringing the prayers with me — qasr and combining are concessions, not an exemption.',
+        'I am bringing the house left in order and the people in it told where I am going.',
+      ],
+      notYet: [
+        'I am carrying a departure that began with the map and never named Him at all.',
+        'I am carrying a trip I am taking mostly to be somewhere other than here.',
+        'I am carrying the quiet assumption that travel suspends the five prayers.',
+        'I am carrying a door I pulled shut on obligations I have handed to nobody.',
+      ],
+    },
+    reflection: {
+      frame: 'Al-Wakil was handling what left my hands at the door. Al-Hafiz kept both ends of the journey.',
+      yesLabel: 'The departure was sound when',
+      notYetLabel: 'The departure was thin when',
+      rows: [
+        {
+          id: 'RW1', attr: 'Al-Wakil', attr_ar: 'الوكيل', attrTitle: 'The Trustee',
+          attrFrame: 'Did I hand it over, or carry it myself?',
+          yesLabel: 'I handed it over when',
+          notYetLabel: 'I carried it myself when',
+          governing: 'I set out having asked Him for the journey, and then stopped rehearsing what could go wrong.',
+          notYet: 'I said the duʿāʾ and spent the whole road managing outcomes anyway.',
+        },
+        {
+          id: 'RH1', attr: 'Al-Hafiz', attr_ar: 'الحفيظ', attrTitle: 'The Preserver',
+          attrFrame: 'Did the prayers travel with me?',
+          yesLabel: 'They travelled when',
+          notYetLabel: 'One went missing when',
+          governing: 'Every prayer on the road was prayed — shortened where allowed, not dropped.',
+          notYet: 'A prayer went missing somewhere between the two places.',
+        },
+      ],
+      governing: [
+        'I set out having asked Him for the journey, and then stopped rehearsing what could go wrong.',
+        'Every prayer on the road was prayed — shortened where allowed, not dropped.',
+      ],
+      notYet: [
+        'I said the duʿāʾ and spent the whole road managing outcomes anyway.',
+        'A prayer went missing somewhere between the two places.',
+      ],
+    },
+  },
+
+  // Coming home had no threshold entry either, and fell through to Work in the
+  // same way. The arrival is a Family threshold in everything but name: the
+  // people here are the ones it lands on, so its readiness registry is 'family'.
+  // The question is whether anyone was actually greeted, and whether the road
+  // came home with its loose ends named — ʿāʾibun tāʾibun, in one breath.
+  'traveler-arrival': {
+    // Declared rather than inherited. getPillarForModule() returns null for
+    // this id — it is a node, not a registered submodule — so without this key
+    // the readiness pause-ayah lookup is silently skipped. 4 rows build a
+    // 4-bit key that the six-bit family matrix does not hold, so no ayah surfaces
+    // today; the key is here so the module declares its own registry rather
+    // than depending on a parent it does not have.
+    readinessAyatKey: 'family',
+    attrs: [
+      {
+        nameKey: 'al-barr',
+        description: 'You came back. None of that was owed to you, and the house you walk into was kept while you were not in it. Al-Barr is good to His creation beyond what any of them deserve or asked for — the arrival is a gift being handed over, not a schedule being met.',
+      },
+      {
+        nameKey: 'at-tawwab',
+        description: 'The formula for coming home is ʿāʾibūn tāʾibūn — returning and repenting, in one breath. At-Tawwāb turns toward whoever turns to Him, and He turned first, so a road that loosened things ends in turning back rather than in hiding it.',
+      },
+    ],
+    dua: {
+      title: 'On Coming Home',
+      resumeTitle: 'Before Returning to the Arrival',
+      arabic: 'آيِبُونَ تَائِبُونَ عَابِدُونَ لِرَبِّنَا حَامِدُونَ',
+      trans: 'Āʾibūna tāʾibūna ʿābidūna li-rabbinā ḥāmidūn',
+      meaning: 'We are returning, repenting, worshipping, praising our Lord.',
+      source: 'Sahih al-Bukhari 1797',
+    },
+    closingDua: {
+      title: 'After Arriving',
+      arabic: 'رَبِّ أَوْزِعْنِىٓ أَنْ أَشْكُرَ نِعْمَتَكَ ٱلَّتِىٓ أَنْعَمْتَ عَلَىَّ وَعَلَىٰ وَٰلِدَىَّ وَأَنْ أَعْمَلَ صَـٰلِحًۭا تَرْضَىٰهُ وَأَصْلِحْ لِى فِى ذُرِّيَّتِىٓ ۖ إِنِّى تُبْتُ إِلَيْكَ وَإِنِّى مِنَ ٱلْمُسْلِمِينَ',
+      trans: 'Rabbi awziʿnī an ashkura niʿmataka-llatī anʿamta ʿalayya wa ʿalā wālidayya wa an aʿmala ṣāliḥan tarḍāhu wa aṣliḥ lī fī dhurriyyatī; innī tubtu ilayka wa innī mina-l-muslimīn',
+      meaning: 'My Lord, help me to be truly grateful for Your favour to me and to my parents, and to do good work that pleases You; make my offspring good. I turn to You in repentance, and I am one of those who submit.',
+      source: 'Surah Al-Ahqaf 46:15',
+    },
+    readiness: {
+      frame: 'What am I bringing home?',
+      instruction: 'Name honestly — this is a moment of self-witness, not a gate.',
+      yesLabel: 'I am bringing',
+      notYetLabel: 'I am carrying',
+      rows: [
+        {
+          id: 'B1', attr: 'Al-Barr', attr_ar: 'البر', attrTitle: 'The Source of Goodness',
+          attrFrame: 'What am I bringing to the Source of Goodness?',
+          yesLabel: 'I am bringing',
+          notYetLabel: 'I am carrying',
+          governing: 'I am bringing thanks that the journey ended — the return itself is the favour, before anything else.',
+          notYet: 'I am carrying a list of everything that went wrong on the trip through my own front door.',
+        },
+        {
+          id: 'B2', attr: 'Al-Barr',
+          governing: 'I am bringing the household something — attention, a gift, the story — and not only luggage.',
+          notYet: 'I am carrying myself straight to bed and calling that arriving.',
+        },
+        {
+          id: 'T1', attr: 'At-Tawwab', attr_ar: 'التواب', attrTitle: 'The Acceptor of Repentance',
+          attrFrame: 'What am I bringing to the Acceptor of repentance?',
+          yesLabel: 'I am bringing',
+          notYetLabel: 'I am carrying',
+          governing: 'I am naming what slipped on the road rather than leaving it in another city.',
+          notYet: 'I am carrying things I did away from home that I have quietly decided do not count.',
+        },
+        {
+          id: 'T2', attr: 'At-Tawwab',
+          governing: 'I am bringing two rakah at the masjid before I sit down at home.',
+          notYet: 'I am carrying an arrival that goes from the car straight to the sofa.',
+        },
+      ],
+      governing: [
+        'I am bringing thanks that the journey ended — the return itself is the favour, before anything else.',
+        'I am bringing the household something — attention, a gift, the story — and not only luggage.',
+        'I am naming what slipped on the road rather than leaving it in another city.',
+        'I am bringing two rakah at the masjid before I sit down at home.',
+      ],
+      notYet: [
+        'I am carrying a list of everything that went wrong on the trip through my own front door.',
+        'I am carrying myself straight to bed and calling that arriving.',
+        'I am carrying things I did away from home that I have quietly decided do not count.',
+        'I am carrying an arrival that goes from the car straight to the sofa.',
+      ],
+    },
+    reflection: {
+      frame: 'Al-Barr gave the arrival before anyone earned it. At-Tawwab was waiting at the end of the road.',
+      yesLabel: 'The return landed when',
+      notYetLabel: 'The return slipped when',
+      rows: [
+        {
+          id: 'RB1', attr: 'Al-Barr', attr_ar: 'البر', attrTitle: 'The Source of Goodness',
+          attrFrame: 'Did I arrive, or only stop moving?',
+          yesLabel: 'I arrived when',
+          notYetLabel: 'I only stopped when',
+          governing: 'The people here got the first hour of me rather than the leftovers of the journey.',
+          notYet: 'The house absorbed me and nobody was actually greeted.',
+        },
+        {
+          id: 'RT1', attr: 'At-Tawwab', attr_ar: 'التواب', attrTitle: 'The Acceptor of Repentance',
+          attrFrame: 'Did the turning back come home with me?',
+          yesLabel: 'It came home when',
+          notYetLabel: 'It stayed on the road when',
+          governing: 'I said it and meant it: returning, repenting, worshipping, praising our Lord.',
+          notYet: 'I unpacked and left the road behind me unexamined.',
+        },
+      ],
+      governing: [
+        'The people here got the first hour of me rather than the leftovers of the journey.',
+        'I said it and meant it: returning, repenting, worshipping, praising our Lord.',
+      ],
+      notYet: [
+        'The house absorbed me and nobody was actually greeted.',
+        'I unpacked and left the road behind me unexamined.',
+      ],
+    },
+  },
+
   'faith-zakah': {
     attrs: [
       {

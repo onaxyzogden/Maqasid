@@ -26,8 +26,10 @@ export const THRESHOLD_MODULE_BY_NODE = {
   tahajjud: 'faith-salah',
   witr: 'faith-salah',
   duha: 'faith-salah',
-  jumuah: 'faith-salah',
-  'eid-prayer': 'faith-salah',
+  // Friday and ʻĪd are not bigger Dhuhrs: each authors its own ceremony in
+  // MODULE_ATTRS rather than opening on "Before Standing in Salah".
+  jumuah: 'jumuah',
+  'eid-prayer': 'eid-prayer',
   'after-asr': 'family',
   'istijabah-hour': 'istijabah-hour',
   sahari: 'faith-siyam',
@@ -35,7 +37,13 @@ export const THRESHOLD_MODULE_BY_NODE = {
   'isha-taraweeh': 'faith-siyam',
   bedtime: 'health-physical',
   'qiyam-rest': 'health-physical',
-  qaylulah: 'health-physical',
+  // The midday rest is a single hinge in one day, not the body-as-project
+  // threshold 'health-physical' is authored for.
+  qaylulah: 'qaylulah',
+  // Both travel nodes had no key at all and fell through to the Work threshold
+  // (NodePhaseSlideUp: THRESHOLD_MODULE_BY_NODE[id] || moduleId || 'work').
+  'traveler-departure': 'traveler-departure',
+  'traveler-arrival': 'traveler-arrival',
   morning: 'work',
   'midday-labor': 'work',
 };

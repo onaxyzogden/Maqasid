@@ -389,11 +389,19 @@ export const TOD_SUBMODULES = {
   jumuah: {
     submodules: ['faith-salah', 'community', 'collective', 'people'],
     matchers: [
-      /\b(?:jumu[a']?ah|friday\s+prayer|congregational\s+prayer)\b/i,
-      /\b(?:ghusl|miswak|perfume|white\s+clothes|walk\s+to\s+(?:the\s+)?masjid)\b/i,
-      /\b(?:surah\s+al-?kahf|kahf|al-?kahf)\b/i,
-      /\b(?:salawat|salat\s+ala\s+an-?nabi|invoke\s+blessings\s+on\s+(?:the\s+)?prophet)\b/i,
+      // The class was [a'] — ASCII only — while every Jumuʻah title in the seed
+      // corpus spells it with U+02BB. It matched NOTHING, so the Friday cluster
+      // was invisible on its own node and eid-prayer claimed it instead.
+      /\bjumu[aʻʿ’']?ah\b/i,
+      /\bfriday\s+(?:prayer|sunan|khutbah)\b/i,
+      /\bcongregational\s+prayer\b/i,
+      /\b(?:surah\s+al-?kahf|al-?kahf)\b/i,
       /\b(?:khutbah|sermon)\b/i,
+      // Deliberately absent: a bare /salawat/ (it claimed the generic in-salah
+      // adhkar task, "Subhanaka, Tashahhud, Salawat") and a bare
+      // /ghusl|miswak|perfume/ (the ʿId sunan are the same acts on a different
+      // day, so it would claim the ʿId tasks). Both practices are named inside
+      // this node's own titles, which the transliteration class now reaches.
       /\btransition:jumuah\b/i,
     ],
     phaseMatchers: {
@@ -439,7 +447,7 @@ export const TOD_SUBMODULES = {
     },
   },
   'traveler-departure': {
-    submodules: ['faith-salah', 'ummah-community', 'family-home'],
+    submodules: ['faith-salah', 'community', 'family-home'],
     matchers: [
       /\b(?:travel|safar|journey|depart|trip)\b/i,
       /\b(?:qasr|shorten.*prayer|jam[\u02bb']?|combin.*prayer)\b/i,
@@ -453,10 +461,17 @@ export const TOD_SUBMODULES = {
     },
   },
   'traveler-arrival': {
-    submodules: ['faith-salah', 'family-home', 'ummah-community'],
+    submodules: ['faith-salah', 'family-home', 'community'],
     matchers: [
-      /\b(?:arrival|return|home(?:coming)?|aibun|ta\u02beibun)\b/i,
-      /\b(?:enter.*home|return.*journey)\b/i,
+      // Bare /home|homecoming|return|arrival/ matched every title on the
+      // family-home boards — nine rows about prayer spaces, home charters and
+      // decor rendered here as "the return from travel". The RETURN has to be
+      // named, not the house.
+      /\bcome\s+home\b/i,
+      /\bhomecoming\b/i,
+      /\breturning\s+travell?er\b/i,
+      /\bdu[ʿʻ'’]?a[ʾʻ'’]?\s+of\s+return\b/i,
+      /\b(?:ʿ|ʾ)a[ʾ']?ibun\b/i,
       /\btransition:traveler-arrival\b/i,
     ],
     phaseMatchers: {
@@ -465,13 +480,23 @@ export const TOD_SUBMODULES = {
     },
   },
   'eid-prayer': {
-    submodules: ['faith-salah', 'ummah-community', 'family-home'],
+    submodules: ['faith-salah', 'faith-siyam', 'community', 'family-home'],
     matchers: [
-      /\beid\b/i,
+      // A bare /\beid\b/ claimed "Jumuʻah is the eid of the week" — the Friday
+      // task, rendered on the ʿId node. The day has to be named, not the word.
+      //
+      // 'faith-siyam' is in the submodule list because the ʿId practice was
+      // already authored there ("Keep the Sunan of ʻĪd al-Fitr" / "... al-Adha",
+      // 7 grounded subtasks) — it was never missing, only out of scope.
+      // Those titles also forced the shape of this pattern: a leading \b cannot
+      // fire between the U+02BB mark and Ī (non-ASCII, so not a \w), and [ie]
+      // never covered Ī. Hence (?:^|\s) and the widened vowel class.
+      /(?:^|\s)(?:e|[ʿʻ'])?[iĪī]d\s+(?:al-?)?(?:fitr|adha|prayer|day|morning|salah)\b/i,
       /\b(?:salat\s+al-?[ʿ']?id|[ʿ']?id\s+prayer|musalla)\b/i,
       /\b(?:takbir|takbeer|takbirat)\b/i,
       /\b(?:zakat\s+al-?fitr|fitrana)\b/i,
-      /\b(?:udhiyyah|qurbani|sacrifice)\b/i,
+      // /sacrifice/ dropped with it: too general for a title-only matcher.
+      /\b(?:udhiyyah|qurbani)\b/i,
       /\btransition:eid-prayer\b/i,
     ],
     phaseMatchers: {

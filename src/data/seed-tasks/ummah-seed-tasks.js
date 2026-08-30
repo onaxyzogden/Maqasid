@@ -8413,6 +8413,76 @@ The physical condition of the women's section communicates how much the communit
 7. Completion indicator: the women's section has been assessed, a prioritised improvement list has been presented to the masjid board, and at least one tangible improvement has been completed.` },
       ],
     },
+    {
+      seq: 6,
+      title: "Organise the community \u02bb\u012ad \u2014 Zakat al-Fitr before the prayer, takbir in the open",
+      priority: "medium", tags: ["community", "eid", "zakat-al-fitr", "takbir", "transition:eid-prayer"],
+      description: "The \u02bb\u012ad sunan are already carried as individual practice on the Siyam boards. What no board carries is the community's side of them: a collection that actually closes before the prayer begins, and a takbir raised publicly rather than privately. Both are named in the sources as communal acts, and both fail without someone organising them.",
+      subtasks: [
+        { title: "Set a community Zakat al-Fitr deadline that closes before the \u02bb\u012ad prayer", done: false,
+          tier: "T1",
+          amanahRationale: "Two hadith fix the deadline and state the consequence of missing it \u2014 paid before the prayer it is zakat, paid after it is ordinary sadaqah. A community collection that closes late changes what the payment is.",
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1503",
+              translation: "Ibn Umar (RA) reported: The Messenger of Allah (SAW) made Zakat al-Fitr obligatory \u2014 a sa of dates or a sa of barley \u2014 on every Muslim, slave or free, male or female, young or old, and ordered that it be paid before the people went out to the prayer.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              ratNote: "Ref already carried by the individual Zakat al-Fitr subtask on faith_siyam_core; reused here for the organisational half.",
+              rationale: "Puts the obligation on every member of the household and fixes its deadline at the prayer \u2014 which makes the collection window, not the intention, the thing a community has to manage.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sunan Abi Dawud 1609",
+              translation: "Ibn Abbas (RA) reported: The Messenger of Allah (SAW) prescribed the sadaqah of the breaking of the fast as a purification of the fasting person from idle and obscene talk, and as food for the poor. Whoever pays it before the prayer, it is accepted zakat; whoever pays it after the prayer, it is a sadaqah like other sadaqahs.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Hasan",
+              ratNote: "Confirmed against the in-repo hadith corpus (src/data/hadith.js, abudawud:1609, grade Hasan).",
+              rationale: "States the cost of a late collection explicitly \u2014 the payment does not fail, it changes category. That is why a community deadline has to sit days before the prayer, not hours.",
+            },
+          ],
+          description: `**Why?**
+
+Sahih al-Bukhari 1503 sets the deadline at the prayer; Sunan Abi Dawud 1609 says what happens when it is missed \u2014 the payment becomes an ordinary sadaqah rather than the zakat it was meant to be. A collection that runs to the last hour pushes families into that gap.
+
+**How?**
+
+1. Announce a collection window that closes at Maghrib on the eve, not on the morning itself.
+2. Name the sa equivalent in local staples and its cash value in the same announcement.
+3. Give at least two collection points and one person who can take a late payment by hand.
+4. Distribute to named recipient households before the prayer begins, not after.
+5. Completion indicator: every registered household has paid and every allocation has been delivered before the prayer starts.` },
+        { title: "Organise the public takbir from the eve through the walk to the musalla", done: false,
+          tier: "T2",
+          amanahRationale: "Ibn Umar (RA) raised the takbir audibly on the road and in the marketplace and the people raised it with him \u2014 companion practice establishing the takbir as a public signal rather than a private dhikr.",
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 970",
+              translation: "Nafi reported: Ibn Umar (RA) used to raise his voice with the takbir on the day of the festival \u2014 going out to the musalla and even in the marketplace \u2014 and the people would raise the takbir with him.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              ratNote: "Ref already carried by the individual takbir subtask on faith_siyam_core; reused here for the communal half.",
+              rationale: "The takbir spreads by being audible \u2014 one raised voice and the street answers. That is an organising instruction, not only a personal one.",
+            },
+          ],
+          description: `**Why?**
+
+Sahih al-Bukhari 970 shows the takbir working as a community signal: one person raises it in the open and everyone else picks it up. Left to individuals it stays silent.
+
+**How?**
+
+1. Start the takbir at the masjid from Maghrib on the eve and keep it running in the building.
+2. Organise a walking group to the musalla or masjid so the takbir is audible on the street.
+3. Brief whoever leads it on the wording so the congregation is not following three versions.
+4. Keep it going until the imam begins the prayer, then stop.
+5. Completion indicator: the takbir was raised publicly from Maghrib of the eve until the start of the prayer, with a walking group on the day.` },
+      ],
+    },
   ],
 
   // ── EXCELLENCE — Model community for the world ──

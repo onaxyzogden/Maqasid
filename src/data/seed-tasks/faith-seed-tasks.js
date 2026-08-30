@@ -5659,8 +5659,8 @@ The one obstacle the Prophet (SAW) named is on the asker's side: giving up. A du
       seq: 11,
       title: 'Travel with the Prophet\u2019s \uFDFA structure',
       priority: 'high',
-      tags: ['salah', 'sunnah', 'travel', 'qasr', 'transition:traveler-departure', 'transition:traveler-arrival'],
-      description: 'Travel has its own prophetic shape: a named du\u02bba\u02bb on departure, takbir at every ascent and tasbih at every descent, qasr (shorten) for the four-rakʿat prayers, permission to combine when needed, and a named du\u02bba\u02bb on return.',
+      tags: ['salah', 'sunnah', 'travel', 'qasr', 'transition:traveler-departure'],
+      description: 'Travel has its own prophetic shape: a named du\u02bba\u02bb on departure, takbir at every ascent and tasbih at every descent, qasr (shorten) for the four-rakʿat prayers, and permission to combine when needed. The return is its own threshold and now carries its own task \u2014 it belongs to coming home, not to setting out.',
       subtasks: [
         { title: 'Recite the du\u02bba\u02bb of travel on mounting the conveyance', done: false,
           tier: 'T1',
@@ -5771,6 +5771,15 @@ Jam\u02bb is the prophetic mercy that lets the journey continue without breaking
 1. Decide jam\u02bb taqdim (pray Asr early with Dhuhr, or Isha early with Maghrib) or jam\u02bb ta\u02bekhir (delay Dhuhr to Asr time, or Maghrib to Isha time) based on travel logistics.
 2. Pair with qasr — Dhuhr+Asr together = 2+2 rakʿat, Maghrib+Isha together = 3+2 rakʿat.
 3. Benchmark: jam\u02bb used appropriately on at least one qualifying journey per year.` },
+      ],
+    },
+    {
+      seq: 13,
+      title: 'Arrive back the prophetic way \u2014 the du\u02bba\u02bb of return',
+      priority: 'medium',
+      tags: ['salah', 'sunnah', 'travel', 'arrival', 'transition:traveler-arrival'],
+      description: 'The return has its own shape, distinct from setting out: takbir at every rise of the road, then the named arrival formula. Both come from the same hadith of Ibn \u02bbUmar (RA). They previously sat inside the departure task, where the arrival threshold could not reach them.',
+      subtasks: [
         { title: 'Recite the du\u02bba\u02bb of return on coming home', done: false,
           tier: 'T2',
           amanahRationale: 'The Prophet (SAW) said this du\u02bba\u02bb whenever he returned from a journey — a single, named formula for arrival. Direct prophetic transmission.',
@@ -5817,6 +5826,89 @@ The arrival du\u02bba\u02bb names what the journey was for — repentance, worsh
 2. Pray two rakʿat in the masjid before entering the home (Bukhari 443) when feasible.
 3. Greet the family with peace, not exhaustion-talk.
 4. Benchmark: arrival du\u02bba\u02bb recited on every return.` },
+        { title: 'Say takbir three times at each rise on the road home', done: false,
+          tier: 'T2',
+          amanahRationale: 'The same hadith that carries the arrival formula describes the takbir on every elevation of the road home \u2014 one narration, two named acts. Direct prophetic transmission.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 1797',
+              translation: 'Ibn \u02bbUmar (RA) reported: When the Prophet (SAW) returned from a military expedition, Hajj, or \u02bbUmrah, he would say takbir three times on every elevation, then say: "La ilaha illa Allah, wahdahu la sharika lah\u2026 \u02bbA\u02beibun, ta\u02beibun, \u02bbabidun, li-rabbina hamidun."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 \u2014 Bukhari 1797 confirmed. Same narration as the arrival du\u02bba\u02bb subtask; the takbir clause is stated separately there.',
+              rationale: 'The journey home is marked act by act rather than endured \u2014 each rise of the road answered with takbir, so arrival is reached in dhikr instead of impatience.',
+            },
+          ],
+          description: `**Why?**
+
+The road home is the part of a journey most easily spent in impatience. The Prophet (SAW) marked it: takbir three times at every rise, so the last stretch is dhikr rather than a countdown.
+
+**How?**
+
+1. Take each ascent \u2014 a hill, a climb, the plane leaving the ground \u2014 as the cue: Allahu akbar, three times.
+2. Follow with the tahlil and the arrival formula when the city comes into view.
+3. Keep the phone down for the final stretch.
+4. Benchmark: takbir said at each rise on every return journey.` },
+      ],
+    },
+    {
+      seq: 14,
+      title: 'Take the travel concessions fully \u2014 the fasting allowance and hastening back',
+      priority: 'medium',
+      tags: ['salah', 'sunnah', 'travel', 'safar', 'transition:traveler-departure'],
+      description: 'Qasr and jam\u02bb are already covered by the departure task. Two further allowances are not: permission to defer the fast on a journey, and the prophetic instruction to finish the errand and return rather than let travel stretch itself out. Both are concessions with a discipline attached \u2014 a deferred fast is a debt, and a hastened return is owed to the household left behind.',
+      subtasks: [
+        { title: 'Defer the fast on a genuine journey and diarise the makeup days', done: false,
+          tier: 'T2',
+          amanahRationale: 'Quran 2:184 names the traveller explicitly and states the compensation in the same breath \u2014 the concession and the makeup are one instruction, not two.',
+          sources: [
+            {
+              kind: 'quran',
+              ref: 'Quran 2:184',
+              arabic: '\u0623\u064e\u064a\u0651\u064e\u0627\u0645\u064b\u0627 \u0645\u0651\u064e\u0639\u0652\u062f\u0648\u062f\u064e\u0627\u062a\u064d \u06da \u0641\u064e\u0645\u064e\u0646 \u0643\u064e\u0627\u0646\u064e \u0645\u0650\u0646\u0643\u064f\u0645 \u0645\u0651\u064e\u0631\u0650\u064a\u0636\u064b\u0627 \u0623\u064e\u0648\u0652 \u0639\u064e\u0644\u064e\u0649\u0670 \u0633\u064e\u0641\u064e\u0631\u064d \u0641\u064e\u0639\u0650\u062f\u0651\u064e\u0629\u064c \u0645\u0651\u0650\u0646\u0652 \u0623\u064e\u064a\u0651\u064e\u0627\u0645\u064d \u0623\u064f\u062e\u064e\u0631\u064e',
+              translation: 'Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. (Abdel Haleem)',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              rationale: 'The traveller is named in the text of the concession itself, and the makeup is stated in the same clause \u2014 the allowance is never open-ended.',
+            },
+          ],
+          description: `**Why?**
+
+Quran 2:184 gives the traveller permission to defer, and in the same clause fixes the compensation: on other days later. The concession is real; so is the debt.
+
+**How?**
+
+1. Decide before setting out whether you are fasting or deferring \u2014 not mid-morning on the road.
+2. If deferring, write down the number of days owed the same day.
+3. Book the makeup days into the calendar before Shaban.
+4. Benchmark: zero deferred fasts left unrecorded at the end of any journey.` },
+        { title: 'Finish the errand and hasten back rather than stretch the trip', done: false,
+          tier: 'T3',
+          amanahRationale: 'The Prophet (SAW) described travel itself as a piece of punishment and instructed the traveller to return once the need is met \u2014 a direct instruction about the length of a journey, not only its rites.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 1804',
+              translation: 'Abu Hurayrah (RA) reported: The Prophet (SAW) said: "Travel is a piece of punishment \u2014 it keeps one of you from his food, his drink and his sleep. So when one of you has fulfilled his need, let him hasten his return to his family."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Carried verbatim from src/data/islamic/time-based-content.js (traveler-departure, before/intent), where it is the attested reference for the niyyah of travel.',
+              rationale: 'Sets the default length of a journey at the size of its purpose, and names the household as the thing being returned to \u2014 the counterweight to travel as escape.',
+            },
+          ],
+          description: `**Why?**
+
+Sahih al-Bukhari 1804 calls travel a piece of punishment and tells the traveller to return once the need is met. It is the sunnah answer to a trip that quietly extends itself.
+
+**How?**
+
+1. Name the purpose of the journey in one sentence before setting out.
+2. Set the return date against that purpose, not against convenience.
+3. When the purpose is met early, move the return earlier.
+4. Benchmark: no journey extended beyond its stated purpose without a reason you would say out loud.` },
       ],
     },
   ],

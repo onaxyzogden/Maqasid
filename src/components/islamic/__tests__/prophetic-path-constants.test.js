@@ -25,6 +25,29 @@ describe('THRESHOLD_MODULE_BY_NODE', () => {
     expect(data?.readiness?.rows?.length).toBeGreaterThan(0);
   });
 
+  it("gives each of the five non-prayer nodes its own ceremony, not Salah's and not Work's", () => {
+    // Before this pass: jumuah and eid-prayer pointed at 'faith-salah', qaylulah
+    // at 'health-physical', and the two travel nodes had no key at all — so they
+    // fell through to NodePhaseSlideUp's `|| moduleId || 'work'` and opened the
+    // Work threshold on the road. Each now keys its ceremony by its own node id.
+    const NODES = ['jumuah', 'eid-prayer', 'qaylulah', 'traveler-departure', 'traveler-arrival'];
+    const duaTitles = new Set();
+
+    for (const nodeId of NODES) {
+      const moduleId = THRESHOLD_MODULE_BY_NODE[nodeId];
+      expect(moduleId, `${nodeId} has no threshold module`).toBe(nodeId);
+      const data = getModuleData(moduleId, 'islamic');
+      expect(data, `${nodeId} has no ceremony data of its own`).toBeTruthy();
+      expect(data?.dua?.title).not.toBe('Before Standing in Salah');
+      expect(data?.readiness?.rows?.length, `${nodeId} readiness is empty`).toBeGreaterThan(0);
+      expect(data?.reflection?.rows?.length, `${nodeId} reflection is empty`).toBeGreaterThan(0);
+      duaTitles.add(data?.dua?.title);
+    }
+
+    // Five distinct openings — a copy-pasted ceremony would collapse this set.
+    expect(duaTitles.size).toBe(NODES.length);
+  });
+
   it('keeps every distinct threshold module registered for Maghrib rollover clearing', () => {
     const usedModules = new Set(Object.values(THRESHOLD_MODULE_BY_NODE));
     for (const moduleId of usedModules) {

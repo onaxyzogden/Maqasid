@@ -30,6 +30,9 @@ const SURVIVORS = {
     'Develop dedicated programming for women — ensure equitable access and voice in community life',
     'Develop a structured dawah and outreach programme',
     'Establish a community treasury (bayt al-mal) for collective financial strength',
+    // Added 2026-08-29, not a resurrected duplicate: the communal half of the
+    // ʻĪd content split, so the eid-prayer node has its own practice to show.
+    'Organise the community ʻĪd — Zakat al-Fitr before the prayer, takbir in the open',
   ],
   'ummah_moontrance-land_excellence': [
     'Achieve a fully regenerative closed-loop system — zero external inputs, net-positive soil health',

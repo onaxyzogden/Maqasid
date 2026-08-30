@@ -14,6 +14,7 @@ const ORDER_V2_FLAG = 'seed_subtask_order_v2';
 const RENAME_FLAG = 'seed_subtask_rename_v1';
 const ORDER_V3_FLAG = 'seed_subtask_order_v3';
 const NODE_SPLIT_FLAG = 'seed_node_content_split_v1';
+const NODE_SPLIT_V2_FLAG = 'seed_node_content_split_v2';
 
 // Tasks deleted from the seed files on 2026-07-27 as duplicates of a sibling on
 // the same board. Titles are byte-for-byte copies taken from the seed file
@@ -425,6 +426,59 @@ export function pruneSplitSeedRows() {
 // with the title through the rebuild so a re-order cannot lose progress — this
 // is belt-and-braces, and a skipped task still receives the folded rows from the
 // boot backfill (appended at the end), so content arrives either way.
+// ── 2026-08-29, second pass: the five non-prayer nodes ────────────────────────
+// Removing buildTasksForNode()'s whole-pool fallback exposed five nodes with no
+// content of their own. Four were filled by authoring new tasks, which the boot
+// backfill delivers on its own. Only one row had to MOVE: the return duʻaʻ was a
+// subtask of the departure hub, and the return is its own threshold — so it is
+// now a subtask of the new arrival task instead. It has to leave its old parent
+// or the operator sees it twice on the same board: bare under the travel hub,
+// whole under the arrival task the backfill appends on the same boot.
+//
+// The hub task itself was NOT renamed and is not pruned — only this subtask
+// moves. Titles are byte-for-byte copies of the seed strings as they stood
+// before the change; exact title equality is the only join to storage.
+// Approval gate: stages/implement-five-node-content-review.md
+const RELOCATED_SUBTASKS_V2 = {
+  faith_salah_growth: {
+    'Travel with the Prophet\u2019s \uFDFA structure': [
+      'Recite the du\u02bba\u02bb of return on coming home',
+    ],
+  },
+};
+
+// Same contract as pruneSplitSeedRows: a subtask the operator has worked on is
+// NEVER deleted — it stays beside its replacement for them to remove by hand.
+// Losing a completion silently is the worse failure.
+export function pruneRelocatedSeedRows() {
+  if (localStorage.getItem(PREFIX + NODE_SPLIT_V2_FLAG) === '1') return;
+  let removedSubtasks = 0;
+  const keptTitles = [];
+
+  for (const [boardId, table] of Object.entries(RELOCATED_SUBTASKS_V2)) {
+    const key = `tasks_${boardId}`;
+    const tasks = read(key);
+    if (!Array.isArray(tasks) || tasks.length === 0) continue;
+    const { next, removed, kept } = pruneRemovedSeedSubtasks(tasks, table);
+    keptTitles.push(...kept.map((t) => `${t} (${boardId}, subtask)`));
+    if (removed.length > 0) { write(key, next); removedSubtasks += removed.length; }
+  }
+
+  localStorage.setItem(PREFIX + NODE_SPLIT_V2_FLAG, '1');
+  if (removedSubtasks) {
+    console.info(
+      `[bbiz] Node content split v2: ${removedSubtasks} subtask(s) moved off the travel hub — ` +
+      `the duʻaʻ of return now belongs to the arrival task.`
+    );
+  }
+  if (keptTitles.length > 0) {
+    console.info(
+      `[bbiz] Node content split v2: kept ${keptTitles.length} row(s) you had already ` +
+      `worked on, beside their replacements: ${keptTitles.join(', ')}`
+    );
+  }
+}
+
 export function alignSubtaskOrder(tasks, orderTable) {
   if (!Array.isArray(tasks) || !orderTable) return { next: tasks, aligned: [], skipped: [] };
   const aligned = [];
@@ -610,6 +664,10 @@ export function runMigrations() {
   // replacement. Runs after the rename/align passes because those join on
   // subtask titles inside rows this one may delete.
   pruneSplitSeedRows();
+  // Then the second pass of the same date: the one subtask that moved from the
+  // travel hub to the new arrival task. Same ordering reason — it must beat the
+  // boot backfill that appends the arrival task carrying the same subtask.
+  pruneRelocatedSeedRows();
 
   const version = localStorage.getItem(PREFIX + 'schema_version');
   if (version === SCHEMA_VERSION) return; // already migrated
