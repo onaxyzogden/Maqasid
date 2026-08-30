@@ -14,7 +14,6 @@
 import { FAITH_SEED_TASKS } from './faith-seed-tasks.js';
 import { PRAYER_PILLARS, PRAYER_PHASE_KEYS } from '../prayer-pillars.js';
 
-const FIVE_DAILY = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha'];
 const ALL_PRAYERS = PRAYER_PILLARS.map((p) => p.id); // includes tahajjud
 
 const SALAH_SOURCES = ['faith_salah_core', 'faith_salah_growth', 'faith_salah_excellence'];
@@ -511,9 +510,6 @@ function classifyTask(task) {
   if (hasTag(task, 'transition:jumuah')) {
     return ['prayer_dhuhr_before'];
   }
-  if (hasTag(task, 'transition:istijabah-hour')) {
-    return ['prayer_maghrib_before'];
-  }
   if (hasTag(task, 'transition:maghrib-iftar')) {
     return ['prayer_maghrib_before'];
   }
@@ -533,9 +529,11 @@ function classifyTask(task) {
     return ['prayer_maghrib_after'];
   }
 
-  // Generic sunan — duplicate across all five daily prayers.
-  const phase = hasBefore ? 'before' : 'after';
-  return FIVE_DAILY.map((p) => `prayer_${p}_${phase}`);
+  // A phase-tagged Faith task with no prayer-specific attribution stays on its
+  // own faith_salah_* board. It used to be copied onto all five daily prayers,
+  // which is exactly why every prayer node showed the same three tasks — the
+  // per-prayer content is authored below in PRAYER_PHASE_TASKS instead.
+  return [];
 }
 
 // --- Curated chain order for the generated boards ------------------------
@@ -546,36 +544,95 @@ function classifyTask(task) {
 // task ahead of the core adhkar. So each board's own position is assigned LAST
 // and wins — see wiki/decisions/2026-07-27-milos-prayer-board-ordering.md.
 //
-// The default is emission order, which is already tier-ascending because
-// SALAH_SOURCES runs core -> growth -> excellence. That is right for 14 of the
-// 18 boards. These four are re-ordered because the CLOCK disagrees with it.
-// Nothing is reclassified: every title below already lives on that board.
+// The default is emission order — copied faith tasks, then derived rawatib,
+// then authored tasks. That is right for the six `during` boards, whose rows
+// arrive in anatomical order already. It is wrong for all twelve before/after
+// boards, where three independent sources interleave and only the CLOCK knows
+// the sequence, so each of the twelve is listed here in full.
+//
+// Nothing is reclassified: every title below already lives on that board. A
+// complete listing also makes the set-equality drift guard in
+// __tests__/prayer-order.test.js total — a title added to or removed from any
+// before/after board fails the test rather than silently sorting to the end.
 export const PRAYER_ORDER_OVERRIDES = {
-  // You wake before you take siwak and make wudu.
+  // You wake, then answer the adhan, then pray the rawatib; the morning
+  // adhkar anchor closes the approach.
   prayer_fajr_before: [
     "Reclaim the day with the waking du'a and morning adhkar",
-    "Observe the pre-prayer sunnah before every salah (siwak, wudu, adhan response)",
+    'Answer the Fajr adhan and come to it out of sleep',
+    'Pray the two rakʿah sunnah before Fajr',
     "Anchor the morning with Sayyid al-Istighfar and the daily-good du'a",
   ],
-  // "Pause work the moment Dhuhr enters" is what opens the window; siwak/wudu
-  // follow it, not precede it — same shape as Fajr (wake first) and Maghrib
-  // (evening adhkar first) below.
+  // The adhkar block is said in the seat you prayed in and the tahlil before
+  // a word is spoken — both precede the sitting until sunrise.
+  prayer_fajr_after: [
+    'Complete the Fajr adhkar without leaving your place',
+    'Seal Fajr with the tenfold tahlil before you speak',
+    'Sit in remembrance after Fajr until sunrise (Ishraq reward)',
+    'No voluntary prayer between Fajr and sunrise.',
+  ],
+  // The window opens first; siwak/wudu and the rawatib follow it, not precede it.
   prayer_dhuhr_before: [
     'Close the morning by praying Dhuhr at its first time',
-    "Observe the pre-prayer sunnah before every salah (siwak, wudu, adhan response)",
+    'Answer the Dhuhr adhan and renew wudu in the middle of the workday',
+    'Pray the four rakʿah sunnah before Dhuhr',
+  ],
+  // Adhkar before standing, rawatib before returning to work.
+  prayer_dhuhr_after: [
+    'Complete the Dhuhr adhkar before returning to work',
+    'Pray the two rakʿah sunnah after Dhuhr',
+  ],
+  // The middle prayer is guarded before it is prepared for.
+  prayer_asr_before: [
+    'Guard al-ṣalāt al-wusṭā — pray ʿAṣr before the sun yellows',
+    'Answer the ʿAṣr adhan and take the siwak',
+    'Pray the four rakʿah sunnah before ʿAṣr',
+  ],
+  // The adhkar block, then the refuge duʿāʾ; the no-nafl window closes the tab.
+  prayer_asr_after: [
+    'Complete the ʿAṣr adhkar as the day turns',
+    'Seek refuge from the grave and the Dajjal at the close of ʿAṣr',
+    'No voluntary prayer after ʿAṣr until Maghrib.',
   ],
   // The evening adhkar are recited between Asr and Maghrib — i.e. before
-  // Maghrib's own preparation, not after it.
+  // Maghrib’s own preparation, not after it.
   prayer_maghrib_before: [
-    "Recite the evening adhkar between Asr and Maghrib",
-    "Observe the pre-prayer sunnah before every salah (siwak, wudu, adhan response)",
+    'Recite the evening adhkar between Asr and Maghrib',
+    'Answer the Maghrib adhan at once — its window is the shortest',
+    'If time allows before iqāmah, pray 2 light rakʿahs — the Prophet ﷺ permitted this.',
   ],
-  // The pre-sleep sunnah genuinely ends the night; the memorisation task is
-  // not time-bound, so it yields the last slot despite being excellence tier.
+  // Adhkar, then the tenfold tahlil before standing, then the two rakʿat.
+  prayer_maghrib_after: [
+    'Complete the Maghrib adhkar as the day closes',
+    'Recite the tenfold tahlil after Maghrib',
+    'Pray the two rakʿah sunnah after Maghrib',
+  ],
+  // Guarding the hour before the prayer is what guards the prayer.
+  prayer_isha_before: [
+    'Do not sleep before ʿIshāʾ — enter the night awake',
+    'Answer the ʿIshāʾ adhan and prepare with siwak and wudu',
+    'Pray the four rakʿah sunnah before ʿIshāʾ',
+  ],
+  // The night is sealed in order: adhkar, rawatib, witr, the Light Duʿāʾ, sleep.
   prayer_isha_after: [
-    "Complete the post-prayer adhkar after every salah (istighfar, tasbih, Ayat al-Kursi)",
-    "Memorise the prophetic supplications specific to each prayer",
-    "Complete the prophetic pre-sleep sunnah",
+    'Complete the ʿIshāʾ adhkar and keep the silence after it',
+    'Pray the two rakʿah sunnah after ʿIshāʾ',
+    'Seal the night with Witr',
+    "Recite the Prophetic Light Du'a after Witr",
+    'Complete the prophetic pre-sleep sunnah',
+  ],
+  // When to rise and how to enter, then what one rises toward.
+  prayer_tahajjud_before: [
+    'Rise for Tahajjud with the prophetic waking protocol',
+    'Best in the last third of the night — "Our Lord descends to the lowest heaven…" (Bukhārī)',
+    'Begin with 2 light rakʿahs, then lengthen.',
+    'Pray Qiyām al-Layl in pairs of two',
+  ],
+  // What was prayed is sealed, then kept; the no-second-witr note closes the tab.
+  prayer_tahajjud_after: [
+    "Seal the night with the post-Witr adhkar and last-third du'a",
+    'Do not abandon the night prayer once you have begun it',
+    'If you kept witr after ʿIshāʾ, do not repeat it — "no two witrs in one night."',
   ],
 };
 
@@ -592,74 +649,6 @@ function curateBoardOrder(boardId, tasks) {
   const ordered = override ? [...tasks].sort((a, b) => rank(a) - rank(b)) : tasks;
   // Spread order matters: our `seq` overwrites the inherited one.
   return ordered.map((t, i) => ({ ...t, seq: i }));
-}
-
-function buildPrayerSeedTasks() {
-  const out = {};
-  for (const pillar of PRAYER_PILLARS) {
-    for (const phase of PRAYER_PHASE_KEYS) {
-      out[`prayer_${pillar.id}_${phase}`] = [];
-    }
-  }
-
-  for (const sourceBoardId of SALAH_SOURCES) {
-    const tasks = FAITH_SEED_TASKS[sourceBoardId] || [];
-    for (const task of tasks) {
-      const targets = classifyTask(task);
-      for (const boardId of targets) {
-        // Slim copy — seed shape (id/columnId are added by store at seed-time).
-        out[boardId].push({ ...task });
-      }
-    }
-  }
-
-  // Populate during boards from PRAYER_GUIDE.
-  for (const pillar of PRAYER_PILLARS) {
-    const guide = PRAYER_GUIDE[pillar.id];
-    if (!guide) continue;
-    const boardId = `prayer_${pillar.id}_during`;
-    const baseTags = ['salah', 'prayer-phase:during', `prayer:${pillar.id}`];
-    for (const row of guide.structure) {
-      const subtask = { title: row.note, done: false };
-      if (row.tier) subtask.tier = row.tier;
-      if (row.amanahRationale) subtask.amanahRationale = row.amanahRationale;
-      if (row.why) subtask.why = row.why;
-      if (row.how) subtask.how = row.how;
-      if (row.sources) subtask.sources = row.sources;
-      out[boardId].push({
-        title: `${row.kind} · ${row.count} rakʿah${row.count === 1 ? '' : 's'}`,
-        priority: 'high',
-        tags: [...baseTags],
-        subtasks: [subtask],
-      });
-    }
-    for (const key of guide.keys) {
-      out[boardId].push({
-        title: key,
-        priority: 'medium',
-        tags: [...baseTags, 'reminder'],
-      });
-    }
-  }
-
-  // Curate LAST, once every board is fully populated — this is what replaces
-  // the inherited source-board `seq` and gives the six `during` boards (which
-  // never had one) an explicit permutation instead of an array-order fallback.
-  for (const boardId of Object.keys(out)) {
-    out[boardId] = curateBoardOrder(boardId, out[boardId]);
-  }
-
-  return out;
-}
-
-export const PRAYER_SEED_TASKS = buildPrayerSeedTasks();
-
-// Diagnostic helper — exposed for one-off console checks.
-export function prayerSeedSummary() {
-  const rows = Object.entries(PRAYER_SEED_TASKS)
-    .map(([k, v]) => [k, v.length])
-    .sort((a, b) => b[1] - a[1]);
-  return rows;
 }
 
 // --- UI selector: prayer-specific before/after Sunnah --------------------
@@ -757,4 +746,812 @@ export function getPrayerPhaseSunnah(prayerId, phase) {
     leadNotes,
     rowsCaption: leadNotes.length > 0 ? lead.rowsCaption : null,
   };
+}
+
+// --- Per-prayer Before/After content -------------------------------------
+// Until this pass the three generic Salah sunan (pre-prayer preparation,
+// post-prayer adhkar, prayer-specific duʿāʾ) were copied onto all five daily
+// prayers, so every prayer node's Before/After tabs showed the same list. That
+// fan-out is gone (see the end of classifyTask above); what follows replaces it.
+//
+// Content arrives from two places, in this order:
+//   1. DERIVED — buildRawatibTasks() reshapes the rawātib rows PRAYER_GUIDE
+//      already carries, through the existing getPrayerPhaseSunnah() selector.
+//      No new fiqh is authored there; the sources pass through verbatim.
+//   2. AUTHORED — PRAYER_PHASE_TASKS below, written once per prayer. Every
+//      subtask carries the same structured `sources` schema as every other seed
+//      row, so lint:grounding-strict and audit:inline-refs stay at their 0
+//      ratchets.
+//
+// The generic three are NOT deleted: they keep their home on the faith_salah_*
+// boards. Only their copies onto prayer boards go away.
+
+// Shared citations. A source object is immutable data, so the same constant can
+// be referenced from several subtasks without any copy step.
+const SRC_ADHAN_REPEAT = {
+  kind: 'hadith',
+  ref: 'Sahih al-Bukhari 611',
+  arabic: 'قَالَ رَسُولُ اللَّهِ ﷺ "إِذَا سَمِعْتُمُ النِّدَاءَ فَقُولُوا مِثْلَ مَا يَقُولُ الْمُؤَذِّنُ".',
+  translation: 'Narrated Abu Saʿid al-Khudri (RA): Allah’s Messenger ﷺ said, "Whenever you hear the adhan, say what the muezzin is saying."',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  hadithGrade: 'Sahih',
+  rationale: 'Explicit prophetic command to repeat after the muezzin — the textual basis for answering any adhan.',
+};
+
+const SRC_ADHAN_DUA = {
+  kind: 'hadith',
+  ref: 'Sahih al-Bukhari 614',
+  arabic: 'قَالَ رَسُولُ اللَّهِ ﷺ "مَنْ قَالَ حِينَ يَسْمَعُ النِّدَاءَ: اللَّهُمَّ رَبَّ هَذِهِ الدَّعْوَةِ التَّامَّةِ وَالصَّلاَةِ الْقَائِمَةِ آتِ مُحَمَّدًا الْوَسِيلَةَ وَالْفَضِيلَةَ وَابْعَثْهُ مَقَامًا مَحْمُودًا الَّذِي وَعَدْتَهُ، حَلَّتْ لَهُ شَفَاعَتِي يَوْمَ الْقِيَامَةِ".',
+  translation: 'Narrated Jabir ibn Abdullah (RA): Allah’s Messenger ﷺ said, "Whoever, upon hearing the adhan, says: ‘O Allah, Lord of this perfect call and of the prayer to be established, grant Muhammad al-wasilah and al-fadilah, and raise him to the praiseworthy station which You promised him,’ — my intercession on the Day of Resurrection will be permitted for him."',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  hadithGrade: 'Sahih',
+  rationale: 'Gives the exact wording of the post-adhan duʿāʾ and ties it to the Prophet’s intercession.',
+};
+
+const SRC_SIWAK_NIGHT = {
+  kind: 'hadith',
+  ref: 'Sahih al-Bukhari 245',
+  arabic: 'عَنْ حُذَيْفَةَ قَالَ كَانَ النَّبِيُّ ﷺ إِذَا قَامَ مِنَ اللَّيْلِ يَشُوصُ فَاهُ بِالسِّوَاكِ.',
+  translation: 'Narrated Hudhaifa (RA): Whenever the Prophet ﷺ got up at night, he used to clean his mouth with the siwak.',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  hadithGrade: 'Sahih',
+  rationale: 'Names siwak-on-rising as prophetic habit — the basis for taking it before Fajr and Tahajjud specifically.',
+};
+
+const SRC_SIWAK_EVERY_PRAYER = {
+  kind: 'hadith',
+  ref: 'Sahih al-Bukhari 887',
+  arabic: 'قَالَ رَسُولُ اللَّهِ ﷺ "لَوْلاَ أَنْ أَشُقَّ عَلَى أُمَّتِي لأَمَرْتُهُمْ بِالسِّوَاكِ مَعَ كُلِّ صَلاَةٍ".',
+  translation: 'Narrated Abu Huraira (RA): Allah’s Messenger ﷺ said, "If I had not found it hard for my followers or the people, I would have ordered them to clean their teeth with siwak for every prayer."',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  hadithGrade: 'Sahih',
+  rationale: 'Ties the siwak to every prayer, not to one — the operative sunnah wherever a prayer is approached.',
+};
+
+const SRC_WUDU_AYAH = {
+  kind: 'quran',
+  ref: 'Quran 5:6',
+  arabic: 'يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا قُمْتُمْ إِلَى الصَّلَاةِ فَاغْسِلُوا وُجُوهَكُمْ وَأَيْدِيَكُمْ إِلَى الْمَرَافِقِ وَامْسَحُوا بِرُءُوسِكُمْ وَأَرْجُلَكُمْ إِلَى الْكَعْبَيْنِ',
+  translation: 'O you who have believed, when you rise to [perform] prayer, wash your faces and your forearms to the elbows and wipe over your heads and wash your feet to the ankles.',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  rationale: 'Quranic command specifying each limb of wudu — the basis for the obligation and its order.',
+};
+
+const SRC_WUDU_HEELS = {
+  kind: 'hadith',
+  ref: 'Sahih al-Bukhari 165',
+  arabic: 'قَالَ أَبُو هُرَيْرَةَ: أَسْبِغُوا الْوُضُوءَ فَإِنَّ أَبَا الْقَاسِمِ ﷺ قَالَ "وَيْلٌ لِلأَعْقَابِ مِنَ النَّارِ".',
+  translation: 'Narrated Muhammad ibn Ziyad: I heard Abu Huraira (RA) saying, "Perform the wudu thoroughly, for Abu’l-Qasim ﷺ said: ‘Save your heels from the Hell-fire.’"',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  hadithGrade: 'Sahih',
+  rationale: 'Prophetic warning naming the heels — the operative basis for washing them fully rather than splashing.',
+};
+
+const SRC_SUTRAH_PRACTICE = {
+  kind: 'hadith',
+  ref: 'Sahih al-Bukhari 494',
+  arabic: 'عَنِ ابْنِ عُمَرَ، أَنَّ رَسُولَ اللَّهِ ﷺ كَانَ إِذَا خَرَجَ يَوْمَ الْعِيدِ أَمَرَ بِالْحَرْبَةِ فَتُوضَعُ بَيْنَ يَدَيْهِ، فَيُصَلِّي إِلَيْهَا وَالنَّاسُ وَرَاءَهُ، وَكَانَ يَفْعَلُ ذَلِكَ فِي السَّفَرِ.',
+  translation: 'Narrated Ibn Umar (RA): Whenever Allah’s Messenger ﷺ came out on Eid day, he ordered that a short spear be planted in front of him; he would pray facing it with the people behind him, and he did the same while on a journey.',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  hadithGrade: 'Sahih',
+  rationale: 'Establishes the Prophet’s consistent practice of planting a physical sutrah in open ground.',
+};
+
+const SRC_SUTRAH_WARNING = {
+  kind: 'hadith',
+  ref: 'Sahih al-Bukhari 510',
+  arabic: 'قَالَ رَسُولُ اللَّهِ ﷺ "لَوْ يَعْلَمُ الْمَارُّ بَيْنَ يَدَىِ الْمُصَلِّي مَاذَا عَلَيْهِ لَكَانَ أَنْ يَقِفَ أَرْبَعِينَ خَيْرًا لَهُ مِنْ أَنْ يَمُرَّ بَيْنَ يَدَيْهِ".',
+  translation: 'Narrated Abu Juhaim (RA): Allah’s Messenger ﷺ said, "If the one passing in front of a praying person knew the magnitude of his sin, he would prefer to wait forty rather than pass in front of him."',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  hadithGrade: 'Sahih',
+  rationale: 'Gives the weight behind the sutrah — why a worshipper marks his space when he prays outside a masjid.',
+};
+
+const SRC_CRAWL_TO_ISHA_FAJR = {
+  kind: 'hadith',
+  ref: 'Sahih al-Bukhari 615',
+  translation: 'Narrated Abu Huraira (RA): Allah’s Messenger ﷺ said, "If the people knew the reward for pronouncing the adhan and for standing in the first row, and found no other way to get it except by drawing lots, they would draw lots; and if they knew the reward of the Zuhr prayer in the early moments of its time, they would race for it; and if they knew the reward of ʿIshāʾ and Fajr in congregation, they would come to them even if they had to crawl."',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  hadithGrade: 'Sahih',
+  rationale: 'Names ʿIshāʾ and Fajr as the two congregations worth crawling to, and Zuhr as the prayer worth racing to at its first moments.',
+};
+
+const SRC_MISSING_ASR = {
+  kind: 'hadith',
+  ref: 'Sahih al-Bukhari 552',
+  translation: 'Narrated Ibn Umar (RA): Allah’s Messenger ﷺ said, "Whoever misses the ʿAṣr prayer, it is as if he lost his family and property."',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  hadithGrade: 'Sahih',
+  rationale: 'The specific warning attached to ʿAṣr and no other prayer — the basis for guarding this window above the rest of the afternoon.',
+};
+
+const SRC_TWO_COOL_PRAYERS = {
+  kind: 'hadith',
+  ref: 'Sahih al-Bukhari 574',
+  translation: 'Narrated Abu Bakr ibn Abi Musa, from his father (RA): Allah’s Messenger ﷺ said, "Whoever prays the two cool prayers (ʿAṣr and Fajr) will enter Paradise."',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  hadithGrade: 'Sahih',
+  rationale: 'Pairs ʿAṣr with Fajr under one promise — the reward side of the same window the previous narration warns about.',
+};
+
+const SRC_MIDDLE_PRAYER = {
+  kind: 'quran',
+  ref: 'Quran 2:238',
+  arabic: 'حَافِظُوا عَلَى الصَّلَوَاتِ وَالصَّلَاةِ الْوُسْطَىٰ وَقُومُوا لِلَّهِ قَانِتِينَ',
+  translation: 'Guard strictly the prayers, and [especially] the middle prayer, and stand before Allah devoutly obedient.',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  rationale: 'Quranic singling out of the "middle prayer" — identified in the majority opinion as ʿAṣr — giving it heightened weight among the five.',
+};
+
+const SRC_MAGHRIB_WINDOW = {
+  kind: 'hadith',
+  ref: 'Sahih al-Bukhari 559',
+  translation: 'Narrated Rafiʿ ibn Khadij (RA): We used to offer the Maghrib prayer with the Prophet ﷺ, and after finishing the prayer one of us could go away and still see as far as the spot where his arrow would fall when shot from a bow.',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  hadithGrade: 'Sahih',
+  rationale: 'Fixes Maghrib as the prayer prayed while daylight still remains — the textual basis for treating its window as the shortest of the five.',
+};
+
+const SRC_NO_SLEEP_BEFORE_ISHA = {
+  kind: 'hadith',
+  ref: 'Sahih al-Bukhari 568',
+  translation: 'Narrated Abu Barza (RA): Allah’s Messenger ﷺ disliked sleeping before the ʿIshāʾ prayer, and talking after it.',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  hadithGrade: 'Sahih',
+  rationale: 'The one prayer the Prophet ﷺ guarded on both sides — no sleep before it, no idle talk after it.',
+};
+
+const SRC_DO_NOT_ABANDON_NIGHT = {
+  kind: 'hadith',
+  ref: 'Sahih al-Bukhari 1152',
+  translation: 'Narrated Abdullah ibn Amr ibn al-ʿĀṣ (RA): Allah’s Messenger ﷺ said to me, "O Abdullah! Do not be like so-and-so, who used to pray at night and then stopped the night prayer."',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  hadithGrade: 'Sahih',
+  rationale: 'Names abandoning an established night prayer as the failure to avoid — the reason Tahajjud closes with a commitment, not just a duʿāʾ.',
+};
+
+const SRC_ISTIGHFAR_AFTER_SALAM = {
+  kind: 'hadith',
+  ref: 'Sahih Muslim 591',
+  arabic: 'كَانَ رَسُولُ اللَّهِ ﷺ إِذَا انْصَرَفَ مِنْ صَلاَتِهِ اسْتَغْفَرَ ثَلاَثًا وَقَالَ "اللَّهُمَّ أَنْتَ السَّلاَمُ وَمِنْكَ السَّلاَمُ، تَبَارَكْتَ يَا ذَا الْجَلاَلِ وَالإِكْرَامِ".',
+  translation: 'Thawban (RA) reported: When the Messenger of Allah ﷺ finished his prayer, he begged forgiveness three times and said, "O Allah, You are Peace, and peace comes from You; blessed are You, O Possessor of Glory and Honour."',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  hadithGrade: 'Sahih',
+  rationale: 'Gives the exact prophetic sequence that opens the post-prayer dhikr block after every salah.',
+};
+
+const SRC_TASBIH_33 = {
+  kind: 'hadith',
+  ref: 'Sahih Muslim 597',
+  translation: 'Abu Hurayra (RA) reported: The Messenger of Allah ﷺ said, "Whoever glorifies Allah after every prayer thirty-three times, praises Allah thirty-three times, and exalts Allah thirty-three times — that is ninety-nine — and says to complete the hundred: ‘La ilaha illa Allah, wahdahu la sharika lah, lahul-mulku wa lahul-hamd, wa huwa ʿala kulli shayʾin qadir’ — his sins will be forgiven even if they were like the foam of the sea."',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  hadithGrade: 'Sahih',
+  rationale: 'Gives the counts and the completing-hundred duʿāʾ of the post-prayer tasbih together with its reward.',
+};
+
+const SRC_AYAT_AL_KURSI_AFTER_FARD = {
+  kind: 'hadith',
+  ref: "Sunan al-Nasa'i al-Kubra 9848",
+  translation: 'The Prophet ﷺ said: "Whoever recites Ayat al-Kursi after every obligatory prayer, nothing prevents him from entering Paradise except death."',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  hadithGrade: 'Sahih (al-Albani)',
+  rationale: 'Attaches the Paradise-promise specifically to post-fard recitation of Ayat al-Kursi.',
+};
+
+const SRC_AYAT_AL_KURSI = {
+  kind: 'quran',
+  ref: 'Quran 2:255',
+  arabic: 'اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ',
+  translation: 'Allah — there is no deity except Him, the Ever-Living, the Sustainer of existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth.',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  rationale: 'Ayat al-Kursi itself — the verse named in the narration above as the post-prayer recitation.',
+};
+
+const SRC_REFUGE_FOUR = {
+  kind: 'hadith',
+  ref: 'Sahih Muslim 588',
+  arabic: 'عَنْ أَبِي هُرَيْرَةَ أَنَّ رَسُولَ اللَّهِ ﷺ كَانَ يَقُولُ "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عَذَابِ الْقَبْرِ، وَمِنْ عَذَابِ النَّارِ، وَمِنْ فِتْنَةِ الْمَحْيَا وَالْمَمَاتِ، وَمِنْ فِتْنَةِ الْمَسِيحِ الدَّجَّالِ".',
+  translation: 'Abu Hurayra (RA) reported: The Messenger of Allah ﷺ used to say, "O Allah, I seek refuge in You from the punishment of the grave, and from the punishment of the Fire, and from the trial of life and death, and from the trial of the false messiah (al-Masih ad-Dajjal)."',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  hadithGrade: 'Sahih',
+  rationale: 'Direct prophetic formula for refuge from the four matters — the operative text for sealing a prayer with an eschatological plea.',
+};
+
+const SRC_TENFOLD_TAHLIL = {
+  kind: 'hadith',
+  ref: 'Jami at-Tirmidhi 3474',
+  arabic: 'عَنْ أَبِي ذَرٍّ قَالَ قَالَ رَسُولُ اللَّهِ ﷺ "مَنْ قَالَ فِي دُبُرِ صَلَاةِ الْفَجْرِ وَهُوَ ثَانٍ رِجْلَيْهِ قَبْلَ أَنْ يَتَكَلَّمَ: لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، يُحْيِي وَيُمِيتُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، عَشْرَ مَرَّاتٍ، كُتِبَ لَهُ عَشْرُ حَسَنَاتٍ، وَمُحِيَتْ عَنْهُ عَشْرُ سَيِّئَاتٍ، وَرُفِعَ لَهُ عَشْرُ دَرَجَاتٍ، وَكَانَ يَوْمَهُ ذَلِكَ فِي حِرْزٍ مِنْ كُلِّ مَكْرُوهٍ، وَحُرِسَ مِنَ الشَّيْطَانِ".',
+  translation: 'Abu Dharr (RA) reported: The Messenger of Allah ﷺ said, "Whoever says after the Fajr prayer, while still seated with his legs folded, before speaking: ‘La ilaha illa Allah wahdahu la sharika lah, lahul-mulku wa lahul-hamd, yuhyi wa yumit, wa huwa ʿala kulli shayʾin qadir’ ten times — ten good deeds will be written for him, ten bad deeds erased, ten degrees raised for him, and he will be in a fortress against every disliked thing on that day, and guarded from Shaytan."',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  hadithGrade: 'Hasan',
+  rationale: 'The tenfold tahlil said before speaking, at the seated moment after the prayer — narrated for Fajr, and carried by parallel narration to Maghrib as the day’s other hinge.',
+};
+
+const SRC_LIGHT_DUA = {
+  kind: 'hadith',
+  ref: 'Sahih Muslim 763',
+  arabic: 'عَنِ ابْنِ عَبَّاسٍ قَالَ كَانَ النَّبِيُّ ﷺ إِذَا قَامَ يُصَلِّي مِنْ جَوْفِ اللَّيْلِ يَقُولُ "اللَّهُمَّ اجْعَلْ فِي قَلْبِي نُورًا، وَفِي لِسَانِي نُورًا، وَاجْعَلْ فِي سَمْعِي نُورًا، وَاجْعَلْ فِي بَصَرِي نُورًا، وَاجْعَلْ مِنْ خَلْفِي نُورًا، وَمِنْ أَمَامِي نُورًا، وَاجْعَلْ مِنْ فَوْقِي نُورًا، وَمِنْ تَحْتِي نُورًا. اللَّهُمَّ أَعْطِنِي نُورًا".',
+  translation: 'Ibn Abbas (RA) reported: When the Prophet ﷺ rose to pray in the depth of the night, he would say, "O Allah, place light in my heart, light in my tongue, light in my hearing, light in my sight, light behind me, light before me, light above me, and light below me. O Allah, grant me light."',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  hadithGrade: 'Sahih',
+  rationale: 'Direct prophetic duʿāʾ for light on every bodily and directional axis — the text of the Light Duʿāʾ.',
+};
+
+const SRC_ANGELS_AT_FAJR = {
+  kind: 'hadith',
+  ref: 'Sahih al-Bukhari 648',
+  translation: 'Narrated Abu Huraira (RA): I heard Allah’s Messenger ﷺ saying, "The reward of a prayer in congregation is twenty-five times greater than that of a prayer offered alone. The angels of the night and the angels of the day gather at the time of the Fajr prayer."',
+  relevance: 'direct',
+  provenanceTier: 'Bayyinah',
+  hadithGrade: 'Sahih',
+  rationale: 'Names Fajr as the hour when both shifts of angels are present — the reason the dawn congregation is weighted above the others.',
+};
+
+// The post-prayer adhkar are one prophetic block, but where that block lands in
+// the day differs per prayer. Generate it once and let each prayer supply its
+// own framing, rather than shipping five boards one identical task.
+function postPrayerAdhkarTask(prayerId, { title, description, seatHow, kursiHow }) {
+  return {
+    title,
+    priority: 'high',
+    tags: ['salah', 'sunnah', 'prayer-phase:after', `prayer:${prayerId}`],
+    description,
+    subtasks: [
+      {
+        title: 'Say Astaghfirullah three times immediately after the salam',
+        done: false,
+        tier: 'T1',
+        amanahRationale: 'Sahih Muslim 591 — the Prophet ﷺ never ended a salah without this sequence.',
+        why: 'Even the Prophet ﷺ sought forgiveness after every prayer, acknowledging that no salah is free of shortcoming. The duʿāʾ that follows names Allah as the source of peace and sets the posture for the rest of the block.',
+        how: seatHow,
+        sources: [SRC_ISTIGHFAR_AFTER_SALAM],
+      },
+      {
+        title: 'Recite the tasbih of 33/33/34 before you stand',
+        done: false,
+        tier: 'T2',
+        amanahRationale: 'Sahih Muslim 597 preserves both the counts and the foam-of-the-sea promise tied to this post-prayer dhikr.',
+        why: 'Two minutes of counted dhikr after a fard carries a promise of forgiveness like the foam of the sea. It is the prophetic bridge between the salam and whatever the day asks next.',
+        how: 'Stay seated. Count on the knuckles of the right hand: SubhanAllah ×33, Alhamdulillah ×33, Allahu Akbar ×33, then complete the hundredth with "La ilaha illallah wahdahu la sharika lah, lahul-mulku wa lahul-hamd, wa huwa ʿala kulli shayʾin qadir."',
+        sources: [SRC_TASBIH_33],
+      },
+      {
+        title: 'Recite Ayat al-Kursi after the fard',
+        done: false,
+        tier: 'T2',
+        amanahRationale: "Sunan al-Nasa'i al-Kubra 9848 (authenticated by al-Albani): whoever recites it after every fard, only death separates him from Paradise.",
+        why: 'One verse, one minute, and the door to Paradise opens. No other single sunnah after the salam carries so direct a promise.',
+        how: kursiHow,
+        sources: [SRC_AYAT_AL_KURSI_AFTER_FARD, SRC_AYAT_AL_KURSI],
+      },
+    ],
+  };
+}
+
+// Hand-authored per-prayer Before/After tasks, keyed by board id. These replace
+// the three generic Salah tasks that used to be copied onto every prayer.
+const PRAYER_PHASE_TASKS = {
+  prayer_fajr_before: [
+    {
+      title: 'Answer the Fajr adhan and come to it out of sleep',
+      priority: 'high',
+      tags: ['salah', 'sunnah', 'prayer-phase:before', 'prayer:fajr'],
+      description: 'Fajr is the only adhan that calls you out of sleep, and the only one whose call carries an extra line for the sleeper. Answering it — with the tongue, with the siwak, and with your feet — is what turns waking into arrival.',
+      subtasks: [
+        {
+          title: 'Repeat the Fajr adhan, including the line that belongs to it alone',
+          done: false,
+          tier: 'T2',
+          amanahRationale: 'Sahih al-Bukhari 611 commands repeating what the mu’adhdhin says; Sahih al-Bukhari 614 gives the duʿāʾ that follows and the intercession promised for it.',
+          why: 'The Fajr adhan is the only one addressed to someone still asleep. Repeating it aloud is how you answer the call rather than merely hear it, and the Prophet ﷺ tied the duʿāʾ that follows to his own intercession.',
+          how: 'Repeat each phrase after the mu’adhdhin, including "as-salatu khayrun min an-nawm" — prayer is better than sleep — which is said in the Fajr adhan and no other. At "Hayya ʿala as-salah" and "Hayya ʿala al-falah" say "La hawla wa la quwwata illa billah." Then send salawat and make the post-adhan duʿāʾ.',
+          sources: [SRC_ADHAN_REPEAT, SRC_ADHAN_DUA],
+        },
+        {
+          title: 'Take the siwak the moment you rise, before wudu',
+          done: false,
+          tier: 'T1',
+          amanahRationale: 'Sahih al-Bukhari 245 names siwak on rising from the night as the Prophet’s ﷺ own habit.',
+          why: 'Fajr is the prayer you come to straight from sleep. The Prophet ﷺ cleaned his mouth with the siwak whenever he rose in the night — the mouth that will recite aloud at dawn is purified first.',
+          how: 'Keep a siwak within reach of where you sleep, not in the bathroom cupboard. Use it the moment you sit up, before rinsing the mouth in wudu, and again before the iqamah.',
+          sources: [SRC_SIWAK_NIGHT, SRC_SIWAK_EVERY_PRAYER],
+        },
+        {
+          title: 'Come to Fajr in congregation even if you must crawl',
+          done: false,
+          tier: 'T2',
+          amanahRationale: 'Sahih al-Bukhari 615 names ʿIshāʾ and Fajr as the two congregations worth crawling to; Sahih al-Bukhari 648 explains why — both shifts of angels are present.',
+          why: 'Of the five, only ʿIshāʾ and Fajr are described as worth crawling to. Fajr is the hour when the angels of the night and the angels of the day are both present, and the congregation is witnessed by both.',
+          how: 'Decide the night before: where you will pray Fajr, and what time you must leave. If the masjid is genuinely out of reach, pray it in congregation at home with whoever is awake rather than alone.',
+          sources: [SRC_CRAWL_TO_ISHA_FAJR, SRC_ANGELS_AT_FAJR],
+        },
+      ],
+    },
+  ],
+
+  prayer_fajr_after: [
+    postPrayerAdhkarTask('fajr', {
+      title: 'Complete the Fajr adhkar without leaving your place',
+      description: 'The Fajr salam is not a signal to stand. The prophetic block — istighfar, the tasbih, Ayat al-Kursi — is said seated, and at Fajr it opens straight into the morning adhkar and the sitting until sunrise.',
+      seatHow: 'Before rising, before speaking, before reaching for the phone: say "Astaghfirullah" three times, then "Allahumma anta as-salam, wa minka as-salam, tabarakta ya dhal-jalali wal-ikram." Stay in your seat — at Fajr the whole morning block follows from here.',
+      kursiHow: 'After the tasbih, recite Ayat al-Kursi slowly. At Fajr, follow it with al-Ikhlas, al-Falaq and an-Nas before moving into the morning adhkar.',
+    }),
+    {
+      title: 'Seal Fajr with the tenfold tahlil before you speak',
+      priority: 'medium',
+      tags: ['salah', 'sunnah', 'dua', 'prayer-phase:after', 'prayer:fajr'],
+      description: 'One duʿāʾ, ten times, said in the seat you prayed in and before a word is spoken to anyone — and the day is placed in a fortress.',
+      subtasks: [
+        {
+          title: 'Say the tenfold tahlil while still seated, legs folded, before speaking',
+          done: false,
+          tier: 'T2',
+          amanahRationale: 'Jami at-Tirmidhi 3474 (hasan) narrates this specifically for the seated moment after Fajr, before speech.',
+          why: 'The conditions are as specific as the reward: still seated, legs folded, before a word is said. Ten repetitions buy ten good deeds, ten sins erased, ten degrees raised, and a day guarded from Shaytan.',
+          how: 'Do not stand or speak after the salam. Counting on your fingers, say ten times: "La ilaha illa Allah wahdahu la sharika lah, lahul-mulku wa lahul-hamd, yuhyi wa yumit, wa huwa ʿala kulli shayʾin qadir."',
+          sources: [SRC_TENFOLD_TAHLIL],
+        },
+      ],
+    },
+  ],
+
+  prayer_dhuhr_before: [
+    {
+      title: 'Answer the Dhuhr adhan and renew wudu in the middle of the workday',
+      priority: 'high',
+      tags: ['salah', 'sunnah', 'prayer-phase:before', 'prayer:dhuhr'],
+      description: 'Dhuhr is the prayer the working day argues with. Answering its adhan, renewing wudu properly rather than splashing, and marking your space are what keep it a prayer rather than an interruption you rushed.',
+      subtasks: [
+        {
+          title: 'Repeat the Dhuhr adhan and make the post-adhan duʿāʾ',
+          done: false,
+          tier: 'T2',
+          amanahRationale: 'Sahih al-Bukhari 611 and 614 — repeat after the mu’adhdhin, then ask for al-wasilah.',
+          why: 'Dhuhr arrives mid-task, and the adhan is the one thing that will not wait for you to finish. Answering it out loud is how the transition begins in the tongue before it begins in the feet.',
+          how: 'Stop what you are doing and repeat each phrase after the mu’adhdhin — at the two "Hayya" calls say "La hawla wa la quwwata illa billah." Then send salawat and make the post-adhan duʿāʾ. The Prophet ﷺ said those who knew the reward of Zuhr at its first moments would race for it.',
+          sources: [SRC_ADHAN_REPEAT, SRC_ADHAN_DUA, SRC_CRAWL_TO_ISHA_FAJR],
+        },
+        {
+          title: 'Renew wudu thoroughly — wet every part, especially the heels',
+          done: false,
+          tier: 'T1',
+          amanahRationale: 'Quran 5:6 commands the limbs of wudu; Sahih al-Bukhari 165 names the heels as the neglected part.',
+          why: 'Midday wudu is the one most often rushed — done between meetings, at a sink with a queue behind it. A defective wudu invalidates the prayer, and the Prophet ﷺ singled out precisely the part a hurried person misses.',
+          how: 'Do not compress it. Wash hands, rinse mouth and nose, wash the face, both arms to the elbows, wipe head and ears, then both feet to the ankles — water between the toes and fully around each heel.',
+          sources: [SRC_WUDU_AYAH, SRC_WUDU_HEELS],
+        },
+        {
+          title: 'Use a sutrah when you pray Dhuhr away from a masjid',
+          done: false,
+          tier: 'T2',
+          amanahRationale: 'Sahih al-Bukhari 494 — the Prophet ﷺ had a barrier planted in front of him in open ground and on journeys.',
+          why: 'Dhuhr is the prayer most often prayed in a room that belongs to someone else — an office, a corridor, a corner of a shop. A sutrah marks the space as a musalla, and the Prophet ﷺ warned severely against passing in front of a worshipper.',
+          how: 'Before the takbir, put something roughly a forearm high directly in front of you — a bag, a chair, a wall — and stand close to it. If nothing is available, draw a line on the ground.',
+          sources: [SRC_SUTRAH_PRACTICE, SRC_SUTRAH_WARNING],
+        },
+      ],
+    },
+  ],
+
+  prayer_dhuhr_after: [
+    postPrayerAdhkarTask('dhuhr', {
+      title: 'Complete the Dhuhr adhkar before returning to work',
+      description: 'The temptation at Dhuhr is to give the salam and stand straight back into the day. The prophetic block is short enough to fit and is what keeps the prayer from being swallowed by the task it interrupted.',
+      seatHow: 'Do not stand at the salam. Say "Astaghfirullah" three times, then "Allahumma anta as-salam, wa minka as-salam, tabarakta ya dhal-jalali wal-ikram" — before you reach for the phone or the door.',
+      kursiHow: 'After the tasbih, recite Ayat al-Kursi slowly enough that you hear the meaning, then pray the two rakʿat that follow Dhuhr before you return to work.',
+    }),
+  ],
+
+  prayer_asr_before: [
+    {
+      title: 'Guard al-ṣalāt al-wusṭā — pray ʿAṣr before the sun yellows',
+      priority: 'high',
+      tags: ['salah', 'sunnah', 'prayer-phase:before', 'prayer:asr'],
+      description: 'ʿAṣr is the prayer the Qur’an singles out and the prayer the Prophet ﷺ attached the sharpest warning to. It falls at the hour the afternoon is least willing to give up.',
+      subtasks: [
+        {
+          title: 'Pray ʿAṣr while the sun is still strong-white',
+          done: false,
+          tier: 'T1',
+          amanahRationale: 'Quran 2:238 commands guarding "the middle prayer"; Sahih al-Bukhari 552 attaches to ʿAṣr a warning given to no other prayer.',
+          why: 'No other prayer is named in the Qur’an for special guarding, and no other carries the warning that missing it is like losing your family and your property. The afternoon is exactly when attention is weakest — which is why it is the one commanded by name.',
+          how: 'Set the boundary before the window opens: know when ʿAṣr enters and what you will stop doing. Pray it while the sun is still strong-white, not once it has begun to yellow.',
+          sources: [SRC_MIDDLE_PRAYER, SRC_MISSING_ASR],
+        },
+        {
+          title: 'Hold ʿAṣr and Fajr together — the two cool prayers',
+          done: false,
+          tier: 'T2',
+          amanahRationale: 'Sahih al-Bukhari 574 pairs ʿAṣr with Fajr under a single promise of Paradise.',
+          why: 'The two prayers hardest to keep — one at the edge of sleep, one at the edge of the working afternoon — are paired under one promise. Keeping ʿAṣr is half of it.',
+          how: 'Track them as a pair for a week: did Fajr and ʿAṣr both happen in their window? Fix whichever one is failing, not the schedule around it.',
+          sources: [SRC_TWO_COOL_PRAYERS],
+        },
+      ],
+    },
+    {
+      title: 'Answer the ʿAṣr adhan and take the siwak',
+      priority: 'medium',
+      tags: ['salah', 'sunnah', 'prayer-phase:before', 'prayer:asr'],
+      description: 'ʿAṣr arrives when the day is already long. The adhan response and the siwak are the two smallest acts that re-enter you into worship from tiredness.',
+      subtasks: [
+        {
+          title: 'Repeat the ʿAṣr adhan and make the post-adhan duʿāʾ',
+          done: false,
+          tier: 'T2',
+          amanahRationale: 'Sahih al-Bukhari 611 and 614.',
+          why: 'By ʿAṣr the adhan is easy to let pass as background sound. Repeating it is what makes it a call you answered rather than noise you heard.',
+          how: 'Repeat each phrase after the mu’adhdhin, saying "La hawla wa la quwwata illa billah" at the two "Hayya" calls, then send salawat and make the post-adhan duʿāʾ.',
+          sources: [SRC_ADHAN_REPEAT, SRC_ADHAN_DUA],
+        },
+        {
+          title: 'Use the siwak before ʿAṣr',
+          done: false,
+          tier: 'T2',
+          amanahRationale: 'Sahih al-Bukhari 887 — the Prophet ﷺ would have commanded siwak at every prayer had it not been a hardship.',
+          why: 'The mouth by mid-afternoon carries the whole day in it. The siwak is the smallest possible act of preparation, and the Prophet ﷺ tied it to every prayer, not just the ones near sleep.',
+          how: 'Keep a siwak where you make wudu at work. Use it before rinsing the mouth, and again before the iqamah.',
+          sources: [SRC_SIWAK_EVERY_PRAYER],
+        },
+      ],
+    },
+  ],
+
+  prayer_asr_after: [
+    postPrayerAdhkarTask('asr', {
+      title: 'Complete the ʿAṣr adhkar as the day turns',
+      description: 'ʿAṣr is the hinge of the day. The prophetic block is said here as everywhere, and it opens into the window in which the evening adhkar are recited.',
+      seatHow: 'Stay seated at the salam. Say "Astaghfirullah" three times, then "Allahumma anta as-salam, wa minka as-salam, tabarakta ya dhal-jalali wal-ikram." Nothing after ʿAṣr is so urgent that it cannot wait for this.',
+      kursiHow: 'After the tasbih, recite Ayat al-Kursi. From here the window to Maghrib is the window of the evening adhkar — do not stand up into something else.',
+    }),
+    {
+      title: 'Seek refuge from the grave and the Dajjal at the close of ʿAṣr',
+      priority: 'medium',
+      tags: ['salah', 'sunnah', 'dua', 'prayer-phase:after', 'prayer:asr'],
+      description: 'The middle prayer is where the day tips toward its end. Sealing it with the refuge from the four matters roots the afternoon in what the day is actually moving toward.',
+      subtasks: [
+        {
+          title: 'Recite the refuge from the four matters',
+          done: false,
+          tier: 'T2',
+          amanahRationale: 'Sahih Muslim 588 preserves the Prophet’s ﷺ own wording; Quran 2:238 is why ʿAṣr in particular is the prayer to attach it to.',
+          why: 'ʿAṣr is the prayer the Qur’an singles out and the one that turns the day toward evening. Sealing it with refuge from the grave, the Fire, the trial of life and death, and the Dajjal keeps the afternoon honest about where it is heading.',
+          how: 'Before the final salam — or immediately after it, if that is how you learned it — recite "Allahumma inni aʿudhu bika min ʿadhabil-qabr, wa min ʿadhabin-nar, wa min fitnatil-mahya wal-mamat, wa min fitnatil-masihid-dajjal." Repeat it daily until it is memorised.',
+          sources: [SRC_REFUGE_FOUR, SRC_MIDDLE_PRAYER],
+        },
+      ],
+    },
+  ],
+
+  prayer_maghrib_before: [
+    {
+      title: 'Answer the Maghrib adhan at once — its window is the shortest',
+      priority: 'high',
+      tags: ['salah', 'sunnah', 'prayer-phase:before', 'prayer:maghrib'],
+      description: 'Maghrib is the one prayer whose window closes while you are still deciding. The Companions finished it with enough daylight left to see an arrow fall — that is the pace it asks for.',
+      subtasks: [
+        {
+          title: 'Move to Maghrib the moment the adhan begins',
+          done: false,
+          tier: 'T1',
+          amanahRationale: 'Sahih al-Bukhari 559 — the Companions prayed Maghrib with the Prophet ﷺ while daylight still remained.',
+          why: 'Every other prayer forgives a few minutes of hesitation. Maghrib does not: its window is the shortest of the five, and the sunnah is to have finished while light still remains, not to have started as the last of it goes.',
+          how: 'Have wudu ready before the adhan, not after it. When it begins, stop and go — food, screens and conversation all resume afterwards.',
+          sources: [SRC_MAGHRIB_WINDOW],
+        },
+        {
+          title: 'Repeat the Maghrib adhan and make the post-adhan duʿāʾ',
+          done: false,
+          tier: 'T2',
+          amanahRationale: 'Sahih al-Bukhari 611 and 614.',
+          why: 'Answering the adhan takes the length of the adhan itself, and it is the act that carries the Prophet’s ﷺ intercession. Even at the shortest window there is room for it.',
+          how: 'Repeat each phrase after the mu’adhdhin while you move — saying "La hawla wa la quwwata illa billah" at the two "Hayya" calls — then send salawat and make the post-adhan duʿāʾ.',
+          sources: [SRC_ADHAN_REPEAT, SRC_ADHAN_DUA],
+        },
+      ],
+    },
+  ],
+
+  prayer_maghrib_after: [
+    postPrayerAdhkarTask('maghrib', {
+      title: 'Complete the Maghrib adhkar as the day closes',
+      description: 'Maghrib closes the day’s account. The prophetic block is said here and then the two rakʿat follow — preferably at home, which is where the Prophet ﷺ prayed them.',
+      seatHow: 'Stay in your place at the salam. Say "Astaghfirullah" three times, then "Allahumma anta as-salam, wa minka as-salam, tabarakta ya dhal-jalali wal-ikram," before the evening resumes.',
+      kursiHow: 'After the tasbih, recite Ayat al-Kursi, then al-Ikhlas, al-Falaq and an-Nas — the evening pairing for the hinge of the day.',
+    }),
+    {
+      title: 'Recite the tenfold tahlil after Maghrib',
+      priority: 'medium',
+      tags: ['salah', 'sunnah', 'dua', 'prayer-phase:after', 'prayer:maghrib'],
+      description: 'The same duʿāʾ that guards the day after Fajr guards the night after Maghrib — said ten times, in the seat you prayed in.',
+      subtasks: [
+        {
+          title: 'Say the tenfold tahlil before leaving the musalla',
+          done: false,
+          tier: 'T2',
+          amanahRationale: 'Jami at-Tirmidhi 3474 (hasan) narrates the tenfold tahlil for the seated moment after the prayer, before speech; the repo pairs it with Maghrib as the day’s other hinge alongside Fajr.',
+          why: 'Fajr and Maghrib are where day and night meet. This one duʿāʾ, repeated ten times, is narrated with ten good deeds, ten sins erased, ten degrees raised, and protection from Shaytan for the hours that follow.',
+          how: 'Before standing, count on your fingers and say ten times: "La ilaha illa Allah wahdahu la sharika lah, lahul-mulku wa lahul-hamd, yuhyi wa yumit, wa huwa ʿala kulli shayʾin qadir."',
+          sources: [SRC_TENFOLD_TAHLIL],
+        },
+      ],
+    },
+  ],
+
+  prayer_isha_before: [
+    {
+      title: 'Do not sleep before ʿIshāʾ — enter the night awake',
+      priority: 'high',
+      tags: ['salah', 'sunnah', 'prayer-phase:before', 'prayer:isha'],
+      description: 'ʿIshāʾ is the only prayer the Prophet ﷺ guarded on both sides: no sleeping before it, no idle talk after it. Most missed ʿIshāʾ prayers are lost to a nap, not to a decision.',
+      subtasks: [
+        {
+          title: 'Refuse the pre-ʿIshāʾ nap',
+          done: false,
+          tier: 'T1',
+          amanahRationale: 'Sahih al-Bukhari 568 — the Prophet ﷺ disliked sleeping before ʿIshāʾ and talking after it.',
+          why: 'The evening nap is the single most common way ʿIshāʾ is lost, and the dislike is narrated explicitly. Guarding the hour before the prayer is what guards the prayer.',
+          how: 'If you are tired between Maghrib and ʿIshāʾ, stay upright: walk, read, or pray the rawatib. Take qaylulah at midday instead, where the sunnah puts it.',
+          sources: [SRC_NO_SLEEP_BEFORE_ISHA],
+        },
+        {
+          title: 'Come to ʿIshāʾ in congregation even if you must crawl',
+          done: false,
+          tier: 'T2',
+          amanahRationale: 'Sahih al-Bukhari 615 names ʿIshāʾ and Fajr as the two congregations worth crawling to.',
+          why: 'ʿIshāʾ shares with Fajr the description of a congregation worth crawling to. Both are the ones tiredness argues against, which is exactly why they are named.',
+          how: 'Fix the time you leave rather than the time you intend to go. If the masjid is out of reach, gather whoever is at home and pray it in congregation there.',
+          sources: [SRC_CRAWL_TO_ISHA_FAJR],
+        },
+      ],
+    },
+    {
+      title: 'Answer the ʿIshāʾ adhan and prepare with siwak and wudu',
+      priority: 'medium',
+      tags: ['salah', 'sunnah', 'prayer-phase:before', 'prayer:isha'],
+      description: 'The last fard of the day is the one most often prayed carelessly. The preparation is the same as every prayer; the reason to insist on it is tiredness.',
+      subtasks: [
+        {
+          title: 'Repeat the ʿIshāʾ adhan and make the post-adhan duʿāʾ',
+          done: false,
+          tier: 'T2',
+          amanahRationale: 'Sahih al-Bukhari 611 and 614.',
+          why: 'Answering the adhan is the cheapest sunnah of the night and carries the Prophet’s ﷺ intercession. Fatigue is not a reason to skip a sunnah measured in seconds.',
+          how: 'Repeat each phrase after the mu’adhdhin, saying "La hawla wa la quwwata illa billah" at the two "Hayya" calls, then send salawat and make the post-adhan duʿāʾ.',
+          sources: [SRC_ADHAN_REPEAT, SRC_ADHAN_DUA],
+        },
+        {
+          title: 'Take the siwak and renew wudu for the last fard of the day',
+          done: false,
+          tier: 'T2',
+          amanahRationale: 'Sahih al-Bukhari 887 ties siwak to every prayer; Quran 5:6 and Sahih al-Bukhari 165 govern the wudu itself.',
+          why: 'The wudu most likely to be skimped is the last one of the day. The heels are the part the tired person misses, and the Prophet ﷺ named them by warning.',
+          how: 'Use the siwak, then make wudu without compressing it — face, arms to the elbows, head and ears, then both feet to the ankles with water fully around each heel.',
+          sources: [SRC_SIWAK_EVERY_PRAYER, SRC_WUDU_AYAH, SRC_WUDU_HEELS],
+        },
+      ],
+    },
+  ],
+
+  prayer_isha_after: [
+    postPrayerAdhkarTask('isha', {
+      title: 'Complete the ʿIshāʾ adhkar and keep the silence after it',
+      description: 'The Prophet ﷺ disliked idle talk after ʿIshāʾ. The prophetic block is the last thing said in the musalla, and what follows it is the night’s own sunan, not conversation.',
+      seatHow: 'Stay seated at the salam. Say "Astaghfirullah" three times, then "Allahumma anta as-salam, wa minka as-salam, tabarakta ya dhal-jalali wal-ikram" — and let the talking end there.',
+      kursiHow: 'After the tasbih, recite Ayat al-Kursi. Then move to the two rakʿat that follow ʿIshāʾ and to witr, without opening a conversation in between.',
+    }),
+    {
+      title: "Recite the Prophetic Light Du'a after Witr",
+      priority: 'medium',
+      tags: ['salah', 'sunnah', 'dua', 'prayer-phase:after', 'prayer:isha'],
+      description: 'The duʿāʾ the Prophet ﷺ made when he rose in the depth of the night asks for light on every axis of the body. Said after witr, it frames the whole night in Nur.',
+      subtasks: [
+        {
+          title: 'Learn the Light Duʿāʾ one direction at a time',
+          done: false,
+          tier: 'T3',
+          amanahRationale: 'Sahih Muslim 763 narrates Ibn Abbas’s account of the Prophet’s ﷺ night-prayer duʿāʾ enumerating light in every direction.',
+          why: 'It is a prophetic cosmology of illumination — heart, tongue, hearing, sight, and every direction around the body placed under Allah’s light before sleep.',
+          how: 'Memorise it over a week, one direction per day. After witr — or in the final sujud of tahajjud — recite it slowly, holding each source of light in mind.',
+          sources: [SRC_LIGHT_DUA],
+        },
+      ],
+    },
+  ],
+
+  prayer_tahajjud_after: [
+    {
+      title: 'Do not abandon the night prayer once you have begun it',
+      priority: 'medium',
+      tags: ['salah', 'sunnah', 'prayer-phase:after', 'prayer:tahajjud'],
+      description: 'The failure the Prophet ﷺ warned Abdullah ibn Amr about was not praying too little at night. It was starting and then stopping.',
+      subtasks: [
+        {
+          title: 'Set the smallest night prayer you can keep every night',
+          done: false,
+          tier: 'T2',
+          amanahRationale: 'Sahih al-Bukhari 1152 — "Do not be like so-and-so, who used to pray at night and then stopped."',
+          why: 'The named failure is abandonment, not brevity. A short qiyam kept nightly is closer to the sunnah than a long one kept for a week and then dropped.',
+          how: 'Before you sleep again, fix the floor: two rakʿat you will pray every night regardless of how the day went. Lengthen from there only once the floor has held for a month.',
+          sources: [SRC_DO_NOT_ABANDON_NIGHT],
+        },
+      ],
+    },
+  ],
+};
+
+// --- Derived Before/After content from PRAYER_GUIDE ----------------------
+// getPrayerPhaseSunnah() above already answers "what is the sunnah around this
+// prayer, in this phase" — rawatib rows with their sources, a grounded note for
+// the four windows that have no rawatib, and Tahajjud's approach notes. It was
+// written for exactly this and had no consumer. buildRawatibTasks() reshapes
+// its answer into board tasks. No new fiqh is authored here: `note`, `why`,
+// `how` and `sources` pass through verbatim.
+
+// A row's own label ("Sunnah before · 4 rakʿahs") is fine on a During board,
+// where the prayer is the page context. On a Before/After board the title has
+// to name the prayer, because the cross-board uniqueness guard — and the reader
+// — need to tell Dhuhr's four from ʿIshāʾ's four.
+const RAWATIB_TITLE = {
+  'fajr:before:Sunnah before': 'Pray the two rakʿah sunnah before Fajr',
+  'dhuhr:before:Sunnah before': 'Pray the four rakʿah sunnah before Dhuhr',
+  'dhuhr:after:Sunnah after': 'Pray the two rakʿah sunnah after Dhuhr',
+  'asr:before:Sunnah before': 'Pray the four rakʿah sunnah before ʿAṣr',
+  'maghrib:after:Sunnah after': 'Pray the two rakʿah sunnah after Maghrib',
+  'isha:before:Sunnah before': 'Pray the four rakʿah sunnah before ʿIshāʾ',
+  'isha:after:Sunnah after': 'Pray the two rakʿah sunnah after ʿIshāʾ',
+  'isha:after:Witr': 'Seal the night with Witr',
+  'tahajjud:before:Qiyām': 'Pray Qiyām al-Layl in pairs of two',
+};
+
+// A window's grounded note (no rawatib, or Tahajjud's approach) becomes a
+// subtask-less reminder — the same shape PRAYER_GUIDE[id].keys already emits on
+// the During boards, and exempt from the grounding lint for the same reason:
+// it is a one-line reminder, not a practice with steps.
+function sunnahReminderTask(prayerId, phase, title) {
+  return {
+    title,
+    priority: 'medium',
+    tags: ['salah', 'sunnah', `prayer-phase:${phase}`, `prayer:${prayerId}`, 'reminder'],
+  };
+}
+
+function buildRawatibTasks(prayerId, phase) {
+  const sunnah = getPrayerPhaseSunnah(prayerId, phase);
+  if (!sunnah) return [];
+
+  const tasks = [];
+
+  // Tahajjud's Before window leads with when to rise and how to enter, then
+  // shows the Qiyām row as what one rises toward — same order the selector
+  // returns it in.
+  for (const note of sunnah.leadNotes) {
+    tasks.push(sunnahReminderTask(prayerId, phase, note));
+  }
+
+  for (const row of sunnah.rows) {
+    const subtask = { title: row.note, done: false };
+    if (row.tier) subtask.tier = row.tier;
+    if (row.why) subtask.why = row.why;
+    if (row.how) subtask.how = row.how;
+    if (row.sources.length > 0) subtask.sources = row.sources;
+    tasks.push({
+      title:
+        RAWATIB_TITLE[`${prayerId}:${phase}:${row.kind}`] ||
+        `${row.kind} · ${row.count}`,
+      priority: 'high',
+      tags: ['salah', 'sunnah', `prayer-phase:${phase}`, `prayer:${prayerId}`],
+      subtasks: [subtask],
+    });
+  }
+
+  if (sunnah.fallbackNote) {
+    tasks.push(sunnahReminderTask(prayerId, phase, sunnah.fallbackNote));
+  }
+
+  return tasks;
+}
+
+function buildPrayerSeedTasks() {
+  const out = {};
+  for (const pillar of PRAYER_PILLARS) {
+    for (const phase of PRAYER_PHASE_KEYS) {
+      out[`prayer_${pillar.id}_${phase}`] = [];
+    }
+  }
+
+  for (const sourceBoardId of SALAH_SOURCES) {
+    const tasks = FAITH_SEED_TASKS[sourceBoardId] || [];
+    for (const task of tasks) {
+      const targets = classifyTask(task);
+      for (const boardId of targets) {
+        // Slim copy — seed shape (id/columnId are added by store at seed-time).
+        out[boardId].push({ ...task });
+      }
+    }
+  }
+
+  // Populate during boards from PRAYER_GUIDE.
+  for (const pillar of PRAYER_PILLARS) {
+    const guide = PRAYER_GUIDE[pillar.id];
+    if (!guide) continue;
+    const boardId = `prayer_${pillar.id}_during`;
+    const baseTags = ['salah', 'prayer-phase:during', `prayer:${pillar.id}`];
+    for (const row of guide.structure) {
+      const subtask = { title: row.note, done: false };
+      if (row.tier) subtask.tier = row.tier;
+      if (row.amanahRationale) subtask.amanahRationale = row.amanahRationale;
+      if (row.why) subtask.why = row.why;
+      if (row.how) subtask.how = row.how;
+      if (row.sources) subtask.sources = row.sources;
+      out[boardId].push({
+        title: `${row.kind} · ${row.count} rakʿah${row.count === 1 ? '' : 's'}`,
+        priority: 'high',
+        tags: [...baseTags],
+        subtasks: [subtask],
+      });
+    }
+    for (const key of guide.keys) {
+      out[boardId].push({
+        title: key,
+        priority: 'medium',
+        tags: [...baseTags, 'reminder'],
+      });
+    }
+  }
+
+  // Populate the twelve before/after boards with content that belongs to that
+  // prayer and no other: first the rawatib derived from PRAYER_GUIDE, then the
+  // hand-authored tasks. This is what replaced the fan-out in classifyTask().
+  for (const pillar of PRAYER_PILLARS) {
+    for (const phase of ['before', 'after']) {
+      const boardId = `prayer_${pillar.id}_${phase}`;
+      if (!out[boardId]) continue;
+      out[boardId].push(...buildRawatibTasks(pillar.id, phase));
+      for (const task of PRAYER_PHASE_TASKS[boardId] || []) {
+        out[boardId].push({ ...task });
+      }
+    }
+  }
+
+  // Curate LAST, once every board is fully populated — this is what replaces
+  // the inherited source-board `seq` and gives the six `during` boards (which
+  // never had one) an explicit permutation instead of an array-order fallback.
+  for (const boardId of Object.keys(out)) {
+    out[boardId] = curateBoardOrder(boardId, out[boardId]);
+  }
+
+  return out;
+}
+
+export const PRAYER_SEED_TASKS = buildPrayerSeedTasks();
+
+// Diagnostic helper — exposed for one-off console checks.
+export function prayerSeedSummary() {
+  const rows = Object.entries(PRAYER_SEED_TASKS)
+    .map(([k, v]) => [k, v.length])
+    .sort((a, b) => b[1] - a[1]);
+  return rows;
 }

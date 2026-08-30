@@ -22,6 +22,10 @@ export function currentIslamicDayKey(now, maghribMs) {
 // trigger and the registered hook agree on scope.
 export const DAILY_CEREMONY_MODULES = [
   'faith-salah',
+  // A node id, not a pillar submodule: the Hour of Acceptance authors its own
+  // ceremony in MODULE_ATTRS rather than borrowing Salah's. It has to be listed
+  // here or its completion would never clear at Maghrib rollover.
+  'istijabah-hour',
   'faith-siyam',
   'work',
   'health-physical',

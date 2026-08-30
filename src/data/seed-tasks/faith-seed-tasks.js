@@ -5404,7 +5404,7 @@ The Prophet (SAW) tied his own shafa'ah to this exact text. Five adhans per day 
       title: 'Honor the Friday Sunan — Jumu\u02bbah is the eid of the week',
       priority: 'high',
       tags: ['salah', 'sunnah', 'jumuah', 'friday', 'transition:jumuah'],
-      description: 'Jumu\u02bbah carries a complete cluster of sunan: ghusl, miswak, perfume, walking early, Surah al-Kahf, attentive listening to the khutbah, abundant salawat, and du\u02bba\u02bb in the hour of istijabah. Build the day around them.',
+      description: 'Jumu\u02bbah carries a complete cluster of sunan: ghusl, miswak, perfume, walking early, Surah al-Kahf, attentive listening to the khutbah, and abundant salawat. Build the day around them. The hour of istijabah is the day\u2019s closing act and now carries its own task — it belongs to the last stretch before Maghrib, not to the Jumu\u02bbah gathering.',
       subtasks: [
         { title: 'Make ghusl, use miswak, and apply perfume before Jumu\u02bbah', done: false,
           tier: 'T1',
@@ -5536,6 +5536,15 @@ The Prophet (SAW) named Friday and instructed abundant salawat with a unique rea
 2. Distribute across the day: morning adhkar, walk to masjid, after Jumu\u02bbah, last hour.
 3. Use a counter or fingers — the act is meant to be tracked.
 4. Benchmark: 300 salawat each Friday for 4 weeks.` },
+      ],
+    },
+    {
+      seq: 12,
+      title: 'Keep the hour of istijabah — the last hour before Maghrib on Friday',
+      priority: 'high',
+      tags: ['salah', 'sunnah', 'friday', 'dua', 'istijabah', 'transition:istijabah-hour'],
+      description: 'Friday carries one hour in which no Muslim asks Allah for good but it is given. The Prophet (SAW) gestured with his hand to show how brief it is, and a large body of the salaf and later scholars place it at the close of the day — the last stretch before Maghrib. This task holds the whole practice: arrive at the hour already knowing what you are asking for, ask with certainty, and do not abandon a du\u02bba\u02bb because the answer has not yet come.',
+      subtasks: [
         { title: 'Make du\u02bba\u02bb in the last hour before Maghrib on Friday', done: false,
           tier: 'T1',
           amanahRationale: 'The Prophet (SAW) named a specific hour on Friday in which du\u02bba\u02bb is answered — direct prophetic teaching with a named, time-bound promise.',
@@ -5543,7 +5552,7 @@ The Prophet (SAW) named Friday and instructed abundant salawat with a unique rea
             {
               kind: 'hadith',
               ref: 'Sahih al-Bukhari 935',
-              arabic: 'فِيهِ سَاعَةٌ لاَ يُوَافِقُهَا عَبْدٌ مُسْلِمٌ، وَهُوَ قَائِمٌ يُصَلِّي، يَسْأَلُ اللَّهَ تَعَالَى شَيْئًا، إِلاَّ أَعْطَاهُ إِيَّاهُ',
+              arabic: 'فِيهِ سَاعَةٌ لاَ يُوَافِقُهَا عَبْدٌ مُسْلِمٌ، وَهُوَ قَائِمٌ يُصَلِّي، يَسْأَلُ اللَّهَ تَعَالَى شَيْئًا، إِلاَّ أَعْطَاهُ إِيَّاهُ',
               translation: 'Abu Hurayrah (RA) reported: The Prophet (SAW), speaking of Friday, said: "There is an hour on it during which no Muslim servant — while standing in prayer and asking Allah for something — but Allah will give it to him." And he gestured with his hand to indicate its brevity.',
               relevance: 'direct',
               provenanceTier: 'Bayyinah',
@@ -5562,6 +5571,88 @@ Friday carries an hour where no good asked is refused. The Prophet (SAW) gesture
 2. Sit in dhikr from roughly one hour before Maghrib until adhan.
 3. Bring the same du\u02bba\u02bb across weeks until they are answered.
 4. Benchmark: full last-hour du\u02bba\u02bb sitting for 4 consecutive Fridays.` },
+        { title: 'Write the du\u02bba\u02bb list before \u02bbAsr so the hour is not spent deciding', done: false,
+          tier: 'T2',
+          amanahRationale: 'No text prescribes a written list — this is method, not worship. It is grounded contextually on the Prophet (SAW) gesturing to show the hour is short: a window that brief cannot also be the place where you work out what to ask for.',
+          why: 'The hour is measured in minutes, not in an hour of clock time. Anyone who sits down without knowing what they are asking for spends the window remembering rather than asking.',
+          how: 'Keep a standing list on paper or in Notes: the akhirah first, then the people you are responsible for, then the specific worldly need in front of you this week. Review it after Asr, add what changed, and carry it into the sitting.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 935',
+              arabic: 'فِيهِ سَاعَةٌ لاَ يُوَافِقُهَا عَبْدٌ مُسْلِمٌ، وَهُوَ قَائِمٌ يُصَلِّي، يَسْأَلُ اللَّهَ تَعَالَى شَيْئًا، إِلاَّ أَعْطَاهُ إِيَّاهُ',
+              translation: 'Abu Hurayrah (RA) reported: The Prophet (SAW), speaking of Friday, said: "There is an hour on it during which no Muslim servant — while standing in prayer and asking Allah for something — but Allah will give it to him." And he gestured with his hand to indicate its brevity.',
+              relevance: 'contextual',
+              provenanceTier: 'Qarina',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against sunnah.com 2026-04-26 — Bukhari 935 confirmed.',
+              rationale: 'The gesture of brevity is the ground: preparation is what makes a short window usable. The written list itself is administration, not a prescribed act, so this is tiered Qarina and not Bayyinah.',
+            },
+          ],
+          description: `**Why?**
+
+The narration does not describe a long afternoon. The Prophet (SAW) showed the hour with his hand to say how short it is. A window that brief cannot also be the place where you work out what to ask for.
+
+**How?**
+
+1. Keep one standing list — akhirah first, then those you are responsible for, then this week's specific need.
+2. Review and update it after \u02bbAsr on Friday, before the sitting begins.
+3. Keep it in front of you during the hour; do not rely on memory under pressure.
+4. Benchmark: a reviewed list in hand at the start of the sitting for 4 consecutive Fridays.` },
+        { title: 'Ask with certainty — never say "if You wish"', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) explicitly forbade the conditional form of asking and gave the reason — direct prophetic instruction on the manner of du\u02bba\u02bb.',
+          why: 'Conditional asking treats the answer as doubtful. The Prophet (SAW) closed that form because nothing compels Allah and nothing is difficult for Him, so hedging the request adds nothing but weakens the asker.',
+          how: 'Ask in the plain imperative — "O Allah, give me" — not "if You wish". If the habit is fixed, correct yourself out loud once and continue; the correction itself is part of the practice.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 6338',
+              translation: 'Anas (RA) reported: The Messenger of Allah (SAW) said, "When any one of you appeals to Allah for something, he should ask with determination and should not say, ‘O Allah, if You wish, give me\u2019 — for nobody can force Allah to do anything against His will."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against the local Bukhari corpus (stages/.hadith-cache/eng-bukhari.json) 2026-08-29 — number matches sunnah.com numbering.',
+              rationale: 'Direct prophetic instruction on the FORM of the request, which is exactly what the hour of istijabah calls for: a promise of acceptance met with a conditional ask contradicts itself.',
+            },
+          ],
+          description: `**Why?**
+
+An hour whose promise is acceptance deserves to be met with conviction. The Prophet (SAW) named the conditional form and closed it: no one compels Allah, so hedging the request adds nothing.
+
+**How?**
+
+1. Ask in the plain imperative — "O Allah, give me" — with no conditional clause attached.
+2. If the habit is fixed, correct yourself aloud once and carry on.
+3. Open and close with hamd and salawat; keep the asking itself direct.
+4. Benchmark: no conditional phrasing anywhere in the sitting for 4 consecutive Fridays.` },
+        { title: 'Do not abandon a du\u02bba\u02bb because the answer has not come', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) named impatience as the one thing that forfeits the response, and defined it precisely — direct prophetic teaching on persistence in du\u02bba\u02bb.',
+          why: 'The narration puts the only stated obstacle on the asker\u2019s side. A du\u02bba\u02bb dropped because it was not answered last week is abandoned exactly where it was meant to be repeated.',
+          how: 'Carry the same list across weeks. When an item has gone unanswered a long time, keep it on the list and say so in the asking rather than removing it.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 6340',
+              translation: 'Abu Hurayrah (RA) reported: The Messenger of Allah (SAW) said, "The invocation of any one of you is granted so long as he does not show impatience — saying, ‘I invoked Allah but my request has not been granted.\u2019"',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Verified against the local Bukhari corpus (stages/.hadith-cache/eng-bukhari.json) 2026-08-29 — number matches sunnah.com numbering.',
+              rationale: 'The only stated cause of a du\u02bba\u02bb being forfeited is the asker giving up on it. That makes persistence across weeks a prophetic instruction, not a motivational addition.',
+            },
+          ],
+          description: `**Why?**
+
+The one obstacle the Prophet (SAW) named is on the asker's side: giving up. A du\u02bba\u02bb dropped because last Friday brought no visible answer is abandoned at precisely the point it was meant to be repeated.
+
+**How?**
+
+1. Keep unanswered items on the list rather than quietly retiring them.
+2. Name the delay in the asking itself instead of treating it as a verdict.
+3. Review the list quarterly to notice what was in fact answered.
+4. Benchmark: no item removed from the list for non-answer over a full quarter.` },
       ],
     },
     {

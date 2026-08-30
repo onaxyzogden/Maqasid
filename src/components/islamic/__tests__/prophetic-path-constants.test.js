@@ -13,6 +13,18 @@ describe('THRESHOLD_MODULE_BY_NODE', () => {
     expect(data?.dua?.title).not.toBe('Before Standing in Salah');
   });
 
+  it('routes the istijabah-hour node to its own ceremony content, not Salah', () => {
+    const moduleId = THRESHOLD_MODULE_BY_NODE['istijabah-hour'];
+    const data = getModuleData(moduleId, 'islamic');
+    // The Hour of Acceptance is the last stretch before Maghrib on Friday, not a
+    // prayer — it used to point at 'faith-salah' and so opened on the pre-Salah
+    // dua ("Before Standing in Salah" / Al-Baqarah 2:186), asking the operator
+    // what they were bringing into a prayer they were not about to pray.
+    expect(data, 'istijabah-hour has no ceremony data of its own').toBeTruthy();
+    expect(data?.dua?.title).not.toBe('Before Standing in Salah');
+    expect(data?.readiness?.rows?.length).toBeGreaterThan(0);
+  });
+
   it('keeps every distinct threshold module registered for Maghrib rollover clearing', () => {
     const usedModules = new Set(Object.values(THRESHOLD_MODULE_BY_NODE));
     for (const moduleId of usedModules) {

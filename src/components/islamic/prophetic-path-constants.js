@@ -29,7 +29,7 @@ export const THRESHOLD_MODULE_BY_NODE = {
   jumuah: 'faith-salah',
   'eid-prayer': 'faith-salah',
   'after-asr': 'family',
-  'istijabah-hour': 'faith-salah',
+  'istijabah-hour': 'istijabah-hour',
   sahari: 'faith-siyam',
   'maghrib-iftar': 'faith-siyam',
   'isha-taraweeh': 'faith-siyam',

@@ -76,7 +76,10 @@ export function repairMojibake(str) {
 
 // ---- Board-level repair + loss-proof dedup ------------------------------
 
-function subtaskHasState(st) {
+// Has the operator put any of themselves into this SUBTASK row? Exported so the
+// subtask prune in migration.js decides deletion with the same predicate the
+// dedup uses, rather than a second copy that could drift from it.
+export function subtaskHasState(st) {
   return Boolean(st.done || st.notApplicable || st.snoozedUntilDayKey);
 }
 

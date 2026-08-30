@@ -19,8 +19,12 @@
 //   - submodules:   pre-filter scope (same as the legacy array form)
 //   - matchers:     array of RegExp that a task TITLE must match against.
 //                   If at least one matcher hits, the task is included.
-//                   If matchers filter out every task, buildTasksForNode falls
-//                   back to the unfiltered submodule pool for that node.
+//                   If matchers filter out every task the node renders EMPTY —
+//                   buildTasksForNode no longer falls back to the unfiltered
+//                   submodule pool, because that fallback made nodes silently
+//                   display another practice's content. Matchers are read
+//                   against the title alone, so a `transition:*` tag regex here
+//                   can never fire; match on words the title actually contains.
 //   - phaseMatchers:{ before: [RegExp], after: [RegExp] } — splits tasks into
 //                   Before/Main/After slots within a node.
 //   - moduleGroups: OPTIONAL [{ id, label, submodules: [...] }] — lets a node
@@ -422,6 +426,11 @@ export const TOD_SUBMODULES = {
       /\btaraweeh\b/i,
       /\bqiyam\s+ramadan\b/i,
       /\b(?:stand.*night.*ramadan|night\s+prayer.*ramadan)\b/i,
+      // The node's only taraweeh text is a SUBTASK, and titleMatches() reads the
+      // TITLE only — so this catches its parent task, "Observe Ramadan with the
+      // Prophet's structure". Without it the node matches nothing and, since the
+      // whole-pool fallback is gone, would render empty.
+      /\bobserve\s+ramadan\b/i,
       /\btransition:isha-taraweeh\b/i,
     ],
     phaseMatchers: {
@@ -1074,17 +1083,22 @@ export function buildTasksForNode(nodeId, projects, tasksByProject, options = {}
     }
   }
 
-  // Apply content-matchers; if the filter leaves zero rows, fall back to the
-  // unfiltered scope pool so the user still sees something for that window.
+  // Apply content-matchers. A node whose matchers hit nothing shows nothing.
+  //
+  // This used to fall back to the unfiltered `scopePool` "so the user still sees
+  // something," which is how Hour of Acceptance came to render twenty generic
+  // Salah tasks: it matched 0 of 43 rows and silently inherited the whole
+  // faith-salah + faith-shahada pool. Showing another practice's content is
+  // worse than showing none, and the empty states already exist — MirrorCard
+  // renders "No tasks queued for this window." (PropheticPathMirror.jsx), and the
+  // prayer Before/After branch has its own (NodePhaseSlideUp.jsx).
   let rows = scopePool;
   if (matchers) {
-    const matched = scopePool.filter((r) => titleMatches(r.title, matchers));
-    rows = matched.length > 0 ? matched : scopePool;
+    rows = scopePool.filter((r) => titleMatches(r.title, matchers));
   }
 
-  // Cross-prayer exclusion runs AFTER matching (and its fallback), so a node
-  // whose matchers hit nothing still falls back to its full scope pool before
-  // this narrows it — the exclusion trims the result, it never widens it.
+  // Cross-prayer exclusion runs AFTER matching, so it only ever trims the
+  // matched result — it never widens it.
   rows = rows.filter((r) => belongsToPrayerNode(r, nodeId));
 
   // Phase filter: before/after narrow the pool via phaseMatchers (title+tags);

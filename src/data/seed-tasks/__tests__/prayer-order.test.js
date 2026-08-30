@@ -22,9 +22,33 @@ import {
 } from '../../../services/migration';
 import { FAITH_SEED_TASKS } from '../faith-seed-tasks';
 
-const CORE_ADHKAR = 'Complete the post-prayer adhkar after every salah (istighfar, tasbih, Ayat al-Kursi)';
-const MEMORISE = 'Memorise the prophetic supplications specific to each prayer';
-const AFTER_BOARDS = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha'].map((p) => `prayer_${p}_after`);
+const FIVE_DAILY = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha'];
+const AFTER_BOARDS = FIVE_DAILY.map((p) => `prayer_${p}_after`);
+const PHASE_BOARDS = [...FIVE_DAILY, 'tahajjud'].flatMap((p) => [
+  `prayer_${p}_before`,
+  `prayer_${p}_after`,
+]);
+
+// The per-prayer adhkar task each `_after` board must open on. Titles differ by
+// prayer on purpose — that is the whole point of the 2026-08 de-duplication —
+// so this maps rather than compares against one constant.
+const ADHKAR_TITLE = {
+  prayer_fajr_after: 'Complete the Fajr adhkar without leaving your place',
+  prayer_dhuhr_after: 'Complete the Dhuhr adhkar before returning to work',
+  prayer_asr_after: 'Complete the ʿAṣr adhkar as the day turns',
+  prayer_maghrib_after: 'Complete the Maghrib adhkar as the day closes',
+  prayer_isha_after: 'Complete the ʿIshāʾ adhkar and keep the silence after it',
+};
+
+// Tasks that must never sort first on an `_after` board: memorisation and
+// supererogatory duʿāʾ are excellence-tier, and the original defect was one of
+// them locking the chain ahead of the core adhkar.
+const EXCELLENCE_AFTER = [
+  'Seal Fajr with the tenfold tahlil before you speak',
+  'Seek refuge from the grave and the Dajjal at the close of ʿAṣr',
+  'Recite the tenfold tahlil after Maghrib',
+  "Recite the Prophetic Light Du'a after Witr",
+];
 
 const titles = (boardId) => PRAYER_SEED_TASKS[boardId].map((t) => t.title);
 
@@ -46,22 +70,52 @@ describe('prayer board order (generated)', () => {
   });
 
   // The defect this closes: on every `_after` board the excellence-tier
-  // memorisation task sorted FIRST, locking the chain behind it.
-  it('opens every _after board on the core post-prayer adhkar, not the excellence task', () => {
+  // memorisation task sorted FIRST, locking the chain behind it. The generic
+  // task it named is gone, but the invariant is not — the prophetic block said
+  // in the seat you prayed in still opens the tab, and the supererogatory duʿāʾ
+  // still cannot precede it.
+  it("opens every _after board on that prayer’s own adhkar, not an excellence task", () => {
     for (const boardId of AFTER_BOARDS) {
       const list = titles(boardId);
-      expect(list[0], boardId).toBe(CORE_ADHKAR);
-      expect(list.indexOf(MEMORISE), boardId).toBeGreaterThan(0);
+      expect(list[0], boardId).toBe(ADHKAR_TITLE[boardId]);
+      for (const title of EXCELLENCE_AFTER) {
+        const i = list.indexOf(title);
+        if (i !== -1) expect(i, `${boardId} / ${title}`).toBeGreaterThan(0);
+      }
     }
   });
 
-  it('applies the three clock overrides', () => {
-    // You wake before you take siwak and make wudu.
+  // The reported defect, stated as a test: three generic Salah tasks were
+  // copied onto every prayer, so Asr Before *was* the shared task and nothing
+  // else. Every before/after title must now name exactly one prayer.
+  // Deliberately scoped to before/after — the six `during` boards legitimately
+  // share row titles ("Farḍ · 4 rakʿahs" is on more than one prayer).
+  it('shares no task title across two prayer before/after boards', () => {
+    const boardsByTitle = new Map();
+    for (const boardId of PHASE_BOARDS) {
+      for (const title of titles(boardId)) {
+        if (!boardsByTitle.has(title)) boardsByTitle.set(title, []);
+        boardsByTitle.get(title).push(boardId);
+      }
+    }
+    const shared = [...boardsByTitle.entries()]
+      .filter(([, boards]) => boards.length > 1)
+      .map(([title, boards]) => `"${title}" on ${boards.join(', ')}`);
+    expect(shared).toEqual([]);
+  });
+
+  it('applies the clock overrides', () => {
+    // You wake before you answer the adhan and take siwak.
     expect(titles('prayer_fajr_before')[0]).toBe("Reclaim the day with the waking du'a and morning adhkar");
     // The evening adhkar are recited between Asr and Maghrib.
     expect(titles('prayer_maghrib_before')[0]).toBe('Recite the evening adhkar between Asr and Maghrib');
     // The pre-sleep sunnah genuinely ends the night.
     expect(titles('prayer_isha_after').at(-1)).toBe('Complete the prophetic pre-sleep sunnah');
+    // Every before/after board is listed in full, so a new task cannot land
+    // unordered at the end of one.
+    for (const boardId of PHASE_BOARDS) {
+      expect(PRAYER_ORDER_OVERRIDES[boardId], `${boardId} has no explicit order`).toBeDefined();
+    }
   });
 
   // Drift guard — the override tables are literal titles, and the titles they

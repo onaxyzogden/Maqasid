@@ -959,6 +959,125 @@ export const MODULE_ATTRS = {
       ],
     },
   },
+  // The Hour of Acceptance is its own threshold, not a Salah threshold. It used
+  // to route to 'faith-salah', so the ceremony opened on "Before Standing in
+  // Salah" and asked the operator what they were bringing into a prayer they
+  // were not about to pray. What this hour actually asks is narrower and its
+  // own: do you know what you came to ask for, and do you believe it is heard.
+  'istijabah-hour': {
+    // Declared rather than inherited. getPillarForModule('istijabah-hour')
+    // returns null — this is a node id, not a registered submodule — so without
+    // this key the readiness pause-ayah lookup would be silently skipped. It
+    // names the same registry faith-salah reaches through its parent pillar.
+    // Like faith-salah's four-row check, four rows build a four-bit key that the
+    // six-bit faith matrix does not hold, so no ayah surfaces today; the key is
+    // here so the module declares its own registry rather than depending on a
+    // parent it does not have.
+    readinessAyatKey: 'faith',
+    attrs: [
+      {
+        nameKey: 'al-mujib',
+        description: "This hour is not a better time to ask; it is a promise attached to asking. Al-Mujīb answers every call — sometimes with what was asked for, sometimes with something better — and the Friday hour is that promise narrowed to a window short enough to stand inside.",
+      },
+      {
+        nameKey: 'as-sami',
+        description: "You will not hear the answer arrive, which is why the hour tempts you to ask carelessly or not at all. As-Samīʿ receives every sound, whisper and unspoken plea — nothing said here is mislaid, whether you asked aloud or could only manage the wanting.",
+      },
+    ],
+    dua: {
+      title: 'Before the Hour of Istijabah',
+      resumeTitle: 'Before Returning to the Hour',
+      arabic: 'وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ',
+      trans: "Wa qāla rabbukumu-dʿūnī astajib lakum",
+      meaning: 'And your Lord says: Call upon Me; I will respond to you.',
+      source: 'Surah Ghafir 40:60',
+    },
+    closingDua: {
+      title: 'After the Hour',
+      arabic: 'فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ',
+      trans: "Fa-dhkurūnī adhkurkum wa-shkurū lī wa lā takfurūn",
+      meaning: 'So remember Me; I will remember you. And be grateful to Me and do not deny Me.',
+      source: 'Surah Al-Baqarah 2:152',
+    },
+    readiness: {
+      frame: 'What am I bringing into this hour?',
+      instruction: 'Name honestly — this is a moment of self-witness, not a gate.',
+      yesLabel: 'I am bringing',
+      notYetLabel: 'I am carrying',
+      rows: [
+        {
+          id: 'M1', attr: 'Al-Mujib', attr_ar: 'المجيب', attrTitle: 'The Responsive',
+          attrFrame: 'What am I bringing to the One who answers?',
+          yesLabel: 'I am bringing',
+          notYetLabel: 'I am carrying',
+          governing: 'I am bringing something specific to ask for — named before the hour started.',
+          notYet: 'I am carrying a vague sense that I should pray, with nothing actually formed to ask.',
+        },
+        {
+          id: 'M2', attr: 'Al-Mujib',
+          governing: 'I am bringing certainty that He can give it — asking without hedging the request.',
+          notYet: 'I am carrying a half-request I have already talked myself out of expecting.',
+        },
+        {
+          id: 'S1', attr: 'As-Sami', attr_ar: 'السميع', attrTitle: 'The All-Hearing',
+          attrFrame: 'What am I bringing to the One who hears?',
+          yesLabel: 'I am bringing',
+          notYetLabel: 'I am carrying',
+          governing: 'I am bringing my own words, in whatever language they arrive in — not only memorised text.',
+          notYet: 'I am carrying someone else’s phrasing because I think my own is not good enough to say.',
+        },
+        {
+          id: 'S2', attr: 'As-Sami',
+          governing: 'I am bringing the last stretch before Maghrib to this and to nothing else.',
+          notYet: 'I am carrying work into the one hour of the week I set aside to ask.',
+        },
+      ],
+      governing: [
+        'I am bringing something specific to ask for — named before the hour started.',
+        'I am bringing certainty that He can give it — asking without hedging the request.',
+        'I am bringing my own words, in whatever language they arrive in — not only memorised text.',
+        'I am bringing the last stretch before Maghrib to this and to nothing else.',
+      ],
+      notYet: [
+        'I am carrying a vague sense that I should pray, with nothing actually formed to ask.',
+        'I am carrying a half-request I have already talked myself out of expecting.',
+        'I am carrying someone else’s phrasing because I think my own is not good enough to say.',
+        'I am carrying work into the one hour of the week I set aside to ask.',
+      ],
+    },
+    reflection: {
+      frame: 'Al-Mujib was answering through the whole hour. As-Sami received it whether or not it was said aloud.',
+      yesLabel: 'The hour was asking when',
+      notYetLabel: 'The hour was waiting when',
+      rows: [
+        {
+          id: 'RM1', attr: 'Al-Mujib', attr_ar: 'المجيب', attrTitle: 'The Responsive',
+          attrFrame: 'Did I ask, or did I let the hour pass?',
+          yesLabel: 'I actually asked when',
+          notYetLabel: 'I let it pass when',
+          governing: 'I reached the last stretch before Maghrib and asked for what I came to ask for.',
+          notYet: 'The hour went by while I was still meaning to get to it.',
+        },
+        {
+          id: 'RS1', attr: 'As-Sami', attr_ar: 'السميع', attrTitle: 'The All-Hearing',
+          attrFrame: 'Did I put my own need into words?',
+          yesLabel: 'I said it plainly when',
+          notYetLabel: 'I stayed on the form when',
+          governing: 'I said it in my own words, aloud or under my breath, and meant them.',
+          notYet: 'I recited through the hour without ever naming what I actually needed.',
+        },
+      ],
+      governing: [
+        'I reached the last stretch before Maghrib and asked for what I came to ask for.',
+        'I said it in my own words, aloud or under my breath, and meant them.',
+      ],
+      notYet: [
+        'The hour went by while I was still meaning to get to it.',
+        'I recited through the hour without ever naming what I actually needed.',
+      ],
+    },
+  },
+
 
   'faith-zakah': {
     attrs: [
