@@ -13,6 +13,7 @@ const FOLDIN_FLAG = 'seed_subtask_foldin_v1';
 const ORDER_V2_FLAG = 'seed_subtask_order_v2';
 const RENAME_FLAG = 'seed_subtask_rename_v1';
 const ORDER_V3_FLAG = 'seed_subtask_order_v3';
+const DUHA_FLAG = 'seed_duha_restructure_v1';
 
 // Tasks deleted from the seed files on 2026-07-27 as duplicates of a sibling on
 // the same board. Titles are byte-for-byte copies taken from the seed file
@@ -178,6 +179,30 @@ export const SEED_SUBTASK_RENAMES = {
   },
 };
 
+// --- 2026-10-05 Duha level restructure ---
+// The Duha node merges the Growth task "Salat ad-Duha — establish…" with the
+// Excellence task "Pray Duha prayer regularly", and buildTasksForNode sorts by
+// level — so the beginner step "Learn the time window" (authored on Excellence)
+// surfaced AFTER Growth's "Pray 2 rak'at … 5 days". The seed now moves that step
+// to the head of the Growth task and retires Excellence's "3 times this week"
+// (it asked for less than Growth). Titles are byte-for-byte seed strings.
+// Approval gate: stages/implement-duha-restructure-review.md
+export const DUHA_GROWTH_BOARD = 'faith_salah_growth';
+export const DUHA_EXCELLENCE_BOARD = 'faith_salah_excellence';
+export const DUHA_GROWTH_TASK = 'Salat ad-Duha — establish the post-sunrise charity of the joints';
+export const DUHA_EXCELLENCE_TASK = 'Pray Duha prayer regularly';
+export const DUHA_MOVED_SUBTASK = 'Learn the time window for Duha prayer';
+export const DUHA_RETIRED_SUBTASK = 'Pray Duha at least 3 times this week';
+export const DUHA_GROWTH_ORDER = {
+  [DUHA_GROWTH_TASK]: [
+    DUHA_MOVED_SUBTASK,
+    'Set the intention before each Duha as sadaqah for every joint',
+    "Pray 2 rak'at of Duha at least 5 days this week",
+    'Anchor Duha to a fixed time block in your daily schedule',
+    "Build toward 4 rak'at of Duha consistently",
+  ],
+};
+
 function read(key) {
   try { return JSON.parse(localStorage.getItem(PREFIX + key)); }
   catch (e) { console.warn('[bbiz:migration] read failed:', key, e); return null; }
@@ -303,7 +328,9 @@ export function pruneDedupedSeedTasks() {
 // with the title through the rebuild so a re-order cannot lose progress — this
 // is belt-and-braces, and a skipped task still receives the folded rows from the
 // boot backfill (appended at the end), so content arrives either way.
-export function alignSubtaskOrder(tasks, orderTable) {
+// `allowDone` lifts that guard for a caller whose re-order IS the fix (the Duha
+// restructure): rows are reused by reference, so `done` still cannot be lost.
+export function alignSubtaskOrder(tasks, orderTable, { allowDone = false } = {}) {
   if (!Array.isArray(tasks) || !orderTable) return { next: tasks, aligned: [], skipped: [] };
   const aligned = [];
   const skipped = [];
@@ -311,7 +338,7 @@ export function alignSubtaskOrder(tasks, orderTable) {
     const order = orderTable[t?.title];
     if (!order?.length) return t;
     const stored = Array.isArray(t.subtasks) ? t.subtasks : [];
-    if (stored.some((s) => s?.done === true)) { skipped.push(t.title); return t; }
+    if (!allowDone && stored.some((s) => s?.done === true)) { skipped.push(t.title); return t; }
 
     const taken = new Array(stored.length).fill(false);
     const rebuilt = order.map((title) => {
@@ -458,6 +485,99 @@ export function alignReorderedSubtasksV3() {
   }
 }
 
+// Pure core of the Duha restructure. Returns the same array references when
+// nothing changes, so the caller can skip each write independently.
+//
+// - The Excellence "Learn the time window" row MOVES to the Growth task, keeping
+//   its `id` and `done`. If the Growth task already holds a row of that title,
+//   the two merge (done if either was done). If the Growth task is not stored,
+//   the row is left where it is unless it is untouched — a completion is never
+//   thrown away.
+// - The retired "3 times this week" row is removed unless it is done; a done row
+//   stays (bare, as an orphan) rather than silently erasing the operator's record.
+// - The Growth task is then rebuilt to the curated order. Operator-added rows on
+//   either task are never dropped (alignSubtaskOrder appends them).
+export function restructureDuhaSubtasks(growthTasks, excellenceTasks) {
+  const report = { moved: false, merged: false, retired: false, keptDone: [], aligned: false };
+  const gTasks = Array.isArray(growthTasks) ? growthTasks : [];
+  const eTasks = Array.isArray(excellenceTasks) ? excellenceTasks : [];
+  const gIdx = gTasks.findIndex((t) => t?.title === DUHA_GROWTH_TASK);
+  const eIdx = eTasks.findIndex((t) => t?.title === DUHA_EXCELLENCE_TASK);
+
+  let excellenceNext = excellenceTasks;
+  let moving = null;
+  if (eIdx !== -1) {
+    const eTask = eTasks[eIdx];
+    const subs = Array.isArray(eTask.subtasks) ? eTask.subtasks : [];
+    const keep = [];
+    for (const st of subs) {
+      if (st?.title === DUHA_MOVED_SUBTASK && !moving && (gIdx !== -1 || st.done !== true)) {
+        if (gIdx !== -1) moving = st;
+        continue;
+      }
+      if (st?.title === DUHA_RETIRED_SUBTASK) {
+        if (st.done === true) { report.keptDone.push(st.title); keep.push(st); continue; }
+        report.retired = true;
+        continue;
+      }
+      if (st?.title === DUHA_MOVED_SUBTASK && st.done === true && gIdx === -1) report.keptDone.push(st.title);
+      keep.push(st);
+    }
+    if (keep.length !== subs.length) {
+      excellenceNext = eTasks.map((t, i) => (i === eIdx ? { ...t, subtasks: keep } : t));
+    }
+  }
+
+  let growthNext = growthTasks;
+  if (gIdx !== -1) {
+    const gTask = gTasks[gIdx];
+    let subs = Array.isArray(gTask.subtasks) ? gTask.subtasks : [];
+    if (moving) {
+      const existing = subs.findIndex((st) => st?.title === DUHA_MOVED_SUBTASK);
+      if (existing === -1) {
+        subs = [...subs, moving];
+        report.moved = true;
+      } else if (moving.done === true && subs[existing].done !== true) {
+        subs = subs.map((st, i) => (i === existing ? { ...st, done: true } : st));
+        report.merged = true;
+      } else {
+        report.merged = true;
+      }
+    }
+    const staged = subs === gTask.subtasks ? gTasks : gTasks.map((t, i) => (i === gIdx ? { ...t, subtasks: subs } : t));
+    const { next, aligned } = alignSubtaskOrder(staged, DUHA_GROWTH_ORDER, { allowDone: true });
+    report.aligned = aligned.length > 0;
+    if (next !== gTasks) growthNext = next;
+  }
+
+  return { growthNext, excellenceNext, report };
+}
+
+// One-shot Duha restructure. Runs after the v3 align (independent of it — the
+// two touch different tasks) and before mount, so the boot backfill finds the
+// moved row already in place instead of appending it at the end.
+// Approval gate: stages/implement-duha-restructure-review.md
+export function restructureDuhaSeedSubtasks() {
+  if (localStorage.getItem(PREFIX + DUHA_FLAG) === '1') return;
+  const gKey = `tasks_${DUHA_GROWTH_BOARD}`;
+  const eKey = `tasks_${DUHA_EXCELLENCE_BOARD}`;
+  const growth = read(gKey);
+  const excellence = read(eKey);
+  const { growthNext, excellenceNext, report } = restructureDuhaSubtasks(growth, excellence);
+  if (Array.isArray(growthNext) && growthNext !== growth) write(gKey, growthNext);
+  if (Array.isArray(excellenceNext) && excellenceNext !== excellence) write(eKey, excellenceNext);
+  localStorage.setItem(PREFIX + DUHA_FLAG, '1');
+  if (report.moved || report.merged || report.retired || report.aligned) {
+    console.info('[bbiz] Duha restructure: "Learn the time window" now opens the Growth Duha task.');
+  }
+  if (report.keptDone.length) {
+    console.info(
+      `[bbiz] Duha restructure: kept ${report.keptDone.map((t) => `"${t}"`).join(', ')} on "${DUHA_EXCELLENCE_TASK}" ` +
+      'because it carries your progress — delete it by hand if you no longer want it.'
+    );
+  }
+}
+
 export function runMigrations() {
   // Title repair first — before the SCHEMA_VERSION guard below returns early
   // for already-migrated users, and before React mounts / any hydration reads.
@@ -480,6 +600,9 @@ export function runMigrations() {
   // appended) — a duplicate on the operator's board.
   renameSeedSubtaskTitles();
   alignReorderedSubtasksV3();
+  // Then the 2026-10-05 Duha restructure: moves "Learn the time window" from the
+  // Excellence task to the head of the Growth task and retires the 3×/week step.
+  restructureDuhaSeedSubtasks();
 
   const version = localStorage.getItem(PREFIX + 'schema_version');
   if (version === SCHEMA_VERSION) return; // already migrated

@@ -3,6 +3,17 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-05] fix | MILOS — Duha's beginner steps move down to Growth; system-wide ordering audit filed
+
+Operator flagged the Duha node order (1.1 pray 5 days, 1.2 intention, 2.1 learn the time window) and asked for a plan plus a check of the rest of the system. Choices made by selection: **restructure levels**, audit **nodes plus every pillar board**, **report first, fix later**. Decision: [[2026-10-05-milos-duha-level-restructure]]. **Amanah gate:** positive. This reorders existing grounded guidance so the time window is learned before the prayer is attempted; no fiqh authored, no revelation text altered.
+
+- **Root cause was level placement, not subtask order.** The learn step and a 3×/week step lived on the Excellence task, below a 5-day Growth target, and the node sorts by level.
+- **Seed:** Growth Duha re-ordered with the moved step first. Excellence trimmed to the daily-practice step, with prose updated and the Abu Hurayrah source carried over. No titles changed.
+- **Migration:** `restructureDuhaSeedSubtasks` (flag `seed_duha_restructure_v1`), with the gate in `stages/implement-duha-restructure-review.md`. A done retired row is kept, never erased.
+- **Audit:** `scripts/audit-task-order.mjs` found 42 candidates after the fix: R1 learn-after-practice 10, R2 level regression 0 (was 1, the Duha one), R3 near-duplicates 2, R4 node-ignores-seq 28, R5 node fallback 2 (`isha-taraweeh`, `istijabah-hour`). Heuristic; one remaining R1 row pairs the Duha time window with Core's "earliest time window" and is a false positive.
+- **Verified:** `npm test` 314/314, `npm run lint` green, `npm run build` ✓. Live Chromium screenshots of fresh, old-layout and migrated boards.
+- **Pages touched:** wiki/decisions/2026-10-05-milos-duha-level-restructure.md (new), wiki/index.md, wiki/log.md.
+
 ## [2026-08-19] refactor | MILOS — the branch catches up to main, and the two Divine-Name paragraphs become one blended description
 
 Operator, seeing the shipped three-zone card: *"I'm seeing an older version of MIOS in the preview even though the live version shows the most recent updates. Also, I don't like what occurred with the descriptions and would rather have a blend of the two descriptions appear as one instead of two separate ones that often appear redundant"* — two unrelated problems raised together. Three choices made by selection (commit-then-merge · **application first, definition folded in** · apply-then-review-doc), then a two-part plan approved. Decision: [[2026-08-19-milos-one-blended-description]], which amends the card-layout half of [[2026-08-19-milos-divine-names-registry]] and leaves the registry itself untouched. **Amanah gate:** neutral-positive — content rewrite of existing attested material, no new citations authored, no capital / CSRA / salam / yield-share surface touched.

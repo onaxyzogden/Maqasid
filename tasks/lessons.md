@@ -66,3 +66,8 @@
 ### 16. A compile-time `const false` tree-shakes; an env var does not
 **Finding:** The approved plan predicted `@supabase/supabase-js` (~110 KB) would still ship after disabling online accounts, since `auth-store.js` statically imports `supabase.js` which statically imports `createClient`. Measured both builds: total JS went 9,648.1 KB → 9,429.7 KB (**−218.4 KB**) and `GoTrueClient` disappeared from `dist/` entirely.
 **Lesson:** `export const FLAG = false` is knowable at build time, so Rolldown/Rollup constant-folds `FLAG ? createClient(...) : null` to `null` and drops the import as dead. `import.meta.env.VITE_FLAG` is *not* knowable unless it's `define`-replaced, so the library stays. When a kill switch should also shrink the bundle, hardcode it — and measure both builds rather than reasoning about the import graph.
+
+### 17. A node sorts by level first — content on the wrong level cannot be fixed by reordering
+**Finding:** The Duha node showed "Learn the time window" (2.1) after "Pray 2 rak'at … 5 days" (1.1). The learn step had been authored on the Excellence task while the practice step sat on Growth, and `buildTasksForNode` sorts by level before anything else. The Excellence task also asked for *less* (3×/week) than Growth (5 days).
+**Lesson:** When a node or chain shows steps in the wrong order, first check which **level** each step lives on, not just its index in the task. A beginner step on a higher level, or a higher level asking for a smaller cadence, is a level-placement defect: fix the data's level, and ship a migration for stored boards, because hydration never moves or removes subtasks. `scripts/audit-task-order.mjs` checks for this whole class.
+

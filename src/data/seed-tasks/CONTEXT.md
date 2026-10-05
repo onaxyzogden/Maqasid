@@ -79,6 +79,14 @@ computes the set difference by title and appends what storage lacks, every boot.
   rename a subtask on a task listed in that table, update the table — the test will tell you.**
 - **Appending to a *completed* task re-opens it** in the orientation chain: `isTaskComplete` is pure
   `subtasks.every(satisfied)`.
+- **Moving a subtask to another task, or removing one, never reaches storage on its own.**
+  Hydration only backfills fields, and the backfill only appends. A moved or removed subtask needs
+  its own one-shot. See `restructureDuhaSubtasks` (2026-10-05: "Learn the time window for Duha
+  prayer" moved from `faith_salah_excellence` to the head of the Growth Duha task). Its
+  `DUHA_GROWTH_ORDER` is drift-guarded in `src/services/__tests__/duha-restructure.test.js`.
+- **Check the level, not just the index.** Prophetic Path nodes sort their pool by level first, so
+  a beginner step authored on a higher level always surfaces late. `node scripts/audit-task-order.mjs`
+  flags learn-after-practice, level regressions, near-duplicates and node-vs-`seq` contradictions.
 
 Subtask counts on the four `ummah_community_growth` tasks changed by the 2026-07-27 fold-in:
 sulh **6**, education **6**, youth **6**, bayt al-mal **7**
