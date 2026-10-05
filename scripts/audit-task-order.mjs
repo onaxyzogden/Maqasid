@@ -313,7 +313,10 @@ for (const [nodeId, entry] of Object.entries(TOD_SUBMODULES)) {
   const scoped = projects.filter((p) => scope.has(p.moduleId))
     .flatMap((p) => tasksByProject[p.id]);
   const matched = entry.matchers
-    ? scoped.filter((t) => entry.matchers.some((re) => re.test(t.title || '')))
+    // Mirrors rowMatches in prophetic-path-submodules.js: titles against every
+    // matcher, tags against `transition:` matchers only.
+    ? scoped.filter((t) => entry.matchers.some((re) => re.test(t.title || ''))
+      || (t.tags || []).some((g) => entry.matchers.some((re) => re.source.includes('transition:') && re.test(g))))
     : scoped;
   if (entry.matchers && matched.length === 0 && scoped.length > 0) {
     add({

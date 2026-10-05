@@ -1012,11 +1012,24 @@ export function dedupeTaskRows(rows, limit) {
   return deduped;
 }
 
-function titleMatches(title, matchers) {
+// A row matches a node when its title hits any content matcher, or when one of
+// its tags hits a `transition:` matcher. Those matchers name routing tags
+// (`transition:isha-taraweeh`, …) and were only ever tested against titles, so
+// they never fired — the Taraweeh node matched nothing and fell back to its
+// whole scope. Tags are tested against `transition:` matchers ONLY: broad
+// keyword matchers like /\b(?:rest|nap)\b/ would otherwise catch generic tags
+// (`sleep`, `home`) and pull unrelated tasks onto the node.
+export function rowMatches(row, matchers) {
   if (!matchers) return true;
-  const t = title || '';
+  const t = row.title || '';
   for (const re of matchers) {
     if (re.test(t)) return true;
+  }
+  const tags = row.tags || [];
+  if (tags.length === 0) return false;
+  for (const re of matchers) {
+    if (!re.source.includes('transition:')) continue;
+    if (tags.some((tag) => re.test(tag))) return true;
   }
   return false;
 }
@@ -1078,7 +1091,7 @@ export function buildTasksForNode(nodeId, projects, tasksByProject, options = {}
   // unfiltered scope pool so the user still sees something for that window.
   let rows = scopePool;
   if (matchers) {
-    const matched = scopePool.filter((r) => titleMatches(r.title, matchers));
+    const matched = scopePool.filter((r) => rowMatches(r, matchers));
     rows = matched.length > 0 ? matched : scopePool;
   }
 

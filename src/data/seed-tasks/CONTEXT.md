@@ -87,6 +87,14 @@ computes the set difference by title and appends what storage lacks, every boot.
 - **Check the level, not just the index.** Prophetic Path nodes sort their pool by level first, so
   a beginner step authored on a higher level always surfaces late. `node scripts/audit-task-order.mjs`
   flags learn-after-practice, level regressions, near-duplicates and node-vs-`seq` contradictions.
+- **Retiring a seed task needs a prune.** The boot backfill never deletes, so list the title in a
+  `RETIRED_SEED_TASKS_*` table, pruned with `pruneRemovedSeedTasks`; a copy with progress is kept.
+  Renumber the board's `seq` afterwards, because the permutation test requires 0..n-1. Pass 2
+  (2026-10-05) retired "Sunan al-Nawm" this way. See `seedOrderAuditV2` in
+  [migration.js](../../services/migration.js).
+- **Node routing reads `transition:` tags.** `rowMatches` (prophetic-path-submodules.js) tests a
+  task's tags against a node's `transition:` matchers, so tagging a task `transition:<node>`
+  surfaces it there. Other matchers stay title-only.
 
 Subtask counts on the four `ummah_community_growth` tasks changed by the 2026-07-27 fold-in:
 sulh **6**, education **6**, youth **6**, bayt al-mal **7**
