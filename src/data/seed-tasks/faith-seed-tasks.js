@@ -3904,6 +3904,40 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
       tags: ["salah", "sunnah", "adhkar", "sleep", "prayer-phase:after", "transition:pre-sleep"],
       description: "The Prophet (SAW) had a precise, repeatable sequence for entering sleep \u2014 wudu, recitation, blowing into the palms, posture, and final words. Together they convert the bed from a passive collapse into an act of worship.",
       subtasks: [
+        { title: "Make wudu before getting into bed", done: false,
+          tier: "T1",
+          amanahRationale: "Sahih al-Bukhari directly instructs the believer to perform wudu before sleeping and to lie on the right side, providing explicit prophetic proof for this core subtask.",
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 25:47",
+              arabic: "وَهُوَ الَّذِي جَعَلَ لَكُمُ اللَّيْلَ لِبَاسًا وَالنَّوْمَ سُبَاتًا وَجَعَلَ النَّهَارَ نُشُورًا",
+              translation: "It is He who made the night a garment for you, and sleep a rest, and made the day like a resurrection.",
+              relevance: "contextual",
+              provenanceTier: "Bayyinah",
+              rationale: "Allah frames sleep as a small death and waking as resurrection — entering this transition in a state of purity matches the gravity the Quran ascribes to it.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 247",
+              translation: "Al-Bara' bin 'Azib (RA) reported: The Prophet (SAW) said: \"When you go to bed, perform wudu as you do for prayer, then lie down on your right side and say: O Allah, I submit my face to You, entrust my affair to You, and turn my back to You out of hope and fear of You. There is no refuge nor escape from You except to You. I believe in Your Book which You revealed and in Your Prophet whom You sent. If you die that night, you will die upon the fitrah.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              ratNote: "Verified against sunnah.com 2026-04-26 — Bukhari 247 confirmed (al-Bara ibn Azib, wudu-before-sleep + the surrender dua).",
+              rationale: "Direct prophetic instruction prescribing wudu before sleep, with the explicit promise that one who dies that night dies upon the fitrah.",
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) said one who sleeps in wudu after the prescribed dhikr dies — if they die — upon the fitrah. Sleep is a small death; entering it in purity is how you would want to meet your Lord. There is no act of worship more efficient than turning a routine you already do (sleep) into the day's final ibadah.
+
+**How?**
+
+1. Make wudu in the bathroom right before bed — the same wudu you would make for salah.
+2. Walk straight to bed without breaking it (don't stop to scroll, don't drink, don't eat).
+3. Get into bed with the wudu intact — the recitations that follow are said from there.
+4. Benchmark: 5 of 7 nights for two weeks. The friction is highest on the first 3 nights — push through.` },
         {
           title: "Recite Ayat al-Kursi as you lie down to sleep",
           done: false,
@@ -3930,7 +3964,16 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
               provenanceTier: 'Bayyinah',
               hadithGrade: 'Sahih',
               rationale: "The operative prophetic text \u2014 bedtime recitation earns the angelic guard until dawn."
-            }
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 5010",
+              translation: "Abu Hurayrah (RA) reported: The Prophet (SAW) said about Ayat al-Kursi: \"Whoever recites it when he goes to bed, Allah will appoint a guardian over him, and shaytan will not come near him until morning.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Direct prophetic promise of all-night protection conditional on reciting Ayat al-Kursi at sleep — the operative reward for this subtask.",
+            },
           ]
         },
         {
@@ -4037,7 +4080,16 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
               provenanceTier: 'Bayyinah',
               hadithGrade: 'Sahih',
               rationale: "Specifies the hand-under-cheek detail of the posture \u2014 companion testimony to prophetic practice."
-            }
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 247",
+              translation: "Al-Bara' bin 'Azib (RA) reported: The Prophet (SAW) taught him the surrender dua of sleep and said: \"And let them be the last words you say.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "The narration that establishes WHICH utterance closes the night: the surrender dua is explicitly designated the last words spoken, which is why this subtask sits last in the chain.",
+            },
           ]
         },
         {
@@ -4057,7 +4109,17 @@ Learn the three scenarios that require sujud al-sahw: addition (e.g., praying fi
               provenanceTier: 'Bayyinah',
               hadithGrade: 'Sahih',
               rationale: "Direct prophetic formula for the last words before sleep \u2014 the operative text."
-            }
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 6324",
+              translation: "Hudhayfah (RA) reported: When the Prophet (SAW) went to bed at night, he would say: \"Bismika Allahumma amutu wa ahya — In Your name, O Allah, I die and I live.\" And when he woke up, he would say: \"Alhamdu lillahil-ladhi ahyana ba'da ma amatana wa ilayhin-nushur — All praise is for Allah who gave us life after He took it from us, and unto Him is the resurrection.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              ratNote: "Updated 2026-04-26 from Bukhari 6320 to canonical sunnah.com Bukhari 6324 — prior ref pointed to Abu Hurayra's 'Bismika Rabbi wada\u02bbtu janbi' dua, while this subtask cites Hudhayfah's 'Bismika Allahumma amutu wa ahya' which is canonically Bukhari 6324.",
+              rationale: "Direct prophetic verbal sunnah for sleeping and waking — pairs the right-side posture with the explicit dua at the moment of transition.",
+            },
           ]
         },
       ],
@@ -4584,7 +4646,7 @@ Choose three surahs you commonly recite after Al-Fatihah (e.g., Al-Ikhlas, Al-Fa
       ],
     },
     {
-      seq: 10,
+      seq: 9,
       title: 'Pray Tahajjud at least once a week',
       priority: 'medium', tags: ['salah', 'qiyam', 'prayer-phase:main'],
       description: 'The night prayer is among the most beloved voluntary acts. Start with even two rak\'at in the last third of the night.',
@@ -5030,139 +5092,6 @@ The Prophet (SAW) reported a divine promise: four rak'at of Duha buys Allah's su
     },
     {
       seq: 7,
-      title: "Sunan al-Nawm — observe the prophetic etiquette of sleep",
-      priority: "high", tags: ["sunnah", "adhkar", "transition:bedtime"],
-      description: "The Prophet (SAW) treated sleep as a meaningful spiritual transition rather than mere unconsciousness. He prescribed wudu, dhikr, and specific recitations before sleeping so that the believer surrenders the night to Allah in the same state of remembrance they would want to die in.",
-      subtasks: [
-        { title: "Make wudu before getting into bed", done: false,
-          tier: "T1",
-          amanahRationale: "Sahih al-Bukhari directly instructs the believer to perform wudu before sleeping and to lie on the right side, providing explicit prophetic proof for this core subtask.",
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 25:47",
-              arabic: "وَهُوَ الَّذِي جَعَلَ لَكُمُ اللَّيْلَ لِبَاسًا وَالنَّوْمَ سُبَاتًا وَجَعَلَ النَّهَارَ نُشُورًا",
-              translation: "It is He who made the night a garment for you, and sleep a rest, and made the day like a resurrection.",
-              relevance: "contextual",
-              provenanceTier: "Bayyinah",
-              rationale: "Allah frames sleep as a small death and waking as resurrection — entering this transition in a state of purity matches the gravity the Quran ascribes to it.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih al-Bukhari 247",
-              translation: "Al-Bara' bin 'Azib (RA) reported: The Prophet (SAW) said: \"When you go to bed, perform wudu as you do for prayer, then lie down on your right side and say: O Allah, I submit my face to You, entrust my affair to You, and turn my back to You out of hope and fear of You. There is no refuge nor escape from You except to You. I believe in Your Book which You revealed and in Your Prophet whom You sent. If you die that night, you will die upon the fitrah.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              ratNote: "Verified against sunnah.com 2026-04-26 — Bukhari 247 confirmed (al-Bara ibn Azib, wudu-before-sleep + the surrender dua).",
-              rationale: "Direct prophetic instruction prescribing wudu before sleep, with the explicit promise that one who dies that night dies upon the fitrah.",
-            },
-          ],
-          description: `**Why?**
-
-The Prophet (SAW) said one who sleeps in wudu after the prescribed dhikr dies — if they die — upon the fitrah. Sleep is a small death; entering it in purity is how you would want to meet your Lord. There is no act of worship more efficient than turning a routine you already do (sleep) into the day's final ibadah.
-
-**How?**
-
-1. Make wudu in the bathroom right before bed — the same wudu you would make for salah.
-2. Walk straight to bed without breaking it (don't stop to scroll, don't drink, don't eat).
-3. Get into bed with the wudu intact — the recitations that follow are said from there.
-4. Benchmark: 5 of 7 nights for two weeks. The friction is highest on the first 3 nights — push through.` },
-        { title: "Recite Surah al-Mulk before sleep on at least 4 nights this week", done: false,
-          tier: "T2",
-          amanahRationale: "Jami at-Tirmidhi explicitly attributes nightly recitation of Surah al-Mulk to protection from the punishment of the grave, providing direct prophetic proof for this intermediate-tier subtask.",
-          sources: [
-            {
-              kind: "hadith",
-              ref: "Jami at-Tirmidhi 2891",
-              translation: "Abdullah ibn Mas'ud (RA) said: \"Whoever recites Tabarakalladhi biyadihil mulk [Surah al-Mulk] every night, Allah will protect him from the punishment of the grave. We used to call it al-mani'ah (the protector) at the time of the Messenger of Allah (SAW). It is a surah which, for one who recites it every night, is plentiful and good.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Hasan",
-              rationale: "Direct prophetic-companion narration naming Surah al-Mulk as al-mani'ah — the protector against the punishment of the grave when recited nightly.",
-            },
-          ],
-          description: `**Why?**
-
-The Sahabah called Surah al-Mulk al-mani'ah — the protector — because of its promise of safety from the punishment of the grave for those who recite it every night. Thirty ayat. Five to seven minutes. There is almost no other practice with this leverage on the akhirah.
-
-**How?**
-
-1. Save Surah al-Mulk on your phone or have a small mushaf next to your bed.
-2. Recite after wudu and before lying down.
-3. Start with 4 nights this week. Over time, build to all 7.
-4. Benchmark: 4 of 7 nights for two consecutive weeks.` },
-        { title: "Recite Ayat al-Kursi on going to bed", done: false,
-          tier: "T1",
-          amanahRationale: "Sahih al-Bukhari names Ayat al-Kursi explicitly as the recitation that secures a guardian from Allah and protection from shaytan throughout the night, providing direct prophetic proof for this core subtask.",
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 2:255",
-              arabic: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",
-              translation: "God: there is no god but Him, the Ever Living, the Ever Watchful. Neither slumber nor sleep overtakes Him. All that is in the heavens and in the earth belongs to Him. Who is there that can intercede with Him except by His leave? He knows what is before them and what is behind them, but they do not comprehend any of His knowledge except what He wills. His throne extends over the heavens and the earth; it does not weary Him to preserve them both. He is the Most High, the Tremendous.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Ayat al-Kursi is the verse the prophetic guarantee of nightly protection is attached to — its inclusion is required because the subtask names it directly.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih al-Bukhari 5010",
-              translation: "Abu Hurayrah (RA) reported: The Prophet (SAW) said about Ayat al-Kursi: \"Whoever recites it when he goes to bed, Allah will appoint a guardian over him, and shaytan will not come near him until morning.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Direct prophetic promise of all-night protection conditional on reciting Ayat al-Kursi at sleep — the operative reward for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-The Prophet (SAW) promised a guardian from Allah over anyone who recites Ayat al-Kursi on going to bed, with shaytan kept away until morning. Eight to ten seconds of speech buys eight hours of guardianship.
-
-**How?**
-
-1. Memorise Ayat al-Kursi (Quran 2:255) if you have not already — it is one ayah.
-2. Once you are in bed, recite it audibly enough that you can hear yourself.
-3. Then turn onto your right side and seal the night with the dua of sleeping. If something interrupts, recite again before sleeping.
-4. Benchmark: 7 of 7 nights for one week before declaring this subtask habituated.` },
-        { title: "Sleep on the right side and recite the dua of sleeping", done: false,
-          tier: "T2",
-          amanahRationale: "Sahih al-Bukhari names the specific dua the Prophet (SAW) recited on lying down, providing explicit prophetic proof for this subtask.",
-          sources: [
-            {
-              kind: "hadith",
-              ref: "Sahih al-Bukhari 247",
-              translation: "Al-Bara' bin 'Azib (RA) reported: The Prophet (SAW) taught him the surrender dua of sleep and said: \"And let them be the last words you say.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "The narration that establishes WHICH utterance closes the night: the surrender dua is explicitly designated the last words spoken, which is why this subtask sits last in the chain.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih al-Bukhari 6324",
-              translation: "Hudhayfah (RA) reported: When the Prophet (SAW) went to bed at night, he would say: \"Bismika Allahumma amutu wa ahya — In Your name, O Allah, I die and I live.\" And when he woke up, he would say: \"Alhamdu lillahil-ladhi ahyana ba'da ma amatana wa ilayhin-nushur — All praise is for Allah who gave us life after He took it from us, and unto Him is the resurrection.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              ratNote: "Updated 2026-04-26 from Bukhari 6320 to canonical sunnah.com Bukhari 6324 — prior ref pointed to Abu Hurayra's 'Bismika Rabbi wada\u02bbtu janbi' dua, while this subtask cites Hudhayfah's 'Bismika Allahumma amutu wa ahya' which is canonically Bukhari 6324.",
-              rationale: "Direct prophetic verbal sunnah for sleeping and waking — pairs the right-side posture with the explicit dua at the moment of transition.",
-            },
-          ],
-          description: `**Why?**
-
-The Prophet (SAW) tied his last conscious words each night to Allah's name, and told al-Bara' (Sahih al-Bukhari 247) to make the surrender dua the last thing he said. Saying "In Your name, O Allah, I die and I live" surrenders the night and reframes sleep as something Allah does to you, not something you do to yourself.
-
-**How?**
-
-1. After Ayat al-Kursi, lie on your right side with your right palm under your right cheek — nothing else is said after this.
-2. Quietly say: "Bismika Allahumma amutu wa ahya."
-3. Do not turn to the left side until morning if you can help it.
-4. Benchmark: the dua is automatic on lying down for 10 of 14 nights.` },
-      ],
-    },
-    {
-      seq: 8,
       title: 'Salat al-Witr — seal the night with the odd prayer',
       priority: 'high',
       tags: ['salah', 'sunnah', 'transition:witr'],
@@ -5283,7 +5212,7 @@ The Prophet (SAW) taught these exact words to his grandson — a transmission of
       ],
     },
     {
-      seq: 9,
+      seq: 8,
       title: 'Sleep with niyyah to rise for tahajjud',
       priority: 'high',
       tags: ['sunnah', 'qiyam', 'transition:qiyam-rest'],
@@ -5434,7 +5363,7 @@ The Prophet (SAW) tied his own shafa'ah to this exact text. Five adhans per day 
       seq: 6,
       title: 'Honor the Friday Sunan — Jumu\u02bbah is the eid of the week',
       priority: 'high',
-      tags: ['salah', 'sunnah', 'jumuah', 'friday', 'transition:jumuah'],
+      tags: ['salah', 'sunnah', 'jumuah', 'friday', 'transition:jumuah', 'transition:istijabah-hour'],
       description: 'Jumu\u02bbah carries a complete cluster of sunan: ghusl, miswak, perfume, walking early, Surah al-Kahf, attentive listening to the khutbah, abundant salawat, and du\u02bba\u02bb in the hour of istijabah. Build the day around them.',
       subtasks: [
         { title: 'Make ghusl, use miswak, and apply perfume before Jumu\u02bbah', done: false,
@@ -5596,7 +5525,7 @@ Friday carries an hour where no good asked is refused. The Prophet (SAW) gesture
       ],
     },
     {
-      seq: 11,
+      seq: 10,
       title: 'Travel with the Prophet\u2019s \uFDFA structure',
       priority: 'high',
       tags: ['salah', 'sunnah', 'travel', 'qasr', 'transition:traveler-departure', 'transition:traveler-arrival'],
@@ -8196,6 +8125,37 @@ The Prophet (SAW) framed suhur as identity, not just food. Skipping it without n
       tags: ['siyam', 'sunnah', 'ramadan', 'transition:maghrib-iftar', 'transition:isha-taraweeh', 'transition:laylat-al-qadr'],
       description: 'Ramadan is not only fasting from food — it is a complete daily structure: niyyah at suhur, the iftar du\u02bba\u02bb at sunset, taraweeh after Isha, and the search for Laylat al-Qadr in the last ten nights.',
       subtasks: [
+        { title: 'Learn the du\'a for breaking the fast', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts explicitly document the exact Prophetic supplication (du\'a) for breaking the fast, they omit explicit learning directives like memorization and the specific detail that iftar is a time when supplication is most accepted, providing a clear logical inference to actively learn and habituate this practice.',
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 2:183",
+              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِن قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ",
+              translation: "You who believe, fasting is prescribed for you, as it was prescribed for those before you, so that you may be mindful of God.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sunan Abi Dawud 2357",
+              translation: "Narrated 'Abdullah ibn 'Umar: The Prophet (ﷺ) used to say when breaking his fast: \"Dhahaba al-zama', wa-btallat al-'uruq, wa-thabat al-ajr in sha'a Allah\" (The thirst has gone, the veins are refreshed, and the reward is confirmed, if Allah wills).",
+              relevance: "direct",
+              provenanceTier: "Qarina",
+              hadithGrade: "Hasan",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
+          description: `**Why?**
+
+The moment of iftar is one of the times when du'a is most accepted. Learning the Prophetic du'a connects your fast's end to gratitude and hope in Allah's reward.
+
+
+**How?**
+
+Memorize the du'a: "Dhahaba al-dhama', wabtallat al-uruq, wa thabata al-ajr in sha Allah" \u2014 meaning the thirst has gone, the veins are moistened, and the reward is confirmed, if Allah wills. Say it each time you break your fast until it becomes second nature.` },
         { title: 'Make the iftar du\u02bba\u02bb at the moment of breaking the fast', done: false,
           tier: 'T1',
           amanahRationale: 'The Prophet (SAW) taught a specific du\u02bba\u02bb to recite at the moment of breaking the fast, with named meanings (thirst gone, veins moistened, reward fixed) — direct prophetic transmission.',
@@ -8819,37 +8779,6 @@ Keep a small notebook or phone note dedicated to fasting reflections. After brea
       priority: 'low', tags: ['siyam', 'sunnah'],
       description: 'There is great barakah in suhoor and prescribed etiquette for breaking the fast. Follow the Prophetic way.',
       subtasks: [
-        { title: 'Learn the du\'a for breaking the fast', done: false,
-          tier: 'T2',
-          amanahRationale: 'While the provided texts explicitly document the exact Prophetic supplication (du\'a) for breaking the fast, they omit explicit learning directives like memorization and the specific detail that iftar is a time when supplication is most accepted, providing a clear logical inference to actively learn and habituate this practice.',
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 2:183",
-              arabic: "يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِن قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ",
-              translation: "You who believe, fasting is prescribed for you, as it was prescribed for those before you, so that you may be mindful of God.\" (Abdel Haleem)",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sunan Abi Dawud 2357",
-              translation: "Narrated 'Abdullah ibn 'Umar: The Prophet (ﷺ) used to say when breaking his fast: \"Dhahaba al-zama', wa-btallat al-'uruq, wa-thabat al-ajr in sha'a Allah\" (The thirst has gone, the veins are refreshed, and the reward is confirmed, if Allah wills).",
-              relevance: "direct",
-              provenanceTier: "Qarina",
-              hadithGrade: "Hasan",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-The moment of iftar is one of the times when du'a is most accepted. Learning the Prophetic du'a connects your fast's end to gratitude and hope in Allah's reward.
-
-
-**How?**
-
-Memorize the du'a: "Dhahaba al-dhama', wabtallat al-uruq, wa thabata al-ajr in sha Allah" \u2014 meaning the thirst has gone, the veins are moistened, and the reward is confirmed, if Allah wills. Say it each time you break your fast until it becomes second nature.` },
         { title: 'Study what the Prophet (SAW) ate for suhoor and iftar', done: false,
           tier: 'T3',
           amanahRationale: 'While the provided text explicitly recounts the revelation permitting eating and drinking during the night of fasting, it provides neither explicit proof nor contextual indication regarding the specific foods the Prophet ate for suhoor and iftar, such as dates or water.',

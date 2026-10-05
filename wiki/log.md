@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-05] fix | MILOS — task-order audit pass 2: dead `transition:` matchers revived, three steps moved, Sunan al-Nawm retired
+
+Operator: *"lets implement the restructure"*, clarified by selection as **fix the other audit findings** (R4 excluded). Choices made by selection: fold sleep sunnah into Core; tag the Friday task for Istijabah; apply the tag-matching fix, the iftar move and the soil reorder. Decision: [[2026-10-05-milos-task-order-audit-pass-2]]. **Amanah gate:** positive. Existing grounded guidance is reordered and de-duplicated; no fiqh authored.
+
+- **The two fallback nodes shared one root cause:** matchers naming routing tags were tested against titles only. The narrow fix (tags against `transition:` matchers only) was chosen over a broad one after simulating both across every node.
+- **Triage:** 5 of 14 findings fixed and 9 dismissed with reasons, recorded in `stages/implement-task-order-audit-pass-2-review.md`.
+- **Migration** `seed_order_audit_v2`: generic `moveSeedSubtask` (taken from the Duha one-shot) plus `pruneRemovedSeedTasks` plus `alignSubtaskOrder(allowDone)`. The generated `prayer_isha_after` copy is aligned too.
+- **Verified:** `npm test` 335/335, lint and build green. Live screenshots of Taraweeh and Istijabah used a faked Friday-in-Ramadan clock and a cached Hijri date, because the prayer-times API is unreachable from the sandbox. The migration was run on old-layout stored boards.
+- **Pages touched:** wiki/decisions/2026-10-05-milos-task-order-audit-pass-2.md (new), wiki/index.md, wiki/log.md.
+
 ## [2026-10-05] fix | MILOS — Duha's beginner steps move down to Growth; system-wide ordering audit filed
 
 Operator flagged the Duha node order (1.1 pray 5 days, 1.2 intention, 2.1 learn the time window) and asked for a plan plus a check of the rest of the system. Choices made by selection: **restructure levels**, audit **nodes plus every pillar board**, **report first, fix later**. Decision: [[2026-10-05-milos-duha-level-restructure]]. **Amanah gate:** positive. This reorders existing grounded guidance so the time window is learned before the prayer is attempted; no fiqh authored, no revelation text altered.

@@ -14,6 +14,7 @@ const ORDER_V2_FLAG = 'seed_subtask_order_v2';
 const RENAME_FLAG = 'seed_subtask_rename_v1';
 const ORDER_V3_FLAG = 'seed_subtask_order_v3';
 const DUHA_FLAG = 'seed_duha_restructure_v1';
+const AUDIT_V2_FLAG = 'seed_order_audit_v2';
 
 // Tasks deleted from the seed files on 2026-07-27 as duplicates of a sibling on
 // the same board. Titles are byte-for-byte copies taken from the seed file
@@ -201,6 +202,78 @@ export const DUHA_GROWTH_ORDER = {
     'Anchor Duha to a fixed time block in your daily schedule',
     "Build toward 4 rak'at of Duha consistently",
   ],
+};
+
+// --- 2026-10-05 task-order audit, pass 2 ---
+// Fixes the findings in stages/research-task-order-audit-draft.md that survived
+// review. Titles are byte-for-byte seed strings; the drift guard in
+// src/services/__tests__/seed-order-audit-v2.test.js deep-equals every table
+// below against the seed.
+// Approval gate: stages/implement-task-order-audit-pass-2-review.md
+const RAMADAN_TASK = 'Observe Ramadan with the Prophet’s ﷺ structure';
+const PRE_SLEEP_TASK = 'Complete the prophetic pre-sleep sunnah';
+const SOIL_TASK = 'Conduct a comprehensive soil assessment — map soil types, pH, organic matter, and contamination across the entire land parcel';
+export const SUNAN_AL_NAWM_TASK = 'Sunan al-Nawm — observe the prophetic etiquette of sleep';
+
+// A prerequisite authored one level too high, or a step whose host task is
+// being retired, moves to the task it belongs on. The stored row moves by
+// reference (keeping `id` and `done`).
+export const AUDIT_V2_MOVES = [
+  {
+    subtask: "Learn the du'a for breaking the fast",
+    from: { board: 'faith_siyam_growth', task: 'Learn the Sunnah of iftar and suhoor' },
+    to: { board: 'faith_siyam_core', task: RAMADAN_TASK },
+  },
+  {
+    subtask: 'Make wudu before getting into bed',
+    from: { board: 'faith_salah_growth', task: SUNAN_AL_NAWM_TASK },
+    to: { board: 'faith_salah_core', task: PRE_SLEEP_TASK },
+  },
+];
+
+const PRE_SLEEP_ORDER = [
+  'Make wudu before getting into bed',
+  'Recite Ayat al-Kursi as you lie down to sleep',
+  'Blow into your palms with the three Quls and wipe over your body three times',
+  'Recite Surah al-Mulk before sleep',
+  'Sleep on your right side, hand under cheek, facing qibla',
+  "Make 'Bismika Allahumma amutu wa ahya' your final words",
+];
+
+export const AUDIT_V2_ORDER = {
+  faith_siyam_core: {
+    [RAMADAN_TASK]: [
+      "Learn the du'a for breaking the fast",
+      'Make the iftar duʻaʻ at the moment of breaking the fast',
+      'Stand the night with taraweeh in faith and seeking reward',
+      'Seek Laylat al-Qadr in the last ten nights with the Prophet’s ﷺ duʻaʻ',
+    ],
+  },
+  // The pre-sleep task carries prayer-phase:after + transition:pre-sleep, so
+  // classifyTask() also copies it onto prayer_isha_after. Both copies are listed
+  // so the two surfaces cannot disagree; the generated copy gets a fresh wudu
+  // row from alignSubtaskOrder (the moved row can only land on one board).
+  faith_salah_core: { [PRE_SLEEP_TASK]: PRE_SLEEP_ORDER },
+  prayer_isha_after: { [PRE_SLEEP_TASK]: PRE_SLEEP_ORDER },
+  // Desk study before fieldwork: the land's history says where to test for
+  // contaminants, so it precedes walking the boundary and sampling.
+  'ummah_moontrance-land_core': {
+    [SOIL_TASK]: [
+      'Research the land history — previous use, chemical applications, and indigenous vegetation',
+      'Walk the full land boundary and mark distinct soil zones by colour, texture, and drainage',
+      'Collect soil samples from each zone and send for laboratory analysis of pH, nutrients, and contaminants',
+      'Create a soil restoration plan with organic amendments, cover crops, and a phased timeline',
+      'Establish soil health monitoring stations and schedule quarterly testing',
+    ],
+  },
+};
+
+// Sunan al-Nawm repeated the Core pre-sleep task's Ayat al-Kursi, al-Mulk and
+// right-side steps (and asked for less: al-Mulk on 4 nights). Its one unique
+// step (wudu) moves to Core above; the task itself is retired. A copy carrying
+// the operator's progress is kept, never deleted (pruneRemovedSeedTasks).
+export const RETIRED_SEED_TASKS_V2 = {
+  faith_salah_growth: [SUNAN_AL_NAWM_TASK],
 };
 
 function read(key) {
@@ -578,6 +651,120 @@ export function restructureDuhaSeedSubtasks() {
   }
 }
 
+// Move one stored subtask row between tasks on two boards. Pure: returns the
+// same array references when nothing changes. Generalises the Duha rules:
+// - the row travels by reference (`id`, `done`, snooze untouched);
+// - a row already on the target under the same title absorbs it (done if
+//   either was done) instead of duplicating;
+// - with no stored target task, an untouched row is dropped (the target's seed
+//   delivers a fresh one when that board is seeded) and a done row stays put.
+// The target is NOT re-ordered here; the caller aligns it afterwards.
+export function moveSeedSubtask(fromTasks, toTasks, move) {
+  const report = { moved: false, merged: false, dropped: false, keptDone: false };
+  const fTasks = Array.isArray(fromTasks) ? fromTasks : [];
+  const tTasks = Array.isArray(toTasks) ? toTasks : [];
+  const fIdx = fTasks.findIndex((t) => t?.title === move.from.task);
+  if (fIdx === -1) return { fromNext: fromTasks, toNext: toTasks, report };
+  const fSubs = Array.isArray(fTasks[fIdx].subtasks) ? fTasks[fIdx].subtasks : [];
+  const sIdx = fSubs.findIndex((st) => st?.title === move.subtask);
+  if (sIdx === -1) return { fromNext: fromTasks, toNext: toTasks, report };
+  const row = fSubs[sIdx];
+  const tIdx = tTasks.findIndex((t) => t?.title === move.to.task);
+
+  if (tIdx === -1 && row.done === true) {
+    report.keptDone = true;
+    return { fromNext: fromTasks, toNext: toTasks, report };
+  }
+  const fromNext = fTasks.map((t, i) => (i === fIdx
+    ? { ...t, subtasks: fSubs.filter((_, j) => j !== sIdx) }
+    : t));
+  if (tIdx === -1) {
+    report.dropped = true;
+    return { fromNext, toNext: toTasks, report };
+  }
+  const tSubs = Array.isArray(tTasks[tIdx].subtasks) ? tTasks[tIdx].subtasks : [];
+  const existing = tSubs.findIndex((st) => st?.title === move.subtask);
+  let nextSubs;
+  if (existing === -1) {
+    nextSubs = [...tSubs, row];
+    report.moved = true;
+  } else {
+    report.merged = true;
+    nextSubs = row.done === true && tSubs[existing].done !== true
+      ? tSubs.map((st, i) => (i === existing ? { ...st, done: true } : st))
+      : tSubs;
+  }
+  const toNext = nextSubs === tSubs ? toTasks : tTasks.map((t, i) => (i === tIdx ? { ...t, subtasks: nextSubs } : t));
+  return { fromNext, toNext, report };
+}
+
+// Pure core of the pass-2 migration over a { boardId: tasks } map. Returns only
+// the boards that changed. Order matters: moves first (so a retired task has
+// already handed over its wudu row and its `done`), then retirements, then the
+// curated re-order (which creates any row a board still lacks).
+export function seedOrderAuditV2(boards) {
+  const state = { ...boards };
+  const changed = new Set();
+  const report = { moved: [], retired: [], keptRetired: [], keptDone: [], aligned: [] };
+  const set = (b, next) => { if (next !== state[b]) { state[b] = next; changed.add(b); } };
+
+  for (const move of AUDIT_V2_MOVES) {
+    const { fromNext, toNext, report: r } = moveSeedSubtask(state[move.from.board], state[move.to.board], move);
+    set(move.from.board, fromNext);
+    set(move.to.board, toNext);
+    if (r.moved || r.merged) report.moved.push(move.subtask);
+    if (r.keptDone) report.keptDone.push(move.subtask);
+  }
+  for (const [boardId, titles] of Object.entries(RETIRED_SEED_TASKS_V2)) {
+    if (!Array.isArray(state[boardId])) continue;
+    const { next, removed, kept } = pruneRemovedSeedTasks(state[boardId], titles, boardId);
+    set(boardId, next);
+    report.retired.push(...removed);
+    report.keptRetired.push(...kept);
+  }
+  for (const [boardId, orderTable] of Object.entries(AUDIT_V2_ORDER)) {
+    if (!Array.isArray(state[boardId]) || state[boardId].length === 0) continue;
+    const { next, aligned } = alignSubtaskOrder(state[boardId], orderTable, { allowDone: true });
+    set(boardId, next);
+    report.aligned.push(...aligned);
+  }
+  return { next: Object.fromEntries([...changed].map((b) => [b, state[b]])), report };
+}
+
+// Every board the pass-2 migration may touch.
+export function seedOrderAuditV2Boards() {
+  return [...new Set([
+    ...AUDIT_V2_MOVES.flatMap((m) => [m.from.board, m.to.board]),
+    ...Object.keys(RETIRED_SEED_TASKS_V2),
+    ...Object.keys(AUDIT_V2_ORDER),
+  ])];
+}
+
+// One-shot pass-2 migration. Runs after the Duha restructure, before mount, so
+// the boot backfill finds moved rows already in place instead of appending them.
+// Approval gate: stages/implement-task-order-audit-pass-2-review.md
+export function applySeedOrderAuditV2() {
+  if (localStorage.getItem(PREFIX + AUDIT_V2_FLAG) === '1') return;
+  const boards = {};
+  for (const b of seedOrderAuditV2Boards()) {
+    const tasks = read(`tasks_${b}`);
+    if (Array.isArray(tasks)) boards[b] = tasks;
+  }
+  const { next, report } = seedOrderAuditV2(boards);
+  for (const [b, tasks] of Object.entries(next)) write(`tasks_${b}`, tasks);
+  localStorage.setItem(PREFIX + AUDIT_V2_FLAG, '1');
+  if (Object.keys(next).length) {
+    console.info(`[bbiz] Task-order fixes: ${Object.keys(next).length} board(s) updated.`);
+  }
+  const kept = [...report.keptRetired, ...report.keptDone];
+  if (kept.length) {
+    console.info(
+      `[bbiz] Task-order fixes: kept ${kept.map((t) => `"${t}"`).join(', ')} because it carries your progress — ` +
+      'delete it by hand if you no longer want it.'
+    );
+  }
+}
+
 export function runMigrations() {
   // Title repair first — before the SCHEMA_VERSION guard below returns early
   // for already-migrated users, and before React mounts / any hydration reads.
@@ -603,6 +790,9 @@ export function runMigrations() {
   // Then the 2026-10-05 Duha restructure: moves "Learn the time window" from the
   // Excellence task to the head of the Growth task and retires the 3×/week step.
   restructureDuhaSeedSubtasks();
+  // Then pass 2 of the task-order audit: iftar du'a and pre-sleep wudu move down
+  // to Core, Sunan al-Nawm retires, the soil assessment starts with desk study.
+  applySeedOrderAuditV2();
 
   const version = localStorage.getItem(PREFIX + 'schema_version');
   if (version === SCHEMA_VERSION) return; // already migrated

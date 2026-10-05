@@ -18,11 +18,11 @@ Trigger: the Duha node showed "Pray 2 rak'at of Duha at least 5 days this week" 
 
 | Rule | Meaning | High | Medium | Low | Total |
 |---|---|---|---|---|---|
-| R1 | Learning step after practice | 0 | 6 | 4 | 10 |
+| R1 | Learning step after practice | 0 | 5 | 4 | 9 |
 | R2 | Level regression (higher level asks for less) | 0 | 0 | 0 | 0 |
-| R3 | Near-duplicate across tasks | 1 | 1 | 0 | 2 |
-| R4 | Node order contradicts curated seq | 0 | 28 | 0 | 28 |
-| R5 | Node falls back to whole scope | 2 | 0 | 0 | 2 |
+| R3 | Near-duplicate across tasks | 0 | 0 | 0 | 0 |
+| R4 | Node order contradicts curated seq | 0 | 13 | 0 | 13 |
+| R5 | Node falls back to whole scope | 0 | 0 | 0 | 0 |
 
 Boards scanned: 111 (93 pillar, 18 prayer). Non-prayer Prophetic Path nodes: 16.
 
@@ -38,51 +38,32 @@ Boards scanned: 111 (93 pillar, 18 prayer). Non-prayer Prophetic Path nodes: 16.
 
 ## Findings by pillar
 
-### prophetic-path (30)
+### prophetic-path (13)
 
 | # | Rule | Conf. | Scope | Where | Finding | Suggested correction |
 |---|---|---|---|---|---|---|
-| 1 | R5 | high | node | node `isha-taraweeh` | No task title matches the node's content matchers — the node falls back to all 45 tasks in faith-salah, faith-siyam. | Add matchers or tags for this node, or tag the intended tasks. |
-| 2 | R5 | high | node | node `istijabah-hour` | No task title matches the node's content matchers — the node falls back to all 43 tasks in faith-salah, faith-shahada. | Add matchers or tags for this node, or tag the intended tasks. |
-| 3 | R4 | medium | node | node `isha-taraweeh` · `faith_salah_core` | Shows "Establish all five daily prayers on time consistently" (seq 1) before "Learn the correct method of wudu with all fard and sunnah acts" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 4 | R4 | medium | node | node `isha-taraweeh` · `faith_siyam_core` | Shows "Make up any missed Ramadan fasts from previous years" (seq 3) before "Understand the conditions that break the fast vs. those that do not" (seq 1) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 5 | R4 | medium | node | node `isha-taraweeh` · `faith_siyam_core` | Shows "Make up any missed Ramadan fasts from previous years" (seq 3) before "Learn the rules for making up (qada) missed fasts" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 6 | R4 | medium | node | node `istijabah-hour` · `faith_salah_core` | Shows "Establish all five daily prayers on time consistently" (seq 1) before "Learn the correct method of wudu with all fard and sunnah acts" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 7 | R4 | medium | node | node `istijabah-hour` · `faith_salah_core` | Shows "Memorise the adhkar recited in salah (Subhanaka, Tashahhud, Salawat)" (seq 3) before "Learn the conditions that invalidate salah" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 8 | R4 | medium | node | node `istijabah-hour` · `faith_salah_core` | Shows "Observe the pre-prayer sunnah before every salah (siwak, wudu, adhan response)" (seq 4) before "Learn the conditions that invalidate salah" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 9 | R4 | medium | node | node `istijabah-hour` · `faith_salah_core` | Shows "Complete the post-prayer adhkar after every salah (istighfar, tasbih, Ayat al-Kursi)" (seq 5) before "Learn the conditions that invalidate salah" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 10 | R4 | medium | node | node `istijabah-hour` · `faith_salah_core` | Shows "Pray in congregation (jama'ah) whenever possible" (seq 6) before "Learn the conditions that invalidate salah" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 11 | R4 | medium | node | node `istijabah-hour` · `faith_salah_core` | Shows "Close the morning by praying Dhuhr at its first time" (seq 7) before "Learn the conditions that invalidate salah" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 12 | R4 | medium | node | node `istijabah-hour` · `faith_salah_core` | Shows "Reclaim the day with the waking du'a and morning adhkar" (seq 8) before "Learn the conditions that invalidate salah" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 13 | R4 | medium | node | node `istijabah-hour` · `faith_salah_core` | Shows "Anchor the morning with Sayyid al-Istighfar and the daily-good du'a" (seq 9) before "Learn the conditions that invalidate salah" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 14 | R4 | medium | node | node `istijabah-hour` · `faith_salah_core` | Shows "Recite the evening adhkar between Asr and Maghrib" (seq 10) before "Learn the conditions that invalidate salah" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 15 | R4 | medium | node | node `istijabah-hour` · `faith_salah_core` | Shows "Complete the prophetic pre-sleep sunnah" (seq 11) before "Learn the conditions that invalidate salah" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 16 | R4 | medium | node | node `istijabah-hour` · `faith_salah_core` | Shows "Rise for Tahajjud with the prophetic waking protocol" (seq 12) before "Learn the conditions that invalidate salah" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 17 | R4 | medium | node | node `istijabah-hour` · `faith_salah_core` | Shows "Seal the night with the post-Witr adhkar and last-third du'a" (seq 13) before "Learn the conditions that invalidate salah" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 18 | R4 | medium | node | node `midday-labor` · `wealth_earning_core` | Shows "Audit all income sources — confirm each is free from riba, haram industries, and deception" (seq 1) before "Learn the Islamic conditions for halal earnings — avoid riba, gharar, maysir, and oppression" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 19 | R4 | medium | node | node `midday-labor` · `wealth_earning_core` | Shows "Identify and exit any employment, contract, or investment that involves haram activity" (seq 2) before "Learn the Islamic conditions for halal earnings — avoid riba, gharar, maysir, and oppression" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 20 | R4 | medium | node | node `midday-labor` · `wealth_earning_growth` | Shows "Identify and develop a high-income skill aligned with your calling and halal principles" (seq 1) before "Track your income and expenses monthly — use a simple halal-aware budgeting system" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 21 | R4 | medium | node | node `midday-labor` · `wealth_earning_growth` | Shows "Diversify income — build a second halal revenue stream (consulting, rentals, or business)" (seq 3) before "Track your income and expenses monthly — use a simple halal-aware budgeting system" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 22 | R4 | medium | node | node `midday-labor` · `wealth_earning_growth` | Shows "Diversify income — build a second halal revenue stream (consulting, rentals, or business)" (seq 3) before "Negotiate a raise or contract rate increase aligned with your market value" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 23 | R4 | medium | node | node `morning` · `faith_salah_core` | Shows "Close the morning by praying Dhuhr at its first time" (seq 7) before "Learn the conditions that invalidate salah" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 24 | R4 | medium | node | node `morning` · `faith_salah_core` | Shows "Reclaim the day with the waking du'a and morning adhkar" (seq 8) before "Learn the conditions that invalidate salah" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 25 | R4 | medium | node | node `morning` · `faith_salah_core` | Shows "Anchor the morning with Sayyid al-Istighfar and the daily-good du'a" (seq 9) before "Learn the conditions that invalidate salah" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 26 | R4 | medium | node | node `morning` · `intellect_learning_core` | Shows "Attain functional literacy in Arabic script — learn to read the Quran with tajweed" (seq 1) before "Learn the Islamic obligation to seek knowledge — study hadith "Seek knowledge from the cradle to the grave"" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 27 | R4 | medium | node | node `morning` · `intellect_learning_core` | Shows "Establish a daily reading habit — minimum 20 pages or 30 minutes" (seq 2) before "Learn the Islamic obligation to seek knowledge — study hadith "Seek knowledge from the cradle to the grave"" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 28 | R4 | medium | node | node `morning` · `intellect_learning_core` | Shows "Complete a foundational course in Islamic sciences (fiqh, aqidah, or seerah)" (seq 3) before "Learn the Islamic obligation to seek knowledge — study hadith "Seek knowledge from the cradle to the grave"" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 29 | R4 | medium | node | node `morning` · `intellect_learning_core` | Shows "Identify the core knowledge your profession or calling requires and map your gaps" (seq 4) before "Learn the Islamic obligation to seek knowledge — study hadith "Seek knowledge from the cradle to the grave"" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 30 | R4 | medium | node | node `morning` · `wealth_earning_core` | Shows "Audit all income sources — confirm each is free from riba, haram industries, and deception" (seq 1) before "Learn the Islamic conditions for halal earnings — avoid riba, gharar, maysir, and oppression" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
+| 1 | R4 | medium | node | node `midday-labor` · `wealth_earning_core` | Shows "Audit all income sources — confirm each is free from riba, haram industries, and deception" (seq 1) before "Learn the Islamic conditions for halal earnings — avoid riba, gharar, maysir, and oppression" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
+| 2 | R4 | medium | node | node `midday-labor` · `wealth_earning_core` | Shows "Identify and exit any employment, contract, or investment that involves haram activity" (seq 2) before "Learn the Islamic conditions for halal earnings — avoid riba, gharar, maysir, and oppression" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
+| 3 | R4 | medium | node | node `midday-labor` · `wealth_earning_growth` | Shows "Identify and develop a high-income skill aligned with your calling and halal principles" (seq 1) before "Track your income and expenses monthly — use a simple halal-aware budgeting system" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
+| 4 | R4 | medium | node | node `midday-labor` · `wealth_earning_growth` | Shows "Diversify income — build a second halal revenue stream (consulting, rentals, or business)" (seq 3) before "Track your income and expenses monthly — use a simple halal-aware budgeting system" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
+| 5 | R4 | medium | node | node `midday-labor` · `wealth_earning_growth` | Shows "Diversify income — build a second halal revenue stream (consulting, rentals, or business)" (seq 3) before "Negotiate a raise or contract rate increase aligned with your market value" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
+| 6 | R4 | medium | node | node `morning` · `faith_salah_core` | Shows "Close the morning by praying Dhuhr at its first time" (seq 7) before "Learn the conditions that invalidate salah" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
+| 7 | R4 | medium | node | node `morning` · `faith_salah_core` | Shows "Reclaim the day with the waking du'a and morning adhkar" (seq 8) before "Learn the conditions that invalidate salah" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
+| 8 | R4 | medium | node | node `morning` · `faith_salah_core` | Shows "Anchor the morning with Sayyid al-Istighfar and the daily-good du'a" (seq 9) before "Learn the conditions that invalidate salah" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
+| 9 | R4 | medium | node | node `morning` · `intellect_learning_core` | Shows "Attain functional literacy in Arabic script — learn to read the Quran with tajweed" (seq 1) before "Learn the Islamic obligation to seek knowledge — study hadith "Seek knowledge from the cradle to the grave"" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
+| 10 | R4 | medium | node | node `morning` · `intellect_learning_core` | Shows "Establish a daily reading habit — minimum 20 pages or 30 minutes" (seq 2) before "Learn the Islamic obligation to seek knowledge — study hadith "Seek knowledge from the cradle to the grave"" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
+| 11 | R4 | medium | node | node `morning` · `intellect_learning_core` | Shows "Complete a foundational course in Islamic sciences (fiqh, aqidah, or seerah)" (seq 3) before "Learn the Islamic obligation to seek knowledge — study hadith "Seek knowledge from the cradle to the grave"" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
+| 12 | R4 | medium | node | node `morning` · `intellect_learning_core` | Shows "Identify the core knowledge your profession or calling requires and map your gaps" (seq 4) before "Learn the Islamic obligation to seek knowledge — study hadith "Seek knowledge from the cradle to the grave"" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
+| 13 | R4 | medium | node | node `morning` · `wealth_earning_core` | Shows "Audit all income sources — confirm each is free from riba, haram industries, and deception" (seq 1) before "Learn the Islamic conditions for halal earnings — avoid riba, gharar, maysir, and oppression" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
 
-### faith (6)
+### faith (4)
 
 | # | Rule | Conf. | Scope | Where | Finding | Suggested correction |
 |---|---|---|---|---|---|---|
-| 1 | R3 | high | across levels | `faith_salah_growth` seq 7 · subtask 2 | subtask "Recite Surah al-Mulk before sleep on at least 4 nights this week" (growth) ≈ "Recite Surah al-Mulk before sleep" (core, `faith_salah_core` seq 11 · subtask 3) — overlap 80% | Merge, differentiate the higher-level version, or drop one. |
-| 2 | R1 | medium | across levels | `faith_salah_excellence` seq 2 · subtask 2 | "Study the du'a recited during Sujud al-Tilawah" (excellence) is a prerequisite-looking step placed above "Make du'a during the sujud of Tahajjud" (growth, `faith_salah_growth` seq 10 · subtask 3) | Move the learning step down to the lower level, ahead of the practice step. |
-| 3 | R1 | medium | across levels | `faith_salah_growth` seq 1 · subtask 3 | "Memorise and understand three short surahs you recite regularly" (growth) is a prerequisite-looking step placed above "Recite Surah al-Mulk before sleep" (core, `faith_salah_core` seq 11 · subtask 3) | Move the learning step down to the lower level, ahead of the practice step. |
-| 4 | R1 | medium | across levels | `faith_salah_growth` seq 4 · subtask 1 | "Learn the time window for Duha prayer" (growth) is a prerequisite-looking step placed above "Pray each salah within its earliest time window" (core, `faith_salah_core` seq 1 · subtask 4) | Move the learning step down to the lower level, ahead of the practice step. |
-| 5 | R3 | medium | across levels | `faith_siyam_growth` seq 0 · subtask 1 | subtask "Learn the du'a for breaking the fast" (growth) ≈ "Make the iftar duʻaʻ at the moment of breaking the fast" (core, `faith_siyam_core` seq 5 · subtask 1) — overlap 60% | Merge, differentiate the higher-level version, or drop one. |
-| 6 | R1 | low | within task | `faith_shahada_core` seq 0 · subtask 3 | "Study the difference between verbal declaration and lived conviction" comes after "Recite the full Shahada with correct pronunciation and meaning" (`faith_shahada_core` seq 0 · subtask 1) | Move the learning step ahead of the practice step it prepares for (or onto the earlier task/level). |
+| 1 | R1 | medium | across levels | `faith_salah_excellence` seq 2 · subtask 2 | "Study the du'a recited during Sujud al-Tilawah" (excellence) is a prerequisite-looking step placed above "Make du'a during the sujud of Tahajjud" (growth, `faith_salah_growth` seq 9 · subtask 3) | Move the learning step down to the lower level, ahead of the practice step. |
+| 2 | R1 | medium | across levels | `faith_salah_growth` seq 1 · subtask 3 | "Memorise and understand three short surahs you recite regularly" (growth) is a prerequisite-looking step placed above "Recite Surah al-Mulk before sleep" (core, `faith_salah_core` seq 11 · subtask 4) | Move the learning step down to the lower level, ahead of the practice step. |
+| 3 | R1 | medium | across levels | `faith_salah_growth` seq 4 · subtask 1 | "Learn the time window for Duha prayer" (growth) is a prerequisite-looking step placed above "Pray each salah within its earliest time window" (core, `faith_salah_core` seq 1 · subtask 4) | Move the learning step down to the lower level, ahead of the practice step. |
+| 4 | R1 | low | within task | `faith_shahada_core` seq 0 · subtask 3 | "Study the difference between verbal declaration and lived conviction" comes after "Recite the full Shahada with correct pronunciation and meaning" (`faith_shahada_core` seq 0 · subtask 1) | Move the learning step ahead of the practice step it prepares for (or onto the earlier task/level). |
 
 ### health (2)
 
@@ -103,12 +84,11 @@ Boards scanned: 111 (93 pillar, 18 prayer). Non-prayer Prophetic Path nodes: 16.
 |---|---|---|---|---|---|---|
 | 1 | R1 | medium | within task | `environment_sourcing_core` seq 3 · subtask 4 | "Learn basic clothing repair — sewing buttons, hemming, patching" comes after "Commit to a 30-day no-new-clothing challenge to reset purchasing habits" (`environment_sourcing_core` seq 3 · subtask 2) | Move the learning step ahead of the practice step it prepares for (or onto the earlier task/level). |
 
-### ummah (2)
+### ummah (1)
 
 | # | Rule | Conf. | Scope | Where | Finding | Suggested correction |
 |---|---|---|---|---|---|---|
-| 1 | R1 | medium | within task | `ummah_moontrance-land_core` seq 1 · subtask 3 | "Research the land history — previous use, chemical applications, and indigenous vegetation" comes after "Walk the full land boundary and mark distinct soil zones by colour, texture, and drainage" (`ummah_moontrance-land_core` seq 1 · subtask 1) | Move the learning step ahead of the practice step it prepares for (or onto the earlier task/level). |
-| 2 | R1 | low | within task | `ummah_community_core` seq 5 · subtask 4 | "Learn and teach the etiquettes of congregational worship" comes after "Commit to attending Jumu'ah prayer every week without exception" (`ummah_community_core` seq 5 · subtask 2) | Move the learning step ahead of the practice step it prepares for (or onto the earlier task/level). |
+| 1 | R1 | low | within task | `ummah_community_core` seq 5 · subtask 4 | "Learn and teach the etiquettes of congregational worship" comes after "Commit to attending Jumu'ah prayer every week without exception" (`ummah_community_core` seq 5 · subtask 2) | Move the learning step ahead of the practice step it prepares for (or onto the earlier task/level). |
 
 ## Appendix: node pools as shown (seed data, first 20)
 
@@ -167,8 +147,7 @@ Boards scanned: 111 (93 pillar, 18 prayer). Non-prayer Prophetic Path nodes: 16.
 1. L1 · `faith_salah_core` · Complete the post-prayer adhkar after every salah (istighfar, tasbih, Ayat al-Kursi) (high)
 2. L1 · `faith_salah_core` · Complete the prophetic pre-sleep sunnah (high)
 3. L1 · `health_physical_core` · Establish a consistent sleep schedule of 7–8 hours aligned with Fajr (high)
-4. L2 · `faith_salah_growth` · Sunan al-Nawm — observe the prophetic etiquette of sleep (high)
-5. L2 · `faith_salah_growth` · Sleep with niyyah to rise for tahajjud (high)
+4. L2 · `faith_salah_growth` · Sleep with niyyah to rise for tahajjud (high)
 
 ### qiyam-rest
 
@@ -216,35 +195,18 @@ Boards scanned: 111 (93 pillar, 18 prayer). Non-prayer Prophetic Path nodes: 16.
 ### jumuah — no board for community, collective, people
 
 1. L1 · `faith_salah_core` · Memorise the adhkar recited in salah (Subhanaka, Tashahhud, Salawat) (high)
+2. L2 · `faith_salah_growth` · Honor the Friday Sunan — Jumuʻah is the eid of the week (high)
 
 ### maghrib-iftar
 
 1. L1 · `faith_siyam_core` · Understand the conditions that break the fast vs. those that do not (high)
-2. L2 · `faith_siyam_growth` · Learn the Sunnah of iftar and suhoor (low)
-3. L3 · `faith_siyam_excellence` · Organise a community iftar for neighbours and those in need (low)
+2. L1 · `faith_siyam_core` · Observe Ramadan with the Prophet’s ﷺ structure (high)
+3. L2 · `faith_siyam_growth` · Learn the Sunnah of iftar and suhoor (low)
+4. L3 · `faith_siyam_excellence` · Organise a community iftar for neighbours and those in need (low)
 
-### isha-taraweeh — FALLBACK · truncated 44→20
+### isha-taraweeh
 
-1. L1 · `faith_salah_core` · Establish all five daily prayers on time consistently (urgent)
-2. L1 · `faith_siyam_core` · Learn the fard requirements of Ramadan fasting (intention, abstaining, timing) (urgent)
-3. L1 · `faith_siyam_core` · Make up any missed Ramadan fasts from previous years (urgent)
-4. L1 · `faith_salah_core` · Learn the correct method of wudu with all fard and sunnah acts (high)
-5. L1 · `faith_salah_core` · Memorise the adhkar recited in salah (Subhanaka, Tashahhud, Salawat) (high)
-6. L1 · `faith_salah_core` · Observe the pre-prayer sunnah before every salah (siwak, wudu, adhan response) (high)
-7. L1 · `faith_salah_core` · Complete the post-prayer adhkar after every salah (istighfar, tasbih, Ayat al-Kursi) (high)
-8. L1 · `faith_salah_core` · Pray in congregation (jama'ah) whenever possible (high)
-9. L1 · `faith_salah_core` · Close the morning by praying Dhuhr at its first time (high)
-10. L1 · `faith_salah_core` · Reclaim the day with the waking du'a and morning adhkar (high)
-11. L1 · `faith_salah_core` · Anchor the morning with Sayyid al-Istighfar and the daily-good du'a (high)
-12. L1 · `faith_salah_core` · Recite the evening adhkar between Asr and Maghrib (high)
-13. L1 · `faith_salah_core` · Complete the prophetic pre-sleep sunnah (high)
-14. L1 · `faith_salah_core` · Rise for Tahajjud with the prophetic waking protocol (high)
-15. L1 · `faith_salah_core` · Seal the night with the post-Witr adhkar and last-third du'a (high)
-16. L1 · `faith_siyam_core` · Understand the conditions that break the fast vs. those that do not (high)
-17. L1 · `faith_siyam_core` · Learn the rules for making up (qada) missed fasts (high)
-18. L1 · `faith_siyam_core` · Take suhur — the pre-dawn meal of barakah (high)
-19. L1 · `faith_siyam_core` · Observe Ramadan with the Prophet’s ﷺ structure (high)
-20. L1 · `faith_siyam_core` · Keep the Sunan of ʻĪd al-Fitr (high)
+1. L1 · `faith_siyam_core` · Observe Ramadan with the Prophet’s ﷺ structure (high)
 
 ### traveler-departure
 
@@ -256,36 +218,18 @@ Boards scanned: 111 (93 pillar, 18 prayer). Non-prayer Prophetic Path nodes: 16.
 2. L1 · `family_home_core` · Establish the home as a place of prayer — designate a clean prayer space with qibla direction (urgent)
 3. L1 · `family_home_core` · Ensure the home is clean, organised, and maintained as a dignified space (high)
 4. L1 · `family_home_core` · Begin and end each day in the home with Islamic adhkar — morning/evening supplications (high)
-5. L2 · `family_home_growth` · Curate the home aesthetic — add calligraphy, remove distracting decor, create a peaceful atmosphere (medium)
-6. L2 · `family_home_growth` · Create a dedicated home learning space — books, Quran, and educational resources accessible to all (medium)
-7. L3 · `family_home_excellence` · Document a "Home Charter" — written values, routines, and vision for what your household stands for (low)
-8. L3 · `family_home_excellence` · Design a home environment intentionally — every room serves a purposeful, value-aligned function (low)
-9. L3 · `family_home_excellence` · Transform the home into a community hub — regular halaqah, iftar gatherings, or skills workshops (low)
+5. L2 · `faith_salah_growth` · Travel with the Prophet’s ﷺ structure (high)
+6. L2 · `family_home_growth` · Curate the home aesthetic — add calligraphy, remove distracting decor, create a peaceful atmosphere (medium)
+7. L2 · `family_home_growth` · Create a dedicated home learning space — books, Quran, and educational resources accessible to all (medium)
+8. L3 · `family_home_excellence` · Document a "Home Charter" — written values, routines, and vision for what your household stands for (low)
+9. L3 · `family_home_excellence` · Design a home environment intentionally — every room serves a purposeful, value-aligned function (low)
+10. L3 · `family_home_excellence` · Transform the home into a community hub — regular halaqah, iftar gatherings, or skills workshops (low)
 
 ### eid-prayer
 
 1. L2 · `faith_salah_growth` · Honor the Friday Sunan — Jumuʻah is the eid of the week (high)
 
-### istijabah-hour — FALLBACK · truncated 42→20
+### istijabah-hour
 
-1. L1 · `faith_shahada_core` · Testify there is no God but Allah (urgent)
-2. L1 · `faith_shahada_core` · Study the meaning and conditions of La ilaha illAllah (urgent)
-3. L1 · `faith_shahada_core` · Identify and eliminate any practices that contradict Tawhid (urgent)
-4. L1 · `faith_salah_core` · Establish all five daily prayers on time consistently (urgent)
-5. L1 · `faith_shahada_core` · Learn the seven conditions of the Shahada (Ilm, Yaqin, Qabul, Inqiyad, Sidq, Ikhlas, Muhabbah) (high)
-6. L1 · `faith_shahada_core` · Study the six pillars of Iman (high)
-7. L1 · `faith_salah_core` · Learn the correct method of wudu with all fard and sunnah acts (high)
-8. L1 · `faith_salah_core` · Memorise the adhkar recited in salah (Subhanaka, Tashahhud, Salawat) (high)
-9. L1 · `faith_salah_core` · Observe the pre-prayer sunnah before every salah (siwak, wudu, adhan response) (high)
-10. L1 · `faith_salah_core` · Complete the post-prayer adhkar after every salah (istighfar, tasbih, Ayat al-Kursi) (high)
-11. L1 · `faith_salah_core` · Pray in congregation (jama'ah) whenever possible (high)
-12. L1 · `faith_salah_core` · Close the morning by praying Dhuhr at its first time (high)
-13. L1 · `faith_salah_core` · Reclaim the day with the waking du'a and morning adhkar (high)
-14. L1 · `faith_salah_core` · Anchor the morning with Sayyid al-Istighfar and the daily-good du'a (high)
-15. L1 · `faith_salah_core` · Recite the evening adhkar between Asr and Maghrib (high)
-16. L1 · `faith_salah_core` · Complete the prophetic pre-sleep sunnah (high)
-17. L1 · `faith_salah_core` · Rise for Tahajjud with the prophetic waking protocol (high)
-18. L1 · `faith_salah_core` · Seal the night with the post-Witr adhkar and last-third du'a (high)
-19. L1 · `faith_shahada_core` · Memorise the hadith of Jibril (Sahih Muslim 8) on Islam, Iman, and Ihsan (medium)
-20. L1 · `faith_salah_core` · Learn the conditions that invalidate salah (medium)
+1. L2 · `faith_salah_growth` · Honor the Friday Sunan — Jumuʻah is the eid of the week (high)
 

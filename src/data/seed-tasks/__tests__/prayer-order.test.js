@@ -19,6 +19,7 @@ import {
   REORDERED_SUBTASK_ORDER,
   REORDERED_SUBTASK_ORDER_V3,
   SEED_SUBTASK_RENAMES,
+  RETIRED_SEED_TASKS_V2,
 } from '../../../services/migration';
 import { FAITH_SEED_TASKS } from '../faith-seed-tasks';
 
@@ -97,6 +98,12 @@ describe('prayer board order (generated)', () => {
   // boards as well as generated ones, because both tasks render on two surfaces
   // and the 2026-08 table covered only the prayer_* copy. Resolve across both.
   const boardTasks = (boardId) => PRAYER_SEED_TASKS[boardId] || FAITH_SEED_TASKS[boardId];
+  // A task retired from the seed later (2026-10-05: Sunan al-Nawm) keeps its old
+  // table entries — those one-shots already ran for most operators and are
+  // harmless for the rest, since the retirement runs after them. For such a
+  // task the guard flips: it must be GONE from the seed, or the retirement
+  // migration would be deleting a live task.
+  const isRetired = (boardId, taskTitle) => (RETIRED_SEED_TASKS_V2[boardId] || []).includes(taskTitle);
 
   describe('REORDERED_SUBTASK_ORDER_V3 drift guard', () => {
     for (const [boardId, orderTable] of Object.entries(REORDERED_SUBTASK_ORDER_V3)) {
@@ -105,6 +112,10 @@ describe('prayer board order (generated)', () => {
           const tasks = boardTasks(boardId);
           expect(tasks, `${boardId} is neither a generated nor a faith seed board`).toBeDefined();
           const task = tasks.find((t) => t.title === taskTitle);
+          if (isRetired(boardId, taskTitle)) {
+            expect(task, 'retired task is still in the seed').toBeUndefined();
+            return;
+          }
           expect(task, 'task title in the migration table no longer exists on this board').toBeDefined();
           expect(task.subtasks.map((s) => s.title)).toEqual(order);
         });
@@ -123,6 +134,10 @@ describe('prayer board order (generated)', () => {
             const tasks = boardTasks(boardId);
             expect(tasks, `${boardId} is neither a generated nor a faith seed board`).toBeDefined();
             const task = tasks.find((t) => t.title === taskTitle);
+            if (isRetired(boardId, taskTitle)) {
+              expect(task, 'retired task is still in the seed').toBeUndefined();
+              return;
+            }
             expect(task, 'task title in the rename table no longer exists on this board').toBeDefined();
             const subs = task.subtasks.map((s) => s.title);
             expect(subs, 'rename target missing from the seed').toContain(to);

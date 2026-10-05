@@ -11531,6 +11531,50 @@ A legacy document is the community's letter to its own future. It captures not j
       priority: 'urgent', tags: ['soil', 'khilafah-al-ard'],
       description: 'Before any planting or building can begin, you must know exactly what the soil holds and what it lacks. Allah placed us as khulafa (stewards) on this earth (Quran 2:30), and a steward who acts without knowledge of what they tend is negligent. This assessment provides the baseline truth about the land\'s condition.',
       subtasks: [
+        { title: 'Research the land history — previous use, chemical applications, and indigenous vegetation', done: false,
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 7:56",
+              arabic: "وَلَا تُفْسِدُوا فِي الْأَرْضِ بَعْدَ إِصْلَاحِهَا وَادْعُوهُ خَوْفًا وَطَمَعًا ۚ إِنَّ رَحْمَتَ اللَّهِ قَرِيبٌ مِّنَ الْمُحْسِنِينَ",
+              translation: "do not corrupt the earth after it has been set right — call on Him fearing and hoping. The mercy of God is close to those who do good.",
+              relevance: "contextual",
+              provenanceTier: "Bayyinah",
+              rationale: "researching past land corruption — contamination, chemical applications, industrial use — is the first step in fulfilling this command not to add further corruption",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 2327",
+              translation: "Narrated Rafi` bin Khadij:We worked on farms more than anybody else in Medina. We used to rent the land at the yield of specific delimited portion of it to be given to the landlord. Sometimes the vegetation of that portion was affected by blights etc., while the rest remained safe and vice versa, so the Prophet (ﷺ) forbade this practice. At that time gold or silver were not used (for renting the land). If they provided the seeds, they would get so-and-so much",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 99:4",
+              arabic: "يَوْمَئِذٍ تُحَدِّثُ أَخْبَارَهَا",
+              translation: "on that Day, it will tell all",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Verse cited inline in this subtask's description; backfilled into structured sources for SubtaskSources panel rendering.",
+            },
+          ],
+          description: `**Why?**
+
+Land carries the memory of everything done to it. Years of monoculture, herbicide application, or industrial use leave invisible legacies in the soil microbiome and chemical profile. Knowing the land's history protects you from planting into contaminated ground and honours the Islamic principle that the earth is a witness (Quran 99:4) — it will testify to what was done upon it. Understanding what came before guides what restoration must address.
+
+
+**How?**
+
+1. Visit the local council or land registry office and request historical land-use records for your parcel — these often go back decades and note agricultural, industrial, or residential use.
+2. Interview neighbours, previous owners, or long-time residents about what they remember: was it cropland, pasture, orchard, or industrial? Were chemicals sprayed regularly?
+3. Search historical aerial photographs (many councils or mapping services archive these) to see how the land changed over time.
+4. Identify the indigenous plant species that would naturally grow in your region's climate and soil type by consulting local native plant guides or the agricultural extension service.
+5. Compare indigenous species to what currently grows on the land — an abundance of certain weeds (e.g., docks, thistles) indicates compaction or nutrient imbalance.
+6. Document everything in a single "Land History" file with dates, sources, and findings.
+7. Completion indicator: a written land history document covering at least the last 30 years of use, chemical exposure, and native vegetation baseline.` },
         { title: 'Walk the full land boundary and mark distinct soil zones by colour, texture, and drainage', done: false,
           sources: [
             {
@@ -11628,50 +11672,6 @@ Your hands can tell you texture and colour, but they cannot tell you pH, nitroge
 5. Keep samples cool and deliver within 48 hours for accurate results.
 6. When results arrive, create a summary table linking each zone to its lab values.
 7. Completion indicator: a lab report for every identified soil zone, with a summary table ready for restoration planning.` },
-        { title: 'Research the land history — previous use, chemical applications, and indigenous vegetation', done: false,
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 7:56",
-              arabic: "وَلَا تُفْسِدُوا فِي الْأَرْضِ بَعْدَ إِصْلَاحِهَا وَادْعُوهُ خَوْفًا وَطَمَعًا ۚ إِنَّ رَحْمَتَ اللَّهِ قَرِيبٌ مِّنَ الْمُحْسِنِينَ",
-              translation: "do not corrupt the earth after it has been set right — call on Him fearing and hoping. The mercy of God is close to those who do good.",
-              relevance: "contextual",
-              provenanceTier: "Bayyinah",
-              rationale: "researching past land corruption — contamination, chemical applications, industrial use — is the first step in fulfilling this command not to add further corruption",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih al-Bukhari 2327",
-              translation: "Narrated Rafi` bin Khadij:We worked on farms more than anybody else in Medina. We used to rent the land at the yield of specific delimited portion of it to be given to the landlord. Sometimes the vegetation of that portion was affected by blights etc., while the rest remained safe and vice versa, so the Prophet (ﷺ) forbade this practice. At that time gold or silver were not used (for renting the land). If they provided the seeds, they would get so-and-so much",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-            {
-              kind: "quran",
-              ref: "Quran 99:4",
-              arabic: "يَوْمَئِذٍ تُحَدِّثُ أَخْبَارَهَا",
-              translation: "on that Day, it will tell all",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Verse cited inline in this subtask's description; backfilled into structured sources for SubtaskSources panel rendering.",
-            },
-          ],
-          description: `**Why?**
-
-Land carries the memory of everything done to it. Years of monoculture, herbicide application, or industrial use leave invisible legacies in the soil microbiome and chemical profile. Knowing the land's history protects you from planting into contaminated ground and honours the Islamic principle that the earth is a witness (Quran 99:4) — it will testify to what was done upon it. Understanding what came before guides what restoration must address.
-
-
-**How?**
-
-1. Visit the local council or land registry office and request historical land-use records for your parcel — these often go back decades and note agricultural, industrial, or residential use.
-2. Interview neighbours, previous owners, or long-time residents about what they remember: was it cropland, pasture, orchard, or industrial? Were chemicals sprayed regularly?
-3. Search historical aerial photographs (many councils or mapping services archive these) to see how the land changed over time.
-4. Identify the indigenous plant species that would naturally grow in your region's climate and soil type by consulting local native plant guides or the agricultural extension service.
-5. Compare indigenous species to what currently grows on the land — an abundance of certain weeds (e.g., docks, thistles) indicates compaction or nutrient imbalance.
-6. Document everything in a single "Land History" file with dates, sources, and findings.
-7. Completion indicator: a written land history document covering at least the last 30 years of use, chemical exposure, and native vegetation baseline.` },
         { title: 'Create a soil restoration plan with organic amendments, cover crops, and a phased timeline', done: false,
           sources: [
             {
