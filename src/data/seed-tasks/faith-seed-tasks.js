@@ -4883,6 +4883,58 @@ Choose one technique to practice this week: pray in a clean, quiet space away fr
       priority: "high", tags: ["salah", "sunnah", "transition:duha"],
       description: "Salat ad-Duha is the prophetic morning prayer offered after the sun has fully risen. The Prophet (SAW) taught that two rak'at of Duha discharge a sadaqah owed by every joint in the body, making it the most efficient daily voluntary act of worship for the body Allah has entrusted to you.",
       subtasks: [
+        { title: 'Learn the time window for Duha prayer', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly detail the exact minute-by-minute boundaries of the prayer window, they provide a clear logical inference for the subtask by linking the Duha prayer to the "morning brightness" and "forenoon" while explicitly forbidding prayer exactly at sunrise.',
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 93:1-2",
+              arabic: "وَالضُّحَىٰ ۝ وَاللَّيْلِ إِذَا سَجَىٰ",
+              translation: "By the morning brightness, and by the night when it grows still.\" (Abdel Haleem)",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 1191",
+              translation: "Narrated Nafi`:Ibn `Umar never offered the Duha prayer except on two occasions: (1) Whenever he reached Mecca; and he always used to reach Mecca in the forenoon. He would perform Tawaf round the Ka`ba and then offer two rak`at at the rear of Maqam Ibrahim. (2) Whenever he visited Quba, for he used to visit it every Saturday. When he entered the Mosque, he disliked to leave it without offering a prayer. Ibn `Umar narrated that Allah's Messenger (ﷺ) used to visit the Mosque of Quba (sometime) walking and (sometime) riding. And he (i.e. Ibn `Umar) used to say, \"I do only what my companions used to do and I don't forbid anybody to pray at any time during the day or night except that one should not intend to pray at sunrise or sunset",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
+          description: `**Why?**
+
+Knowing the exact time window prevents you from accidentally praying outside it (which would not count as Duha) or missing it altogether because you thought the window had passed. The Duha window is wider than most people realise.
+
+
+**How?**
+
+Duha begins approximately 15-20 minutes after sunrise and extends until shortly before Dhuhr. The preferred time is when the sun's heat intensifies (roughly mid-morning). Check your prayer app for sunrise time and add 20 minutes. Set a reminder in that window for your first week of practice.` },
+        { title: "Set the intention before each Duha as sadaqah for every joint", done: false,
+          tier: "T2",
+          amanahRationale: "The cited hadith ties the act of Duha specifically to the daily sadaqah owed by the joints; naming this intention before salah is direct application of the hadith's framing.",
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 720",
+              translation: "The Prophet (SAW) said: \"...and two rak'ahs which one prays in the forenoon will suffice.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "The hadith names the function of these two rak'ahs explicitly — making the intention conscious aligns the heart with what the body is doing.",
+            },
+          ],
+          description: `**Why?**
+
+Niyyah is the difference between a routine and an act of worship. Without the conscious framing, two rak'at of Duha can become a habit you sleepwalk through. Naming the intention transforms each Duha into an active act of gratitude on behalf of every limb Allah lends you.
+
+**How?**
+
+Before saying Allahu Akbar, pause and silently say: "Ya Allah, I pray these two rak'at as sadaqah for every bone and joint You have given me — accept them from me." Keep the formula simple so it survives sleepiness. Practise for one full week before moving on.` },
         { title: "Pray 2 rak'at of Duha at least 5 days this week", done: false,
           tier: "T1",
           amanahRationale: "Sahih Muslim explicitly fixes two rak'ahs of Duha as the sufficient discharge of the sadaqah owed by every joint, providing direct prophetic proof for the core establishment subtask.",
@@ -4917,51 +4969,6 @@ Two rak'at of Duha is not extra credit — it is the prophetic minimum that sati
 3. When the alarm fires, make wudu if needed and pray two short rak'at with any short surahs after Al-Fatihah.
 4. Track completion daily for one week. Aim for 5 of 7 days.
 5. Benchmark: complete when you hit 5+ days for two consecutive weeks without external reminder.` },
-        { title: "Set the intention before each Duha as sadaqah for every joint", done: false,
-          tier: "T2",
-          amanahRationale: "The cited hadith ties the act of Duha specifically to the daily sadaqah owed by the joints; naming this intention before salah is direct application of the hadith's framing.",
-          sources: [
-            {
-              kind: "hadith",
-              ref: "Sahih Muslim 720",
-              translation: "The Prophet (SAW) said: \"...and two rak'ahs which one prays in the forenoon will suffice.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "The hadith names the function of these two rak'ahs explicitly — making the intention conscious aligns the heart with what the body is doing.",
-            },
-          ],
-          description: `**Why?**
-
-Niyyah is the difference between a routine and an act of worship. Without the conscious framing, two rak'at of Duha can become a habit you sleepwalk through. Naming the intention transforms each Duha into an active act of gratitude on behalf of every limb Allah lends you.
-
-**How?**
-
-Before saying Allahu Akbar, pause and silently say: "Ya Allah, I pray these two rak'at as sadaqah for every bone and joint You have given me — accept them from me." Keep the formula simple so it survives sleepiness. Practise for one full week before moving on.` },
-        { title: "Build toward 4 rak'at of Duha consistently", done: false,
-          tier: "T2",
-          amanahRationale: "The cited hadith from Jami at-Tirmidhi explicitly promises that whoever prays four rak'ahs in the forenoon, Allah will suffice him in the rest of his day — direct prophetic proof for the intermediate-tier ramp.",
-          sources: [
-            {
-              kind: "hadith",
-              ref: "Jami at-Tirmidhi 475",
-              translation: "Abu Darda and Abu Dharr (RA) reported the Messenger of Allah (SAW) as saying: \"Allah, the Mighty and Magnificent, says: O son of Adam, perform four rak'ahs for Me in the early part of the day; I shall suffice you for the rest of it.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Promise of divine sufficiency for the day attached specifically to four rak'ahs of Duha — the operative reason for the four-rak'at ramp.",
-            },
-          ],
-          description: `**Why?**
-
-The Prophet (SAW) reported a divine promise: four rak'at of Duha buys Allah's sufficiency for the rest of your day. Two rak'at discharges the sadaqah of joints; four rak'at adds barakah over the entire workday that follows.
-
-**How?**
-
-1. Once 2 rak'at is steady (5+ days/week for two weeks), begin praying 4 rak'at — two sets of two with a salam, or four continuous depending on your school's preference.
-2. Recite slightly longer surahs in the second pair to differentiate it from the obligatory.
-3. If the longer block causes you to skip altogether, drop back to 2 rak'at and rebuild.
-4. Benchmark: 4 rak'at on 4 of 7 days for two consecutive weeks.` },
         { title: "Anchor Duha to a fixed time block in your daily schedule", done: false,
           tier: "T2",
           amanahRationale: "The cited Quranic ayat establish the morning hours as a sanctified window; selecting a fixed time within that window is contextual application aimed at consistency.",
@@ -4995,6 +5002,30 @@ Time-anchored habits stick; floating intentions do not. The Duha window is rough
 2. Place a visible cue at that anchor (prayer mat already laid out; phone reminder).
 3. Pray immediately at the cue — do not negotiate. The negotiation is what kills the habit.
 4. Benchmark: the cue triggers Duha automatically without internal debate for 10 of 14 consecutive days.` },
+        { title: "Build toward 4 rak'at of Duha consistently", done: false,
+          tier: "T2",
+          amanahRationale: "The cited hadith from Jami at-Tirmidhi explicitly promises that whoever prays four rak'ahs in the forenoon, Allah will suffice him in the rest of his day — direct prophetic proof for the intermediate-tier ramp.",
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Jami at-Tirmidhi 475",
+              translation: "Abu Darda and Abu Dharr (RA) reported the Messenger of Allah (SAW) as saying: \"Allah, the Mighty and Magnificent, says: O son of Adam, perform four rak'ahs for Me in the early part of the day; I shall suffice you for the rest of it.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Promise of divine sufficiency for the day attached specifically to four rak'ahs of Duha — the operative reason for the four-rak'at ramp.",
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) reported a divine promise: four rak'at of Duha buys Allah's sufficiency for the rest of your day. Two rak'at discharges the sadaqah of joints; four rak'at adds barakah over the entire workday that follows.
+
+**How?**
+
+1. Once 2 rak'at is steady (5+ days/week for two weeks), begin praying 4 rak'at — two sets of two with a salam, or four continuous depending on your school's preference.
+2. Recite slightly longer surahs in the second pair to differentiate it from the obligatory.
+3. If the longer block causes you to skip altogether, drop back to 2 rak'at and rebuild.
+4. Benchmark: 4 rak'at on 4 of 7 days for two consecutive weeks.` },
       ],
     },
     {
@@ -5734,82 +5765,11 @@ The arrival du\u02bba\u02bb names what the journey was for — repentance, worsh
       seq: 1,
       title: 'Pray Duha prayer regularly',
       priority: 'medium', tags: ['salah', 'sunnah', 'prayer-phase:main'],
-      description: 'Duha prayer (after sunrise until before Dhuhr) is a charity for every joint in the body. Start with 2 rak\'at and build up.',
+      description: 'Duha prayer (after sunrise until before Dhuhr) is a charity for every joint in the body. Building on the Growth habit of 5 days a week, make it a daily, unbroken practice.',
       subtasks: [
-        { title: 'Learn the time window for Duha prayer', done: false,
-          tier: 'T2',
-          amanahRationale: 'While the provided texts do not explicitly detail the exact minute-by-minute boundaries of the prayer window, they provide a clear logical inference for the subtask by linking the Duha prayer to the "morning brightness" and "forenoon" while explicitly forbidding prayer exactly at sunrise.',
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 93:1-2",
-              arabic: "وَالضُّحَىٰ ۝ وَاللَّيْلِ إِذَا سَجَىٰ",
-              translation: "By the morning brightness, and by the night when it grows still.\" (Abdel Haleem)",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih al-Bukhari 1191",
-              translation: "Narrated Nafi`:Ibn `Umar never offered the Duha prayer except on two occasions: (1) Whenever he reached Mecca; and he always used to reach Mecca in the forenoon. He would perform Tawaf round the Ka`ba and then offer two rak`at at the rear of Maqam Ibrahim. (2) Whenever he visited Quba, for he used to visit it every Saturday. When he entered the Mosque, he disliked to leave it without offering a prayer. Ibn `Umar narrated that Allah's Messenger (ﷺ) used to visit the Mosque of Quba (sometime) walking and (sometime) riding. And he (i.e. Ibn `Umar) used to say, \"I do only what my companions used to do and I don't forbid anybody to pray at any time during the day or night except that one should not intend to pray at sunrise or sunset",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-Knowing the exact time window prevents you from accidentally praying outside it (which would not count as Duha) or missing it altogether because you thought the window had passed. The Duha window is wider than most people realise.
-
-
-**How?**
-
-Duha begins approximately 15-20 minutes after sunrise and extends until shortly before Dhuhr. The preferred time is when the sun's heat intensifies (roughly mid-morning). Check your prayer app for sunrise time and add 20 minutes. Set a reminder in that window for your first week of practice.` },
-        { title: 'Pray Duha at least 3 times this week', done: false,
-          tier: 'T2',
-          amanahRationale: 'The Prophet directly and explicitly instructed Abu Hurayrah to pray two rak\'at of Duha as one of three lifelong observances (Sahih al-Bukhari), and Salat al-Duha is established as sufficing for the charity due on every joint of the body each morning (Sahih Muslim) — direct sahih proof of the legitimacy and virtue of the act. The "at least 3 times this week" cadence is a practical starter inference the texts do not fix, hence T2 (act directly proven; weekly cadence is the inference). Upgraded from T3 and replaces the 2026-04-25 migration artifact (Bukhari 1775/1776, byte-identical, in which Ibn ʿUmar calls Duha a bidʿah with a ʿUmra-count tangent) which was duplicated and counter-productive as evidence.',
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 93:1-2",
-              arabic: "وَالضُّحَىٰ ۝ وَاللَّيْلِ إِذَا سَجَىٰ",
-              translation: "By the morning brightness, and by the night when it grows still.\" (Abdel Haleem)",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih al-Bukhari, Volume 3, Book 31, Hadith 202",
-              translation: "Narrated Abu Huraira: My friend (the Prophet) advised me to observe three things: (1) to fast three days a month; (2) to pray two Rakat of Duha prayer (fore-noon prayer); and (3) to pray Witr before sleeping.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "The Prophet's explicit standing advice to Abu Hurayrah to pray two rak'at of Duha — direct prophetic basis for adopting Duha as a sustained personal practice. Retrieved from the authorized Muslim Scholar corpus.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih Muslim, Book 4, Hadith 1557",
-              translation: "Abu Dharr reported Allah's Apostle (may peace be upon him) as saying: In the morning charity is due from every bone in the body of every one of you. Every utterance of Allah's glorification is an act of charity. Every utterance of praise of Him is an act of charity, every utterance of profession of His Oneness is an act of charity, every utterance of profession of His Greatness is an act of charity, enjoining good is an act of charity, forbidding what is disreputable is an act of charity, and two rak'ahs which one prays in the forenoon will suffice.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Establishes the virtue of Salat al-Duha as sufficing for the charity owed by every joint of the body each morning — the spiritual payoff that motivates praying it regularly. Retrieved from the authorized Muslim Scholar corpus.",
-            },
-          ],
-          description: `**Why?**
-
-The Prophet (SAW) advised Abu Hurayrah (RA) to never abandon Duha prayer. It serves as a charity for every joint in your body (Muslim). Starting with just three days a week makes it achievable while building toward daily practice.
-
-
-**How?**
-
-Choose three days this week and pray two rak'at of Duha during the mid-morning window. The Prophet (SAW) prayed between 2 and 8 rak'at. Start with 2 to keep it easy and build consistency. Mark the days you prayed it to track your progress.` },
         { title: 'Gradually increase to daily practice', done: false,
           tier: 'T2',
-          amanahRationale: 'While the provided texts do not explicitly prescribe a step-by-step plan to gradually build a prayer routine, they provide a clear logical inference for the subtask\'s ultimate goal of daily practice by establishing that the charitable obligation for one\'s joints is due "every day the sun rises" and can be fulfilled by the Duha prayer.',
+          amanahRationale: 'While the provided texts do not explicitly prescribe a step-by-step plan to gradually build a prayer routine, they provide a clear logical inference for the subtask\'s ultimate goal of daily practice by establishing that the charitable obligation for one\'s joints is due "every day the sun rises" and can be fulfilled by the Duha prayer. The Prophet\'s standing advice to Abu Hurayrah to keep two rak\'at of Duha (Sahih al-Bukhari) supports making it an unbroken daily practice rather than an occasional one.',
           sources: [
             {
               kind: "hadith",
@@ -5829,14 +5789,23 @@ Choose three days this week and pray two rak'at of Duha during the mid-morning w
               hadithGrade: "Sahih",
               rationale: "Prophetic narration cited as evidence for this subtask.",
             },
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari, Volume 3, Book 31, Hadith 202",
+              translation: "Narrated Abu Huraira: My friend (the Prophet) advised me to observe three things: (1) to fast three days a month; (2) to pray two Rakat of Duha prayer (fore-noon prayer); and (3) to pray Witr before sleeping.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "The Prophet's explicit standing advice to Abu Hurayrah to pray two rak'at of Duha — direct prophetic basis for adopting Duha as a sustained personal practice. Retrieved from the authorized Muslim Scholar corpus.",
+            },
           ],
           description: `**Why?**
 
-Consistency in voluntary worship is more beloved to Allah than occasional bursts of effort. Daily Duha takes only 2-3 minutes but compounds into a lifetime of reward.
+Consistency in voluntary worship is more beloved to Allah than occasional bursts of effort. The Prophet (SAW) advised Abu Hurayrah (RA) to keep two rak'at of Duha as a standing practice. Daily Duha takes only 2-3 minutes but compounds into a lifetime of reward.
 
 **How?**
 
-Once you have established Duha three times per week for at least two weeks, begin adding one additional day per week. Tie it to a daily anchor (e.g., after your morning coffee or after arriving at work). Within a month, aim for daily practice. Track your streak to maintain motivation.` },
+Once the Growth habit holds (2 rak'at on 5 or more days a week for two consecutive weeks), add the remaining days one at a time — one extra day per week. Keep the same daily anchor you set at Growth (e.g., after your morning coffee or after arriving at work). Within a month, aim for daily practice. Track your streak to maintain motivation.` },
       ],
     },
     {

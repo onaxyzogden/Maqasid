@@ -1,7 +1,7 @@
 ---
 title: "Wiki Index"
 type: index
-updated: 2026-08-19
+updated: 2026-10-05
 
 ---
 
@@ -260,6 +260,7 @@ Catalog of all wiki pages. Claude reads this first to orient at the start of eve
 
 | Page | Date | Summary |
 |---|---|---|
+| [[2026-10-05-milos-duha-level-restructure]] | 2026-10-05 | MILOS: **Duha's beginner steps move from Excellence down to Growth.** The Duha node showed "Learn the time window" after "Pray 2 rak'at … 5 days" because `buildTasksForNode` sorts by level and the learn step lived on Excellence, which also asked for *less* (3×/week) than Growth (5 days). Growth now runs learn window → intention → pray 5 days → anchor → build to 4. Excellence keeps only the daily-practice step (its unique Abu Hurayrah source carried over byte-for-byte). One-shot migration `seed_duha_restructure_v1` moves stored rows by reference; `alignSubtaskOrder` gains `{ allowDone }`. New `scripts/audit-task-order.mjs` → `stages/research-task-order-audit-draft.md` (report only, operator reviews first). Structural finding, not fixed: node pools ignore `seq` within a level (28 cases). |
 | [[2026-05-29-olos-new-spec-suite-review]] | 2026-05-29 | OLOS New Spec Suite review (27 .docx). Per-doc summaries + cross-cutting alignment audit (Pass A architectural shifts + Pass B 6-phase build sequence vs current atlas code) + critique + 12-item decisions queue. **Headline finding:** atlas is *converging*, not diverging — 8 of 14 architectural axes already shipped, 5 partial/in-flight, 2 not-started (Plan output 7-value enum, Notification subsystem). Project Home + Notification Architecture specs absent from drop; Project Home is already built so not blocking; Notification is true gap. Phase 1 of build sequence (Auth + Wizard + Plan T0–T2 + <10 min create-to-first-survey) is ~2–3 slices away. All 12 decisions ratified **Accepted 2026-05-29** (`2026-05-29-atlas-spec-*`). |
 
 ## Sources
