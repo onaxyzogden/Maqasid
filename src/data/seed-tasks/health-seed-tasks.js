@@ -5505,37 +5505,6 @@ Identify 3-5 community members who showed interest during events or training. In
       priority: 'high', tags: ['adab', 'sunnah'],
       description: ' Shall I not tell you of something that if you do it, you will love one another? Spread the salam amongst yourselves." The greeting of peace is the simplest, most powerful tool for building Muslim brotherhood.',
       subtasks: [
-        { title: "Make it a habit to initiate salam with every Muslim you encounter", done: false,
-          tier: 'T1',
-          amanahRationale: 'The provided Hadith explicitly commands believers to "spread the salam amongst yourselves," providing direct and clear proof for the core action of the subtask to habitually initiate peace greetings with fellow Muslims.',
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 28:53",
-              arabic: "وَإِذَا يُتْلَىٰ عَلَيْهِمْ قَالُوا آمَنَّا بِهِ إِنَّهُ الْحَقُّ مِن رَّبِّنَا إِنَّا كُنَّا مِن قَبْلِهِ مُسْلِمِينَ",
-              translation: "and, when it is recited to them, say, \"We believe in it, it is the truth from our Lord. Before it came we had already devoted ourselves to Him.",
-              relevance: "contextual",
-              provenanceTier: "Bayyinah",
-              rationale: "those who submit to Allah naturally express peace — initiating salam is the outward expression of inner Islam.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih Muslim 54",
-              translation: "The Prophet (SAW) said: \"You will not enter Paradise until you believe, and you will not (fully) believe until you love one another. Shall I not tell you of something which, if you do it, you will love one another? Spread the salam amongst yourselves.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-The one who initiates the greeting earns greater reward. By making salam your default, you break social barriers, soften hearts, and plant seeds of brotherhood with every encounter.
-
-
-**How?**
-
-Set a personal rule: you will be the first to say "As-salamu alaykum" in every interaction with a Muslim — at the store, the parking lot, the hallway. Do not wait for eye contact or familiarity. Track yourself for one week and notice how many new connections open up.` },
         { title: 'Learn and use the full response: "Wa alaykum as-salam wa rahmatullahi wa barakatuh"', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources explicitly command responding to a greeting with a better one and demonstrate the use of "mercy and blessings" within the context of prayer, they omit the exact everyday phrase "Wa alaykum as-salam wa rahmatullahi wa barakatuh," making the subtask to learn and use this specific full reply a logical inference to fulfill the Quranic injunction.',
@@ -5567,6 +5536,37 @@ Responding with the complete greeting maximises the reward and honours the one w
 **How?**
 
 Memorise the full response and practise it until it flows naturally. When someone gives you salam, pause for a beat and deliver the complete reply. Correct yourself out loud if you cut it short — this builds the habit quickly.` },
+        { title: "Make it a habit to initiate salam with every Muslim you encounter", done: false,
+          tier: 'T1',
+          amanahRationale: 'The provided Hadith explicitly commands believers to "spread the salam amongst yourselves," providing direct and clear proof for the core action of the subtask to habitually initiate peace greetings with fellow Muslims.',
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 28:53",
+              arabic: "وَإِذَا يُتْلَىٰ عَلَيْهِمْ قَالُوا آمَنَّا بِهِ إِنَّهُ الْحَقُّ مِن رَّبِّنَا إِنَّا كُنَّا مِن قَبْلِهِ مُسْلِمِينَ",
+              translation: "and, when it is recited to them, say, \"We believe in it, it is the truth from our Lord. Before it came we had already devoted ourselves to Him.",
+              relevance: "contextual",
+              provenanceTier: "Bayyinah",
+              rationale: "those who submit to Allah naturally express peace — initiating salam is the outward expression of inner Islam.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 54",
+              translation: "The Prophet (SAW) said: \"You will not enter Paradise until you believe, and you will not (fully) believe until you love one another. Shall I not tell you of something which, if you do it, you will love one another? Spread the salam amongst yourselves.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
+          description: `**Why?**
+
+The one who initiates the greeting earns greater reward. By making salam your default, you break social barriers, soften hearts, and plant seeds of brotherhood with every encounter.
+
+
+**How?**
+
+Set a personal rule: you will be the first to say "As-salamu alaykum" in every interaction with a Muslim — at the store, the parking lot, the hallway. Do not wait for eye contact or familiarity. Track yourself for one week and notice how many new connections open up.` },
         { title: 'Greet strangers at the mosque, workplace, and in your neighbourhood', done: false,
           tier: 'T2',
           amanahRationale: 'Although the provided sources establish the obligation to return greetings and demonstrate the practice of greeting within the mosque, they omit explicit instructions to initiate greetings with strangers in broader settings like the workplace or neighbourhood, making the subtask a practical logical inference to systematically spread peace and build community.',
