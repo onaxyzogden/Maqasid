@@ -3,6 +3,15 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-06] fix | MILOS — finishing a task's steps now completes the task on boards and dashboards
+
+Operator: *"Just marked some tasks completed in the health module but it's not appearing as so on other parts of the site."* Clarified by selection: marked in **Orientation**, all steps; still open on the **board** and **pillar/level dashboards**. Choices: "Doesn't apply" counts; catch up existing tasks once; nodes keep finished tasks ticked until tomorrow. Decision: [[2026-10-06-milos-task-completion-follows-steps]]. **Amanah gate:** neutral to positive (truthful progress).
+
+- **Root cause:** `toggleSubtask` reopened Done cards but never completed them. Boards and dashboards read `completedAt`/column; steppers read the steps.
+- **Fix:** a shared `syncTaskCompletion`; store wiring through `applySubtaskChange`; a promotion-only catch-up migration; and the `keepCompletedSince` node option.
+- **Verified:** `npm test` 365/365 (store tests fail 3/3 on `main`), lint and build green. Live: an old-state task was promoted on reload, Orientation "Mark done" moved Health tasks to Done, and the board and pillar page reflect it.
+- **Pages touched:** wiki/decisions/2026-10-06-milos-task-completion-follows-steps.md (new), wiki/index.md, wiki/log.md.
+
 ## [2026-10-06] fix | MILOS — task-order audit pass 3: three reorders, the rest waived with reasons
 
 Operator: *"Review the remaining 9 once again."* A second read of each step's How? text against the seed-order rubric moved 3 verdicts; all three were approved by selection. **Amanah gate:** positive. Existing guidance reordered; no fiqh authored.

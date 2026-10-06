@@ -1060,7 +1060,9 @@ function taskMatchesPhase(task, phaseRegexes) {
 }
 
 export function buildTasksForNode(nodeId, projects, tasksByProject, options = {}) {
-  const { limit = 8, submoduleNameById = {}, phase = null, moduleId = null } = options;
+  const {
+    limit = 8, submoduleNameById = {}, phase = null, moduleId = null, keepCompletedSince = null,
+  } = options;
   const { submodules: targetSubmodules, matchers, phaseMatchers, moduleGroups } = resolveEntry(nodeId);
   if (targetSubmodules.length === 0) return [];
 
@@ -1087,7 +1089,11 @@ export function buildTasksForNode(nodeId, projects, tasksByProject, options = {}
   for (const project of matchingProjects) {
     const tasks = tasksByProject?.[project.id] || [];
     tasks.forEach((t, index) => {
-      if (t.completedAt) return;
+      // Completed tasks leave the pool — except, when the caller passes
+      // `keepCompletedSince` (the node popup: start of today), ones finished
+      // since then, so a task completed mid-view stays as a ticked pill until
+      // tomorrow instead of vanishing under the operator.
+      if (t.completedAt && !(keepCompletedSince != null && Date.parse(t.completedAt) >= keepCompletedSince)) return;
       const row = projectTaskRow(t, project, submoduleNameById);
       row._chainKey = typeof t.seedOrder === 'number'
         ? t.seedOrder
