@@ -18,7 +18,7 @@ Trigger: the Duha node showed "Pray 2 rak'at of Duha at least 5 days this week" 
 
 | Rule | Meaning | High | Medium | Low | Total |
 |---|---|---|---|---|---|
-| R1 | Learning step after practice | 0 | 5 | 4 | 9 |
+| R1 | Learning step after practice | 0 | 0 | 0 | 0 |
 | R2 | Level regression (higher level asks for less) | 0 | 0 | 0 | 0 |
 | R3 | Near-duplicate across tasks | 0 | 0 | 0 | 0 |
 | R4 | Node order contradicts curated seq | 0 | 0 | 0 | 0 |
@@ -38,39 +38,19 @@ Boards scanned: 111 (93 pillar, 18 prayer). Non-prayer Prophetic Path nodes: 16.
 
 ## Findings by pillar
 
-### faith (4)
+## Reviewed, no change (7)
 
-| # | Rule | Conf. | Scope | Where | Finding | Suggested correction |
-|---|---|---|---|---|---|---|
-| 1 | R1 | medium | across levels | `faith_salah_excellence` seq 2 · subtask 2 | "Study the du'a recited during Sujud al-Tilawah" (excellence) is a prerequisite-looking step placed above "Make du'a during the sujud of Tahajjud" (growth, `faith_salah_growth` seq 9 · subtask 3) | Move the learning step down to the lower level, ahead of the practice step. |
-| 2 | R1 | medium | across levels | `faith_salah_growth` seq 1 · subtask 3 | "Memorise and understand three short surahs you recite regularly" (growth) is a prerequisite-looking step placed above "Recite Surah al-Mulk before sleep" (core, `faith_salah_core` seq 11 · subtask 4) | Move the learning step down to the lower level, ahead of the practice step. |
-| 3 | R1 | medium | across levels | `faith_salah_growth` seq 4 · subtask 1 | "Learn the time window for Duha prayer" (growth) is a prerequisite-looking step placed above "Pray each salah within its earliest time window" (core, `faith_salah_core` seq 1 · subtask 4) | Move the learning step down to the lower level, ahead of the practice step. |
-| 4 | R1 | low | within task | `faith_shahada_core` seq 0 · subtask 3 | "Study the difference between verbal declaration and lived conviction" comes after "Recite the full Shahada with correct pronunciation and meaning" (`faith_shahada_core` seq 0 · subtask 1) | Move the learning step ahead of the practice step it prepares for (or onto the earlier task/level). |
+Not counted above. Each reopens automatically if either step is edited or moved.
 
-### health (2)
-
-| # | Rule | Conf. | Scope | Where | Finding | Suggested correction |
-|---|---|---|---|---|---|---|
-| 1 | R1 | medium | within task | `health_social_core` seq 1 · subtask 2 | "Learn and use the full response: "Wa alaykum as-salam wa rahmatullahi wa barakatuh"" comes after "Make it a habit to initiate salam with every Muslim you encounter" (`health_social_core` seq 1 · subtask 1) | Move the learning step ahead of the practice step it prepares for (or onto the earlier task/level). |
-| 2 | R1 | low | within task | `health_physical_growth` seq 3 · subtask 3 | "Learn proper form for foundational movements (squat, push, pull, hinge)" comes after "Schedule three specific days and times per week for training" (`health_physical_growth` seq 3 · subtask 2) | Move the learning step ahead of the practice step it prepares for (or onto the earlier task/level). |
-
-### intellect (1)
-
-| # | Rule | Conf. | Scope | Where | Finding | Suggested correction |
-|---|---|---|---|---|---|---|
-| 1 | R1 | low | within task | `intellect_thinking_core` seq 0 · subtask 2 | "Learn to identify common red flags in unverified content (no source, emotional language, too good/bad to be true)" comes after "Establish a personal rule: never share anything you haven't verified" (`intellect_thinking_core` seq 0 · subtask 1) | Move the learning step ahead of the practice step it prepares for (or onto the earlier task/level). |
-
-### environment (1)
-
-| # | Rule | Conf. | Scope | Where | Finding | Suggested correction |
-|---|---|---|---|---|---|---|
-| 1 | R1 | medium | within task | `environment_sourcing_core` seq 3 · subtask 4 | "Learn basic clothing repair — sewing buttons, hemming, patching" comes after "Commit to a 30-day no-new-clothing challenge to reset purchasing habits" (`environment_sourcing_core` seq 3 · subtask 2) | Move the learning step ahead of the practice step it prepares for (or onto the earlier task/level). |
-
-### ummah (1)
-
-| # | Rule | Conf. | Scope | Where | Finding | Suggested correction |
-|---|---|---|---|---|---|---|
-| 1 | R1 | low | within task | `ummah_community_core` seq 5 · subtask 4 | "Learn and teach the etiquettes of congregational worship" comes after "Commit to attending Jumu'ah prayer every week without exception" (`ummah_community_core` seq 5 · subtask 2) | Move the learning step ahead of the practice step it prepares for (or onto the earlier task/level). |
+| Rule | Where | Finding | Why it stays |
+|---|---|---|---|
+| R1 | `faith_shahada_core` seq 0 · subtask 2 | "Study the difference between verbal declaration and lived conviction" comes after "Recite the full Shahada with correct pronunciation and meaning" (`faith_shahada_core` seq 0 · subtask 1) | Reciting the testimony is the act itself and comes first; the study (now before the reflection) deepens it. |
+| R1 | `health_physical_growth` seq 3 · subtask 3 | "Learn proper form for foundational movements (squat, push, pull, hinge)" comes after "Schedule three specific days and times per week for training" (`health_physical_growth` seq 3 · subtask 2) | Scheduling is planning, not training; form is still learned before the first logged session. |
+| R1 | `intellect_thinking_core` seq 0 · subtask 2 | "Learn to identify common red flags in unverified content (no source, emotional language, too good/bad to be true)" comes after "Establish a personal rule: never share anything you haven't verified" (`intellect_thinking_core` seq 0 · subtask 1) | The rule is the commitment; the skill serves it, and the 30-day practice comes later. |
+| R1 | `ummah_community_core` seq 5 · subtask 4 | "Learn and teach the etiquettes of congregational worship" comes after "Commit to attending Jumu'ah prayer every week without exception" (`ummah_community_core` seq 5 · subtask 2) | Attending Jumu'ah needs no prerequisite; teaching the etiquettes needs the group the previous step establishes. |
+| R1 | `faith_salah_growth` seq 1 · subtask 3 | "Memorise and understand three short surahs you recite regularly" (growth) is a prerequisite-looking step placed above "Recite Surah al-Mulk before sleep" (core, `faith_salah_core` seq 11 · subtask 4) | Different surahs and purpose (salah recitation vs the pre-sleep sunnah). |
+| R1 | `faith_salah_growth` seq 4 · subtask 1 | "Learn the time window for Duha prayer" (growth) is a prerequisite-looking step placed above "Pray each salah within its earliest time window" (core, `faith_salah_core` seq 1 · subtask 4) | Duha is not one of the five fard prayers; the Core step does not depend on it. |
+| R1 | `faith_salah_excellence` seq 2 · subtask 2 | "Study the du'a recited during Sujud al-Tilawah" (excellence) is a prerequisite-looking step placed above "Make du'a during the sujud of Tahajjud" (growth, `faith_salah_growth` seq 9 · subtask 3) | Different acts (sujud al-tilawah vs Tahajjud sujud); shared words only. |
 
 ## Appendix: node pools as shown (seed data, first 20)
 

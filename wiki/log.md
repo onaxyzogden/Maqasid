@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-06] fix | MILOS — task-order audit pass 3: three reorders, the rest waived with reasons
+
+Operator: *"Review the remaining 9 once again."* A second read of each step's How? text against the seed-order rubric moved 3 verdicts; all three were approved by selection. **Amanah gate:** positive. Existing guidance reordered; no fiqh authored.
+
+- **Salam:** the full reply now comes before initiating. The rubric's *obligation before recommendation* rule (returning salam is obligatory per Quran 4:86, initiating is sunnah) was missed in pass 2.
+- **Shahada:** study (declaration vs conviction) before reflection. **Clothing:** repair right after the wardrobe audit, which already makes a repair pile.
+- **Migration** `seed_order_audit_v3`, drift-guarded. Live run: an old-order stored board was reordered with its ticks intact.
+- **Audit waivers:** `REVIEWED` in `scripts/audit-task-order.mjs` records the 7 kept rows with reasons, matched on both step titles; stale waivers warn. Report: 0 open, 7 reviewed.
+- **Verified:** `npm test` 347/347, lint and build green.
+
 ## [2026-10-06] fix | MILOS — Prophetic Path nodes follow each board's curated chain (audit R4 closed)
 
 Operator: *"Let's address those"* (the 13 R4 node-order cases). Choices made by selection: **group by board**, **due dates first**. Decision: [[2026-10-06-milos-node-order-curated-chain]]. **Amanah gate:** neutral; ordering only, no content touched.

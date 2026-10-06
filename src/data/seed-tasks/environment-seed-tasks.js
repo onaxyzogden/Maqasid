@@ -6586,6 +6586,34 @@ Most people wear only 20-30% of their wardrobe regularly, while the rest sits un
 6. For items in poor condition that cannot be donated, look for textile recycling programmes rather than sending them to landfill.
 
 Benchmark: Complete the full wardrobe audit with a clear keep/donate/repair outcome for every item, and donate within two weeks of sorting.` },
+        { title: 'Learn basic clothing repair — sewing buttons, hemming, patching', done: false,
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 6416",
+              translation: "The Prophet (peace be upon him) said: \"Be in this world as though you were a stranger or a traveler.\" A traveler repairs what they have rather than constantly acquiring new things.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+          ],
+          description: `**Why?**
+
+A missing button or a small tear should not condemn an otherwise functional garment to the bin. Basic repair skills extend the life of your clothing by years, saving money and reducing textile waste. The Prophet (peace be upon him) mended his own shoes, patched his own garments, and did household work himself (Ahmad). Learning to repair clothing is not a step backward — it is recovering a Sunnah-aligned life skill that modern consumerism has deliberately eroded to keep you buying replacements.
+
+
+**How?**
+
+1. Assemble a basic repair kit: needles, thread in common colours (black, white, navy, grey), fabric scissors, pins, and iron-on patches.
+2. Learn to sew a button back on — this is the most common clothing repair and takes 5 minutes once you know how. Watch a tutorial and practise on a spare button.
+3. Learn basic hemming: folding and stitching a fallen hem is straightforward and saves trousers, abayas, and skirts from being discarded.
+4. Learn to patch small holes or tears using iron-on patches for quick fixes, or needle-and-thread patches for a more durable repair.
+5. Practise on old clothing you were going to donate anyway — there is no pressure for perfection.
+6. For repairs beyond your skill level (zippers, structural seams), identify a local tailor and build a relationship with them.
+7. Teach these skills to your children — repair literacy is a form of practical tarbiyah (upbringing) that builds self-sufficiency and reduces waste.
+
+Benchmark: Be able to independently sew a button, hem a garment, and patch a small tear without needing to look up instructions.` },
         { title: 'Commit to a 30-day no-new-clothing challenge to reset purchasing habits', done: false,
           sources: [
             {
@@ -6659,34 +6687,6 @@ The distinction between need and want is the foundation of Islamic moderation. C
 6. Keep a log of purchases you decided against after asking this question — over time, this log becomes powerful evidence of how much money and waste you avoided.
 
 Benchmark: The need-versus-want question should become automatic before every clothing purchase, consistently applied for at least 3 months.` },
-        { title: 'Learn basic clothing repair — sewing buttons, hemming, patching', done: false,
-          sources: [
-            {
-              kind: "hadith",
-              ref: "Sahih al-Bukhari 6416",
-              translation: "The Prophet (peace be upon him) said: \"Be in this world as though you were a stranger or a traveler.\" A traveler repairs what they have rather than constantly acquiring new things.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-          ],
-          description: `**Why?**
-
-A missing button or a small tear should not condemn an otherwise functional garment to the bin. Basic repair skills extend the life of your clothing by years, saving money and reducing textile waste. The Prophet (peace be upon him) mended his own shoes, patched his own garments, and did household work himself (Ahmad). Learning to repair clothing is not a step backward — it is recovering a Sunnah-aligned life skill that modern consumerism has deliberately eroded to keep you buying replacements.
-
-
-**How?**
-
-1. Assemble a basic repair kit: needles, thread in common colours (black, white, navy, grey), fabric scissors, pins, and iron-on patches.
-2. Learn to sew a button back on — this is the most common clothing repair and takes 5 minutes once you know how. Watch a tutorial and practise on a spare button.
-3. Learn basic hemming: folding and stitching a fallen hem is straightforward and saves trousers, abayas, and skirts from being discarded.
-4. Learn to patch small holes or tears using iron-on patches for quick fixes, or needle-and-thread patches for a more durable repair.
-5. Practise on old clothing you were going to donate anyway — there is no pressure for perfection.
-6. For repairs beyond your skill level (zippers, structural seams), identify a local tailor and build a relationship with them.
-7. Teach these skills to your children — repair literacy is a form of practical tarbiyah (upbringing) that builds self-sufficiency and reduces waste.
-
-Benchmark: Be able to independently sew a button, hem a garment, and patch a small tear without needing to look up instructions.` },
       ],
     },
     {

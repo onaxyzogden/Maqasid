@@ -94,6 +94,49 @@ Linguistically, the Shahada isn't just a statement of existence; it is a stateme
 1. **The Pause:** When you say *"La ilaha,"* mentally "clear" your heart of dependencies on wealth, ego, or people.
 2. **The Affirmation:** When you say *"illAllah,"* settle the heart on the fact that only He provides, sustains, and deserves your ultimate devotion.
 3. **The Follow-through:** Acknowledging Muhammad (peace be upon him) as the *Rasool* means accepting his sunnah as the practical map for your life.` },
+        { title: 'Study the difference between verbal declaration and lived conviction', done: false,
+          tier: 'T2',
+          amanahRationale: 'While the provided texts do not explicitly mention the hypocrites or the three specific dimensions of faith, they offer a clear logical inference for the subtask by pairing the verbal declaration of the Shahada with the necessary inward conviction of truly disbelieving in false deities.',
+          sources: [
+            {
+              kind: "quran",
+              ref: "Quran 47:19",
+              arabic: "فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ",
+              translation: "So [Prophet], bear in mind that there is no god but God, and ask forgiveness for your sins and for the sins of believing men and women.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "Quranic basis cited as evidence for this subtask.",
+            },
+            {
+              kind: "hadith",
+              ref: "Sahih Muslim 33",
+              translation: "The Prophet (SAW) said: \"Whoever says La ilaha illAllah and disbelieves in whatever is worshipped besides Allah, his property and blood become inviolable, and his reckoning is with Allah.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              rationale: "Prophetic narration cited as evidence for this subtask.",
+            },
+            {
+              kind: "quran",
+              ref: "Quran 63:1-3",
+              arabic: "إِذَا جَاءَكَ الْمُنَافِقُونَ قَالُوا نَشْهَدُ إِنَّكَ لَرَسُولُ اللَّهِ ۗ وَاللَّهُ يَعْلَمُ إِنَّكَ لَرَسُولُهُ وَاللَّهُ يَشْهَدُ إِنَّ الْمُنَافِقِينَ لَكَاذِبُونَ",
+              translation: "When the hypocrites come to you, they say, 'We bear witness that you are the Messenger of Allah.' And Allah knows that you are His Messenger, and Allah testifies that the hypocrites are liars. They have taken their oaths as a cover, so they averted [people] from the way of Allah.",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              rationale: "The Quran exposes the hypocrites' verbal Shahada as empty when not matched by inner conviction — the textual basis for distinguishing tongue-only declaration from heart-conviction.",
+            },
+          ],
+          description: `**Why?**
+
+The Shahada is not merely words on the tongue — it must settle in the heart and manifest in action. The munafiqun declared it verbally but lacked inner conviction, and the Quran exposed the emptiness of their claim.
+
+
+**How?**
+
+1. Read Surah al-Munafiqun (63:1-3) and note how Allah describes their outward declaration versus their inward state.
+2. Study the difference between *iqrar bil-lisan* (verbal affirmation), *tasdiq bil-qalb* (heart conviction), and *amal bil-arkan* (action with the limbs).
+3. Ask yourself: "Are there areas of my life where my tongue says one thing but my actions say another?"
+4. You have completed this when you can explain, with evidence, why the Shahada requires all three dimensions — tongue, heart, and limbs — to be valid.` },
         { title: 'Reflect on what "no god but Allah" demands of your daily life', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe journaling or listing specific fears and dependencies, they provide clear logical inference for the subtask by emphasizing ultimate reliance on Allah, prioritizing Him above all else, and manifesting faith in daily actions.',
@@ -146,49 +189,6 @@ La ilaha illAllah is not a passive statement — it is an active negation of eve
 2. Reflect on your fears — do you fear anyone's displeasure more than Allah's?
 3. Journal about how "no god but Allah" reframes one specific decision you are currently facing.
 4. You have completed this when you can articulate how Tawhid reshapes at least one priority, one fear, and one hope in your daily life.` },
-        { title: 'Study the difference between verbal declaration and lived conviction', done: false,
-          tier: 'T2',
-          amanahRationale: 'While the provided texts do not explicitly mention the hypocrites or the three specific dimensions of faith, they offer a clear logical inference for the subtask by pairing the verbal declaration of the Shahada with the necessary inward conviction of truly disbelieving in false deities.',
-          sources: [
-            {
-              kind: "quran",
-              ref: "Quran 47:19",
-              arabic: "فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ",
-              translation: "So [Prophet], bear in mind that there is no god but God, and ask forgiveness for your sins and for the sins of believing men and women.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "Quranic basis cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih Muslim 33",
-              translation: "The Prophet (SAW) said: \"Whoever says La ilaha illAllah and disbelieves in whatever is worshipped besides Allah, his property and blood become inviolable, and his reckoning is with Allah.\"",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-            {
-              kind: "quran",
-              ref: "Quran 63:1-3",
-              arabic: "إِذَا جَاءَكَ الْمُنَافِقُونَ قَالُوا نَشْهَدُ إِنَّكَ لَرَسُولُ اللَّهِ ۗ وَاللَّهُ يَعْلَمُ إِنَّكَ لَرَسُولُهُ وَاللَّهُ يَشْهَدُ إِنَّ الْمُنَافِقِينَ لَكَاذِبُونَ",
-              translation: "When the hypocrites come to you, they say, 'We bear witness that you are the Messenger of Allah.' And Allah knows that you are His Messenger, and Allah testifies that the hypocrites are liars. They have taken their oaths as a cover, so they averted [people] from the way of Allah.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              rationale: "The Quran exposes the hypocrites' verbal Shahada as empty when not matched by inner conviction — the textual basis for distinguishing tongue-only declaration from heart-conviction.",
-            },
-          ],
-          description: `**Why?**
-
-The Shahada is not merely words on the tongue — it must settle in the heart and manifest in action. The munafiqun declared it verbally but lacked inner conviction, and the Quran exposed the emptiness of their claim.
-
-
-**How?**
-
-1. Read Surah al-Munafiqun (63:1-3) and note how Allah describes their outward declaration versus their inward state.
-2. Study the difference between *iqrar bil-lisan* (verbal affirmation), *tasdiq bil-qalb* (heart conviction), and *amal bil-arkan* (action with the limbs).
-3. Ask yourself: "Are there areas of my life where my tongue says one thing but my actions say another?"
-4. You have completed this when you can explain, with evidence, why the Shahada requires all three dimensions — tongue, heart, and limbs — to be valid.` },
         { title: 'Journal: what does this testimony mean to you personally?', done: false,
           tier: 'T2',
           amanahRationale: 'While the provided texts do not explicitly prescribe journaling, they offer a clear contextual indication for the subtask by emphasizing the necessity of knowing the truth of the testimony and uttering it with sincere conviction from the heart.',

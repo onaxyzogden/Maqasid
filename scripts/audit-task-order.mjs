@@ -360,12 +360,42 @@ for (const [nodeId, entry] of Object.entries(TOD_SUBMODULES)) {
 
 // Dedupe identical summaries (the same pair can surface via several scopes).
 const seen = new Set();
-const unique = findings.filter((f) => {
+const deduped = findings.filter((f) => {
   const k = `${f.rule}|${f.where}|${f.summary}`;
   if (seen.has(k)) return false;
   seen.add(k);
   return true;
 });
+
+// Findings a human reviewed and chose to keep, with the reason. Matched on
+// rule + board + BOTH step titles, so editing either step (or moving it to
+// another board) reopens the finding instead of silently staying waived.
+// Pass 2 review: stages/implement-task-order-audit-pass-2-review.md; re-review
+// (pass 3, 2026-10-06): stages/implement-task-order-audit-pass-3-review.md.
+const REVIEWED = [
+  { rule: 'R1', board: 'faith_salah_excellence', step: "Study the du'a recited during Sujud al-Tilawah", other: "Make du'a during the sujud of Tahajjud",
+    reason: 'Different acts (sujud al-tilawah vs Tahajjud sujud); shared words only.' },
+  { rule: 'R1', board: 'faith_salah_growth', step: 'Memorise and understand three short surahs you recite regularly', other: 'Recite Surah al-Mulk before sleep',
+    reason: 'Different surahs and purpose (salah recitation vs the pre-sleep sunnah).' },
+  { rule: 'R1', board: 'faith_salah_growth', step: 'Learn the time window for Duha prayer', other: 'Pray each salah within its earliest time window',
+    reason: 'Duha is not one of the five fard prayers; the Core step does not depend on it.' },
+  { rule: 'R1', board: 'faith_shahada_core', step: 'Study the difference between verbal declaration and lived conviction', other: 'Recite the full Shahada with correct pronunciation and meaning',
+    reason: 'Reciting the testimony is the act itself and comes first; the study (now before the reflection) deepens it.' },
+  { rule: 'R1', board: 'health_physical_growth', step: 'Learn proper form for foundational movements (squat, push, pull, hinge)', other: 'Schedule three specific days and times per week for training',
+    reason: 'Scheduling is planning, not training; form is still learned before the first logged session.' },
+  { rule: 'R1', board: 'intellect_thinking_core', step: 'Learn to identify common red flags in unverified content (no source, emotional language, too good/bad to be true)', other: "Establish a personal rule: never share anything you haven't verified",
+    reason: 'The rule is the commitment; the skill serves it, and the 30-day practice comes later.' },
+  { rule: 'R1', board: 'ummah_community_core', step: 'Learn and teach the etiquettes of congregational worship', other: "Commit to attending Jumu'ah prayer every week without exception",
+    reason: "Attending Jumu'ah needs no prerequisite; teaching the etiquettes needs the group the previous step establishes." },
+];
+const reviewOf = (f) => REVIEWED.find((r) => r.rule === f.rule
+  && f.where.includes(`\`${r.board}\``)
+  && f.summary.includes(`"${r.step}"`)
+  && f.summary.includes(`"${r.other}"`));
+const reviewed = deduped.filter(reviewOf);
+const unique = deduped.filter((f) => !reviewOf(f));
+const staleReviews = REVIEWED.filter((r) => !reviewed.some((f) => reviewOf(f) === r));
+for (const r of staleReviews) console.warn(`[audit-task-order] reviewed entry no longer matches any finding (fixed or edited?): ${r.board} / "${r.step}"`);
 
 const RULE_NAMES = {
   R1: 'Learning step after practice',
@@ -402,6 +432,16 @@ lines.push('   wrong on the node — it cannot be fixed by reordering within a t
 lines.push('   R2 rows are the places where level placement itself looks wrong.', '');
 
 const groups = {};
+// (rendered after the open findings)
+const renderReviewed = () => {
+  lines.push(`## Reviewed, no change (${reviewed.length})`, '');
+  if (!reviewed.length) { lines.push('_None._', ''); return; }
+  lines.push('Not counted above. Each reopens automatically if either step is edited or moved.', '');
+  lines.push('| Rule | Where | Finding | Why it stays |', '|---|---|---|---|');
+  const esc = (x) => String(x).replace(/\|/g, '\\|');
+  for (const f of reviewed) lines.push(`| ${f.rule} | ${esc(f.where)} | ${esc(f.summary)} | ${esc(reviewOf(f).reason)} |`);
+  lines.push('');
+};
 for (const f of unique) (groups[f.pillar] ||= []).push(f);
 const order = ['prophetic-path', 'faith', 'prayer', 'health', 'intellect', 'family', 'wealth', 'environment', 'ummah'];
 lines.push('## Findings by pillar', '');
@@ -418,6 +458,7 @@ for (const p of order.filter((x) => groups[x])) {
   lines.push('');
 }
 
+renderReviewed();
 lines.push('## Appendix: node pools as shown (seed data, first 20)', '');
 for (const n of nodeSummaries) {
   const flags = [n.fallback ? 'FALLBACK' : null, n.total > n.shown ? `truncated ${n.total}→${n.shown}` : null,
@@ -430,6 +471,6 @@ const md = `${lines.join('\n')}\n`;
 if (TO_STDOUT) process.stdout.write(md);
 else {
   fs.writeFileSync(OUT, md, 'utf8');
-  console.log(`[audit-task-order] ${unique.length} finding(s) → ${path.relative(ROOT, OUT)}`);
+  console.log(`[audit-task-order] ${unique.length} open finding(s), ${reviewed.length} reviewed → ${path.relative(ROOT, OUT)}`);
   for (const r of Object.keys(RULE_NAMES)) console.log(`  ${r} ${RULE_NAMES[r]}: ${count((f) => f.rule === r)}`);
 }

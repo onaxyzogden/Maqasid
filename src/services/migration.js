@@ -15,6 +15,7 @@ const RENAME_FLAG = 'seed_subtask_rename_v1';
 const ORDER_V3_FLAG = 'seed_subtask_order_v3';
 const DUHA_FLAG = 'seed_duha_restructure_v1';
 const AUDIT_V2_FLAG = 'seed_order_audit_v2';
+const AUDIT_V3_FLAG = 'seed_order_audit_v3';
 
 // Tasks deleted from the seed files on 2026-07-27 as duplicates of a sibling on
 // the same board. Titles are byte-for-byte copies taken from the seed file
@@ -274,6 +275,42 @@ export const AUDIT_V2_ORDER = {
 // the operator's progress is kept, never deleted (pruneRemovedSeedTasks).
 export const RETIRED_SEED_TASKS_V2 = {
   faith_salah_growth: [SUNAN_AL_NAWM_TASK],
+};
+
+// --- 2026-10-06 task-order audit, pass 3 ---
+// Three within-task re-orders from the second review of the findings pass 2
+// kept. Rubric reasons: salam — returning it is obligatory (Quran 4:86),
+// initiating is sunnah; Shahada — the study gives the framework the reflection
+// applies; clothing — the wardrobe audit already sorts a "repair" pile, and
+// mending carries the 30-day no-new-clothing challenge. None of the three is
+// copied onto a prayer board. Drift-guarded in
+// src/services/__tests__/seed-order-audit-v3.test.js.
+// Approval gate: stages/implement-task-order-audit-pass-3-review.md
+export const AUDIT_V3_ORDER = {
+  health_social_core: {
+    'Master the Islamic greeting — give salam freely and respond completely': [
+      'Learn and use the full response: "Wa alaykum as-salam wa rahmatullahi wa barakatuh"',
+      'Make it a habit to initiate salam with every Muslim you encounter',
+      'Greet strangers at the mosque, workplace, and in your neighbourhood',
+      'Teach children the etiquette of giving and responding to salam',
+    ],
+  },
+  faith_shahada_core: {
+    'Testify there is no God but Allah': [
+      'Recite the full Shahada with correct pronunciation and meaning',
+      'Study the difference between verbal declaration and lived conviction',
+      'Reflect on what "no god but Allah" demands of your daily life',
+      'Journal: what does this testimony mean to you personally?',
+    ],
+  },
+  environment_sourcing_core: {
+    'Stop buying fast fashion — commit to purchasing only what you need, with longer useful life': [
+      'Audit your wardrobe — identify items rarely worn and donate them responsibly',
+      'Learn basic clothing repair — sewing buttons, hemming, patching',
+      'Commit to a 30-day no-new-clothing challenge to reset purchasing habits',
+      'Before any future clothing purchase, ask: "Do I need this, or do I want this?"',
+    ],
+  },
 };
 
 function read(key) {
@@ -765,6 +802,35 @@ export function applySeedOrderAuditV2() {
   }
 }
 
+// Pure core of pass 3 over a { boardId: tasks } map; returns changed boards only.
+export function seedOrderAuditV3(boards) {
+  const next = {};
+  for (const [boardId, orderTable] of Object.entries(AUDIT_V3_ORDER)) {
+    const tasks = boards[boardId];
+    if (!Array.isArray(tasks) || tasks.length === 0) continue;
+    const { next: aligned } = alignSubtaskOrder(tasks, orderTable, { allowDone: true });
+    if (aligned !== tasks) next[boardId] = aligned;
+  }
+  return next;
+}
+
+// One-shot pass-3 re-order. Runs after pass 2, before mount.
+// Approval gate: stages/implement-task-order-audit-pass-3-review.md
+export function applySeedOrderAuditV3() {
+  if (localStorage.getItem(PREFIX + AUDIT_V3_FLAG) === '1') return;
+  const boards = {};
+  for (const b of Object.keys(AUDIT_V3_ORDER)) {
+    const tasks = read(`tasks_${b}`);
+    if (Array.isArray(tasks)) boards[b] = tasks;
+  }
+  const next = seedOrderAuditV3(boards);
+  for (const [b, tasks] of Object.entries(next)) write(`tasks_${b}`, tasks);
+  localStorage.setItem(PREFIX + AUDIT_V3_FLAG, '1');
+  if (Object.keys(next).length) {
+    console.info(`[bbiz] Task-order fixes (pass 3): ${Object.keys(next).length} board(s) re-ordered.`);
+  }
+}
+
 export function runMigrations() {
   // Title repair first — before the SCHEMA_VERSION guard below returns early
   // for already-migrated users, and before React mounts / any hydration reads.
@@ -793,6 +859,9 @@ export function runMigrations() {
   // Then pass 2 of the task-order audit: iftar du'a and pre-sleep wudu move down
   // to Core, Sunan al-Nawm retires, the soil assessment starts with desk study.
   applySeedOrderAuditV2();
+  // Then pass 3: salam reply before initiating, Shahada study before reflection,
+  // clothing repair right after the wardrobe audit.
+  applySeedOrderAuditV3();
 
   const version = localStorage.getItem(PREFIX + 'schema_version');
   if (version === SCHEMA_VERSION) return; // already migrated
