@@ -863,7 +863,9 @@ export const LEVEL_FULL_LABEL = {
   3: 'Tahsiniyyat',
 };
 
-const PRIORITY_RANK = { urgent: 0, high: 1, medium: 2, low: 3 };
+// Mirrors USER_TASK_ORDER_FLOOR in orientation-selector.js (not imported:
+// that module pulls in the task store, and this one stays dependency-free).
+const USER_TASK_ORDER_FLOOR = 1e6;
 
 // Build the sorted task list for a given TOD node.
 //   nodeId         — one of the keys in TOD_SUBMODULES
@@ -1078,13 +1080,20 @@ export function buildTasksForNode(nodeId, projects, tasksByProject, options = {}
   });
 
   // Collect all open tasks in the submodule scope (unfiltered pool).
+  // `_chainKey` is the board's curated chain position, computed exactly as
+  // orientation-selector's orderBoardTasks does (seedOrder, else user tasks
+  // after the chain by `order`/index), so a node never contradicts the Kanban.
   const scopePool = [];
   for (const project of matchingProjects) {
     const tasks = tasksByProject?.[project.id] || [];
-    for (const t of tasks) {
-      if (t.completedAt) continue;
-      scopePool.push(projectTaskRow(t, project, submoduleNameById));
-    }
+    tasks.forEach((t, index) => {
+      if (t.completedAt) return;
+      const row = projectTaskRow(t, project, submoduleNameById);
+      row._chainKey = typeof t.seedOrder === 'number'
+        ? t.seedOrder
+        : USER_TASK_ORDER_FLOOR + (typeof t.order === 'number' ? t.order : index);
+      scopePool.push(row);
+    });
   }
 
   // Apply content-matchers; if the filter leaves zero rows, fall back to the
@@ -1117,10 +1126,22 @@ export function buildTasksForNode(nodeId, projects, tasksByProject, options = {}
     }
   }
 
+  // Level first (Daruriyyat before Hajiyyat before Tahsiniyyat). Within a
+  // level: a due date the operator set comes first, earliest first; then each
+  // board in the node's own submodule order; then that board's curated chain.
+  // Seed `priority` is deliberately NOT a key — sorting by it scrambled every
+  // board's curated sequence (2026-10-06, audit rule R4).
+  const boardRank = (r) => {
+    const i = scopeSubmodules.indexOf(r._submoduleId);
+    return i === -1 ? scopeSubmodules.length : i;
+  };
+  const NO_DUE = 8640000000000000;
   rows.sort((a, b) => (
     (a._level - b._level)
-    || (PRIORITY_RANK[a.priority] - PRIORITY_RANK[b.priority])
-    || (new Date(a.dueDate || 8640000000000000) - new Date(b.dueDate || 8640000000000000))
+    || (new Date(a.dueDate || NO_DUE) - new Date(b.dueDate || NO_DUE))
+    || (boardRank(a) - boardRank(b))
+    || a.projectId.localeCompare(b.projectId)
+    || (a._chainKey - b._chainKey)
   ));
 
   // Dedupe by (normalized title + level) — legacy migrations sometimes leave
