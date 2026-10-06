@@ -210,6 +210,10 @@ fallback) is gone — the stepper *is* the detail. Mechanics:
   `taskContent` prop (other MirrorCard consumers unchanged).
 - `todayKey` comes from `computeTodayKey(maghribRaw)` in an effect (`@/utils/islamic-day-key`) —
   the wall-clock read stays out of render. `PropheticPath.jsx` passes `maghribRaw`.
+- Satisfying a task's last step completes it (Done + `completedAt`, see `src/store/CONTEXT.md`).
+  `buildTasksForNode` normally drops completed rows; the popup passes `keepCompletedSince` (start of
+  the local day, read in `readDay`) so a task finished mid-view stays as a ticked pill until
+  tomorrow instead of vanishing.
 - Handlers: markDone → `toggleSubtask`; doesn't apply → `updateSubtask {notApplicable}`;
   **"Not now" → subtask-level snooze** (`updateSubtask {snoozedUntilDayKey}`, popup-only —
   Orientation still snoozes at task level, since its carousel fall-through reads that field). The

@@ -87,6 +87,15 @@ const PHASES = [
 // wiki/decisions/2026-07-27-milos-prayer-board-ordering.md. Note the Maghrib
 // reset collapses `order` to 0 (task-store.js), so `seedOrder` is the only
 // stable ordering these boards have.
+// Wall-clock reads for the popup, taken in an effect (react-hooks/purity): the
+// Islamic-day key for snooze targeting and eligibility, and the start of the
+// local day — tasks completed since then stay in a node's chain until tomorrow.
+function readDay(maghribRaw) {
+  const start = new Date();
+  start.setHours(0, 0, 0, 0);
+  return { key: computeTodayKey(maghribRaw), startMs: start.getTime() };
+}
+
 function buildPrayerPhaseTasks(prayerId, phase, projects, tasksByProject, submoduleName) {
   const projectId = `${PRAYER_BOARD_PREFIX}_${prayerId}_${phase}`;
   const project = (projects || []).find((p) => p.id === projectId);
@@ -157,13 +166,15 @@ export default function NodePhaseSlideUp({
   const [moduleId, setModuleId] = useState(() => moduleGroups[0]?.id || null);
   const [viewMode, setViewMode] = useState('action');
 
-  // Islamic-day key for snooze targeting + eligibility, computed in an effect
-  // so the wall-clock read stays out of render (react-hooks/purity) — same
-  // sanctioned pattern as Orientation.jsx.
-  const [todayKey, setTodayKey] = useState(null);
+  // Islamic-day key + start of the local day, computed in an effect so the
+  // wall-clock read stays out of render (react-hooks/purity) — same sanctioned
+  // pattern as Orientation.jsx. See readDay.
+  const [day, setDay] = useState({ key: null, startMs: null });
   useEffect(() => {
-    setTodayKey(computeTodayKey(maghribRaw));
+    setDay(readDay(maghribRaw));
   }, [maghribRaw]);
+  const todayKey = day.key;
+  const todayStartMs = day.startMs;
 
   const panelRef = useFocusTrap(true, onClose);
 
@@ -190,8 +201,9 @@ export default function NodePhaseSlideUp({
         submoduleNameById,
         phase: null,
         moduleId,
+        keepCompletedSince: todayStartMs,
       })),
-    [isPrayerNode, node.id, phase, projects, tasksByProject, submoduleNameById, moduleId],
+    [isPrayerNode, node.id, phase, projects, tasksByProject, submoduleNameById, moduleId, todayStartMs],
   );
 
   // Education scope: submodule ids available for this node/moduleGroup, the
@@ -259,8 +271,9 @@ export default function NodePhaseSlideUp({
       ? currentRow.subtasks[currentSubtaskIndex]
       : null;
 
-    // Same store actions as Orientation. toggleSubtask never sets task
-    // completedAt, so acting on the last step keeps the row in the chain —
+    // Same store actions as Orientation. Satisfying the last step now completes
+    // the task (Done + completedAt, services/task-completion.js); the pool keeps
+    // rows completed today (keepCompletedSince), so the row stays in the chain —
     // the stepper stays put and shows the satisfied state (no auto-navigation).
     const handleMarkDone = () => {
       if (!currentRow || !currentSubtask) return;

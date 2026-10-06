@@ -75,3 +75,25 @@ describe('node order follows the curated chain', () => {
     expect(salah.at(-1)).toBe('My own morning salah task');
   });
 });
+
+describe('node pool and completed tasks', () => {
+  const finishedToday = () => {
+    const tasks = stored();
+    const t = tasks.faith_salah_core.find((x) => x.title === 'Learn the conditions that invalidate salah');
+    t.completedAt = '2026-10-06T09:00:00.000Z';
+    return tasks;
+  };
+  const has = (rows) => rows.some((r) => r.title === 'Learn the conditions that invalidate salah');
+
+  it('drops completed tasks by default', () => {
+    expect(has(pool(finishedToday()))).toBe(false);
+  });
+
+  it('keeps a task completed since keepCompletedSince (the popup passes start of today)', () => {
+    const tasks = finishedToday();
+    const since = Date.parse('2026-10-06T00:00:00.000Z');
+    expect(has(buildTasksForNode('morning', PROJECTS, tasks, { limit: 1000, keepCompletedSince: since }))).toBe(true);
+    const tomorrow = Date.parse('2026-10-07T00:00:00.000Z');
+    expect(has(buildTasksForNode('morning', PROJECTS, tasks, { limit: 1000, keepCompletedSince: tomorrow }))).toBe(false);
+  });
+});

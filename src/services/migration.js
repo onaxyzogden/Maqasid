@@ -4,6 +4,7 @@
 import { listKeys } from './storage';
 import { repairBoardTasks, taskHasState } from './mojibake';
 import { genSubtaskId } from './id';
+import { reconcileBoardCompletion } from './task-completion';
 
 const PREFIX = 'bbiz_';
 const SCHEMA_VERSION = '5.0';
@@ -16,6 +17,7 @@ const ORDER_V3_FLAG = 'seed_subtask_order_v3';
 const DUHA_FLAG = 'seed_duha_restructure_v1';
 const AUDIT_V2_FLAG = 'seed_order_audit_v2';
 const AUDIT_V3_FLAG = 'seed_order_audit_v3';
+const COMPLETION_FLAG = 'task_completion_reconcile_v1';
 
 // Tasks deleted from the seed files on 2026-07-27 as duplicates of a sibling on
 // the same board. Titles are byte-for-byte copies taken from the seed file
@@ -831,6 +833,29 @@ export function applySeedOrderAuditV3() {
   }
 }
 
+// One-shot catch-up for tasks finished before 2026-10-06. Until then,
+// ticking a task's last step (Orientation, Prophetic Path, task panel) never
+// set `completedAt` or moved the card to Done, so those tasks still looked
+// open on the board and in every dashboard count. Promotion only: a card the
+// operator dragged to Done is never reopened. Runs after every subtask
+// migration so moved rows are already in place.
+// Approval gate: stages/implement-task-completion-sync-review.md
+export function reconcileTaskCompletion() {
+  if (localStorage.getItem(PREFIX + COMPLETION_FLAG) === '1') return;
+  const projects = read('projects') || [];
+  const columnsById = new Map(projects.map((p) => [p.id, p.columns || []]));
+  const nowIso = new Date().toISOString();
+  let promotedCount = 0;
+  for (const key of listKeys('tasks_')) {
+    const boardId = key.slice('tasks_'.length);
+    const tasks = read(key);
+    const { next, promoted } = reconcileBoardCompletion(tasks, columnsById.get(boardId), nowIso);
+    if (promoted) { write(key, next); promotedCount += promoted; }
+  }
+  localStorage.setItem(PREFIX + COMPLETION_FLAG, '1');
+  if (promotedCount) console.info(`[bbiz] Task completion: ${promotedCount} finished task(s) moved to Done.`);
+}
+
 export function runMigrations() {
   // Title repair first — before the SCHEMA_VERSION guard below returns early
   // for already-migrated users, and before React mounts / any hydration reads.
@@ -862,6 +887,8 @@ export function runMigrations() {
   // Then pass 3: salam reply before initiating, Shahada study before reflection,
   // clothing repair right after the wardrobe audit.
   applySeedOrderAuditV3();
+  // Last: tasks whose steps are all satisfied move to Done with a completedAt.
+  reconcileTaskCompletion();
 
   const version = localStorage.getItem(PREFIX + 'schema_version');
   if (version === SCHEMA_VERSION) return; // already migrated
