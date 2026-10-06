@@ -295,7 +295,7 @@ const tasksByProject = Object.fromEntries(pillarBoardIds.map((id) => [
   id,
   ordered(boards[id].tasks).map((t, i) => ({
     id: `${id}#${i}`, title: t.title, priority: t.priority || 'medium',
-    tags: t.tags || [], subtasks: t.subtasks || [], seq: t.seq ?? i, columnId: 'todo',
+    tags: t.tags || [], subtasks: t.subtasks || [], seq: t.seq ?? i, seedOrder: t.seq ?? i, columnId: 'todo',
   })),
 ]));
 const seqOf = new Map();
@@ -338,7 +338,7 @@ for (const [nodeId, entry] of Object.entries(TOD_SUBMODULES)) {
           rule: 'R4', scope: 'node', pillar: 'prophetic-path', board: `node:${nodeId}`,
           confidence: 'medium', where: `node \`${nodeId}\` · \`${a.projectId}\``,
           summary: `Shows "${a.title}" (seq ${seqOf.get(a.id)}) before "${b.title}" (seq ${seqOf.get(b.id)}) — priority sort overrides the curated chain.`,
-          suggestion: 'Structural: break ties by seedOrder in buildTasksForNode (see report §Structural).',
+          suggestion: 'Check buildTasksForNode: within a level it should follow each board\'s curated chain.',
         });
       }
     }
@@ -393,10 +393,10 @@ for (const r of Object.keys(RULE_NAMES)) {
 lines.push('', `Boards scanned: ${Object.keys(boards).length} (${pillarBoardIds.length} pillar, ${Object.keys(prayerBoards).length} prayer). Non-prayer Prophetic Path nodes: ${nodeSummaries.length}.`, '');
 
 lines.push('## Structural findings', '');
-lines.push('1. **Node pools sort by level → priority → due date, never by `seq`.** `buildTasksForNode`');
-lines.push('   (`src/data/prophetic-path-submodules.js`) ignores the curated chain, so within a level the');
-lines.push('   order a node shows is decided by `priority`. R4 rows below are the concrete cases. Proposed');
-lines.push('   fix (not applied): add `seedOrder` as the tie-break after level, ahead of priority.');
+lines.push('1. **Node pools follow each board\'s curated chain** (since 2026-10-06). `buildTasksForNode`');
+lines.push('   (`src/data/prophetic-path-submodules.js`) sorts by level → operator due date → board (in the');
+lines.push('   node\'s submodule order) → `seedOrder`. Seed `priority` is no longer a key. Any R4 row below');
+lines.push('   means that ordering has regressed.');
 lines.push('2. **Level is the primary key on a node.** Content authored on the wrong level always sorts');
 lines.push('   wrong on the node — it cannot be fixed by reordering within a task. R1 "across levels" and');
 lines.push('   R2 rows are the places where level placement itself looks wrong.', '');

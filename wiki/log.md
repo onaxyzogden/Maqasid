@@ -3,6 +3,15 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-06] fix | MILOS — Prophetic Path nodes follow each board's curated chain (audit R4 closed)
+
+Operator: *"Let's address those"* (the 13 R4 node-order cases). Choices made by selection: **group by board**, **due dates first**. Decision: [[2026-10-06-milos-node-order-curated-chain]]. **Amanah gate:** neutral; ordering only, no content touched.
+
+- `buildTasksForNode` sort: level → operator due date → board (node submodule order) → `seedOrder`. Seed `priority` dropped as a key.
+- The audit harness now feeds `seedOrder` like stored boards, and the report's structural note treats any R4 row as a regression. Result: R4 13 → 0; R1 holds only the 9 reviewed findings.
+- **Verified:** `npm test` 340/340 (the new node-order test fails 5/5 on the old sort), lint and build green, and the live Morning node opens on the Salah board's seq 0.
+- **Pages touched:** wiki/decisions/2026-10-06-milos-node-order-curated-chain.md (new), wiki/index.md, wiki/log.md.
+
 ## [2026-10-05] fix | MILOS — task-order audit pass 2: dead `transition:` matchers revived, three steps moved, Sunan al-Nawm retired
 
 Operator: *"lets implement the restructure"*, clarified by selection as **fix the other audit findings** (R4 excluded). Choices made by selection: fold sleep sunnah into Core; tag the Friday task for Istijabah; apply the tag-matching fix, the iftar move and the soil reorder. Decision: [[2026-10-05-milos-task-order-audit-pass-2]]. **Amanah gate:** positive. Existing grounded guidance is reordered and de-duplicated; no fiqh authored.

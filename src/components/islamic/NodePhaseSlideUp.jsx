@@ -116,8 +116,8 @@ function buildPrayerPhaseTasks(prayerId, phase, projects, tasksByProject, submod
 // Education pool for ONE submodule at ONE level, already curriculum-ordered by
 // seed order via orderBoardTasks — the same reasoning buildPrayerPhaseTasks
 // uses for prayer windows (this pool is a whole board, so seed order IS the
-// curriculum order; buildTasksForNode's level/priority/due sort exists only
-// because its keyword-filtered slice has no meaningful seed order). Completed
+// curriculum order; buildTasksForNode spans several boards, so it adds level,
+// due-date and board keys ahead of the same seed order). Completed
 // rows are kept, also matching the prayer branch: the stepper shows the whole
 // chain, done pills collapse to checks, and browsing back onto one is how
 // revert works. `projectTaskRow`'s canonicalId override addresses the board BY

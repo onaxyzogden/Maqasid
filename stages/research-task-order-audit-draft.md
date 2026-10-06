@@ -3,7 +3,7 @@ phase: research
 slug: task-order-audit
 status: draft
 amanah: neutral
-created: 2026-10-05
+created: 2026-10-06
 ---
 
 # Research: task & subtask order audit
@@ -21,40 +21,22 @@ Trigger: the Duha node showed "Pray 2 rak'at of Duha at least 5 days this week" 
 | R1 | Learning step after practice | 0 | 5 | 4 | 9 |
 | R2 | Level regression (higher level asks for less) | 0 | 0 | 0 | 0 |
 | R3 | Near-duplicate across tasks | 0 | 0 | 0 | 0 |
-| R4 | Node order contradicts curated seq | 0 | 13 | 0 | 13 |
+| R4 | Node order contradicts curated seq | 0 | 0 | 0 | 0 |
 | R5 | Node falls back to whole scope | 0 | 0 | 0 | 0 |
 
 Boards scanned: 111 (93 pillar, 18 prayer). Non-prayer Prophetic Path nodes: 16.
 
 ## Structural findings
 
-1. **Node pools sort by level → priority → due date, never by `seq`.** `buildTasksForNode`
-   (`src/data/prophetic-path-submodules.js`) ignores the curated chain, so within a level the
-   order a node shows is decided by `priority`. R4 rows below are the concrete cases. Proposed
-   fix (not applied): add `seedOrder` as the tie-break after level, ahead of priority.
+1. **Node pools follow each board's curated chain** (since 2026-10-06). `buildTasksForNode`
+   (`src/data/prophetic-path-submodules.js`) sorts by level → operator due date → board (in the
+   node's submodule order) → `seedOrder`. Seed `priority` is no longer a key. Any R4 row below
+   means that ordering has regressed.
 2. **Level is the primary key on a node.** Content authored on the wrong level always sorts
    wrong on the node — it cannot be fixed by reordering within a task. R1 "across levels" and
    R2 rows are the places where level placement itself looks wrong.
 
 ## Findings by pillar
-
-### prophetic-path (13)
-
-| # | Rule | Conf. | Scope | Where | Finding | Suggested correction |
-|---|---|---|---|---|---|---|
-| 1 | R4 | medium | node | node `midday-labor` · `wealth_earning_core` | Shows "Audit all income sources — confirm each is free from riba, haram industries, and deception" (seq 1) before "Learn the Islamic conditions for halal earnings — avoid riba, gharar, maysir, and oppression" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 2 | R4 | medium | node | node `midday-labor` · `wealth_earning_core` | Shows "Identify and exit any employment, contract, or investment that involves haram activity" (seq 2) before "Learn the Islamic conditions for halal earnings — avoid riba, gharar, maysir, and oppression" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 3 | R4 | medium | node | node `midday-labor` · `wealth_earning_growth` | Shows "Identify and develop a high-income skill aligned with your calling and halal principles" (seq 1) before "Track your income and expenses monthly — use a simple halal-aware budgeting system" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 4 | R4 | medium | node | node `midday-labor` · `wealth_earning_growth` | Shows "Diversify income — build a second halal revenue stream (consulting, rentals, or business)" (seq 3) before "Track your income and expenses monthly — use a simple halal-aware budgeting system" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 5 | R4 | medium | node | node `midday-labor` · `wealth_earning_growth` | Shows "Diversify income — build a second halal revenue stream (consulting, rentals, or business)" (seq 3) before "Negotiate a raise or contract rate increase aligned with your market value" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 6 | R4 | medium | node | node `morning` · `faith_salah_core` | Shows "Close the morning by praying Dhuhr at its first time" (seq 7) before "Learn the conditions that invalidate salah" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 7 | R4 | medium | node | node `morning` · `faith_salah_core` | Shows "Reclaim the day with the waking du'a and morning adhkar" (seq 8) before "Learn the conditions that invalidate salah" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 8 | R4 | medium | node | node `morning` · `faith_salah_core` | Shows "Anchor the morning with Sayyid al-Istighfar and the daily-good du'a" (seq 9) before "Learn the conditions that invalidate salah" (seq 2) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 9 | R4 | medium | node | node `morning` · `intellect_learning_core` | Shows "Attain functional literacy in Arabic script — learn to read the Quran with tajweed" (seq 1) before "Learn the Islamic obligation to seek knowledge — study hadith "Seek knowledge from the cradle to the grave"" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 10 | R4 | medium | node | node `morning` · `intellect_learning_core` | Shows "Establish a daily reading habit — minimum 20 pages or 30 minutes" (seq 2) before "Learn the Islamic obligation to seek knowledge — study hadith "Seek knowledge from the cradle to the grave"" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 11 | R4 | medium | node | node `morning` · `intellect_learning_core` | Shows "Complete a foundational course in Islamic sciences (fiqh, aqidah, or seerah)" (seq 3) before "Learn the Islamic obligation to seek knowledge — study hadith "Seek knowledge from the cradle to the grave"" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 12 | R4 | medium | node | node `morning` · `intellect_learning_core` | Shows "Identify the core knowledge your profession or calling requires and map your gaps" (seq 4) before "Learn the Islamic obligation to seek knowledge — study hadith "Seek knowledge from the cradle to the grave"" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
-| 13 | R4 | medium | node | node `morning` · `wealth_earning_core` | Shows "Audit all income sources — confirm each is free from riba, haram industries, and deception" (seq 1) before "Learn the Islamic conditions for halal earnings — avoid riba, gharar, maysir, and oppression" (seq 0) — priority sort overrides the curated chain. | Structural: break ties by seedOrder in buildTasksForNode (see report §Structural). |
 
 ### faith (4)
 
@@ -94,41 +76,41 @@ Boards scanned: 111 (93 pillar, 18 prayer). Non-prayer Prophetic Path nodes: 16.
 
 ### morning — truncated 36→20 · no board for work
 
-1. L1 · `intellect_learning_core` · Attain functional literacy in Arabic script — learn to read the Quran with tajweed (urgent)
-2. L1 · `intellect_professional_core` · Ensure your primary income source is fully halal — audit contracts, clients, and products (urgent)
-3. L1 · `intellect_professional_core` · Obtain or verify all certifications and licences required to practise your profession ethically (urgent)
-4. L1 · `wealth_earning_core` · Audit all income sources — confirm each is free from riba, haram industries, and deception (urgent)
-5. L1 · `faith_salah_core` · Learn the correct method of wudu with all fard and sunnah acts (high)
-6. L1 · `faith_salah_core` · Close the morning by praying Dhuhr at its first time (high)
-7. L1 · `faith_salah_core` · Reclaim the day with the waking du'a and morning adhkar (high)
-8. L1 · `faith_salah_core` · Anchor the morning with Sayyid al-Istighfar and the daily-good du'a (high)
-9. L1 · `intellect_learning_core` · Establish a daily reading habit — minimum 20 pages or 30 minutes (high)
-10. L1 · `intellect_learning_core` · Complete a foundational course in Islamic sciences (fiqh, aqidah, or seerah) (high)
-11. L1 · `intellect_learning_core` · Identify the core knowledge your profession or calling requires and map your gaps (high)
-12. L1 · `intellect_professional_core` · Define your professional mission statement — how does your work serve Allah and humanity? (high)
-13. L1 · `intellect_professional_core` · Identify the top 3 skill gaps holding you back in your current role and create a plan to close them (high)
-14. L1 · `wealth_earning_core` · Learn the Islamic conditions for halal earnings — avoid riba, gharar, maysir, and oppression (high)
-15. L1 · `wealth_earning_core` · Ensure your income consistently covers the fard needs of your dependants (nafaqah) (high)
-16. L1 · `faith_salah_core` · Learn the conditions that invalidate salah (medium)
-17. L1 · `intellect_learning_core` · Learn the Islamic obligation to seek knowledge — study hadith "Seek knowledge from the cradle to the grave" (medium)
-18. L1 · `intellect_professional_core` · Build a professional portfolio or record of your best work (medium)
+1. L1 · `faith_salah_core` · Learn the correct method of wudu with all fard and sunnah acts (high)
+2. L1 · `faith_salah_core` · Learn the conditions that invalidate salah (medium)
+3. L1 · `faith_salah_core` · Close the morning by praying Dhuhr at its first time (high)
+4. L1 · `faith_salah_core` · Reclaim the day with the waking du'a and morning adhkar (high)
+5. L1 · `faith_salah_core` · Anchor the morning with Sayyid al-Istighfar and the daily-good du'a (high)
+6. L1 · `intellect_professional_core` · Ensure your primary income source is fully halal — audit contracts, clients, and products (urgent)
+7. L1 · `intellect_professional_core` · Obtain or verify all certifications and licences required to practise your profession ethically (urgent)
+8. L1 · `intellect_professional_core` · Define your professional mission statement — how does your work serve Allah and humanity? (high)
+9. L1 · `intellect_professional_core` · Identify the top 3 skill gaps holding you back in your current role and create a plan to close them (high)
+10. L1 · `intellect_professional_core` · Build a professional portfolio or record of your best work (medium)
+11. L1 · `wealth_earning_core` · Learn the Islamic conditions for halal earnings — avoid riba, gharar, maysir, and oppression (high)
+12. L1 · `wealth_earning_core` · Audit all income sources — confirm each is free from riba, haram industries, and deception (urgent)
+13. L1 · `wealth_earning_core` · Ensure your income consistently covers the fard needs of your dependants (nafaqah) (high)
+14. L1 · `intellect_learning_core` · Learn the Islamic obligation to seek knowledge — study hadith "Seek knowledge from the cradle to the grave" (medium)
+15. L1 · `intellect_learning_core` · Attain functional literacy in Arabic script — learn to read the Quran with tajweed (urgent)
+16. L1 · `intellect_learning_core` · Establish a daily reading habit — minimum 20 pages or 30 minutes (high)
+17. L1 · `intellect_learning_core` · Complete a foundational course in Islamic sciences (fiqh, aqidah, or seerah) (high)
+18. L1 · `intellect_learning_core` · Identify the core knowledge your profession or calling requires and map your gaps (high)
 19. L2 · `faith_salah_growth` · Learn the meanings of Surah Al-Fatihah and what you recite in salah (high)
-20. L2 · `intellect_learning_growth` · Read one non-fiction book per month across diverse disciplines (science, history, philosophy) (high)
+20. L2 · `faith_salah_growth` · Study the inner dimensions of salah (khushuʿ) (medium)
 
 ### midday-labor — no board for work, community, neighbors, collective
 
-1. L1 · `intellect_professional_core` · Ensure your primary income source is fully halal — audit contracts, clients, and products (urgent)
+1. L1 · `wealth_earning_core` · Learn the Islamic conditions for halal earnings — avoid riba, gharar, maysir, and oppression (high)
 2. L1 · `wealth_earning_core` · Audit all income sources — confirm each is free from riba, haram industries, and deception (urgent)
 3. L1 · `wealth_earning_core` · Identify and exit any employment, contract, or investment that involves haram activity (urgent)
-4. L1 · `intellect_professional_core` · Define your professional mission statement — how does your work serve Allah and humanity? (high)
-5. L1 · `intellect_professional_core` · Identify the top 3 skill gaps holding you back in your current role and create a plan to close them (high)
-6. L1 · `wealth_earning_core` · Learn the Islamic conditions for halal earnings — avoid riba, gharar, maysir, and oppression (high)
-7. L1 · `wealth_earning_core` · Ensure your income consistently covers the fard needs of your dependants (nafaqah) (high)
+4. L1 · `wealth_earning_core` · Ensure your income consistently covers the fard needs of your dependants (nafaqah) (high)
+5. L1 · `intellect_professional_core` · Ensure your primary income source is fully halal — audit contracts, clients, and products (urgent)
+6. L1 · `intellect_professional_core` · Define your professional mission statement — how does your work serve Allah and humanity? (high)
+7. L1 · `intellect_professional_core` · Identify the top 3 skill gaps holding you back in your current role and create a plan to close them (high)
 8. L1 · `intellect_professional_core` · Build a professional portfolio or record of your best work (medium)
-9. L2 · `wealth_earning_growth` · Identify and develop a high-income skill aligned with your calling and halal principles (high)
-10. L2 · `wealth_earning_growth` · Diversify income — build a second halal revenue stream (consulting, rentals, or business) (high)
-11. L2 · `wealth_earning_growth` · Track your income and expenses monthly — use a simple halal-aware budgeting system (medium)
-12. L2 · `wealth_earning_growth` · Negotiate a raise or contract rate increase aligned with your market value (medium)
+9. L2 · `wealth_earning_growth` · Track your income and expenses monthly — use a simple halal-aware budgeting system (medium)
+10. L2 · `wealth_earning_growth` · Identify and develop a high-income skill aligned with your calling and halal principles (high)
+11. L2 · `wealth_earning_growth` · Negotiate a raise or contract rate increase aligned with your market value (medium)
+12. L2 · `wealth_earning_growth` · Diversify income — build a second halal revenue stream (consulting, rentals, or business) (high)
 13. L2 · `wealth_circulation_growth` · Give interest-free loans (qard hasan) to family or community members in need (medium)
 14. L2 · `wealth_circulation_growth` · Direct investment or purchasing power toward local Muslim businesses and ethical community ventures (medium)
 15. L2 · `wealth_circulation_growth` · Research and identify a local sadaqah jariyah project to contribute to consistently (medium)
@@ -172,25 +154,25 @@ Boards scanned: 111 (93 pillar, 18 prayer). Non-prayer Prophetic Path nodes: 16.
 ### after-asr — truncated 32→20
 
 1. L1 · `family_marriage_core` · Ensure your spouse's basic needs — financial, emotional, and physical — are consistently met (urgent)
-2. L1 · `family_parenting_core` · Ensure children have consistent halal provision — food, clothing, shelter, and safety (urgent)
-3. L1 · `family_parenting_core` · Model the character (akhlaq) you want your children to inherit — they observe everything (urgent)
-4. L1 · `family_kinship_core` · Identify any severed family ties (qat al-rahim) and take the first step to reconcile (urgent)
-5. L1 · `family_home_core` · Remove all haram objects and content from the home — images of animate beings (on walls), music players, alcohol (urgent)
-6. L1 · `family_home_core` · Establish the home as a place of prayer — designate a clean prayer space with qibla direction (urgent)
-7. L1 · `family_marriage_core` · Establish daily check-ins with your spouse — minimum 10 minutes of undivided attention (high)
-8. L1 · `family_parenting_core` · Teach children the six pillars of Iman and five pillars of Islam at age-appropriate levels (high)
-9. L1 · `family_parenting_core` · Set clear, consistent, and compassionate household boundaries and expectations (high)
-10. L1 · `family_kinship_core` · Attend family occasions — births, weddings, illnesses, and funerals — as a duty of kinship (high)
+2. L1 · `family_marriage_core` · Establish daily check-ins with your spouse — minimum 10 minutes of undivided attention (high)
+3. L1 · `family_parenting_core` · Ensure children have consistent halal provision — food, clothing, shelter, and safety (urgent)
+4. L1 · `family_parenting_core` · Model the character (akhlaq) you want your children to inherit — they observe everything (urgent)
+5. L1 · `family_parenting_core` · Teach children the six pillars of Iman and five pillars of Islam at age-appropriate levels (high)
+6. L1 · `family_parenting_core` · Set clear, consistent, and compassionate household boundaries and expectations (high)
+7. L1 · `family_kinship_core` · Identify any severed family ties (qat al-rahim) and take the first step to reconcile (urgent)
+8. L1 · `family_kinship_core` · Attend family occasions — births, weddings, illnesses, and funerals — as a duty of kinship (high)
+9. L1 · `family_home_core` · Remove all haram objects and content from the home — images of animate beings (on walls), music players, alcohol (urgent)
+10. L1 · `family_home_core` · Establish the home as a place of prayer — designate a clean prayer space with qibla direction (urgent)
 11. L1 · `family_home_core` · Ensure the home is clean, organised, and maintained as a dignified space (high)
 12. L1 · `family_home_core` · Begin and end each day in the home with Islamic adhkar — morning/evening supplications (high)
 13. L1 · `family_home_core` · Establish household rules — screen time limits, guest etiquette, and shared responsibilities (medium)
 14. L2 · `family_marriage_growth` · Return to family after Asr — restore the prophetic evening presence (high)
-15. L2 · `family_parenting_growth` · Implement a structured Quran and Islamic studies schedule for each child (high)
-16. L2 · `family_parenting_growth` · Hold weekly one-on-one "mentorship time" with each child — listen deeply, guide gently (high)
-17. L2 · `family_home_growth` · Establish a family media policy — approved content only, devices out of bedrooms at night (high)
-18. L2 · `family_marriage_growth` · Identify and speak each other's love language — express appreciation in ways your spouse receives it (medium)
-19. L2 · `family_parenting_growth` · Teach practical life skills — cooking, budgeting, household responsibility — alongside Islamic values (medium)
-20. L2 · `family_kinship_growth` · Organise a regular family gathering — monthly meal, annual trip, or online meeting (medium)
+15. L2 · `family_marriage_growth` · Identify and speak each other's love language — express appreciation in ways your spouse receives it (medium)
+16. L2 · `family_parenting_growth` · Implement a structured Quran and Islamic studies schedule for each child (high)
+17. L2 · `family_parenting_growth` · Hold weekly one-on-one "mentorship time" with each child — listen deeply, guide gently (high)
+18. L2 · `family_parenting_growth` · Teach practical life skills — cooking, budgeting, household responsibility — alongside Islamic values (medium)
+19. L2 · `family_kinship_growth` · Organise a regular family gathering — monthly meal, annual trip, or online meeting (medium)
+20. L2 · `family_kinship_growth` · Establish a family support fund or informal network for relatives facing hardship (medium)
 
 ### jumuah — no board for community, collective, people
 
