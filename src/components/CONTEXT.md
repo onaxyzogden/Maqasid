@@ -11,7 +11,7 @@
 | HR, contacts, attendance, recruitment, sales pipeline | `people/`                   | `people/CONTEXT.md`                       |
 | Calendar, documents, chat, forum, announcements       | `office/`                   | `office/CONTEXT.md`                       |
 | Website monitoring, integrations, email campaigns     | `tech/`                     | `tech/CONTEXT.md`                         |
-| CRM contacts, deal pipeline, activity log             | `crm/`                      | `crm/CONTEXT.md`                          |
+| CRM (no UI components — crm-store only, unconsumed)   | `crm/`                      | `crm/CONTEXT.md`                          |
 | App shell, sidebar, topbar, mobile nav, notifications | `layout/`                   | `layout/CONTEXT.md`                       |
 | Prayer times, niyyah, ceremony gate, thresholds       | `islamic/`                  | `islamic/CONTEXT.md`                      |
 | Search palette, G-labels, Islamic terms, tables       | `shared/`                   | `shared/CONTEXT.md`                       |

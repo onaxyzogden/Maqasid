@@ -14,7 +14,7 @@
 | people-store.js | `employees`, `attendance`, `leaveRequests`, `timeEntries`, `departments` | 5 keys |
 | contacts-store.js | `contacts`, `companies`, `hrRecords`, `absences`, `clockIns`, `salaries`, `docs`, `departments` + UI state | 7 keys |
 | office-store.js | `channels`, `messages`, `events`, `documents`, `qaItems`, `announcements` | 6 keys |
-| crm-store.js | `contacts`, `deals`, `pipeline` (stages), `activities` | 4 keys |
+| crm-store.js | `contacts`, `deals`, `pipeline` (stages), `activities` — no UI consumers since 2026-10-08 | 4 keys |
 | tech-store.js | `monitors`, `darkWebEmails`, `breaches`, `integrations`, `campaigns` | 6 keys |
 | settings-store.js | `theme`, `valuesLayer`, `attrLang` | Individual string keys |
 | threshold-store.js | `niyyahDate`, `niyyahFocus[]`, `completedOpening`, `completedClosing`, `deferred` + ephemeral prayer state | Mixed |
