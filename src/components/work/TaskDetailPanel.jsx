@@ -21,6 +21,7 @@ import { isSubtaskGrounded, deriveSubtaskTier } from '../../utils/subtask-ground
 // Lazy-load so those 1.8 MB only ship when a user opens the Sources tab on a subtask.
 const SubtaskSources = lazy(() => import('./SubtaskSources'));
 import './TaskDetailPanel.css';
+import { rowActivation } from '../../lib/row-activation';
 
 function SourcesSkeleton() {
   const row = {
@@ -220,7 +221,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
       <div className="tdp-body">
         {/* Title + Priority (eyebrow) + Description */}
         <div className="tdp-header-block">
-          <textarea
+          <textarea aria-label="Task title"
             ref={titleRef}
             id="task-detail-title"
             className="tdp-title"
@@ -271,7 +272,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
           </h3>
           <div className="tdp-subtask-list">
             {allSubtasks.map((st) => (
-              <div key={st.id} className="tdp-subtask-row" onClick={() => openSubtask(st)}>
+              <div key={st.id} className="tdp-subtask-row" {...rowActivation(() => openSubtask(st))}>
                 <button
                   className={`tdp-subtask-circle ${st.done ? 'tdp-subtask-circle--done' : ''}`}
                   onClick={(e) => { e.stopPropagation(); toggleSubtask(projectId, taskId, st.id); }}
@@ -294,7 +295,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
         <div className="tdp-notes-section">
           <h3 className="tdp-section-label">Notes</h3>
           <div className="tdp-notes-container">
-            <textarea
+            <textarea aria-label="Write your thoughts or key learnings here"
               className="tdp-notes"
               value={notes}
               onChange={handleNotesChange}
@@ -347,8 +348,8 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
         {/* Status */}
         <div className="tdp-doc-field">
           <span className="tdp-doc-field__icon"><Columns3 size={16} /></span>
-          <span className="tdp-doc-field__label">Status</span>
-          <select
+          <span id="taskdetail-status-label" className="tdp-doc-field__label">Status</span>
+          <select aria-labelledby="taskdetail-status-label"
             className="tdp-doc-select"
             value={task.columnId}
             onChange={(e) => moveTask(projectId, taskId, e.target.value, task.order, columns)}
@@ -362,8 +363,8 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
         {/* Priority */}
         <div className="tdp-doc-field">
           <span className="tdp-doc-field__icon"><Flag size={16} /></span>
-          <span className="tdp-doc-field__label">Priority</span>
-          <select
+          <span id="taskdetail-priority-label" className="tdp-doc-field__label">Priority</span>
+          <select aria-labelledby="taskdetail-priority-label"
             className="tdp-doc-select"
             value={task.priority || 'medium'}
             onChange={(e) => updateTask(projectId, taskId, { priority: e.target.value })}
@@ -377,8 +378,8 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
         {/* Assignee */}
         <div className="tdp-doc-field">
           <span className="tdp-doc-field__icon"><User size={16} /></span>
-          <span className="tdp-doc-field__label">Assignee</span>
-          <select
+          <span id="taskdetail-assignee-label" className="tdp-doc-field__label">Assignee</span>
+          <select aria-labelledby="taskdetail-assignee-label"
             className="tdp-doc-select"
             value={task.assigneeId || ''}
             onChange={(e) => updateTask(projectId, taskId, { assigneeId: e.target.value || null })}
@@ -393,8 +394,8 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
         {/* Due Date */}
         <div className="tdp-doc-field">
           <span className="tdp-doc-field__icon"><Calendar size={16} /></span>
-          <span className="tdp-doc-field__label">Due Date</span>
-          <input
+          <span id="taskdetail-due-date-label" className="tdp-doc-field__label">Due Date</span>
+          <input aria-labelledby="taskdetail-due-date-label"
             type="date"
             className="tdp-doc-date"
             value={dueDateInput}
@@ -419,7 +420,7 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
                 </button>
               </span>
             ))}
-            <input
+            <input aria-label="Add tag"
               className="tdp-doc-tag-input"
               placeholder="Add tag..."
               onKeyDown={(e) => {

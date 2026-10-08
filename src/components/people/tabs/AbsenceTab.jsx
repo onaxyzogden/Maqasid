@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { Trash2 } from 'lucide-react';
 import { useContactsStore } from '../../../store/contacts-store';
+import { useUndoToast } from '@hooks/useUndoToast';
 import { ABSENCE_TYPES, ABSENCE_STATUSES } from '@data/config/contact-config';
 import { differenceInBusinessDays, parseISO, isValid } from 'date-fns';
 
@@ -16,6 +18,14 @@ export default function AbsenceTab({ contactId }) {
   const absenceRecords    = useContactsStore((s) => s.absenceRecords);
   const addAbsence        = useContactsStore((s) => s.addAbsence);
   const deleteAbsence     = useContactsStore((s) => s.deleteAbsence);
+  const restoreRecord     = useContactsStore((s) => s.restoreRecord);
+  const undoToast         = useUndoToast();
+
+  const handleDelete = (a) => {
+    const index = absenceRecords.findIndex((x) => x.id === a.id);
+    deleteAbsence(a.id);
+    undoToast('Absence record deleted', () => restoreRecord('absenceRecords', 'contacts_absence', a, index));
+  };
   const computeVacationStats = useContactsStore((s) => s.computeVacationStats);
 
   const [showForm, setShowForm] = useState(false);
@@ -145,9 +155,13 @@ export default function AbsenceTab({ contactId }) {
                   </span>
                 </td>
                 <td style={{ padding: '7px 8px' }}>
-                  <button onClick={() => deleteAbsence(a.id)} style={{
-                    background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text3)', fontSize: 11,
-                  }}>✕</button>
+                  <button
+                    className="row-action-btn danger"
+                    onClick={() => handleDelete(a)}
+                    aria-label={`Delete absence starting ${a.startDate || ''}`.trim()}
+                  >
+                    <Trash2 size={14} aria-hidden="true" />
+                  </button>
                 </td>
               </tr>
             ))}

@@ -97,10 +97,10 @@ export default function LeaveManager() {
                   <td>
                     <div className="row-actions" style={{ opacity: 1 }}>
                       {req.status === 'pending' && <>
-                        <button className="row-action-btn" onClick={() => setLeaveStatus(req.id, 'approved')} title="Approve" style={{ color: 'var(--success)' }}><Check size={14} /></button>
-                        <button className="row-action-btn danger" onClick={() => setLeaveStatus(req.id, 'rejected')} title="Reject"><X size={14} /></button>
+                        <button className="row-action-btn" onClick={() => setLeaveStatus(req.id, 'approved')} title="Approve" style={{ color: 'var(--success)' }} aria-label="Approve"><Check size={14} aria-hidden="true" /></button>
+                        <button className="row-action-btn danger" onClick={() => setLeaveStatus(req.id, 'rejected')} title="Reject" aria-label="Reject"><X size={14} /></button>
                       </>}
-                      <button className="row-action-btn danger" onClick={() => { if (confirm('Delete?')) deleteLeaveRequest(req.id); }} title="Delete">×</button>
+                      <button className="row-action-btn danger" onClick={() => { if (confirm("Delete this leave request? This can't be undone.")) deleteLeaveRequest(req.id); }} title="Delete" aria-label="Delete leave request">×</button>
                     </div>
                   </td>
                 </tr>

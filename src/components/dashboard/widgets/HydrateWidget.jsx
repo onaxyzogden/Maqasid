@@ -1,10 +1,11 @@
 import { useState, useCallback } from 'react';
 import { Droplets } from 'lucide-react';
+import { localDayKey } from '../../../lib/format-date';
 
 const KEY = 'bbiz_hydrate_today';
 
 function todayKey() {
-  return `${KEY}_${new Date().toISOString().slice(0, 10)}`;
+  return `${KEY}_${localDayKey()}`;
 }
 
 export default function HydrateWidget() {

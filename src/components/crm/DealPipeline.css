@@ -22,13 +22,14 @@
 .deal-card-name { font-weight: 600; font-size: var(--text-base); margin-bottom: 2px; }
 .deal-card-contact { font-size: var(--text-sm); color: var(--text3); margin-bottom: var(--space-2); }
 .deal-card-meta { display: flex; justify-content: space-between; font-size: var(--text-sm); color: var(--text2); margin-bottom: var(--space-2); }
-.deal-card-actions { display: flex; gap: 2px; flex-wrap: wrap; }
-.deal-move-btn {
-  font-size: var(--text-xs); font-weight: 600; padding: 1px 4px; border-radius: var(--radius-xs);
-  border: 1px solid; background: none; cursor: pointer;
-  transition: all var(--duration) var(--ease);
+.deal-card-actions { display: flex; gap: var(--space-2); align-items: center; justify-content: space-between; }
+.deal-move-select {
+  flex: 1; min-width: 0; min-height: 32px;
+  font: inherit; font-size: var(--text-sm); color: var(--text2);
+  padding: 2px var(--space-2); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--surface); cursor: pointer;
 }
-.deal-move-btn:hover { opacity: 0.8; }
+.deal-move-select:hover { border-color: var(--border2); color: var(--text); }
 .deal-empty { text-align: center; padding: var(--space-4); font-size: var(--text-sm); color: var(--text3); border: 2px dashed var(--border); border-radius: var(--radius); }
 
 @media (max-width: 767px) { .deal-column { flex: 0 0 80vw; } }

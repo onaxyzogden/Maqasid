@@ -118,6 +118,7 @@ const Settings = lazy(() => import('@pages/Settings'));
 // on disk; restoring the feature means re-adding these two lazy imports and the
 // two routes below.
 const ModulePlaceholder = lazy(() => import('@pages/ModulePlaceholder'));
+const NotFound = lazy(() => import('./components/shared/NotFound'));
 const PropheticPathPage = lazy(() => import('@pages/PropheticPathPage'));
 const OrientationPage = lazy(() => import('@pages/OrientationPage'));
 // Route-element wrappers + heavy work components — lazy so they leave the
@@ -182,7 +183,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Landing />} />
       {/* Online accounts disabled — keep the path alive so old links/bookmarks
-          land somewhere useful instead of a blank page (there is no 404 route). */}
+          land somewhere useful instead of the catch-all not-found page. */}
       <Route path="/auth" element={<Navigate to="/get-started" replace />} />
       <Route path="/get-started" element={<Onboarding />} />
       <Route path="/present/ogden" element={<OgdenPresentationPage />} />
@@ -286,7 +287,9 @@ export default function App() {
         <Route path="prophetic-path-test" element={<Navigate to="/app/prophetic-path" replace />} />
         <Route path="orientation" element={<OrientationPage />} />
         <Route path=":moduleId" element={<CeremonyGuardDynamic><ModulePlaceholder /></CeremonyGuardDynamic>} />
+        <Route path="*" element={<NotFound />} />
       </Route>
+      <Route path="*" element={<NotFound to="/" linkLabel="Back to home" />} />
     </Routes>
     </Suspense>
     </ChunkErrorBoundary>

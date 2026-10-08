@@ -21,7 +21,7 @@
 .chart-tooltip__value {
   font-size: var(--text-base);
   font-weight: 700;
-  color: var(--primary);
+  color: var(--primary-text);
   font-family: var(--font-heading);
 }
 .chart-tooltip__label {

@@ -23,6 +23,7 @@ import { getBbosTaskDefsByStage } from '../data/bbos/bbos-task-definitions';
 import ChartTooltip from '../components/shared/ChartTooltip';
 import './Dashboard.css';
 import '../components/bbos/BbosFullDashboard.css';
+import { localDayKey } from '../lib/format-date';
 
 function BCGChart({ data }) {
   const svgRef = useRef(null);
@@ -394,8 +395,8 @@ export default function Dashboard() {
 
   // Tasks completed today
   const todayCompleted = useMemo(() => {
-    const todayStr = new Date().toISOString().slice(0, 10);
-    return allTasks.filter((t) => t.completedAt && t.completedAt.slice(0, 10) === todayStr).length;
+    const todayStr = localDayKey();
+    return allTasks.filter((t) => t.completedAt && localDayKey(new Date(t.completedAt)) === todayStr).length;
   }, [allTasks]);
 
   // 30-point BCG data (last 30 days completions — chart filters by range)
@@ -406,10 +407,10 @@ export default function Dashboard() {
       const d = new Date(now);
       d.setDate(d.getDate() - i);
       d.setHours(0, 0, 0, 0);
-      const dateStr = d.toISOString().slice(0, 10);
+      const dateStr = localDayKey(d);
       const label = d.toLocaleDateString('en', { month: 'short', day: 'numeric' });
       const count = allTasks.filter((t) =>
-        t.completedAt && t.completedAt.slice(0, 10) === dateStr
+        t.completedAt && localDayKey(new Date(t.completedAt)) === dateStr
       ).length;
       days.push({ date: dateStr, label, count });
     }
@@ -421,8 +422,8 @@ export default function Dashboard() {
     const now = new Date();
     const weekLater = new Date(now);
     weekLater.setDate(weekLater.getDate() + 7);
-    const todayStr = now.toISOString().slice(0, 10);
-    const weekStr = weekLater.toISOString().slice(0, 10);
+    const todayStr = localDayKey(now);
+    const weekStr = localDayKey(weekLater);
     return events
       .filter((e) => e.date >= todayStr && e.date <= weekStr)
       .sort((a, b) => a.date.localeCompare(b.date) || (a.startTime || '').localeCompare(b.startTime || ''))

@@ -5,6 +5,7 @@ import { getDisplayName } from '@data/config/contact-config';
 import AvatarInitials from '../shared/AvatarInitials';
 import TypeBadge from '../shared/TypeBadge';
 import './ContactCard.css';
+import { rowActivation } from '../../../lib/row-activation';
 
 export default function ContactCard({ contact, company }) {
   const selectContact     = useContactsStore((s) => s.selectContact);
@@ -20,7 +21,7 @@ export default function ContactCard({ contact, company }) {
   return (
     <div
       className={`contact-card ${isSelected ? 'contact-card--selected' : ''}`}
-      onClick={() => selectContact(contact.id)}
+      {...rowActivation(() => selectContact(contact.id))}
     >
       <div className="contact-card__header">
         <span className="contact-card__entity-label">
@@ -29,9 +30,8 @@ export default function ContactCard({ contact, company }) {
         <button
           className="contact-card__menu"
           onClick={(e) => { e.stopPropagation(); setMenuOpen((v) => !v); }}
-          title="Options"
-        >
-          <MoreHorizontal size={14} />
+          title="Options" aria-label="Options">
+          <MoreHorizontal size={14} aria-hidden="true" />
         </button>
         {menuOpen && (
           <>

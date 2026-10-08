@@ -4,6 +4,7 @@ import { X } from 'lucide-react';
 import { useContactsStore } from '@store/contacts-store';
 import { useAuthStore } from '@store/auth-store';
 import { CLOCK_IN_LOCATIONS } from '@data/config/contact-config';
+import { localDayKey } from '../../../lib/format-date';
 
 const ICONS = { office: '🏢', remote: '🏠', field: '📍' };
 
@@ -16,7 +17,7 @@ export default function ClockInModal({ contactId, onClose }) {
   const triggerClose = () => { setLeaving(true); setTimeout(onClose, 200); };
 
   const [showManual, setShowManual] = useState(false);
-  const [manualDate, setManualDate] = useState(new Date().toISOString().slice(0, 10));
+  const [manualDate, setManualDate] = useState(localDayKey());
   const [manualTime, setManualTime] = useState(new Date().toTimeString().slice(0, 5));
   const [manualLocation, setManualLocation] = useState('office');
   const [manualDesc, setManualDesc] = useState('');

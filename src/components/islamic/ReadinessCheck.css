@@ -38,8 +38,8 @@
   letter-spacing: 0.04em;
 }
 
-.rc-col-title.rc-at-peace { color: var(--success); }
-.rc-col-title.rc-not-rested { color: var(--warning); }
+.rc-col-title.rc-at-peace { color: var(--success-text); }
+.rc-col-title.rc-not-rested { color: var(--warning-text); }
 
 .rc-item {
   font-size: var(--text-sm-plus);
@@ -125,7 +125,7 @@
 
 .rc-card-attr-ar {
   font-size: var(--text-base);
-  color: var(--accent);
+  color: var(--accent-text);
   font-family: serif;
 }
 

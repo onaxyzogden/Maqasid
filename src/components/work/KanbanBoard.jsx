@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
-import { DndContext, DragOverlay, PointerSensor, useSensor, useSensors, closestCenter } from '@dnd-kit/core';
+import { DndContext, DragOverlay, PointerSensor, KeyboardSensor, useSensor, useSensors, closestCenter } from '@dnd-kit/core';
+import { sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 import { useTaskStore } from '../../store/task-store';
 import { useToastStore } from '@store/toast-store';
 import { orderBoardTasks } from '../../data/orientation-selector';
@@ -48,7 +49,11 @@ export default function KanbanBoard({ project, onSelectTask, selectedTaskId, fil
     onSelectTask(task.id);
   };
 
-  const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 5 } }));
+  const sensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
+    // Drag mode by keyboard: Space/Enter picks a card up, arrows move it, Space drops, Escape cancels.
+    useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates }),
+  );
 
   const handleDragStart = ({ active }) => {
     setActiveTask(tasks.find((t) => t.id === active.id) || null);

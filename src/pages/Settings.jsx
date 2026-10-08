@@ -12,6 +12,7 @@ import { isTashreeq, isRamadan } from '../data/prophetic-path-submodules';
 import { exportAll, importAll, clearAll, validateImport, createBackup, restoreBackup, hasBackup } from '../services/storage';
 import { AI_PROVIDERS } from '../services/ai/ai-settings';
 import { cloudAccountsEnabled } from '../services/supabase';
+import { localDayKey } from '../lib/format-date';
 
 export default function Settings() {
   const navigate = useNavigate();
@@ -32,6 +33,7 @@ export default function Settings() {
   const onboardingDisabled =
     tourCompleted && checklistDismissed && seenPillars.length >= 7;
   const [showKey, setShowKey] = useState(false);
+  const [logoutConfirm, setLogoutConfirm] = useState(false);
 
   // Sunnah Mode — fasting + travel state
   const { hijri } = usePrayerTimes();
@@ -91,7 +93,7 @@ export default function Settings() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `bbos-biz-export-${new Date().toISOString().split('T')[0]}.json`;
+    a.download = `bbos-biz-export-${localDayKey()}.json`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -240,10 +242,10 @@ export default function Settings() {
         }}>
           {/* Provider selector */}
           <div>
-            <label style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text2)', display: 'block', marginBottom: 'var(--space-1)' }}>
+            <label htmlFor="settings-provider" style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text2)', display: 'block', marginBottom: 'var(--space-1)' }}>
               Provider
             </label>
-            <select
+            <select id="settings-provider"
               value={aiProvider}
               onChange={(e) => setAiProvider(e.target.value)}
               style={{
@@ -260,11 +262,11 @@ export default function Settings() {
 
           {/* API Key */}
           <div>
-            <label style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text2)', display: 'block', marginBottom: 'var(--space-1)' }}>
+            <label htmlFor="settings-api-key" style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text2)', display: 'block', marginBottom: 'var(--space-1)' }}>
               API Key
             </label>
             <div style={{ display: 'flex', gap: 'var(--space-2)' }}>
-              <input
+              <input id="settings-api-key"
                 type={showKey ? 'text' : 'password'}
                 value={aiApiKey}
                 onChange={(e) => setAiApiKey(e.target.value)}
@@ -277,7 +279,10 @@ export default function Settings() {
                 }}
               />
               <button
+                type="button"
                 onClick={() => setShowKey(!showKey)}
+                aria-label={showKey ? 'Hide API key' : 'Show API key'}
+                aria-pressed={showKey}
                 style={{
                   padding: 'var(--space-2)', border: '1px solid var(--border)',
                   borderRadius: 'var(--radius-sm)', background: 'none',
@@ -292,10 +297,10 @@ export default function Settings() {
 
           {/* Model */}
           <div>
-            <label style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text2)', display: 'block', marginBottom: 'var(--space-1)' }}>
+            <label htmlFor="settings-model" style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text2)', display: 'block', marginBottom: 'var(--space-1)' }}>
               Model
             </label>
-            <input
+            <input id="settings-model"
               type="text"
               value={aiModel}
               onChange={(e) => setAiModel(e.target.value)}
@@ -312,10 +317,10 @@ export default function Settings() {
           {/* Base URL (custom only) */}
           {aiProvider === 'custom' && (
             <div>
-              <label style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text2)', display: 'block', marginBottom: 'var(--space-1)' }}>
+              <label htmlFor="settings-base-url" style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text2)', display: 'block', marginBottom: 'var(--space-1)' }}>
                 Base URL
               </label>
-              <input
+              <input id="settings-base-url"
                 type="text"
                 value={aiBaseUrl}
                 onChange={(e) => setAiBaseUrl(e.target.value)}
@@ -336,10 +341,10 @@ export default function Settings() {
               Anthropic API requires a CORS proxy for browser access. Set a proxy URL in the Base URL field below, or use OpenRouter instead.
               {!aiBaseUrl && (
                 <div style={{ marginTop: 'var(--space-2)' }}>
-                  <label style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text2)', display: 'block', marginBottom: 'var(--space-1)' }}>
+                  <label htmlFor="settings-proxy-base-url" style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--text2)', display: 'block', marginBottom: 'var(--space-1)' }}>
                     Proxy Base URL
                   </label>
-                  <input
+                  <input id="settings-proxy-base-url"
                     type="text"
                     value={aiBaseUrl}
                     onChange={(e) => setAiBaseUrl(e.target.value)}
@@ -488,8 +493,8 @@ export default function Settings() {
 
           {!travelActive ? (
             <div style={{ display: 'flex', gap: 'var(--space-2)', alignItems: 'center', flexWrap: 'wrap' }}>
-              <label style={{ fontSize: '0.78rem', color: 'var(--text2)' }}>Auto-expire:</label>
-              <select
+              <label htmlFor="settings-auto-expire" style={{ fontSize: '0.78rem', color: 'var(--text2)' }}>Auto-expire:</label>
+              <select id="settings-auto-expire"
                 value={travelDays}
                 onChange={(e) => setTravelDays(Number(e.target.value))}
                 style={{
@@ -585,10 +590,26 @@ export default function Settings() {
       {/* Account & Sync */}
       <AccountSyncSection />
 
-      {/* Logout */}
-      <button className="btn btn-ghost" onClick={handleLogout} style={{ color: 'var(--text2)' }}>
-        <LogOut size={16} /> Sign Out
-      </button>
+      {/* Logout — two-step: in local mode signing out returns you to onboarding */}
+      {!logoutConfirm ? (
+        <button className="btn btn-ghost" onClick={() => setLogoutConfirm(true)} style={{ color: 'var(--text2)' }}>
+          <LogOut size={16} aria-hidden="true" /> Sign Out
+        </button>
+      ) : (
+        <div role="alert" style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)', padding: 'var(--space-3)', border: '1px solid var(--border)', borderRadius: 'var(--radius)' }}>
+          <span style={{ fontSize: 'var(--text-sm)' }}>
+            Sign out? You'll go back to the welcome screen and set up your profile again. Your data stays on this device.
+          </span>
+          <div style={{ display: 'flex', gap: 'var(--space-2)' }}>
+            <button className="btn btn-secondary" onClick={handleLogout}>
+              <LogOut size={16} aria-hidden="true" /> Yes, sign out
+            </button>
+            <button className="btn btn-ghost" onClick={() => setLogoutConfirm(false)} autoFocus>
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

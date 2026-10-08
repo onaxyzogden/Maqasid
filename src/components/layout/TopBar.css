@@ -32,8 +32,8 @@
   transition: all var(--duration) var(--ease);
 }
 .topbar-btn:hover { background: var(--bg3); color: var(--text); }
-.topbar-btn-active { color: var(--accent); background: var(--accent-bg); }
-.topbar-btn-active:hover { color: var(--accent); background: var(--accent-bg); }
+.topbar-btn-active { color: var(--accent-text); background: var(--accent-bg); }
+.topbar-btn-active:hover { color: var(--accent-text); background: var(--accent-bg); }
 
 .topbar-kbd {
   font-family: var(--font-mono);
@@ -77,7 +77,7 @@
 }
 
 .topbar-tab.active {
-  color: var(--accent);
+  color: var(--accent-text);
   background: var(--accent-bg);
 }
 

@@ -20,6 +20,8 @@ export function useFocusTrap(active, onClose) {
     const timer = setTimeout(() => {
       const el = ref.current;
       if (!el) return;
+      // Respect an autoFocus field the container already focused.
+      if (el.contains(document.activeElement)) return;
       const first = el.querySelector(FOCUSABLE);
       if (first) first.focus();
       else el.focus();

@@ -3,6 +3,7 @@ import { Plus, FileSpreadsheet, Pencil, Trash2, Check, Send, Eye } from 'lucide-
 import { useMoneyStore, formatCurrency, getInvoiceTotal } from '../../store/money-store';
 import { genLineItemId } from '../../services/id';
 import './InvoiceList.css';
+import { localDayKey } from '../../lib/format-date';
 
 const STATUS_FILTERS = ['all', 'draft', 'sent', 'paid', 'overdue'];
 
@@ -13,7 +14,7 @@ function InvoiceForm({ invoice, onClose }) {
 
   const [clientName, setClientName] = useState(invoice?.clientName || '');
   const [clientEmail, setClientEmail] = useState(invoice?.clientEmail || '');
-  const [date, setDate] = useState(invoice?.date || new Date().toISOString().slice(0, 10));
+  const [date, setDate] = useState(invoice?.date || localDayKey());
   const [dueDate, setDueDate] = useState(invoice?.dueDate || '');
   const [notes, setNotes] = useState(invoice?.notes || '');
   const [lineItems, setLineItems] = useState(
@@ -49,10 +50,10 @@ function InvoiceForm({ invoice, onClose }) {
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-4)', marginBottom: 'var(--space-4)' }}>
-        <div className="expense-form-field"><label>Client Name *</label><input value={clientName} onChange={(e) => setClientName(e.target.value)} placeholder="Client name" /></div>
-        <div className="expense-form-field"><label>Client Email</label><input type="email" value={clientEmail} onChange={(e) => setClientEmail(e.target.value)} placeholder="client@email.com" /></div>
-        <div className="expense-form-field"><label>Invoice Date</label><input type="date" value={date} onChange={(e) => setDate(e.target.value)} /></div>
-        <div className="expense-form-field"><label>Due Date *</label><input type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} /></div>
+        <div className="expense-form-field"><label htmlFor="invoicelis-client-name">Client Name *</label><input id="invoicelis-client-name" value={clientName} onChange={(e) => setClientName(e.target.value)} placeholder="Client name" /></div>
+        <div className="expense-form-field"><label htmlFor="invoicelis-client-email">Client Email</label><input id="invoicelis-client-email" type="email" value={clientEmail} onChange={(e) => setClientEmail(e.target.value)} placeholder="client@email.com" /></div>
+        <div className="expense-form-field"><label htmlFor="invoicelis-invoice-date">Invoice Date</label><input id="invoicelis-invoice-date" type="date" value={date} onChange={(e) => setDate(e.target.value)} /></div>
+        <div className="expense-form-field"><label htmlFor="invoicelis-due-date">Due Date *</label><input id="invoicelis-due-date" type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} /></div>
       </div>
 
       <h4 style={{ marginBottom: 'var(--space-3)', fontSize: '0.9rem' }}>Line Items</h4>
@@ -61,11 +62,11 @@ function InvoiceForm({ invoice, onClose }) {
         <tbody>
           {lineItems.map((li) => (
             <tr key={li.id}>
-              <td><input value={li.description} onChange={(e) => updateLine(li.id, 'description', e.target.value)} placeholder="Item description" style={{ width: '100%', border: 'none', background: 'transparent', padding: 'var(--space-1)' }} /></td>
-              <td><input type="number" min="1" value={li.quantity} onChange={(e) => updateLine(li.id, 'quantity', Number(e.target.value))} style={{ width: '100%', border: 'none', background: 'transparent', textAlign: 'center' }} /></td>
-              <td><input type="number" step="0.01" min="0" value={li.unitPrice} onChange={(e) => updateLine(li.id, 'unitPrice', Number(e.target.value))} style={{ width: '100%', border: 'none', background: 'transparent', textAlign: 'right' }} /></td>
+              <td><input aria-label="Item description" value={li.description} onChange={(e) => updateLine(li.id, 'description', e.target.value)} placeholder="Item description" style={{ width: '100%', border: 'none', background: 'transparent', padding: 'var(--space-1)' }} /></td>
+              <td><input type="number" aria-label="Quantity" min="1" value={li.quantity} onChange={(e) => updateLine(li.id, 'quantity', Number(e.target.value))} style={{ width: '100%', border: 'none', background: 'transparent', textAlign: 'center' }} /></td>
+              <td><input type="number" aria-label="Unit price" step="0.01" min="0" value={li.unitPrice} onChange={(e) => updateLine(li.id, 'unitPrice', Number(e.target.value))} style={{ width: '100%', border: 'none', background: 'transparent', textAlign: 'right' }} /></td>
               <td style={{ textAlign: 'right' }} className="amount">{formatCurrency((li.quantity || 0) * (li.unitPrice || 0))}</td>
-              <td><button className="row-action-btn danger" onClick={() => removeLine(li.id)}>×</button></td>
+              <td><button className="row-action-btn danger" onClick={() => removeLine(li.id)} aria-label="Remove line item">×</button></td>
             </tr>
           ))}
         </tbody>
@@ -76,7 +77,7 @@ function InvoiceForm({ invoice, onClose }) {
         Total: <span className="amount">{formatCurrency(total)}</span>
       </div>
 
-      <div className="expense-form-field" style={{ marginBottom: 'var(--space-5)' }}><label>Notes</label><textarea value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Additional notes..." rows={2} /></div>
+      <div className="expense-form-field" style={{ marginBottom: 'var(--space-5)' }}><label htmlFor="invoicelis-notes">Notes</label><textarea id="invoicelis-notes" value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Additional notes..." rows={2} /></div>
 
       <div style={{ display: 'flex', gap: 'var(--space-3)', justifyContent: 'flex-end' }}>
         <button className="btn btn-secondary" onClick={() => handleSave('draft')} disabled={!clientName || !dueDate}>Save as Draft</button>
@@ -97,7 +98,7 @@ export default function InvoiceList() {
   const [editingInvoice, setEditingInvoice] = useState(null);
 
   const filtered = useMemo(() => {
-    const now = new Date().toISOString().slice(0, 10);
+    const now = localDayKey();
     return invoices
       .map((inv) => ({
         ...inv,
@@ -151,10 +152,10 @@ export default function InvoiceList() {
               <td><span className={`status-badge status-${inv.displayStatus}`}>{inv.displayStatus}</span></td>
               <td>
                 <div className="row-actions" style={{ opacity: 1 }}>
-                  {inv.status === 'draft' && <button className="row-action-btn" onClick={() => setInvoiceStatus(inv.id, 'sent')} title="Mark Sent"><Send size={14} /></button>}
-                  {(inv.status === 'sent' || inv.displayStatus === 'overdue') && <button className="row-action-btn" onClick={() => setInvoiceStatus(inv.id, 'paid')} title="Mark Paid"><Check size={14} /></button>}
-                  <button className="row-action-btn" onClick={() => setEditingInvoice(inv)} title="Edit"><Pencil size={14} /></button>
-                  <button className="row-action-btn danger" onClick={() => { if (confirm('Delete this invoice?')) deleteInvoice(inv.id); }} title="Delete"><Trash2 size={14} /></button>
+                  {inv.status === 'draft' && <button className="row-action-btn" onClick={() => setInvoiceStatus(inv.id, 'sent')} title="Mark Sent" aria-label="Mark Sent"><Send size={14} aria-hidden="true" /></button>}
+                  {(inv.status === 'sent' || inv.displayStatus === 'overdue') && <button className="row-action-btn" onClick={() => setInvoiceStatus(inv.id, 'paid')} title="Mark Paid" aria-label="Mark Paid"><Check size={14} aria-hidden="true" /></button>}
+                  <button className="row-action-btn" onClick={() => setEditingInvoice(inv)} title="Edit" aria-label={`Edit invoice ${inv.number}`}><Pencil size={14} aria-hidden="true" /></button>
+                  <button className="row-action-btn danger" onClick={() => { if (confirm('Delete this invoice?')) deleteInvoice(inv.id); }} title="Delete" aria-label={`Delete invoice ${inv.number}`}><Trash2 size={14} aria-hidden="true" /></button>
                 </div>
               </td>
             </tr>

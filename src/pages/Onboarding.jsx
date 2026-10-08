@@ -10,9 +10,12 @@ import { useSettingsStore } from '../store/settings-store';
 import { useOnboardingStore } from '../store/onboarding-store';
 import { useThresholdStore } from '../store/threshold-store';
 import { genUserId } from '../services/id';
+import { safeGetJSON, safeRemove } from '../services/storage';
 import { MAQASID_PILLARS } from '../data/maqasid';
 import { ICON_REGISTRY } from '../data/icon-registry';
 import '../styles/landing.css';
+import { useRequiredField } from '../hooks/useRequiredField';
+import FieldError from '../components/shared/FieldError';
 
 const PILLAR_ICON_MAP = ICON_REGISTRY;
 
@@ -34,9 +37,12 @@ export default function Onboarding() {
   const { setWizardIntent, recordFirstLogin } = useOnboardingStore();
   const skipNiyyah = useThresholdStore((s) => s.skipNiyyah);
 
+  // A profile left behind by Sign Out — reuse it rather than creating a new user.
+  const [prevUser] = useState(() => safeGetJSON('user_prev', null));
   const [step, setStep] = useState(0);
-  const [name, setName] = useState('');
-  const [org, setOrg] = useState('');
+  const [name, setName] = useState(prevUser?.name || '');
+  const req = useRequiredField(name.trim().length > 0, 'onboarding-your-name');
+  const [org, setOrg] = useState(prevUser?.org || '');
   const [intent, setIntent] = useState(null);
   const [values, setValues] = useState('islamic');
 
@@ -50,13 +56,15 @@ export default function Onboarding() {
     recordFirstLogin();
     const trimmedName = name.trim();
     login({
-      id: genUserId(),
+      ...(prevUser || {}),
+      id: prevUser?.id || genUserId(),
       name: trimmedName,
       org: org.trim(),
-      modules: [],
+      modules: prevUser?.modules || [],
       valuesLayer: values,
-      createdAt: new Date().toISOString(),
+      createdAt: prevUser?.createdAt || new Date().toISOString(),
     });
+    if (prevUser) safeRemove('user_prev');
     setValuesLayer(values);
     // No pillar selection in onboarding — mark Niyyah as skipped so user
     // isn't blocked by a second ceremony on first dashboard visit.
@@ -179,20 +187,21 @@ export default function Onboarding() {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)', marginBottom: 'var(--space-6)' }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: 'var(--space-1)', color: 'var(--text2)' }}>
+                  <label htmlFor="onboarding-your-name" style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: 'var(--space-1)', color: 'var(--text2)' }}>
                     Your Name *
                   </label>
-                  <input
+                  <input id="onboarding-your-name" {...req.fieldProps}
                     type="text" value={name} onChange={(e) => setName(e.target.value)}
                     placeholder="Enter your name" autoFocus
                     style={{ width: '100%', padding: 'var(--space-3) var(--space-4)', borderRadius: 'var(--radius)' }}
                   />
+<FieldError id={req.errorId} show={req.show}>Enter your name to continue</FieldError>
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: 'var(--space-1)', color: 'var(--text2)' }}>
+                  <label htmlFor="onboarding-organization-optional" style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: 'var(--space-1)', color: 'var(--text2)' }}>
                     Organization (optional)
                   </label>
-                  <input
+                  <input id="onboarding-organization-optional"
                     type="text" value={org} onChange={(e) => setOrg(e.target.value)}
                     placeholder="Your company or team name"
                     style={{ width: '100%', padding: 'var(--space-3) var(--space-4)', borderRadius: 'var(--radius)' }}
@@ -338,8 +347,7 @@ export default function Onboarding() {
               ) : (
                 <button
                   className="btn btn-primary"
-                  onClick={handleNext}
-                  disabled={!canNext()}
+                  onClick={step === 1 ? req.guard(handleNext) : handleNext}
                 >
                   Continue <ArrowRight size={16} />
                 </button>

@@ -17,12 +17,17 @@
   /* Text */
   --text: #1a1d21;
   --text2: #5f6b7a;
-  --text3: #8b95a2;
+  --text3: #6b7480;          /* 4.7:1 on white (was #8b95a2, 3.0:1) */
 
   /* Primary (teal) */
   --primary: #4ab8a8;
   --primary-hover: #3da89a;
   --primary-dark: #2d8a7e;
+  /* WCAG AA companions. #4ab8a8 is 2.4:1 on white — keep it for decoration
+     (tints, borders, dots); use these for fills behind white text and for
+     primary-coloured text. */
+  --primary-strong: #227a6e;  /* 5.2:1 with white text */
+  --primary-text: #227a6e;    /* 5.2:1 on white */
   --primary-bg: rgba(74, 184, 168, 0.08);
   --primary-bg2: rgba(74, 184, 168, 0.15);
   --primary-border: rgba(74, 184, 168, 0.3);
@@ -32,6 +37,7 @@
   --accent2: #a07a38;
   --accent-bg: rgba(201, 160, 90, 0.1);
   --accent-border: rgba(201, 160, 90, 0.3);
+  --accent-text: #8a6a2c;     /* 5.0:1 on white */
 
   /* Kanban columns */
   --col-todo: #8b95a2;
@@ -57,10 +63,12 @@
   --success: #22c55e;
   --success-bg: rgba(34, 197, 94, 0.08);
   --success-border: rgba(34, 197, 94, 0.25);
+  --success-text: #15803d;    /* 5.0:1 on white */
 
   --warning: #f59e0b;
   --warning-bg: rgba(245, 158, 11, 0.08);
   --warning-border: rgba(245, 158, 11, 0.25);
+  --warning-text: #b45309;    /* 5.0:1 on white */
 
   --danger: #dc2626;
   --danger-bg: rgba(239, 68, 68, 0.08);
@@ -262,11 +270,13 @@
 
   --text: #e8e3dc;
   --text2: #9e9690;
-  --text3: #a09a94;
+  --text3: #8a837d;          /* dimmer than --text2, 4.5:1 on --surface */
 
   --primary: #5cc8b8;
   --primary-hover: #4ab8a8;
   --primary-dark: #3da89a;
+  --primary-strong: #227a6e;  /* fill behind white text */
+  --primary-text: #5cc8b8;    /* text on dark surfaces */
   --primary-bg: rgba(92, 200, 184, 0.1);
   --primary-bg2: rgba(92, 200, 184, 0.18);
   --primary-border: rgba(92, 200, 184, 0.3);
@@ -275,6 +285,7 @@
   --accent2: #c9a05a;
   --accent-bg: rgba(212, 170, 96, 0.1);
   --accent-border: rgba(212, 170, 96, 0.3);
+  --accent-text: #d4aa60;
 
   --col-todo-bg: #22262e;
   --col-progress-bg: rgba(59, 130, 246, 0.12);
@@ -287,7 +298,9 @@
   --pri-low-bg: rgba(107, 114, 128, 0.12);
 
   --success-bg: rgba(34, 197, 94, 0.12);
+  --success-text: #4ade80;
   --warning-bg: rgba(245, 158, 11, 0.12);
+  --warning-text: #fbbf24;
   --danger: #f87171;
   --danger-bg: rgba(239, 68, 68, 0.12);
 
@@ -375,7 +388,7 @@
 
 /* ── Accessibility — Global focus-visible ── */
 :focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--primary-strong);
   outline-offset: 2px;
 }
 

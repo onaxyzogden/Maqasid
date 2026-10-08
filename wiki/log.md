@@ -3,6 +3,33 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-08] fix | MILOS — whole-system UX audit: 12 issues fixed across 5 phases
+
+Operator: `/ux-engine:ux-audit whole system`, then approved the 5-phase fix plan and said *"continue"*. Decision: [[2026-10-08-milos-contrast-tokens]]. **Amanah gate:** positive. It protects the operator's own records (amanah over data) and doesn't change any ceremony gating logic.
+
+- **Phase 1, data safety:**
+  - Sign Out is now two-step. Onboarding reuses the profile Sign Out left behind (`user_prev`) instead of creating a new user.
+  - The toast store has an action slot. `useUndoToast` gives "deleted · Undo" on the 11 deletes that had no confirmation (HR salary, clock-ins, absence, docs, recruitment, journal, etc.).
+  - Dead controls were wired up or removed. The BBOS routing rationale is bound to state.
+  - Approve/Reject is two-step.
+- **Phase 2, daily flow:**
+  - `localDayKey()` (`src/lib/format-date.js`) replaces the UTC `toISOString().slice(0,10)` day keys.
+  - NiyyahAct is now a real dialog with a focus trap and Escape.
+  - The prayer-times error branch can now render.
+- **Phase 3, tokens and focus:** see the decision. `--primary-strong`, a darker `--text3`, `-text` status variants, and the focus-killing `outline:none` rules removed.
+- **Phase 4, keyboard and forms:**
+  - `lib/row-activation.js` on about 25 clickable rows.
+  - A shared `shared/SlideIn.jsx` (focus trap, Escape, "Discard unsaved changes?") across the money and tech panels.
+  - `useRequiredField` plus `FieldError` replace silently disabled Save buttons. Labels are linked with `htmlFor`.
+- **Phase 5, also-found sweep:**
+  - 59 icon-only buttons named, with their icons `aria-hidden`.
+  - 44px hit areas via invisible `::after`.
+  - Kanban `KeyboardSensor` and an `aria-pressed` drag toggle.
+  - A shared `NotFound` used for the `*` routes in `/app` and at the top level, and for unknown pillars and objectives. `CeremonyGuardDynamic` only gates known ids.
+  - CRM stage moves use a named `<select>`. Delete confirms name the item.
+- **Verified:** `npm run lint` exit 0 (1 old warning), `npm test` 365/365, `npm run build` OK. Preview screenshots: not-found pages (`/app/x/y/z`, `/nope`, `/app/pillar/nope`), 0 unnamed visible buttons on money/office/journal/work, and Kanban Space/Arrow/Space drag on the Salah board (the drop hits the guided-order guard as designed).
+- **Pages touched:** wiki/decisions/2026-10-08-milos-contrast-tokens.md (new), wiki/entities/milos.md, wiki/index.md, wiki/log.md.
+
 ## [2026-10-08] fix | MILOS — Duha hadith shown in full; two mis-attributed quotes corrected
 
 Operator: *"The Hadith for the salat Duha is shortened. I'd like the full one visible."* Chosen by selection: full text with corrected references, English only. **Amanah gate:** positive. Restores accurate attribution (sidq); no new evidence authored.

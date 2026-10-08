@@ -133,7 +133,7 @@
 .sidebar-item:hover { background: var(--bg3); color: var(--text); }
 .sidebar-item.active {
   background: var(--primary-bg);
-  color: var(--primary);
+  color: var(--primary-text);
   font-weight: 600;
   border-left-color: var(--primary); /* accent stripe on active item */
 }
@@ -230,7 +230,7 @@
   color: var(--text3);
   transition: all var(--duration) var(--ease);
 }
-.sidebar-icon-btn:hover { background: var(--primary-bg); color: var(--primary); }
+.sidebar-icon-btn:hover { background: var(--primary-bg); color: var(--primary-text); }
 
 .sidebar-project-list {
   display: flex; flex-direction: column; gap: 1px;
@@ -245,7 +245,7 @@
   transition: all var(--duration) var(--ease);
 }
 .sidebar-project:hover { background: var(--bg3); color: var(--text); }
-.sidebar-project.active { background: var(--primary-bg); color: var(--primary); font-weight: 500; }
+.sidebar-project.active { background: var(--primary-bg); color: var(--primary-text); font-weight: 500; }
 
 .project-dot {
   width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
@@ -260,7 +260,7 @@
   padding: 1px 5px;
   border-radius: var(--radius-xs);
   background: var(--accent-bg);
-  color: var(--accent);
+  color: var(--accent-text);
   flex-shrink: 0;
 }
 

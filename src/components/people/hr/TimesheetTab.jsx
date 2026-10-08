@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useContactsStore } from '@store/contacts-store';
 import AvatarInitials from '../shared/AvatarInitials';
+import { rowActivation } from '../../../lib/row-activation';
 
 function getWeekRange(offset) {
   const now = new Date();
@@ -146,7 +147,7 @@ export default function TimesheetTab({ employees, onSelectEmployee }) {
                 return (
                   <tr
                     key={emp.id}
-                    onClick={() => onSelectEmployee(emp.id)}
+                    {...rowActivation(() => onSelectEmployee(emp.id), { role: null })}
                     style={{ borderBottom: '1px solid var(--border)', cursor: 'pointer', transition: 'background 0.15s' }}
                     onMouseEnter={(e) => e.currentTarget.style.background = 'var(--bg3)'}
                     onMouseLeave={(e) => e.currentTarget.style.background = ''}

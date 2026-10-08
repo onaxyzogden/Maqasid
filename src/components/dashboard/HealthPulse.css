@@ -30,13 +30,13 @@
   background: var(--success);
   box-shadow: var(--shadow-glow-green);
 }
-.health-pulse-green .hp-label { color: var(--success); }
+.health-pulse-green .hp-label { color: var(--success-text); }
 
 .health-pulse-amber .hp-dot {
   background: var(--warning);
   box-shadow: var(--shadow-glow-amber);
 }
-.health-pulse-amber .hp-label { color: var(--warning); }
+.health-pulse-amber .hp-label { color: var(--warning-text); }
 
 .health-pulse-red .hp-dot {
   background: var(--danger);

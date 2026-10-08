@@ -3,6 +3,9 @@ import { Plus, Kanban, Trash2, X } from 'lucide-react';
 import { useCRMStore, formatDealValue } from '../../store/crm-store';
 import { useToastStore } from '../../store/toast-store';
 import './DealPipeline.css';
+import { rowActivation } from '../../lib/row-activation';
+import { useRequiredField } from '../../hooks/useRequiredField';
+import FieldError from '../../components/shared/FieldError';
 
 function DealForm({ deal, onClose }) {
   const contacts = useCRMStore((s) => s.contacts);
@@ -12,6 +15,7 @@ function DealForm({ deal, onClose }) {
   const addToast = useToastStore((s) => s.addToast);
   const isEdit = !!deal;
   const [name, setName] = useState(deal?.name || '');
+  const req = useRequiredField(!!name.trim(), 'dealpipeli-deal-name');
   const [contactId, setContactId] = useState(deal?.contactId || '');
   const [value, setValue] = useState(deal?.value || '');
   const [stage, setStage] = useState(deal?.stage || pipeline[0]?.id || '');
@@ -36,26 +40,27 @@ function DealForm({ deal, onClose }) {
       <div className="expense-form-modal" style={{ maxWidth: 460 }}>
         <div className="expense-form-header"><h3>{isEdit ? 'Edit Deal' : 'New Deal'}</h3><button className="expense-form-close" onClick={onClose}><X size={18} /></button></div>
         <div className="expense-form-body">
-          <div className="expense-form-field"><label>Deal Name *</label><input value={name} onChange={(e) => setName(e.target.value)} placeholder="Deal name" autoFocus /></div>
+          <div className="expense-form-field"><label htmlFor="dealpipeli-deal-name">Deal Name *</label><input id="dealpipeli-deal-name" {...req.fieldProps} value={name} onChange={(e) => setName(e.target.value)} placeholder="Deal name" autoFocus />
+<FieldError id={req.errorId} show={req.show}>Deal name is required</FieldError></div>
           <div className="expense-form-row">
             <div className="expense-form-field" style={{ flex: 1 }}>
-              <label>Contact</label>
-              <select value={contactId} onChange={(e) => setContactId(e.target.value)}><option value="">Select...</option>{contacts.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}</select>
+              <label htmlFor="dealpipeli-contact">Contact</label>
+              <select id="dealpipeli-contact" value={contactId} onChange={(e) => setContactId(e.target.value)}><option value="">Select...</option>{contacts.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}</select>
             </div>
-            <div className="expense-form-field" style={{ flex: 1 }}><label>Value ($)</label><input type="number" min="0" value={value} onChange={(e) => setValue(e.target.value)} placeholder="0" /></div>
+            <div className="expense-form-field" style={{ flex: 1 }}><label htmlFor="dealpipeli-value">Value ($)</label><input id="dealpipeli-value" type="number" min="0" value={value} onChange={(e) => setValue(e.target.value)} placeholder="0" /></div>
           </div>
           <div className="expense-form-row">
             <div className="expense-form-field" style={{ flex: 1 }}>
-              <label>Stage</label>
-              <select value={stage} onChange={(e) => setStage(e.target.value)}>{pipeline.map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}</select>
+              <label htmlFor="dealpipeli-stage">Stage</label>
+              <select id="dealpipeli-stage" value={stage} onChange={(e) => setStage(e.target.value)}>{pipeline.map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}</select>
             </div>
-            <div className="expense-form-field" style={{ flex: 1 }}><label>Expected Close</label><input type="date" value={expectedClose} onChange={(e) => setExpectedClose(e.target.value)} /></div>
+            <div className="expense-form-field" style={{ flex: 1 }}><label htmlFor="dealpipeli-expected-close">Expected Close</label><input id="dealpipeli-expected-close" type="date" value={expectedClose} onChange={(e) => setExpectedClose(e.target.value)} /></div>
           </div>
-          <div className="expense-form-field"><label>Notes</label><textarea value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Deal notes..." rows={2} /></div>
+          <div className="expense-form-field"><label htmlFor="dealpipeli-notes">Notes</label><textarea id="dealpipeli-notes" value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Deal notes..." rows={2} /></div>
         </div>
         <div className="expense-form-footer">
           <button className="btn btn-ghost" onClick={onClose}>Cancel</button>
-          <button className="btn btn-primary" onClick={handleSave} disabled={!name.trim()} style={{ background: 'var(--mod-crm)', opacity: name.trim() ? 1 : 0.4 }}>{isEdit ? 'Save' : 'Add Deal'}</button>
+          <button className="btn btn-primary" onClick={req.guard(handleSave)} style={{ background: 'var(--mod-crm)' }}>{isEdit ? 'Save' : 'Add Deal'}</button>
         </div>
       </div>
     </div>
@@ -116,7 +121,7 @@ export default function DealPipeline() {
                 {stageDeals.map((deal) => {
                   const contact = contactMap[deal.contactId];
                   return (
-                    <div key={deal.id} className="deal-card" onClick={() => { setEditDeal(deal); setShowForm(true); }}>
+                    <div key={deal.id} className="deal-card" {...rowActivation(() => { setEditDeal(deal); setShowForm(true); })}>
                       <div className="deal-card-name">{deal.name}</div>
                       {contact && <div className="deal-card-contact">{contact.name}</div>}
                       <div className="deal-card-meta">
@@ -124,11 +129,20 @@ export default function DealPipeline() {
                         {deal.expectedClose && <span>{new Date(deal.expectedClose).toLocaleDateString('en', { month: 'short', day: 'numeric' })}</span>}
                       </div>
                       <div className="deal-card-actions">
-                        {pipeline.filter((s) => s.id !== stage.id && s.id !== 'pip_lost').slice(0, 3).map((s) => (
-                          <button key={s.id} className="deal-move-btn" onClick={(e) => { e.stopPropagation(); moveDeal(deal.id, s.id); }}
-                            style={{ borderColor: s.color + '40', color: s.color }} title={`Move to ${s.name}`}>{s.name.slice(0, 3)}</button>
-                        ))}
-                        <button className="row-action-btn danger" onClick={(e) => { e.stopPropagation(); if (confirm('Delete?')) { deleteDeal(deal.id); addToast({ message: `"${deal.name}" removed`, type: 'info' }); } }} style={{ width: 22, height: 22 }}><Trash2 size={14} /></button>
+                        <select
+                          className="deal-move-select"
+                          value=""
+                          aria-label={`Move ${deal.name} to stage`}
+                          onClick={(e) => e.stopPropagation()}
+                          onKeyDown={(e) => e.stopPropagation()}
+                          onChange={(e) => { if (e.target.value) moveDeal(deal.id, e.target.value); }}
+                        >
+                          <option value="">Move to…</option>
+                          {pipeline.filter((s) => s.id !== stage.id).map((s) => (
+                            <option key={s.id} value={s.id}>{s.name}</option>
+                          ))}
+                        </select>
+                        <button className="row-action-btn danger" onClick={(e) => { e.stopPropagation(); if (confirm(`Delete deal "${deal.name}"? This can't be undone.`)) { deleteDeal(deal.id); addToast({ message: `"${deal.name}" removed`, type: 'info' }); } }} aria-label={`Delete deal ${deal.name}`}><Trash2 size={14} aria-hidden="true" /></button>
                       </div>
                     </div>
                   );

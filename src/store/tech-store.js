@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { safeGetJSON, safeSet } from '../services/storage';
 import { genMonitorId, genBreachId, genIntegrationId, genCampaignId, genDarkWebEmailId } from '../services/id';
+import { localDayKey } from '../lib/format-date';
 
 function persistMonitors(d) { safeSet('tech_monitors', d); }
 function persistBreaches(d) { safeSet('tech_breaches', d); }
@@ -58,7 +59,7 @@ export const useTechStore = create((set) => ({
       const statuses = ['up', 'up', 'up', 'up', 'up', 'degraded', 'down'];
       const newStatus = statuses[Math.floor(Math.random() * statuses.length)];
       const responseTime = newStatus === 'up' ? Math.floor(Math.random() * 300) + 50 : newStatus === 'degraded' ? Math.floor(Math.random() * 1000) + 500 : null;
-      const today = new Date().toISOString().slice(0, 10);
+      const today = localDayKey();
       const history = [...(m.uptimeHistory || [])];
       const todayEntry = history.find((h) => h.date === today);
       if (todayEntry) {
@@ -89,6 +90,11 @@ export const useTechStore = create((set) => ({
   },
   removeDarkWebEmail: (id) => set((s) => {
     const darkWebEmails = s.darkWebEmails.filter((e) => e.id !== id);
+    persistDarkWebEmails(darkWebEmails); return { darkWebEmails };
+  }),
+  restoreDarkWebEmail: (record, index) => set((s) => {
+    const darkWebEmails = [...s.darkWebEmails];
+    darkWebEmails.splice(Math.min(Math.max(index, 0), darkWebEmails.length), 0, record);
     persistDarkWebEmails(darkWebEmails); return { darkWebEmails };
   }),
   addBreach: ({ email, source, severity }) => {

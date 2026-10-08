@@ -124,7 +124,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  color: var(--primary);
+  color: var(--primary-text);
 }
 .phd-ref__body {
   min-width: 0;

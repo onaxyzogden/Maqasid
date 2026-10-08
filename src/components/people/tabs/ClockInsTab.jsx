@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
+import { Trash2 } from 'lucide-react';
 import { useContactsStore } from '../../../store/contacts-store';
+import { useUndoToast } from '@hooks/useUndoToast';
 import ClockInModal from '../hr/ClockInModal';
+import { localDayKey } from '../../../lib/format-date';
 
 function formatDuration(ms) {
   if (!ms || ms < 0) return '00:00:00';
@@ -20,6 +23,14 @@ export default function ClockInsTab({ contactId }) {
   const clockIns      = useContactsStore((s) => s.clockIns);
   const clockOut      = useContactsStore((s) => s.clockOut);
   const deleteClockIn = useContactsStore((s) => s.deleteClockIn);
+  const restoreRecord = useContactsStore((s) => s.restoreRecord);
+  const undoToast     = useUndoToast();
+
+  const handleDelete = (ci) => {
+    const index = clockIns.findIndex((x) => x.id === ci.id);
+    deleteClockIn(ci.id);
+    undoToast('Clock-in deleted', () => restoreRecord('clockIns', 'contacts_clockins', ci, index));
+  };
 
   const [showModal, setShowModal] = useState(false);
   const [elapsed, setElapsed]    = useState(0);
@@ -49,8 +60,8 @@ export default function ClockInsTab({ contactId }) {
     : 0;
 
   const [dateRange, setDateRange] = useState(() => ({
-    start: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10),
-    end:   new Date().toISOString().slice(0, 10),
+    start: localDayKey(new Date(Date.now() - 4 * 24 * 60 * 60 * 1000)),
+    end:   localDayKey(),
   }));
 
   const inRange = myClockIns.filter((ci) => {
@@ -148,7 +159,13 @@ export default function ClockInsTab({ contactId }) {
                 <td style={{ padding: '7px 8px', textTransform: 'capitalize' }}>{ci.location}</td>
                 <td style={{ padding: '7px 8px', color: 'var(--text2)' }}>{ci.description || '—'}</td>
                 <td style={{ padding: '7px 8px' }}>
-                  <button onClick={() => deleteClockIn(ci.id)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text3)' }}>✕</button>
+                  <button
+                    className="row-action-btn danger"
+                    onClick={() => handleDelete(ci)}
+                    aria-label={`Delete clock-in from ${new Date(ci.clockInTime).toLocaleString()}`}
+                  >
+                    <Trash2 size={14} aria-hidden="true" />
+                  </button>
                 </td>
               </tr>
             ))

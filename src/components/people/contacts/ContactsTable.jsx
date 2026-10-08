@@ -2,6 +2,7 @@ import { useContactsStore } from '@store/contacts-store';
 import { getDisplayName } from '@data/config/contact-config';
 import AvatarInitials from '../shared/AvatarInitials';
 import TypeBadge from '../shared/TypeBadge';
+import { rowActivation } from '../../../lib/row-activation';
 
 export default function ContactsTable({ contacts }) {
   const selectContact = useContactsStore((s) => s.selectContact);
@@ -36,7 +37,7 @@ export default function ContactsTable({ contacts }) {
             return (
               <tr
                 key={c.id}
-                onClick={() => selectContact(c.id)}
+                {...rowActivation(() => selectContact(c.id), { role: null })}
                 style={{
                   borderBottom: '1px solid var(--border)',
                   cursor: 'pointer',

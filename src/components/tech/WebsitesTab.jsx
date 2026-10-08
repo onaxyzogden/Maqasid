@@ -2,6 +2,9 @@ import { useState, useMemo } from 'react';
 import { Plus, X } from 'lucide-react';
 import { useTechStore } from '../../store/tech-store';
 import { useAuthStore } from '../../store/auth-store';
+import SlideIn from '../shared/SlideIn';
+import { useRequiredField } from '../../hooks/useRequiredField';
+import FieldError from '../../components/shared/FieldError';
 
 const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -16,6 +19,7 @@ export default function WebsitesTab() {
   const [showPanel, setShowPanel] = useState(false);
   const [fName, setFName] = useState('');
   const [fUrl, setFUrl] = useState('');
+  const req = useRequiredField(!!fUrl.trim(), 'websitesta-url');
 
   const filtered = useMemo(() => {
     if (view === 'active') return monitors.filter((m) => m.monitoringStatus !== 'paused');
@@ -122,31 +126,30 @@ export default function WebsitesTab() {
 
       {/* Add Website slide-in */}
       {showPanel && (
-        <div className="money-slidein-overlay" onClick={() => setShowPanel(false)}>
-          <div className="money-slidein" onClick={(e) => e.stopPropagation()}>
+        <SlideIn onClose={() => setShowPanel(false)} label="Website">
             <div className="money-slidein-header">
               <h3>Add Website</h3>
-              <button className="money-slidein-close" onClick={() => setShowPanel(false)}><X size={18} /></button>
+              <button className="money-slidein-close" onClick={() => setShowPanel(false)} aria-label="Close panel"><X size={18} /></button>
             </div>
             <div className="money-slidein-body">
               <div className="money-field">
-                <label>URL *</label>
-                <input value={fUrl} onChange={(e) => setFUrl(e.target.value)} placeholder="https://example.com" autoFocus />
+                <label htmlFor="websitesta-url">URL *</label>
+                <input id="websitesta-url" {...req.fieldProps} value={fUrl} onChange={(e) => setFUrl(e.target.value)} placeholder="https://example.com" autoFocus />
+<FieldError id={req.errorId} show={req.show}>URL is required</FieldError>
               </div>
               <div className="money-field">
-                <label>Name</label>
-                <input value={fName} onChange={(e) => setFName(e.target.value)} placeholder="My Website" />
+                <label htmlFor="websitesta-name">Name</label>
+                <input id="websitesta-name" value={fName} onChange={(e) => setFName(e.target.value)} placeholder="My Website" />
               </div>
             </div>
             <div className="money-slidein-footer">
               <div style={{ flex: 1 }} />
               <button className="btn btn-ghost" onClick={() => setShowPanel(false)}>Cancel</button>
-              <button className="btn btn-primary" onClick={handleAdd} disabled={!fUrl.trim()} style={{ background: 'var(--mod-tech)' }}>
+              <button className="btn btn-primary" onClick={req.guard(handleAdd)} style={{ background: 'var(--mod-tech)' }}>
                 Add Website
               </button>
             </div>
-          </div>
-        </div>
+          </SlideIn>
       )}
     </div>
   );

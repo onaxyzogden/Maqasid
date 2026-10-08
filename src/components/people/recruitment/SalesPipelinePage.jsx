@@ -5,6 +5,7 @@ import { LEAD_STAGES, getDisplayName, getAvatarColor } from '@data/config/contac
 import AvatarInitials from '../shared/AvatarInitials';
 import AddContactModal from '../contacts/AddContactModal';
 import './SalesPipelinePage.css';
+import { rowActivation } from '../../../lib/row-activation';
 
 const PIPELINE_COLUMNS = LEAD_STAGES.filter((s) => s.id !== 'unassigned');
 
@@ -99,7 +100,7 @@ export default function SalesPipelinePage() {
                     <div
                       key={lead.id}
                       className="sp-card"
-                      onClick={() => selectContact(lead.id)}
+                      {...rowActivation(() => selectContact(lead.id))}
                     >
                       <div className="sp-card__top">
                         <AvatarInitials
