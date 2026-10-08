@@ -11,7 +11,6 @@ Financial management: expenses, invoices, income, bank accounts, vendors, propos
 | IncomeTab.jsx | Income tracking |
 | ExpenseList.jsx | Expense list with status (unpaid/paid) |
 | ExpensePanel.jsx | Slide-in form for adding/editing expenses |
-| InvoiceList.jsx | Invoice management with line items |
 | VendorsTab.jsx | Vendor directory |
 | ProposalTab.jsx | Proposal tracking |
 | AssetsTab.jsx | Asset inventory |
@@ -22,10 +21,10 @@ Financial management: expenses, invoices, income, bank accounts, vendors, propos
 - **settings-store**: theme/currency (optional)
 
 ## Key Patterns
-- **Slide-in panels**: AccountPanel, ExpensePanel, InvoicePanel use `.money-slidein` with overlay + portal
+- **Slide-in panels**: AccountPanel, ExpensePanel use `.money-slidein` with overlay + portal
 - **Embeddable mode**: MoneyDashboard supports standalone rendering (used inside Project sub-route)
 - **Currency support**: CURRENCIES list from data; transactions track currency code (CAD, USD, etc.)
-- **Line items**: Invoices support dynamic items (description, qty, unitPrice, discount, tax) with `genLineItemId()`
+- **Line items**: Invoices (managed in IncomeTab) support dynamic items (description, qty, unitPrice, discount, tax) with `genLineItemId()`
 - **Form classes**: `.money-field`, `.money-field-row`, `.money-field-divider` (collapsible sections)
 
 ## Data Shapes
@@ -35,7 +34,7 @@ Financial management: expenses, invoices, income, bank accounts, vendors, propos
 
 ## Gotchas
 - Mixed CSS class naming: `.expense-*` and `.money-*` (inconsistent)
-- InvoicePanel is 600px wide, ExpensePanel auto-width
+- ExpensePanel is auto-width
 - `formatCurrency` is a store-level utility (not component-local)
 - Charts in MoneyDashboard use pure CSS stacked bars (no chart library)
 - Payroll accounts have special handling (`isPayroll` flag)

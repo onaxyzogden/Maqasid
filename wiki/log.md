@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-08] cleanup | MILOS — seven orphaned CRM/HR/Money components deleted
+
+Operator asked to verify and delete seven components believed unimported. **Amanah gate:** neutral (dead-code removal; no seed, grounding, fiqh or capital surface; `public/CNAME`, `notes/` untouched).
+
+- **Verified orphans:** name grep, `import.meta.glob`/lazy imports, path strings and re-exports. The only hits were CONTEXT.md inventories and historical log lines.
+- **Deleted:** `crm/` DealPipeline (+ .css), ContactList, ActivityLog, NotesView; `people/hr/` EmployeeList, LeaveManager; `money/` InvoiceList (+ .css).
+- **Reported, not deleted:** `crm-store` now has zero consumers (also `genDealId`, `genActivityId`). people-store `deleteEmployee`, `addLeaveRequest`/`updateLeaveRequest`/`deleteLeaveRequest`/`setLeaveStatus`, `leaveRequests` and `LEAVE_TYPES` are unconsumed. `EmployeeForm.jsx` is a cascade orphan, kept pending a decision.
+- **Docs:** CONTEXT.md updated in crm/, hr/, money/, components/, store/. [[milos]] history row added; dual-contact-stores open question annotated.
+- **Verified:** `npm run lint` green (1 pre-existing `IslamicPanel.jsx:32` warning); `npm test` 365/365; `npm run build` ✓. Uncommitted on `claude/nostalgic-pare-2a5298`.
+
 ## [2026-10-08] fix | MILOS — Duha hadith shown in full; two mis-attributed quotes corrected
 
 Operator: *"The Hadith for the salat Duha is shortened. I'd like the full one visible."* Chosen by selection: full text with corrected references, English only. **Amanah gate:** positive. Restores accurate attribution (sidq); no new evidence authored.
