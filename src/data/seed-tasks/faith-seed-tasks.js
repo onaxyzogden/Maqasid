@@ -4983,7 +4983,7 @@ Duha begins approximately 15-20 minutes after sunrise and extends until shortly 
             {
               kind: "hadith",
               ref: "Sahih Muslim 720",
-              translation: "The Prophet (SAW) said: \"...and two rak'ahs which one prays in the forenoon will suffice.\"",
+              translation: "The Prophet (SAW) said: \"In the morning charity is due from every bone in the body of every one of you. Every utterance of glorification of Allah is an act of charity. Every utterance of praise of Him is an act of charity, every utterance of profession of His Oneness is an act of charity, every utterance of profession of His Greatness is an act of charity, enjoining good is an act of charity, forbidding evil is an act of charity, and two rak'ahs which one prays in the forenoon will suffice.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
@@ -5698,34 +5698,25 @@ The arrival du\u02bba\u02bb names what the journey was for — repentance, worsh
       subtasks: [
         { title: 'Gradually increase to daily practice', done: false,
           tier: 'T2',
-          amanahRationale: 'While the provided texts do not explicitly prescribe a step-by-step plan to gradually build a prayer routine, they provide a clear logical inference for the subtask\'s ultimate goal of daily practice by establishing that the charitable obligation for one\'s joints is due "every day the sun rises" and can be fulfilled by the Duha prayer. The Prophet\'s standing advice to Abu Hurayrah to keep two rak\'at of Duha (Sahih al-Bukhari) supports making it an unbroken daily practice rather than an occasional one.',
+          amanahRationale: 'While the provided texts do not explicitly prescribe a step-by-step plan to gradually build a prayer routine, they provide a clear logical inference for the subtask\'s ultimate goal of daily practice by establishing that charity is due from every bone of the body "in the morning" and that two rak\'ahs of Duha suffice for it. The Prophet\'s standing advice to Abu Hurayrah to keep two rak\'at of Duha (Sahih al-Bukhari) supports making it an unbroken daily practice rather than an occasional one.',
           sources: [
             {
               kind: "hadith",
               ref: "Sahih Muslim 720",
-              translation: "The Prophet (SAW) said: \"Charity is due upon every joint of a person every day the sun rises. Judging justly between two people is charity... and the two rak'ahs of Duha compensate for all of that.\"",
+              translation: "The Prophet (SAW) said: \"In the morning charity is due from every bone in the body of every one of you. Every utterance of glorification of Allah is an act of charity. Every utterance of praise of Him is an act of charity, every utterance of profession of His Oneness is an act of charity, every utterance of profession of His Greatness is an act of charity, enjoining good is an act of charity, forbidding evil is an act of charity, and two rak'ahs which one prays in the forenoon will suffice.\"",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
+              rationale: "Charity is due from every bone each morning, and two rak'ahs of Duha suffice for it all — a daily debt, which is why the practice aims at every day.",
             },
             {
               kind: "hadith",
               ref: "Sahih al-Bukhari 1178",
-              translation: "The Prophet (SAW) said: \"In the morning, charity is due from every one of your joints. Every tasbeehah is charity, every tahmeedah is charity... and two rak'ahs of Duha suffice for all that.\"",
+              translation: "Narrated Abu Huraira: My friend (the Prophet) advised me to do three things and I shall not leave them till I die, these are: To fast three days every month, to offer the Duha prayer, and to offer witr before sleeping.",
               relevance: "direct",
               provenanceTier: "Bayyinah",
               hadithGrade: "Sahih",
-              rationale: "Prophetic narration cited as evidence for this subtask.",
-            },
-            {
-              kind: "hadith",
-              ref: "Sahih al-Bukhari, Volume 3, Book 31, Hadith 202",
-              translation: "Narrated Abu Huraira: My friend (the Prophet) advised me to observe three things: (1) to fast three days a month; (2) to pray two Rakat of Duha prayer (fore-noon prayer); and (3) to pray Witr before sleeping.",
-              relevance: "direct",
-              provenanceTier: "Bayyinah",
-              hadithGrade: "Sahih",
-              rationale: "The Prophet's explicit standing advice to Abu Hurayrah to pray two rak'at of Duha — direct prophetic basis for adopting Duha as a sustained personal practice. Retrieved from the authorized Muslim Scholar corpus.",
+              rationale: "The Prophet's explicit standing advice to Abu Hurayrah to pray Duha, which he vowed never to leave until death — direct prophetic basis for making Duha an unbroken practice.",
             },
           ],
           description: `**Why?**
