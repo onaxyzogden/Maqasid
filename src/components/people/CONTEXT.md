@@ -49,6 +49,5 @@ SalesPipelinePage (kanban with lead stages)
 
 ## Gotchas
 - DetailPanel reads BOTH contacts and companies via selectedContactId (polymorphic)
-- EmployeeForm reuses `.expense-form-*` CSS classes (from money module)
 - Two levels of "tabs": page-level (Timesheet, Salaries, etc.) vs detail-panel tabs (Personal, Work, Skills, etc.)
 - Dual store merge: people-store employees and contacts-store employee-type contacts are merged in HRPage; people-store takes precedence on ID collision

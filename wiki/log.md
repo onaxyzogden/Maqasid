@@ -9,10 +9,11 @@ Operator asked to verify and delete seven components believed unimported. **Aman
 
 - **Verified orphans:** name grep, `import.meta.glob`/lazy imports, path strings and re-exports. The only hits were CONTEXT.md inventories and historical log lines.
 - **Deleted:** `crm/` DealPipeline (+ .css), ContactList, ActivityLog, NotesView; `people/hr/` EmployeeList, LeaveManager; `money/` InvoiceList (+ .css).
-- **Reported, not deleted:** `crm-store` now has zero consumers (also `genDealId`, `genActivityId`). people-store `deleteEmployee`, `addLeaveRequest`/`updateLeaveRequest`/`deleteLeaveRequest`/`setLeaveStatus`, `leaveRequests` and `LEAVE_TYPES` are unconsumed. `EmployeeForm.jsx` is a cascade orphan, kept pending a decision.
+- **Reported, not deleted:** `crm-store` now has zero consumers (also `genDealId`, `genActivityId`). people-store `addEmployee` (after EmployeeForm's removal), `deleteEmployee`, `addLeaveRequest`/`updateLeaveRequest`/`deleteLeaveRequest`/`setLeaveStatus`, `leaveRequests` and `LEAVE_TYPES` are unconsumed. `EmployeeForm.jsx` became a cascade orphan and was then deleted too, at the operator's request.
 - **Merge with the same-day UX audit (PR #47):** the audit's sweep had edited six of these files (CRM `<select>` stage moves, aria-labels, `localDayKey`). The deletions were kept, because the files were still unimported on `main`, so those edits only ever reached dead code. `EmployeeForm.jsx` (cascade orphan) was deleted in a follow-up commit.
 - **Docs:** CONTEXT.md updated in crm/, hr/, money/, components/, store/. [[milos]] history row added; dual-contact-stores open question annotated.
-- **Verified:** `npm run lint` green (1 pre-existing `IslamicPanel.jsx:32` warning); `npm test` 365/365; `npm run build` ✓. Uncommitted on `claude/nostalgic-pare-2a5298`.
+- **Verified:** `npm run lint` green (1 pre-existing `IslamicPanel.jsx:32` warning); `npm test` 365/365; `npm run build` ✓. Shipped as PR #48.
+
 ## [2026-10-08] fix | MILOS — whole-system UX audit: 12 issues fixed across 5 phases
 
 Operator: `/ux-engine:ux-audit whole system`, then approved the 5-phase fix plan and said *"continue"*. Decision: [[2026-10-08-milos-contrast-tokens]]. **Amanah gate:** positive. It protects the operator's own records (amanah over data) and doesn't change any ceremony gating logic.

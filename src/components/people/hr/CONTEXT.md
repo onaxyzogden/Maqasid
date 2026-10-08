@@ -9,7 +9,6 @@ HR management — employee CRUD, attendance tracking, clock-in, and tabbed views
 | HRPage.jsx | Main HR page — routes between tabs and manages top-level HR state |
 | HRPage.css | Styles for HRPage layout and tab navigation |
 | EmployeeCard.jsx | Card component displaying employee summary info |
-| EmployeeForm.jsx | Form for creating/editing employee records — currently unimported (its only consumer, EmployeeList.jsx, was removed 2026-10-08) |
 | AddEmployeeModal.jsx | Modal wrapper for adding a new employee |
 | AddDepartmentModal.jsx | Modal for creating a new department |
 | AttendanceView.jsx | Attendance tracking view — daily/weekly attendance grid |
