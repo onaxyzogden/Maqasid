@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Plus } from 'lucide-react';
 import { useContactsStore } from '../../../store/contacts-store';
 import CollapsibleSection from '../shared/CollapsibleSection';
+import { rowActivation } from '../../../lib/row-activation';
 
 function EditableField({ label, value, fieldKey, onSave }) {
   const [editing, setEditing] = useState(false);
@@ -36,7 +37,7 @@ function EditableField({ label, value, fieldKey, onSave }) {
   }
 
   return (
-    <div onClick={() => setEditing(true)} style={{ cursor: 'pointer', padding: '4px 0' }}>
+    <div {...rowActivation(() => setEditing(true))} style={{ cursor: 'pointer', padding: '4px 0' }}>
       <div style={{ fontSize: 11, color: 'var(--text3)', marginBottom: 2 }}>{label}</div>
       <div style={{ fontSize: 13, color: value ? 'var(--text)' : 'var(--text3)', fontWeight: value ? 500 : 400 }}>
         {value || 'Not set'}

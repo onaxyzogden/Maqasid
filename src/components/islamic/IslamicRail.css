@@ -44,11 +44,11 @@
 
 .il-rail-item.active {
   background: var(--accent-bg);
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .il-rail-item.done {
-  color: var(--success);
+  color: var(--success-text);
 }
 
 .il-rail-divider {

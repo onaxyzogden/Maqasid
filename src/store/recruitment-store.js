@@ -37,4 +37,11 @@ export const useRecruitmentStore = create((set, get) => ({
     safeSet('recruit_postings', postings);
     set({ postings });
   },
+
+  restore: (record, index) => {
+    const postings = [...get().postings];
+    postings.splice(Math.min(Math.max(index, 0), postings.length), 0, record);
+    safeSet('recruit_postings', postings);
+    set({ postings });
+  },
 }));

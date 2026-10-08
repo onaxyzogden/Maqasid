@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { safeGetJSON, safeSet } from '../services/storage';
 import { genExpenseId, genInvoiceId, genCategoryId, genBudgetId, genLineItemId, genVendorId, genAccountId, genIncomeId, genAssetId } from '../services/id';
 import { PRESET_CATEGORIES } from '@data/config/money-categories';
+import { localDayKey } from '../lib/format-date';
 
 // Persistence helpers
 function persistExpenses(expenses) { safeSet('expenses', expenses); }
@@ -56,7 +57,7 @@ export const useMoneyStore = create((set, get) => ({
       id: genExpenseId(),
       amount: Number(data.amount) || 0,
       categoryId: data.categoryId || '',
-      date: data.date || new Date().toISOString().slice(0, 10),
+      date: data.date || localDayKey(),
       description: data.description || '',
       vendorId: data.vendorId || '',
       payee: data.payee || '',
@@ -94,7 +95,7 @@ export const useMoneyStore = create((set, get) => ({
 
   markExpensePaid: (id) => set((s) => {
     const expenses = s.expenses.map((e) =>
-      e.id === id ? { ...e, status: 'paid', datePaid: new Date().toISOString().slice(0, 10), updatedAt: new Date().toISOString() } : e
+      e.id === id ? { ...e, status: 'paid', datePaid: localDayKey(), updatedAt: new Date().toISOString() } : e
     );
     persistExpenses(expenses);
     return { expenses };
@@ -116,7 +117,7 @@ export const useMoneyStore = create((set, get) => ({
       number: 'INV-' + String(counter).padStart(3, '0'),
       clientName: data.clientName || '',
       clientEmail: data.clientEmail || '',
-      date: data.date || new Date().toISOString().slice(0, 10),
+      date: data.date || localDayKey(),
       dueDate: data.dueDate || '',
       turnoverDate: data.turnoverDate || '',
       status: data.status || 'draft',
@@ -321,7 +322,7 @@ export const useMoneyStore = create((set, get) => ({
       fromName: data.fromName || '',
       amount: Number(data.amount) || 0,
       currency: data.currency || 'CAD',
-      date: data.date || new Date().toISOString().slice(0, 10),
+      date: data.date || localDayKey(),
       accountId: data.accountId || '',
       description: data.description || '',
       createdAt: new Date().toISOString(),

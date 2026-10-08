@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { useContactsStore } from '@store/contacts-store';
 import { SALARY_TYPES } from '@data/config/contact-config';
 import AvatarInitials from '../shared/AvatarInitials';
+import { rowActivation } from '../../../lib/row-activation';
 
 function formatCurrency(amount) {
   if (amount == null) return '-';
@@ -63,7 +64,7 @@ export default function SalariesTab({ employees, onSelectEmployee }) {
                 return (
                   <tr
                     key={emp.id}
-                    onClick={() => onSelectEmployee(emp.id)}
+                    {...rowActivation(() => onSelectEmployee(emp.id), { role: null })}
                     style={{ borderBottom: '1px solid var(--border)', cursor: 'pointer', transition: 'background 0.15s' }}
                     onMouseEnter={(e) => e.currentTarget.style.background = 'var(--bg3)'}
                     onMouseLeave={(e) => e.currentTarget.style.background = ''}

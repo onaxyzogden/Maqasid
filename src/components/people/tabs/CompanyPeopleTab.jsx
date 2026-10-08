@@ -3,6 +3,7 @@ import { Search } from 'lucide-react';
 import { useContactsStore } from '../../../store/contacts-store';
 import { getDisplayName } from '@data/config/contact-config';
 import AvatarInitials from '../shared/AvatarInitials';
+import { rowActivation } from '../../../lib/row-activation';
 
 export default function CompanyPeopleTab({ companyId }) {
   const contacts      = useContactsStore((s) => s.contacts);
@@ -53,7 +54,7 @@ export default function CompanyPeopleTab({ companyId }) {
             return (
               <div
                 key={c.id}
-                onClick={() => selectContact(c.id)}
+                {...rowActivation(() => selectContact(c.id))}
                 style={{
                   display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8,
                   padding: 12, borderRadius: 10, border: '1.5px solid var(--border)',

@@ -1,13 +1,23 @@
 import { useState } from 'react';
 import { Plus, Trash2 } from 'lucide-react';
 import { useContactsStore } from '../../../store/contacts-store';
+import { useUndoToast } from '@hooks/useUndoToast';
 import { DOC_STATUSES } from '@data/config/contact-config';
+import { localDayKey } from '../../../lib/format-date';
 
 export default function DocsTab({ contactId }) {
   const docRecords = useContactsStore((s) => s.docRecords);
   const addDoc     = useContactsStore((s) => s.addDoc);
   const updateDoc  = useContactsStore((s) => s.updateDoc);
   const deleteDoc  = useContactsStore((s) => s.deleteDoc);
+  const restoreRecord = useContactsStore((s) => s.restoreRecord);
+  const undoToast  = useUndoToast();
+
+  const handleDelete = (d) => {
+    const index = docRecords.findIndex((x) => x.id === d.id);
+    deleteDoc(d.id);
+    undoToast(`"${d.name || 'Document'}" deleted`, () => restoreRecord('docRecords', 'contacts_docs', d, index));
+  };
   const user       = { name: 'You' }; // fallback
 
   const docs = docRecords.filter((d) => d.contactId === contactId);
@@ -17,7 +27,7 @@ export default function DocsTab({ contactId }) {
 
   function handleCreate() {
     if (!form.name.trim()) return;
-    addDoc({ contactId, name: form.name.trim(), status: form.status, addedDate: new Date().toISOString().slice(0, 10), createdBy: user?.name || '' });
+    addDoc({ contactId, name: form.name.trim(), status: form.status, addedDate: localDayKey(), createdBy: user?.name || '' });
     setForm({ name: '', status: 'pending' });
     setShowForm(false);
   }
@@ -104,8 +114,8 @@ export default function DocsTab({ contactId }) {
                   </select>
                 </td>
                 <td style={{ padding: '8px 8px' }}>
-                  <button onClick={() => deleteDoc(d.id)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text3)' }}>
-                    <Trash2 size={14} />
+                  <button className="row-action-btn danger" onClick={() => handleDelete(d)} aria-label={`Delete document ${d.name}`}>
+                    <Trash2 size={14} aria-hidden="true" />
                   </button>
                 </td>
               </tr>

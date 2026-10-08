@@ -67,8 +67,8 @@ export default function DiscussionPanel() {
       <div className={`discussion-panel${isPanelClosing ? ' discussion-panel--closing' : ''}`}>
         <div className="discussion-panel__header">
           <span className="discussion-panel__title">Discussion</span>
-          <button className="discussion-panel__close" onClick={closePanel}>
-            <X size={16} />
+          <button type="button" className="discussion-panel__close" onClick={closePanel} aria-label="Close discussion">
+            <X size={16} aria-hidden="true" />
           </button>
         </div>
 
@@ -96,7 +96,7 @@ export default function DiscussionPanel() {
         </div>
 
         <div className="discussion-panel__input-area">
-          <textarea
+          <textarea aria-label="Type a message"
             className="discussion-panel__textarea"
             placeholder="Type a message..."
             value={draft}
@@ -113,8 +113,9 @@ export default function DiscussionPanel() {
             className="btn btn-primary discussion-panel__send"
             onClick={sendMessage}
             disabled={!draft.trim()}
+            aria-label="Send message"
           >
-            <Send size={14} />
+            <Send size={14} aria-hidden="true" />
           </button>
         </div>
       </div>

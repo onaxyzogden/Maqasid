@@ -120,9 +120,11 @@
 .bpd-modal-overlay *, .bpd-modal-overlay *::before, .bpd-modal-overlay *::after {
   box-sizing: border-box; margin: 0; padding: 0;
 }
-.bpd button, .bpd-modal-overlay button { outline: none; font-family: inherit; }
+.bpd button, .bpd-modal-overlay button { font-family: inherit; }
 .bpd input, .bpd textarea,
-.bpd-modal-overlay input, .bpd-modal-overlay textarea { outline: none; font-family: inherit; }
+.bpd-modal-overlay input, .bpd-modal-overlay textarea { font-family: inherit; }
+/* Visible keyboard focus across the dashboard and its modals (WCAG 2.4.7). */
+.bpd :focus-visible, .bpd-modal-overlay :focus-visible { outline: 2px solid var(--primary-strong); outline-offset: 2px; }
 .bpd ::-webkit-scrollbar, .bpd-modal-overlay ::-webkit-scrollbar { width: 3px; height: 3px; }
 .bpd ::-webkit-scrollbar-track, .bpd-modal-overlay ::-webkit-scrollbar-track { background: transparent; }
 .bpd ::-webkit-scrollbar-thumb, .bpd-modal-overlay ::-webkit-scrollbar-thumb { background: var(--bpd-border); border-radius: 2px; }
@@ -816,3 +818,15 @@
   font-size: 12px; font-family: var(--bpd-font-ui); font-style: italic; resize: vertical; line-height: 1.7;
 }
 .bpd-brief__gate-textarea:focus { border-color: color-mix(in srgb, var(--bpd-gold) 27%, transparent); }
+
+/* Approval Brief two-step confirm: secondary "Back" action */
+.bpd-btn-ghost-confirm {
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: 1px solid var(--bpd-border-mid);
+  background: transparent;
+  color: var(--bpd-text-secondary, inherit);
+  cursor: pointer;
+}
+.bpd-btn-ghost-confirm:hover { border-color: var(--bpd-gold); }

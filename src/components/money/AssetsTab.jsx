@@ -2,6 +2,10 @@ import { useState, useMemo } from 'react';
 import { Plus, Package, X, Pencil, ChevronDown, TrendingUp, TrendingDown } from 'lucide-react';
 import { useMoneyStore, formatCurrency } from '../../store/money-store';
 import { CURRENCIES } from '@data/config/money-categories';
+import { rowActivation } from '../../lib/row-activation';
+import SlideIn from '../shared/SlideIn';
+import { useRequiredField } from '../../hooks/useRequiredField';
+import FieldError from '../../components/shared/FieldError';
 
 const CATEGORIES = [
   'Real Estate', 'Vehicle', 'Equipment', 'Investment', 'Inventory', 'Intellectual Property', 'Other',
@@ -18,6 +22,7 @@ function AssetPanel({ asset, onClose }) {
   const isEdit = !!asset;
 
   const [name, setName] = useState(asset?.name || '');
+  const req = useRequiredField(!!name.trim(), 'assetstab-asset-name');
   const [category, setCategory] = useState(asset?.category || 'Other');
   const [purchaseDate, setPurchaseDate] = useState(asset?.purchaseDate || '');
   const [purchasePrice, setPurchasePrice] = useState(asset?.purchasePrice || '');
@@ -34,8 +39,7 @@ function AssetPanel({ asset, onClose }) {
   };
 
   return (
-    <div className="money-slidein-overlay" onClick={onClose}>
-      <div className="money-slidein" onClick={(e) => e.stopPropagation()}>
+    <SlideIn onClose={onClose} label="Asset">
         <div className="money-slidein-header">
           <div>
             <h3>{isEdit ? 'Edit Asset' : 'Add Asset'}</h3>
@@ -43,54 +47,54 @@ function AssetPanel({ asset, onClose }) {
               Track physical and financial assets owned by the business.
             </p>
           </div>
-          <button className="money-slidein-close" onClick={onClose}><X size={18} /></button>
+          <button className="money-slidein-close" onClick={onClose} aria-label="Close panel"><X size={18} /></button>
         </div>
         <div className="money-slidein-body">
           <div className="money-field">
-            <label>Asset name</label>
-            <input value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Office building, Company car" />
+            <label htmlFor="assetstab-asset-name">Asset name</label>
+            <input id="assetstab-asset-name" {...req.fieldProps} value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Office building, Company car" />
+<FieldError id={req.errorId} show={req.show}>Asset name is required</FieldError>
           </div>
           <div className="money-field-row">
             <div className="money-field" style={{ flex: 1 }}>
-              <label>Category</label>
-              <select value={category} onChange={(e) => setCategory(e.target.value)}>
+              <label htmlFor="assetstab-category">Category</label>
+              <select id="assetstab-category" value={category} onChange={(e) => setCategory(e.target.value)}>
                 {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
               </select>
             </div>
             <div className="money-field" style={{ width: 120 }}>
-              <label>Currency</label>
-              <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
+              <label htmlFor="assetstab-currency">Currency</label>
+              <select id="assetstab-currency" value={currency} onChange={(e) => setCurrency(e.target.value)}>
                 {CURRENCIES.map((c) => <option key={c.id} value={c.id}>{c.flag} {c.id}</option>)}
               </select>
             </div>
           </div>
           <div className="money-field">
-            <label>Purchase date</label>
-            <input type="date" value={purchaseDate} onChange={(e) => setPurchaseDate(e.target.value)} />
+            <label htmlFor="assetstab-purchase-date">Purchase date</label>
+            <input id="assetstab-purchase-date" type="date" value={purchaseDate} onChange={(e) => setPurchaseDate(e.target.value)} />
           </div>
           <div className="money-field-row">
             <div className="money-field" style={{ flex: 1 }}>
-              <label>Purchase price</label>
-              <input type="number" value={purchasePrice} onChange={(e) => setPurchasePrice(e.target.value)} placeholder="0" />
+              <label htmlFor="assetstab-purchase-price">Purchase price</label>
+              <input id="assetstab-purchase-price" type="number" value={purchasePrice} onChange={(e) => setPurchasePrice(e.target.value)} placeholder="0" />
             </div>
             <div className="money-field" style={{ flex: 1 }}>
-              <label>Current value</label>
-              <input type="number" value={currentValue} onChange={(e) => setCurrentValue(e.target.value)} placeholder="0" />
+              <label htmlFor="assetstab-current-value">Current value</label>
+              <input id="assetstab-current-value" type="number" value={currentValue} onChange={(e) => setCurrentValue(e.target.value)} placeholder="0" />
             </div>
           </div>
           <div className="money-field">
-            <label>Notes</label>
-            <textarea value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Additional details..." rows={3}
+            <label htmlFor="assetstab-notes">Notes</label>
+            <textarea id="assetstab-notes" value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Additional details..." rows={3}
               style={{ width: '100%', resize: 'vertical', fontFamily: 'inherit', fontSize: '0.85rem', padding: 'var(--space-2)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border)', background: 'var(--bg)' }} />
           </div>
         </div>
         <div className="money-slidein-footer">
-          <button className="btn btn-primary" onClick={handleSave} disabled={!name} style={{ background: 'var(--mod-money)', width: '100%' }}>
+          <button className="btn btn-primary" onClick={req.guard(handleSave)} style={{ background: 'var(--mod-money)', width: '100%' }}>
             {isEdit ? 'Save changes' : 'Add asset'}
           </button>
         </div>
-      </div>
-    </div>
+      </SlideIn>
   );
 }
 
@@ -172,7 +176,7 @@ export default function AssetsTab() {
             const gainPct = asset.purchasePrice ? Math.round((gain / asset.purchasePrice) * 100) : 0;
             return (
               <div key={asset.id} className="account-row">
-                <div className="account-row-main" onClick={() => setExpandedId(expandedId === asset.id ? null : asset.id)}>
+                <div className="account-row-main" {...rowActivation(() => setExpandedId(expandedId === asset.id ? null : asset.id))}>
                   <div className="account-info">
                     <div className="account-icon" style={{ fontSize: '1.2rem' }}>
                       {CATEGORY_ICONS[asset.category] || '📋'}
@@ -190,8 +194,8 @@ export default function AssetsTab() {
                         {gain >= 0 ? '+' : ''}{gainPct}%
                       </span>
                     )}
-                    <button className="row-action-btn" onClick={(e) => { e.stopPropagation(); setEditAsset(asset); setShowPanel(true); }} title="Edit">
-                      <Pencil size={14} />
+                    <button className="row-action-btn" onClick={(e) => { e.stopPropagation(); setEditAsset(asset); setShowPanel(true); }} title="Edit" aria-label="Edit">
+                      <Pencil size={14} aria-hidden="true" />
                     </button>
                     <ChevronDown size={16} className={`account-chevron ${expandedId === asset.id ? 'expanded' : ''}`} />
                   </div>

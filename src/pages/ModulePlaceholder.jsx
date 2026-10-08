@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { MODULES } from '../data/modules';
 import { ICON_REGISTRY } from '../data/icon-registry';
 import PillarHeader from '../components/shared/PillarHeader';
+import NotFound from '../components/shared/NotFound';
 
 const ICON_MAP = ICON_REGISTRY;
 
@@ -12,14 +13,7 @@ export default function ModulePlaceholder() {
   const mod = modulesById[moduleId];
 
   if (!mod) {
-    return (
-      <div style={{ padding: 'var(--space-8)', textAlign: 'center' }}>
-        <h2 style={{ color: 'var(--text)' }}>Objective not found</h2>
-        <p style={{ color: 'var(--text2)', marginTop: 'var(--space-2)' }}>
-          The requested objective does not exist.
-        </p>
-      </div>
-    );
+    return <NotFound title="Objective not found" message="This objective doesn't exist — the link may be out of date." />;
   }
 
   const Icon = ICON_MAP[mod.icon];

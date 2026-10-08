@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useContactsStore } from '@store/contacts-store';
 import { LEAD_STAGES, LEAD_SOURCES } from '@data/config/contact-config';
+import { rowActivation } from '../../../lib/row-activation';
 
 const field = {
   label: { fontSize: 11, fontWeight: 600, color: 'var(--text3)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 4 },
@@ -93,7 +94,7 @@ export default function LeadTab({ contactId }) {
           />
         ) : (
           <div
-            onClick={() => { startEdit('title', contact.requestTitle, setTitleVal); setEditingTitle(true); }}
+            {...rowActivation(() => { startEdit('title', contact.requestTitle, setTitleVal); setEditingTitle(true); })}
             style={{ ...field.input, cursor: 'text', minHeight: 34, display: 'flex', alignItems: 'center' }}
           >
             {contact.requestTitle
@@ -117,7 +118,7 @@ export default function LeadTab({ contactId }) {
           />
         ) : (
           <div
-            onClick={() => { startEdit('desc', contact.requestDescription, setDescVal); setEditingDesc(true); }}
+            {...rowActivation(() => { startEdit('desc', contact.requestDescription, setDescVal); setEditingDesc(true); })}
             style={{ ...field.input, cursor: 'text', minHeight: 80, alignItems: 'flex-start', display: 'flex' }}
           >
             {contact.requestDescription
@@ -145,7 +146,7 @@ export default function LeadTab({ contactId }) {
           />
         ) : (
           <div
-            onClick={() => { startEdit('budget', contact.estimatedBudget ?? '', setBudgetVal); setEditingBudget(true); }}
+            {...rowActivation(() => { startEdit('budget', contact.estimatedBudget ?? '', setBudgetVal); setEditingBudget(true); })}
             style={{ ...field.input, cursor: 'text', minHeight: 34, display: 'flex', alignItems: 'center' }}
           >
             {contact.estimatedBudget != null

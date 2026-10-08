@@ -21,6 +21,17 @@ function ToastItem({ toast }) {
     >
       <span className="toast__icon">{ICONS[toast.type] ?? ICONS.info}</span>
       <span className="toast__message">{toast.message}</span>
+      {toast.action && (
+        <button
+          className="toast__action"
+          onClick={() => {
+            toast.action.onClick();
+            removeToast(toast.id);
+          }}
+        >
+          {toast.action.label}
+        </button>
+      )}
       <button
         className="toast__close"
         onClick={() => removeToast(toast.id)}

@@ -636,22 +636,32 @@ export const useProjectStore = create((set, get) => ({
     return { projects };
   }),
 
-  advanceBbosStage: (projectId, stageId) => set((s) => {
+  // `decision` (optional): { decision, basis, reflection, fromStage } from the
+  // Approval Brief; appended to p.bbosDecisions so the routing rationale is kept.
+  advanceBbosStage: (projectId, stageId, decision = null) => set((s) => {
+    const at = new Date().toISOString();
     const projects = s.projects.map((p) =>
       p.id === projectId && p.bbosEnabled && !p.rejectedAt
-        ? { ...p, bbosStage: stageId, updatedAt: new Date().toISOString() }
+        ? {
+            ...p,
+            bbosStage: stageId,
+            ...(decision && { bbosDecisions: [...(p.bbosDecisions || []), { ...decision, kind: 'advance', toStage: stageId, at }] }),
+            updatedAt: at,
+          }
         : p
     );
     persistProjects(projects);
     return { projects };
   }),
 
-  rejectBbosPipeline: (projectId, reasonId, reviewer = null) => set((s) => {
+  rejectBbosPipeline: (projectId, reasonId, reviewer = null, decision = null) => set((s) => {
+    const at = new Date().toISOString();
     const projects = s.projects.map((p) =>
       p.id === projectId && p.bbosEnabled
         ? {
             ...p,
-            rejectedAt: new Date().toISOString(),
+            ...(decision && { bbosDecisions: [...(p.bbosDecisions || []), { ...decision, kind: 'reject', reasonId, at }] }),
+            rejectedAt: at,
             rejectionReason: reasonId,
             rejectedBy: reviewer,
             updatedAt: new Date().toISOString(),

@@ -428,7 +428,9 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
         </div>
         {view === 'board' && (
           <button
+            type="button"
             onClick={() => setDraggable((d) => !d)}
+            aria-pressed={draggable}
             className="btn btn-ghost"
             style={{
               padding: 'var(--space-1) var(--space-3)', fontSize: '0.85rem',
@@ -437,9 +439,8 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
               color: draggable ? 'var(--primary)' : 'var(--text3)',
               border: draggable ? '1px solid var(--primary)' : '1px solid var(--border)',
             }}
-            title={draggable ? 'Lock order' : 'Enable drag'}
-          >
-            <GripVertical size={14} />
+            title={draggable ? 'Lock order' : 'Enable drag'} aria-label="Drag to reorder">
+            <GripVertical size={14} aria-hidden="true" />
           </button>
         )}
         </div>

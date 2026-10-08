@@ -16,7 +16,7 @@ export default function PrayerWarning({ prayerName, minutesUntilPrayer, onDismis
             : `Break approaching \u00b7 ${prayerMins}m`
           }
         </span>
-        <button className="prayer-warning-dismiss" onClick={onDismiss} title="Dismiss">
+        <button className="prayer-warning-dismiss" onClick={onDismiss} title="Dismiss" aria-label="Dismiss">
           <X size={14} />
         </button>
       </div>

@@ -8,6 +8,7 @@
 import { useMemo, useState } from "react";
 import { useTaskStore } from "../../../store/task-store";
 import { useProjectStore } from "../../../store/project-store";
+import { useUndoToast } from "../../../hooks/useUndoToast";
 import { BBOS_STAGES } from "../../../data/bbos/bbos-pipeline";
 import { buildPipelineViewModel } from "./adapter/bbos-dashboard-adapter";
 import BbosPipelineRail from "./BbosPipelineRail";
@@ -22,6 +23,18 @@ export default function BbosPipelineDashboard({ project, bbosFilter, onStageSele
   const tasks = useTaskStore((s) => s.tasksByProject[project.id] || EMPTY_TASKS);
   const advanceBbosStage = useProjectStore((s) => s.advanceBbosStage);
   const rejectBbosPipeline = useProjectStore((s) => s.rejectBbosPipeline);
+  const updateProject = useProjectStore((s) => s.updateProject);
+  const undoToast = useUndoToast();
+
+  // Gate decisions write to the pipeline; snapshot the fields they touch so
+  // the toast's Undo can put the project back exactly as it was.
+  const snapshotGate = () => ({
+    bbosStage: project.bbosStage,
+    rejectedAt: project.rejectedAt ?? null,
+    rejectionReason: project.rejectionReason ?? null,
+    rejectedBy: project.rejectedBy ?? null,
+    bbosDecisions: project.bbosDecisions || [],
+  });
   const vm = useMemo(
     () => buildPipelineViewModel({ project, bbosFilter, tasks }),
     [project, bbosFilter, tasks],
@@ -56,19 +69,35 @@ export default function BbosPipelineDashboard({ project, bbosFilter, onStageSele
           ? <BbosStageOverview stage={selected} onOpenBrief={setBriefStage} onOpenExec={setExecStage} />
           : <div className="bpd-main__empty">Select a stage to begin</div>}
       </div>
-      {execStage && <BbosExecView stage={execStage} onClose={() => setExecStage(null)} projectId={project.id} />}
+      {execStage && (
+        <BbosExecView
+          stage={execStage}
+          onClose={() => setExecStage(null)}
+          onSubmitGate={() => { setBriefStage(execStage); setExecStage(null); }}
+          projectId={project.id}
+        />
+      )}
       {briefStage && (
         <BbosApprovalBrief
           stage={briefStage}
           briefSections={vm.meta.briefSections}
-          onAdvance={() => {
+          onAdvance={(decision) => {
             const idx = BBOS_STAGES.findIndex((s) => s.id === briefStage.id);
             const next = BBOS_STAGES[idx + 1];
             // Last stage (OPT) advance = cycle start, deferred to a later pass.
-            if (next) advanceBbosStage(project.id, next.id);
+            if (next) {
+              const before = snapshotGate();
+              advanceBbosStage(project.id, next.id, { ...decision, fromStage: briefStage.id });
+              undoToast(`Advanced to ${next.name || next.id}`, () => updateProject(project.id, before));
+            }
             setBriefStage(null);
           }}
-          onReject={(reasonId) => { rejectBbosPipeline(project.id, reasonId); setBriefStage(null); }}
+          onReject={(reasonId, decision) => {
+            const before = snapshotGate();
+            rejectBbosPipeline(project.id, reasonId, null, { ...decision, fromStage: briefStage.id });
+            undoToast("Pipeline routed to rejection", () => updateProject(project.id, before));
+            setBriefStage(null);
+          }}
           onClose={() => setBriefStage(null)}
         />
       )}

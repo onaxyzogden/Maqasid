@@ -6,6 +6,12 @@ import { createPortal } from "react-dom";
 import { Ornament, SPill } from "./primitives";
 import { itemVars, iLabel } from "./palette";
 import { BBOS_REJECTION_REASONS } from "../../../data/bbos/bbos-pipeline";
+import { useFocusTrap } from "../../../hooks/useFocusTrap";
+
+// Keyboard activation for the div-based radio/checkbox options in the brief.
+const keyActivate = (fn) => (e) => {
+  if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fn(); }
+};
 
 export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onReject, onClose }) {
   const identity = stage.brief?.identity || {};
@@ -14,12 +20,17 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
   const readinessRows = readiness?.rows || [];
   const [sec, setSec] = useState("covenant");
   const [reasonId, setReasonId] = useState(null);
+  // Two-step gate: first click arms, second click commits.
+  const [confirming, setConfirming] = useState(false);
+  const trapRef = useFocusTrap(true, onClose);
   const [fd, setFd] = useState(() => ({
     project: identity.project || "",
     operator: identity.operator || "",
     client: identity.client || "",
     date: new Date().toLocaleDateString("en-CA"),
     decision: null,
+    basis: "",
+    reflection: "",
   }));
   const up = (k, v) => setFd((p) => ({ ...p, [k]: v }));
 
@@ -95,7 +106,11 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
                     className={i % 2 === 0 ? "bpd-brief__readiness-cell bpd-brief__readiness-cell--bordered" : "bpd-brief__readiness-cell"}
                     data-checked={fd[key] ? "true" : "false"}
                     data-tone="complete"
+                    role="checkbox"
+                    aria-checked={!!fd[key]}
+                    tabIndex={0}
                     onClick={() => up(key, !fd[key])}
+                    onKeyDown={keyActivate(() => up(key, !fd[key]))}
                   >
                     <div className="bpd-brief__readiness-label" style={{ "--c": "var(--bpd-complete)" }}>
                       <span>{fd[key] ? "✓" : "○"}</span>{r.attr}{r.attrTitle ? ` · ${r.attrTitle}` : ""}
@@ -129,11 +144,17 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
           : decision === "conditions"
             ? "⧁  Logged — No Stage Change"
             : "⧁  Approve & Advance Stage";
+      const record = { decision, basis: fd.basis.trim(), reflection: fd.reflection.trim() };
       const fireAction = () => {
         if (!actionReady) return;
-        if (decision === "proceed") onAdvance?.();
-        else if (decision === "halt") onReject?.(reasonId);
+        if (!confirming) { setConfirming(true); return; }
+        if (decision === "proceed") onAdvance?.(record);
+        else if (decision === "halt") onReject?.(reasonId, record);
       };
+      const confirmText =
+        decision === "halt"
+          ? "Confirm: halt this pipeline and route it to rejection?"
+          : `Confirm: approve this gate and advance to Stage ${gate?.nextStageN}?`;
       return (
         <div className="bpd-col" style={{ gap: 14 }}>
           {gate && (
@@ -147,13 +168,19 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
               This stage is not active &mdash; the routing decision is read-only.
             </div>
           )}
+          <div role="radiogroup" aria-label="Routing decision" className="bpd-col" style={{ gap: 14 }}>
           {gateOpts.map((opt) => (
             <div
               key={opt.key}
               className="bpd-brief__gate-opt"
               data-selected={decision === opt.key ? "true" : "false"}
               style={{ "--c": opt.c, "--c-dim": opt.cd }}
-              onClick={() => { if (canAct) up("decision", opt.key); }}
+              role="radio"
+              aria-checked={decision === opt.key}
+              aria-disabled={!canAct}
+              tabIndex={canAct ? 0 : -1}
+              onClick={() => { if (canAct) { up("decision", opt.key); setConfirming(false); } }}
+              onKeyDown={keyActivate(() => { if (canAct) { up("decision", opt.key); setConfirming(false); } })}
             >
               <div className="bpd-brief__gate-radio">
                 {decision === opt.key && <div className="bpd-brief__gate-radio-dot" />}
@@ -164,16 +191,21 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
               </div>
             </div>
           ))}
+          </div>
           {decision === "halt" && (
-            <div className="bpd-col" style={{ gap: 8 }}>
-              <div className="bpd-brief__field-label">Rejection Reason (required)</div>
+            <div className="bpd-col" style={{ gap: 8 }} role="radiogroup" aria-labelledby="bpd-reject-reason-label">
+              <div className="bpd-brief__field-label" id="bpd-reject-reason-label">Rejection Reason (required)</div>
               {BBOS_REJECTION_REASONS.map((r) => (
                 <div
                   key={r.id}
                   className="bpd-brief__gate-opt"
                   data-selected={reasonId === r.id ? "true" : "false"}
                   style={{ "--c": "var(--bpd-red)", "--c-dim": "var(--bpd-red-dim)" }}
-                  onClick={() => setReasonId(r.id)}
+                  role="radio"
+                  aria-checked={reasonId === r.id}
+                  tabIndex={0}
+                  onClick={() => { setReasonId(r.id); setConfirming(false); }}
+                  onKeyDown={keyActivate(() => { setReasonId(r.id); setConfirming(false); })}
                 >
                   <div className="bpd-brief__gate-radio">
                     {reasonId === r.id && <div className="bpd-brief__gate-radio-dot" />}
@@ -192,14 +224,35 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
               does not change the pipeline stage.
             </div>
           )}
-          <textarea className="bpd-brief__gate-textarea" placeholder="Record the specific basis for the routing decision..." />
-          <button
-            className="bpd-btn-gold bpd-btn-gold--approve"
-            disabled={!actionReady}
-            onClick={fireAction}
-          >
-            {actionLabel}
-          </button>
+          <label className="bpd-brief__field-label" htmlFor="bpd-gate-basis">Basis for the routing decision</label>
+          <textarea
+            id="bpd-gate-basis"
+            className="bpd-brief__gate-textarea"
+            placeholder="Record the specific basis for the routing decision..."
+            value={fd.basis}
+            onChange={(e) => up("basis", e.target.value)}
+          />
+          {confirming && actionReady ? (
+            <div className="bpd-col" style={{ gap: 8 }} role="alert">
+              <div className="bpd-brief__field-label">{confirmText}</div>
+              <div style={{ display: "flex", gap: 8 }}>
+                <button className="bpd-btn-gold bpd-btn-gold--approve" onClick={fireAction}>
+                  {decision === "halt" ? "Yes, route to rejection" : "Yes, approve & advance"}
+                </button>
+                <button className="bpd-btn-ghost-confirm" onClick={() => setConfirming(false)}>
+                  Back
+                </button>
+              </div>
+            </div>
+          ) : (
+            <button
+              className="bpd-btn-gold bpd-btn-gold--approve"
+              disabled={!actionReady}
+              onClick={fireAction}
+            >
+              {actionLabel}
+            </button>
+          )}
         </div>
       );
     }
@@ -317,7 +370,14 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
           <div className="bpd-brief__covenant-tr" style={{ lineHeight: 1.8 }}>
             {proj ? `${proj} — ` : ""}This stage is closed before Allah on the basis of the findings above, not on the basis of momentum. What was filed is what is real; what is unmet remains unmet.
           </div>
-          <textarea className="bpd-brief__gate-textarea" placeholder="Record any closing reflection on honest stewardship for this stage..." />
+          <label className="bpd-brief__field-label" htmlFor="bpd-closing-reflection">Closing reflection (saved with the gate decision)</label>
+          <textarea
+            id="bpd-closing-reflection"
+            className="bpd-brief__gate-textarea"
+            placeholder="Record any closing reflection on honest stewardship for this stage..."
+            value={fd.reflection}
+            onChange={(e) => up("reflection", e.target.value)}
+          />
         </div>
       );
     }
@@ -329,18 +389,25 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
   const overlay = (
     <div className="bpd-modal-overlay bpd-modal-overlay--brief">
       <div className="bpd-modal-scrim bpd-modal-scrim--brief" onClick={onClose}>
-        <div className="bpd-modal bpd-modal--brief" onClick={(e) => e.stopPropagation()}>
+        <div
+          className="bpd-modal bpd-modal--brief"
+          ref={trapRef}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="bpd-brief-title"
+          onClick={(e) => e.stopPropagation()}
+        >
           <div className="bpd-modal__head">
             <div className="bpd-modal__head-left">
               <span style={{ color: "var(--bpd-gold)", lineHeight: 0 }}><Ornament size={32} opacity={0.6} /></span>
               <div>
                 <div className="bpd-modal__eyebrow">BBOS · Stage Approval Brief · {stage.code}</div>
-                <div className="bpd-modal__title">{stage.n} — {stage.name}</div>
+                <div className="bpd-modal__title" id="bpd-brief-title">{stage.n} — {stage.name}</div>
               </div>
             </div>
             <div className="bpd-modal__head-right">
               <SPill status={stage.status} />
-              <button className="bpd-modal__close" onClick={onClose}>×</button>
+              <button className="bpd-modal__close" onClick={onClose} aria-label="Close approval brief">×</button>
             </div>
           </div>
           <div className="bpd-brief__body">

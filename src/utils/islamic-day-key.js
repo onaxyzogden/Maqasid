@@ -2,6 +2,7 @@
 // from components/orientation/Orientation.jsx so the Prophetic Path node popup
 // can share the exact same day arithmetic.
 import { currentIslamicDayKey } from '../store/islamic-day-store';
+import { localDayKey } from '../lib/format-date';
 
 // Local copy of the "HH:MM (TZ)" → epoch-ms parser duplicated across the
 // codebase (usePrayerTimes.js, PropheticPath.jsx) rather than centralized —
@@ -14,11 +15,6 @@ function timeToMs(raw, dayStart) {
   const d = new Date(dayStart);
   d.setHours(Number(match[1]), Number(match[2]), 0, 0);
   return d.getTime();
-}
-
-function localDayKey() {
-  const d = new Date();
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
 // Reads the wall clock (Date.now / new Date), so it must only be called from
