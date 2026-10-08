@@ -3,6 +3,7 @@ import { X } from 'lucide-react';
 import { usePeopleStore } from '@store/people-store';
 import { useToastStore } from '@store/toast-store';
 import { EMPLOYEE_STATUSES, DEFAULT_LEAVE_BALANCE } from '@data/config/people-departments';
+import { localDayKey } from '../../../lib/format-date';
 
 export default function EmployeeForm({ employee, onClose }) {
   const departments = usePeopleStore((s) => s.departments);
@@ -16,7 +17,7 @@ export default function EmployeeForm({ employee, onClose }) {
   const [phone, setPhone] = useState(employee?.phone || '');
   const [role, setRole] = useState(employee?.role || '');
   const [department, setDepartment] = useState(employee?.department || '');
-  const [startDate, setStartDate] = useState(employee?.startDate || new Date().toISOString().slice(0, 10));
+  const [startDate, setStartDate] = useState(employee?.startDate || localDayKey());
   const [status, setStatus] = useState(employee?.status || 'active');
   const [notes, setNotes] = useState(employee?.notes || '');
   const [annual, setAnnual] = useState(employee?.leaveBalance?.annual ?? DEFAULT_LEAVE_BALANCE.annual);

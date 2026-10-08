@@ -66,8 +66,8 @@
 .pc-mod-status {
   display: flex; align-items: center; color: var(--text3);
 }
-.pc-mod-status.done { color: var(--success); }
-.pc-mod-status.def { color: var(--warning); }
+.pc-mod-status.done { color: var(--success-text); }
+.pc-mod-status.def { color: var(--warning-text); }
 
 .pc-arabic {
   margin-top: var(--space-3);

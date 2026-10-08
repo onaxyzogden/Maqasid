@@ -55,7 +55,7 @@
   height: 28px;
   border-radius: 6px;
   background: var(--primary-bg);
-  color: var(--primary);
+  color: var(--primary-text);
   font-size: var(--text-2xs);
   font-weight: 700;
   display: flex;
@@ -109,7 +109,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--primary);
+  color: var(--primary-text);
 }
 .proj-dash__health-badge {
   font-size: var(--text-xs);
@@ -121,7 +121,7 @@
 }
 .proj-dash__health-badge--high {
   background: var(--primary-bg);
-  color: var(--primary);
+  color: var(--primary-text);
 }
 .proj-dash__health-badge--med {
   background: var(--bg3);
@@ -156,7 +156,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--primary);
+  color: var(--primary-text);
   background: none;
   border: none;
   cursor: pointer;
@@ -222,7 +222,7 @@
   text-align: right;
   font-weight: 700;
   font-size: var(--text-lg);
-  color: var(--primary);
+  color: var(--primary-text);
 }
 
 /* ── Card 03: Priority Matrix (2×2 quadrant) ── */
@@ -271,7 +271,7 @@
   margin-bottom: auto;
 }
 .proj-dash__matrix-cell--tr .proj-dash__matrix-label {
-  color: var(--primary);
+  color: var(--primary-text);
   font-weight: 700;
 }
 .proj-dash__matrix-dots {
@@ -324,7 +324,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--primary);
+  color: var(--primary-text);
   margin-bottom: 10px;
 }
 .proj-dash__analysis-text {
@@ -389,13 +389,13 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: var(--primary);
+  color: var(--primary-text);
   margin-bottom: 6px;
 }
 .proj-dash__verdict-value {
   font-size: var(--text-2xl);
   font-weight: 700;
-  color: var(--primary);
+  color: var(--primary-text);
   letter-spacing: 0.04em;
 }
 .proj-dash__verdict-sub {
@@ -449,7 +449,7 @@
 .proj-dash__stars {
   display: flex;
   gap: 1px;
-  color: var(--primary);
+  color: var(--primary-text);
 }
 .proj-dash__star--empty {
   opacity: 0.25;

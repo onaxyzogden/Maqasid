@@ -52,7 +52,7 @@ export default function TeamChat() {
           <div className="chat-section-header">
             <span>CHANNELS</span>
             <span className="chat-badge">{channels.length}</span>
-            <button className="chat-section-action" onClick={() => setShowNewChannel(true)} title="New channel"><Plus size={14} /></button>
+            <button className="chat-section-action" onClick={() => setShowNewChannel(true)} title="New channel" aria-label="New channel"><Plus size={14} aria-hidden="true" /></button>
           </div>
           {channels.map((ch) => (
             <button key={ch.id} className={`chat-channel ${activeChannel === ch.id ? 'active' : ''}`}
@@ -78,7 +78,7 @@ export default function TeamChat() {
           <div className="chat-section-header">
             <span>GROUPS</span>
             <span className="chat-badge">0</span>
-            <button className="chat-section-action" title="New group"><Plus size={14} /></button>
+            <button className="chat-section-action" title="New group" aria-label="New group"><Plus size={14} aria-hidden="true" /></button>
           </div>
         </div>
 
@@ -133,15 +133,15 @@ export default function TeamChat() {
         <div className="chat-input-section">
           <div className="chat-input-label">Create meeting</div>
           <div className="chat-rich-toolbar">
-            <button className="btn-ghost chat-toolbar-btn" title="Bold"><Bold size={16} /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Italic"><Italic size={16} /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Underline"><Underline size={16} /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Strikethrough"><Strikethrough size={16} /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Link"><Link size={16} /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Voice"><Mic size={16} /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Video"><Video size={16} /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Emoji"><Smile size={16} /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Attach"><Paperclip size={16} /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Bold" aria-label="Bold"><Bold size={16} aria-hidden="true" /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Italic" aria-label="Italic"><Italic size={16} aria-hidden="true" /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Underline" aria-label="Underline"><Underline size={16} aria-hidden="true" /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Strikethrough" aria-label="Strikethrough"><Strikethrough size={16} aria-hidden="true" /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Link" aria-label="Link"><Link size={16} aria-hidden="true" /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Voice" aria-label="Voice"><Mic size={16} aria-hidden="true" /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Video" aria-label="Video"><Video size={16} aria-hidden="true" /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Emoji" aria-label="Emoji"><Smile size={16} aria-hidden="true" /></button>
+            <button className="btn-ghost chat-toolbar-btn" title="Attach" aria-label="Attach"><Paperclip size={16} aria-hidden="true" /></button>
           </div>
           <div className="chat-input-bar">
             <input value={newMsg} onChange={(e) => setNewMsg(e.target.value)}

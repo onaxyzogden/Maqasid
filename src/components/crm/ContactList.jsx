@@ -2,6 +2,8 @@ import { useState, useMemo } from 'react';
 import { Plus, Contact, Pencil, Trash2, Search, X } from 'lucide-react';
 import { useCRMStore, CONTACT_TYPES } from '../../store/crm-store';
 import { useToastStore } from '../../store/toast-store';
+import { useRequiredField } from '../../hooks/useRequiredField';
+import FieldError from '../../components/shared/FieldError';
 
 function ContactForm({ contact, onClose }) {
   const addContact = useCRMStore((s) => s.addContact);
@@ -9,6 +11,7 @@ function ContactForm({ contact, onClose }) {
   const addToast = useToastStore((s) => s.addToast);
   const isEdit = !!contact;
   const [name, setName] = useState(contact?.name || '');
+  const req = useRequiredField(!!name.trim(), 'contactlis-name');
   const [email, setEmail] = useState(contact?.email || '');
   const [phone, setPhone] = useState(contact?.phone || '');
   const [company, setCompany] = useState(contact?.company || '');
@@ -35,25 +38,26 @@ function ContactForm({ contact, onClose }) {
         <div className="expense-form-header"><h3>{isEdit ? 'Edit Contact' : 'New Contact'}</h3><button className="expense-form-close" onClick={onClose}><X size={18} /></button></div>
         <div className="expense-form-body">
           <div className="expense-form-row">
-            <div className="expense-form-field" style={{ flex: 1 }}><label>Name *</label><input value={name} onChange={(e) => setName(e.target.value)} placeholder="Contact name" autoFocus /></div>
+            <div className="expense-form-field" style={{ flex: 1 }}><label htmlFor="contactlis-name">Name *</label><input id="contactlis-name" {...req.fieldProps} value={name} onChange={(e) => setName(e.target.value)} placeholder="Contact name" autoFocus />
+<FieldError id={req.errorId} show={req.show}>Name is required</FieldError></div>
             <div className="expense-form-field" style={{ flex: 1 }}>
-              <label>Type</label>
-              <select value={type} onChange={(e) => setType(e.target.value)}>{CONTACT_TYPES.map((t) => <option key={t.id} value={t.id}>{t.label}</option>)}</select>
+              <label htmlFor="contactlis-type">Type</label>
+              <select id="contactlis-type" value={type} onChange={(e) => setType(e.target.value)}>{CONTACT_TYPES.map((t) => <option key={t.id} value={t.id}>{t.label}</option>)}</select>
             </div>
           </div>
           <div className="expense-form-row">
-            <div className="expense-form-field" style={{ flex: 1 }}><label>Email</label><input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email@company.com" /></div>
-            <div className="expense-form-field" style={{ flex: 1 }}><label>Phone</label><input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+1 (555) 000-0000" /></div>
+            <div className="expense-form-field" style={{ flex: 1 }}><label htmlFor="contactlis-email">Email</label><input id="contactlis-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email@company.com" /></div>
+            <div className="expense-form-field" style={{ flex: 1 }}><label htmlFor="contactlis-phone">Phone</label><input id="contactlis-phone" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+1 (555) 000-0000" /></div>
           </div>
           <div className="expense-form-row">
-            <div className="expense-form-field" style={{ flex: 1 }}><label>Company</label><input value={company} onChange={(e) => setCompany(e.target.value)} placeholder="Company name" /></div>
-            <div className="expense-form-field" style={{ flex: 1 }}><label>Role</label><input value={role} onChange={(e) => setRole(e.target.value)} placeholder="Job title" /></div>
+            <div className="expense-form-field" style={{ flex: 1 }}><label htmlFor="contactlis-company">Company</label><input id="contactlis-company" value={company} onChange={(e) => setCompany(e.target.value)} placeholder="Company name" /></div>
+            <div className="expense-form-field" style={{ flex: 1 }}><label htmlFor="contactlis-role">Role</label><input id="contactlis-role" value={role} onChange={(e) => setRole(e.target.value)} placeholder="Job title" /></div>
           </div>
-          <div className="expense-form-field"><label>Notes</label><textarea value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Notes about this contact..." rows={2} /></div>
+          <div className="expense-form-field"><label htmlFor="contactlis-notes">Notes</label><textarea id="contactlis-notes" value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Notes about this contact..." rows={2} /></div>
         </div>
         <div className="expense-form-footer">
           <button className="btn btn-ghost" onClick={onClose}>Cancel</button>
-          <button className="btn btn-primary" onClick={handleSave} disabled={!name.trim()} style={{ background: 'var(--mod-crm)', opacity: name.trim() ? 1 : 0.4 }}>{isEdit ? 'Save' : 'Add Contact'}</button>
+          <button className="btn btn-primary" onClick={req.guard(handleSave)} style={{ background: 'var(--mod-crm)' }}>{isEdit ? 'Save' : 'Add Contact'}</button>
         </div>
       </div>
     </div>
@@ -92,7 +96,7 @@ export default function ContactList() {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-4)', gap: 'var(--space-3)', flexWrap: 'wrap' }}>
         <div style={{ position: 'relative', flex: 1, maxWidth: 260 }}>
           <Search size={14} style={{ position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)', color: 'var(--text3)' }} />
-          <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search contacts..." style={{ width: '100%', paddingLeft: 30, fontSize: '0.85rem', borderRadius: 'var(--radius)' }} />
+          <input aria-label="Search contacts" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search contacts..." style={{ width: '100%', paddingLeft: 30, fontSize: '0.85rem', borderRadius: 'var(--radius)' }} />
         </div>
         <button className="btn btn-primary" onClick={() => setShowForm(true)} style={{ background: 'var(--mod-crm)' }}><Plus size={16} /> Add Contact</button>
       </div>
@@ -119,8 +123,8 @@ export default function ContactList() {
                 <td><span className={`status-badge type-${c.type}`}>{ct?.label || c.type}</span></td>
                 <td>
                   <div className="row-actions">
-                    <button className="row-action-btn" onClick={() => { setEditContact(c); setShowForm(true); }}><Pencil size={14} /></button>
-                    <button className="row-action-btn danger" onClick={() => { if (confirm('Delete this contact and all related deals/activities?')) { deleteContact(c.id); addToast({ message: `"${c.name}" removed`, type: 'info' }); } }}><Trash2 size={14} /></button>
+                    <button className="row-action-btn" onClick={() => { setEditContact(c); setShowForm(true); }} aria-label={`Edit ${c.name}`}><Pencil size={14} aria-hidden="true" /></button>
+                    <button className="row-action-btn danger" onClick={() => { if (confirm('Delete this contact and all related deals/activities?')) { deleteContact(c.id); addToast({ message: `"${c.name}" removed`, type: 'info' }); } }} aria-label={`Delete ${c.name}`}><Trash2 size={14} aria-hidden="true" /></button>
                   </div>
                 </td>
               </tr>

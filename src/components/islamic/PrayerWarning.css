@@ -21,7 +21,7 @@
 .prayer-warning-text {
   font-size: var(--text-base);
   font-weight: 500;
-  color: var(--accent);
+  color: var(--accent-text);
   white-space: nowrap;
 }
 

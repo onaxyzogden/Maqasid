@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Plus, StickyNote, Send } from 'lucide-react';
 import { useCRMStore, ACTIVITY_TYPES } from '../../store/crm-store';
+import { localDayKey } from '../../lib/format-date';
 
 export default function NotesView() {
   const contacts = useCRMStore((s) => s.contacts);
@@ -18,7 +19,7 @@ export default function NotesView() {
 
   const handleAddNote = () => {
     if (!newNote.trim() || !selectedContact) return;
-    addActivity({ contactId: selectedContact, type: 'note', description: newNote.trim(), date: new Date().toISOString().slice(0, 10) });
+    addActivity({ contactId: selectedContact, type: 'note', description: newNote.trim(), date: localDayKey() });
     setNewNote('');
   };
 
@@ -82,7 +83,7 @@ export default function NotesView() {
             </div>
 
             <div style={{ display: 'flex', gap: 'var(--space-2)' }}>
-              <textarea value={newNote} onChange={(e) => setNewNote(e.target.value)}
+              <textarea aria-label="Add a note" value={newNote} onChange={(e) => setNewNote(e.target.value)}
                 onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleAddNote(); } }}
                 placeholder="Add a note..." rows={2}
                 style={{ flex: 1, padding: 'var(--space-2) var(--space-3)', borderRadius: 'var(--radius)', fontSize: '0.85rem', resize: 'none' }} />

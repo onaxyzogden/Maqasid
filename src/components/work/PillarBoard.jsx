@@ -6,6 +6,7 @@ import { safeGet, safeSet, safeGetJSON, safeRemove } from '../../services/storag
 import ProjectBoard from './ProjectBoard';
 import { SkeletonCard } from '../shared/Skeleton';
 import { useAyahBanner } from '../../hooks/useAyahBanner';
+import { useUndoToast } from '../../hooks/useUndoToast';
 import './PillarBoard.css';
 
 const TABS = [
@@ -84,6 +85,8 @@ function PillarResourcesTab({ modulePrefix, pillarKey, pillarName }) {
   const [fileError, setFileError] = useState('');
   const fileInputRef = useRef(null);
 
+  const undoToast = useUndoToast();
+
   const save = (updated) => {
     setResources(updated);
     safeSet(storageKey, updated);
@@ -128,8 +131,17 @@ function PillarResourcesTab({ modulePrefix, pillarKey, pillarName }) {
     resetForm();
   };
 
-  const removeResource = (id) => {
-    save(resources.filter((r) => r.id !== id));
+  const removeResource = (r) => {
+    const index = resources.findIndex((x) => x.id === r.id);
+    save(resources.filter((x) => x.id !== r.id));
+    undoToast(`"${r.title}" removed`, () =>
+      setResources((cur) => {
+        const next = [...cur];
+        next.splice(Math.min(index, next.length), 0, r);
+        safeSet(storageKey, next);
+        return next;
+      })
+    );
   };
 
   const handleFileSelect = (file) => {
@@ -154,6 +166,8 @@ function PillarResourcesTab({ modulePrefix, pillarKey, pillarName }) {
     };
     reader.readAsDataURL(file);
   };
+
+  const openFilePicker = () => fileInputRef.current?.click();
 
   const handleDrop = (e) => {
     e.preventDefault();
@@ -203,7 +217,11 @@ function PillarResourcesTab({ modulePrefix, pillarKey, pillarName }) {
           <>
             <div
               className={`pillar-resources__dropzone${fileData ? ' pillar-resources__dropzone--has-file' : ''}`}
-              onClick={() => fileInputRef.current?.click()}
+              onClick={openFilePicker}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openFilePicker(); } }}
+              role="button"
+              tabIndex={0}
+              aria-label="Choose a file to upload"
               onDrop={handleDrop}
               onDragOver={(e) => e.preventDefault()}
             >
@@ -295,10 +313,10 @@ function PillarResourcesTab({ modulePrefix, pillarKey, pillarName }) {
                   )}
                   <button
                     className="pillar-resources__card-remove"
-                    onClick={() => removeResource(r.id)}
-                    title="Remove resource"
+                    onClick={() => removeResource(r)}
+                    aria-label={`Remove resource ${r.title}`}
                   >
-                    <Trash2 size={14} />
+                    <Trash2 size={14} aria-hidden="true" />
                   </button>
                 </div>
                 {r.note && <p className="pillar-resources__card-note">{r.note}</p>}

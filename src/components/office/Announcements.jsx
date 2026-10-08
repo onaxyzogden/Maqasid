@@ -63,8 +63,8 @@ export default function Announcements() {
                   {ann.author} &middot; {new Date(ann.createdAt).toLocaleDateString('en', { month: 'short', day: 'numeric', year: 'numeric' })}
                 </div>
               </div>
-              <button className="row-action-btn danger" onClick={() => { if (confirm('Delete this announcement?')) { deleteAnnouncement(ann.id); addToast({ message: 'Announcement removed', type: 'info' }); } }}>
-                <Trash2 size={14} />
+              <button className="row-action-btn danger" onClick={() => { if (confirm('Delete this announcement?')) { deleteAnnouncement(ann.id); addToast({ message: 'Announcement removed', type: 'info' }); } }} aria-label={`Delete announcement ${ann.title}`}>
+                <Trash2 size={14} aria-hidden="true" />
               </button>
             </div>
           ))}

@@ -4,6 +4,7 @@ import { X } from 'lucide-react';
 import { useContactsStore } from '@store/contacts-store';
 import { useToastStore } from '@store/toast-store';
 import { EMPLOYMENT_TYPES } from '@data/config/contact-config';
+import { localDayKey } from '../../../lib/format-date';
 
 export default function AddEmployeeModal({ onClose }) {
   const addContact  = useContactsStore((s) => s.addContact);
@@ -19,7 +20,7 @@ export default function AddEmployeeModal({ onClose }) {
   const [role, setRole]             = useState('');
   const [department, setDepartment] = useState('');
   const [empType, setEmpType]       = useState('full_time');
-  const [startDate, setStartDate]   = useState(new Date().toISOString().slice(0, 10));
+  const [startDate, setStartDate]   = useState(localDayKey());
 
   const canSubmit = name.trim();
 

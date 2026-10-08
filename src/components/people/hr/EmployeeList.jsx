@@ -91,8 +91,8 @@ export default function EmployeeList() {
                 <td><span className={`status-badge status-${emp.status}`}>{emp.status}</span></td>
                 <td>
                   <div className="row-actions">
-                    <button className="row-action-btn" onClick={() => { setEditingEmp(emp); setShowForm(true); }}><Pencil size={14} /></button>
-                    <button className="row-action-btn danger" onClick={() => { if (confirm('Delete this employee?')) { deleteEmployee(emp.id); addToast({ message: `"${emp.name}" removed`, type: 'info' }); } }}><Trash2 size={14} /></button>
+                    <button className="row-action-btn" onClick={() => { setEditingEmp(emp); setShowForm(true); }} aria-label={`Edit ${emp.name}`}><Pencil size={14} aria-hidden="true" /></button>
+                    <button className="row-action-btn danger" onClick={() => { if (confirm('Delete this employee?')) { deleteEmployee(emp.id); addToast({ message: `"${emp.name}" removed`, type: 'info' }); } }} aria-label={`Delete ${emp.name}`}><Trash2 size={14} aria-hidden="true" /></button>
                   </div>
                 </td>
               </tr>

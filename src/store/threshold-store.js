@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { safeGet, safeGetJSON, safeSet, safeRemove } from '../services/storage';
+import { localDayKey } from '../lib/format-date';
 
 const hydrateOptionalString = (key) => {
   const v = safeGet(key, null);
@@ -75,7 +76,7 @@ export const useThresholdStore = create((set, get) => ({
   prayerWarningDismissed: false,
 
   completeNiyyah: (arg = []) => {
-    const today = new Date().toISOString().slice(0, 10);
+    const today = localDayKey();
     // Back-compat: callers may pass an array of pillar ids (legacy) or
     // a structured object { feeling, pillars, submodule } (Ad-lib flow).
     const isStructured = arg && !Array.isArray(arg) && typeof arg === 'object';
@@ -112,7 +113,7 @@ export const useThresholdStore = create((set, get) => ({
   // current-day slots so the morning Niyyah Act can re-trigger fresh.
   // Safe to call on every Dashboard mount.
   rolloverIfStale: () => {
-    const today = new Date().toISOString().slice(0, 10);
+    const today = localDayKey();
     const { niyyahDate } = get();
     if (!niyyahDate || niyyahDate === today) return false;
     const archived = archiveStaleNiyyah(get, today);
@@ -141,7 +142,7 @@ export const useThresholdStore = create((set, get) => ({
   },
 
   skipNiyyah: () => {
-    const today = new Date().toISOString().slice(0, 10);
+    const today = localDayKey();
     const archived = archiveStaleNiyyah(get, today);
     safeSet('thr_niyyah_date', today);
     safeSet('thr_niyyah_focus', ['_skipped']);
@@ -159,7 +160,7 @@ export const useThresholdStore = create((set, get) => ({
   },
 
   isNiyyahComplete: () => {
-    const today = new Date().toISOString().slice(0, 10);
+    const today = localDayKey();
     return get().niyyahDate === today;
   },
 

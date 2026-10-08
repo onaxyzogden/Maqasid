@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { safeGetJSON, safeSet } from '../services/storage';
 import { genChannelId, genMessageId, genEventId, genDocumentId, genQAId, genAnswerId, genAnnouncementId } from '../services/id';
+import { localDayKey } from '../lib/format-date';
 
 function persistChannels(d) { safeSet('office_channels', d); }
 function persistMessages(d) { safeSet('office_messages', d); }
@@ -76,7 +77,7 @@ export const useOfficeStore = create((set) => ({
   // ── Events ──
   addEvent: ({ title, date, startTime, endTime, description, location, category }) => {
     const evt = {
-      id: genEventId(), title: title || '', date: date || new Date().toISOString().slice(0, 10),
+      id: genEventId(), title: title || '', date: date || localDayKey(),
       startTime: startTime || '09:00', endTime: endTime || '10:00',
       description: description || '', location: location || '',
       category: category || 'meeting',

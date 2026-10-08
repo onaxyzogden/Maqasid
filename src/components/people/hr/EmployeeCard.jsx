@@ -3,6 +3,7 @@ import { MoreHorizontal } from 'lucide-react';
 import AvatarInitials from '../shared/AvatarInitials';
 import { getAvatarColor } from '@data/config/contact-config';
 import { EMPLOYEE_STATUSES } from '@data/config/people-departments';
+import { rowActivation } from '../../../lib/row-activation';
 
 export default function EmployeeCard({ employee, department, onClick, onMenuAction }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,7 +13,7 @@ export default function EmployeeCard({ employee, department, onClick, onMenuActi
   const last = employee.lastName || (employee.name || '').split(' ').slice(1).join(' ') || '';
 
   return (
-    <div className="emp-card" onClick={onClick}>
+    <div className="emp-card" {...rowActivation(onClick)}>
       <div className="emp-card__header">
         <span className="emp-card__status" style={{ background: status.color + '18', color: status.color }}>
           {status.label}

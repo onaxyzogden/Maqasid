@@ -7,6 +7,7 @@ import { useTaskStore } from "../../../store/task-store";
 import { downloadStageBundleTemplate, validateStageBundleTemplate, importStageBundleTemplate } from "@services/bbos-template";
 import { getBbosTaskDefsByStage } from "@data/bbos/bbos-task-definitions";
 import { Dot, Ornament, Spirit } from "./primitives";
+import { rowActivation } from '../../../lib/row-activation';
 import {
   bhiVars, iLabel, itemVars, metricVars, restoVars, typeLabel, typeVars,
   execTypeLabel, statusVars,
@@ -15,7 +16,7 @@ import {
 function AssetRow({ item, expanded, onToggle }) {
   return (
     <div className="bpd-row" data-expanded={expanded ? "true" : "false"}>
-      <div className="bpd-row__head" onClick={onToggle}>
+      <div className="bpd-row__head" {...rowActivation(onToggle, { expanded })}>
         <Dot status={item.status} />
         <div className="bpd-row__body-wrap">
           <div className="bpd-row__title-line">
@@ -73,7 +74,7 @@ function FieldGrid({ fields }) {
 function TaskRow({ task, expanded, onToggle }) {
   return (
     <div className="bpd-row" data-expanded={expanded ? "true" : "false"}>
-      <div className="bpd-row__head" onClick={onToggle}>
+      <div className="bpd-row__head" {...rowActivation(onToggle, { expanded })}>
         <Dot status={task.status} />
         <div className="bpd-row__body-wrap">
           <div className="bpd-row__title-line">
@@ -121,7 +122,7 @@ function TaskRow({ task, expanded, onToggle }) {
   );
 }
 
-export default function BbosExecView({ stage, onClose, projectId }) {
+export default function BbosExecView({ stage, onClose, onSubmitGate, projectId }) {
   const exec = stage.execution;
   const isRetro = exec.type === "retrospective_dashboard";
   const tabs = isRetro
@@ -345,7 +346,7 @@ export default function BbosExecView({ stage, onClose, projectId }) {
             {parseSuccess && <span className="bpd-parse-result bpd-parse-result--ok">{parseSuccess}</span>}
           </div>
           <div className="bpd-import-trigger" data-open={importOpen ? "true" : "false"}
-            onClick={() => { setImportOpen(!importOpen); setParseError(null); setParseSuccess(null); }}>
+            {...rowActivation(() => { setImportOpen(!importOpen); setParseError(null); setParseSuccess(null); })}>
             <div className="bpd-import-trigger__icon">↑</div>
             <div>
               <div className="bpd-import-trigger__title">Import Stage Pack (JSON)</div>
@@ -399,13 +400,26 @@ export default function BbosExecView({ stage, onClose, projectId }) {
           const val = checks[gc.id];
           const attr = val === true ? "true" : val === false ? "false" : "null";
           return (
-            <div key={gc.id} className="bpd-gatecheck" data-val={attr} onClick={() => cycleCheck(gc.id)}>
+            <div
+              key={gc.id}
+              className="bpd-gatecheck"
+              data-val={attr}
+              role="checkbox"
+              aria-checked={val === true ? true : val === false ? false : "mixed"}
+              aria-label={`${gc.label}: ${val === true ? "passed" : val === false ? "failed" : "not reviewed"}`}
+              tabIndex={0}
+              onClick={() => cycleCheck(gc.id)}
+              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); cycleCheck(gc.id); } }}
+            >
               <div className="bpd-gatecheck__box">{val === true ? "✓" : val === false ? "✕" : ""}</div>
               <span className="bpd-gatecheck__text">{gc.label}</span>
             </div>
           );
         })}
-        <button className="bpd-btn-gold bpd-btn-gold--gate">⧁  Submit Gate Review</button>
+        {/* Gate decisions are recorded in the Stage Approval Brief. */}
+        <button className="bpd-btn-gold bpd-btn-gold--gate" onClick={onSubmitGate} disabled={!onSubmitGate}>
+          ⧁  Continue to Approval Brief
+        </button>
       </div>
     );
     return null;
@@ -425,7 +439,7 @@ export default function BbosExecView({ stage, onClose, projectId }) {
             </div>
             <div className="bpd-modal__head-right">
               <div className="bpd-modal__typechip">{execTypeLabel(exec.type)}</div>
-              <button className="bpd-modal__close" onClick={onClose}>×</button>
+              <button type="button" className="bpd-modal__close" onClick={onClose} aria-label="Close">×</button>
             </div>
           </div>
           <div className="bpd-tabs">

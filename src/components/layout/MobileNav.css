@@ -17,4 +17,4 @@
   text-decoration: none;
   transition: color var(--duration) var(--ease);
 }
-.mobile-nav-item.active { color: var(--primary); }
+.mobile-nav-item.active { color: var(--primary-text); }

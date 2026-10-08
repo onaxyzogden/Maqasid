@@ -172,11 +172,11 @@
 }
 
 .fpd__card--growth .fpd__card-icon {
-  color: var(--primary);
+  color: var(--primary-text);
 }
 
 .fpd__card--growth .fpd__card-cta {
-  background: var(--primary);
+  background: var(--primary-strong);
   color: #fff;
   border: none;
 }
@@ -415,13 +415,13 @@
   gap: var(--space-2);
   font-size: var(--text-base);
   font-weight: 600;
-  color: var(--primary);
+  color: var(--primary-text);
   text-decoration: none;
   transition: color 0.15s;
 }
 
 .pillar-resources__card-link:hover {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .pillar-resources__card-remove {
@@ -496,7 +496,7 @@
   border-color: var(--text3);
 }
 .pillar-resources__mode-btn--active {
-  background: var(--primary);
+  background: var(--primary-strong);
   color: #fff;
   border-color: var(--primary);
 }
@@ -539,7 +539,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  color: var(--primary);
+  color: var(--primary-text);
   font-weight: 500;
 }
 
@@ -563,3 +563,7 @@
     bottom: calc(var(--mobile-nav-h) + var(--space-6));
   }
 }
+
+/* 44px hit area for resource remove */
+.pillar-resources__card-remove { position: relative; }
+.pillar-resources__card-remove::after { content: ''; position: absolute; inset: -10px; }

@@ -1,6 +1,8 @@
 import { useState, useMemo } from 'react';
 import { Plus, Activity, Trash2, X } from 'lucide-react';
 import { useCRMStore, ACTIVITY_TYPES } from '../../store/crm-store';
+import { useUndoToast } from '@hooks/useUndoToast';
+import { localDayKey } from '../../lib/format-date';
 
 export default function ActivityLog() {
   const activities = useCRMStore((s) => s.activities);
@@ -8,13 +10,21 @@ export default function ActivityLog() {
   const deals = useCRMStore((s) => s.deals);
   const addActivity = useCRMStore((s) => s.addActivity);
   const deleteActivity = useCRMStore((s) => s.deleteActivity);
+  const restoreActivity = useCRMStore((s) => s.restoreActivity);
+  const undoToast = useUndoToast();
+
+  const handleDelete = (a) => {
+    const index = activities.findIndex((x) => x.id === a.id);
+    deleteActivity(a.id);
+    undoToast('Activity deleted', () => restoreActivity(a, index));
+  };
   const [filterType, setFilterType] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [fContactId, setFContactId] = useState('');
   const [fDealId, setFDealId] = useState('');
   const [fType, setFType] = useState('note');
   const [fDesc, setFDesc] = useState('');
-  const [fDate, setFDate] = useState(new Date().toISOString().slice(0, 10));
+  const [fDate, setFDate] = useState(localDayKey());
 
   const contactMap = useMemo(() => { const m = {}; contacts.forEach((c) => { m[c.id] = c; }); return m; }, [contacts]);
   const dealMap = useMemo(() => { const m = {}; deals.forEach((d) => { m[d.id] = d; }); return m; }, [deals]);
@@ -69,7 +79,7 @@ export default function ActivityLog() {
                 <td style={{ maxWidth: 300 }} className="truncate">{a.description}</td>
                 <td style={{ color: 'var(--text2)' }}>{contact?.name || '—'}</td>
                 <td style={{ color: 'var(--text2)' }}>{deal?.name || '—'}</td>
-                <td><button className="row-action-btn danger" onClick={() => deleteActivity(a.id)}><Trash2 size={14} /></button></td>
+                <td><button className="row-action-btn danger" onClick={() => handleDelete(a)} aria-label={`Delete activity: ${a.description || a.type}`}><Trash2 size={14} aria-hidden="true" /></button></td>
               </tr>
             );
           })}
@@ -83,22 +93,22 @@ export default function ActivityLog() {
             <div className="expense-form-body">
               <div className="expense-form-row">
                 <div className="expense-form-field" style={{ flex: 1 }}>
-                  <label>Type</label>
-                  <select value={fType} onChange={(e) => setFType(e.target.value)}>{ACTIVITY_TYPES.map((t) => <option key={t.id} value={t.id}>{t.icon} {t.label}</option>)}</select>
+                  <label htmlFor="activitylo-type">Type</label>
+                  <select id="activitylo-type" value={fType} onChange={(e) => setFType(e.target.value)}>{ACTIVITY_TYPES.map((t) => <option key={t.id} value={t.id}>{t.icon} {t.label}</option>)}</select>
                 </div>
-                <div className="expense-form-field" style={{ flex: 1 }}><label>Date</label><input type="date" value={fDate} onChange={(e) => setFDate(e.target.value)} /></div>
+                <div className="expense-form-field" style={{ flex: 1 }}><label htmlFor="activitylo-date">Date</label><input id="activitylo-date" type="date" value={fDate} onChange={(e) => setFDate(e.target.value)} /></div>
               </div>
               <div className="expense-form-row">
                 <div className="expense-form-field" style={{ flex: 1 }}>
-                  <label>Contact</label>
-                  <select value={fContactId} onChange={(e) => setFContactId(e.target.value)}><option value="">Select...</option>{contacts.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}</select>
+                  <label htmlFor="activitylo-contact">Contact</label>
+                  <select id="activitylo-contact" value={fContactId} onChange={(e) => setFContactId(e.target.value)}><option value="">Select...</option>{contacts.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}</select>
                 </div>
                 <div className="expense-form-field" style={{ flex: 1 }}>
-                  <label>Deal</label>
-                  <select value={fDealId} onChange={(e) => setFDealId(e.target.value)}><option value="">Select...</option>{deals.map((d) => <option key={d.id} value={d.id}>{d.name}</option>)}</select>
+                  <label htmlFor="activitylo-deal">Deal</label>
+                  <select id="activitylo-deal" value={fDealId} onChange={(e) => setFDealId(e.target.value)}><option value="">Select...</option>{deals.map((d) => <option key={d.id} value={d.id}>{d.name}</option>)}</select>
                 </div>
               </div>
-              <div className="expense-form-field"><label>Description *</label><textarea value={fDesc} onChange={(e) => setFDesc(e.target.value)} placeholder="What happened?" rows={3} autoFocus /></div>
+              <div className="expense-form-field"><label htmlFor="activitylo-description">Description *</label><textarea id="activitylo-description" value={fDesc} onChange={(e) => setFDesc(e.target.value)} placeholder="What happened?" rows={3} autoFocus /></div>
             </div>
             <div className="expense-form-footer">
               <button className="btn btn-ghost" onClick={() => setShowForm(false)}>Cancel</button>

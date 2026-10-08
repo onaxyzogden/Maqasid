@@ -32,7 +32,7 @@
 .prayer-prompt {
   font-size: var(--text-base);
   font-weight: 500;
-  color: var(--accent);
+  color: var(--accent-text);
   margin: 0;
 }
 
@@ -60,7 +60,7 @@
 
 .prayer-dismiss-ar {
   font-family: "Amiri", "Noto Serif", serif;
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: 1.05em;
 }
 
