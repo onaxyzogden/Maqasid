@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-08] fix | MILOS — Duha hadith shown in full; two mis-attributed quotes corrected
+
+Operator: *"The Hadith for the salat Duha is shortened. I'd like the full one visible."* Chosen by selection: full text with corrected references, English only. **Amanah gate:** positive. Restores accurate attribution (sidq); no new evidence authored.
+
+- **Growth "Set the intention…":** Sahih Muslim 720 had only its last line (*"…and two rak'ahs…"*). It now carries the full Abu Dharr hadith, the same wording Growth step 3 already shows.
+- **Excellence "Gradually increase to daily practice":**
+  - The "Muslim 720" quote stitched Abu Hurayrah's *"every joint… every day the sun rises… judging justly"* (Bukhari 2989 / Muslim 1009, which does not mention Duha) onto Muslim 720's Duha ending. It now has the full Abu Dharr text and a specific rationale.
+  - "Sahih al-Bukhari 1178" carried a shortened Muslim 720 text. It now carries its real text, Abu Hurayrah's three counsels, checked against `src/data/hadith.js` (`bukhari:1178`). That makes the old-reference duplicate ("Volume 3, Book 31, Hadith 202", the same narration) redundant, so it was removed.
+  - The amanahRationale no longer quotes the stitched wording.
+- **No UI truncation existed:** `SubtaskSources` renders `translation` verbatim. Sources are hydrated from the seed, so no migration was needed.
+- **Verified:** `npm test` 365/365; `npm run lint` green (grounding-strict and inline-refs at 0); the live Duha node step B Source panel shows the full text.
+
 ## [2026-10-06] fix | MILOS — finishing a task's steps now completes the task on boards and dashboards
 
 Operator: *"Just marked some tasks completed in the health module but it's not appearing as so on other parts of the site."* Clarified by selection: marked in **Orientation**, all steps; still open on the **board** and **pillar/level dashboards**. Choices: "Doesn't apply" counts; catch up existing tasks once; nodes keep finished tasks ticked until tomorrow. Decision: [[2026-10-06-milos-task-completion-follows-steps]]. **Amanah gate:** neutral to positive (truthful progress).
