@@ -58,7 +58,7 @@
   font-size: var(--text-2xs);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text3);
+  color: var(--text2);
 }
 .orient-head__title {
   margin: 0;
@@ -217,10 +217,11 @@
 .orient-card__now-label {
   display: block;
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--card-accent);
+  /* pillar hue, darkened toward the text colour for ≥4.5:1 (raw hues were 2.2–3.8:1) */
+  color: color-mix(in oklab, var(--card-accent) 55%, var(--text));
   margin-bottom: var(--space-1);
 }
 /* Now holds the current TASK title (was the subtask title until 2026-07-27).
@@ -323,6 +324,7 @@
      (WCAG 2.2 SC 2.5.8 wants 24) and a hover state â€” a mouse user has no
      scrollbar to grab below 768px. */
   padding: var(--space-2);
+  min-width: 24px; /* 6px dot + 2 × 8px padding = 22px; 2.5.8 wants 24 */
   background: none;
   border: none;
   cursor: pointer;

@@ -41,7 +41,7 @@
 }
 .os-sheet__pri {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 2px 8px;
@@ -49,22 +49,22 @@
   border: 1px solid transparent;
 }
 .os-sheet__pri--urgent {
-  color: var(--pri-urgent);
+  color: color-mix(in oklab, var(--pri-urgent) 80%, var(--text)); /* raw tint on its own bg was ~4.3:1 */
   background: var(--pri-urgent-bg);
   border-color: color-mix(in srgb, var(--pri-urgent) 35%, transparent);
 }
 .os-sheet__pri--high {
-  color: var(--pri-high);
+  color: color-mix(in oklab, var(--pri-high) 80%, var(--text)); /* raw tint on its own bg was ~4.3:1 */
   background: var(--pri-high-bg);
   border-color: color-mix(in srgb, var(--pri-high) 35%, transparent);
 }
 .os-sheet__pri--medium {
-  color: var(--pri-medium);
+  color: color-mix(in oklab, var(--pri-medium) 80%, var(--text)); /* raw tint on its own bg was ~4.3:1 */
   background: var(--pri-medium-bg);
   border-color: color-mix(in srgb, var(--pri-medium) 35%, transparent);
 }
 .os-sheet__pri--low {
-  color: var(--pri-low);
+  color: color-mix(in oklab, var(--pri-low) 80%, var(--text)); /* raw tint on its own bg was ~4.3:1 */
   background: var(--pri-low-bg);
   border-color: color-mix(in srgb, var(--pri-low) 35%, transparent);
 }

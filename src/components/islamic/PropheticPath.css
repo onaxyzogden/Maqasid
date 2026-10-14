@@ -121,7 +121,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: color-mix(in srgb, currentColor 55%, transparent);
+  color: var(--text2); /* 55% currentColor was 3.75:1 */
   font-family: var(--font-heading);
 }
 
@@ -816,7 +816,7 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--pp-primary);
+  color: color-mix(in oklab, var(--pp-primary) 75%, var(--text)); /* raw was 4.15:1 */
 }
 .prophetic-path .pp-mirror-title {
   margin: 0;
@@ -994,6 +994,15 @@
   border-radius: 999px;
   cursor: pointer;
   transition: background 120ms ease, color 120ms ease;
+}
+
+/* Drawn 20px tall; the hit area reaches 24px (WCAG 2.5.8) inside the
+   switch's 3px padding, so neighbouring layout is untouched. */
+.prophetic-path .pp-pill-switch__btn { position: relative; }
+.prophetic-path .pp-pill-switch__btn::before {
+  content: '';
+  position: absolute;
+  inset: -2px 0;
 }
 
 .prophetic-path .pp-pill-switch__btn:hover {

@@ -38,6 +38,8 @@
   --accent-bg: rgba(201, 160, 90, 0.1);
   --accent-border: rgba(201, 160, 90, 0.3);
   --accent-text: #8a6a2c;     /* 5.0:1 on white */
+  --accent-solid: #8a6a2c;    /* filled gold behind white text: 5.0:1 (WCAG 1.4.3) */
+  --accent-solid-hover: #7d5f28;
 
   /* Kanban columns */
   --col-todo: #8b95a2;
@@ -286,6 +288,8 @@
   --accent-bg: rgba(212, 170, 96, 0.1);
   --accent-border: rgba(212, 170, 96, 0.3);
   --accent-text: #d4aa60;
+  --accent-solid: #8a6a2c;    /* same in dark: white text needs the deep gold */
+  --accent-solid-hover: #7d5f28;
 
   --col-todo-bg: #22262e;
   --col-progress-bg: rgba(59, 130, 246, 0.12);

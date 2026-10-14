@@ -9,6 +9,7 @@ import { useContactsStore } from '../../store/contacts-store';
 import { useOfficeStore } from '../../store/office-store';
 import { safeGet, safeSet } from '../../services/storage';
 import './NotificationsPanel.css';
+import { onTablistKeyDown } from '../../utils/tablist-keys';
 
 function relativeTime(iso) {
   if (!iso) return '';
@@ -156,12 +157,13 @@ export default function NotificationsPanel({ onClose }) {
         </div>
 
         {/* Tabs */}
-        <div className="notif-panel__tabs">
+        <div className="notif-panel__tabs" role="tablist" onKeyDown={onTablistKeyDown} aria-label="Notification filter">
           <button
             className={`notif-tab ${tab === 'all' ? 'active' : ''}`}
             onClick={() => setTab('all')}
             role="tab"
             aria-selected={tab === 'all'}
+            tabIndex={(tab === 'all') ? 0 : -1}
           >All</button>
           <span className="notif-tab-sep">/</span>
           <button
@@ -169,6 +171,7 @@ export default function NotificationsPanel({ onClose }) {
             onClick={() => setTab('mine')}
             role="tab"
             aria-selected={tab === 'mine'}
+            tabIndex={(tab === 'mine') ? 0 : -1}
           >Mine</button>
         </div>
 

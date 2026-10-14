@@ -76,6 +76,7 @@
 .sidebar-search-hint {
   flex: 1;
   text-align: left;
+  color: var(--text2); /* inherited text3 on --bg was 4.49:1 */
 }
 
 .sidebar-search-kbd {
@@ -85,7 +86,7 @@
   background: var(--bg3);
   border: 1px solid var(--border);
   border-radius: var(--radius-xs);
-  color: var(--text3);
+  color: var(--text2); /* text3 on --bg3 was 4.25:1 (4.06 dark) */
   flex-shrink: 0;
 }
 

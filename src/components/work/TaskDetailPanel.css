@@ -959,3 +959,6 @@
   font-size: 13px;
   font-weight: 600;
 }
+
+/* Same 24px hit area as .hc__english a (WCAG 2.5.8); inline, so no reflow. */
+.tdp-grounding-source a { padding-block: 5px; }
