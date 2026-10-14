@@ -11,7 +11,6 @@ const DEFAULT_CHECKLIST = [
 
 export const useOnboardingStore = create((set) => {
   // ── Read initial state from storage ──
-  const wizardIntent = safeGet('onboarding_wizard_intent', null) || null;
   const tourCompleted = safeGet('onboarding_tour_completed', 'false') === 'true';
   const checklistItems = safeGetJSON('onboarding_checklist', DEFAULT_CHECKLIST);
   const seenPillars = safeGetJSON('onboarding_seen_pillars', []);
@@ -21,7 +20,6 @@ export const useOnboardingStore = create((set) => {
 
   return {
     // ── State ──
-    wizardIntent,
     tourCompleted,
     checklistItems,
     seenPillars,
@@ -30,11 +28,6 @@ export const useOnboardingStore = create((set) => {
     checklistDismissed,
 
     // ── Actions ──
-    setWizardIntent: (intent) => {
-      safeSet('onboarding_wizard_intent', intent ?? '');
-      set({ wizardIntent: intent });
-    },
-
     completeTourStep: () => {
       safeSet('onboarding_tour_completed', 'true');
       set({ tourCompleted: true });

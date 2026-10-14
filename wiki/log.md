@@ -3,6 +3,23 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-14] fix | MILOS — signup trimmed to the one question that matters
+
+Operator: *"The signup process looks nice but asks for information that is no longer useful whatsoever."* An audit of each answer found:
+- **Name:** used by the avatar, greetings and notifications.
+- **Organization:** only echoed back on Settings and Account.
+- **"What brings you here?":** stored as `wizardIntent` and read by nothing.
+- **Values framing:** real, but it defaults to Islamic and is switchable in Settings and the Islamic panel.
+
+Operator chose by selection: remove organization, intent and the values step, and rebrand "Launch MAQASID" to **"Launch MIOS"** to match the app header. **Amanah gate:** neutral (less data collected).
+
+- `src/pages/Onboarding.jsx`: Welcome → name → Launch MIOS (the cloud Sync step, still switched off, becomes step 2).
+  - "Step 1 of 1" is hidden when there is only one form step.
+  - Launch now runs the required-name guard ("Enter your name to continue") instead of a silent `disabled`.
+  - Returning users keep `org`, which is still editable on the Account page, and their stored values layer, via the `user_prev` spread.
+- `src/store/onboarding-store.js`: the dead `wizardIntent` / `setWizardIntent` are removed.
+- **Verified:** `npm test` 365/365, ESLint clean, build green. In the browser, an empty name is blocked with the message, a named user lands on `/app`, and the stored user holds only id, name, modules and createdAt.
+
 ## [2026-10-08] cleanup | MILOS — seven orphaned CRM/HR/Money components deleted
 
 Operator asked to verify and delete seven components believed unimported. **Amanah gate:** neutral (dead-code removal; no seed, grounding, fiqh or capital surface; `public/CNAME`, `notes/` untouched).
