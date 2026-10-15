@@ -135,7 +135,9 @@ function PillarFirstEntryModal({ pillarId }) {
         {/* Header */}
         <div
           style={{
-            background: pillar.accentColor,
+            // 75% pillar colour, 25% black: white text passes 4.5:1 on all
+            // eight pillars (worst case 4.63:1; raw colours were 2.2–2.9:1).
+            background: `color-mix(in oklab, ${pillar.accentColor} 75%, #000)`,
             padding: 'var(--space-6)',
             display: 'flex',
             alignItems: 'center',
@@ -147,7 +149,7 @@ function PillarFirstEntryModal({ pillarId }) {
             <div style={{ color: '#fff', fontWeight: 700, fontSize: '1.25rem' }}>
               {pillar.sidebarLabel}
             </div>
-            <div style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.8rem' }}>
+            <div style={{ color: '#fff', fontSize: '0.8rem' }}>
               {pillar.arabicRoot}
               <br />
               {pillar.arabicRootAr}

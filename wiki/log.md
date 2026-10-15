@@ -3,6 +3,21 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-15] fix | MILOS — last two contrast failures (navigator, pillar intro popup)
+
+Follow-up to the WCAG audit (#50, #51). The operator chose these by selection: full-strength side-panel text with only the chevron dimmed; level labels in a deeper shade of the same hue; a deeper popup header with white text kept; the navigator fix shipped as package 0.3.3. **Amanah gate:** positive (readability; no data or fiqh surface).
+
+- **@ogden/ui-components 0.3.3** (ogden-ui-components#2), pinned at `83a44be`:
+  - The "LEVEL 1/2/3" labels are `color-mix(in oklab, level 60%, var(--text))`: worst case 4.79:1 across both themes, up from 1.6–2.2:1.
+  - Only the side chevron fades now; the panel text is at full contrast. This applies in LevelNavigator and in the package's `.flo` overview CSS.
+- **`LevelOverviewPage.css`:** the local `.flo .fln__side` opacity moved to `.flo .fln__chevron`.
+- **`PillarFirstEntry.jsx`:**
+  - The header is `color-mix(in oklab, accent 75%, #000)`, so white text is at least 4.63:1 on all 8 pillars (raw colours were 2.2–2.9:1).
+  - The subtitle is solid white.
+- **Verified:**
+  - axe `color-contrast` reports 0 in light and dark on `/app`, `/app/pillar/health` and `/app/pillar/faith`, plus with the intro popup open.
+  - `npm test` 376/376; lint and build are green.
+
 ## [2026-10-14] fix | MILOS — WCAG 2.1 AA audit fixes (11 findings)
 
 Operator ran `/design:accessibility-review` on signup, Prophetic Path and its node popup, Orientation, the app shell and the Health pillar dashboard, then said *"Fix these please"*. **Amanah gate:** positive (more people can use the app; no data, seed, fiqh or capital surface).
