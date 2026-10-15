@@ -33,6 +33,7 @@ import { educationSubmoduleIds } from './prophetic-path-education';
 import { PRAYER_NODE_IDS, THRESHOLD_MODULE_BY_NODE } from './prophetic-path-constants';
 import './PropheticPath.css';
 import './NodePhaseSlideUp.css';
+import { onTablistKeyDown } from '../../utils/tablist-keys';
 
 // The single entry point for a Prophetic Path node. Replaces the old
 // Before/After satellite buttons, which CSS hid on every node that was not
@@ -385,13 +386,14 @@ export default function NodePhaseSlideUp({
   const educationPills = (
     <div className="pp-edu-switches">
       {educationSubs.length > 1 && (
-        <div className="pp-pill-switch" role="tablist" aria-label="Submodule">
+        <div className="pp-pill-switch" role="tablist" onKeyDown={onTablistKeyDown} aria-label="Submodule">
           {educationSubs.map((id) => (
             <button
               key={id}
               type="button"
               role="tab"
               aria-selected={activeSubmoduleId === id}
+              tabIndex={(activeSubmoduleId === id) ? 0 : -1}
               className="pp-pill-switch__btn"
               data-active={activeSubmoduleId === id || undefined}
               onClick={() => setSelectedSubmoduleId(id)}
@@ -401,13 +403,14 @@ export default function NodePhaseSlideUp({
           ))}
         </div>
       )}
-      <div className="pp-pill-switch" role="tablist" aria-label="Level">
+      <div className="pp-pill-switch" role="tablist" onKeyDown={onTablistKeyDown} aria-label="Level">
         {TIERS.map((level) => (
           <button
             key={level}
             type="button"
             role="tab"
             aria-selected={activeLevel === level}
+            tabIndex={(activeLevel === level) ? 0 : -1}
             className="pp-pill-switch__btn"
             data-active={activeLevel === level || undefined}
             onClick={() => setSelectedLevel(level)}
@@ -549,7 +552,7 @@ export default function NodePhaseSlideUp({
           </header>
 
           <div className="pp-phase-panel__tabs">
-            <div className="pp-pill-switch" role="tablist" aria-label="Phase">
+            <div className="pp-pill-switch" role="tablist" onKeyDown={onTablistKeyDown} aria-label="Phase">
               {PHASES.map((p) => (
                 <button
                   key={p.id}
@@ -557,6 +560,7 @@ export default function NodePhaseSlideUp({
                   role="tab"
                   id={`pp-phase-tab-${p.id}`}
                   aria-selected={phase === p.id}
+                  tabIndex={(phase === p.id) ? 0 : -1}
                   aria-controls={`pp-phase-body-${p.id}`}
                   className="pp-pill-switch__btn"
                   data-active={phase === p.id || undefined}

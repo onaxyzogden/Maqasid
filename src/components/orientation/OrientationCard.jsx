@@ -33,11 +33,14 @@ export default function OrientationCard({ card, valuesLayer, onOpen, ref }) {
   // concatenation: aria-label REPLACES the button's subtree, and prefixing
   // ~140 chars of static prose to all seven cards would bury the actionable
   // part. Name = what it does; description = supplementary, skippable context.
+  // Starts with the visible name and the visible progress figure, so voice
+  // control ("click Health") matches (WCAG 2.5.3).
+  const nameAndProgress = seeded ? `${enLabel} ${done}/${total}` : enLabel;
   const ariaLabel = hasEligible
-    ? `${enLabel}. Now: ${task.title}. Tap to open the full task.`
+    ? `${nameAndProgress}. Now: ${task.title}. Tap to open the full task.`
     : seeded
-      ? `${enLabel}. Nothing left for today. Tap to open.`
-      : `${enLabel}. No steps set up yet. Tap to open.`;
+      ? `${nameAndProgress}. Nothing left for today. Tap to open.`
+      : `${nameAndProgress}. No steps set up yet. Tap to open.`;
 
   return (
     <button

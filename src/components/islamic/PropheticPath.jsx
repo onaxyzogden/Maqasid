@@ -834,7 +834,7 @@ export default function PropheticPath({ variant }) {
 
   return (
     <div className="prophetic-path" data-theme={theme}>
-      <main className="pp-main">
+      <div className="pp-main">
         <div className="pp-ambient pp-ambient--teal" aria-hidden="true" />
         <div className="pp-ambient pp-ambient--gold" aria-hidden="true" />
 
@@ -950,7 +950,7 @@ export default function PropheticPath({ variant }) {
             </div>
           </div>
         </div>
-      </main>
+      </div>
       {phaseNode && (
         <NodePhaseSlideUp
           key={phaseNode.id}

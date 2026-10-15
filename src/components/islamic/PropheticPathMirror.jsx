@@ -5,6 +5,7 @@ import { getSubmoduleDisplayLabel, getSubmodulePillarColor } from '@data/submodu
 import DashboardTaskCard from '@components/shared/DashboardTaskCard';
 import { LEVEL_COLOR } from './prophetic-path-constants';
 import { educationSubmoduleIds } from './prophetic-path-education';
+import { onTablistKeyDown } from '../../utils/tablist-keys';
 
 // Mirror content for a Prophetic Path node: the task list, project rows, and
 // Action/Education switch. Extracted from `PropheticPath.jsx` so
@@ -151,13 +152,15 @@ export function MirrorCard({
         <h4 className="pp-mirror-title">{node.title}</h4>
         <div className="pp-mirror-toggles">
           {moduleGroups && moduleGroups.length > 1 && (
-            <div className="pp-pill-switch" role="tablist" aria-label="Objective">
-              {moduleGroups.map((g) => (
+            <div className="pp-pill-switch" role="tablist" onKeyDown={onTablistKeyDown} aria-label="Objective">
+              {moduleGroups.map((g, i) => (
                 <button
                   key={g.id}
                   type="button"
                   role="tab"
                   aria-selected={moduleId === g.id}
+                  // No objective selected yet → the first tab is the Tab stop.
+                  tabIndex={(moduleId === g.id || (i === 0 && !moduleGroups.some((m) => m.id === moduleId))) ? 0 : -1}
                   className="pp-pill-switch__btn"
                   data-active={moduleId === g.id || undefined}
                   onClick={() => onModuleId(g.id)}
@@ -167,11 +170,12 @@ export function MirrorCard({
               ))}
             </div>
           )}
-          <div className="pp-pill-switch" role="tablist" aria-label="View">
+          <div className="pp-pill-switch" role="tablist" onKeyDown={onTablistKeyDown} aria-label="View">
             <button
               type="button"
               role="tab"
               aria-selected={viewMode === 'action'}
+              tabIndex={(viewMode === 'action') ? 0 : -1}
               className="pp-pill-switch__btn"
               data-active={viewMode === 'action' || undefined}
               onClick={() => onViewMode('action')}
@@ -183,6 +187,7 @@ export function MirrorCard({
               type="button"
               role="tab"
               aria-selected={viewMode === 'education'}
+              tabIndex={(viewMode === 'education') ? 0 : -1}
               className="pp-pill-switch__btn"
               data-active={viewMode === 'education' || undefined}
               onClick={() => onViewMode('education')}

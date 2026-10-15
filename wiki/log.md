@@ -3,6 +3,32 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-14] fix | MILOS — WCAG 2.1 AA audit fixes (11 findings)
+
+Operator ran `/design:accessibility-review` on signup, Prophetic Path and its node popup, Orientation, the app shell and the Health pillar dashboard, then said *"Fix these please"*. **Amanah gate:** positive (more people can use the app; no data, seed, fiqh or capital surface).
+
+- **Contrast (#1–#4).** New tokens `--accent-solid` and `--accent-solid-hover` (#8a6a2c, 5.0:1 under white) for the ceremony "Next" button. Pillar-coloured text uses `color-mix(in oklab, <pillar> N%, var(--text))`, which keeps the hue and passes 4.5:1. That covers the dua title, the Orientation "Now" label (now 11px), the popup eyebrow and the priority pills. The PP date, Skip, ⌘K hints and Orientation eyebrow move to `--text2`.
+- **One `<main>` (#5).** `.pp-main` is now a `<div>`.
+- **Tabs (#6).** `src/utils/tablist-keys.js` adds arrow-key, Home and End handling plus a roving tabindex to every `role="tablist"`: ViewToggle, ModuleWheelSection, PropheticPathMirror, NodePhaseSlideUp and NotificationsPanel. The Objective list keeps a Tab stop when nothing is selected.
+- **Targets (#7, #8).**
+  - Task bars get a 24px hit area via `::before` in `level-navigator-responsive.css`, and the bar drawing is unchanged.
+  - The column-edge toggles are 24px wide.
+  - Popup pill tabs get a hit area of at least 24px.
+  - The sunnah.com links get `padding-block`.
+  - Orientation dots get `min-width: 24px`.
+- **Page titles (#9).** `src/utils/route-title.js` and `RouteTitle.jsx` give each page a title, e.g. "Health · MIOS". Unit-tested.
+- **Package (#10, #11).** The button nested inside a button, the side-arrow names and a wheel `svg role="img"` hiding its buttons are fixed in `onaxyzogden/ogden-ui-components` PR #1 (v0.3.2). **Pending:** merge, tag v0.3.2, then bump `package.json`.
+- **Label in name (#11, local).** The search button's name comes from its visible text; collapsed, it is "Search". Orientation card names start with the visible name and progress ("Health 0/96").
+- **Out of scope, flagged:**
+  - The pillar intro modal's white text on the pillar colour (2.62:1).
+  - The level-navigator labels on `/app`, coloured by level, and the side panels dimmed to 45% opacity.
+  - Neither was in the audited set.
+- **Verified:**
+  - `npm test` 376/376, lint and build green.
+  - axe-core in Chromium: Health pillar dashboard clean; the popup has no small targets and arrow keys switch tabs.
+  - One `<main>`, and the titles differ per route.
+  - Screenshots show no visual change apart from the darker gold.
+
 ## [2026-10-14] fix | MILOS — signup trimmed to the one question that matters
 
 Operator: *"The signup process looks nice but asks for information that is no longer useful whatsoever."* An audit of each answer found:

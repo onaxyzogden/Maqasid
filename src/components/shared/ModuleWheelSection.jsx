@@ -3,6 +3,7 @@ import { useModulesProgress } from '@hooks/useModuleProgress';
 import { useToastStore } from '@store/toastStore';
 import MaqasidComparisonWheel from '@components/faith/MaqasidComparisonWheel';
 import './ModuleWheelSection.css';
+import { onTablistKeyDown } from '../../utils/tablist-keys';
 
 const LEVEL_PATTERN = {
   core: 'dots',
@@ -66,13 +67,14 @@ export default function ModuleWheelSection({
 
   return (
     <section className="mws">
-      <div className="mws__toggle" role="tablist" aria-label={`${moduleLabel} level selector`}>
+      <div className="mws__toggle" role="tablist" onKeyDown={onTablistKeyDown} aria-label={`${moduleLabel} level selector`}>
         {LEVELS.map(({ key, label }) => (
           <button
             key={key}
             type="button"
             role="tab"
             aria-selected={level === key}
+            tabIndex={(level === key) ? 0 : -1}
             className={`mws__toggle-btn${level === key ? ' is-active' : ''}`}
             onClick={() => setLevel(key)}
             style={level === key ? { '--mws-accent': levelColors?.[key] || levelColor } : undefined}

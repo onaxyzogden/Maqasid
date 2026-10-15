@@ -42,7 +42,7 @@
   background: var(--bg3);
   border: 1px solid var(--border);
   border-radius: var(--radius-xs);
-  color: var(--text3);
+  color: var(--text2); /* text3 on --bg3 was below 4.5:1 */
 }
 
 .topbar-avatar {

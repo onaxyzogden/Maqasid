@@ -93,10 +93,10 @@
 
 .thr-step-skip {
   margin-left: auto;
-  opacity: 0.6;
+  color: var(--text2); /* was text3 at 60% opacity: 2.3:1 */
 }
 .thr-step-skip:hover {
-  opacity: 1;
+  color: var(--text);
 }
 
 .thr-step {
@@ -207,12 +207,12 @@
 }
 
 .thr-btn-primary {
-  background: var(--accent);
+  background: var(--accent-solid); /* white on --accent was 2.4:1 */
   color: #fff;
   box-shadow: var(--shadow-accent);
 }
 .thr-btn-primary:hover {
-  background: var(--accent2);
+  background: var(--accent-solid-hover);
 }
 .thr-btn-primary:disabled {
   cursor: not-allowed;

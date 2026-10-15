@@ -143,7 +143,7 @@ export default function Sidebar() {
 
       {/* Search */}
       <div className="sidebar-search-wrap">
-        <button className="sidebar-search-btn" onClick={() => setSearchOpen(true)} title="Search (⌘K)" aria-label="Open search">
+        <button className="sidebar-search-btn" onClick={() => setSearchOpen(true)} title="Search (⌘K)" aria-label={collapsed ? 'Search' : undefined}>
           <Search size={16} />
           {!collapsed && (
             <>

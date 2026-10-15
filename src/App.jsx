@@ -132,6 +132,7 @@ import { useParams } from 'react-router-dom';
 import { useProjectStore } from '@store/project-store';
 import { useTaskStore } from '@store/task-store';
 import { useEffect } from 'react';
+import RouteTitle from './components/shared/RouteTitle';
 
 function ProjectTasks() {
   const { projectId } = useParams();
@@ -179,6 +180,7 @@ export default function App() {
 
   return (
     <ChunkErrorBoundary>
+    <RouteTitle />
     <Suspense fallback={<RouteSpinner />}>
     <Routes>
       <Route path="/" element={<Landing />} />
