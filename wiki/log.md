@@ -17,7 +17,7 @@ Operator ran `/design:accessibility-review` on signup, Prophetic Path and its no
   - The sunnah.com links get `padding-block`.
   - Orientation dots get `min-width: 24px`.
 - **Page titles (#9).** `src/utils/route-title.js` and `RouteTitle.jsx` give each page a title, e.g. "Health · MIOS". Unit-tested.
-- **Package (#10, #11).** The button nested inside a button, the side-arrow names and a wheel `svg role="img"` hiding its buttons are fixed in `onaxyzogden/ogden-ui-components` PR #1 (v0.3.2). **Pending:** merge, tag v0.3.2, then bump `package.json`.
+- **Package (#10, #11).** The button nested inside a button, the side-arrow names and a wheel `svg role="img"` hiding its buttons are fixed in `onaxyzogden/ogden-ui-components` PR #1 (merged). Maqasid pins the merge commit `f4f2ad8` (version 0.3.2). The `v0.3.2` tag push was refused from the session proxy (HTTP 403), so the pin can move to `#v0.3.2` once the tag exists.
 - **Label in name (#11, local).** The search button's name comes from its visible text; collapsed, it is "Search". Orientation card names start with the visible name and progress ("Health 0/96").
 - **Out of scope, flagged:**
   - The pillar intro modal's white text on the pillar colour (2.62:1).
