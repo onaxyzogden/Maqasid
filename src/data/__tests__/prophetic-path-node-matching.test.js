@@ -30,8 +30,19 @@ describe('node matching reads transition: tags', () => {
     expect(titlesFor('isha-taraweeh')).toEqual(['Observe Ramadan with the Prophet’s ﷺ structure']);
   });
 
-  it('the Hour of Istijabah shows the Friday Sunan task', () => {
-    expect(titlesFor('istijabah-hour')).toEqual(['Honor the Friday Sunan — Jumuʻah is the eid of the week']);
+  // 2026-10-16: the node used to show the whole Friday Sunan task, whose ghusl,
+  // early-walk and khutbah steps are over long before the last hour before
+  // Maghrib. It now has a dedicated task, and the Jumuʻah task stays at noon.
+  it('the Hour of Istijabah shows only its own task, in prerequisite order', () => {
+    const rows = buildTasksForNode('istijabah-hour', PROJECTS, TASKS, { limit: 1000 });
+    expect(rows.map((r) => r.title)).toEqual(['Seek the Hour of Acceptance on Friday']);
+    expect(rows[0].subtasks.map((s) => s.title)).toEqual([
+      'Learn when the Hour of Acceptance falls on Friday',
+      'Call upon Allah certain of being answered, with a present heart',
+      'Open your duʻaʻ with praise of Allah and salawat, then ask',
+      'Make duʻaʻ in the last hour before Maghrib on Friday',
+    ]);
+    expect(titlesFor('jumuah')).not.toContain('Seek the Hour of Acceptance on Friday');
   });
 
   it('generic tags do not leak onto nodes through keyword matchers', () => {

@@ -66,8 +66,10 @@ Board task counts after the 2026-07-27 dedupe: `ummah_community_growth` **6**,
 
 ## Adding a subtask to an existing seed task
 
-Unlike tasks, **new seed subtasks do reach already-seeded boards** — `backfillAndStripSeeds()`
-computes the set difference by title and appends what storage lacks, every boot. Two catches:
+**New seed subtasks (and new seed tasks) do reach already-seeded boards** — `backfillAndStripSeeds()`
+computes the set difference by title and appends what storage lacks, every boot. It never removes
+or re-tags anything: hydration only *adds* seed tags, so dropping a routing tag from a seed needs a
+migration (see `seedIstijabahTask`, 2026-10-16). Two catches:
 
 - **It appends at the END**, ignoring seed position, and it runs on `requestIdleCallback` *after*
   mount. If the subtask's position matters (a sequentially-locked chain — e.g. designing a curriculum

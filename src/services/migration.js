@@ -3,7 +3,7 @@
 
 import { listKeys } from './storage';
 import { repairBoardTasks, taskHasState } from './mojibake';
-import { genSubtaskId } from './id';
+import { genSubtaskId, genTaskId } from './id';
 import { reconcileBoardCompletion } from './task-completion';
 
 const PREFIX = 'bbiz_';
@@ -18,6 +18,7 @@ const DUHA_FLAG = 'seed_duha_restructure_v1';
 const AUDIT_V2_FLAG = 'seed_order_audit_v2';
 const AUDIT_V3_FLAG = 'seed_order_audit_v3';
 const COMPLETION_FLAG = 'task_completion_reconcile_v1';
+const ISTIJABAH_FLAG = 'seed_istijabah_task_v1';
 
 // Tasks deleted from the seed files on 2026-07-27 as duplicates of a sibling on
 // the same board. Titles are byte-for-byte copies taken from the seed file
@@ -833,6 +834,115 @@ export function applySeedOrderAuditV3() {
   }
 }
 
+// 2026-10-16: the Hour of Acceptance node showed the whole Friday Sunan task
+// (ghusl, walking early, the khutbah — all over by the last hour before
+// Maghrib). It now has a dedicated task, and the Jumuʻah task gives up its
+// routing tag and its last-hour du'a step. Literal titles: seeds are
+// lazy-loaded, this runs pre-mount; pinned to the seed by a drift-guard test.
+export const ISTIJABAH_BOARD = 'faith_salah_growth';
+export const ISTIJABAH_JUMUAH_TASK = 'Honor the Friday Sunan — Jumuʻah is the eid of the week';
+export const ISTIJABAH_TASK = 'Seek the Hour of Acceptance on Friday';
+export const ISTIJABAH_TAG = 'transition:istijabah-hour';
+export const ISTIJABAH_MOVED_SUBTASK = 'Make duʻaʻ in the last hour before Maghrib on Friday';
+export const ISTIJABAH_TASK_SEED = {
+  priority: 'high',
+  tags: ['salah', 'sunnah', 'friday', 'dua', ISTIJABAH_TAG],
+  seq: 7,
+};
+export const ISTIJABAH_ORDER = {
+  [ISTIJABAH_TASK]: [
+    'Learn when the Hour of Acceptance falls on Friday',
+    'Call upon Allah certain of being answered, with a present heart',
+    'Open your duʻaʻ with praise of Allah and salawat, then ask',
+    ISTIJABAH_MOVED_SUBTASK,
+  ],
+};
+
+// Pure core. Returns the same array when nothing changes.
+// - The Jumuʻah task loses ISTIJABAH_TAG (hydration only ever ADDS seed tags,
+//   so without this the stored row would keep routing to the node).
+// - The new task is inserted (slim shape, To Do) if the board lacks it.
+// - The du'a row moves by reference (id/done/snooze kept), by the same rules as
+//   moveSeedSubtask: a row already on the new task absorbs it (done if either
+//   was) instead of duplicating.
+// - The new task is aligned to the curated order, creating the steps it lacks.
+// - Completion is promoted on this board only (the global catch-up already ran
+//   for existing users): a Jumuʻah task whose last open step was the moved one
+//   is now finished. Promotion only — nothing is reopened.
+export function seedIstijabahTask(tasks, columns, nowIso) {
+  const report = { untagged: false, inserted: false, moved: false, aligned: false, promoted: 0 };
+  if (!Array.isArray(tasks) || tasks.length === 0) return { next: tasks, report };
+  let next = tasks;
+
+  const jIdx = next.findIndex((t) => t?.title === ISTIJABAH_JUMUAH_TASK);
+  if (jIdx !== -1 && Array.isArray(next[jIdx].tags) && next[jIdx].tags.includes(ISTIJABAH_TAG)) {
+    next = next.map((t, i) => (i === jIdx ? { ...t, tags: t.tags.filter((g) => g !== ISTIJABAH_TAG) } : t));
+    report.untagged = true;
+  }
+
+  if (!next.some((t) => t?.title === ISTIJABAH_TASK)) {
+    const maxOrder = next.reduce((m, t) => Math.max(m, typeof t?.order === 'number' ? t.order : 0), -1);
+    next = [...next, {
+      id: genTaskId(),
+      projectId: ISTIJABAH_BOARD,
+      columnId: `col_${ISTIJABAH_BOARD}_to_do`,
+      title: ISTIJABAH_TASK,
+      priority: ISTIJABAH_TASK_SEED.priority,
+      dueDate: null,
+      tags: [...ISTIJABAH_TASK_SEED.tags],
+      subtasks: [],
+      checklist: [],
+      order: maxOrder + 1,
+      seedOrder: ISTIJABAH_TASK_SEED.seq,
+      createdAt: nowIso,
+      updatedAt: nowIso,
+      completedAt: null,
+    }];
+    report.inserted = true;
+  }
+
+  const row = next.find((t) => t?.title === ISTIJABAH_JUMUAH_TASK)?.subtasks
+    ?.find((st) => st?.title === ISTIJABAH_MOVED_SUBTASK);
+  if (row) {
+    next = next.map((t) => {
+      if (t.title === ISTIJABAH_JUMUAH_TASK) return { ...t, subtasks: t.subtasks.filter((st) => st !== row) };
+      if (t.title !== ISTIJABAH_TASK) return t;
+      const subs = Array.isArray(t.subtasks) ? t.subtasks : [];
+      const existing = subs.findIndex((st) => st?.title === ISTIJABAH_MOVED_SUBTASK);
+      if (existing === -1) return { ...t, subtasks: [...subs, row] };
+      return row.done === true && subs[existing].done !== true
+        ? { ...t, subtasks: subs.map((st, i) => (i === existing ? { ...st, done: true } : st)) }
+        : t;
+    });
+    report.moved = true;
+  }
+
+  const { next: aligned, aligned: which } = alignSubtaskOrder(next, ISTIJABAH_ORDER, { allowDone: true });
+  if (which.length) { next = aligned; report.aligned = true; }
+
+  const { next: reconciled, promoted } = reconcileBoardCompletion(next, columns, nowIso);
+  if (promoted) { next = reconciled; report.promoted = promoted; }
+
+  return { next, report };
+}
+
+// One-shot. Runs after the task-order passes and before mount, so the boot
+// backfill finds the new task and the moved row already in place.
+// Approval gate: stages/implement-istijabah-hour-task-review.md
+export function applyIstijabahTask() {
+  if (localStorage.getItem(PREFIX + ISTIJABAH_FLAG) === '1') return;
+  const key = `tasks_${ISTIJABAH_BOARD}`;
+  const tasks = read(key);
+  const projects = read('projects') || [];
+  const columns = projects.find((p) => p.id === ISTIJABAH_BOARD)?.columns || [];
+  const { next, report } = seedIstijabahTask(tasks, columns, new Date().toISOString());
+  if (Array.isArray(next) && next !== tasks) write(key, next);
+  localStorage.setItem(PREFIX + ISTIJABAH_FLAG, '1');
+  if (report.inserted || report.moved || report.untagged) {
+    console.info('[bbiz] Hour of Acceptance: Friday\'s last-hour du\'a now has its own task.');
+  }
+}
+
 // One-shot catch-up for tasks finished before 2026-10-06. Until then,
 // ticking a task's last step (Orientation, Prophetic Path, task panel) never
 // set `completedAt` or moved the card to Done, so those tasks still looked
@@ -887,6 +997,9 @@ export function runMigrations() {
   // Then pass 3: salam reply before initiating, Shahada study before reflection,
   // clothing repair right after the wardrobe audit.
   applySeedOrderAuditV3();
+  // Then the 2026-10-16 Hour of Acceptance task: its own task on Salah Growth,
+  // with the Jumuʻah task's last-hour du'a step moved onto it.
+  applyIstijabahTask();
   // Last: tasks whose steps are all satisfied move to Done with a completedAt.
   reconcileTaskCompletion();
 
