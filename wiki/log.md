@@ -3,6 +3,29 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-16] fix | MILOS — Hour of Acceptance gets its own task
+
+Operator: *"Review the tasks that appear in the Hour of Acceptance node in prophetic path page. It's not right."* The node showed the whole Friday Sunan task, which carried `transition:istijabah-hour` (added 2026-10-05). Ghusl, walking early and the khutbah are over long before the last hour before Maghrib; only the du'a step belonged. Operator chose by selection: a dedicated task; move the du'a step (not copy); three new steps (when the hour falls, certainty, praise and salawat), declining a thinner-grounded "wait till Maghrib" step. **Amanah gate:** positive.
+
+- **Seed:** `faith_salah_growth` gains "Seek the Hour of Acceptance on Friday" (`seq` 7). Its steps, in order:
+  1. Learn when it falls: Abu Dawud 1048, plus Tirmidhi 489 as support only.
+  2. Call on Allah certain of being answered: Tirmidhi 3479, marked **T2/Qarina** because its chain is disputed.
+  3. Open with praise and salawat: Tirmidhi 3477.
+  4. The last-hour du'a, moved byte-for-byte.
+
+  The Jumuʻah task keeps its five daytime steps and `transition:jumuah`. Witr, sleep, Tahajjud and travel each move down one `seq`.
+- **Migration** `seed_istijabah_task_v1` (`applyIstijabahTask`):
+  - strips the tag from the stored Jumuʻah task (hydration only adds tags);
+  - inserts the task;
+  - moves the du'a row with its `id` and `done`;
+  - aligns the new task's steps;
+  - promotes completion on this board only.
+
+  Gate: `stages/implement-istijabah-hour-task-review.md`.
+- **Hadith cache:** adds `bukhari:935`, `abudawud:1048`, `tirmidhi:489` and `tirmidhi:3477`. Additive only, taken from the hadith-api dataset on GitHub (the jsdelivr CDN is blocked in cloud sessions).
+- **Docs:** `seed-tasks/CONTEXT.md` corrected. New seed tasks *are* appended by the boot backfill; tag removals are not.
+- **Open:** a node whose matchers find nothing falls back to its whole scope. Once the new task is completed, this node could show every Salah and Shahada task again. Reported only.
+
 ## [2026-10-15] fix | MILOS — last two contrast failures (navigator, pillar intro popup)
 
 Follow-up to the WCAG audit (#50, #51). The operator chose these by selection: full-strength side-panel text with only the chevron dimmed; level labels in a deeper shade of the same hue; a deeper popup header with white text kept; the navigator fix shipped as package 0.3.3. **Amanah gate:** positive (readability; no data or fiqh surface).

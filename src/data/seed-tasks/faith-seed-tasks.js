@@ -4646,7 +4646,7 @@ Choose three surahs you commonly recite after Al-Fatihah (e.g., Al-Ikhlas, Al-Fa
       ],
     },
     {
-      seq: 9,
+      seq: 10,
       title: 'Pray Tahajjud at least once a week',
       priority: 'medium', tags: ['salah', 'qiyam', 'prayer-phase:main'],
       description: 'The night prayer is among the most beloved voluntary acts. Start with even two rak\'at in the last third of the night.',
@@ -5091,7 +5091,7 @@ The Prophet (SAW) reported a divine promise: four rak'at of Duha buys Allah's su
       ],
     },
     {
-      seq: 7,
+      seq: 8,
       title: 'Salat al-Witr — seal the night with the odd prayer',
       priority: 'high',
       tags: ['salah', 'sunnah', 'transition:witr'],
@@ -5212,7 +5212,7 @@ The Prophet (SAW) taught these exact words to his grandson — a transmission of
       ],
     },
     {
-      seq: 8,
+      seq: 9,
       title: 'Sleep with niyyah to rise for tahajjud',
       priority: 'high',
       tags: ['sunnah', 'qiyam', 'transition:qiyam-rest'],
@@ -5363,8 +5363,8 @@ The Prophet (SAW) tied his own shafa'ah to this exact text. Five adhans per day 
       seq: 6,
       title: 'Honor the Friday Sunan — Jumu\u02bbah is the eid of the week',
       priority: 'high',
-      tags: ['salah', 'sunnah', 'jumuah', 'friday', 'transition:jumuah', 'transition:istijabah-hour'],
-      description: 'Jumu\u02bbah carries a complete cluster of sunan: ghusl, miswak, perfume, walking early, Surah al-Kahf, attentive listening to the khutbah, abundant salawat, and du\u02bba\u02bb in the hour of istijabah. Build the day around them.',
+      tags: ['salah', 'sunnah', 'jumuah', 'friday', 'transition:jumuah'],
+      description: 'Jumu\u02bbah carries a complete cluster of sunan: ghusl, miswak, perfume, walking early, Surah al-Kahf, attentive listening to the khutbah, and abundant salawat. Build the day around them; the hour of acceptance before Maghrib has its own task.',
       subtasks: [
         { title: 'Make ghusl, use miswak, and apply perfume before Jumu\u02bbah', done: false,
           tier: 'T1',
@@ -5496,6 +5496,104 @@ The Prophet (SAW) named Friday and instructed abundant salawat with a unique rea
 2. Distribute across the day: morning adhkar, walk to masjid, after Jumu\u02bbah, last hour.
 3. Use a counter or fingers — the act is meant to be tracked.
 4. Benchmark: 300 salawat each Friday for 4 weeks.` },
+      ],
+    },
+    {
+      seq: 7,
+      title: 'Seek the Hour of Acceptance on Friday',
+      priority: 'high',
+      tags: ['salah', 'sunnah', 'friday', 'dua', 'transition:istijabah-hour'],
+      description: 'Friday holds a brief hour in which a believerʼs duʻaʻ is not refused. Learn when to seek it, come to it certain of the answer, open with praise and salawat, then ask in the last hour before Maghrib.',
+      subtasks: [
+        { title: 'Learn when the Hour of Acceptance falls on Friday', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) told his Companions where to seek the Friday hour: the last hour after Asr. The timing is learned from him, not guessed.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sunan Abi Dawud 1048',
+              arabic: 'يَوْمُ الْجُمُعَةِ ثِنْتَا عَشْرَةَ ... سَاعَةً لاَ يُوجَدُ مُسْلِمٌ يَسْأَلُ اللَّهَ عَزَّ وَجَلَّ شَيْئًا إِلاَّ آتَاهُ اللَّهُ عَزَّ وَجَلَّ فَالْتَمِسُوهَا آخِرَ سَاعَةٍ بَعْدَ الْعَصْرِ',
+              translation: 'Jabir ibn ʻAbdullah (RA) reported: The Prophet (SAW) said: "Friday is divided into twelve hours. Amongst them there is an hour in which a Muslim does not ask Allah for anything but He gives it to him. So seek it in the last hour after the afternoon prayer."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Text checked against the fawazahmed0/hadith-api edition of Sunan Abi Dawud 1048 on 2026-10-16. Graded Sahih by al-Albani; isnad Sahih per Zubair ʻAli Zaʼi.',
+              rationale: 'Names the window directly: the last hour after Asr on Friday. This is the time this task, and the Prophetic Path node that shows it, are built around.',
+            },
+            {
+              kind: 'hadith',
+              ref: 'Jami at-Tirmidhi 489',
+              arabic: 'الْتَمِسُوا السَّاعَةَ الَّتِي تُرْجَى فِي يَوْمِ الْجُمُعَةِ بَعْدَ الْعَصْرِ إِلَى غَيْبُوبَةِ الشَّمْسِ',
+              translation: 'Anas ibn Malik (RA) reported: The Prophet (SAW) said: "Seek out the hour that is hoped for on Friday after Asr until the sun has set."',
+              relevance: 'contextual',
+              provenanceTier: 'Qarina',
+              hadithGrade: 'Hasan',
+              ratNote: 'Graded Hasan by al-Albani. Al-Tirmidhi himself calls this chain gharib and notes a weak narrator, so it is cited as support, not as the primary proof.',
+              rationale: 'Supports the after-Asr window. In the same chapter al-Tirmidhi records Imam Ahmad saying that most narrations about the hour place it after the Asr prayer.',
+            },
+          ],
+          description: `**Why?**
+
+The hour is short and easy to miss. The Prophet (SAW) told us where to look for it, so knowing the window is the first step to meeting it.
+
+**How?**
+
+1. Each Friday, check the Asr and Maghrib times for your location.
+2. Block the final hour before Maghrib in your schedule as protected time.
+3. Know that scholars differ on its exact moment; Imam Ahmad said most narrations place it after Asr.
+4. Benchmark: the hour is blocked in your calendar on 4 consecutive Fridays.` },
+        { title: 'Call upon Allah certain of being answered, with a present heart', done: false,
+          tier: 'T2',
+          amanahRationale: 'A prophetic instruction on the inner state of duʻaʻ. Graded Hasan by al-Albani, but its chain is disputed, so it is marked Qarina rather than Bayyinah.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Jami at-Tirmidhi 3479',
+              arabic: 'ادْعُوا اللَّهَ وَأَنْتُمْ مُوقِنُونَ بِالإِجَابَةِ وَاعْلَمُوا أَنَّ اللَّهَ لاَ يَسْتَجِيبُ دُعَاءً مِنْ قَلْبٍ غَافِلٍ لاَهٍ',
+              translation: 'Abu Hurayrah (RA) reported: The Messenger of Allah (SAW) said: "Call upon Allah while being certain of being answered, and know that Allah does not respond to a supplication from the heart of one heedless and occupied by play."',
+              relevance: 'direct',
+              provenanceTier: 'Qarina',
+              hadithGrade: 'Hasan',
+              ratNote: 'Graded Hasan by al-Albani and Ahmad Shakir; Zubair ʻAli Zaʼi grades it Daʻif. Al-Tirmidhi calls it gharib. Text checked against the fawazahmed0/hadith-api edition on 2026-10-16.',
+              rationale: 'Sets the inner condition for the hour: certainty of the answer and a heart that is present, not distracted.',
+            },
+          ],
+          description: `**Why?**
+
+Duʻaʻ is not a list read out while the mind is elsewhere. The Prophet (SAW) tied the answer to certainty and to a heart that is present.
+
+**How?**
+
+1. Before you begin, pause and remind yourself that Allah hears you and answers.
+2. Put your phone away and face the qiblah.
+3. Ask plainly and with conviction, as someone who expects to be answered.
+4. Benchmark: 4 Fridays of duʻaʻ made without distraction.` },
+        { title: 'Open your duʻaʻ with praise of Allah and salawat, then ask', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) corrected a man who asked without praise or salawat and taught the order directly: praise Allah, send salawat, then ask.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Jami at-Tirmidhi 3477',
+              arabic: 'إِذَا صَلَّى أَحَدُكُمْ فَلْيَبْدَأْ بِتَحْمِيدِ اللَّهِ وَالثَّنَاءِ عَلَيْهِ ثُمَّ لِيُصَلِّ عَلَى النَّبِيِّ صلى الله عليه وسلم ثُمَّ لِيَدْعُ بَعْدُ بِمَا شَاءَ',
+              translation: 'Fadalah ibn ʻUbayd (RA) reported: The Prophet (SAW) heard a man supplicating in his prayer without sending salat upon the Prophet, and said: "This one has rushed." Then he called him and said to him, or to someone else: "When one of you prays, let him begin by praising Allah and extolling Him, then let him send salat upon the Prophet, then let him supplicate after that for whatever he wishes."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Hasan Sahih',
+              ratNote: 'Al-Tirmidhi: hasan sahih. Graded Sahih by al-Albani and Ahmad Shakir. Text checked against the fawazahmed0/hadith-api edition on 2026-10-16.',
+              rationale: 'Gives the prophetic order of a duʻaʻ: praise, then salawat, then the request.',
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) called the man who asked straight away "rushed". The duʻaʻ he taught opens with praise of Allah and salawat on the Prophet before any request.
+
+**How?**
+
+1. Begin with words of praise, such as al-hamdu lillah and the names of Allah you know.
+2. Send salawat on the Prophet (SAW).
+3. Then ask for what you need, for yourself, your family and the ummah.
+4. Benchmark: every Friday duʻaʻ for 4 weeks follows this order.` },
         { title: 'Make du\u02bba\u02bb in the last hour before Maghrib on Friday', done: false,
           tier: 'T1',
           amanahRationale: 'The Prophet (SAW) named a specific hour on Friday in which du\u02bba\u02bb is answered — direct prophetic teaching with a named, time-bound promise.',
@@ -5525,7 +5623,7 @@ Friday carries an hour where no good asked is refused. The Prophet (SAW) gesture
       ],
     },
     {
-      seq: 10,
+      seq: 11,
       title: 'Travel with the Prophet\u2019s \uFDFA structure',
       priority: 'high',
       tags: ['salah', 'sunnah', 'travel', 'qasr', 'transition:traveler-departure', 'transition:traveler-arrival'],
