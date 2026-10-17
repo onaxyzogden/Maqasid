@@ -3,6 +3,19 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-17] fix | BBOS redesigned dashboard — UX audit, then honest controls and a protected gate decision
+
+The operator ran `/ux-engine:ux-audit` on the redesigned pipeline dashboard (`bbosNewDashboard` flag) and approved the resulting 5-step fix plan. Decision: [[2026-10-17-bbos-dashboard-honest-controls]]. **Amanah gate:** positive. It protects the written basis of a covenant gate decision and does not touch any capital surface.
+
+- **The audit's P0s:** every primary write control in the Execution View did nothing; typed gate reasoning could be lost to one stray scrim click; Advance/Halt fired on one click with no basis required.
+- **Dead buttons are now disabled and say why** ("Not wired in this preview: nothing is saved yet"). The one exception is **Mark Reviewed & File**, wired through `taskStore.moveTask` to the project's Done column; the row re-renders as Filed because modals now track a stage *id* and read the live view model.
+- **Gate decision:** the basis textarea is controlled and required. The action opens an inline `alertdialog` confirm that restates the move ("Advance from Stage n — … to Stage n+1? … cannot be undone here."). Gate options and rejection reasons are `role="radio"` within radiogroups; readiness cells are `role="checkbox"`.
+- **New `useBpdDialog.js` hook** shared by both modals: scroll-lock, focus in and restore, Esc, Tab trap, and a `window.confirm` discard prompt when dirty.
+- **A11y baseline:** gold `:focus-visible` ring (the blanket `outline:none` is gone); tertiary text raised to `#8A88A2` dark / `#6E6C84` light; rail StageNode is a `<button>`; × is 40px with an `aria-label`; labels added to the Brief's project fields.
+- **Held, not done:** persisting the basis and closing reflection through `advanceBbosStage` / `rejectBbosPipeline`. This is a project-store signature change and needs the operator's separate OK.
+- **Verified:** `npm run lint` green, `npm test` 309/309 across 18 files, `npm run build` ✓. In preview (dev-only test project and user in localStorage): screenshots of the focus ring on the rail, Approve blocked with an empty basis plus the hint, the inline confirm, and the Exec upload error with retry in both light and dark. Also checked: the dirty scrim/Esc prompt, focus returning to the trigger, and body overflow restored.
+- **Pages touched:** [[bbos-pipeline]], wiki/decisions/2026-10-17-bbos-dashboard-honest-controls.md (new), wiki/index.md, `src/components/bbos/CONTEXT.md`.
+
 ## [2026-08-29] feat | MILOS — the five non-prayer nodes get their own tasks and their own ceremonies
 
 Second pass of the same date, filling the gap the first pass's fallback removal deliberately exposed and deferred. Operator widened scope to the maximal option at every choice: all four thin nodes (`jumuah`, `eid-prayer`, `qaylulah`, `traveler-departure`) get authored content, `traveler-arrival` is added as a fifth node rather than left as departure's mirror, and Eid's content is split across Salah and Community. Decision: [[2026-08-29-milos-five-node-content-split]]. **Amanah gate:** positive — closes an authenticity gap (nodes were showing borrowed or wrong content), authors nothing beyond what already-attested sources support, touches no capital/CSRA surface.

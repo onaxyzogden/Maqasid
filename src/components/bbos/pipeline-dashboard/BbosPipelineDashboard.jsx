@@ -37,8 +37,14 @@ export default function BbosPipelineDashboard({ project, bbosFilter, onStageSele
   const filterId = vm.stages.find((s) => s.id === bbosFilter)?.id || null;
   const fallbackId = filterId || vm.stages[2]?.id || vm.stages[0]?.id || null;
   const [localId, setLocalId] = useState(fallbackId);
-  const [execStage, setExecStage] = useState(null);
-  const [briefStage, setBriefStage] = useState(null);
+  // Modals hold a stage *id* and read the stage off the live VM, so a task filed
+  // inside the Execution View re-renders its row as Filed without reopening.
+  const [execStageId, setExecStageId] = useState(null);
+  const [briefStageId, setBriefStageId] = useState(null);
+  const execStage = vm.stages.find((s) => s.id === execStageId) || null;
+  const briefStage = vm.stages.find((s) => s.id === briefStageId) || null;
+  const setExecStage = (s) => setExecStageId(s?.id ?? null);
+  const setBriefStage = (s) => setBriefStageId(s?.id ?? null);
 
   const selectedId = onStageSelect ? (filterId || fallbackId) : localId;
   const handleSelect = (s) => {
@@ -56,7 +62,7 @@ export default function BbosPipelineDashboard({ project, bbosFilter, onStageSele
           ? <BbosStageOverview stage={selected} onOpenBrief={setBriefStage} onOpenExec={setExecStage} />
           : <div className="bpd-main__empty">Select a stage to begin</div>}
       </div>
-      {execStage && <BbosExecView stage={execStage} onClose={() => setExecStage(null)} projectId={project.id} />}
+      {execStage && <BbosExecView stage={execStage} onClose={() => setExecStage(null)} projectId={project.id} columns={project.columns} />}
       {briefStage && (
         <BbosApprovalBrief
           stage={briefStage}
