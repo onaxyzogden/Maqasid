@@ -94,6 +94,25 @@
   transition: opacity var(--duration-sm) var(--ease);
 }
 .bfd__stage-advance-btn:hover { opacity: 0.85; }
+.bfd__stage-ready-sub {
+  display: block;
+  font-weight: 500;
+  color: var(--text2);
+}
+.bfd__stage-goto-btn {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  padding: var(--space-1) var(--space-3);
+  min-height: 36px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--col-done);
+  border: 1px solid var(--col-done);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--duration-sm) var(--ease);
+}
+.bfd__stage-goto-btn:hover { background: color-mix(in srgb, var(--col-done) 12%, transparent); }
 
 /* ── Grid ── */
 .bfd__grid {
@@ -1422,6 +1441,7 @@
 .bfd__modal-cancel:focus-visible,
 .bfd__modal-confirm:focus-visible,
 .bfd__stage-advance-btn:focus-visible,
+.bfd__stage-goto-btn:focus-visible,
 .bfd__modal-textarea:focus-visible {
   outline: 2px solid var(--accent, #c9a84c);
   outline-offset: 2px;

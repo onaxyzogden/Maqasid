@@ -36,6 +36,12 @@ superseded_by: null
   - Advance listed the open condition and stayed blocked; Mark resolved required a basis; Confirm then moved CRD→STR, and the log reads conditions → resolved → proceed.
   - Reject stayed disabled without a basis, then logged a `halt` (withdrawal) entry with `by: null`.
   - Both overlays cover the full viewport.
-- **Open (not changed here):** the legacy view offers "Advance to X" based on the *viewed* stage (`bbosFilter`), not `project.bbosStage`. When you view an earlier, completed stage, its Advance button still shows. This is pre-existing.
+- **Follow-up, done the same day:** the legacy view offered "Advance to X" based on the *viewed* stage (`bbosFilter`), not `project.bbosStage`, so a finished earlier stage still showed Advance. Now:
+  - Advance shows only when the viewed stage is the pipeline's actual stage.
+  - A finished earlier stage says "The pipeline is at X" and offers **Go to X**, which uses `onStageSelect`.
+  - ProjectBoard's `handleStageAdvance` takes the from-stage and the gate entry's `stageId` from `project.bbosStage`.
+  - The dialog also refuses to open off-stage.
+
+  Verified in preview: CRD viewed while the pipeline is at STR shows Go to Structure, which switches the view; with the pipeline at CRD, Advance to Structure shows. 322 tests, lint and build green.
 
 See [[bbos-pipeline]].

@@ -1478,7 +1478,7 @@ function StageScoreCard({ bbosFilter, taskMap }) {
 
 const EMPTY_TASKS = [];
 
-export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, onStageAdvance }) {
+export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, onStageAdvance, onStageSelect }) {
   const tasks = useTaskStore((s) => s.tasksByProject[project.id] || EMPTY_TASKS);
   const bbosRole = project.bbosRole || 'all';
   const [activeFactory, setActiveFactoryRaw] = useState('research');
@@ -1553,6 +1553,10 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
 
   const quote = STAGE_QUOTES[bbosFilter] || '';
   const nextStage = BBOS_STAGES[(stageMeta.order ?? 0) + 1] ?? null;
+  // Advance belongs to the stage the pipeline is actually on, not the one
+  // being viewed: a finished earlier stage shows where the pipeline is instead.
+  const currentStage = getStage(project.bbosStage || 'IDY');
+  const isCurrentStage = bbosFilter === currentStage?.id;
 
   // ── Rejection / off-ramp state ────────────────────────────────────────────
   const rejectBbosPipeline = useProjectStore((s) => s.rejectBbosPipeline);
@@ -1607,6 +1611,7 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
   };
 
   const handleAdvanceClick = () => {
+    if (!isCurrentStage) return;
     // Last stage: cycle completion keeps its own confirm in ProjectBoard.
     if (!nextStage) { onStageAdvance(); return; }
     setAdvanceOpen(true);
@@ -1699,10 +1704,19 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
             <CheckCircle size={16} className="bfd__stage-ready-icon" />
             <span className="bfd__stage-ready-text">
               Stage complete — {totalCount}/{totalCount} tasks done
+              {!isCurrentStage && currentStage && (
+                <span className="bfd__stage-ready-sub">The pipeline is at {currentStage.label}.</span>
+              )}
             </span>
-            <button className="bfd__stage-advance-btn" type="button" onClick={handleAdvanceClick}>
-              {nextStage ? `Advance to ${nextStage.label}` : 'Complete Cycle'} →
-            </button>
+            {isCurrentStage ? (
+              <button className="bfd__stage-advance-btn" type="button" onClick={handleAdvanceClick}>
+                {nextStage ? `Advance to ${nextStage.label}` : 'Complete Cycle'} →
+              </button>
+            ) : onStageSelect && currentStage && (
+              <button className="bfd__stage-goto-btn" type="button" onClick={() => onStageSelect(currentStage.id)}>
+                Go to {currentStage.label}
+              </button>
+            )}
           </div>
         )}
       </div>
@@ -1761,7 +1775,7 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
       )}
 
       {/* ── Advance modal ── (portalled, as above) */}
-      {advanceOpen && nextStage && createPortal(
+      {advanceOpen && isCurrentStage && nextStage && createPortal(
         <div className="bfd__modal-overlay" onClick={closeAdvance}>
           <div className="bfd__modal bfd__modal--advance" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label={`Advance to ${nextStage.label}`}>
             <div className="bfd__modal-head">

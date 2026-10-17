@@ -3,6 +3,14 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-17] fix | BBOS legacy dashboard: Advance follows the pipeline's actual stage
+
+This closes the open item left by [[2026-10-17-bbos-legacy-gate-record-path]]; the decision page records it as a follow-up. **Amanah gate:** positive. A routing decision can only be made from the stage the pipeline is really on.
+
+- **BbosFullDashboard:** Advance shows only when the viewed stage equals `project.bbosStage`. A finished earlier stage says "The pipeline is at X" and offers **Go to X**, through the existing `onStageSelect`. The dialog cannot open off-stage.
+- **ProjectBoard:** `handleStageAdvance` takes the from-stage and the gate `stageId` from `bbosStage`, not from the viewed filter.
+- **Verified:** 322 tests, lint and build green. In preview, viewing CRD with the pipeline at STR showed Go to Structure, which switched the view; with the pipeline at CRD, Advance to Structure showed.
+
 ## [2026-10-17] feat | BBOS legacy dashboard: Advance and Reject go through the gate record
 
 This closes the follow-up from the conditions-resolution pass. The operator asked to route the ProjectBoard advance through the record path, with open conditions listed and resolved inline, and then asked to include Reject. Decision: [[2026-10-17-bbos-legacy-gate-record-path]]. **Amanah gate:** positive. Every routing decision on a covenant pipeline now carries a written basis, in both dashboards.

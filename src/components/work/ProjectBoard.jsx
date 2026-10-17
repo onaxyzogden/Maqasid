@@ -153,15 +153,17 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
   // `record` ({ basis }) is the gate decision from the dashboard's Advance
   // dialog; it is logged to bbosGateLog. The store refuses a recorded advance
   // while the stage has open conditions, so the view only follows the stage
-  // when the store actually moved it.
+  // when the store actually moved it. It advances from the pipeline's own
+  // stage (project.bbosStage), never from the stage merely being viewed.
   const handleStageAdvance = useCallback((record) => {
-    const currentIdx = BBOS_STAGES.findIndex((s) => s.id === bbosFilter);
+    const fromId = project?.bbosStage || 'IDY';
+    const currentIdx = BBOS_STAGES.findIndex((s) => s.id === fromId);
     const next = BBOS_STAGES[currentIdx + 1] ?? null;
     if (next) {
       const role = project?.bbosRole;
       advanceBbosStage(projectId, next.id, record && {
         ...record,
-        stageId: bbosFilter,
+        stageId: fromId,
         by: role && role !== 'all' ? role : null,
       });
       const moved = useProjectStore.getState().projects.find((p) => p.id === projectId)?.bbosStage === next.id;
@@ -175,7 +177,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
         setActiveBbosStage('IDY');
       }
     }
-  }, [bbosFilter, projectId, project?.bbosRole, advanceBbosStage, setBbosFilter, setActiveBbosStage, startNewBbosCycle]);
+  }, [projectId, project?.bbosStage, project?.bbosRole, advanceBbosStage, setBbosFilter, setActiveBbosStage, startNewBbosCycle]);
 
   const handleStageSelect = useCallback((stageId) => {
     setBbosFilter(stageId);
