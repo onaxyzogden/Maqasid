@@ -26,12 +26,12 @@ A UX audit (`/ux-engine:ux-audit`) of the redesigned BBOS pipeline dashboard (`s
 
 ## Held
 
-The basis and closing reflection are **not persisted**. Saving them needs `advanceBbosStage` / `rejectBbosPipeline` in project-store to take a basis argument, an architecture touch held for the operator's separate approval. Until then the dirty guard stops silent loss but does not keep a record.
+~~The basis and closing reflection are **not persisted**.~~ **Resolved the same day** by [[2026-10-17-bbos-gate-decision-log]]: the operator approved the store change, and every gate decision (proceed, conditions, halt) now saves its basis to `project.bbosGateLog`.
 
 ## Consequences
 
 - Future preview controls in this dashboard must follow the disabled + `NOT_WIRED` pattern, never a styled button with no handler.
 - New modals in the folder should use `useBpdDialog` rather than re-implementing Esc and focus handling.
-- Still open from the audit: Proceed-with-Conditions logging, a read-only overview for locked stages, mobile layout, FieldGrid labels, a gate-check three-state legend, arrow-key nav for radiogroups and tabs, and an Undo toast for Advance.
+- Still open from the audit (Proceed-with-Conditions logging was closed by [[2026-10-17-bbos-gate-decision-log]]): a read-only overview for locked stages, mobile layout, FieldGrid labels, a gate-check three-state legend, arrow-key nav for radiogroups and tabs, and an Undo toast for Advance.
 
 See [[bbos-pipeline]].

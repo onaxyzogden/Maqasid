@@ -24,7 +24,7 @@ Self-contained visual redesign. Components read **only** the view-model from the
 | BbosPipelineRail.jsx | Left rail: header/cycle progress + StageNode list + footer |
 | BbosStageOverview.jsx | Center pane: governing attributes, du'a, gate card, two CTAs |
 | BbosExecView.jsx | Execution View modal (portal) — tabs; retrospective OPT shows Metrics/BHI/Restoration |
-| BbosApprovalBrief.jsx | Approval Brief modal (portal) — covenant, readiness, gate decision. Gate action needs a non-empty basis + inline confirm step |
+| BbosApprovalBrief.jsx | Approval Brief modal (portal) — covenant, readiness, gate decision. Gate action needs a non-empty basis + inline confirm step. `onAdvance(record)` / `onReject(reasonId, record)` carry `{ basis, closingNote, conditions }`; `onLogConditions(record)` logs Proceed-with-Conditions (no confirm, no stage change). Shows the stage's Gate record from `gate.log` |
 | useBpdDialog.js | Shared modal hook for both portals: `useBpdDialog({ onClose, dirty })` → `{ ref, requestClose, onKeyDown }` — scroll-lock, focus in/restore, Esc, Tab trap, discard-confirm when dirty. Route every close path (scrim, ×, Esc) through `requestClose` |
 | primitives.jsx | Shared JSX components: Ornament, SPill, Arc, Spirit, Dot |
 | palette.js | JSX-free color/label helpers (inline `--c`/`--c-dim`/`--c2` custom-prop maps + label fns) |

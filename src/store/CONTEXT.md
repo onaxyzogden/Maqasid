@@ -77,3 +77,6 @@ function initDepartments() {
 - `app-store` redefines `safeGetJSON` locally (shadows service import)
 - `tech-store` `checkMonitor()` simulates status — no real HTTP calls
 - `project-store` runs BBOS column migration on every store creation (idempotent but wasteful)
+- `project-store` BBOS gate actions write to `project.bbosGateLog`, which is only ever added to (helpers in `data/bbos/bbos-gate-log.js`).
+  - `advanceBbosStage(id, stageId, record?)` and `rejectBbosPipeline(id, reasonId, reviewer?, record?)` log only when a `record` with a non-empty `basis` is passed, so legacy callers log nothing.
+  - `logBbosGateDecision(id, record)` adds an entry without moving the stage, and is a no-op on a project that is rejected or not on BBOS.

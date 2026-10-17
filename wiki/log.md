@@ -3,6 +3,17 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-17] feat | BBOS gate decision log: the basis is kept, and Proceed-with-Conditions is recorded
+
+Follow-up to the honest-controls pass. The operator approved the store change that pass had held back. Decision: [[2026-10-17-bbos-gate-decision-log]]. **Amanah gate:** positive. The written basis of a covenant routing decision is now kept as a record, and no capital surface is touched.
+
+- **`project.bbosGateLog`:** entries are only ever added, never changed. Each holds the id (`gd_…`), the time, cycle and stage, the decision, the basis, the conditions, reason or target stage where they apply, the closing note, and the acting role. It is built by the pure helpers in `src/data/bbos/bbos-gate-log.js`.
+- **Store:** `advanceBbosStage` and `rejectBbosPipeline` take an optional trailing `record`, so legacy callers are unchanged. The new `logBbosGateDecision` adds an entry with no stage change.
+- **Brief:** Proceed with Conditions needs written conditions and a basis. It records straight away (there is no confirm step, because nothing moves), clears the form and shows a status line. A per-stage **Gate record** list shows entries newest first, through the adapter's `brief.gate.log`.
+- **Attribution:** `by` is the BBOS role, and the `'all'` view filter is recorded as null.
+- **Verified:** 314 tests, lint and build green. In preview, a conditions entry was logged with the stage staying IDY, then Proceed went IDY→CRD with its entry logged, both shown in the Gate record.
+- **Open:** conditions don't block Advance, and there is no way to resolve them yet.
+
 ## [2026-10-17] fix | BBOS redesigned dashboard — UX audit, then honest controls and a protected gate decision
 
 The operator ran `/ux-engine:ux-audit` on the redesigned pipeline dashboard (`bbosNewDashboard` flag) and approved the resulting 5-step fix plan. Decision: [[2026-10-17-bbos-dashboard-honest-controls]]. **Amanah gate:** positive. It protects the written basis of a covenant gate decision and does not touch any capital surface.

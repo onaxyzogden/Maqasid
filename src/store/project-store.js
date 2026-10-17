@@ -6,6 +6,7 @@ import { preloadPillarSeeds, getBoardSeeds } from '../services/seed-hydrator';
 import { WEEKLY_BOARDS } from '@data/seed-tasks/weekly-seed-tasks';
 import { PRAYER_BOARDS } from '@data/prayer-pillars';
 import { BBOS_TASK_DEFINITIONS } from '@data/bbos/bbos-task-definitions';
+import { appendGateEntry } from '@data/bbos/bbos-gate-log';
 
 // Pillar seed files are loaded lazily via the seed-hydrator. Each
 // ensure*Projects awaits its pillar's preload; the strip-pass below also
@@ -636,26 +637,47 @@ export const useProjectStore = create((set, get) => ({
     return { projects };
   }),
 
-  advanceBbosStage: (projectId, stageId) => set((s) => {
+  // `record` (optional) is the gate decision being acted on — appended to
+  // bbosGateLog with its written basis (see data/bbos/bbos-gate-log.js).
+  // Callers that pass no record behave exactly as before.
+  advanceBbosStage: (projectId, stageId, record = null) => set((s) => {
     const projects = s.projects.map((p) =>
       p.id === projectId && p.bbosEnabled && !p.rejectedAt
-        ? { ...p, bbosStage: stageId, updatedAt: new Date().toISOString() }
+        ? appendGateEntry(
+            { ...p, bbosStage: stageId, updatedAt: new Date().toISOString() },
+            record && { ...record, decision: 'proceed', toStageId: stageId },
+          )
         : p
     );
     persistProjects(projects);
     return { projects };
   }),
 
-  rejectBbosPipeline: (projectId, reasonId, reviewer = null) => set((s) => {
+  rejectBbosPipeline: (projectId, reasonId, reviewer = null, record = null) => set((s) => {
     const projects = s.projects.map((p) =>
       p.id === projectId && p.bbosEnabled
-        ? {
-            ...p,
-            rejectedAt: new Date().toISOString(),
-            rejectionReason: reasonId,
-            rejectedBy: reviewer,
-            updatedAt: new Date().toISOString(),
-          }
+        ? appendGateEntry(
+            {
+              ...p,
+              rejectedAt: new Date().toISOString(),
+              rejectionReason: reasonId,
+              rejectedBy: reviewer,
+              updatedAt: new Date().toISOString(),
+            },
+            record && { ...record, decision: 'halt', reasonId, by: record.by ?? reviewer },
+          )
+        : p
+    );
+    persistProjects(projects);
+    return { projects };
+  }),
+
+  // Records a decision that does not move the pipeline (proceed with
+  // conditions). No-op on a rejected pipeline or an unloggable record.
+  logBbosGateDecision: (projectId, record) => set((s) => {
+    const projects = s.projects.map((p) =>
+      p.id === projectId && p.bbosEnabled && !p.rejectedAt
+        ? { ...appendGateEntry(p, record), updatedAt: new Date().toISOString() }
         : p
     );
     persistProjects(projects);

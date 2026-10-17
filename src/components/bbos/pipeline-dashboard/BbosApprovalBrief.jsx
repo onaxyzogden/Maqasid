@@ -3,6 +3,9 @@
 // useBpdDialog. Content is assembled live in the adapter (stage.brief.*); the
 // gate section drives the pipeline via onAdvance/onReject, but only after a
 // written basis and an explicit confirm step — both moves are irreversible.
+// Proceed-with-conditions goes through onLogConditions: recorded, no stage
+// change. Every decision carries { basis, closingNote, conditions } into the
+// project's bbosGateLog, shown back here as the stage's Gate record.
 import { useState } from "react";
 import { createPortal } from "react-dom";
 import { Ornament, SPill } from "./primitives";
@@ -15,7 +18,20 @@ const onActivate = (fn) => (e) => {
   if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fn(); }
 };
 
-export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onReject, onClose }) {
+const DECISION_LABEL = {
+  proceed: "Proceeded",
+  conditions: "Proceed with Conditions",
+  halt: "Halted",
+};
+
+const formatAt = (iso) => {
+  const d = new Date(iso);
+  return Number.isNaN(d.getTime())
+    ? ""
+    : d.toLocaleString(undefined, { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+};
+
+export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onReject, onLogConditions, onClose }) {
   const identity = stage.brief?.identity || {};
   const gate = stage.brief?.gate || null;
   const readiness = stage.brief?.covenant?.readiness || null;
@@ -30,10 +46,12 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
     decision: null,
   }));
   const up = (k, v) => setFd((p) => ({ ...p, [k]: v }));
-  // Held at the root so switching sections doesn't drop what was written.
-  // Not persisted to the store yet (that needs a project-store signature change).
+  // Held at the root so switching sections doesn't drop what was written; saved
+  // to bbosGateLog with the decision the operator makes at the gate.
   const [basis, setBasis] = useState("");
   const [closingNote, setClosingNote] = useState("");
+  const [conditions, setConditions] = useState("");
+  const [recordedAt, setRecordedAt] = useState(null);
   const [confirming, setConfirming] = useState(false);
   const [dirty, setDirty] = useState(false);
   const { ref: dialogRef, requestClose, onKeyDown } = useBpdDialog({ onClose, dirty });
@@ -131,30 +149,45 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
       const canAct = !!gate?.canAct;
       const decision = fd.decision;
       // The gate only writes to the pipeline for the active stage. proceed ->
-      // advance, halt -> reject (with a reason), conditions is inert/annotated.
-      // A written basis is required for either move.
+      // advance, halt -> reject (with a reason), conditions -> recorded with
+      // no stage change. A written basis is required for every decision.
       const hasBasis = basis.trim().length > 0;
       const decisionReady =
         canAct &&
         ((decision === "proceed" && hasNext) ||
-          (decision === "halt" && reasonId));
+          (decision === "halt" && reasonId) ||
+          (decision === "conditions" && conditions.trim().length > 0));
       const actionReady = decisionReady && hasBasis;
+      const log = gate?.log || [];
       const actionLabel =
         decision === "halt"
           ? "⧁  Halt & Route to Rejection"
           : decision === "conditions"
-            ? "⧁  Logged — No Stage Change"
+            ? "⧁  Record Conditions — No Stage Change"
             : "⧁  Approve & Advance Stage";
       const reasonLabel = BBOS_REJECTION_REASONS.find((r) => r.id === reasonId)?.label;
       const confirmText =
         decision === "halt"
           ? `Halt at Stage ${stage.n} — ${stage.name} and route to Rejection for "${reasonLabel}"? This stops the pipeline and cannot be undone here.`
           : `Advance from Stage ${stage.n} — ${stage.name} to Stage ${gate?.nextStageN}? This moves the pipeline forward and cannot be undone here.`;
-      const choose = (key) => { if (canAct) { up("decision", key); setConfirming(false); } };
+      const choose = (key) => { if (canAct) { up("decision", key); setConfirming(false); setRecordedAt(null); } };
+      const record = { basis, closingNote, conditions };
       const fireAction = () => {
         if (!actionReady) return;
-        if (decision === "proceed") onAdvance?.();
-        else if (decision === "halt") onReject?.(reasonId);
+        if (decision === "proceed") onAdvance?.(record);
+        else if (decision === "halt") onReject?.(reasonId, record);
+      };
+      // Conditions don't move the pipeline, so no confirm step: record it, clear
+      // the written fields, and keep the Brief open showing the new entry.
+      const recordConditions = () => {
+        if (!actionReady) return;
+        onLogConditions?.({ ...record, decision: "conditions" });
+        setBasis("");
+        setConditions("");
+        setClosingNote("");
+        up("decision", null);
+        setDirty(false);
+        setRecordedAt(new Date().toISOString());
       };
       return (
         <div className="bpd-col" style={{ gap: 14 }}>
@@ -220,10 +253,21 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
             </div>
           )}
           {decision === "conditions" && (
-            <div className="bpd-empty">
-              Proceed-with-conditions is recorded for the operator&rsquo;s notes only and
-              does not change the pipeline stage.
-            </div>
+            <>
+              <label className="bpd-brief__field-label" htmlFor="bpd-brief-conditions" style={{ display: "block" }}>
+                Conditions to resolve before the next stage begins (required)
+              </label>
+              <textarea
+                id="bpd-brief-conditions"
+                className="bpd-brief__gate-textarea"
+                placeholder="List each gap and what closes it..."
+                value={conditions}
+                onChange={(e) => setConditions(e.target.value)}
+              />
+              <div className="bpd-brief__basis-hint">
+                This is recorded in the stage&rsquo;s gate record. It does not change the pipeline stage.
+              </div>
+            </>
           )}
           <label className="bpd-brief__field-label" htmlFor="bpd-brief-basis" style={{ display: "block" }}>
             Basis for the routing decision (required)
@@ -261,11 +305,48 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
               type="button"
               className="bpd-btn-gold bpd-btn-gold--approve"
               disabled={!actionReady}
-              onClick={() => setConfirming(true)}
+              onClick={decision === "conditions" ? recordConditions : () => setConfirming(true)}
             >
               {actionLabel}
             </button>
           )}
+          {recordedAt && (
+            <div className="bpd-brief__recorded" role="status">
+              Conditions recorded {formatAt(recordedAt)}. The stage has not changed.
+            </div>
+          )}
+          <div className="bpd-brief__log">
+            <div className="bpd-brief__field-label">Gate record</div>
+            {log.length === 0 ? (
+              <div className="bpd-brief__log-empty">No decisions recorded for this stage yet.</div>
+            ) : (
+              <ol className="bpd-brief__log-list">
+                {log.map((e) => (
+                  <li key={e.id} className="bpd-brief__log-entry" data-decision={e.decision}>
+                    <div className="bpd-brief__log-head">
+                      <span className="bpd-brief__log-decision">{DECISION_LABEL[e.decision] || e.decision}</span>
+                      <span className="bpd-brief__log-meta">
+                        Cycle {e.cycle} · {formatAt(e.at)}{e.by ? ` · ${e.by}` : ""}
+                      </span>
+                    </div>
+                    {e.decision === "halt" && e.reasonId && (
+                      <div className="bpd-brief__log-line">
+                        <span className="bpd-brief__log-key">Reason</span>
+                        {BBOS_REJECTION_REASONS.find((r) => r.id === e.reasonId)?.label || e.reasonId}
+                      </div>
+                    )}
+                    <div className="bpd-brief__log-line"><span className="bpd-brief__log-key">Basis</span>{e.basis}</div>
+                    {e.conditions && (
+                      <div className="bpd-brief__log-line"><span className="bpd-brief__log-key">Conditions</span>{e.conditions}</div>
+                    )}
+                    {e.closingNote && (
+                      <div className="bpd-brief__log-line"><span className="bpd-brief__log-key">Closing</span>{e.closingNote}</div>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            )}
+          </div>
         </div>
       );
     }
@@ -390,6 +471,7 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
             value={closingNote}
             onChange={(e) => setClosingNote(e.target.value)}
           />
+          <div className="bpd-brief__basis-hint">Saved with the stage decision you make in Stage Decision.</div>
         </div>
       );
     }

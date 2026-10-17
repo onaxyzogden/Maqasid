@@ -54,6 +54,7 @@ import { BBOS_STAGES, getLayerForStage } from "../../../../data/bbos/bbos-pipeli
 import { getBbosTaskDefsByStage } from "../../../../data/bbos/bbos-task-definitions";
 import { getBbosStageIslamic } from "../../../../data/bbos/bbos-stage-islamic";
 import { scoreStage } from "../../../../data/bbos/bbos-stage-score";
+import { gateEntriesForStage } from "../../../../data/bbos/bbos-gate-log";
 
 // ── Static domain constants (no live source) ───────────────────────────────
 // Taglines and gate labels are not stored in BBOS_STAGES; they are fixed
@@ -330,7 +331,7 @@ function buildOptExecution(taskMap, cycle) {
  * (scoreStage), constraints (OPT hold-list vs unmet gate signals), and assets
  * (the stage's research/asset items). closing is a read-only synthesis.
  */
-function buildBrief(stageId, status, taskMap, items, identity, nextStageN) {
+function buildBrief(stageId, status, taskMap, items, identity, nextStageN, gateLog) {
   const scored = scoreStage(stageId, taskMap);
   const readiness = getBbosStageIslamic(stageId)?.readiness || null;
   const findings = scored
@@ -356,6 +357,8 @@ function buildBrief(stageId, status, taskMap, items, identity, nextStageN) {
     checks: findings,
     nextStageN,
     canAct: status === "active",
+    // Recorded gate decisions for this stage (all cycles), newest first.
+    log: gateEntriesForStage(gateLog, stageId),
   };
 
   return {
@@ -433,7 +436,7 @@ export function buildPipelineViewModel(opts = {}) {
       dua: duaFor(s.id),
       gate: { label: STAGE_GATE_LABEL[s.id] || "", status: gateStatusFor(s.id, status, taskMap) },
       execution,
-      brief: buildBrief(s.id, status, taskMap, items, briefIdentity, nextStageN),
+      brief: buildBrief(s.id, status, taskMap, items, briefIdentity, nextStageN, project?.bbosGateLog),
     };
   });
 

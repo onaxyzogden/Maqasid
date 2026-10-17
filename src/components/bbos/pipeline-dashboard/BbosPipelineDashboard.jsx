@@ -22,6 +22,10 @@ export default function BbosPipelineDashboard({ project, bbosFilter, onStageSele
   const tasks = useTaskStore((s) => s.tasksByProject[project.id] || EMPTY_TASKS);
   const advanceBbosStage = useProjectStore((s) => s.advanceBbosStage);
   const rejectBbosPipeline = useProjectStore((s) => s.rejectBbosPipeline);
+  const logBbosGateDecision = useProjectStore((s) => s.logBbosGateDecision);
+  // The acting role is the attribution; 'all' is the view-everything filter,
+  // which names no one, so it records as unattributed.
+  const reviewer = project.bbosRole && project.bbosRole !== "all" ? project.bbosRole : null;
   const vm = useMemo(
     () => buildPipelineViewModel({ project, bbosFilter, tasks }),
     [project, bbosFilter, tasks],
@@ -67,14 +71,20 @@ export default function BbosPipelineDashboard({ project, bbosFilter, onStageSele
         <BbosApprovalBrief
           stage={briefStage}
           briefSections={vm.meta.briefSections}
-          onAdvance={() => {
+          // Each move carries its record (basis, closing note) into bbosGateLog.
+          onAdvance={(record) => {
             const idx = BBOS_STAGES.findIndex((s) => s.id === briefStage.id);
             const next = BBOS_STAGES[idx + 1];
             // Last stage (OPT) advance = cycle start, deferred to a later pass.
-            if (next) advanceBbosStage(project.id, next.id);
+            if (next) advanceBbosStage(project.id, next.id, { ...record, stageId: briefStage.id, by: reviewer });
             setBriefStage(null);
           }}
-          onReject={(reasonId) => { rejectBbosPipeline(project.id, reasonId); setBriefStage(null); }}
+          onReject={(reasonId, record) => {
+            rejectBbosPipeline(project.id, reasonId, reviewer, { ...record, stageId: briefStage.id });
+            setBriefStage(null);
+          }}
+          // Proceed-with-conditions: recorded, no stage change, Brief stays open.
+          onLogConditions={(record) => logBbosGateDecision(project.id, { ...record, stageId: briefStage.id, by: reviewer })}
           onClose={() => setBriefStage(null)}
         />
       )}

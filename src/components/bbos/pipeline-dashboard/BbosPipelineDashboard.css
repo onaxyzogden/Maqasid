@@ -853,3 +853,30 @@
   background: transparent; color: var(--bpd-text-secondary); border: 1px solid var(--bpd-border-mid);
 }
 .bpd-brief__confirm-btn--go { background: var(--c); color: var(--bpd-bg); border-color: var(--c); }
+
+/* gate record: every decision taken at this stage, with its written basis */
+.bpd-brief__recorded {
+  font-size: 12px; font-family: var(--bpd-font-ui); color: var(--bpd-gold);
+  padding: 8px 12px; border-radius: 7px; background: var(--bpd-gold-dim);
+}
+.bpd-brief__log { margin-top: 10px; padding-top: 14px; border-top: 1px solid var(--bpd-border); }
+.bpd-brief__log-empty { font-size: 12px; color: var(--bpd-text-tertiary); font-family: var(--bpd-font-ui); font-style: italic; }
+.bpd-brief__log-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.bpd-brief__log-entry {
+  --c: var(--bpd-gold);
+  padding: 10px 12px; border-radius: 8px; background: var(--bpd-bg3);
+  border-left: 3px solid var(--c);
+}
+.bpd-brief__log-entry[data-decision="proceed"] { --c: var(--bpd-complete); }
+.bpd-brief__log-entry[data-decision="halt"] { --c: var(--bpd-red); }
+.bpd-brief__log-head { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+.bpd-brief__log-decision { font-size: 12px; font-weight: 600; color: var(--c); font-family: var(--bpd-font-ui); }
+.bpd-brief__log-meta { font-size: 11px; color: var(--bpd-text-tertiary); font-family: var(--bpd-font-ui); }
+.bpd-brief__log-line {
+  font-size: 12px; color: var(--bpd-text-secondary); font-family: var(--bpd-font-ui);
+  line-height: 1.6; white-space: pre-wrap; margin-top: 2px;
+}
+.bpd-brief__log-key {
+  display: inline-block; min-width: 76px; color: var(--bpd-text-tertiary);
+  text-transform: uppercase; letter-spacing: 0.08em; font-size: 10px;
+}
