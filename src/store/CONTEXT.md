@@ -14,7 +14,7 @@
 | people-store.js | `employees`, `attendance`, `leaveRequests`, `timeEntries`, `departments` | 5 keys |
 | contacts-store.js | `contacts`, `companies`, `hrRecords`, `absences`, `clockIns`, `salaries`, `docs`, `departments` + UI state | 7 keys |
 | office-store.js | `channels`, `messages`, `events`, `documents`, `qaItems`, `announcements` | 6 keys |
-| crm-store.js | `contacts`, `deals`, `pipeline` (stages), `activities` | 4 keys |
+| crm-store.js | `contacts`, `deals`, `pipeline` (stages), `activities` — no UI consumers since 2026-10-08 | 4 keys |
 | tech-store.js | `monitors`, `darkWebEmails`, `breaches`, `integrations`, `campaigns` | 6 keys |
 | settings-store.js | `theme`, `valuesLayer`, `attrLang` | Individual string keys |
 | threshold-store.js | `niyyahDate`, `niyyahFocus[]`, `completedOpening`, `completedClosing`, `deferred` + ephemeral prayer state | Mixed |
@@ -73,6 +73,12 @@ function initDepartments() {
 ## Gotchas
 - `departments` duplicated across people-store and contacts-store
 - `task-store` silently creates empty array for non-existent projectId
+- **Task completion follows the steps** (2026-10-06). `toggleSubtask` and `updateSubtask` (when the
+  patch touches `done`/`notApplicable`) run `syncTaskCompletion` from `services/task-completion.js`:
+  every subtask satisfied (done **or** doesn't-apply) → card to the `Done` column with `completedAt`;
+  a Done card whose step is reopened → back to the column before Done, `completedAt` cleared. Tasks
+  with no subtasks are never touched (manual card moves stand). Before this, ticking the last step
+  never set `completedAt`, so boards and dashboards disagreed with Orientation.
 - `money-store` invoiceCounter increments forever (no year-based reset)
 - `app-store` redefines `safeGetJSON` locally (shadows service import)
 - `tech-store` `checkMonitor()` simulates status — no real HTTP calls

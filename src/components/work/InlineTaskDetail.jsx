@@ -138,7 +138,7 @@ export default function InlineTaskDetail({ project, projectId, taskId, onClose }
   return (
     <div ref={cardRef} className="iltd" onClick={(e) => e.stopPropagation()}>
       {/* Close */}
-      <button className="iltd__close" onClick={onClose} title="Close">
+      <button className="iltd__close" onClick={onClose} title="Close" aria-label="Close">
         <X size={16} />
       </button>
 

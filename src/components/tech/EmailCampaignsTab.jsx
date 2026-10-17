@@ -1,6 +1,9 @@
 import { useState, useMemo } from 'react';
 import { Search, X, Send, Trash2 } from 'lucide-react';
 import { useTechStore } from '../../store/tech-store';
+import SlideIn from '../shared/SlideIn';
+import { useRequiredField } from '../../hooks/useRequiredField';
+import FieldError from '../../components/shared/FieldError';
 
 export default function EmailCampaignsTab() {
   const campaigns = useTechStore((s) => s.campaigns);
@@ -12,6 +15,7 @@ export default function EmailCampaignsTab() {
   const [search, setSearch] = useState('');
   const [showPanel, setShowPanel] = useState(false);
   const [fName, setFName] = useState('');
+  const req = useRequiredField(!!fName.trim(), 'emailcampa-campaign-name');
   const [fSubject, setFSubject] = useState('');
   const [fContent, setFContent] = useState('');
 
@@ -46,7 +50,15 @@ export default function EmailCampaignsTab() {
           </div>
           <div className="tech-archive-toggle">
             <span>Active</span>
-            <div className={`tech-archive-toggle-track ${showArchived ? 'active' : ''}`} onClick={() => setShowArchived(!showArchived)}>
+            <div
+              className={`tech-archive-toggle-track ${showArchived ? 'active' : ''}`}
+              role="switch"
+              aria-checked={showArchived}
+              aria-label="Show archived campaigns"
+              tabIndex={0}
+              onClick={() => setShowArchived(!showArchived)}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setShowArchived(!showArchived); } }}
+            >
               <div className="tech-archive-toggle-thumb" style={{ left: showArchived ? '18px' : '2px' }} />
             </div>
             <span>Archived</span>
@@ -55,7 +67,7 @@ export default function EmailCampaignsTab() {
         <div className="tech-campaigns-filter-right">
           <div className="tech-campaign-search">
             <Search size={14} />
-            <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="search" />
+            <input aria-label="Search campaigns" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="search" />
           </div>
           <button className="btn btn-primary" onClick={() => setShowPanel(true)} style={{ background: 'var(--mod-tech)' }}>
             Create email campaign
@@ -81,9 +93,9 @@ export default function EmailCampaignsTab() {
                 <td>
                   <div className="row-actions" style={{ opacity: 1 }}>
                     {c.status === 'pending' && (
-                      <button className="row-action-btn" onClick={() => sendCampaign(c.id)} title="Send"><Send size={14} /></button>
+                      <button className="row-action-btn" onClick={() => sendCampaign(c.id)} title="Send" aria-label="Send"><Send size={14} aria-hidden="true" /></button>
                     )}
-                    <button className="row-action-btn danger" onClick={() => { if (confirm('Delete?')) deleteCampaign(c.id); }}><Trash2 size={14} /></button>
+                    <button className="row-action-btn danger" onClick={() => { if (confirm(`Delete campaign "${c.name}"? This can't be undone.`)) deleteCampaign(c.id); }} aria-label={`Delete campaign ${c.name}`}><Trash2 size={14} aria-hidden="true" /></button>
                   </div>
                 </td>
               </tr>
@@ -94,35 +106,34 @@ export default function EmailCampaignsTab() {
 
       {/* Create campaign slide-in */}
       {showPanel && (
-        <div className="money-slidein-overlay" onClick={() => setShowPanel(false)}>
-          <div className="money-slidein" onClick={(e) => e.stopPropagation()}>
+        <SlideIn onClose={() => setShowPanel(false)} label="Email campaign">
             <div className="money-slidein-header">
               <h3>Create Email Campaign</h3>
-              <button className="money-slidein-close" onClick={() => setShowPanel(false)}><X size={18} /></button>
+              <button className="money-slidein-close" onClick={() => setShowPanel(false)} aria-label="Close panel"><X size={18} /></button>
             </div>
             <div className="money-slidein-body">
               <div className="money-field">
-                <label>Campaign name *</label>
-                <input value={fName} onChange={(e) => setFName(e.target.value)} placeholder="Campaign name" autoFocus />
+                <label htmlFor="emailcampa-campaign-name">Campaign name *</label>
+                <input id="emailcampa-campaign-name" {...req.fieldProps} value={fName} onChange={(e) => setFName(e.target.value)} placeholder="Campaign name" autoFocus />
+<FieldError id={req.errorId} show={req.show}>Campaign name is required</FieldError>
               </div>
               <div className="money-field">
-                <label>Subject</label>
-                <input value={fSubject} onChange={(e) => setFSubject(e.target.value)} placeholder="Email subject" />
+                <label htmlFor="emailcampa-subject">Subject</label>
+                <input id="emailcampa-subject" value={fSubject} onChange={(e) => setFSubject(e.target.value)} placeholder="Email subject" />
               </div>
               <div className="money-field">
-                <label>Content</label>
-                <textarea value={fContent} onChange={(e) => setFContent(e.target.value)} placeholder="Email content..." rows={6} className="money-note-input" />
+                <label htmlFor="emailcampa-content">Content</label>
+                <textarea id="emailcampa-content" value={fContent} onChange={(e) => setFContent(e.target.value)} placeholder="Email content..." rows={6} className="money-note-input" />
               </div>
             </div>
             <div className="money-slidein-footer">
               <div style={{ flex: 1 }} />
               <button className="btn btn-ghost" onClick={() => setShowPanel(false)}>Cancel</button>
-              <button className="btn btn-primary" onClick={handleCreate} disabled={!fName.trim()} style={{ background: 'var(--mod-tech)' }}>
+              <button className="btn btn-primary" onClick={req.guard(handleCreate)} style={{ background: 'var(--mod-tech)' }}>
                 Create Campaign
               </button>
             </div>
-          </div>
-        </div>
+          </SlideIn>
       )}
     </div>
   );

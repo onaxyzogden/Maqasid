@@ -244,7 +244,7 @@
   font-weight: 600;
   background: transparent;
 }
-.money-panel-title-input:focus { border-style: solid; border-color: var(--mod-money); outline: none; }
+.money-panel-title-input:focus { border-style: solid; border-color: var(--mod-money); }
 
 .money-field { margin-bottom: var(--space-3); }
 .money-field label {
@@ -267,7 +267,6 @@
 .money-field input:focus,
 .money-field select:focus,
 .money-field textarea:focus {
-  outline: none;
   border-color: var(--mod-money);
 }
 .money-field-row { display: flex; gap: var(--space-3); }
@@ -369,7 +368,7 @@
   font-size: var(--text-base);
   background: var(--surface);
 }
-.money-search-input:focus { outline: none; border-color: var(--mod-money); }
+.money-search-input:focus { border-color: var(--mod-money); }
 
 .money-search-compact {
   display: flex;
@@ -380,6 +379,7 @@
   padding: var(--space-1) var(--space-2);
   background: var(--surface);
 }
+.money-search-compact:focus-within { outline: 2px solid var(--primary-strong); outline-offset: 2px; }
 .money-search-compact input {
   border: none;
   background: transparent;
@@ -636,7 +636,7 @@
   font-family: var(--font-heading);
 }
 .budget-spent { color: var(--text1); }
-.budget-under { color: var(--success); }
+.budget-under { color: var(--success-text); }
 .budget-over { color: var(--danger); }
 .budget-summary-alert {
   flex-direction: row;

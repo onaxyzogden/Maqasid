@@ -382,7 +382,6 @@
 .btp-field-textarea:focus,
 .btp-field-input:focus,
 .btp-field-select:focus {
-  outline: none;
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--btp-accent) 20%, transparent);
 }
 
@@ -430,7 +429,6 @@
   font-family: inherit;
   min-height: 80px;
   line-height: 1.6;
-  outline: none;
 }
 .btp-notes-textarea::placeholder {
   color: var(--text3);
@@ -454,7 +452,7 @@
 }
 
 .btp-flag-icon {
-  color: var(--warning);
+  color: var(--warning-text);
   flex-shrink: 0;
   margin-top: 1px;
 }
@@ -462,7 +460,7 @@
 .btp-flag-label {
   font-size: 13px;
   font-weight: 600;
-  color: var(--warning);
+  color: var(--warning-text);
   margin-bottom: 2px;
 }
 
@@ -481,7 +479,6 @@
   font-weight: inherit;
   font-family: inherit;
   cursor: pointer;
-  outline: none;
   padding: 0;
   -webkit-appearance: none;
   appearance: none;
@@ -516,7 +513,7 @@
 }
 .btp-generate-btn:hover {
   border-color: var(--accent-border);
-  color: var(--accent);
+  color: var(--accent-text);
   background: var(--accent-bg);
 }
 
@@ -537,13 +534,13 @@
 
 .btp-draft-status--pending {
   background: var(--primary-bg);
-  color: var(--primary);
+  color: var(--primary-text);
   border: 1px solid var(--primary-border);
 }
 
 .btp-draft-status--accepted {
   background: var(--success-bg);
-  color: var(--success);
+  color: var(--success-text);
   border: 1px solid var(--success-border);
 }
 
@@ -664,7 +661,7 @@
   align-items: flex-start;
   gap: 6px;
   font-size: 12px;
-  color: var(--warning);
+  color: var(--warning-text);
   line-height: 1.4;
 }
 
@@ -943,7 +940,7 @@
 
 .rda-meta-pill {
   background: var(--accent-bg);
-  color: var(--accent);
+  color: var(--accent-text);
   font-weight: 600;
   padding: 2px 8px;
   border-radius: 99px;
@@ -978,7 +975,6 @@
   font-family: inherit;
 }
 .rda-date-input:focus {
-  outline: none;
   border-color: var(--accent);
 }
 
@@ -1023,7 +1019,7 @@
   font-size: var(--text-2xs);
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: var(--accent);
+  color: var(--accent-text);
   flex-shrink: 0;
 }
 

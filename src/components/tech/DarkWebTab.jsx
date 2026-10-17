@@ -1,6 +1,9 @@
 import { useState, useMemo } from 'react';
 import { Settings, Plus, X, Check, Trash2 } from 'lucide-react';
 import { useTechStore } from '../../store/tech-store';
+import { useUndoToast } from '@hooks/useUndoToast';
+import { localDayKey } from '../../lib/format-date';
+import SlideIn from '../shared/SlideIn';
 
 export default function DarkWebTab() {
   const darkWebEnabled = useTechStore((s) => s.darkWebEnabled);
@@ -8,6 +11,14 @@ export default function DarkWebTab() {
   const darkWebEmails = useTechStore((s) => s.darkWebEmails);
   const addDarkWebEmail = useTechStore((s) => s.addDarkWebEmail);
   const removeDarkWebEmail = useTechStore((s) => s.removeDarkWebEmail);
+  const restoreDarkWebEmail = useTechStore((s) => s.restoreDarkWebEmail);
+  const undoToast = useUndoToast();
+
+  const handleRemoveEmail = (e) => {
+    const index = darkWebEmails.findIndex((x) => x.id === e.id);
+    removeDarkWebEmail(e.id);
+    undoToast(`Stopped monitoring ${e.email}`, () => restoreDarkWebEmail(e, index));
+  };
   const breaches = useTechStore((s) => s.breaches);
   const clearBreach = useTechStore((s) => s.clearBreach);
   const deleteBreach = useTechStore((s) => s.deleteBreach);
@@ -25,7 +36,7 @@ export default function DarkWebTab() {
     const now = new Date();
     for (let i = 5; i >= 0; i--) {
       const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
-      const key = d.toISOString().slice(0, 7);
+      const key = localDayKey(d).slice(0, 7);
       const label = d.toLocaleDateString('en', { month: 'short' });
       const count = breaches.filter((b) => b.detectedAt?.slice(0, 7) === key).length;
       months.push({ key, label, count });
@@ -54,7 +65,7 @@ export default function DarkWebTab() {
             <div className="tech-toggle-track" />
             <div className="tech-toggle-thumb" />
           </label>
-          <button className="row-action-btn" onClick={() => setShowAddEmail(true)} title="Settings"><Settings size={18} /></button>
+          <button className="row-action-btn" onClick={() => setShowAddEmail(true)} title="Settings" aria-label="Settings"><Settings size={18} aria-hidden="true" /></button>
         </div>
       </div>
 
@@ -98,9 +109,9 @@ export default function DarkWebTab() {
                     <td>
                       <div className="row-actions" style={{ opacity: 1 }}>
                         {b.status === 'open' && (
-                          <button className="row-action-btn" onClick={() => clearBreach(b.id)} title="Clear"><Check size={14} /></button>
+                          <button className="row-action-btn" onClick={() => clearBreach(b.id)} title="Clear" aria-label="Clear"><Check size={14} aria-hidden="true" /></button>
                         )}
-                        <button className="row-action-btn danger" onClick={() => { if (confirm('Delete breach?')) deleteBreach(b.id); }}><Trash2 size={14} /></button>
+                        <button className="row-action-btn danger" onClick={() => { if (confirm(`Delete the ${b.source || ''} breach record? This can't be undone.`)) deleteBreach(b.id); }} aria-label={`Delete breach from ${b.source || b.email}`}><Trash2 size={14} aria-hidden="true" /></button>
                       </div>
                     </td>
                   </tr>
@@ -183,17 +194,16 @@ export default function DarkWebTab() {
 
       {/* Add email slide-in */}
       {showAddEmail && (
-        <div className="money-slidein-overlay" onClick={() => setShowAddEmail(false)}>
-          <div className="money-slidein" onClick={(e) => e.stopPropagation()}>
+        <SlideIn onClose={() => setShowAddEmail(false)} label="Add monitored email">
             <div className="money-slidein-header">
               <h3>Monitored Emails</h3>
-              <button className="money-slidein-close" onClick={() => setShowAddEmail(false)}><X size={18} /></button>
+              <button className="money-slidein-close" onClick={() => setShowAddEmail(false)} aria-label="Close panel"><X size={18} /></button>
             </div>
             <div className="money-slidein-body">
               <div className="money-field">
-                <label>Add email to monitor</label>
+                <label htmlFor="darkwebtab-add-email-to-monitor">Add email to monitor</label>
                 <div style={{ display: 'flex', gap: 4 }}>
-                  <input value={emailInput} onChange={(e) => setEmailInput(e.target.value)}
+                  <input id="darkwebtab-add-email-to-monitor" value={emailInput} onChange={(e) => setEmailInput(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleAddEmail()}
                     placeholder="user@example.com" style={{ flex: 1 }} autoFocus />
                   <button className="btn btn-primary" onClick={handleAddEmail} style={{ background: 'var(--mod-tech)' }}>Add</button>
@@ -205,7 +215,7 @@ export default function DarkWebTab() {
                   {darkWebEmails.map((e) => (
                     <div key={e.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: 'var(--space-2) 0', borderBottom: '1px solid var(--border)' }}>
                       <span style={{ fontSize: '0.85rem' }}>{e.email}</span>
-                      <button className="row-action-btn danger" onClick={() => removeDarkWebEmail(e.id)}><Trash2 size={14} /></button>
+                      <button className="row-action-btn danger" onClick={() => handleRemoveEmail(e)} aria-label={`Stop monitoring ${e.email}`}><Trash2 size={14} aria-hidden="true" /></button>
                     </div>
                   ))}
                 </div>
@@ -215,8 +225,7 @@ export default function DarkWebTab() {
               <div style={{ flex: 1 }} />
               <button className="btn btn-ghost" onClick={() => setShowAddEmail(false)}>Close</button>
             </div>
-          </div>
-        </div>
+          </SlideIn>
       )}
     </div>
   );

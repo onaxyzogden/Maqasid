@@ -6,6 +6,7 @@ import {
 } from '../services/id';
 import { getAvatarColor } from '@data/config/contact-config';
 import { PRESET_DEPARTMENTS } from '@data/config/people-departments';
+import { localDayKey } from '../lib/format-date';
 
 // ── Persistence helpers ──
 const p = (key, val) => safeSet(key, val);
@@ -302,7 +303,7 @@ export const useContactsStore = create((set, get) => ({
       contactId:     data.contactId     || '',
       amount:        data.amount        || 0,
       currency:      data.currency      || 'USD',
-      effectiveDate: data.effectiveDate || new Date().toISOString().slice(0, 10),
+      effectiveDate: data.effectiveDate || localDayKey(),
       type:          data.type          || 'base',
       note:          data.note          || '',
       bankName:      data.bankName      || '',
@@ -337,7 +338,7 @@ export const useContactsStore = create((set, get) => ({
       id:        genContactDocId(),
       contactId: data.contactId || '',
       name:      data.name      || '',
-      addedDate: data.addedDate || new Date().toISOString().slice(0, 10),
+      addedDate: data.addedDate || localDayKey(),
       status:    data.status    || 'pending',
       createdAt: new Date().toISOString(),
       createdBy: data.createdBy || '',
@@ -362,6 +363,15 @@ export const useContactsStore = create((set, get) => ({
     const docRecords = s.docRecords.filter((d) => d.id !== id);
     p('contacts_docs', docRecords);
     return { docRecords };
+  }),
+
+  // ── Undo support — reinsert a deleted record at its original index ──
+  // field: state array name (e.g. 'salaryRecords'); key: its storage key.
+  restoreRecord: (field, key, record, index) => set((s) => {
+    const list = [...s[field]];
+    list.splice(Math.min(Math.max(index, 0), list.length), 0, record);
+    p(key, list);
+    return { [field]: list };
   }),
 
   // ── Departments ──

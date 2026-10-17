@@ -4,6 +4,7 @@ import { BookOpen, Plus, X, Tag } from 'lucide-react';
 import { safeGetJSON, safeSet } from '../../services/storage';
 import { useAppStore } from '../../store/app-store';
 import { getBbosTaskDef } from '@data/bbos/bbos-task-definitions';
+import { useUndoToast } from '../../hooks/useUndoToast';
 import './JournalPanel.css';
 
 const STORAGE_KEY = 'global_journal_reflection';
@@ -77,6 +78,7 @@ export default function JournalPanel() {
   const [isPanelClosing, setIsPanelClosing] = useState(false);
   const [draft, setDraft] = useState('');
   const [entries, setEntries] = useState(() => safeGetJSON(STORAGE_KEY, []));
+  const undoToast = useUndoToast();
 
   // Custom user tags
   const [customTags, setCustomTags] = useState([]);
@@ -138,10 +140,19 @@ export default function JournalPanel() {
     setCustomTags([]);
   };
 
-  const removeEntry = (id) => {
-    const updated = entries.filter((e) => e.id !== id);
+  const removeEntry = (entry) => {
+    const index = entries.findIndex((e) => e.id === entry.id);
+    const updated = entries.filter((e) => e.id !== entry.id);
     setEntries(updated);
     safeSet(STORAGE_KEY, updated);
+    undoToast('Journal entry deleted', () =>
+      setEntries((cur) => {
+        const next = [...cur];
+        next.splice(Math.min(index, next.length), 0, entry);
+        safeSet(STORAGE_KEY, next);
+        return next;
+      })
+    );
   };
 
   const closePanel = () => {
@@ -166,8 +177,8 @@ export default function JournalPanel() {
       <div className={`journal-panel${isPanelClosing ? ' journal-panel--closing' : ''}`}>
         <div className="journal-panel__header">
           <span className="journal-panel__title">Reflection</span>
-          <button className="journal-panel__close" onClick={closePanel}>
-            <X size={16} />
+          <button type="button" className="journal-panel__close" onClick={closePanel} aria-label="Close journal">
+            <X size={16} aria-hidden="true" />
           </button>
         </div>
 
@@ -190,6 +201,7 @@ export default function JournalPanel() {
                     className={`journal-panel__badge journal-panel__badge--${badge.type}${isActive ? '' : ' journal-panel__badge--removed'}`}
                     onClick={() => toggleBadge(badge)}
                     title={isActive ? 'Click to remove badge' : 'Click to re-add badge'}
+                    aria-pressed={isActive}
                   >
                     {badge.label}
                     {isActive && <X size={14} />}
@@ -215,7 +227,7 @@ export default function JournalPanel() {
             ))}
             <div className="journal-panel__tag-input-row">
               <Tag size={14} style={{ color: 'var(--text3)', flexShrink: 0 }} />
-              <input
+              <input aria-label="Add tag"
                 className="journal-panel__tag-input"
                 type="text"
                 placeholder="Add tag..."
@@ -233,7 +245,7 @@ export default function JournalPanel() {
 
           {/* Compose */}
           <div className="journal-panel__compose">
-            <textarea
+            <textarea aria-label="Write a reflection"
               className="journal-panel__textarea"
               placeholder="Write a reflection..."
               value={draft}
@@ -256,6 +268,7 @@ export default function JournalPanel() {
               <button
                 className={`journal-panel__filter-pill${filterTag === null ? ' journal-panel__filter-pill--active' : ''}`}
                 onClick={() => setFilterTag(null)}
+                aria-pressed={filterTag === null}
               >
                 All
               </button>
@@ -264,6 +277,7 @@ export default function JournalPanel() {
                   key={t.id}
                   className={`journal-panel__filter-pill${filterTag === t.id ? ' journal-panel__filter-pill--active' : ''}`}
                   onClick={() => setFilterTag(filterTag === t.id ? null : t.id)}
+                  aria-pressed={filterTag === t.id}
                 >
                   {t.label}
                 </button>
@@ -288,7 +302,7 @@ export default function JournalPanel() {
                         weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
                       })}
                     </span>
-                    <button className="journal-panel__entry-remove" onClick={() => removeEntry(entry.id)} title="Remove entry">&times;</button>
+                    <button className="journal-panel__entry-remove" onClick={() => removeEntry(entry)} aria-label="Delete journal entry">&times;</button>
                   </div>
                   {entry.badges?.length > 0 && (
                     <div className="journal-panel__entry-badges">

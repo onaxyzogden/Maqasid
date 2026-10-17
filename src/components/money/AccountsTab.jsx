@@ -3,12 +3,17 @@ import { Plus, Landmark, X, Pencil, ChevronDown, Info } from 'lucide-react';
 import { useMoneyStore, formatCurrency } from '../../store/money-store';
 import { useAuthStore } from '../../store/auth-store';
 import { CURRENCIES, BANKS } from '@data/config/money-categories';
+import { rowActivation } from '../../lib/row-activation';
+import SlideIn from '../shared/SlideIn';
+import { useRequiredField } from '../../hooks/useRequiredField';
+import FieldError from '../../components/shared/FieldError';
 
 function AccountPanel({ account, onClose }) {
   const addAccount = useMoneyStore((s) => s.addAccount);
   const updateAccount = useMoneyStore((s) => s.updateAccount);
   const isEdit = !!account;
   const [bankName, setBankName] = useState(account?.bankName || '');
+  const req = useRequiredField(!!bankName, 'accountsta-bank');
   const [currency, setCurrency] = useState(account?.currency || 'CAD');
   const [accountNumber, setAccountNumber] = useState(account?.accountNumber || '');
   const [iban, setIban] = useState(account?.iban || '');
@@ -28,54 +33,53 @@ function AccountPanel({ account, onClose }) {
   };
 
   return (
-    <div className="money-slidein-overlay" onClick={onClose}>
-      <div className="money-slidein" onClick={(e) => e.stopPropagation()}>
+    <SlideIn onClose={onClose} label="Bank account">
         <div className="money-slidein-header">
           <div>
-            <h3>Add Bank Account</h3>
+            <h3>{isEdit ? 'Edit Bank Account' : 'Add Bank Account'}</h3>
             <p style={{ fontSize: '0.8rem', color: 'var(--text2)', margin: 0 }}>Add or link a bank account to better manage finances.</p>
           </div>
-          <button className="money-slidein-close" onClick={onClose}><X size={18} /></button>
+          <button className="money-slidein-close" onClick={onClose} aria-label="Close panel"><X size={18} /></button>
         </div>
         <div className="money-slidein-body">
           <div className="money-field-row">
             <div className="money-field" style={{ flex: 1 }}>
-              <label>Bank</label>
-              <select value={bankName} onChange={(e) => setBankName(e.target.value)}>
+              <label htmlFor="accountsta-bank">Bank</label>
+              <select id="accountsta-bank" {...req.fieldProps} value={bankName} onChange={(e) => setBankName(e.target.value)}>
                 <option value="">Select bank...</option>
                 {BANKS.map((b) => <option key={b} value={b}>{b}</option>)}
               </select>
+<FieldError id={req.errorId} show={req.show}>Choose a bank</FieldError>
             </div>
             <div className="money-field" style={{ width: 120 }}>
-              <label>Currency</label>
-              <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
+              <label htmlFor="accountsta-currency">Currency</label>
+              <select id="accountsta-currency" value={currency} onChange={(e) => setCurrency(e.target.value)}>
                 {CURRENCIES.map((c) => <option key={c.id} value={c.id}>{c.flag} {c.id}</option>)}
               </select>
             </div>
           </div>
           <div className="money-field">
-            <label>Account number</label>
-            <input value={accountNumber} onChange={(e) => setAccountNumber(e.target.value)} placeholder="Account number" />
+            <label htmlFor="accountsta-account-number">Account number</label>
+            <input id="accountsta-account-number" value={accountNumber} onChange={(e) => setAccountNumber(e.target.value)} placeholder="Account number" />
           </div>
           <div className="money-field-divider">additional info...</div>
-          <div className="money-field"><label>IBAN</label><input value={iban} onChange={(e) => setIban(e.target.value)} placeholder="IBAN" /></div>
-          <div className="money-field"><label>Swift</label><input value={swift} onChange={(e) => setSwift(e.target.value)} placeholder="Swift" /></div>
-          <div className="money-field"><label>Current Balance</label><input type="number" value={currentBalance} onChange={(e) => setCurrentBalance(e.target.value)} placeholder="0" /></div>
-          <div className="money-field"><label>Available Balance</label><input type="number" value={availableBalance} onChange={(e) => setAvailableBalance(e.target.value)} placeholder="0" /></div>
-          <div className="money-field"><label>Reserved Balance</label><input type="number" value={reservedBalance} onChange={(e) => setReservedBalance(e.target.value)} placeholder="0" /></div>
-          <div className="money-field"><label>Date opened</label><input type="date" value={dateOpened} onChange={(e) => setDateOpened(e.target.value)} /></div>
+          <div className="money-field"><label htmlFor="accountsta-iban">IBAN</label><input id="accountsta-iban" value={iban} onChange={(e) => setIban(e.target.value)} placeholder="IBAN" /></div>
+          <div className="money-field"><label htmlFor="accountsta-swift">Swift</label><input id="accountsta-swift" value={swift} onChange={(e) => setSwift(e.target.value)} placeholder="Swift" /></div>
+          <div className="money-field"><label htmlFor="accountsta-current-balance">Current Balance</label><input id="accountsta-current-balance" type="number" value={currentBalance} onChange={(e) => setCurrentBalance(e.target.value)} placeholder="0" /></div>
+          <div className="money-field"><label htmlFor="accountsta-available-balance">Available Balance</label><input id="accountsta-available-balance" type="number" value={availableBalance} onChange={(e) => setAvailableBalance(e.target.value)} placeholder="0" /></div>
+          <div className="money-field"><label htmlFor="accountsta-reserved-balance">Reserved Balance</label><input id="accountsta-reserved-balance" type="number" value={reservedBalance} onChange={(e) => setReservedBalance(e.target.value)} placeholder="0" /></div>
+          <div className="money-field"><label htmlFor="accountsta-date-opened">Date opened</label><input id="accountsta-date-opened" type="date" value={dateOpened} onChange={(e) => setDateOpened(e.target.value)} /></div>
           <label className="money-checkbox">
             <input type="checkbox" checked={isPayroll} onChange={(e) => setIsPayroll(e.target.checked)} />
             Is Payroll account
           </label>
         </div>
         <div className="money-slidein-footer">
-          <button className="btn btn-primary" onClick={handleSave} disabled={!bankName} style={{ background: 'var(--mod-money)', width: '100%' }}>
+          <button className="btn btn-primary" onClick={req.guard(handleSave)} style={{ background: 'var(--mod-money)', width: '100%' }}>
             {isEdit ? 'Save' : 'Add new account'}
           </button>
         </div>
-      </div>
-    </div>
+      </SlideIn>
   );
 }
 
@@ -128,7 +132,7 @@ export default function AccountsTab() {
           ) : (
             filtered.map((acct) => (
               <div key={acct.id} className="account-row">
-                <div className="account-row-main" onClick={() => setExpandedId(expandedId === acct.id ? null : acct.id)}>
+                <div className="account-row-main" {...rowActivation(() => setExpandedId(expandedId === acct.id ? null : acct.id))}>
                   <div className="account-info">
                     <div className="account-icon"><Landmark size={20} /></div>
                     <div>
@@ -144,8 +148,8 @@ export default function AccountsTab() {
                         <Info size={14} /> Payroll
                       </span>
                     )}
-                    <button className="row-action-btn" onClick={(e) => { e.stopPropagation(); setEditAccount(acct); setShowPanel(true); }} title="Edit">
-                      <Pencil size={14} />
+                    <button className="row-action-btn" onClick={(e) => { e.stopPropagation(); setEditAccount(acct); setShowPanel(true); }} title="Edit" aria-label="Edit">
+                      <Pencil size={14} aria-hidden="true" />
                     </button>
                     <ChevronDown size={16} className={`account-chevron ${expandedId === acct.id ? 'expanded' : ''}`} />
                   </div>

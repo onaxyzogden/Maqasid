@@ -10,6 +10,7 @@ import { useBpdDialog } from "./useBpdDialog";
 import { downloadStageBundleTemplate, validateStageBundleTemplate, importStageBundleTemplate } from "@services/bbos-template";
 import { getBbosTaskDefsByStage } from "@data/bbos/bbos-task-definitions";
 import { Dot, Ornament, Spirit } from "./primitives";
+import { rowActivation } from '../../../lib/row-activation';
 import {
   bhiVars, iLabel, itemVars, metricVars, restoVars, typeLabel, typeVars,
   execTypeLabel, statusVars,
@@ -20,7 +21,7 @@ const NOT_WIRED = "Not wired in this preview: nothing is saved yet";
 function AssetRow({ item, expanded, onToggle, onFile }) {
   return (
     <div className="bpd-row" data-expanded={expanded ? "true" : "false"}>
-      <div className="bpd-row__head" onClick={onToggle}>
+      <div className="bpd-row__head" {...rowActivation(onToggle, { expanded })}>
         <Dot status={item.status} />
         <div className="bpd-row__body-wrap">
           <div className="bpd-row__title-line">
@@ -88,7 +89,7 @@ function FieldGrid({ fields }) {
 function TaskRow({ task, expanded, onToggle }) {
   return (
     <div className="bpd-row" data-expanded={expanded ? "true" : "false"}>
-      <div className="bpd-row__head" onClick={onToggle}>
+      <div className="bpd-row__head" {...rowActivation(onToggle, { expanded })}>
         <Dot status={task.status} />
         <div className="bpd-row__body-wrap">
           <div className="bpd-row__title-line">
@@ -136,7 +137,7 @@ function TaskRow({ task, expanded, onToggle }) {
   );
 }
 
-export default function BbosExecView({ stage, onClose, projectId, columns }) {
+export default function BbosExecView({ stage, onClose, onSubmitGate, projectId, columns }) {
   const exec = stage.execution;
   const isRetro = exec.type === "retrospective_dashboard";
   const tabs = isRetro
@@ -419,16 +420,26 @@ export default function BbosExecView({ stage, onClose, projectId, columns }) {
           const val = checks[gc.id];
           const attr = val === true ? "true" : val === false ? "false" : "null";
           return (
-            <div key={gc.id} className="bpd-gatecheck" data-val={attr} onClick={() => cycleCheck(gc.id)}>
+            <div
+              key={gc.id}
+              className="bpd-gatecheck"
+              data-val={attr}
+              role="checkbox"
+              aria-checked={val === true ? true : val === false ? false : "mixed"}
+              aria-label={`${gc.label}: ${val === true ? "passed" : val === false ? "failed" : "not reviewed"}`}
+              tabIndex={0}
+              onClick={() => cycleCheck(gc.id)}
+              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); cycleCheck(gc.id); } }}
+            >
               <div className="bpd-gatecheck__box">{val === true ? "✓" : val === false ? "✕" : ""}</div>
               <span className="bpd-gatecheck__text">{gc.label}</span>
             </div>
           );
         })}
-        <button type="button" className="bpd-btn-gold bpd-btn-gold--gate" disabled title={NOT_WIRED}>⧁  Submit Gate Review</button>
-        <div className="bpd-notwired">
-          Gate review isn&rsquo;t recorded here yet. Make the routing decision in the Approval Brief&rsquo;s Stage Decision section.
-        </div>
+        {/* Gate decisions are recorded in the Stage Approval Brief. */}
+        <button type="button" className="bpd-btn-gold bpd-btn-gold--gate" onClick={onSubmitGate} disabled={!onSubmitGate}>
+          ⧁  Continue to Approval Brief
+        </button>
       </div>
     );
     return null;

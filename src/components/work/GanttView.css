@@ -49,7 +49,7 @@
   align-items: center;
   gap: 5px;
   font-size: var(--text-sm);
-  color: var(--warning);
+  color: var(--warning-text);
   font-weight: 500;
 }
 
@@ -233,7 +233,7 @@
   background: rgba(var(--primary-rgb, 99, 102, 241), 0.08);
 }
 .gantt-day--today .gantt-day-num {
-  color: var(--primary);
+  color: var(--primary-text);
   font-weight: 700;
 }
 
@@ -274,7 +274,7 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: var(--primary);
+  background: var(--primary-strong);
   opacity: 0.5;
   z-index: 2;
   pointer-events: none;

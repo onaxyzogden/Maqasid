@@ -56,7 +56,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 20px;
+  width: 24px; /* WCAG 2.5.8 minimum target */
   height: 28px;
   background: var(--bg3);
   border: 1px solid var(--border);
@@ -73,14 +73,14 @@
 .col-edge__toggle:hover {
   background: var(--primary-bg);
   border-color: var(--primary-border);
-  color: var(--primary);
+  color: var(--primary-text);
 }
 
 .col-edge__toggle:focus-visible {
   outline: 2px solid var(--primary-border);
   outline-offset: 1px;
   background: var(--primary-bg);
-  color: var(--primary);
+  color: var(--primary-text);
 }
 
 .col-edge__toggle:active {

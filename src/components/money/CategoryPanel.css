@@ -39,7 +39,7 @@
 }
 
 .cp-swatch--selected {
-  outline: 3px solid var(--primary);
+  outline: 3px solid var(--primary-strong);
   outline-offset: 2px;
 }
 

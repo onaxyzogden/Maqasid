@@ -23,6 +23,7 @@ import { parseAiResponse } from '@services/ai/response-parser';
 import GLabelPicker from '../shared/GLabelPicker';
 import ErrorBoundary from '../shared/ErrorBoundary';
 import './BbosTaskPanel.css';
+import { localDayKey } from '../../lib/format-date';
 
 function formatDateTime(iso) {
   if (!iso) return '';
@@ -806,7 +807,7 @@ function computePreview(allTasks, runwayMonths, startDate) {
     const d = new Date(start.getTime() + fraction * totalMs);
     return {
       task: t,
-      dueDate: d.toISOString().split('T')[0],
+      dueDate: localDayKey(d),
       hasExisting: Boolean(t.dueDate),
       stageId: t.bbosTaskType?.split('-')[0] ?? '—',
     };
@@ -814,7 +815,7 @@ function computePreview(allTasks, runwayMonths, startDate) {
 }
 
 function RunwayDateModal({ allTasks, runwayMonths, projectId, updateTask, onClose }) {
-  const today = new Date().toISOString().split('T')[0];
+  const today = localDayKey();
   const [startDate, setStartDate] = useState(today);
   const [overwrite, setOverwrite] = useState(true);
 

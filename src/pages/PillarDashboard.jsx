@@ -3,6 +3,7 @@ import { getPillarById, getPillarLabel, getPillarStewardship } from '../data/maq
 import { PILLAR_CONTENT } from '@data/islamic/pillar-content';
 import { MODULES } from '../data/modules';
 import { useSettingsStore } from '../store/settings-store';
+import NotFound from '../components/shared/NotFound';
 import './PillarDashboard.css';
 
 const modulesById = Object.fromEntries(MODULES.map((m) => [m.id, m]));
@@ -27,7 +28,7 @@ export default function PillarDashboard() {
   const valuesLayer = useSettingsStore((s) => s.valuesLayer);
 
   const pillar = getPillarById(pillarId);
-  if (!pillar) return <div className="pd-error">Pillar not found.</div>;
+  if (!pillar) return <NotFound title="Pillar not found" message="There’s no pillar at this address. Your seven Maqasid are on the Dashboard." />;
 
   const label = getPillarLabel(pillar, valuesLayer);
   const stewardship = getPillarStewardship(pillar, valuesLayer);

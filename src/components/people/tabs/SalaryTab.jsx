@@ -1,13 +1,23 @@
 import { useState } from 'react';
-import { Plus } from 'lucide-react';
+import { Plus, Trash2 } from 'lucide-react';
+import { useUndoToast } from '@hooks/useUndoToast';
 import { useContactsStore } from '../../../store/contacts-store';
 import { SALARY_TYPES } from '@data/config/contact-config';
 import CollapsibleSection from '../shared/CollapsibleSection';
+import { localDayKey } from '../../../lib/format-date';
 
 export default function SalaryTab({ contactId }) {
   const salaryRecords = useContactsStore((s) => s.salaryRecords);
   const addSalary     = useContactsStore((s) => s.addSalary);
   const deleteSalary  = useContactsStore((s) => s.deleteSalary);
+  const restoreRecord = useContactsStore((s) => s.restoreRecord);
+  const undoToast     = useUndoToast();
+
+  const handleDelete = (r) => {
+    const index = salaryRecords.findIndex((x) => x.id === r.id);
+    deleteSalary(r.id);
+    undoToast('Salary record deleted', () => restoreRecord('salaryRecords', 'contacts_salary', r, index));
+  };
 
   const records  = salaryRecords.filter((r) => r.contactId === contactId);
   const base     = records.filter((r) => r.type === 'base').sort((a, b) => b.effectiveDate.localeCompare(a.effectiveDate));
@@ -33,7 +43,7 @@ export default function SalaryTab({ contactId }) {
 
   function submitComp() {
     if (!cForm.amount) return;
-    addSalary({ contactId, ...cForm, amount: Number(cForm.amount), currency: 'USD', effectiveDate: new Date().toISOString().slice(0, 10) });
+    addSalary({ contactId, ...cForm, amount: Number(cForm.amount), currency: 'USD', effectiveDate: localDayKey() });
     setCForm({ amount: '', type: 'bonus', note: '' });
     setShowCompForm(false);
   }
@@ -173,7 +183,13 @@ export default function SalaryTab({ contactId }) {
           <div key={r.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '7px 0', borderBottom: '1px solid var(--border)', fontSize: 13 }}>
             <span style={{ color: 'var(--text2)' }}>{SALARY_TYPES.find((t) => t.id === r.type)?.label}</span>
             <span style={{ fontWeight: 600, color: 'var(--text)' }}>${r.amount.toLocaleString()}</span>
-            <button onClick={() => deleteSalary(r.id)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text3)' }}>✕</button>
+            <button
+              className="row-action-btn danger"
+              onClick={() => handleDelete(r)}
+              aria-label={`Delete ${SALARY_TYPES.find((t) => t.id === r.type)?.label || 'salary'} record of $${r.amount.toLocaleString()}`}
+            >
+              <Trash2 size={14} aria-hidden="true" />
+            </button>
           </div>
         ))}
       </div>

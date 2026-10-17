@@ -24,9 +24,8 @@ export default function FloatingFAB({ onClick }) {
         transition: 'transform var(--duration) var(--ease), box-shadow var(--duration) var(--ease)',
       }}
       onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.08)'; }}
-      onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
-    >
-      <Plus size={20} />
+      onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }} aria-label="Add contact">
+      <Plus size={20} aria-hidden="true" />
     </button>
   );
 }

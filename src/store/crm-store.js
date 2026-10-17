@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { safeGetJSON, safeSet } from '../services/storage';
 import { genContactId, genDealId, genActivityId } from '../services/id';
+import { localDayKey } from '../lib/format-date';
 
 function persistContacts(d) { safeSet('crm_contacts', d); }
 function persistDeals(d) { safeSet('crm_deals', d); }
@@ -98,7 +99,7 @@ export const useCRMStore = create((set, get) => ({
     const activity = {
       id: genActivityId(), contactId: contactId || '', dealId: dealId || '',
       type: type || 'note', description: description || '',
-      date: date || new Date().toISOString().slice(0, 10),
+      date: date || localDayKey(),
       createdAt: new Date().toISOString(),
     };
     set((s) => { const activities = [...s.activities, activity]; persistActivities(activities); return { activities }; });
@@ -106,6 +107,11 @@ export const useCRMStore = create((set, get) => ({
   },
   deleteActivity: (id) => set((s) => {
     const activities = s.activities.filter((a) => a.id !== id);
+    persistActivities(activities); return { activities };
+  }),
+  restoreActivity: (record, index) => set((s) => {
+    const activities = [...s.activities];
+    activities.splice(Math.min(Math.max(index, 0), activities.length), 0, record);
     persistActivities(activities); return { activities };
   }),
 }));

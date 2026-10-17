@@ -134,39 +134,79 @@ export function usePrayerTimes() {
 
     let attempt = 0;
     const maxAttempts = 3;
+    setError(null);
+    setLoading(true);
 
     const tryGeo = () => {
       attempt++;
       navigator.geolocation.getCurrentPosition(
         (pos) => fetchTimings(pos.coords.latitude, pos.coords.longitude),
-        () => {
-          if (attempt < maxAttempts) {
+        (err) => {
+          // A denied permission won't change on retry — fail straight away.
+          const denied = err?.code === 1;
+          if (!denied && attempt < maxAttempts) {
             setTimeout(tryGeo, attempt * 2000);
-          } else {
-            // Fallback 1: cached coords
-            const coords = safeGetJSON('prayer_coords', null);
-            if (coords) {
-              fetchTimings(coords.lat, coords.lng);
-              return;
-            }
-            // Fallback 2: IP-based geolocation
-            fetch('https://ipapi.co/json/')
-              .then((r) => r.json())
-              .then((d) => {
-                if (d?.latitude && d?.longitude) {
-                  fetchTimings(d.latitude, d.longitude);
-                } else {
-                  setError('Unable to determine location');
-                }
-              })
-              .catch(() => setError('Unable to determine location'));
+            return;
           }
+          // Fallback: last known coords from this device.
+          const coords = safeGetJSON('prayer_coords', null);
+          if (coords) {
+            fetchTimings(coords.lat, coords.lng);
+            return;
+          }
+          setLoading(false);
+          setError(denied
+            ? 'Location is blocked for this site.'
+            : 'Could not determine your location.');
         },
         { timeout: 10000 }
       );
     };
 
     tryGeo();
+  }, [fetchTimings]);
+
+  // Look up a city the user typed (OpenStreetMap Nominatim), then fetch.
+  const setCity = useCallback(async (query) => {
+    const q = (query || '').trim();
+    if (!q) return;
+    try {
+      setLoading(true);
+      setError(null);
+      const res = await fetch(
+        `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(q)}`,
+        { headers: { 'Accept-Language': 'en' } }
+      );
+      const [hit] = res.ok ? await res.json() : [];
+      if (!hit) {
+        setLoading(false);
+        setError(`No place found for "${q}". Try "City, Country".`);
+        return;
+      }
+      await fetchTimings(Number(hit.lat), Number(hit.lon));
+    } catch {
+      setLoading(false);
+      setError('Could not look up that city. Check your connection and try again.');
+    }
+  }, [fetchTimings]);
+
+  // Approximate location from the IP address (ipapi.co). Only called after
+  // the user explicitly opts in — it sends the IP to a third party.
+  const requestApproximateLocation = useCallback(async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const d = await fetch('https://ipapi.co/json/').then((r) => r.json());
+      if (d?.latitude && d?.longitude) {
+        await fetchTimings(d.latitude, d.longitude);
+      } else {
+        setLoading(false);
+        setError('Could not estimate your location. Enter your city instead.');
+      }
+    } catch {
+      setLoading(false);
+      setError('Could not estimate your location. Enter your city instead.');
+    }
   }, [fetchTimings]);
 
   // On mount: check if we have cached timings for today
@@ -235,6 +275,8 @@ export function usePrayerTimes() {
     loading,
     error,
     requestLocation,
+    setCity,
+    requestApproximateLocation,
     cityName,
     allPrayers: timings
       ? PRAYER_NAMES.map((n) => ({ name: n, time: timings[n]?.replace(/\s*\(.*\)/, '') || '' }))

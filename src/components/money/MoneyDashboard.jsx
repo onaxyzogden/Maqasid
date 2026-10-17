@@ -6,6 +6,8 @@ import {
 } from 'lucide-react';
 import { useMoneyStore, formatCurrency, getInvoiceTotal } from '../../store/money-store';
 import ChartTooltip from '../shared/ChartTooltip';
+import { localDayKey } from '../../lib/format-date';
+import { rowActivation } from '../../lib/row-activation';
 
 /* ─── small helpers ─── */
 function fmt(n) { return formatCurrency(n); }
@@ -228,7 +230,7 @@ export default function MoneyDashboard({ onNavigate }) {
 
   // Invoice metrics
   const invoiceMetrics = useMemo(() => {
-    const now = new Date().toISOString().slice(0, 10);
+    const now = localDayKey();
     const enriched = invoices.map((inv) => ({
       ...inv,
       displayStatus: inv.status === 'sent' && inv.dueDate && inv.dueDate < now ? 'overdue' : inv.status,
@@ -276,11 +278,11 @@ export default function MoneyDashboard({ onNavigate }) {
 
         {/* Summary cards */}
         <div className="md-summary-stack">
-          <div className="md-card md-summary-item" onClick={() => onNavigate?.('income')} style={{ cursor: onNavigate ? 'pointer' : undefined }}>
+          <div className="md-card md-summary-item" {...rowActivation(() => onNavigate?.('income'))} style={{ cursor: onNavigate ? 'pointer' : undefined }}>
             <span className="md-label">Total income</span>
             <h3 className="md-mid-number">{fmt(totalIncome)}</h3>
           </div>
-          <div className="md-card md-summary-item" onClick={() => onNavigate?.('expenses')} style={{ cursor: onNavigate ? 'pointer' : undefined }}>
+          <div className="md-card md-summary-item" {...rowActivation(() => onNavigate?.('expenses'))} style={{ cursor: onNavigate ? 'pointer' : undefined }}>
             <span className="md-label">Total expenses</span>
             <h3 className="md-mid-number">{fmt(totalExpenses)}</h3>
           </div>
@@ -297,7 +299,7 @@ export default function MoneyDashboard({ onNavigate }) {
               <h4 style={{ fontWeight: 600 }}>Accounts</h4>
               <span className="md-label">{accounts.length} account{accounts.length !== 1 ? 's' : ''}</span>
             </div>
-            <span className="md-link" onClick={() => onNavigate?.('accounts')}>
+            <span className="md-link" {...rowActivation(() => onNavigate?.('accounts'), { role: 'link' })}>
               View all <ChevronRight size={14} />
             </span>
           </div>
@@ -337,7 +339,7 @@ export default function MoneyDashboard({ onNavigate }) {
               <h4 style={{ fontWeight: 600 }}>Monthly spending limit</h4>
               <span className="md-label">{monthlyBudget > 0 ? 'From your budgets' : 'Set budgets to track spending'}</span>
             </div>
-            <span className="md-link" onClick={() => onNavigate?.('budgets')}>
+            <span className="md-link" {...rowActivation(() => onNavigate?.('budgets'), { role: 'link' })}>
               View all <ChevronRight size={14} />
             </span>
           </div>
@@ -387,7 +389,7 @@ export default function MoneyDashboard({ onNavigate }) {
               <h4 style={{ fontWeight: 600 }}>Vendors</h4>
               <span className="md-label">{vendorMetrics.activeCount} active</span>
             </div>
-            <span className="md-link" onClick={() => onNavigate?.('vendors')}>
+            <span className="md-link" {...rowActivation(() => onNavigate?.('vendors'), { role: 'link' })}>
               View all <ChevronRight size={14} />
             </span>
           </div>
@@ -419,7 +421,7 @@ export default function MoneyDashboard({ onNavigate }) {
               <h4 style={{ fontWeight: 600 }}>Assets</h4>
               <span className="md-label">{assetMetrics.activeCount} active</span>
             </div>
-            <span className="md-link" onClick={() => onNavigate?.('assets')}>
+            <span className="md-link" {...rowActivation(() => onNavigate?.('assets'), { role: 'link' })}>
               View all <ChevronRight size={14} />
             </span>
           </div>
@@ -464,7 +466,7 @@ export default function MoneyDashboard({ onNavigate }) {
               <h4 style={{ fontWeight: 600 }}>Invoices</h4>
               <span className="md-label">{invoiceMetrics.total} total</span>
             </div>
-            <span className="md-link" onClick={() => onNavigate?.('income')}>
+            <span className="md-link" {...rowActivation(() => onNavigate?.('income'), { role: 'link' })}>
               View all <ChevronRight size={14} />
             </span>
           </div>
@@ -498,7 +500,7 @@ export default function MoneyDashboard({ onNavigate }) {
               <h4 style={{ fontWeight: 600 }}>Cost analysis</h4>
               <span className="md-label">Spending by category</span>
             </div>
-            <span className="md-link" onClick={() => onNavigate?.('expenses')}>
+            <span className="md-link" {...rowActivation(() => onNavigate?.('expenses'), { role: 'link' })}>
               View all <ChevronRight size={14} />
             </span>
           </div>
@@ -587,7 +589,7 @@ export default function MoneyDashboard({ onNavigate }) {
             <div>
               <h4 style={{ fontWeight: 600 }}>Budget tracker</h4>
             </div>
-            <span className="md-link" onClick={() => onNavigate?.('budgets')}>
+            <span className="md-link" {...rowActivation(() => onNavigate?.('budgets'), { role: 'link' })}>
               View all <ChevronRight size={14} />
             </span>
           </div>
@@ -624,7 +626,7 @@ export default function MoneyDashboard({ onNavigate }) {
         <div className="md-card md-transactions">
           <div className="md-card-head">
             <h4 style={{ fontWeight: 600 }}>Transaction history</h4>
-            <span className="md-link" onClick={() => onNavigate?.('income')}>
+            <span className="md-link" {...rowActivation(() => onNavigate?.('income'), { role: 'link' })}>
               View all <ChevronRight size={14} />
             </span>
           </div>

@@ -195,7 +195,7 @@
   justify-content: center;
   border: none;
   background: var(--primary-bg);
-  color: var(--primary);
+  color: var(--primary-text);
   cursor: pointer;
   border-radius: 50%;
   width: 18px;
@@ -371,3 +371,7 @@
   margin: 0;
   white-space: pre-wrap;
 }
+
+/* 44px hit area for the entry delete glyph without changing its look */
+.journal-panel__entry-remove { position: relative; }
+.journal-panel__entry-remove::after { content: ''; position: absolute; inset: -12px; }

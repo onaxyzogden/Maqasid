@@ -66,8 +66,10 @@ Board task counts after the 2026-07-27 dedupe: `ummah_community_growth` **6**,
 
 ## Adding a subtask to an existing seed task
 
-Unlike tasks, **new seed subtasks do reach already-seeded boards** — `backfillAndStripSeeds()`
-computes the set difference by title and appends what storage lacks, every boot. Two catches:
+**New seed subtasks (and new seed tasks) do reach already-seeded boards** — `backfillAndStripSeeds()`
+computes the set difference by title and appends what storage lacks, every boot. It never removes
+or re-tags anything: hydration only *adds* seed tags, so dropping a routing tag from a seed needs a
+migration (see `seedIstijabahTask`, 2026-10-16). Two catches:
 
 - **It appends at the END**, ignoring seed position, and it runs on `requestIdleCallback` *after*
   mount. If the subtask's position matters (a sequentially-locked chain — e.g. designing a curriculum
@@ -79,6 +81,22 @@ computes the set difference by title and appends what storage lacks, every boot.
   rename a subtask on a task listed in that table, update the table — the test will tell you.**
 - **Appending to a *completed* task re-opens it** in the orientation chain: `isTaskComplete` is pure
   `subtasks.every(satisfied)`.
+- **Moving a subtask to another task, or removing one, never reaches storage on its own.**
+  Hydration only backfills fields, and the backfill only appends. A moved or removed subtask needs
+  its own one-shot. See `restructureDuhaSubtasks` (2026-10-05: "Learn the time window for Duha
+  prayer" moved from `faith_salah_excellence` to the head of the Growth Duha task). Its
+  `DUHA_GROWTH_ORDER` is drift-guarded in `src/services/__tests__/duha-restructure.test.js`.
+- **Check the level, not just the index.** Prophetic Path nodes sort their pool by level first, so
+  a beginner step authored on a higher level always surfaces late. `node scripts/audit-task-order.mjs`
+  flags learn-after-practice, level regressions, near-duplicates and node-vs-`seq` contradictions.
+- **Retiring a seed task needs a prune.** The boot backfill never deletes, so list the title in a
+  `RETIRED_SEED_TASKS_*` table, pruned with `pruneRemovedSeedTasks`; a copy with progress is kept.
+  Renumber the board's `seq` afterwards, because the permutation test requires 0..n-1. Pass 2
+  (2026-10-05) retired "Sunan al-Nawm" this way. See `seedOrderAuditV2` in
+  [migration.js](../../services/migration.js).
+- **Node routing reads `transition:` tags.** `rowMatches` (prophetic-path-submodules.js) tests a
+  task's tags against a node's `transition:` matchers, so tagging a task `transition:<node>`
+  surfaces it there. Other matchers stay title-only.
 
 Subtask counts on the four `ummah_community_growth` tasks changed by the 2026-07-27 fold-in:
 sulh **6**, education **6**, youth **6**, bayt al-mal **7**

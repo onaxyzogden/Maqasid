@@ -40,7 +40,7 @@ h6 { font-size: var(--text-md); }
 .arabic { font-family: var(--font-arabic); direction: rtl; }
 .mono { font-family: var(--font-mono); font-size: var(--text-base); }
 
-a { color: var(--primary); text-decoration: none; transition: color var(--duration) var(--ease); }
+a { color: var(--primary-text); text-decoration: none; transition: color var(--duration) var(--ease); }
 a:hover { color: var(--primary-hover); }
 
 button {
@@ -58,7 +58,7 @@ button:active:not(:disabled) { transform: scale(0.97); }
 
 /* ── Keyboard focus ring — only visible for keyboard nav, not mouse ── */
 button:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--primary-strong);
   outline-offset: 2px;
   border-radius: var(--radius-xs);
 }
@@ -91,7 +91,7 @@ input:focus, textarea:focus, select:focus {
 
 /* Keyboard focus ring on inputs */
 input:focus-visible, textarea:focus-visible, select:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--primary-strong);
   outline-offset: 0;
 }
 
@@ -213,12 +213,12 @@ textarea:read-only {
   background: var(--surface); color: var(--text);
   border: 1px solid var(--border); box-shadow: var(--shadow-xs);
 }
-.btn-secondary:hover { border-color: var(--primary-border); color: var(--primary); }
+.btn-secondary:hover { border-color: var(--primary-border); color: var(--primary-text); }
 
 .btn-lg { padding: var(--space-4) var(--space-8); font-size: var(--text-md); border-radius: var(--radius-lg); }
 
 .btn-ghost { background: none; color: var(--text2); }
-.btn-ghost:hover { color: var(--primary); background: var(--primary-bg); }
+.btn-ghost:hover { color: var(--primary-text); background: var(--primary-bg); }
 
 /* ── Shared component styles (used across all modules) ── */
 
@@ -267,11 +267,11 @@ textarea:read-only {
   transition: all var(--duration) var(--ease);
 }
 .cat-filter-pill:hover { border-color: var(--border2); color: var(--text); }
-.cat-filter-pill.active { background: var(--primary-bg); color: var(--primary); border-color: var(--primary-border); }
+.cat-filter-pill.active { background: var(--primary-bg); color: var(--primary-text); border-color: var(--primary-border); }
 
 /* Amount styling */
 .amount { font-family: var(--font-mono); font-weight: 500; }
-.amount-positive { color: var(--success); }
+.amount-positive { color: var(--success-text); }
 .amount-negative { color: var(--danger); }
 
 /* Status badges */
@@ -281,19 +281,22 @@ textarea:read-only {
 }
 .status-draft { background: var(--bg4); color: var(--text3); }
 .status-sent { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
-.status-paid { background: var(--success-bg); color: var(--success); }
+.status-paid { background: var(--success-bg); color: var(--success-text); }
 .status-overdue { background: var(--danger-bg); color: var(--danger); }
 
 /* Row actions */
 .row-actions { display: flex; gap: var(--space-1); opacity: 0; transition: opacity var(--duration) var(--ease); }
-tr:hover .row-actions { opacity: 1; }
+tr:hover .row-actions, tr:focus-within .row-actions, .row-actions:focus-within { opacity: 1; }
 .row-action-btn {
+  position: relative;
   width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
   border-radius: var(--radius-xs); color: var(--text3); cursor: pointer;
   transition: all var(--duration) var(--ease);
 }
 .row-action-btn:hover { background: var(--bg3); color: var(--text); }
 .row-action-btn.danger:hover { background: var(--danger-bg); color: var(--danger); }
+/* Extend the hit area to 44px without changing the visual size */
+.row-action-btn::after { content: ''; position: absolute; inset: -8px; }
 
 /* Modal form overlay (shared across all modules) */
 .expense-form-overlay {
@@ -340,3 +343,31 @@ tr:hover .row-actions { opacity: 1; }
 
 /* Smooth scroll for anchor links */
 html { scroll-behavior: smooth; }
+
+/* Inline validation (useRequiredField + FieldError) */
+.field-error {
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--danger);
+}
+[aria-invalid="true"] {
+  border-color: var(--danger) !important;
+}
+
+/* 44px hit areas for small icon controls (WCAG 2.5.5) — an invisible ::after
+   pads the clickable region without changing the visual size. */
+.journal-panel__close,
+.discussion-panel__close,
+.money-slidein-close,
+.sidebar-toggle,
+.notif-tab {
+  position: relative;
+}
+.journal-panel__close::after,
+.discussion-panel__close::after { content: ''; position: absolute; inset: -10px; }
+.money-slidein-close::after { content: ''; position: absolute; inset: -9px; }
+.sidebar-toggle::after { content: ''; position: absolute; inset: -8px; }
+.col-edge__toggle::after { content: ''; position: absolute; inset: -8px -12px; }
+.notif-tab::after { content: ''; position: absolute; inset: -12px -6px; }
+.mobile-nav-item { min-width: 44px; min-height: 44px; justify-content: center; }

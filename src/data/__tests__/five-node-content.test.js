@@ -47,6 +47,7 @@ const TASKS_BY_BOARD = Object.fromEntries(
       id: `${id}::${t.title}`,
       title: t.title,
       priority: t.priority || 'medium',
+      tags: t.tags || [],
       columnId: 'todo',
       subtasks: t.subtasks || [],
     })),
@@ -85,7 +86,7 @@ const EXPECTED = {
     'Take the travel concessions fully — the fasting allowance and hastening back',
   ],
   'traveler-arrival': [
-    'Arrive back the prophetic way — the duʻaʻ of return',
+    'Return home from travel with the Prophet’s ﷺ sunnah',
   ],
 };
 

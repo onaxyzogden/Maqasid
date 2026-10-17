@@ -1,6 +1,7 @@
 // BBOS Pipeline Dashboard - left rail (header + cycle progress + stage nodes).
 import { Arc, Ornament } from "./primitives";
 import { gateNodeIcon, layerVars } from "./palette";
+import { rowActivation } from '../../../lib/row-activation';
 
 // StageNode is a <button>, so its children are spans (phrasing content only);
 // the CSS gives them their block/flex layout.
@@ -16,7 +17,7 @@ function StageNode({ stage, isSelected, onClick }) {
       aria-disabled={isLocked ? "true" : undefined}
       aria-label={`Stage ${stage.n} ${stage.name}, ${isLocked ? "locked" : `${stage.progress}% complete`}`}
       style={layerVars(stage.layer)}
-      onClick={() => !isLocked && onClick(stage)}
+      {...rowActivation(() => !isLocked && onClick(stage))}
     >
       <span className="bpd-stagenode__row">
         <Arc pct={stage.progress} status={stage.status} size={36} />

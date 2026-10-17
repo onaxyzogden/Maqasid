@@ -45,3 +45,7 @@
   font-style: italic;
   text-align: center;
 }
+
+/* Vertical padding on an inline link grows its hit area (15px → 25px, WCAG
+   2.5.8) without changing the line box, so the text doesn't move. */
+.hc__english a { padding-block: 5px; }

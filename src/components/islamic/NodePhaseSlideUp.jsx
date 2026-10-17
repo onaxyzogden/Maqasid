@@ -33,6 +33,7 @@ import { educationSubmoduleIds } from './prophetic-path-education';
 import { PRAYER_NODE_IDS, THRESHOLD_MODULE_BY_NODE } from './prophetic-path-constants';
 import './PropheticPath.css';
 import './NodePhaseSlideUp.css';
+import { onTablistKeyDown } from '../../utils/tablist-keys';
 
 // The single entry point for a Prophetic Path node. Replaces the old
 // Before/After satellite buttons, which CSS hid on every node that was not
@@ -87,6 +88,15 @@ const PHASES = [
 // wiki/decisions/2026-07-27-milos-prayer-board-ordering.md. Note the Maghrib
 // reset collapses `order` to 0 (task-store.js), so `seedOrder` is the only
 // stable ordering these boards have.
+// Wall-clock reads for the popup, taken in an effect (react-hooks/purity): the
+// Islamic-day key for snooze targeting and eligibility, and the start of the
+// local day — tasks completed since then stay in a node's chain until tomorrow.
+function readDay(maghribRaw) {
+  const start = new Date();
+  start.setHours(0, 0, 0, 0);
+  return { key: computeTodayKey(maghribRaw), startMs: start.getTime() };
+}
+
 function buildPrayerPhaseTasks(prayerId, phase, projects, tasksByProject, submoduleName) {
   const projectId = `${PRAYER_BOARD_PREFIX}_${prayerId}_${phase}`;
   const project = (projects || []).find((p) => p.id === projectId);
@@ -116,8 +126,8 @@ function buildPrayerPhaseTasks(prayerId, phase, projects, tasksByProject, submod
 // Education pool for ONE submodule at ONE level, already curriculum-ordered by
 // seed order via orderBoardTasks — the same reasoning buildPrayerPhaseTasks
 // uses for prayer windows (this pool is a whole board, so seed order IS the
-// curriculum order; buildTasksForNode's level/priority/due sort exists only
-// because its keyword-filtered slice has no meaningful seed order). Completed
+// curriculum order; buildTasksForNode spans several boards, so it adds level,
+// due-date and board keys ahead of the same seed order). Completed
 // rows are kept, also matching the prayer branch: the stepper shows the whole
 // chain, done pills collapse to checks, and browsing back onto one is how
 // revert works. `projectTaskRow`'s canonicalId override addresses the board BY
@@ -157,13 +167,15 @@ export default function NodePhaseSlideUp({
   const [moduleId, setModuleId] = useState(() => moduleGroups[0]?.id || null);
   const [viewMode, setViewMode] = useState('action');
 
-  // Islamic-day key for snooze targeting + eligibility, computed in an effect
-  // so the wall-clock read stays out of render (react-hooks/purity) — same
-  // sanctioned pattern as Orientation.jsx.
-  const [todayKey, setTodayKey] = useState(null);
+  // Islamic-day key + start of the local day, computed in an effect so the
+  // wall-clock read stays out of render (react-hooks/purity) — same sanctioned
+  // pattern as Orientation.jsx. See readDay.
+  const [day, setDay] = useState({ key: null, startMs: null });
   useEffect(() => {
-    setTodayKey(computeTodayKey(maghribRaw));
+    setDay(readDay(maghribRaw));
   }, [maghribRaw]);
+  const todayKey = day.key;
+  const todayStartMs = day.startMs;
 
   const panelRef = useFocusTrap(true, onClose);
 
@@ -190,8 +202,9 @@ export default function NodePhaseSlideUp({
         submoduleNameById,
         phase: null,
         moduleId,
+        keepCompletedSince: todayStartMs,
       })),
-    [isPrayerNode, node.id, phase, projects, tasksByProject, submoduleNameById, moduleId],
+    [isPrayerNode, node.id, phase, projects, tasksByProject, submoduleNameById, moduleId, todayStartMs],
   );
 
   // Education scope: submodule ids available for this node/moduleGroup, the
@@ -259,8 +272,9 @@ export default function NodePhaseSlideUp({
       ? currentRow.subtasks[currentSubtaskIndex]
       : null;
 
-    // Same store actions as Orientation. toggleSubtask never sets task
-    // completedAt, so acting on the last step keeps the row in the chain —
+    // Same store actions as Orientation. Satisfying the last step now completes
+    // the task (Done + completedAt, services/task-completion.js); the pool keeps
+    // rows completed today (keepCompletedSince), so the row stays in the chain —
     // the stepper stays put and shows the satisfied state (no auto-navigation).
     const handleMarkDone = () => {
       if (!currentRow || !currentSubtask) return;
@@ -372,13 +386,14 @@ export default function NodePhaseSlideUp({
   const educationPills = (
     <div className="pp-edu-switches">
       {educationSubs.length > 1 && (
-        <div className="pp-pill-switch" role="tablist" aria-label="Submodule">
+        <div className="pp-pill-switch" role="tablist" onKeyDown={onTablistKeyDown} aria-label="Submodule">
           {educationSubs.map((id) => (
             <button
               key={id}
               type="button"
               role="tab"
               aria-selected={activeSubmoduleId === id}
+              tabIndex={(activeSubmoduleId === id) ? 0 : -1}
               className="pp-pill-switch__btn"
               data-active={activeSubmoduleId === id || undefined}
               onClick={() => setSelectedSubmoduleId(id)}
@@ -388,13 +403,14 @@ export default function NodePhaseSlideUp({
           ))}
         </div>
       )}
-      <div className="pp-pill-switch" role="tablist" aria-label="Level">
+      <div className="pp-pill-switch" role="tablist" onKeyDown={onTablistKeyDown} aria-label="Level">
         {TIERS.map((level) => (
           <button
             key={level}
             type="button"
             role="tab"
             aria-selected={activeLevel === level}
+            tabIndex={(activeLevel === level) ? 0 : -1}
             className="pp-pill-switch__btn"
             data-active={activeLevel === level || undefined}
             onClick={() => setSelectedLevel(level)}
@@ -536,7 +552,7 @@ export default function NodePhaseSlideUp({
           </header>
 
           <div className="pp-phase-panel__tabs">
-            <div className="pp-pill-switch" role="tablist" aria-label="Phase">
+            <div className="pp-pill-switch" role="tablist" onKeyDown={onTablistKeyDown} aria-label="Phase">
               {PHASES.map((p) => (
                 <button
                   key={p.id}
@@ -544,6 +560,7 @@ export default function NodePhaseSlideUp({
                   role="tab"
                   id={`pp-phase-tab-${p.id}`}
                   aria-selected={phase === p.id}
+                  tabIndex={(phase === p.id) ? 0 : -1}
                   aria-controls={`pp-phase-body-${p.id}`}
                   className="pp-pill-switch__btn"
                   data-active={phase === p.id || undefined}

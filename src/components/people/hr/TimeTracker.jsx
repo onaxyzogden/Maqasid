@@ -1,13 +1,14 @@
 import { useState, useMemo } from 'react';
 import { Plus, Clock, ChevronLeft, ChevronRight, X, Users } from 'lucide-react';
 import { usePeopleStore, getInitials } from '@store/people-store';
+import { localDayKey } from '../../../lib/format-date';
 
 function getMonday(dateStr) {
   const d = new Date(dateStr + 'T12:00:00');
   const day = d.getDay();
   const diff = d.getDate() - day + (day === 0 ? -6 : 1);
   d.setDate(diff);
-  return d.toISOString().slice(0, 10);
+  return localDayKey(d);
 }
 
 function getWeekDates(mondayStr) {
@@ -15,7 +16,7 @@ function getWeekDates(mondayStr) {
   for (let i = 0; i < 7; i++) {
     const d = new Date(mondayStr + 'T12:00:00');
     d.setDate(d.getDate() + i);
-    dates.push({ date: d.toISOString().slice(0, 10), label: d.toLocaleDateString('en', { weekday: 'short', day: 'numeric' }) });
+    dates.push({ date: localDayKey(d), label: d.toLocaleDateString('en', { weekday: 'short', day: 'numeric' }) });
   }
   return dates;
 }
@@ -25,7 +26,7 @@ export default function TimeTracker() {
   const timeEntries = usePeopleStore((s) => s.timeEntries);
   const departments = usePeopleStore((s) => s.departments);
   const addTimeEntry = usePeopleStore((s) => s.addTimeEntry);
-  const [selectedDate, setSelectedDate] = useState(new Date().toISOString().slice(0, 10));
+  const [selectedDate, setSelectedDate] = useState(localDayKey());
   const [showForm, setShowForm] = useState(false);
   const [fEmpId, setFEmpId] = useState('');
   const [fDate, setFDate] = useState(selectedDate);
@@ -54,7 +55,7 @@ export default function TimeTracker() {
   const changeWeek = (offset) => {
     const d = new Date(monday + 'T12:00:00');
     d.setDate(d.getDate() + offset * 7);
-    setSelectedDate(d.toISOString().slice(0, 10));
+    setSelectedDate(localDayKey(d));
   };
 
   if (employees.length === 0) {

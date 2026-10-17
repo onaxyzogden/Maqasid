@@ -4,6 +4,8 @@ import { useMoneyStore } from '../../store/money-store';
 import { useToastStore } from '../../store/toast-store';
 import { CURRENCIES } from '@data/config/money-categories';
 import CategoryPanel from './CategoryPanel';
+import { localDayKey } from '../../lib/format-date';
+import SlideIn from '../shared/SlideIn';
 
 export default function ExpensePanel({ expense, onClose }) {
   const categories = useMoneyStore((s) => s.categories);
@@ -42,7 +44,7 @@ export default function ExpensePanel({ expense, onClose }) {
       updateExpense(expense.id, data);
       addToast({ message: 'Expense updated', type: 'success', variant: 'chip' });
     } else {
-      addExpense({ ...data, date: new Date().toISOString().slice(0, 10) });
+      addExpense({ ...data, date: localDayKey() });
       addToast({ message: 'Expense added', type: 'success', variant: 'chip' });
     }
     onClose();
@@ -100,8 +102,7 @@ export default function ExpensePanel({ expense, onClose }) {
 
   return (
     <>
-    <div className="money-slidein-overlay" onClick={onClose}>
-      <div className="money-slidein" onClick={(e) => e.stopPropagation()}>
+    <SlideIn onClose={onClose} label="Expense" active={!categoryPanelOpen}>
         <div className="money-slidein-header">
           <div style={{ display: 'flex', gap: 'var(--space-2)' }}>
             <button type="button" className={`money-status-toggle ${status === 'paid' ? 'active-paid' : ''}`} onClick={() => setStatus('paid')}>Paid</button>
@@ -220,8 +221,7 @@ export default function ExpensePanel({ expense, onClose }) {
             {isEdit ? 'Save' : 'Add Expense'}
           </button>
         </div>
-      </div>
-    </div>
+      </SlideIn>
     <CategoryPanel
       open={categoryPanelOpen}
       category={categoryPanelCategory}

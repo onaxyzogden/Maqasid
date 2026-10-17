@@ -7,6 +7,7 @@ import { orderBoardTasks } from '../../data/orientation-selector';
 import ScopeGate from '../shared/ScopeGate';
 import EmptyState from '../shared/EmptyState';
 import './ListView.css';
+import { rowActivation } from '../../lib/row-activation';
 
 export default function ListView({ project, onSelectTask, filters, bbosRole, bbosFilter }) {
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
@@ -53,7 +54,7 @@ export default function ListView({ project, onSelectTask, filters, bbosRole, bbo
               const subtaskDone = task.subtasks?.filter((s) => s.done).length || 0;
               const subtaskTotal = task.subtasks?.length || 0;
               return (
-                <tr key={task.id} onClick={() => onSelectTask(task.id)} className="list-row">
+                <tr key={task.id} {...rowActivation(() => onSelectTask(task.id), { role: null })} className="list-row">
                   <td>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
                       <div style={{ width: 3, height: 20, borderRadius: 2, background: pri?.color || 'var(--text3)', flexShrink: 0 }} />

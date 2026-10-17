@@ -28,13 +28,12 @@ export default function DetailPanelHeader({ entry, displayName, onClose }) {
           <button
             onClick={() => updateContact(entry.id, { contactType: 'lead', leadStatus: 'pending_contact' })}
             title="Add to Pipeline"
-            style={{ ...btnStyle, color: 'var(--mod-people)' }}
-          >
-            <TrendingUp size={16} />
+            style={{ ...btnStyle, color: 'var(--mod-people)' }} aria-label="Add to Pipeline">
+            <TrendingUp size={16} aria-hidden="true" />
           </button>
         )}
-        <button onClick={editPanelOpen ? closeEditPanel : openEditPanel} title="Edit" style={btnStyle}>
-          <Edit2 size={16} />
+        <button onClick={editPanelOpen ? closeEditPanel : openEditPanel} title="Edit" style={btnStyle} aria-label="Edit">
+          <Edit2 size={16} aria-hidden="true" />
         </button>
         <button onClick={onClose} style={btnStyle}>
           <X size={18} />

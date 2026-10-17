@@ -74,7 +74,7 @@
 .os-chip--done {
   background: var(--success-bg);
   border-color: var(--success-border);
-  color: var(--success);
+  color: var(--success-text);
 }
 
 /* current — the one actionable step: primary fill treatment */
@@ -82,7 +82,7 @@
 .os-chip--current {
   background: var(--primary-bg2);
   border-color: var(--primary);
-  color: var(--primary);
+  color: var(--primary-text);
   font-weight: 700;
 }
 
@@ -102,7 +102,7 @@
 .os-chip--snoozed {
   background: var(--warning-bg);
   border-color: var(--warning-border);
-  color: var(--warning);
+  color: var(--warning-text);
 }
 
 .os-stepper__pill:hover,
@@ -120,6 +120,6 @@
 
 .os-stepper__pill:focus-visible,
 .os-chip:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--primary-strong);
   outline-offset: 2px;
 }

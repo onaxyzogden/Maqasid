@@ -7,7 +7,9 @@ import { useTaskStore } from '../../store/task-store';
 import { useAuthStore } from '../../store/auth-store';
 import { useContactsStore } from '../../store/contacts-store';
 import { useOfficeStore } from '../../store/office-store';
+import { safeGet, safeSet } from '../../services/storage';
 import './NotificationsPanel.css';
+import { onTablistKeyDown } from '../../utils/tablist-keys';
 
 function relativeTime(iso) {
   if (!iso) return '';
@@ -25,6 +27,8 @@ function relativeTime(iso) {
 export default function NotificationsPanel({ onClose }) {
   const trapRef = useFocusTrap(true, onClose);
   const [tab, setTab] = useState('all');
+  // Notifications are derived from activity; "read" = older than the last mark-read.
+  const [seenAt, setSeenAt] = useState(() => safeGet('notif_seen_at') || '');
   const user = useAuthStore((s) => s.user);
   const projects = useProjectStore((s) => s.projects);
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
@@ -130,6 +134,13 @@ export default function NotificationsPanel({ onClose }) {
       .slice(0, 50);
   }, [allTasks, projects, contacts, events, firstName, initials, projectMap]);
 
+  const unreadCount = notifications.filter((n) => (n.time || '') > seenAt).length;
+  const markAllRead = () => {
+    const now = new Date().toISOString();
+    safeSet('notif_seen_at', now);
+    setSeenAt(now);
+  };
+
   const visible = tab === 'mine'
     ? notifications.filter((n) => n.isMine)
     : notifications;
@@ -146,12 +157,13 @@ export default function NotificationsPanel({ onClose }) {
         </div>
 
         {/* Tabs */}
-        <div className="notif-panel__tabs">
+        <div className="notif-panel__tabs" role="tablist" onKeyDown={onTablistKeyDown} aria-label="Notification filter">
           <button
             className={`notif-tab ${tab === 'all' ? 'active' : ''}`}
             onClick={() => setTab('all')}
             role="tab"
             aria-selected={tab === 'all'}
+            tabIndex={(tab === 'all') ? 0 : -1}
           >All</button>
           <span className="notif-tab-sep">/</span>
           <button
@@ -159,6 +171,7 @@ export default function NotificationsPanel({ onClose }) {
             onClick={() => setTab('mine')}
             role="tab"
             aria-selected={tab === 'mine'}
+            tabIndex={(tab === 'mine') ? 0 : -1}
           >Mine</button>
         </div>
 
@@ -168,10 +181,13 @@ export default function NotificationsPanel({ onClose }) {
             <div className="notif-empty">No notifications yet</div>
           )}
           {visible.map((n) => (
-            <div key={n.id} className="notif-item">
+            <div key={n.id} className={`notif-item${(n.time || '') > seenAt ? ' notif-item--unread' : ''}`}>
               <div className="notif-item__avatar">{n.initials}</div>
               <div className="notif-item__body">
-                <div className="notif-item__time">{relativeTime(n.time)}</div>
+                <div className="notif-item__time">
+                  {(n.time || '') > seenAt && <span className="notif-item__new">New · </span>}
+                  {relativeTime(n.time)}
+                </div>
                 <div className="notif-item__text">
                   <strong>{n.user}</strong> {n.text}
                 </div>
@@ -185,7 +201,9 @@ export default function NotificationsPanel({ onClose }) {
 
         {/* Footer */}
         <div className="notif-panel__footer">
-          <button className="notif-mark-read">Mark all as read</button>
+          <button className="notif-mark-read" onClick={markAllRead} disabled={unreadCount === 0}>
+            {unreadCount === 0 ? 'All caught up' : `Mark all as read (${unreadCount})`}
+          </button>
         </div>
       </div>
     </div>,

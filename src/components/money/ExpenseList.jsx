@@ -1,8 +1,10 @@
 import { useState, useMemo } from 'react';
-import { Plus, Receipt, TrendingUp, TrendingDown, BarChart3, DollarSign, ChevronRight, Search, MoreVertical } from 'lucide-react';
+import { Plus, Receipt, TrendingUp, TrendingDown, BarChart3, DollarSign, ChevronRight, Search, Pencil } from 'lucide-react';
 import { useMoneyStore, formatCurrency } from '../../store/money-store';
 import ExpensePanel from './ExpensePanel';
 import './ExpenseList.css';
+import { localDayKey, formatDate } from '../../lib/format-date';
+import { rowActivation } from '../../lib/row-activation';
 
 const PAGE_SIZES = [10, 20, 30, 50];
 
@@ -14,7 +16,7 @@ export default function ExpenseList() {
   const [catFilter, setCatFilter] = useState('all');
   const [search, setSearch] = useState('');
   const [startDate, setStartDate] = useState(new Date().getFullYear() + '-01-01');
-  const [endDate, setEndDate] = useState(new Date().toISOString().slice(0, 10));
+  const [endDate, setEndDate] = useState(localDayKey());
   const [showPanel, setShowPanel] = useState(false);
   const [editExpense, setEditExpense] = useState(null);
   const [page, setPage] = useState(1);
@@ -127,12 +129,12 @@ export default function ExpenseList() {
         <div className="expense-filter-right">
           <div className="money-search-compact">
             <Search size={14} />
-            <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search" />
+            <input aria-label="Search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search" />
           </div>
           <div className="money-date-range">
-            <div className="money-date-field"><span>Start</span><input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} /></div>
+            <label className="money-date-field"><span>Start</span><input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} /></label>
             <span className="money-date-sep">&mdash;</span>
-            <div className="money-date-field"><span>End</span><input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} /></div>
+            <label className="money-date-field"><span>End</span><input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} /></label>
           </div>
           <button className="btn btn-primary" onClick={() => { setEditExpense(null); setShowPanel(true); }} style={{ background: 'var(--mod-money)' }}>
             <Plus size={14} /> Add Expense
@@ -174,18 +176,26 @@ export default function ExpenseList() {
                 const cat = catMap[exp.categoryId];
                 const vendor = vendorMap[exp.vendorId];
                 return (
-                  <tr key={exp.id} className="expense-row" onClick={() => handleEdit(exp)}>
-                    <td>{new Date(exp.date || exp.createdAt).toLocaleDateString('en', { month: 'short', day: '2-digit', year: 'numeric' })}</td>
+                  <tr key={exp.id} className="expense-row" {...rowActivation(() => handleEdit(exp), { role: null })}>
+                    <td>{formatDate(exp.date || exp.createdAt, 'short')}</td>
                     <td>{vendor?.name || exp.payee || '—'}</td>
                     <td className="expense-name-cell">{exp.description || '—'}</td>
                     <td>{cat?.name || '—'}</td>
-                    <td>{exp.dueDate ? new Date(exp.dueDate).toLocaleDateString('en', { month: 'short', day: '2-digit', year: 'numeric' }) : '—'}</td>
-                    <td>{exp.datePaid ? new Date(exp.datePaid).toLocaleDateString('en', { month: 'short', day: '2-digit', year: 'numeric' }) : '—'}</td>
+                    <td>{formatDate(exp.dueDate, 'short', '—')}</td>
+                    <td>{formatDate(exp.datePaid, 'short', '—')}</td>
                     <td><span className={`status-badge status-${exp.status || 'unpaid'}`}>{exp.status === 'paid' ? 'Paid' : 'Unpaid'}</span></td>
                     <td style={{ textAlign: 'right' }}>
                       <span className="amount" style={{ color: 'var(--danger)' }}>-{formatCurrency(exp.amount, exp.currency || currency)}</span>
                     </td>
-                    <td onClick={(e) => e.stopPropagation()}><button className="row-action-btn"><MoreVertical size={14} /></button></td>
+                    <td onClick={(e) => e.stopPropagation()}>
+                      <button
+                        className="row-action-btn"
+                        onClick={() => handleEdit(exp)}
+                        aria-label={`Edit expense: ${exp.description || vendor?.name || exp.payee || 'untitled'}`}
+                      >
+                        <Pencil size={14} aria-hidden="true" />
+                      </button>
+                    </td>
                   </tr>
                 );
               })}
@@ -199,7 +209,7 @@ export default function ExpenseList() {
           <div className="expense-pagination">
             <div className="expense-pagination-size">
               Rows per page:
-              <select value={pageSize} onChange={(e) => { setPageSize(Number(e.target.value)); setPage(1); }}>
+              <select aria-label="Rows per page" value={pageSize} onChange={(e) => { setPageSize(Number(e.target.value)); setPage(1); }}>
                 {PAGE_SIZES.map((s) => <option key={s} value={s}>{s}</option>)}
               </select>
             </div>

@@ -66,7 +66,7 @@
   flex-shrink: 0;
   font-family: var(--font-heading);
   background: var(--accent-bg);
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .dtc__card-head-info {
   display: flex;
@@ -129,7 +129,7 @@
 .dtc__chip--glabel {
   letter-spacing: 0.1em;
   background: color-mix(in srgb, var(--primary) 12%, transparent);
-  color: var(--primary);
+  color: var(--primary-text);
   font-size: var(--text-xs);
   padding: 2px 6px;
 }

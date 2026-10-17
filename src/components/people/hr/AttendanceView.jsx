@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, Save, Users } from 'lucide-react';
 import { usePeopleStore, getInitials } from '@store/people-store';
 import { ATTENDANCE_STATUSES } from '@data/config/people-departments';
 import './AttendanceView.css';
+import { localDayKey } from '../../../lib/format-date';
 
 export default function AttendanceView() {
   const employees = usePeopleStore((s) => s.employees);
@@ -10,7 +11,7 @@ export default function AttendanceView() {
   const departments = usePeopleStore((s) => s.departments);
   const setDayAttendance = usePeopleStore((s) => s.setDayAttendance);
 
-  const [selectedDate, setSelectedDate] = useState(new Date().toISOString().slice(0, 10));
+  const [selectedDate, setSelectedDate] = useState(localDayKey());
   const [localRecords, setLocalRecords] = useState(null);
   const [saved, setSaved] = useState(false);
 
@@ -44,9 +45,9 @@ export default function AttendanceView() {
 
   // Reset local when date changes
   const changeDate = (offset) => {
-    const d = new Date(selectedDate);
+    const d = new Date(selectedDate + 'T12:00:00');
     d.setDate(d.getDate() + offset);
-    setSelectedDate(d.toISOString().slice(0, 10));
+    setSelectedDate(localDayKey(d));
     setLocalRecords(null);
     setSaved(false);
   };
@@ -69,7 +70,7 @@ export default function AttendanceView() {
         <button className="btn btn-ghost" onClick={() => changeDate(-1)}><ChevronLeft size={16} /></button>
         <span className="att-date-label">{dateLabel}</span>
         <button className="btn btn-ghost" onClick={() => changeDate(1)}><ChevronRight size={16} /></button>
-        <button className="btn btn-ghost" onClick={() => { setSelectedDate(new Date().toISOString().slice(0, 10)); setLocalRecords(null); }} style={{ marginLeft: 'var(--space-2)', fontSize: '0.8rem' }}>Today</button>
+        <button className="btn btn-ghost" onClick={() => { setSelectedDate(localDayKey()); setLocalRecords(null); }} style={{ marginLeft: 'var(--space-2)', fontSize: '0.8rem' }}>Today</button>
       </div>
 
       <div style={{ display: 'flex', gap: 'var(--space-2)', marginBottom: 'var(--space-4)' }}>

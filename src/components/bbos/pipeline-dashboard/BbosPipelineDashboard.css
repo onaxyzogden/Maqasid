@@ -122,7 +122,7 @@
 }
 .bpd button, .bpd-modal-overlay button { font-family: inherit; }
 .bpd input, .bpd textarea,
-.bpd-modal-overlay input, .bpd-modal-overlay textarea { outline: none; font-family: inherit; }
+.bpd-modal-overlay input, .bpd-modal-overlay textarea { font-family: inherit; }
 /* Keyboard focus ring (WCAG 2.4.7). Mouse clicks don't trigger :focus-visible on
    buttons, so the look is unchanged for pointer users. Text fields keep their gold
    border-on-focus and also get the ring. */

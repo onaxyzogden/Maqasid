@@ -504,7 +504,7 @@ export default function Landing() {
           <div className="expense-form-modal landing-login-modal">
             <div className="expense-form-header">
               <h3>Continue locally</h3>
-              <button className="expense-form-close" onClick={() => setShowLogin(false)}><X size={18} /></button>
+              <button className="expense-form-close" onClick={() => setShowLogin(false)} aria-label="Close sign-in"><X size={18} aria-hidden="true" /></button>
             </div>
             <div className="expense-form-body">
               <p className="landing-login-note">

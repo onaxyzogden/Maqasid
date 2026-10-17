@@ -8,7 +8,6 @@ import EmployeeCard from './EmployeeCard';
 import AddEmployeeModal from './AddEmployeeModal';
 import EmptyState from '../../shared/EmptyState';
 import AddDepartmentModal from './AddDepartmentModal';
-import DetailPanel from '../detail/DetailPanel';
 import TimesheetTab from './TimesheetTab';
 import SalariesTab from './SalariesTab';
 import StatsTab from './StatsTab';
@@ -30,7 +29,6 @@ export default function HRPage() {
   const contacts        = useContactsStore((s) => s.contacts);
   const selectContact   = useContactsStore((s) => s.selectContact);
   const archiveContact  = useContactsStore((s) => s.archiveContact);
-  const panelOpen       = useContactsStore((s) => s.panelOpen);
 
   // Merge people-store employees + contacts-store employee-type contacts
   const employees = useMemo(() => {
@@ -286,7 +284,6 @@ export default function HRPage() {
 
       {showAddEmp && <AddEmployeeModal onClose={() => setShowAddEmp(false)} />}
       {showAddDept && <AddDepartmentModal onClose={() => setShowAddDept(false)} />}
-      {panelOpen && <DetailPanel />}
     </div>
   );
 }

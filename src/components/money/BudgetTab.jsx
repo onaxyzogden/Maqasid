@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Plus, Search, X, Pencil, Trash2, Target, TrendingUp, TrendingDown, AlertTriangle } from 'lucide-react';
 import { useMoneyStore, formatCurrency } from '../../store/money-store';
+import SlideIn from '../shared/SlideIn';
 
 /* ─── helpers ─── */
 const fmt = (n) => formatCurrency(n);
@@ -34,16 +35,15 @@ function BudgetPanel({ budget, usedCategoryIds, onClose }) {
   };
 
   return (
-    <div className="money-slidein-overlay" onClick={onClose}>
-      <div className="money-slidein" onClick={(e) => e.stopPropagation()}>
+    <SlideIn onClose={onClose} label="Budget">
         <div className="money-slidein-header">
           <h3>{isEdit ? 'Edit Budget' : 'Add Budget'}</h3>
-          <button className="money-slidein-close" onClick={onClose}><X size={18} /></button>
+          <button className="money-slidein-close" onClick={onClose} aria-label="Close panel"><X size={18} /></button>
         </div>
         <div className="money-slidein-body">
           <div className="money-field">
-            <label>Category *</label>
-            <select value={categoryId} onChange={(e) => setCategoryId(e.target.value)}>
+            <label htmlFor="budgettab-category">Category *</label>
+            <select id="budgettab-category" value={categoryId} onChange={(e) => setCategoryId(e.target.value)}>
               <option value="">Select a category</option>
               {availableCategories.map((c) => (
                 <option key={c.id} value={c.id}>{c.name}</option>
@@ -51,8 +51,8 @@ function BudgetPanel({ budget, usedCategoryIds, onClose }) {
             </select>
           </div>
           <div className="money-field">
-            <label>Monthly Limit *</label>
-            <input
+            <label htmlFor="budgettab-monthly-limit">Monthly Limit *</label>
+            <input id="budgettab-monthly-limit"
               type="number"
               min="0"
               step="0.01"
@@ -73,8 +73,7 @@ function BudgetPanel({ budget, usedCategoryIds, onClose }) {
             {isEdit ? 'Save' : 'Add Budget'}
           </button>
         </div>
-      </div>
-    </div>
+      </SlideIn>
   );
 }
 
@@ -157,7 +156,7 @@ export default function BudgetTab() {
       {budgets.length > 0 && (
         <div className="money-search-bar">
           <Search size={14} className="money-search-icon" />
-          <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search by category" className="money-search-input" />
+          <input aria-label="Search by category" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search by category" className="money-search-input" />
         </div>
       )}
 
@@ -202,11 +201,11 @@ export default function BudgetTab() {
                   <span className="budget-cat-name">{b.cat?.name || 'Unknown'}</span>
                 </div>
                 <div className="row-actions">
-                  <button className="row-action-btn" onClick={() => { setEditBudget(b); setShowPanel(true); }} title="Edit">
-                    <Pencil size={14} />
+                  <button className="row-action-btn" onClick={() => { setEditBudget(b); setShowPanel(true); }} title="Edit" aria-label={`Edit ${b.cat?.name || 'category'} budget`}>
+                    <Pencil size={14} aria-hidden="true" />
                   </button>
-                  <button className="row-action-btn danger" onClick={() => { if (confirm('Delete this budget?')) deleteBudget(b.id); }} title="Delete">
-                    <Trash2 size={14} />
+                  <button className="row-action-btn danger" onClick={() => { if (confirm('Delete this budget?')) deleteBudget(b.id); }} title="Delete" aria-label={`Delete ${b.cat?.name || 'category'} budget`}>
+                    <Trash2 size={14} aria-hidden="true" />
                   </button>
                 </div>
               </div>

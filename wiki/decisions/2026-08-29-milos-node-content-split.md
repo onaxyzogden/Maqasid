@@ -200,3 +200,15 @@ Fajr 4/4, Dhuhr 3/2, Asr 3/3, Maghrib 3/3, Isha 3/5, Tahajjud 4/3.
   Before/After tasks-only, which this change fills with per-prayer content
 - [[2026-04-18-milos-grounding-two-axis]] — the `sources[]` schema every derived
   and authored row satisfies
+
+## Partly superseded (2026-10-17, merge of main into PR #56)
+
+**Kept:** the per-prayer Before/After content and the end of the generic fan-out.
+`pruneSplitSeedRows` now drops only the three fanned-out prayer-board copies, under
+the flag const `PRAYER_FANOUT_FLAG`. The stored key is still
+`seed_node_content_split_v1`.
+
+**Dropped:** its istijabah half. Main's `applyIstijabahTask` (`seed_istijabah_task_v1`)
+moves that step instead. Main's buildTasksForNode replaced the "no fallback" rule:
+prayer nodes keep the fallback to the open pool, and other nodes show only their own
+tasks.

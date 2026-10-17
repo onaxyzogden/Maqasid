@@ -6,6 +6,7 @@ import { PRIORITIES } from '../../data/modules';
 import ScopeGate from '../shared/ScopeGate';
 import EmptyState from '../shared/EmptyState';
 import './GanttView.css';
+import { rowActivation } from '../../lib/row-activation';
 
 /* ── helpers ── */
 function toDay(d) { return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
@@ -203,7 +204,7 @@ export default function GanttView({ project, onSelectTask, filters, bbosRole, bb
               <div
                 key={t.id}
                 className="gantt-table-row"
-                onClick={() => onSelectTask(t.id)}
+                {...rowActivation(() => onSelectTask(t.id))}
                 style={{ height: ROW_H }}
               >
                 <div className="gantt-td gantt-td--name">
@@ -242,7 +243,7 @@ export default function GanttView({ project, onSelectTask, filters, bbosRole, bb
               <div
                 key={t.id}
                 className="gantt-table-row gantt-table-row--undated"
-                onClick={() => onSelectTask(t.id)}
+                {...rowActivation(() => onSelectTask(t.id))}
                 style={{ height: ROW_H }}
               >
                 <div className="gantt-td gantt-td--name">
@@ -372,7 +373,7 @@ export default function GanttView({ project, onSelectTask, filters, bbosRole, bb
                       background: `${barColor}20`,
                       borderLeft: `3px solid ${barColor}`,
                     }}
-                    onClick={() => onSelectTask(t.id)}
+                    {...rowActivation(() => onSelectTask(t.id))}
                     title={`${t.title}\n${fmtFull(t._start)} → ${fmtFull(t._end)}`}
                   >
                     <span className="gantt-bar-label truncate">{t.title}</span>

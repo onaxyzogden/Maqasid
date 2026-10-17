@@ -16,16 +16,18 @@ HR, contacts, recruitment, and sales pipeline management. Organized into domain 
 
 ## Architecture
 ```
+People (src/pages/modules/People.jsx)
+├── ContactsPage | HRPage | SalesPipelinePage | RecruitmentPage (by section)
+└── DetailPanel → DetailPanelHeader + DetailPanelTabs (11 tabs)  — when panelOpen
+
 HRPage (5 tabs: employees, timesheet, salaries, stats, organization)
 ├── EmployeeCard[] (grid)
-├── DetailPanel → DetailPanelHeader + DetailPanelTabs (11 tabs)
 └── TimesheetTab / SalariesTab / StatsTab / OrganizationTab
 
 ContactsPage
 ├── ContactsToolbar (search, filters)
 ├── ContactCard[] | ContactsTable (toggled by viewMode)
-├── FloatingFAB → AddContactModal
-└── DetailPanel
+└── FloatingFAB → AddContactModal
 
 RecruitmentPage (kanban with job stages) — uses @store/recruitment-store
 SalesPipelinePage (kanban with lead stages)
@@ -48,7 +50,7 @@ SalesPipelinePage (kanban with lead stages)
 - **Company notes**: CompanyNotesTab persists `notes` string on company record via `updateCompany`
 
 ## Gotchas
+- DetailPanel is rendered ONLY by People.jsx. Do not also render it in ContactsPage/HRPage (children of People) — that stacks two panels and duplicates every field in the a11y tree
 - DetailPanel reads BOTH contacts and companies via selectedContactId (polymorphic)
-- EmployeeForm reuses `.expense-form-*` CSS classes (from money module)
 - Two levels of "tabs": page-level (Timesheet, Salaries, etc.) vs detail-panel tabs (Personal, Work, Skills, etc.)
 - Dual store merge: people-store employees and contacts-store employee-type contacts are merged in HRPage; people-store takes precedence on ID collision

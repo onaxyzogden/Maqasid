@@ -3,6 +3,23 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-17] merge | PR #56 catches up to main: the gate log wins, main's node split wins
+
+Merged origin/main (4282456) into feat/desktop-pillar-glyphs to clear PR #56's conflicts. The operator chose the following.
+
+- **BBOS: "Gate log wins".**
+  - `bbosGateLog` is the only decision record. Main's `bbosDecisions` writes and its Undo toasts on Advance, Reject and Close Cycle are dropped.
+  - Main's ExecView "Continue to Approval Brief" button is kept, now wired to open the Brief. The modal input font rule is kept too.
+- **Islamic: "Main's versions".**
+  - Main's seed, matchers and migrations win: `seed_istijabah_task_v1`, `seed_node_split_v1`, `rowMatches`, the prayer-node fallback and the own-tasks rule.
+  - The branch's istijabah and du'a-of-return tasks are dropped, and so is `seed_node_content_split_v2`.
+  - Kept from the branch: the travel concessions task (seq 13), the qaylulah adab and community ʻĪd tasks, the per-prayer Before/After content and its fan-out prune, the ceremonies, `'community'` for `'ummah-community'`, and the U+02BB Jumuʻah class.
+  - See the notes on [[2026-08-29-milos-five-node-content-split]] and [[2026-08-29-milos-node-content-split]].
+- **Tests.**
+  - Branch tests adapted: five-node-content now passes tags, and its arrival title is main's; no-fallback now checks main's taraweeh task.
+  - Main's node-matching test now lists the concessions task on traveler-departure.
+  - 426 tests, lint and build are green.
+
 ## [2026-10-17] feat | BBOS cycle close takes a basis and is recorded
 
 The operator asked to "give Complete Cycle a required basis and record it". They chose all three surfaces, recorded as a new `'cycle'` decision. **Amanah gate:** positive. Closing a cycle is a routing decision, and now it is made on a written basis like every other one.
@@ -107,6 +124,209 @@ Operator, two complaints raised together: *"I'd like for each of the prayer node
 - **Flagged, not fixed (pre-existing).** The `jumuah` node does not pick up `Honor the Friday Sunan — Jumuʻah is the eid of the week`: its matcher `/\b(?:jumu[a']?ah|…)\b/i` allows only ASCII `a`/`'` while the title uses **U+02BB**, so `eid-prayer` claims the task instead. Also unchanged by design: `titleMatches()` reads the **title only**, so the `transition:*` regexes sitting in the matcher lists can never fire — left alone, because widening it to tags would change matching for **all twenty nodes at once**.
 - **Verified:** `npm test` **300/300 across 17 files** (up from 290), `npm run lint` green end-to-end (`[STRICT] OK: 0 ≤ ratchet 0`, inline-refs **0 ≤ 0** across 2052 subtasks / 8 pillars, `divine-names: OK — 106 names (99 of the ninety-nine), 116 module attributes, all attested`, 41 glyphs, 7 cards), `npm run build` ✓ 8.11s.
 - **Pages touched:** wiki/decisions/2026-08-29-milos-node-content-split.md (new), [[milos]], wiki/index.md.
+## [2026-10-17] fix | MILOS — every Prophetic Path node shows only its own tasks
+
+Operator: *"Why would it show either no tasks or the tasks of another when it's been defined? Are there any other [nodes] borrowing tasks from others?"* An audit found seven nodes borrowing, plus a fallback that made any node show its whole scope once its own tasks were done. Operator chose by selection:
+- own tasks only, and ticked when all are finished;
+- split the shared tasks (rather than filter steps);
+- add both sourced return sunnahs;
+- keep post-Witr adhkar on Witr.
+
+**Amanah gate:** positive.
+
+- **Engine** (`prophetic-path-submodules.js`, non-prayer nodes only): a task routed elsewhere (`transition:` tags none of which the node names) is never shown. Finished own tasks stay and show ticked. There is no scope fallback any more.
+- **Node fixes:**
+  - Eid's scope gains `faith-siyam`, where both ʻĪd tasks live.
+  - Witr claims `post-witr`, Bedtime claims `pre-sleep`, and Taraweeh claims `laylat-al-qadr`. Laylat al-Qadr is a date banner, not a task node.
+  - Keywords tightened on Traveler Arrival, Jumuʻah, Iftar and Bedtime.
+- **Seeds:**
+  - Ramadan becomes *Break the fast… iftar duʻaʻ* (renamed), plus *Stand the nights of Ramadan in taraweeh* and *Seek Laylat al-Qadr in the last ten nights*.
+  - Travel loses its return du'a to *Return home from travel…*, which also gets "not unannounced at night" (Bukhari 5244, 1801) and "two rakʿat at the masjid" (Bukhari 3088).
+- **Migration** `seed_node_split_v1`: rename, untag, insert, move rows by reference with their ticks, align, promote completion. Gate: `stages/implement-node-own-tasks-review.md`. Pass-2's drift guard now reads the seed through the split.
+- **Verified:**
+  - `npm test` 399/399; lint and build green.
+  - New tests: no node shows a task routed elsewhere; every node owns something; the done-state shows ticked own tasks.
+  - Live migration in Chromium: ticks carried and the moved routing tags stripped.
+
+## [2026-10-16] fix | MILOS — Hour of Acceptance gets its own task
+
+Operator: *"Review the tasks that appear in the Hour of Acceptance node in prophetic path page. It's not right."* The node showed the whole Friday Sunan task, which carried `transition:istijabah-hour` (added 2026-10-05). Ghusl, walking early and the khutbah are over long before the last hour before Maghrib; only the du'a step belonged. Operator chose by selection: a dedicated task; move the du'a step (not copy); three new steps (when the hour falls, certainty, praise and salawat), declining a thinner-grounded "wait till Maghrib" step. **Amanah gate:** positive.
+
+- **Seed:** `faith_salah_growth` gains "Seek the Hour of Acceptance on Friday" (`seq` 7). Its steps, in order:
+  1. Learn when it falls: Abu Dawud 1048, plus Tirmidhi 489 as support only.
+  2. Call on Allah certain of being answered: Tirmidhi 3479, marked **T2/Qarina** because its chain is disputed.
+  3. Open with praise and salawat: Tirmidhi 3477.
+  4. The last-hour du'a, moved byte-for-byte.
+
+  The Jumuʻah task keeps its five daytime steps and `transition:jumuah`. Witr, sleep, Tahajjud and travel each move down one `seq`.
+- **Migration** `seed_istijabah_task_v1` (`applyIstijabahTask`):
+  - strips the tag from the stored Jumuʻah task (hydration only adds tags);
+  - inserts the task;
+  - moves the du'a row with its `id` and `done`;
+  - aligns the new task's steps;
+  - promotes completion on this board only.
+
+  Gate: `stages/implement-istijabah-hour-task-review.md`.
+- **Hadith cache:** adds `bukhari:935`, `abudawud:1048`, `tirmidhi:489` and `tirmidhi:3477`. Additive only, taken from the hadith-api dataset on GitHub (the jsdelivr CDN is blocked in cloud sessions).
+- **Docs:** `seed-tasks/CONTEXT.md` corrected. New seed tasks *are* appended by the boot backfill; tag removals are not.
+- **Open:** a node whose matchers find nothing falls back to its whole scope. Once the new task is completed, this node could show every Salah and Shahada task again. Reported only.
+
+## [2026-10-15] fix | MILOS — last two contrast failures (navigator, pillar intro popup)
+
+Follow-up to the WCAG audit (#50, #51). The operator chose these by selection: full-strength side-panel text with only the chevron dimmed; level labels in a deeper shade of the same hue; a deeper popup header with white text kept; the navigator fix shipped as package 0.3.3. **Amanah gate:** positive (readability; no data or fiqh surface).
+
+- **@ogden/ui-components 0.3.3** (ogden-ui-components#2), pinned at `83a44be`:
+  - The "LEVEL 1/2/3" labels are `color-mix(in oklab, level 60%, var(--text))`: worst case 4.79:1 across both themes, up from 1.6–2.2:1.
+  - Only the side chevron fades now; the panel text is at full contrast. This applies in LevelNavigator and in the package's `.flo` overview CSS.
+- **`LevelOverviewPage.css`:** the local `.flo .fln__side` opacity moved to `.flo .fln__chevron`.
+- **`PillarFirstEntry.jsx`:**
+  - The header is `color-mix(in oklab, accent 75%, #000)`, so white text is at least 4.63:1 on all 8 pillars (raw colours were 2.2–2.9:1).
+  - The subtitle is solid white.
+- **Verified:**
+  - axe `color-contrast` reports 0 in light and dark on `/app`, `/app/pillar/health` and `/app/pillar/faith`, plus with the intro popup open.
+  - `npm test` 376/376; lint and build are green.
+
+## [2026-10-14] fix | MILOS — WCAG 2.1 AA audit fixes (11 findings)
+
+Operator ran `/design:accessibility-review` on signup, Prophetic Path and its node popup, Orientation, the app shell and the Health pillar dashboard, then said *"Fix these please"*. **Amanah gate:** positive (more people can use the app; no data, seed, fiqh or capital surface).
+
+- **Contrast (#1–#4).** New tokens `--accent-solid` and `--accent-solid-hover` (#8a6a2c, 5.0:1 under white) for the ceremony "Next" button. Pillar-coloured text uses `color-mix(in oklab, <pillar> N%, var(--text))`, which keeps the hue and passes 4.5:1. That covers the dua title, the Orientation "Now" label (now 11px), the popup eyebrow and the priority pills. The PP date, Skip, ⌘K hints and Orientation eyebrow move to `--text2`.
+- **One `<main>` (#5).** `.pp-main` is now a `<div>`.
+- **Tabs (#6).** `src/utils/tablist-keys.js` adds arrow-key, Home and End handling plus a roving tabindex to every `role="tablist"`: ViewToggle, ModuleWheelSection, PropheticPathMirror, NodePhaseSlideUp and NotificationsPanel. The Objective list keeps a Tab stop when nothing is selected.
+- **Targets (#7, #8).**
+  - Task bars get a 24px hit area via `::before` in `level-navigator-responsive.css`, and the bar drawing is unchanged.
+  - The column-edge toggles are 24px wide.
+  - Popup pill tabs get a hit area of at least 24px.
+  - The sunnah.com links get `padding-block`.
+  - Orientation dots get `min-width: 24px`.
+- **Page titles (#9).** `src/utils/route-title.js` and `RouteTitle.jsx` give each page a title, e.g. "Health · MIOS". Unit-tested.
+- **Package (#10, #11).** The button nested inside a button, the side-arrow names and a wheel `svg role="img"` hiding its buttons are fixed in `onaxyzogden/ogden-ui-components` PR #1 (merged). Maqasid pins the merge commit `f4f2ad8` (version 0.3.2). The `v0.3.2` tag push was refused from the session proxy (HTTP 403), so the pin can move to `#v0.3.2` once the tag exists.
+- **Label in name (#11, local).** The search button's name comes from its visible text; collapsed, it is "Search". Orientation card names start with the visible name and progress ("Health 0/96").
+- **Out of scope, flagged:**
+  - The pillar intro modal's white text on the pillar colour (2.62:1).
+  - The level-navigator labels on `/app`, coloured by level, and the side panels dimmed to 45% opacity.
+  - Neither was in the audited set.
+- **Verified:**
+  - `npm test` 376/376, lint and build green.
+  - axe-core in Chromium: Health pillar dashboard clean; the popup has no small targets and arrow keys switch tabs.
+  - One `<main>`, and the titles differ per route.
+  - Screenshots show no visual change apart from the darker gold.
+
+## [2026-10-14] fix | MILOS — signup trimmed to the one question that matters
+
+Operator: *"The signup process looks nice but asks for information that is no longer useful whatsoever."* An audit of each answer found:
+- **Name:** used by the avatar, greetings and notifications.
+- **Organization:** only echoed back on Settings and Account.
+- **"What brings you here?":** stored as `wizardIntent` and read by nothing.
+- **Values framing:** real, but it defaults to Islamic and is switchable in Settings and the Islamic panel.
+
+Operator chose by selection: remove organization, intent and the values step, and rebrand "Launch MAQASID" to **"Launch MIOS"** to match the app header. **Amanah gate:** neutral (less data collected).
+
+- `src/pages/Onboarding.jsx`: Welcome → name → Launch MIOS (the cloud Sync step, still switched off, becomes step 2).
+  - "Step 1 of 1" is hidden when there is only one form step.
+  - Launch now runs the required-name guard ("Enter your name to continue") instead of a silent `disabled`.
+  - Returning users keep `org`, which is still editable on the Account page, and their stored values layer, via the `user_prev` spread.
+- `src/store/onboarding-store.js`: the dead `wizardIntent` / `setWizardIntent` are removed.
+- **Verified:** `npm test` 365/365, ESLint clean, build green. In the browser, an empty name is blocked with the message, a named user lands on `/app`, and the stored user holds only id, name, modules and createdAt.
+
+## [2026-10-08] cleanup | MILOS — seven orphaned CRM/HR/Money components deleted
+
+Operator asked to verify and delete seven components believed unimported. **Amanah gate:** neutral (dead-code removal; no seed, grounding, fiqh or capital surface; `public/CNAME`, `notes/` untouched).
+
+- **Verified orphans:** name grep, `import.meta.glob`/lazy imports, path strings and re-exports. The only hits were CONTEXT.md inventories and historical log lines.
+- **Deleted:** `crm/` DealPipeline (+ .css), ContactList, ActivityLog, NotesView; `people/hr/` EmployeeList, LeaveManager; `money/` InvoiceList (+ .css).
+- **Reported, not deleted:** `crm-store` now has zero consumers (also `genDealId`, `genActivityId`). people-store `addEmployee` (after EmployeeForm's removal), `deleteEmployee`, `addLeaveRequest`/`updateLeaveRequest`/`deleteLeaveRequest`/`setLeaveStatus`, `leaveRequests` and `LEAVE_TYPES` are unconsumed. `EmployeeForm.jsx` became a cascade orphan and was then deleted too, at the operator's request.
+- **Merge with the same-day UX audit (PR #47):** the audit's sweep had edited six of these files (CRM `<select>` stage moves, aria-labels, `localDayKey`). The deletions were kept, because the files were still unimported on `main`, so those edits only ever reached dead code. `EmployeeForm.jsx` (cascade orphan) was deleted in a follow-up commit.
+- **Docs:** CONTEXT.md updated in crm/, hr/, money/, components/, store/. [[milos]] history row added; dual-contact-stores open question annotated.
+- **Verified:** `npm run lint` green (1 pre-existing `IslamicPanel.jsx:32` warning); `npm test` 365/365; `npm run build` ✓. Shipped as PR #48.
+
+## [2026-10-08] fix | MILOS — whole-system UX audit: 12 issues fixed across 5 phases
+
+Operator: `/ux-engine:ux-audit whole system`, then approved the 5-phase fix plan and said *"continue"*. Decision: [[2026-10-08-milos-contrast-tokens]]. **Amanah gate:** positive. It protects the operator's own records (amanah over data) and doesn't change any ceremony gating logic.
+
+- **Phase 1, data safety:**
+  - Sign Out is now two-step. Onboarding reuses the profile Sign Out left behind (`user_prev`) instead of creating a new user.
+  - The toast store has an action slot. `useUndoToast` gives "deleted · Undo" on the 11 deletes that had no confirmation (HR salary, clock-ins, absence, docs, recruitment, journal, etc.).
+  - Dead controls were wired up or removed. The BBOS routing rationale is bound to state.
+  - Approve/Reject is two-step.
+- **Phase 2, daily flow:**
+  - `localDayKey()` (`src/lib/format-date.js`) replaces the UTC `toISOString().slice(0,10)` day keys.
+  - NiyyahAct is now a real dialog with a focus trap and Escape.
+  - The prayer-times error branch can now render.
+- **Phase 3, tokens and focus:** see the decision. `--primary-strong`, a darker `--text3`, `-text` status variants, and the focus-killing `outline:none` rules removed.
+- **Phase 4, keyboard and forms:**
+  - `lib/row-activation.js` on about 25 clickable rows.
+  - A shared `shared/SlideIn.jsx` (focus trap, Escape, "Discard unsaved changes?") across the money and tech panels.
+  - `useRequiredField` plus `FieldError` replace silently disabled Save buttons. Labels are linked with `htmlFor`.
+- **Phase 5, also-found sweep:**
+  - 59 icon-only buttons named, with their icons `aria-hidden`.
+  - 44px hit areas via invisible `::after`.
+  - Kanban `KeyboardSensor` and an `aria-pressed` drag toggle.
+  - A shared `NotFound` used for the `*` routes in `/app` and at the top level, and for unknown pillars and objectives. `CeremonyGuardDynamic` only gates known ids.
+  - CRM stage moves use a named `<select>`. Delete confirms name the item.
+- **Verified:** `npm run lint` exit 0 (1 old warning), `npm test` 365/365, `npm run build` OK. Preview screenshots: not-found pages (`/app/x/y/z`, `/nope`, `/app/pillar/nope`), 0 unnamed visible buttons on money/office/journal/work, and Kanban Space/Arrow/Space drag on the Salah board (the drop hits the guided-order guard as designed).
+- **Pages touched:** wiki/decisions/2026-10-08-milos-contrast-tokens.md (new), wiki/entities/milos.md, wiki/index.md, wiki/log.md.
+
+## [2026-10-08] fix | MILOS — Duha hadith shown in full; two mis-attributed quotes corrected
+
+Operator: *"The Hadith for the salat Duha is shortened. I'd like the full one visible."* Chosen by selection: full text with corrected references, English only. **Amanah gate:** positive. Restores accurate attribution (sidq); no new evidence authored.
+
+- **Growth "Set the intention…":** Sahih Muslim 720 had only its last line (*"…and two rak'ahs…"*). It now carries the full Abu Dharr hadith, the same wording Growth step 3 already shows.
+- **Excellence "Gradually increase to daily practice":**
+  - The "Muslim 720" quote stitched Abu Hurayrah's *"every joint… every day the sun rises… judging justly"* (Bukhari 2989 / Muslim 1009, which does not mention Duha) onto Muslim 720's Duha ending. It now has the full Abu Dharr text and a specific rationale.
+  - "Sahih al-Bukhari 1178" carried a shortened Muslim 720 text. It now carries its real text, Abu Hurayrah's three counsels, checked against `src/data/hadith.js` (`bukhari:1178`). That makes the old-reference duplicate ("Volume 3, Book 31, Hadith 202", the same narration) redundant, so it was removed.
+  - The amanahRationale no longer quotes the stitched wording.
+- **No UI truncation existed:** `SubtaskSources` renders `translation` verbatim. Sources are hydrated from the seed, so no migration was needed.
+- **Verified:** `npm test` 365/365; `npm run lint` green (grounding-strict and inline-refs at 0); the live Duha node step B Source panel shows the full text.
+
+## [2026-10-06] fix | MILOS — finishing a task's steps now completes the task on boards and dashboards
+
+Operator: *"Just marked some tasks completed in the health module but it's not appearing as so on other parts of the site."* Clarified by selection: marked in **Orientation**, all steps; still open on the **board** and **pillar/level dashboards**. Choices: "Doesn't apply" counts; catch up existing tasks once; nodes keep finished tasks ticked until tomorrow. Decision: [[2026-10-06-milos-task-completion-follows-steps]]. **Amanah gate:** neutral to positive (truthful progress).
+
+- **Root cause:** `toggleSubtask` reopened Done cards but never completed them. Boards and dashboards read `completedAt`/column; steppers read the steps.
+- **Fix:** a shared `syncTaskCompletion`; store wiring through `applySubtaskChange`; a promotion-only catch-up migration; and the `keepCompletedSince` node option.
+- **Verified:** `npm test` 365/365 (store tests fail 3/3 on `main`), lint and build green. Live: an old-state task was promoted on reload, Orientation "Mark done" moved Health tasks to Done, and the board and pillar page reflect it.
+- **Pages touched:** wiki/decisions/2026-10-06-milos-task-completion-follows-steps.md (new), wiki/index.md, wiki/log.md.
+
+## [2026-10-06] fix | MILOS — task-order audit pass 3: three reorders, the rest waived with reasons
+
+Operator: *"Review the remaining 9 once again."* A second read of each step's How? text against the seed-order rubric moved 3 verdicts; all three were approved by selection. **Amanah gate:** positive. Existing guidance reordered; no fiqh authored.
+
+- **Salam:** the full reply now comes before initiating. The rubric's *obligation before recommendation* rule (returning salam is obligatory per Quran 4:86, initiating is sunnah) was missed in pass 2.
+- **Shahada:** study (declaration vs conviction) before reflection. **Clothing:** repair right after the wardrobe audit, which already makes a repair pile.
+- **Migration** `seed_order_audit_v3`, drift-guarded. Live run: an old-order stored board was reordered with its ticks intact.
+- **Audit waivers:** `REVIEWED` in `scripts/audit-task-order.mjs` records the 7 kept rows with reasons, matched on both step titles; stale waivers warn. Report: 0 open, 7 reviewed.
+- **Verified:** `npm test` 347/347, lint and build green.
+
+## [2026-10-06] fix | MILOS — Prophetic Path nodes follow each board's curated chain (audit R4 closed)
+
+Operator: *"Let's address those"* (the 13 R4 node-order cases). Choices made by selection: **group by board**, **due dates first**. Decision: [[2026-10-06-milos-node-order-curated-chain]]. **Amanah gate:** neutral; ordering only, no content touched.
+
+- `buildTasksForNode` sort: level → operator due date → board (node submodule order) → `seedOrder`. Seed `priority` dropped as a key.
+- The audit harness now feeds `seedOrder` like stored boards, and the report's structural note treats any R4 row as a regression. Result: R4 13 → 0; R1 holds only the 9 reviewed findings.
+- **Verified:** `npm test` 340/340 (the new node-order test fails 5/5 on the old sort), lint and build green, and the live Morning node opens on the Salah board's seq 0.
+- **Pages touched:** wiki/decisions/2026-10-06-milos-node-order-curated-chain.md (new), wiki/index.md, wiki/log.md.
+
+## [2026-10-05] fix | MILOS — task-order audit pass 2: dead `transition:` matchers revived, three steps moved, Sunan al-Nawm retired
+
+Operator: *"lets implement the restructure"*, clarified by selection as **fix the other audit findings** (R4 excluded). Choices made by selection: fold sleep sunnah into Core; tag the Friday task for Istijabah; apply the tag-matching fix, the iftar move and the soil reorder. Decision: [[2026-10-05-milos-task-order-audit-pass-2]]. **Amanah gate:** positive. Existing grounded guidance is reordered and de-duplicated; no fiqh authored.
+
+- **The two fallback nodes shared one root cause:** matchers naming routing tags were tested against titles only. The narrow fix (tags against `transition:` matchers only) was chosen over a broad one after simulating both across every node.
+- **Triage:** 5 of 14 findings fixed and 9 dismissed with reasons, recorded in `stages/implement-task-order-audit-pass-2-review.md`.
+- **Migration** `seed_order_audit_v2`: generic `moveSeedSubtask` (taken from the Duha one-shot) plus `pruneRemovedSeedTasks` plus `alignSubtaskOrder(allowDone)`. The generated `prayer_isha_after` copy is aligned too.
+- **Verified:** `npm test` 335/335, lint and build green. Live screenshots of Taraweeh and Istijabah used a faked Friday-in-Ramadan clock and a cached Hijri date, because the prayer-times API is unreachable from the sandbox. The migration was run on old-layout stored boards.
+- **Pages touched:** wiki/decisions/2026-10-05-milos-task-order-audit-pass-2.md (new), wiki/index.md, wiki/log.md.
+
+## [2026-10-05] fix | MILOS — Duha's beginner steps move down to Growth; system-wide ordering audit filed
+
+Operator flagged the Duha node order (1.1 pray 5 days, 1.2 intention, 2.1 learn the time window) and asked for a plan plus a check of the rest of the system. Choices made by selection: **restructure levels**, audit **nodes plus every pillar board**, **report first, fix later**. Decision: [[2026-10-05-milos-duha-level-restructure]]. **Amanah gate:** positive. This reorders existing grounded guidance so the time window is learned before the prayer is attempted; no fiqh authored, no revelation text altered.
+
+- **Root cause was level placement, not subtask order.** The learn step and a 3×/week step lived on the Excellence task, below a 5-day Growth target, and the node sorts by level.
+- **Seed:** Growth Duha re-ordered with the moved step first. Excellence trimmed to the daily-practice step, with prose updated and the Abu Hurayrah source carried over. No titles changed.
+- **Migration:** `restructureDuhaSeedSubtasks` (flag `seed_duha_restructure_v1`), with the gate in `stages/implement-duha-restructure-review.md`. A done retired row is kept, never erased.
+- **Audit:** `scripts/audit-task-order.mjs` found 42 candidates after the fix: R1 learn-after-practice 10, R2 level regression 0 (was 1, the Duha one), R3 near-duplicates 2, R4 node-ignores-seq 28, R5 node fallback 2 (`isha-taraweeh`, `istijabah-hour`). Heuristic; one remaining R1 row pairs the Duha time window with Core's "earliest time window" and is a false positive.
+- **Verified:** `npm test` 314/314, `npm run lint` green, `npm run build` ✓. Live Chromium screenshots of fresh, old-layout and migrated boards.
+- **Pages touched:** wiki/decisions/2026-10-05-milos-duha-level-restructure.md (new), wiki/index.md, wiki/log.md.
 
 ## [2026-08-19] refactor | MILOS — the branch catches up to main, and the two Divine-Name paragraphs become one blended description
 

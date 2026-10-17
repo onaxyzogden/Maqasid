@@ -3,6 +3,7 @@ import { Plus, CheckCircle2, MessageCircle, X, Send, Trash2, Search } from 'luci
 import { useOfficeStore } from '../../store/office-store';
 import { useAuthStore } from '../../store/auth-store';
 import './Forum.css';
+import { rowActivation } from '../../lib/row-activation';
 
 export default function Forum() {
   const qaItems = useOfficeStore((s) => s.qaItems);
@@ -110,7 +111,7 @@ export default function Forum() {
       ) : (
         <div className="forum-list">
           {filtered.map((qa) => (
-            <div key={qa.id} className="forum-card" onClick={() => setSelectedQA(qa)}>
+            <div key={qa.id} className="forum-card" {...rowActivation(() => setSelectedQA(qa))}>
               <div className="forum-card-status">
                 {qa.resolved ? <CheckCircle2 size={16} style={{ color: 'var(--success)' }} /> : <MessageCircle size={16} style={{ color: 'var(--mod-office)' }} />}
               </div>
@@ -121,7 +122,7 @@ export default function Forum() {
                   <MessageCircle size={14} /> {qa.answers.length} repl{qa.answers.length !== 1 ? 'ies' : 'y'}
                 </div>
               </div>
-              <button className="row-action-btn danger" onClick={(e) => { e.stopPropagation(); if (confirm('Delete?')) deleteQuestion(qa.id); }}><Trash2 size={14} /></button>
+              <button className="row-action-btn danger" onClick={(e) => { e.stopPropagation(); if (confirm(`Delete question "${qa.title}" and its answers? This can't be undone.`)) deleteQuestion(qa.id); }} aria-label={`Delete question ${qa.title}`}><Trash2 size={14} aria-hidden="true" /></button>
             </div>
           ))}
         </div>

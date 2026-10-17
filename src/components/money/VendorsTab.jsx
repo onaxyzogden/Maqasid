@@ -1,12 +1,17 @@
 import { useState, useMemo } from 'react';
 import { Plus, Search, Store, X, ExternalLink, Pencil, Trash2 } from 'lucide-react';
 import { useMoneyStore, formatCurrency } from '../../store/money-store';
+import { localDayKey } from '../../lib/format-date';
+import SlideIn from '../shared/SlideIn';
+import { useRequiredField } from '../../hooks/useRequiredField';
+import FieldError from '../../components/shared/FieldError';
 
 function VendorPanel({ vendor, onClose }) {
   const addVendor = useMoneyStore((s) => s.addVendor);
   const updateVendor = useMoneyStore((s) => s.updateVendor);
   const isEdit = !!vendor;
   const [name, setName] = useState(vendor?.name || '');
+  const req = useRequiredField(!!name.trim(), 'vendorstab-name');
   const [website, setWebsite] = useState(vendor?.website || '');
 
   const handleSave = () => {
@@ -17,29 +22,28 @@ function VendorPanel({ vendor, onClose }) {
   };
 
   return (
-    <div className="money-slidein-overlay" onClick={onClose}>
-      <div className="money-slidein" onClick={(e) => e.stopPropagation()}>
+    <SlideIn onClose={onClose} label="Vendor">
         <div className="money-slidein-header">
           <h3>{isEdit ? 'Edit Vendor' : 'Add Vendor'}</h3>
-          <button className="money-slidein-close" onClick={onClose}><X size={18} /></button>
+          <button className="money-slidein-close" onClick={onClose} aria-label="Close panel"><X size={18} /></button>
         </div>
         <div className="money-slidein-body">
           <div className="money-field">
-            <label>Name *</label>
-            <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Vendor name" autoFocus />
+            <label htmlFor="vendorstab-name">Name *</label>
+            <input id="vendorstab-name" {...req.fieldProps} value={name} onChange={(e) => setName(e.target.value)} placeholder="Vendor name" autoFocus />
+<FieldError id={req.errorId} show={req.show}>Vendor name is required</FieldError>
           </div>
           <div className="money-field">
-            <label>Website</label>
-            <input value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="https://..." />
+            <label htmlFor="vendorstab-website">Website</label>
+            <input id="vendorstab-website" value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="https://..." />
           </div>
         </div>
         <div className="money-slidein-footer">
-          <button className="btn btn-primary" onClick={handleSave} disabled={!name.trim()} style={{ background: 'var(--mod-money)', width: '100%' }}>
+          <button className="btn btn-primary" onClick={req.guard(handleSave)} style={{ background: 'var(--mod-money)', width: '100%' }}>
             {isEdit ? 'Save' : 'Submit'}
           </button>
         </div>
-      </div>
-    </div>
+      </SlideIn>
   );
 }
 
@@ -51,7 +55,7 @@ export default function VendorsTab() {
   const [statusFilter, setStatusFilter] = useState('all');
   const [search, setSearch] = useState('');
   const [startDate, setStartDate] = useState(new Date().getFullYear() + '-01-01');
-  const [endDate, setEndDate] = useState(new Date().toISOString().slice(0, 10));
+  const [endDate, setEndDate] = useState(localDayKey());
   const [showPanel, setShowPanel] = useState(false);
   const [editVendor, setEditVendor] = useState(null);
 
@@ -83,9 +87,9 @@ export default function VendorsTab() {
         </div>
         <div className="money-filter-right">
           <div className="money-date-range">
-            <div className="money-date-field"><span>Start</span><input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} /></div>
+            <div className="money-date-field"><span>Start</span><input type="date" aria-label="Start date" value={startDate} onChange={(e) => setStartDate(e.target.value)} /></div>
             <span className="money-date-sep">&mdash;</span>
-            <div className="money-date-field"><span>End</span><input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} /></div>
+            <div className="money-date-field"><span>End</span><input type="date" aria-label="End date" value={endDate} onChange={(e) => setEndDate(e.target.value)} /></div>
           </div>
           <button className="btn btn-primary" onClick={() => { setEditVendor(null); setShowPanel(true); }} style={{ background: 'var(--mod-money)' }}>
             <Plus size={14} /> Add Vendor
@@ -95,7 +99,7 @@ export default function VendorsTab() {
 
       <div className="money-search-bar">
         <Search size={14} className="money-search-icon" />
-        <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search for anything" className="money-search-input" />
+        <input aria-label="Search for anything" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search for anything" className="money-search-input" />
       </div>
 
       {filtered.length === 0 ? (
@@ -128,11 +132,11 @@ export default function VendorsTab() {
                 <td style={{ textAlign: 'right' }}><span className="amount">{formatCurrency(spentByVendor[v.id] || 0)}</span></td>
                 <td>
                   <div className="row-actions">
-                    <button className="row-action-btn" onClick={() => { setEditVendor(v); setShowPanel(true); }} title="Edit"><Pencil size={14} /></button>
-                    <button className="row-action-btn" onClick={() => updateVendor(v.id, { status: v.status === 'active' ? 'archived' : 'active' })} title={v.status === 'active' ? 'Archive' : 'Activate'}>
-                      <Store size={14} />
+                    <button className="row-action-btn" onClick={() => { setEditVendor(v); setShowPanel(true); }} title="Edit" aria-label={`Edit ${v.name}`}><Pencil size={14} aria-hidden="true" /></button>
+                    <button className="row-action-btn" onClick={() => updateVendor(v.id, { status: v.status === 'active' ? 'archived' : 'active' })} title={v.status === 'active' ? 'Archive' : 'Activate'} aria-label={v.status === 'active' ? 'Archive' : 'Activate'}>
+                      <Store size={14} aria-hidden="true" />
                     </button>
-                    <button className="row-action-btn danger" onClick={() => { if (confirm('Delete this vendor?')) deleteVendor(v.id); }} title="Delete"><Trash2 size={14} /></button>
+                    <button className="row-action-btn danger" onClick={() => { if (confirm('Delete this vendor?')) deleteVendor(v.id); }} title="Delete" aria-label={`Delete ${v.name}`}><Trash2 size={14} aria-hidden="true" /></button>
                   </div>
                 </td>
               </tr>

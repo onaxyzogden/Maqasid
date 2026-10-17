@@ -2,11 +2,22 @@ import { useState, useMemo } from 'react';
 import { Plus, ArrowDown, X, MoreHorizontal, Link2, ExternalLink, Copy, Check, ChevronLeft, Calendar, MapPin, Briefcase, Users as UsersIcon, Clock } from 'lucide-react';
 import { createPortal } from 'react-dom';
 import { useRecruitmentStore } from '@store/recruitment-store';
+import { useUndoToast } from '@hooks/useUndoToast';
 import { JOB_STAGES, FILTER_TABS, EMPLOYMENT_OPTIONS, SENIORITY_OPTIONS, LOCATION_TYPE_OPTIONS, generatePostingLink } from '@data/config/recruitment-config';
 import './RecruitmentPage.css';
+import { localDayKey } from '../../../lib/format-date';
+import { rowActivation } from '../../../lib/row-activation';
 
 function JobDetailPanel({ posting, onClose, store }) {
   const [copied, setCopied] = useState(false);
+  const undoToast = useUndoToast();
+
+  const handleDelete = () => {
+    const index = store.postings.findIndex((p) => p.id === posting.id);
+    store.remove(posting.id);
+    onClose();
+    undoToast(`"${posting.title || 'Posting'}" deleted`, () => store.restore(posting, index));
+  };
   const link = posting.stage === 'published' ? generatePostingLink(posting) : null;
 
   const empLabel = EMPLOYMENT_OPTIONS.find((o) => o.id === posting.type)?.label || posting.type;
@@ -113,7 +124,7 @@ function JobDetailPanel({ posting, onClose, store }) {
 
         {/* Footer */}
         <div className="recruit-detail__footer">
-          <button className="recruit-detail__delete" onClick={() => { store.remove(posting.id); onClose(); }}>
+          <button className="recruit-detail__delete" onClick={handleDelete}>
             Delete Posting
           </button>
         </div>
@@ -131,7 +142,7 @@ function AddJobModal({ onClose }) {
   const [seniority, setSeniority]     = useState('not_specified');
   const [locationType, setLocationType] = useState('not_specified');
   const [description, setDescription] = useState('');
-  const [deadline, setDeadline]       = useState(new Date().toISOString().slice(0, 10));
+  const [deadline, setDeadline]       = useState(localDayKey());
 
   const canSubmit = title.trim();
   const inputStyle = {
@@ -298,9 +309,9 @@ export default function RecruitmentPage() {
           </button>
         ))}
 
-        <div className="recruit-toggle">
-          <span className={`recruit-toggle__opt ${!showArchived ? 'active' : ''}`} onClick={() => setShowArchived(false)}>Active</span>
-          <span className={`recruit-toggle__opt ${showArchived ? 'active' : ''}`} onClick={() => setShowArchived(true)}>Archived</span>
+        <div className="recruit-toggle" role="group" aria-label="Show postings">
+          <button type="button" className={`recruit-toggle__opt ${!showArchived ? 'active' : ''}`} aria-pressed={!showArchived} onClick={() => setShowArchived(false)}>Active</button>
+          <button type="button" className={`recruit-toggle__opt ${showArchived ? 'active' : ''}`} aria-pressed={showArchived} onClick={() => setShowArchived(true)}>Archived</button>
         </div>
 
         <div className="recruit-filter-tabs__actions">
@@ -328,7 +339,7 @@ export default function RecruitmentPage() {
                   const isPublished = posting.stage === 'published';
                   const link = isPublished ? generatePostingLink(posting) : null;
                   return (
-                    <div key={posting.id} className="recruit-card" onClick={() => setSelectedPosting(posting)}>
+                    <div key={posting.id} className="recruit-card" {...rowActivation(() => setSelectedPosting(posting))}>
                       <div className="recruit-card__top">
                         <div className="recruit-card__title">{posting.title}</div>
                         {isOnHold && (

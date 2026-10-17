@@ -12,6 +12,8 @@ import { create } from 'zustand';
  *   addToast({ type: 'success', message: 'Task completed' });
  *   addToast({ type: 'error', message: 'Failed to save' });
  *   addToast({ type: 'info', message: 'Copied to clipboard', variant: 'chip' });
+ *   addToast({ type: 'info', message: 'Entry deleted', action: { label: 'Undo', onClick: restore } });
+ *     — toasts with an action stay up 6s by default so the action is reachable.
  *
  * NOT THE SAME as `@store/toastStore` (camelCase). That one carries pillar
  * identity + level color for Istiqamah pulse toasts on LevelOverview pages.
@@ -23,12 +25,12 @@ let nextId = 1;
 export const useToastStore = create((set) => ({
   toasts: [],
 
-  addToast: ({ message, type = 'success', variant = 'toast', duration }) => {
+  addToast: ({ message, type = 'success', variant = 'toast', duration, action }) => {
     const id = nextId++;
-    const ms = duration ?? (variant === 'chip' ? 2000 : 3000);
+    const ms = duration ?? (action ? 6000 : variant === 'chip' ? 2000 : 3000);
 
     set((state) => ({
-      toasts: [...state.toasts, { id, message, type, variant, dismissing: false }],
+      toasts: [...state.toasts, { id, message, type, variant, action, dismissing: false }],
     }));
 
     // Auto-dismiss: first mark as dismissing (triggers exit animation), then remove

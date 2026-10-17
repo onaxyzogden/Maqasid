@@ -47,7 +47,7 @@
   font-weight: 500;
 }
 
-.md-up { color: var(--success); }
+.md-up { color: var(--success-text); }
 .md-down { color: var(--danger); }
 
 .md-link {
@@ -59,7 +59,7 @@
   color: var(--text);
   cursor: pointer;
 }
-.md-link:hover { color: var(--primary); }
+.md-link:hover { color: var(--primary-text); }
 
 /* ── Rows layout ── */
 .md-row { display: grid; gap: var(--space-4); }
@@ -525,7 +525,7 @@
 
 .md-tx-status {
   font-size: var(--text-2xs);
-  color: var(--success);
+  color: var(--success-text);
 }
 
 .md-tx-status.md-declined {

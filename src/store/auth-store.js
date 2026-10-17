@@ -48,6 +48,10 @@ export const useAuthStore = create((set, get) => ({
   }),
 
   logout: () => {
+    // Keep the old profile so onboarding can reuse its id/createdAt/name
+    // instead of minting a new identity (local data is keyed to this device).
+    const prev = get().user;
+    if (prev) safeSet('user_prev', prev);
     safeRemove('user');
     set({ user: null });
   },

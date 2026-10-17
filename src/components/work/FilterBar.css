@@ -20,7 +20,7 @@
   width: 18px; height: 18px;
   display: flex; align-items: center; justify-content: center;
   border-radius: 50%;
-  background: var(--primary);
+  background: var(--primary-strong);
   color: #fff;
   font-size: var(--text-xs); font-weight: 700;
 }
@@ -45,12 +45,12 @@
 
 .filter-pill:hover {
   border-color: var(--primary-border);
-  color: var(--primary);
+  color: var(--primary-text);
 }
 
 .filter-pill.active {
   background: var(--primary-bg);
-  color: var(--primary);
+  color: var(--primary-text);
   border-color: var(--primary-border);
 }
 

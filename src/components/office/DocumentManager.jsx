@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { Plus, Pencil, Trash2, Search, X, Save, Download } from 'lucide-react';
 import { useOfficeStore } from '../../store/office-store';
 import './DocumentManager.css';
+import { rowActivation } from '../../lib/row-activation';
 
 const FILE_TYPES = [
   { id: 'all', label: 'All' },
@@ -67,6 +68,18 @@ export default function DocumentManager() {
       setSelectedDoc({ ...selectedDoc, name: editName, content: editContent });
     }
     setEditing(false);
+  };
+
+  const downloadDoc = (doc) => {
+    const blob = new Blob([doc.content || ''], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = /\.[a-z0-9]+$/i.test(doc.name) ? doc.name : `${doc.name || 'document'}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
   };
 
   const openDoc = (doc) => {
@@ -136,17 +149,17 @@ export default function DocumentManager() {
       ) : (
         <div className="doc-grid">
           {filtered.map((doc) => (
-            <div key={doc.id} className="doc-card" onClick={() => openDoc(doc)}>
+            <div key={doc.id} className="doc-card" {...rowActivation(() => openDoc(doc))}>
               <div className="doc-card-thumbnail" style={{ background: `${getDocColor(doc)}15` }}>
                 <span className="doc-card-badge" style={{ background: getDocColor(doc) }}>{getDocBadge(doc)}</span>
               </div>
               <div className="doc-card-footer">
                 <div className="doc-card-name">{doc.name}</div>
                 <div className="doc-card-actions">
-                  <button className="doc-action-btn" onClick={(e) => { e.stopPropagation(); }} title="Save">
-                    <Download size={14} /> Save
+                  <button className="doc-action-btn" onClick={(e) => { e.stopPropagation(); downloadDoc(doc); }} aria-label={`Download ${doc.name}`}>
+                    <Download size={14} aria-hidden="true" /> Download
                   </button>
-                  <button className="doc-action-btn danger" onClick={(e) => { e.stopPropagation(); if (confirm('Delete?')) deleteDocument(doc.id); }} title="Delete">
+                  <button className="doc-action-btn danger" onClick={(e) => { e.stopPropagation(); if (confirm(`Delete "${doc.name}"? This can't be undone.`)) deleteDocument(doc.id); }} title="Delete">
                     <Trash2 size={14} /> Delete
                   </button>
                 </div>
@@ -157,8 +170,8 @@ export default function DocumentManager() {
       )}
 
       {/* FAB to add new doc */}
-      <button className="doc-fab" onClick={() => setShowNew(true)} title="Upload document">
-        <Plus size={24} />
+      <button className="doc-fab" onClick={() => setShowNew(true)} title="Upload document" aria-label="Upload document">
+        <Plus size={24} aria-hidden="true" />
       </button>
 
       {showNew && (

@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { Plus, ChevronLeft, ChevronRight, Calendar, Clock, MapPin, Trash2, X, Search, ChevronDown } from 'lucide-react';
 import { useOfficeStore, EVENT_CATEGORIES } from '../../store/office-store';
 import './CalendarView.css';
+import { localDayKey } from '../../lib/format-date';
 
 const DAYS = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 const VIEWS = ['Month', 'Week', 'Day', 'Agenda'];
@@ -32,7 +33,7 @@ export default function CalendarView() {
   const monthLabel = new Date(year, month).toLocaleDateString('en', { month: 'long', year: 'numeric' });
   const firstDay = new Date(year, month, 1).getDay();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
-  const todayStr = new Date().toISOString().slice(0, 10);
+  const todayStr = localDayKey();
 
   const toggleFilter = (catId) => {
     setActiveFilters(prev => {
@@ -58,7 +59,7 @@ export default function CalendarView() {
   }, [year, month, filteredEvents, firstDay, daysInMonth, todayStr]);
 
   const upcomingEvents = useMemo(() => {
-    const today = new Date().toISOString().slice(0, 10);
+    const today = localDayKey();
     return filteredEvents
       .filter(e => e.date >= today)
       .sort((a, b) => a.date.localeCompare(b.date) || a.startTime.localeCompare(b.startTime))

@@ -155,7 +155,7 @@
 }
 
 .cal-upcoming-title {
-  font-size: var(--text-base); font-weight: 700; color: var(--primary);
+  font-size: var(--text-base); font-weight: 700; color: var(--primary-text);
   margin-bottom: var(--space-4);
 }
 

@@ -170,6 +170,9 @@
   cursor: pointer;
 }
 .notif-mark-read:hover { opacity: 0.85; }
+.notif-mark-read:disabled { opacity: 0.5; cursor: default; }
+.notif-item--unread { background: color-mix(in srgb, var(--surface) 92%, var(--primary) 8%); }
+.notif-item__new { font-weight: 600; color: var(--text); }
 
 @media (max-width: 600px) {
   .notif-panel { width: 100%; }

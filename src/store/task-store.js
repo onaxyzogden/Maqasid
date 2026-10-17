@@ -4,6 +4,7 @@ import { genTaskId, genSubtaskId, genCheckId, genAttachmentId } from '../service
 import { hydrateTasks, stripSeedFields, preloadBoardSeeds } from '../services/seed-hydrator';
 import { resolveSubmoduleFromProject } from '../data/maqasid-resolve';
 import { useProjectStore } from './project-store';
+import { syncTaskCompletion, completionColumns, placeMovedTask } from '../services/task-completion';
 
 // Project IDs encode level as `{pillar}_{module}_{core|growth|excellence}`.
 // Returns 'core' | 'growth' | 'excellence' | null.
@@ -18,6 +19,24 @@ function persistTasks(projectId, tasks) {
   // writing, so in-memory state can stay hydrated without bloating localStorage.
   const slim = tasks.map((t) => stripSeedFields(t, projectId));
   safeSet(`tasks_${projectId}`, slim);
+}
+
+// Apply a subtask change to one task, then reconcile that task's column and
+// completedAt with its steps and re-place it if its column changed.
+function applySubtaskChange(state, projectId, taskId, mapSubtask) {
+  const now = new Date().toISOString();
+  const project = useProjectStore.getState().projects.find((p) => p.id === projectId);
+  const columns = project?.columns || [];
+  let movedColumn = false;
+  let tasks = (state.tasksByProject[projectId] || []).map((t) => {
+    if (t.id !== taskId) return t;
+    const changed = { ...t, subtasks: t.subtasks.map(mapSubtask), updatedAt: now };
+    const synced = syncTaskCompletion(changed, columns, now);
+    if (synced.columnId !== t.columnId) movedColumn = true;
+    return synced;
+  });
+  if (movedColumn) tasks = placeMovedTask(tasks, taskId, completionColumns(columns).doneColId);
+  return tasks;
 }
 
 export const useTaskStore = create((set, get) => ({
@@ -158,59 +177,13 @@ export const useTaskStore = create((set, get) => ({
     return { tasksByProject: { ...s.tasksByProject, [projectId]: tasks } };
   }),
 
+  // Ticking or unticking a step keeps the task's column and completedAt in step
+  // with its subtasks (see services/task-completion.js): the last satisfied
+  // step completes the task into Done, and reopening a step brings a Done task
+  // back to the column before it.
   toggleSubtask: (projectId, taskId, subtaskId) => set((s) => {
-    const now = new Date().toISOString();
-    const project = useProjectStore.getState().projects.find((p) => p.id === projectId);
-    const columns = project?.columns || [];
-    const doneColIdx = columns.findIndex((c) => c.name === 'Done');
-    const doneColId = doneColIdx >= 0 ? columns[doneColIdx].id : null;
-    const revertCol =
-      doneColIdx > 0
-        ? columns[doneColIdx - 1]
-        : columns.find((c) => c.name !== 'Done') || null;
-
-    let tasks = (s.tasksByProject[projectId] || []).map((t) => {
-      if (t.id !== taskId) return t;
-      const subtasks = t.subtasks.map((st) =>
-        st.id === subtaskId ? { ...st, done: !st.done } : st
-      );
-      const doneCount = subtasks.filter((st) => st.done).length;
-      const total = subtasks.length;
-      const shouldRevert =
-        doneColId &&
-        t.columnId === doneColId &&
-        total > 0 &&
-        doneCount < total &&
-        revertCol;
-      if (shouldRevert) {
-        return {
-          ...t,
-          subtasks,
-          columnId: revertCol.id,
-          completedAt: null,
-          order: 0,
-          updatedAt: now,
-        };
-      }
-      return { ...t, subtasks, updatedAt: now };
-    });
-
-    // If a task was reverted into another column, shift that column's existing
-    // tasks to make room at order:0, matching moveTask's reorder pattern.
-    const reverted = tasks.find(
-      (t) => t.id === taskId && t.columnId !== doneColId && t.columnId === revertCol?.id && t.order === 0
-    );
-    if (reverted) {
-      const colTasks = tasks
-        .filter((t) => t.columnId === reverted.columnId && t.id !== taskId)
-        .sort((a, b) => a.order - b.order);
-      colTasks.unshift(reverted);
-      colTasks.forEach((t, i) => {
-        const idx = tasks.findIndex((x) => x.id === t.id);
-        if (idx !== -1) tasks[idx] = { ...tasks[idx], order: i };
-      });
-    }
-
+    const tasks = applySubtaskChange(s, projectId, taskId, (st) =>
+      st.id === subtaskId ? { ...st, done: !st.done } : st);
     persistTasks(projectId, tasks);
     return { tasksByProject: { ...s.tasksByProject, [projectId]: tasks } };
   }),
@@ -229,16 +202,17 @@ export const useTaskStore = create((set, get) => ({
   }),
 
   updateSubtask: (projectId, taskId, subtaskId, patch) => set((s) => {
-    const tasks = (s.tasksByProject[projectId] || []).map((t) => {
-      if (t.id !== taskId) return t;
-      return {
+    const mapSub = (st) => (st.id === subtaskId ? { ...st, ...patch } : st);
+    // Only a change to what "satisfied" means (done / doesn't apply) can
+    // complete or reopen the task; a snooze or a text edit cannot.
+    const affectsCompletion = patch && ('done' in patch || 'notApplicable' in patch);
+    const tasks = affectsCompletion
+      ? applySubtaskChange(s, projectId, taskId, mapSub)
+      : (s.tasksByProject[projectId] || []).map((t) => (t.id !== taskId ? t : {
         ...t,
-        subtasks: t.subtasks.map((st) =>
-          st.id === subtaskId ? { ...st, ...patch } : st
-        ),
+        subtasks: t.subtasks.map(mapSub),
         updatedAt: new Date().toISOString(),
-      };
-    });
+      }));
     persistTasks(projectId, tasks);
     return { tasksByProject: { ...s.tasksByProject, [projectId]: tasks } };
   }),

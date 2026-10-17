@@ -34,6 +34,7 @@ import PillarFirstEntry from '../onboarding/PillarFirstEntry';
 import FirstLoginModal from '../shared/FirstLoginModal';
 import { useSyncObserver } from '../../hooks/useSyncObserver';
 import './AppShell.css';
+import { localDayKey } from '../../lib/format-date';
 
 // Set of every known module id — '/app/{id}' is the route convention for
 // virtually every module page. Used by the URL→activeModule sync effect
@@ -249,7 +250,7 @@ export default function AppShell() {
   }, [setPrayerLock]);
 
   // Daily Niyyah Act gate
-  const today = new Date().toISOString().slice(0, 10);
+  const today = localDayKey();
   const niyyahNeeded = niyyahDate !== today;
 
   const toggleSidebar = useAppStore((s) => s.toggleSidebar);
@@ -443,7 +444,7 @@ export default function AppShell() {
       <SearchPalette />
       <ThresholdModal type="opening" />
       <ThresholdModal type="closing" />
-      {resumeModuleId && !isPrayerLocked && (
+      {resumeModuleId && !isPrayerLocked && !niyyahNeeded && (
         <ResumeOverlay moduleId={resumeModuleId} onDismiss={dismissResume} />
       )}
       {isPrayerLocked && (
@@ -470,7 +471,7 @@ export default function AppShell() {
 
       <JournalPanel />
       <DiscussionPanel />
-      <PillarFirstEntry />
+      {!niyyahNeeded && <PillarFirstEntry />}
       <FirstLoginModal />
       <Toast />
     </>

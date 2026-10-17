@@ -48,11 +48,11 @@ describe('a node whose matchers hit nothing renders nothing', () => {
     expect(titlesFor('istijabah-hour', pool)).toEqual([]);
   });
 
-  // Isha (Taraweeh)'s only taraweeh text is a SUBTASK, and titleMatches() reads
-  // the title alone — so without an `observe ramadan` matcher this node emptied
-  // out the moment the fallback was removed.
-  it('matches Isha (Taraweeh) on its parent Ramadan task', () => {
-    const ramadan = 'Observe Ramadan with the Prophet’s ﷺ structure';
-    expect(titlesFor('isha-taraweeh', [row(ramadan)])).toEqual([ramadan]);
+  // Isha (Taraweeh) used to hold only a taraweeh SUBTASK under "Observe
+  // Ramadan…"; the 2026-10-17 node split gave it a task of its own, and the
+  // node matches it on the title.
+  it('matches Isha (Taraweeh) on its own taraweeh task', () => {
+    const taraweeh = 'Stand the nights of Ramadan in taraweeh';
+    expect(titlesFor('isha-taraweeh', [row(taraweeh)])).toEqual([taraweeh]);
   });
 });

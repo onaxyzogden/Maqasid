@@ -42,7 +42,7 @@
 .resume-module {
   font-size: var(--text-sm-plus);
   font-weight: 600;
-  color: var(--accent);
+  color: var(--accent-text);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: var(--space-6);

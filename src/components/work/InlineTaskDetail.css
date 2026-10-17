@@ -225,7 +225,7 @@
   flex-shrink: 0;
   transition: color var(--duration-sm);
 }
-.iltd__subtask-check:hover { color: var(--primary); }
+.iltd__subtask-check:hover { color: var(--primary-text); }
 .iltd__subtask-check--done { color: var(--col-done, #22c55e); }
 
 .iltd__subtask-title {
@@ -293,7 +293,7 @@
   gap: 3px;
   transition: border-color var(--duration-sm), color var(--duration-sm);
 }
-.iltd__tag-add:hover { border-color: var(--primary); color: var(--primary); }
+.iltd__tag-add:hover { border-color: var(--primary); color: var(--primary-text); }
 
 /* ── Divider between sections ── */
 .iltd__divider {

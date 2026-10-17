@@ -4,6 +4,7 @@ import { useThresholdStore } from '../../store/threshold-store';
 import { useTaskStore } from '../../store/task-store';
 import { useSettingsStore } from '../../store/settings-store';
 import { useArabic } from '../../hooks/useArabic';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
 import { useCitations } from '../../hooks/useCitations';
 import {
   MAQASID_PILLARS,
@@ -15,6 +16,7 @@ import DuaSection from './DuaSection';
 import ReferenceList from './ReferenceList';
 import IslamicTerm from '../shared/IslamicTerm';
 import './NiyyahAct.css';
+import { localDayKey } from '../../lib/format-date';
 
 const MORNING_DUA = {
   title: 'Morning Supplication',
@@ -155,7 +157,7 @@ export default function NiyyahAct({ initialStep = 'dua', onClose }) {
   const yesterdayIso = (() => {
     const d = new Date();
     d.setDate(d.getDate() - 1);
-    return d.toISOString().slice(0, 10);
+    return localDayKey(d);
   })();
   const echo = lastNiyyah && lastNiyyah.date === yesterdayIso ? lastNiyyah : null;
   const echoPillar = echo ? MAQASID_PILLARS.find((p) => p.id === echo.pillars?.[0]) : null;
@@ -188,10 +190,21 @@ export default function NiyyahAct({ initialStep = 'dua', onClose }) {
 
   const showStepDots = initialStep === 'dua';
   const isOverride = initialStep === 'pillars';
+  // Trap focus inside the gate. Escape only closes the re-opened "Today's
+  // Focus" override; it never silently skips the daily niyyah — skipping
+  // stays a deliberate, labelled choice.
+  const trapRef = useFocusTrap(true, isOverride ? onClose : undefined);
 
   return (
     <div className="niyyah-overlay">
-      <div className="niyyah-card">
+      <div
+        className="niyyah-card"
+        ref={trapRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="niyyah-title"
+        aria-describedby="niyyah-subtitle"
+      >
         {/* Header */}
         <div className="niyyah-header">
           <span className="niyyah-badge">
@@ -199,12 +212,12 @@ export default function NiyyahAct({ initialStep = 'dua', onClose }) {
               <><IslamicTerm id="al-rahman">AL-RAHMĀN</IslamicTerm> · <IslamicTerm id="al-rahim">AL-RAHĪM</IslamicTerm></>
             ) : 'DAILY ORIENTATION'}
           </span>
-          <h2 className="niyyah-title">
+          <h2 className="niyyah-title" id="niyyah-title">
             {step === 'dua'
               ? (isIslamic ? <>Daily <IslamicTerm id="niyyah">Niyyah</IslamicTerm></> : 'Daily Intention')
               : "Today's Focus"}
           </h2>
-          <p className="niyyah-subtitle">
+          <p className="niyyah-subtitle" id="niyyah-subtitle">
             {step === 'dua'
               ? (isIslamic
                   ? 'Orient yourself under divine mercy before entering your work'
@@ -454,11 +467,21 @@ export default function NiyyahAct({ initialStep = 'dua', onClose }) {
 
         <ReferenceList citations={citations} visible={citationsVisible && isIslamic && step === 'dua'} />
 
+        {step !== 'dua' && !sentenceReady && (
+          <p className="niyyah-focus-hint" id="niyyah-focus-hint">
+            Choose a feeling, a pillar and an area to set your focus.
+          </p>
+        )}
+
         {/* Footer */}
         <div className="niyyah-footer">
           {step === 'dua' ? (
             <>
-              <button className="niyyah-skip" onClick={handleSkipAll}>
+              <button
+                className="niyyah-skip"
+                onClick={handleSkipAll}
+                aria-label={isIslamic ? "Skip today's niyyah" : "Skip today's intention"}
+              >
                 Skip
               </button>
               <button className="niyyah-confirm" onClick={handleBegin}>
@@ -468,13 +491,18 @@ export default function NiyyahAct({ initialStep = 'dua', onClose }) {
             </>
           ) : (
             <>
-              <button className="niyyah-skip" onClick={handleSkipFocus}>
+              <button
+                className="niyyah-skip"
+                onClick={handleSkipFocus}
+                aria-label="Skip setting today's focus"
+              >
                 Skip
               </button>
               <button
                 className="niyyah-confirm"
                 onClick={handleSetFocus}
                 disabled={!sentenceReady}
+                aria-describedby={sentenceReady ? undefined : 'niyyah-focus-hint'}
               >
                 Set Focus →
               </button>

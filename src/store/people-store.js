@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { safeGetJSON, safeSet } from '../services/storage';
 import { genEmployeeId, genAttendanceId, genLeaveRequestId, genTimeEntryId } from '../services/id';
 import { PRESET_DEPARTMENTS, DEFAULT_LEAVE_BALANCE } from '@data/config/people-departments';
+import { localDayKey } from '../lib/format-date';
 
 // Persistence helpers
 function persistEmployees(data) { safeSet('people_employees', data); }
@@ -41,7 +42,7 @@ export const usePeopleStore = create((set) => ({
       phone: phone || '',
       role: role || '',
       department: department || '',
-      startDate: startDate || new Date().toISOString().slice(0, 10),
+      startDate: startDate || localDayKey(),
       status: status || 'active',
       leaveBalance: leaveBalance || { ...DEFAULT_LEAVE_BALANCE },
       notes: notes || '',
@@ -128,7 +129,7 @@ export const usePeopleStore = create((set) => ({
   addTimeEntry: ({ employeeId, date, hours, project, description }) => {
     const entry = {
       id: genTimeEntryId(),
-      employeeId, date: date || new Date().toISOString().slice(0, 10),
+      employeeId, date: date || localDayKey(),
       hours: Number(hours) || 0, project: project || '', description: description || '',
       createdAt: new Date().toISOString(),
     };

@@ -4,6 +4,11 @@ import { useMoneyStore, formatCurrency, getInvoiceTotal } from '../../store/mone
 import { INVOICE_STATUSES, CURRENCIES } from '@data/config/money-categories';
 import { genLineItemId } from '../../services/id';
 import './ExpenseList.css';
+import { localDayKey } from '../../lib/format-date';
+import { rowActivation } from '../../lib/row-activation';
+import SlideIn from '../shared/SlideIn';
+import { useRequiredField } from '../../hooks/useRequiredField';
+import FieldError from '../../components/shared/FieldError';
 
 /* ── Invoice Slide-in Panel ── */
 function InvoicePanel({ invoice, onClose }) {
@@ -14,9 +19,9 @@ function InvoicePanel({ invoice, onClose }) {
 
   const [clientName, setClientName] = useState(invoice?.clientName || '');
   const [clientEmail, setClientEmail] = useState(invoice?.clientEmail || '');
-  const [date, setDate] = useState(invoice?.date || new Date().toISOString().slice(0, 10));
+  const [date, setDate] = useState(invoice?.date || localDayKey());
   const [dueDate, setDueDate] = useState(invoice?.dueDate || '');
-  const [turnoverDate, setTurnoverDate] = useState(invoice?.turnoverDate || new Date().toISOString().slice(0, 10));
+  const [turnoverDate, setTurnoverDate] = useState(invoice?.turnoverDate || localDayKey());
   const [currency, setCurrency] = useState(invoice?.currency || 'CAD');
   const [language, setLanguage] = useState(invoice?.language || 'en');
   const [lineItems, setLineItems] = useState(
@@ -47,45 +52,44 @@ function InvoicePanel({ invoice, onClose }) {
   };
 
   return (
-    <div className="money-slidein-overlay" onClick={onClose}>
-      <div className="money-slidein" style={{ width: 600 }} onClick={(e) => e.stopPropagation()}>
+    <SlideIn onClose={onClose} label="Invoice" style={{ width: 600 }}>
         <div className="money-slidein-header">
           <h3>{isEdit ? 'Edit Invoice' : 'New Invoice'}</h3>
-          <button className="money-slidein-close" onClick={onClose}><X size={18} /></button>
+          <button className="money-slidein-close" onClick={onClose} aria-label="Close panel"><X size={18} /></button>
         </div>
         <div className="money-slidein-body">
           {/* Billed to */}
           <div className="money-field">
-            <label>Billed to *</label>
-            <input value={clientName} onChange={(e) => setClientName(e.target.value)} placeholder="Client name" autoFocus />
+            <label htmlFor="incometab-billed-to">Billed to *</label>
+            <input id="incometab-billed-to" value={clientName} onChange={(e) => setClientName(e.target.value)} placeholder="Client name" autoFocus />
           </div>
           <div className="money-field">
-            <label>Client Email</label>
-            <input type="email" value={clientEmail} onChange={(e) => setClientEmail(e.target.value)} placeholder="client@email.com" />
+            <label htmlFor="incometab-client-email">Client Email</label>
+            <input id="incometab-client-email" type="email" value={clientEmail} onChange={(e) => setClientEmail(e.target.value)} placeholder="client@email.com" />
           </div>
 
           {/* Invoice Details */}
           <div className="money-field-row" style={{ marginBottom: 'var(--space-3)' }}>
             <div className="money-field" style={{ width: 120 }}>
-              <label>Language</label>
-              <select value={language} onChange={(e) => setLanguage(e.target.value)}>
+              <label htmlFor="incometab-language">Language</label>
+              <select id="incometab-language" value={language} onChange={(e) => setLanguage(e.target.value)}>
                 <option value="en">English (en)</option>
                 <option value="fr">French (fr)</option>
                 <option value="ar">Arabic (ar)</option>
               </select>
             </div>
             <div className="money-field" style={{ width: 120 }}>
-              <label>Currency</label>
-              <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
+              <label htmlFor="incometab-currency">Currency</label>
+              <select id="incometab-currency" value={currency} onChange={(e) => setCurrency(e.target.value)}>
                 {CURRENCIES.map((c) => <option key={c.id} value={c.id}>{c.flag} {c.id}</option>)}
               </select>
             </div>
           </div>
 
           <div className="money-field-row">
-            <div className="money-field" style={{ flex: 1 }}><label>Date</label><input type="date" value={date} onChange={(e) => setDate(e.target.value)} /></div>
-            <div className="money-field" style={{ flex: 1 }}><label>Due Date *</label><input type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} /></div>
-            <div className="money-field" style={{ flex: 1 }}><label>Turnover Date</label><input type="date" value={turnoverDate} onChange={(e) => setTurnoverDate(e.target.value)} /></div>
+            <div className="money-field" style={{ flex: 1 }}><label htmlFor="incometab-date">Date</label><input id="incometab-date" type="date" value={date} onChange={(e) => setDate(e.target.value)} /></div>
+            <div className="money-field" style={{ flex: 1 }}><label htmlFor="incometab-due-date">Due Date *</label><input id="incometab-due-date" type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} /></div>
+            <div className="money-field" style={{ flex: 1 }}><label htmlFor="incometab-turnover-date">Turnover Date</label><input id="incometab-turnover-date" type="date" value={turnoverDate} onChange={(e) => setTurnoverDate(e.target.value)} /></div>
           </div>
 
           {/* Line Items */}
@@ -96,12 +100,12 @@ function InvoicePanel({ invoice, onClose }) {
             <tbody>
               {lineItems.map((li) => (
                 <tr key={li.id}>
-                  <td><input value={li.description} onChange={(e) => updateLine(li.id, 'description', e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', padding: 4, fontSize: '0.8rem' }} /></td>
-                  <td><input type="number" min="1" value={li.quantity} onChange={(e) => updateLine(li.id, 'quantity', Number(e.target.value))} style={{ width: '100%', border: 'none', background: 'transparent', textAlign: 'center', fontSize: '0.8rem' }} /></td>
-                  <td><input type="number" min="0" max="100" value={li.discount} onChange={(e) => updateLine(li.id, 'discount', Number(e.target.value))} style={{ width: '100%', border: 'none', background: 'transparent', textAlign: 'center', fontSize: '0.8rem' }} /></td>
-                  <td><input type="number" min="0" value={li.tax} onChange={(e) => updateLine(li.id, 'tax', Number(e.target.value))} style={{ width: '100%', border: 'none', background: 'transparent', textAlign: 'center', fontSize: '0.8rem' }} /></td>
-                  <td><input type="number" step="0.01" min="0" value={li.unitPrice} onChange={(e) => updateLine(li.id, 'unitPrice', Number(e.target.value))} style={{ width: '100%', border: 'none', background: 'transparent', textAlign: 'right', fontSize: '0.8rem' }} /></td>
-                  <td><button className="row-action-btn danger" onClick={() => removeLine(li.id)} style={{ width: 20, height: 20 }}>&times;</button></td>
+                  <td><input aria-label="Line item description" value={li.description} onChange={(e) => updateLine(li.id, 'description', e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', padding: 4, fontSize: '0.8rem' }} /></td>
+                  <td><input type="number" aria-label="Quantity" min="1" value={li.quantity} onChange={(e) => updateLine(li.id, 'quantity', Number(e.target.value))} style={{ width: '100%', border: 'none', background: 'transparent', textAlign: 'center', fontSize: '0.8rem' }} /></td>
+                  <td><input type="number" aria-label="Discount percent" min="0" max="100" value={li.discount} onChange={(e) => updateLine(li.id, 'discount', Number(e.target.value))} style={{ width: '100%', border: 'none', background: 'transparent', textAlign: 'center', fontSize: '0.8rem' }} /></td>
+                  <td><input type="number" aria-label="Tax percent" min="0" value={li.tax} onChange={(e) => updateLine(li.id, 'tax', Number(e.target.value))} style={{ width: '100%', border: 'none', background: 'transparent', textAlign: 'center', fontSize: '0.8rem' }} /></td>
+                  <td><input type="number" aria-label="Unit price" step="0.01" min="0" value={li.unitPrice} onChange={(e) => updateLine(li.id, 'unitPrice', Number(e.target.value))} style={{ width: '100%', border: 'none', background: 'transparent', textAlign: 'right', fontSize: '0.8rem' }} /></td>
+                  <td><button className="row-action-btn danger" onClick={() => removeLine(li.id)} aria-label="Remove line item">&times;</button></td>
                 </tr>
               ))}
             </tbody>
@@ -111,7 +115,7 @@ function InvoicePanel({ invoice, onClose }) {
           {/* Totals */}
           <div style={{ textAlign: 'right', marginBottom: 'var(--space-1)', fontSize: '0.85rem' }}>Sub Total <strong>{formatCurrency(subTotal, currency)}</strong></div>
           <div style={{ textAlign: 'right', marginBottom: 'var(--space-2)', fontSize: '0.85rem', display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 8 }}>
-            Discount Total <input type="number" value={discountTotal} onChange={(e) => setDiscountTotal(Number(e.target.value))} style={{ width: 80, textAlign: 'right', padding: '2px 6px', border: '1px solid var(--border)', borderRadius: 4, fontSize: '0.85rem' }} />
+            Discount Total <input type="number" aria-label="Invoice discount" value={discountTotal} onChange={(e) => setDiscountTotal(Number(e.target.value))} style={{ width: 80, textAlign: 'right', padding: '2px 6px', border: '1px solid var(--border)', borderRadius: 4, fontSize: '0.85rem' }} />
           </div>
           <div style={{ textAlign: 'right', padding: '8px 12px', background: 'var(--text1)', color: 'var(--bg)', borderRadius: 'var(--radius-sm)', fontWeight: 700, marginBottom: 'var(--space-4)' }}>
             Total {formatCurrency(total, currency)}
@@ -119,8 +123,8 @@ function InvoicePanel({ invoice, onClose }) {
 
           {/* Payment Details */}
           <div className="money-field">
-            <label>Bank Account</label>
-            <select value={paymentAccountId} onChange={(e) => setPaymentAccountId(e.target.value)}>
+            <label htmlFor="incometab-bank-account">Bank Account</label>
+            <select id="incometab-bank-account" value={paymentAccountId} onChange={(e) => setPaymentAccountId(e.target.value)}>
               <option value="">Choose bank account...</option>
               {accounts.map((a) => <option key={a.id} value={a.id}>{a.bankName} - *{a.accountNumber?.slice(-4) || '0000'} {a.currency}</option>)}
             </select>
@@ -133,7 +137,7 @@ function InvoicePanel({ invoice, onClose }) {
             </div>
           )}
 
-          <div className="money-field"><label>Payment Note</label><input value={paymentNote} onChange={(e) => setPaymentNote(e.target.value)} placeholder="Payment note" /></div>
+          <div className="money-field"><label htmlFor="incometab-payment-note">Payment Note</label><input id="incometab-payment-note" value={paymentNote} onChange={(e) => setPaymentNote(e.target.value)} placeholder="Payment note" /></div>
 
           <label className="money-checkbox">
             <input type="checkbox" checked={isRecurring} onChange={(e) => setIsRecurring(e.target.checked)} />
@@ -141,8 +145,8 @@ function InvoicePanel({ invoice, onClose }) {
           </label>
 
           <div className="money-field">
-            <label>Terms & Conditions</label>
-            <textarea value={termsAndConditions} onChange={(e) => setTermsAndConditions(e.target.value)} rows={3} />
+            <label htmlFor="incometab-terms-conditions">Terms & Conditions</label>
+            <textarea id="incometab-terms-conditions" value={termsAndConditions} onChange={(e) => setTermsAndConditions(e.target.value)} rows={3} />
           </div>
         </div>
 
@@ -153,8 +157,7 @@ function InvoicePanel({ invoice, onClose }) {
             <Send size={14} /> Create & Send
           </button>
         </div>
-      </div>
-    </div>
+      </SlideIn>
   );
 }
 
@@ -164,9 +167,10 @@ function IncomePanel({ onClose }) {
   const accounts = useMoneyStore((s) => s.accounts);
   const [fromType, setFromType] = useState('client');
   const [fromName, setFromName] = useState('');
+  const req = useRequiredField(!!fromName.trim(), 'incometab-from');
   const [amount, setAmount] = useState('');
   const [currency, setCurrency] = useState('CAD');
-  const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
+  const [date, setDate] = useState(localDayKey());
   const [accountId, setAccountId] = useState('');
   const [description, setDescription] = useState('');
 
@@ -177,11 +181,10 @@ function IncomePanel({ onClose }) {
   };
 
   return (
-    <div className="money-slidein-overlay" onClick={onClose}>
-      <div className="money-slidein" onClick={(e) => e.stopPropagation()}>
+    <SlideIn onClose={onClose} label="Income">
         <div className="money-slidein-header">
           <h3>Add Income</h3>
-          <button className="money-slidein-close" onClick={onClose}><X size={18} /></button>
+          <button className="money-slidein-close" onClick={onClose} aria-label="Close panel"><X size={18} /></button>
         </div>
         <div className="money-slidein-body">
           <div style={{ display: 'flex', gap: 'var(--space-3)', marginBottom: 'var(--space-4)' }}>
@@ -193,37 +196,37 @@ function IncomePanel({ onClose }) {
             </label>
           </div>
 
-          <div className="money-field"><label>From *</label><input value={fromName} onChange={(e) => setFromName(e.target.value)} placeholder={fromType === 'client' ? 'Client name' : 'Source name'} autoFocus /></div>
+          <div className="money-field"><label htmlFor="incometab-from">From *</label><input id="incometab-from" {...req.fieldProps} value={fromName} onChange={(e) => setFromName(e.target.value)} placeholder={fromType === 'client' ? 'Client name' : 'Source name'} autoFocus />
+<FieldError id={req.errorId} show={req.show}>Enter who the income is from</FieldError></div>
 
           <div className="money-field-row">
-            <div className="money-field" style={{ flex: 1 }}><label>Amount</label><input type="number" min="0" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="0" /></div>
+            <div className="money-field" style={{ flex: 1 }}><label htmlFor="incometab-amount">Amount</label><input id="incometab-amount" type="number" min="0" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="0" /></div>
             <div className="money-field" style={{ width: 100 }}>
-              <label>Currency</label>
-              <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
+              <label htmlFor="incometab-currency-2">Currency</label>
+              <select id="incometab-currency-2" value={currency} onChange={(e) => setCurrency(e.target.value)}>
                 {CURRENCIES.map((c) => <option key={c.id} value={c.id}>{c.flag} {c.id}</option>)}
               </select>
             </div>
           </div>
 
-          <div className="money-field"><label>Date</label><input type="date" value={date} onChange={(e) => setDate(e.target.value)} /></div>
+          <div className="money-field"><label htmlFor="incometab-date-2">Date</label><input id="incometab-date-2" type="date" value={date} onChange={(e) => setDate(e.target.value)} /></div>
 
           <div className="money-field">
-            <label>Bank Account</label>
-            <select value={accountId} onChange={(e) => setAccountId(e.target.value)}>
+            <label htmlFor="incometab-bank-account-2">Bank Account</label>
+            <select id="incometab-bank-account-2" value={accountId} onChange={(e) => setAccountId(e.target.value)}>
               <option value="">Choose bank account...</option>
               {accounts.map((a) => <option key={a.id} value={a.id}>{a.bankName} - *{a.accountNumber?.slice(-4) || '0000'} {a.currency}</option>)}
             </select>
           </div>
 
-          <div className="money-field"><label>Description</label><textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" rows={2} /></div>
+          <div className="money-field"><label htmlFor="incometab-description">Description</label><textarea id="incometab-description" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" rows={2} /></div>
         </div>
         <div className="money-slidein-footer">
-          <button className="btn btn-primary" onClick={handleSave} disabled={!fromName.trim()} style={{ background: 'var(--mod-money)', width: '100%' }}>
+          <button className="btn btn-primary" onClick={req.guard(handleSave)} style={{ background: 'var(--mod-money)', width: '100%' }}>
             Add new income
           </button>
         </div>
-      </div>
-    </div>
+      </SlideIn>
   );
 }
 
@@ -238,12 +241,12 @@ export default function IncomeTab() {
   const [statusFilter, setStatusFilter] = useState('all');
   const [payFilter, setPayFilter] = useState('all');
   const [startDate, setStartDate] = useState(new Date().getFullYear() + '-01-01');
-  const [endDate, setEndDate] = useState(new Date().toISOString().slice(0, 10));
+  const [endDate, setEndDate] = useState(localDayKey());
   const [showInvoicePanel, setShowInvoicePanel] = useState(false);
   const [showIncomePanel, setShowIncomePanel] = useState(false);
   const [editInvoice, setEditInvoice] = useState(null);
 
-  const now = new Date().toISOString().slice(0, 10);
+  const now = localDayKey();
 
   // Computed invoice statuses
   const enrichedInvoices = useMemo(() =>
@@ -319,9 +322,9 @@ export default function IncomeTab() {
         </div>
         <div className="expense-filter-right">
           <div className="money-date-range">
-            <div className="money-date-field"><span>Start</span><input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} /></div>
+            <div className="money-date-field"><span>Start</span><input type="date" aria-label="Start date" value={startDate} onChange={(e) => setStartDate(e.target.value)} /></div>
             <span className="money-date-sep">&mdash;</span>
-            <div className="money-date-field"><span>End</span><input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} /></div>
+            <div className="money-date-field"><span>End</span><input type="date" aria-label="End date" value={endDate} onChange={(e) => setEndDate(e.target.value)} /></div>
           </div>
           <button className="btn btn-primary" onClick={() => { setEditInvoice(null); setShowInvoicePanel(true); }} style={{ background: 'var(--mod-money)' }}>
             <Plus size={14} /> Create Invoice
@@ -361,7 +364,7 @@ export default function IncomeTab() {
                 <thead><tr><th>Invoice #</th><th>Client</th><th>Date</th><th>Due Date</th><th style={{ textAlign: 'right' }}>Total</th><th>Status</th><th style={{ width: 100 }} /></tr></thead>
                 <tbody>
                   {filteredInvoices.map((inv) => (
-                    <tr key={inv.id} className="expense-row" onClick={() => { setEditInvoice(inv); setShowInvoicePanel(true); }}>
+                    <tr key={inv.id} className="expense-row" {...rowActivation(() => { setEditInvoice(inv); setShowInvoicePanel(true); }, { role: null })}>
                       <td style={{ fontFamily: 'var(--font-mono)', fontWeight: 500 }}>{inv.number}</td>
                       <td>{inv.clientName || '—'}</td>
                       <td>{new Date(inv.date).toLocaleDateString('en', { month: 'short', day: 'numeric' })}</td>
@@ -370,9 +373,9 @@ export default function IncomeTab() {
                       <td><span className={`status-badge status-${inv.displayStatus}`}>{inv.displayStatus}</span></td>
                       <td onClick={(e) => e.stopPropagation()}>
                         <div className="row-actions" style={{ opacity: 1 }}>
-                          {inv.status === 'draft' && <button className="row-action-btn" onClick={() => setInvoiceStatus(inv.id, 'sent')} title="Send"><Send size={14} /></button>}
-                          {['sent', 'issued', 'overdue'].includes(inv.displayStatus) && <button className="row-action-btn" onClick={() => setInvoiceStatus(inv.id, 'paid')} title="Mark Paid"><Check size={14} /></button>}
-                          <button className="row-action-btn danger" onClick={() => { if (confirm('Delete?')) deleteInvoice(inv.id); }}><Trash2 size={14} /></button>
+                          {inv.status === 'draft' && <button className="row-action-btn" onClick={() => setInvoiceStatus(inv.id, 'sent')} title="Send" aria-label="Send"><Send size={14} aria-hidden="true" /></button>}
+                          {['sent', 'issued', 'overdue'].includes(inv.displayStatus) && <button className="row-action-btn" onClick={() => setInvoiceStatus(inv.id, 'paid')} title="Mark Paid" aria-label="Mark Paid"><Check size={14} aria-hidden="true" /></button>}
+                          <button className="row-action-btn danger" onClick={() => { if (confirm(`Delete invoice ${inv.number || ''}? This can't be undone.`)) deleteInvoice(inv.id); }} aria-label={`Delete invoice ${inv.number || inv.clientName || ''}`.trim()}><Trash2 size={14} aria-hidden="true" /></button>
                         </div>
                       </td>
                     </tr>
@@ -395,7 +398,7 @@ export default function IncomeTab() {
                       <td><span style={{ fontSize: '0.75rem', textTransform: 'capitalize' }}>{inc.fromType}</span></td>
                       <td style={{ maxWidth: 200 }} className="truncate">{inc.description || '—'}</td>
                       <td style={{ textAlign: 'right' }}><span className="amount" style={{ color: '#16a34a' }}>+{formatCurrency(inc.amount, inc.currency)}</span></td>
-                      <td><button className="row-action-btn danger" onClick={() => { if (confirm('Delete?')) deleteIncome(inc.id); }}><Trash2 size={14} /></button></td>
+                      <td><button className="row-action-btn danger" onClick={() => { if (confirm(`Delete this income from ${inc.fromName || 'this source'}? This can't be undone.`)) deleteIncome(inc.id); }} aria-label={`Delete income from ${inc.fromName || 'source'}`}><Trash2 size={14} aria-hidden="true" /></button></td>
                     </tr>
                   ))}
                 </tbody>

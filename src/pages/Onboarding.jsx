@@ -1,63 +1,52 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { cloudAccountsEnabled } from '../services/supabase';
-import {
-  ArrowRight, ArrowLeft,
-  Moon, Sun, Briefcase,
-} from 'lucide-react';
+import { ArrowRight, ArrowLeft } from 'lucide-react';
 import { useAuthStore } from '../store/auth-store';
-import { useSettingsStore } from '../store/settings-store';
 import { useOnboardingStore } from '../store/onboarding-store';
 import { useThresholdStore } from '../store/threshold-store';
 import { genUserId } from '../services/id';
+import { safeGetJSON, safeRemove } from '../services/storage';
 import { MAQASID_PILLARS } from '../data/maqasid';
 import { ICON_REGISTRY } from '../data/icon-registry';
 import '../styles/landing.css';
+import { useRequiredField } from '../hooks/useRequiredField';
+import FieldError from '../components/shared/FieldError';
 
 const PILLAR_ICON_MAP = ICON_REGISTRY;
 
-// Steps: 0=Welcome, 1=Profile, 2=Values, and optionally 3=Sync (when Supabase configured)
+// Steps: 0=Welcome, 1=Profile (name only), and optionally 2=Sync (when Supabase configured).
+// The organization field, the "What brings you here?" intent and the values
+// framing step were removed 2026-10-14: nothing read the first two, and the
+// values layer defaults to Islamic and is switchable in Settings / the Islamic panel.
 const STEPS = cloudAccountsEnabled
-  ? ['Welcome', 'Profile', 'Values', 'Sync']
-  : ['Welcome', 'Profile', 'Values'];
-
-const INTENT_OPTIONS = [
-  { id: 'personal', emoji: '🕌', label: 'Personal & Spiritual' },
-  { id: 'family', emoji: '👨‍👩‍👧', label: 'Family & Community' },
-  { id: 'business', label: 'Business & Operations', Icon: Briefcase },
-];
+  ? ['Welcome', 'Profile', 'Sync']
+  : ['Welcome', 'Profile'];
+const SYNC_STEP = 2;
 
 export default function Onboarding() {
   const navigate = useNavigate();
   const login = useAuthStore((s) => s.login);
-  const setValuesLayer = useSettingsStore((s) => s.setValuesLayer);
-  const { setWizardIntent, recordFirstLogin } = useOnboardingStore();
+  const { recordFirstLogin } = useOnboardingStore();
   const skipNiyyah = useThresholdStore((s) => s.skipNiyyah);
 
+  // A profile left behind by Sign Out — reuse it rather than creating a new user.
+  const [prevUser] = useState(() => safeGetJSON('user_prev', null));
   const [step, setStep] = useState(0);
-  const [name, setName] = useState('');
-  const [org, setOrg] = useState('');
-  const [intent, setIntent] = useState(null);
-  const [values, setValues] = useState('islamic');
-
-  const canNext = () => {
-    if (step === 1) return name.trim().length > 0;
-    return true;
-  };
+  const [name, setName] = useState(prevUser?.name || '');
+  const req = useRequiredField(name.trim().length > 0, 'onboarding-your-name');
 
   const finish = (skipToSync = false) => {
-    if (intent) setWizardIntent(intent);
     recordFirstLogin();
     const trimmedName = name.trim();
     login({
-      id: genUserId(),
+      ...(prevUser || {}),
+      id: prevUser?.id || genUserId(),
       name: trimmedName,
-      org: org.trim(),
-      modules: [],
-      valuesLayer: values,
-      createdAt: new Date().toISOString(),
+      modules: prevUser?.modules || [],
+      createdAt: prevUser?.createdAt || new Date().toISOString(),
     });
-    setValuesLayer(values);
+    if (prevUser) safeRemove('user_prev');
     // No pillar selection in onboarding — mark Niyyah as skipped so user
     // isn't blocked by a second ceremony on first dashboard visit.
     skipNiyyah();
@@ -76,8 +65,9 @@ export default function Onboarding() {
     }
   };
 
-  // Progress bar: 4 bars for steps 1-4, hidden on step 0
-  const showProgress = step > 0;
+  // Progress bar + "Step n of m": hidden on the welcome step, and when there is
+  // only one form step (no sync step) — "Step 1 of 1" tells the operator nothing.
+  const showProgress = step > 0 && STEPS.length > 2;
 
   return (
     <>
@@ -94,7 +84,7 @@ export default function Onboarding() {
           {/* Progress bar — hidden on step 0 */}
           {showProgress && (
             <div style={{ display: 'flex', gap: 'var(--space-2)', marginBottom: 'var(--space-8)' }}>
-              {[0, 1].map((i) => (
+              {STEPS.slice(1).map((_, i) => (
                 <div key={i} style={{
                   flex: 1, height: 4, borderRadius: 2,
                   background: i < step ? 'var(--primary)' : 'var(--bg4)',
@@ -179,116 +169,23 @@ export default function Onboarding() {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)', marginBottom: 'var(--space-6)' }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: 'var(--space-1)', color: 'var(--text2)' }}>
+                  <label htmlFor="onboarding-your-name" style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: 'var(--space-1)', color: 'var(--text2)' }}>
                     Your Name *
                   </label>
-                  <input
+                  <input id="onboarding-your-name" {...req.fieldProps}
                     type="text" value={name} onChange={(e) => setName(e.target.value)}
                     placeholder="Enter your name" autoFocus
                     style={{ width: '100%', padding: 'var(--space-3) var(--space-4)', borderRadius: 'var(--radius)' }}
                   />
-                </div>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: 'var(--space-1)', color: 'var(--text2)' }}>
-                    Organization (optional)
-                  </label>
-                  <input
-                    type="text" value={org} onChange={(e) => setOrg(e.target.value)}
-                    placeholder="Your company or team name"
-                    style={{ width: '100%', padding: 'var(--space-3) var(--space-4)', borderRadius: 'var(--radius)' }}
-                  />
+<FieldError id={req.errorId} show={req.show}>Enter your name to continue</FieldError>
                 </div>
               </div>
 
-              {/* Intent section */}
-              <p style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text2)', marginBottom: 'var(--space-3)' }}>
-                What brings you here?
-              </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)' }}>
-                {INTENT_OPTIONS.map((opt) => {
-                  const selected = intent === opt.id;
-                  return (
-                    <button
-                      key={opt.id}
-                      onClick={() => setIntent(opt.id)}
-                      style={{
-                        flex: 1, minWidth: 120, padding: 'var(--space-3)',
-                        border: `1px solid ${selected ? 'var(--primary)' : 'var(--border)'}`,
-                        borderRadius: 'var(--radius)', cursor: 'pointer',
-                        background: selected ? 'var(--primary-bg)' : 'var(--bg)',
-                        textAlign: 'center', transition: 'all var(--duration) var(--ease)',
-                      }}
-                    >
-                      {opt.emoji ? (
-                        <div style={{ fontSize: 20, marginBottom: 4 }}>{opt.emoji}</div>
-                      ) : opt.Icon ? (
-                        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 4 }}>
-                          <opt.Icon size={20} style={{ color: selected ? 'var(--primary)' : 'var(--text3)' }} />
-                        </div>
-                      ) : null}
-                      <div style={{ fontSize: '0.8rem', fontWeight: 500, color: selected ? 'var(--primary)' : 'var(--text2)' }}>
-                        {opt.label}
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
             </div>
           )}
 
-          {/* ── Step 2: Values Framing ── */}
-          {step === 2 && (
-            <div className="fade-in">
-              <h2 style={{ marginBottom: 'var(--space-2)' }}>Choose your path</h2>
-              <p style={{ color: 'var(--text2)', marginBottom: 'var(--space-6)' }}>
-                MAQASID offers two framing layers. Both have identical tools.
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'row', gap: 'var(--space-4)', flexWrap: 'wrap' }}>
-                {[
-                  {
-                    id: 'islamic',
-                    title: 'Islamic Governance',
-                    desc: 'Divine attributes, duas, spiritual readiness checks, and Islamic ethical framework guiding every decision.',
-                    Icon: Moon,
-                  },
-                  {
-                    id: 'universal',
-                    title: 'Universal Ethics',
-                    desc: 'The same excellence principles expressed in universal language — stewardship, integrity, and purpose.',
-                    Icon: Sun,
-                  },
-                ].map((path) => {
-                  const selected = values === path.id;
-                  return (
-                    <button
-                      key={path.id}
-                      onClick={() => setValues(path.id)}
-                      style={{
-                        flex: '1 1 200px',
-                        display: 'flex', flexDirection: 'column', alignItems: 'flex-start',
-                        gap: 'var(--space-3)',
-                        padding: 'var(--space-6)',
-                        background: selected ? 'var(--primary-bg)' : 'var(--surface)',
-                        border: `2px solid ${selected ? 'var(--primary)' : 'var(--border)'}`,
-                        borderRadius: 'var(--radius-xl)', cursor: 'pointer',
-                        transition: 'all var(--duration) var(--ease)', textAlign: 'left',
-                      }}
-                    >
-                      <path.Icon
-                        size={28}
-                        style={{ color: selected ? 'var(--primary)' : 'var(--text3)' }}
-                      />
-                      <div style={{ fontWeight: 700, fontSize: '1.05rem' }}>{path.title}</div>
-                      <div style={{ fontSize: '0.875rem', color: 'var(--text2)', lineHeight: 1.6 }}>{path.desc}</div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-
-          {/* ── Step 3: Sync (only when Supabase configured) ── */}
-          {cloudAccountsEnabled && step === 3 && (
+          {/* ── Sync step (only when Supabase configured) ── */}
+          {cloudAccountsEnabled && step === SYNC_STEP && (
             <div className="fade-in" style={{ textAlign: 'center' }}>
               <div style={{ fontSize: '2.5rem', marginBottom: 'var(--space-3)' }}>☁️</div>
               <h2 style={{ marginBottom: 'var(--space-2)' }}>Continue anywhere</h2>
@@ -318,7 +215,7 @@ export default function Onboarding() {
           )}
 
           {/* ── Navigation ── */}
-          {step > 0 && !(cloudAccountsEnabled && step === 3) && (
+          {step > 0 && !(cloudAccountsEnabled && step === SYNC_STEP) && (
             <div style={{
               display: 'flex', justifyContent: 'space-between', alignItems: 'center',
               marginTop: 'var(--space-8)', gap: 'var(--space-3)',
@@ -330,16 +227,14 @@ export default function Onboarding() {
               {step === STEPS.length - 1 ? (
                 <button
                   className="btn btn-primary btn-lg"
-                  onClick={() => finish()}
-                  disabled={!canNext()}
+                  onClick={req.guard(() => finish())}
                 >
-                  Launch MAQASID <ArrowRight size={18} />
+                  Launch MIOS <ArrowRight size={18} />
                 </button>
               ) : (
                 <button
                   className="btn btn-primary"
-                  onClick={handleNext}
-                  disabled={!canNext()}
+                  onClick={step === 1 ? req.guard(handleNext) : handleNext}
                 >
                   Continue <ArrowRight size={16} />
                 </button>
@@ -347,7 +242,7 @@ export default function Onboarding() {
             </div>
           )}
           {/* Back button on sync step */}
-          {cloudAccountsEnabled && step === 3 && (
+          {cloudAccountsEnabled && step === SYNC_STEP && (
             <button className="btn btn-ghost" style={{ marginTop: 'var(--space-4)', display: 'block', margin: '1rem auto 0' }} onClick={() => setStep(step - 1)}>
               <ArrowLeft size={16} /> Back
             </button>

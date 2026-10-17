@@ -207,3 +207,26 @@ working tree itself.
   node-id-owns-a-ceremony pattern this pass reuses five more times
 - [[2026-04-18-milos-grounding-two-axis]] — the `sources[]` schema every
   authored row satisfies
+
+## Partly superseded (2026-10-17, merge of main into PR #56)
+
+Main made the same change separately (`stages/implement-node-own-tasks-review.md`
+and `stages/implement-istijabah-hour-task-review.md`). The operator chose main's versions where the two
+overlapped. **Dropped from this pass:**
+- "Keep the hour of istijabah — the last hour before Maghrib on Friday": main's
+  "Seek the Hour of Acceptance on Friday" replaces it.
+- "Arrive back the prophetic way — the duʻaʻ of return": main's "Return home from
+  travel with the Prophet's ﷺ sunnah" replaces it.
+- The `seed_node_content_split_v2` migration (`pruneRelocatedSeedRows`).
+
+The title-only matchers went too: main's `rowMatches` reads tags, and main's
+`buildTasksForNode` uses the prayer-node fallback and the own-tasks rule.
+
+**Kept:**
+- "Take the travel concessions fully…", now seq 13 on faith_salah_growth;
+- the qaylulah adab task;
+- the community ʻĪd task;
+- the five ceremonies;
+- `'community'` in place of the invalid `'ummah-community'` submodule id;
+- the widened Jumuʻah character class;
+- the narrowed ʻĪd matcher.
