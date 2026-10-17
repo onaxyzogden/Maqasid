@@ -5626,8 +5626,8 @@ Friday carries an hour where no good asked is refused. The Prophet (SAW) gesture
       seq: 11,
       title: 'Travel with the Prophet\u2019s \uFDFA structure',
       priority: 'high',
-      tags: ['salah', 'sunnah', 'travel', 'qasr', 'transition:traveler-departure', 'transition:traveler-arrival'],
-      description: 'Travel has its own prophetic shape: a named du\u02bba\u02bb on departure, takbir at every ascent and tasbih at every descent, qasr (shorten) for the four-rakʿat prayers, permission to combine when needed, and a named du\u02bba\u02bb on return.',
+      tags: ['salah', 'sunnah', 'travel', 'qasr', 'transition:traveler-departure'],
+      description: 'Travel has its own prophetic shape: a named du\u02bba\u02bb on departure, takbir at every ascent and tasbih at every descent, qasr (shorten) for the four-rakʿat prayers, and permission to combine when needed. Coming home has its own task.',
       subtasks: [
         { title: 'Recite the du\u02bba\u02bb of travel on mounting the conveyance', done: false,
           tier: 'T1',
@@ -5738,6 +5738,52 @@ Jam\u02bb is the prophetic mercy that lets the journey continue without breaking
 1. Decide jam\u02bb taqdim (pray Asr early with Dhuhr, or Isha early with Maghrib) or jam\u02bb ta\u02bekhir (delay Dhuhr to Asr time, or Maghrib to Isha time) based on travel logistics.
 2. Pair with qasr — Dhuhr+Asr together = 2+2 rakʿat, Maghrib+Isha together = 3+2 rakʿat.
 3. Benchmark: jam\u02bb used appropriately on at least one qualifying journey per year.` },
+      ],
+    },
+    {
+      seq: 12,
+      title: 'Return home from travel with the Prophet’s ﷺ sunnah',
+      priority: 'high',
+      tags: ['salah', 'sunnah', 'travel', 'transition:traveler-arrival'],
+      description: 'Coming home has its own prophetic shape: let your family expect you rather than arriving unannounced at night, say the duʻaʻ of return, and begin at the masjid with two rakʿat before going home.',
+      subtasks: [
+        { title: 'Do not return to your family unannounced at night', done: false,
+          tier: 'T1',
+          amanahRationale: 'The Prophet (SAW) forbade a traveller to come upon his family at night after a long absence. A direct prophetic prohibition, narrated by Jabir in Sahih al-Bukhari.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 5244',
+              arabic: 'إِذَا أَطَالَ أَحَدُكُمُ الْغَيْبَةَ فَلاَ يَطْرُقْ أَهْلَهُ لَيْلاً',
+              translation: 'Jabir ibn ʻAbdullah (RA) reported: The Messenger of Allah (SAW) said: "When anyone of you is away from his house for a long time, he should not return to his family at night."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Text checked against the fawazahmed0/hadith-api edition of Sahih al-Bukhari 5244 on 2026-10-17.',
+              rationale: 'States the rule and its condition: a long absence. This is the step’s primary proof.',
+            },
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 1801',
+              arabic: 'نَهَى النَّبِيُّ صلى الله عليه وسلم أَنْ يَطْرُقَ أَهْلَهُ لَيْلاً',
+              translation: 'Jabir (RA) reported: The Prophet (SAW) forbade going to one’s family at night (on arrival from a journey).',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Text checked against the fawazahmed0/hadith-api edition of Sahih al-Bukhari 1801 on 2026-10-17.',
+              rationale: 'The same prohibition in Bukhari’s chapter on returning from Hajj and travel.',
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) did not want a traveller to come upon his family unexpectedly at night after a long time away. Arriving by day, or letting them know when you will arrive, honours them and lets them prepare.
+
+**How?**
+
+1. When you book your return, aim to arrive in daylight where you can.
+2. If you must arrive at night, tell your family the time in advance.
+3. Send a message when you set off on the last leg home.
+4. Benchmark: your next 3 returns are announced or in daylight.` },
         { title: 'Recite the du\u02bba\u02bb of return on coming home', done: false,
           tier: 'T2',
           amanahRationale: 'The Prophet (SAW) said this du\u02bba\u02bb whenever he returned from a journey — a single, named formula for arrival. Direct prophetic transmission.',
@@ -5784,6 +5830,32 @@ The arrival du\u02bba\u02bb names what the journey was for — repentance, worsh
 2. Pray two rakʿat in the masjid before entering the home (Bukhari 443) when feasible.
 3. Greet the family with peace, not exhaustion-talk.
 4. Benchmark: arrival du\u02bba\u02bb recited on every return.` },
+        { title: 'Begin at the masjid with two rakʿat before going home', done: false,
+          tier: 'T1',
+          amanahRationale: 'Kaʿb ibn Malik reports this as the Prophet’s (SAW) habit whenever he returned from a journey: the masjid and two rakʿat came first.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 3088',
+              arabic: 'أَنَّ النَّبِيَّ صلى الله عليه وسلم كَانَ إِذَا قَدِمَ مِنْ سَفَرٍ ضُحًى دَخَلَ الْمَسْجِدَ، فَصَلَّى رَكْعَتَيْنِ قَبْلَ أَنْ يَجْلِسَ',
+              translation: 'Kaʿb (RA) reported: Whenever the Prophet (SAW) returned from a journey in the forenoon, he would enter the mosque and offer two rakʿat before sitting.',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Text checked against the fawazahmed0/hadith-api edition of Sahih al-Bukhari 3088 on 2026-10-17.',
+              rationale: 'Describes the Prophet’s (SAW) consistent practice on returning, so the step follows it directly.',
+            },
+          ],
+          description: `**Why?**
+
+The Prophet (SAW) made the masjid his first stop on coming home, and prayed two rakʿat there before sitting. The journey ends in thanks to Allah before anything else.
+
+**How?**
+
+1. Plan your route home to pass your local masjid.
+2. Enter and pray two rakʿat before sitting.
+3. Then go home to your family.
+4. Benchmark: your next 3 returns begin at the masjid.` },
       ],
     },
   ],
@@ -8209,10 +8281,10 @@ The Prophet (SAW) framed suhur as identity, not just food. Skipping it without n
     },
     {
       seq: 5,
-      title: 'Observe Ramadan with the Prophet\u2019s \uFDFA structure',
+      title: 'Break the fast with the Prophet\u2019s \uFDFA iftar du\u02bba\u02bb',
       priority: 'high',
-      tags: ['siyam', 'sunnah', 'ramadan', 'transition:maghrib-iftar', 'transition:isha-taraweeh', 'transition:laylat-al-qadr'],
-      description: 'Ramadan is not only fasting from food — it is a complete daily structure: niyyah at suhur, the iftar du\u02bba\u02bb at sunset, taraweeh after Isha, and the search for Laylat al-Qadr in the last ten nights.',
+      tags: ['siyam', 'sunnah', 'ramadan', 'transition:maghrib-iftar'],
+      description: 'The fast closes at sunset with a du\u02bba\u02bb the Prophet \uFDFA taught. Learn it, then say it at the moment you break your fast. Taraweeh and the search for Laylat al-Qadr each have their own task.',
       subtasks: [
         { title: 'Learn the du\'a for breaking the fast', done: false,
           tier: 'T2',
@@ -8271,6 +8343,15 @@ The Prophet (SAW) named the moment of iftar with a specific du\u02bba\u02bb — 
 2. Hold the niyyah firm in the last minutes — that is when du\u02bba\u02bb is most powerful.
 3. Recite the du\u02bba\u02bb on the first sip or first date.
 4. Benchmark: iftar du\u02bba\u02bb on every fast for the full month.` },
+      ],
+    },
+    {
+      seq: 6,
+      title: 'Stand the nights of Ramadan in taraweeh',
+      priority: 'high',
+      tags: ['siyam', 'sunnah', 'ramadan', 'transition:isha-taraweeh'],
+      description: 'Taraweeh is the night prayer of Ramadan, prayed after Isha. Stand it each night of the month in faith and seeking reward.',
+      subtasks: [
         { title: 'Stand the night with taraweeh in faith and seeking reward', done: false,
           tier: 'T1',
           amanahRationale: 'The Prophet (SAW) tied a named, sweeping reward — forgiveness of all prior sins — to standing the nights of Ramadan in faith and reckoning. Direct prophetic ground.',
@@ -8307,6 +8388,15 @@ Taraweeh is the named night-prayer of Ramadan. The Prophet (SAW) attached comple
 2. Stay until the imam concludes — do not leave after a few rak\u02bbahs.
 3. Use the recitation as an opportunity for tadabbur, not endurance.
 4. Benchmark: taraweeh with the imam until the end on every Ramadan night.` },
+      ],
+    },
+    {
+      seq: 7,
+      title: 'Seek Laylat al-Qadr in the last ten nights',
+      priority: 'high',
+      tags: ['siyam', 'sunnah', 'ramadan', 'transition:laylat-al-qadr'],
+      description: 'Laylat al-Qadr is hidden among the odd nights of the last ten. Seek it in night prayer, and ask with the du\u02bba\u02bb the Prophet \uFDFA taught.',
+      subtasks: [
         { title: 'Seek Laylat al-Qadr in the last ten nights with the Prophet\u2019s \uFDFA du\u02bba\u02bb', done: false,
           tier: 'T1',
           amanahRationale: 'The Prophet (SAW) taught \u02bb\u0100\u02beishah a specific du\u02bba\u02bb to make if she found Laylat al-Qadr — direct prophetic transmission of a named, single-night du\u02bba\u02bb.',
@@ -8336,7 +8426,7 @@ The Prophet (SAW) taught one du\u02bba\u02bb for the night that is better than a
       ],
     },
     {
-      seq: 6,
+      seq: 8,
       title: 'Keep the Sunan of \u02bb\u012ad al-Fitr',
       priority: 'high',
       tags: ['siyam', 'sunnah', 'eid', 'eid-fitr', 'transition:eid-prayer'],
@@ -8455,7 +8545,7 @@ The earth bears witness on the Day of Judgement to what passes over it. By varyi
       ],
     },
     {
-      seq: 7,
+      seq: 9,
       title: 'Keep the Sunan of \u02bb\u012ad al-Adha',
       priority: 'high',
       tags: ['siyam', 'sunnah', 'eid', 'eid-adha', 'udhiyyah', 'transition:eid-prayer'],

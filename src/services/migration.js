@@ -19,6 +19,7 @@ const AUDIT_V2_FLAG = 'seed_order_audit_v2';
 const AUDIT_V3_FLAG = 'seed_order_audit_v3';
 const COMPLETION_FLAG = 'task_completion_reconcile_v1';
 const ISTIJABAH_FLAG = 'seed_istijabah_task_v1';
+const NODE_SPLIT_FLAG = 'seed_node_split_v1';
 
 // Tasks deleted from the seed files on 2026-07-27 as duplicates of a sibling on
 // the same board. Titles are byte-for-byte copies taken from the seed file
@@ -943,6 +944,131 @@ export function applyIstijabahTask() {
   }
 }
 
+// 2026-10-17: Prophetic Path nodes show only their own tasks. Two tasks spanned
+// two or three nodes, so each node showed the others' steps; they are split.
+// Literal titles (seeds are lazy-loaded, this runs pre-mount), pinned to the
+// seed by the drift guard in __tests__/node-split.test.js.
+// Approval gate: stages/implement-node-own-tasks-review.md
+export const RAMADAN_OLD_TITLE = 'Observe Ramadan with the Prophet’s ﷺ structure';
+export const RAMADAN_IFTAR_TASK = 'Break the fast with the Prophet’s ﷺ iftar duʻaʻ';
+export const TARAWEEH_TASK = 'Stand the nights of Ramadan in taraweeh';
+export const LAYLAT_AL_QADR_TASK = 'Seek Laylat al-Qadr in the last ten nights';
+export const TRAVEL_TASK = 'Travel with the Prophet’s ﷺ structure';
+export const RETURN_TASK = 'Return home from travel with the Prophet’s ﷺ sunnah';
+export const NODE_SPLIT = {
+  faith_siyam_core: {
+    renames: [{ from: RAMADAN_OLD_TITLE, to: RAMADAN_IFTAR_TASK }],
+    untag: [{ task: RAMADAN_IFTAR_TASK, tags: ['transition:isha-taraweeh', 'transition:laylat-al-qadr'] }],
+    tasks: [
+      {
+        title: TARAWEEH_TASK, priority: 'high', seq: 6,
+        tags: ['siyam', 'sunnah', 'ramadan', 'transition:isha-taraweeh'],
+        steps: ['Stand the night with taraweeh in faith and seeking reward'],
+      },
+      {
+        title: LAYLAT_AL_QADR_TASK, priority: 'high', seq: 7,
+        tags: ['siyam', 'sunnah', 'ramadan', 'transition:laylat-al-qadr'],
+        steps: ['Seek Laylat al-Qadr in the last ten nights with the Prophet’s ﷺ duʻaʻ'],
+      },
+    ],
+    moves: [
+      { subtask: 'Stand the night with taraweeh in faith and seeking reward', from: RAMADAN_IFTAR_TASK, to: TARAWEEH_TASK },
+      { subtask: 'Seek Laylat al-Qadr in the last ten nights with the Prophet’s ﷺ duʻaʻ', from: RAMADAN_IFTAR_TASK, to: LAYLAT_AL_QADR_TASK },
+    ],
+  },
+  faith_salah_growth: {
+    renames: [],
+    untag: [{ task: TRAVEL_TASK, tags: ['transition:traveler-arrival'] }],
+    tasks: [
+      {
+        title: RETURN_TASK, priority: 'high', seq: 12,
+        tags: ['salah', 'sunnah', 'travel', 'transition:traveler-arrival'],
+        steps: [
+          'Do not return to your family unannounced at night',
+          'Recite the duʻaʻ of return on coming home',
+          'Begin at the masjid with two rakʿat before going home',
+        ],
+      },
+    ],
+    moves: [{ subtask: 'Recite the duʻaʻ of return on coming home', from: TRAVEL_TASK, to: RETURN_TASK }],
+  },
+};
+
+// Pure core for one board. Returns the same array when nothing changes.
+// Order: rename (so later steps join on the new title) → strip moved routing
+// tags (hydration only ADDS seed tags) → insert missing tasks (slim shape, To
+// Do) → move each step by reference (id/done/snooze kept; an existing row of
+// that title on the target absorbs it, done if either was) → align the new
+// tasks to the seed order, creating the steps they lack → promote completion
+// on this board (a task whose remaining steps are all done is now finished).
+// Nothing is deleted, reopened or touched outside the named tasks.
+export function applyNodeSplit(tasks, spec, boardId, columns, nowIso) {
+  const report = { renamed: 0, untagged: 0, inserted: 0, moved: 0, promoted: 0 };
+  if (!Array.isArray(tasks) || tasks.length === 0 || !spec) return { next: tasks, report };
+  let next = tasks;
+  const has = (title) => next.some((t) => t?.title === title);
+
+  for (const { from, to } of spec.renames) {
+    if (!has(from) || has(to)) continue;
+    next = next.map((t) => (t?.title === from ? { ...t, title: to } : t));
+    report.renamed += 1;
+  }
+  for (const { task, tags } of spec.untag) {
+    const i = next.findIndex((t) => t?.title === task && Array.isArray(t.tags) && t.tags.some((g) => tags.includes(g)));
+    if (i === -1) continue;
+    next = next.map((t, j) => (j === i ? { ...t, tags: t.tags.filter((g) => !tags.includes(g)) } : t));
+    report.untagged += 1;
+  }
+  for (const nt of spec.tasks) {
+    if (has(nt.title)) continue;
+    const maxOrder = next.reduce((m, t) => Math.max(m, typeof t?.order === 'number' ? t.order : 0), -1);
+    next = [...next, {
+      id: genTaskId(), projectId: boardId, columnId: `col_${boardId}_to_do`, title: nt.title,
+      priority: nt.priority, dueDate: null, tags: [...nt.tags], subtasks: [], checklist: [],
+      order: maxOrder + 1, seedOrder: nt.seq, createdAt: nowIso, updatedAt: nowIso, completedAt: null,
+    }];
+    report.inserted += 1;
+  }
+  for (const mv of spec.moves) {
+    const row = next.find((t) => t?.title === mv.from)?.subtasks?.find((st) => st?.title === mv.subtask);
+    if (!row) continue;
+    next = next.map((t) => {
+      if (t.title === mv.from) return { ...t, subtasks: t.subtasks.filter((st) => st !== row) };
+      if (t.title !== mv.to) return t;
+      const subs = Array.isArray(t.subtasks) ? t.subtasks : [];
+      const existing = subs.findIndex((st) => st?.title === mv.subtask);
+      if (existing === -1) return { ...t, subtasks: [...subs, row] };
+      return row.done === true && subs[existing].done !== true
+        ? { ...t, subtasks: subs.map((st, i) => (i === existing ? { ...st, done: true } : st)) }
+        : t;
+    });
+    report.moved += 1;
+  }
+  const order = Object.fromEntries(spec.tasks.map((nt) => [nt.title, nt.steps]));
+  const { next: aligned, aligned: which } = alignSubtaskOrder(next, order, { allowDone: true });
+  if (which.length) next = aligned;
+  const { next: reconciled, promoted } = reconcileBoardCompletion(next, columns, nowIso);
+  if (promoted) { next = reconciled; report.promoted = promoted; }
+  return { next, report };
+}
+
+// One-shot. Runs after the Hour of Acceptance pass, before mount.
+export function applyNodeSplitV1() {
+  if (localStorage.getItem(PREFIX + NODE_SPLIT_FLAG) === '1') return;
+  const projects = read('projects') || [];
+  const nowIso = new Date().toISOString();
+  let changed = 0;
+  for (const [boardId, spec] of Object.entries(NODE_SPLIT)) {
+    const key = `tasks_${boardId}`;
+    const tasks = read(key);
+    const columns = projects.find((p) => p.id === boardId)?.columns || [];
+    const { next } = applyNodeSplit(tasks, spec, boardId, columns, nowIso);
+    if (Array.isArray(next) && next !== tasks) { write(key, next); changed += 1; }
+  }
+  localStorage.setItem(PREFIX + NODE_SPLIT_FLAG, '1');
+  if (changed) console.info(`[bbiz] Prophetic Path: travel and Ramadan steps now sit on their own tasks (${changed} board(s)).`);
+}
+
 // One-shot catch-up for tasks finished before 2026-10-06. Until then,
 // ticking a task's last step (Orientation, Prophetic Path, task panel) never
 // set `completedAt` or moved the card to Done, so those tasks still looked
@@ -1000,6 +1126,9 @@ export function runMigrations() {
   // Then the 2026-10-16 Hour of Acceptance task: its own task on Salah Growth,
   // with the Jumuʻah task's last-hour du'a step moved onto it.
   applyIstijabahTask();
+  // Then the 2026-10-17 node split: travel and Ramadan steps move onto tasks
+  // of their own so each Prophetic Path node shows only its own steps.
+  applyNodeSplitV1();
   // Last: tasks whose steps are all satisfied move to Done with a completedAt.
   reconcileTaskCompletion();
 

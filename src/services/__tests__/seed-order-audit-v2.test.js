@@ -19,6 +19,7 @@ import {
   SUNAN_AL_NAWM_TASK,
   moveSeedSubtask,
   seedOrderAuditV2,
+  NODE_SPLIT,
 } from '../migration';
 
 const SEEDS = { ...FAITH_SEED_TASKS, ...UMMAH_SEED_TASKS, ...PRAYER_SEED_TASKS };
@@ -163,14 +164,21 @@ describe('moveSeedSubtask', () => {
 });
 
 describe('pass-2 drift guard', () => {
-  const seedTask = (board, title) => SEEDS[board]?.find((t) => t.title === title);
+  // The 2026-10-17 node split runs after this pass and renames the Ramadan task
+  // and moves two of its steps out. This pass's tables stay as they were (they
+  // describe what it does to a board), so the guard reads the seed through the
+  // later split: renamed titles resolve, and steps it moved out are expected gone.
+  const renamed = (board, title) => NODE_SPLIT[board]?.renames.find((r) => r.from === title)?.to ?? title;
+  const movedOut = (board, title) => new Set((NODE_SPLIT[board]?.moves || [])
+    .filter((m) => m.from === renamed(board, title)).map((m) => m.subtask));
+  const seedTask = (board, title) => SEEDS[board]?.find((t) => t.title === renamed(board, title));
 
   for (const [boardId, table] of Object.entries(AUDIT_V2_ORDER)) {
     for (const [title, order] of Object.entries(table)) {
       it(`${boardId} / "${title.slice(0, 40)}…" matches the seed`, () => {
         const task = seedTask(boardId, title);
         expect(task, 'task missing from the seed').toBeDefined();
-        expect(task.subtasks.map((s) => s.title)).toEqual(order);
+        expect(task.subtasks.map((s) => s.title)).toEqual(order.filter((t) => !movedOut(boardId, title).has(t)));
       });
     }
   }

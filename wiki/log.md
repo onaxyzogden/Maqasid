@@ -3,6 +3,30 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-17] fix | MILOS — every Prophetic Path node shows only its own tasks
+
+Operator: *"Why would it show either no tasks or the tasks of another when it's been defined? Are there any other [nodes] borrowing tasks from others?"* An audit found seven nodes borrowing, plus a fallback that made any node show its whole scope once its own tasks were done. Operator chose by selection:
+- own tasks only, and ticked when all are finished;
+- split the shared tasks (rather than filter steps);
+- add both sourced return sunnahs;
+- keep post-Witr adhkar on Witr.
+
+**Amanah gate:** positive.
+
+- **Engine** (`prophetic-path-submodules.js`, non-prayer nodes only): a task routed elsewhere (`transition:` tags none of which the node names) is never shown. Finished own tasks stay and show ticked. There is no scope fallback any more.
+- **Node fixes:**
+  - Eid's scope gains `faith-siyam`, where both ʻĪd tasks live.
+  - Witr claims `post-witr`, Bedtime claims `pre-sleep`, and Taraweeh claims `laylat-al-qadr`. Laylat al-Qadr is a date banner, not a task node.
+  - Keywords tightened on Traveler Arrival, Jumuʻah, Iftar and Bedtime.
+- **Seeds:**
+  - Ramadan becomes *Break the fast… iftar duʻaʻ* (renamed), plus *Stand the nights of Ramadan in taraweeh* and *Seek Laylat al-Qadr in the last ten nights*.
+  - Travel loses its return du'a to *Return home from travel…*, which also gets "not unannounced at night" (Bukhari 5244, 1801) and "two rakʿat at the masjid" (Bukhari 3088).
+- **Migration** `seed_node_split_v1`: rename, untag, insert, move rows by reference with their ticks, align, promote completion. Gate: `stages/implement-node-own-tasks-review.md`. Pass-2's drift guard now reads the seed through the split.
+- **Verified:**
+  - `npm test` 399/399; lint and build green.
+  - New tests: no node shows a task routed elsewhere; every node owns something; the done-state shows ticked own tasks.
+  - Live migration in Chromium: ticks carried and the moved routing tags stripped.
+
 ## [2026-10-16] fix | MILOS — Hour of Acceptance gets its own task
 
 Operator: *"Review the tasks that appear in the Hour of Acceptance node in prophetic path page. It's not right."* The node showed the whole Friday Sunan task, which carried `transition:istijabah-hour` (added 2026-10-05). Ghusl, walking early and the khutbah are over long before the last hour before Maghrib; only the du'a step belonged. Operator chose by selection: a dedicated task; move the du'a step (not copy); three new steps (when the hour falls, certainty, praise and salawat), declining a thinner-grounded "wait till Maghrib" step. **Amanah gate:** positive.
