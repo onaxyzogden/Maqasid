@@ -99,6 +99,13 @@ See [decision: bbos-gate-decision-log](../decisions/2026-10-17-bbos-gate-decisio
 
 **Legacy dashboard on the record path (2026-10-17):** In the legacy `BbosFullDashboard` (inside ProjectBoard), Advance now opens a dialog. It lists open conditions with an inline Mark resolved, needs a basis, and is blocked while conditions are open. ProjectBoard passes `{ basis, stageId, by }` and moves its filter only if the store actually advanced. Reject also needs a basis and logs a `halt`. The 'all' role attributes nothing. Both modals are portalled to `document.body` so the transformed content layer no longer clips them. Complete Cycle is unchanged. Advance appears only on the pipeline's actual stage (`project.bbosStage`). A finished earlier stage shows "The pipeline is at X" with Go to X. See [decision: bbos-legacy-gate-record-path](../decisions/2026-10-17-bbos-legacy-gate-record-path.md).
 
+**Cycle close on the record (2026-10-17):** Closing a cycle is a fifth gate decision, `'cycle'`. It is logged in the closing cycle on OPT with `toStageId: 'IDY'`. `startNewBbosCycle(id, record?)` logs it and refuses while OPT has open conditions. All three surfaces require a basis:
+
+- the legacy Complete Cycle and the header New Cycle share the extracted `BbosGateMoveDialog`;
+- the Brief's "Close Cycle (deferred)" is now a live **Close Cycle**.
+
+See [decision: bbos-cycle-close-record](../decisions/2026-10-17-bbos-cycle-close-record.md).
+
 ## Connections
 
 - [[milos]] — Host application; BBOS is a module at `src/components/bbos/`
@@ -133,6 +140,7 @@ See [decision: bbos-gate-decision-log](../decisions/2026-10-17-bbos-gate-decisio
 
 | Date | Event |
 |---|---|
+| 2026-10-17 | **Cycle close takes a basis and is recorded.** New `'cycle'` gate decision. `startNewBbosCycle(id, record)` logs it in the closing cycle and refuses while OPT has open conditions. The legacy Complete Cycle and header New Cycle share the new `BbosGateMoveDialog`; the Brief's Close Cycle is live. 326 tests, lint and build green; all three verified in preview. See [decision](../decisions/2026-10-17-bbos-cycle-close-record.md). |
 | 2026-10-17 | **Legacy Advance follows the pipeline's actual stage.** The button shows only when the viewed stage is `project.bbosStage`; a finished earlier stage shows "The pipeline is at X" with Go to X. ProjectBoard advances from `bbosStage`. 322 tests, lint and build green; verified in preview. See [decision](../decisions/2026-10-17-bbos-legacy-gate-record-path.md). |
 | 2026-10-17 | **Legacy dashboard Advance and Reject on the gate record.** Advance dialog with required basis, open conditions listed with inline Mark resolved, and Confirm blocked while open; ProjectBoard follows the store result. Reject requires a basis and logs a halt; 'all' role attributes null. Modals portalled out of the transformed content layer. New store test (3); 322 tests, lint and build green; verified in preview. See [decision](../decisions/2026-10-17-bbos-legacy-gate-record-path.md). |
 | 2026-10-17 | **Gate conditions resolution, and open conditions block Advance.** A `'resolved'` gate entry (with `resolvesId` and its own basis) closes a conditions entry without editing it. `openConditions()` is scoped to stage and current cycle. The operator chose block: Proceed is disabled in the Brief while conditions are open, and the store refuses a recorded advance. The Brief gains an Open conditions panel with Mark resolved. 319 tests, lint and build green. Verified in preview: blocked, resolved, then IDY→CRD. See [decision](../decisions/2026-10-17-bbos-gate-conditions-resolution.md). |

@@ -702,12 +702,16 @@ export const useProjectStore = create((set, get) => ({
     return { projects };
   }),
 
-  startNewBbosCycle: (projectId) => set((s) => {
-    const projects = s.projects.map((p) =>
-      p.id === projectId && p.bbosEnabled
-        ? { ...p, bbosStage: 'IDY', bbosCycle: (p.bbosCycle || 1) + 1, rejectedAt: null, rejectionReason: null, rejectedBy: null, updatedAt: new Date().toISOString() }
-        : p
-    );
+  // With a record ({ basis, stageId, by }), the close is logged as a 'cycle'
+  // entry in the cycle being closed, and refused while that stage still has
+  // open conditions. Without one it only resets; every UI path now passes one.
+  startNewBbosCycle: (projectId, record = null) => set((s) => {
+    const projects = s.projects.map((p) => {
+      if (p.id !== projectId || !p.bbosEnabled) return p;
+      if (record && openConditions(p.bbosGateLog, record.stageId, p.bbosCycle || 1).length) return p;
+      const logged = record ? appendGateEntry(p, { ...record, decision: 'cycle' }) : p;
+      return { ...logged, bbosStage: 'IDY', bbosCycle: (p.bbosCycle || 1) + 1, rejectedAt: null, rejectionReason: null, rejectedBy: null, updatedAt: new Date().toISOString() };
+    });
     persistProjects(projects);
     return { projects };
   }),

@@ -21,6 +21,7 @@ const EMPTY_TASKS = [];
 export default function BbosPipelineDashboard({ project, bbosFilter, onStageSelect }) {
   const tasks = useTaskStore((s) => s.tasksByProject[project.id] || EMPTY_TASKS);
   const advanceBbosStage = useProjectStore((s) => s.advanceBbosStage);
+  const startNewBbosCycle = useProjectStore((s) => s.startNewBbosCycle);
   const rejectBbosPipeline = useProjectStore((s) => s.rejectBbosPipeline);
   const logBbosGateDecision = useProjectStore((s) => s.logBbosGateDecision);
   // The acting role is the attribution; 'all' is the view-everything filter,
@@ -75,8 +76,11 @@ export default function BbosPipelineDashboard({ project, bbosFilter, onStageSele
           onAdvance={(record) => {
             const idx = BBOS_STAGES.findIndex((s) => s.id === briefStage.id);
             const next = BBOS_STAGES[idx + 1];
-            // Last stage (OPT) advance = cycle start, deferred to a later pass.
-            if (next) advanceBbosStage(project.id, next.id, { ...record, stageId: briefStage.id, by: reviewer });
+            const gated = { ...record, stageId: briefStage.id, by: reviewer };
+            // Proceed from the last stage (OPT) closes the cycle: logged as a
+            // 'cycle' entry, and the pipeline returns to Identity.
+            if (next) advanceBbosStage(project.id, next.id, gated);
+            else startNewBbosCycle(project.id, gated);
             setBriefStage(null);
           }}
           onReject={(reasonId, record) => {

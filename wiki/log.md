@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-17] feat | BBOS cycle close takes a basis and is recorded
+
+The operator asked to "give Complete Cycle a required basis and record it". They chose all three surfaces, recorded as a new `'cycle'` decision. **Amanah gate:** positive. Closing a cycle is a routing decision, and now it is made on a written basis like every other one.
+
+- **Gate log:** `'cycle'` joins `GATE_DECISIONS`. It is logged in the closing cycle, on OPT, with `toStageId: 'IDY'`.
+- **Store:** `startNewBbosCycle(id, record?)` logs the entry, then resets and increments. With a record, it is refused while OPT has open conditions.
+- **Legacy UI:** the Advance dialog was extracted to `BbosGateMoveDialog`. The dashboard's Complete Cycle and ProjectBoard's header New Cycle both use it; there is no `confirm()` any more.
+- **Brief:** "Close Cycle (deferred)" is now **Close Cycle**, blocked by open conditions. The Gate record shows "Cycle closed".
+- **Verified:** 326 tests, lint and build green. All three paths were checked in preview with screenshots; the test project was restored.
+
+See [[2026-10-17-bbos-cycle-close-record]], [[bbos-pipeline]].
+
 ## [2026-10-17] fix | BBOS legacy dashboard: Advance follows the pipeline's actual stage
 
 This closes the open item left by [[2026-10-17-bbos-legacy-gate-record-path]]; the decision page records it as a follow-up. **Amanah gate:** positive. A routing decision can only be made from the stage the pipeline is really on.

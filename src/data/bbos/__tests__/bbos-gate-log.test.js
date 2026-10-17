@@ -19,6 +19,12 @@ describe("buildGateEntry", () => {
     expect(Number.isNaN(Date.parse(e.at))).toBe(false);
   });
 
+  it("records a cycle close in the closing cycle, pointing at Identity", () => {
+    const e = buildGateEntry(project, { stageId: "OPT", decision: "cycle", basis: "Reckoning complete.", toStageId: "CRD", reasonId: "riba" });
+    expect(e).toMatchObject({ stageId: "OPT", decision: "cycle", cycle: 2, toStageId: "IDY", reasonId: null, conditions: null });
+    expect(buildGateEntry(project, { stageId: "OPT", decision: "cycle", basis: "  " })).toBeNull();
+  });
+
   it("keeps conditions only on a conditions decision, reason only on a halt", () => {
     const c = buildGateEntry(project, { stageId: "CRD", decision: "conditions", basis: "b", conditions: "Close gap 2", reasonId: "riba" });
     expect(c.conditions).toBe("Close gap 2");

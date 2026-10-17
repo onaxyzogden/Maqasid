@@ -9,9 +9,13 @@
 // Conditions are closed the same way they were opened: by a new 'resolved'
 // entry that points at the conditions entry (resolvesId) with its own basis.
 // Nothing already in the log is ever edited.
+//
+// Closing a cycle at the final stage is a 'cycle' entry: logged in the cycle
+// it closes, on the stage it closes from, with toStageId 'IDY' (the next
+// cycle's first stage). The store increments the cycle after appending it.
 import { genGateDecisionId } from '../../services/id';
 
-export const GATE_DECISIONS = ['proceed', 'conditions', 'halt', 'resolved'];
+export const GATE_DECISIONS = ['proceed', 'conditions', 'halt', 'resolved', 'cycle'];
 
 const isResolved = (log, conditionsId) =>
   (log || []).some((e) => e.decision === 'resolved' && e.resolvesId === conditionsId);
@@ -23,7 +27,7 @@ const isResolved = (log, conditionsId) =>
  * takes that entry's stage and cycle.
  *
  * @param {object} project — the project the decision belongs to
- * @param {{ stageId?: string, decision: 'proceed'|'conditions'|'halt'|'resolved', basis: string,
+ * @param {{ stageId?: string, decision: 'proceed'|'conditions'|'halt'|'resolved'|'cycle', basis: string,
  *           conditions?: string, reasonId?: string, toStageId?: string,
  *           resolvesId?: string, closingNote?: string, by?: string|null }} record
  */
@@ -58,7 +62,8 @@ export function buildGateEntry(project, record) {
     basis,
     conditions: record.decision === 'conditions' ? text(record.conditions) : null,
     reasonId: record.decision === 'halt' ? record.reasonId || null : null,
-    toStageId: record.decision === 'proceed' ? record.toStageId || null : null,
+    toStageId: record.decision === 'proceed' ? record.toStageId || null
+      : record.decision === 'cycle' ? 'IDY' : null,
     resolvesId,
     closingNote: record.decision === 'resolved' ? null : text(record.closingNote),
     by: record.by || null,

@@ -25,12 +25,12 @@ superseded_by: null
 - **ProjectBoard follows the store.** `handleStageAdvance(record)` passes `{ basis, stageId, by }` to `advanceBbosStage`. It moves the BBOS filter and active stage only if the store actually advanced, so the view never runs ahead of a refused move.
 - **Reject needs a basis too.** The Reject modal adds a required basis. Confirm calls `rejectBbosPipeline(id, reasonId, gateBy, { basis, stageId })`, which logs a `halt` entry.
 - **Attribution matches the new dashboard.** The 'all' view is no role, so `by` and `rejectedBy` are null there. In preview, the first wiring passed the raw role as reviewer, and the store's `record.by ?? reviewer` fallback logged `by: "all"`. That was fixed before commit.
-- **Complete Cycle is unchanged.** With no next stage, the button still confirms and calls `startNewBbosCycle`. It records nothing.
+- **Complete Cycle is unchanged.** With no next stage, the button still confirms and calls `startNewBbosCycle`. It records nothing. *(Superseded the same day by [[2026-10-17-bbos-cycle-close-record]]: Complete Cycle now uses the same dialog and logs a `'cycle'` entry.)*
 - **Modals are portalled.** Both legacy modals render through `createPortal(…, document.body)`. ProjectBoard's `.pb-content__layer--in` has a `transform`, which made `position: fixed` resolve inside the content column and clipped the overlay. This was already true for Reject before this change.
 
 ## Consequences
 
-- Every UI gate move except Complete Cycle now leaves a record with a basis, and open conditions block Advance in both dashboards.
+- Every UI gate move except Complete Cycle now leaves a record with a basis, and open conditions block Advance in both dashboards. *(Complete Cycle was closed the same day: see [[2026-10-17-bbos-cycle-close-record]].)*
 - The store test `src/store/__tests__/project-store-bbos-gate.test.js` (3 tests) covers recorded advance, refusal and then success after resolution, and recorded reject. It stubs `localStorage` before importing the store.
 - Verified: 322 tests, lint and build green. In preview:
   - Advance listed the open condition and stayed blocked; Mark resolved required a basis; Confirm then moved CRD→STR, and the log reads conditions → resolved → proceed.

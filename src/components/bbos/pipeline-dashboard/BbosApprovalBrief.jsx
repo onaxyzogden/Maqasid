@@ -26,6 +26,7 @@ const DECISION_LABEL = {
   conditions: "Proceed with Conditions",
   halt: "Halted",
   resolved: "Condition resolved",
+  cycle: "Cycle closed",
 };
 
 const formatAt = (iso) => {
@@ -64,12 +65,12 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
   const { ref: dialogRef, requestClose, onKeyDown } = useBpdDialog({ onClose, dirty });
 
   // Live next-stage number off the gate VM; null on the final stage (OPT),
-  // where "proceed" would mean a cycle restart (deferred to a later pass).
+  // where "proceed" closes the cycle (a 'cycle' entry) and returns to Identity.
   const hasNext = !!gate?.nextStageN;
   const gateOpts = [
     { key: "proceed",
-      label: hasNext ? `Proceed to Stage ${gate.nextStageN}` : "Close Cycle (deferred)",
-      sub: hasNext ? "Routing conditions met" : "Cycle restart is not wired in this pass",
+      label: hasNext ? `Proceed to Stage ${gate.nextStageN}` : "Close Cycle",
+      sub: hasNext ? "Routing conditions met" : "Cycle closes; the pipeline returns to Identity",
       c: "var(--bpd-complete)", cd: "var(--bpd-complete-dim)" },
     { key: "conditions", label: "Proceed with Conditions", sub: "Gaps must be resolved before next stage begins",
       c: "var(--bpd-gold)", cd: "var(--bpd-gold-dim)" },
@@ -164,7 +165,7 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
       const advanceBlocked = decision === "proceed" && openConds.length > 0;
       const decisionReady =
         canAct &&
-        ((decision === "proceed" && hasNext && !advanceBlocked) ||
+        ((decision === "proceed" && !advanceBlocked) ||
           (decision === "halt" && reasonId) ||
           (decision === "conditions" && conditions.trim().length > 0));
       const actionReady = decisionReady && hasBasis;
@@ -174,12 +175,16 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
           ? "⧁  Halt & Route to Rejection"
           : decision === "conditions"
             ? "⧁  Record Conditions — No Stage Change"
-            : "⧁  Approve & Advance Stage";
+            : hasNext
+              ? "⧁  Approve & Advance Stage"
+              : "⧁  Approve & Close Cycle";
       const reasonLabel = BBOS_REJECTION_REASONS.find((r) => r.id === reasonId)?.label;
       const confirmText =
         decision === "halt"
           ? `Halt at Stage ${stage.n} — ${stage.name} and route to Rejection for "${reasonLabel}"? This stops the pipeline and cannot be undone here.`
-          : `Advance from Stage ${stage.n} — ${stage.name} to Stage ${gate?.nextStageN}? This moves the pipeline forward and cannot be undone here.`;
+          : hasNext
+            ? `Advance from Stage ${stage.n} — ${stage.name} to Stage ${gate?.nextStageN}? This moves the pipeline forward and cannot be undone here.`
+            : `Close this cycle at Stage ${stage.n} — ${stage.name} and return the pipeline to Identity for the next cycle? This cannot be undone here.`;
       const choose = (key) => { if (canAct) { up("decision", key); setConfirming(false); setRecorded(null); } };
       const record = { basis, closingNote, conditions };
       const fireAction = () => {
@@ -358,7 +363,7 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
           />
           {advanceBlocked && canAct && (
             <div className="bpd-brief__blocked" role="note">
-              Advance is blocked: {openConds.length} open condition{openConds.length === 1 ? "" : "s"} must be marked resolved first.
+              {hasNext ? "Advance" : "Closing the cycle"} is blocked: {openConds.length} open condition{openConds.length === 1 ? "" : "s"} must be marked resolved first.
             </div>
           )}
           {decisionReady && !hasBasis && (
@@ -377,7 +382,7 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
               <div className="bpd-brief__confirm-row">
                 <button type="button" className="bpd-brief__confirm-btn" onClick={() => setConfirming(false)}>Cancel</button>
                 <button type="button" className="bpd-brief__confirm-btn bpd-brief__confirm-btn--go" onClick={fireAction} autoFocus>
-                  {decision === "halt" ? "Confirm Halt" : "Confirm Advance"}
+                  {decision === "halt" ? "Confirm Halt" : hasNext ? "Confirm Advance" : "Confirm Cycle Close"}
                 </button>
               </div>
             </div>
