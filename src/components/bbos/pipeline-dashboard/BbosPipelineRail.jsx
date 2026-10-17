@@ -3,34 +3,40 @@ import { Arc, Ornament } from "./primitives";
 import { gateNodeIcon, layerVars } from "./palette";
 import { rowActivation } from '../../../lib/row-activation';
 
+// StageNode is a <button>, so its children are spans (phrasing content only);
+// the CSS gives them their block/flex layout.
 function StageNode({ stage, isSelected, onClick }) {
   const isLocked = stage.status === "locked";
   return (
-    <div
+    <button
+      type="button"
       className="bpd-stagenode"
       data-selected={isSelected ? "true" : "false"}
       data-locked={isLocked ? "true" : "false"}
+      aria-current={isSelected ? "true" : undefined}
+      aria-disabled={isLocked ? "true" : undefined}
+      aria-label={`Stage ${stage.n} ${stage.name}, ${isLocked ? "locked" : `${stage.progress}% complete`}`}
       style={layerVars(stage.layer)}
       {...rowActivation(() => !isLocked && onClick(stage))}
     >
-      <div className="bpd-stagenode__row">
+      <span className="bpd-stagenode__row">
         <Arc pct={stage.progress} status={stage.status} size={36} />
-        <div className="bpd-stagenode__body">
-          <div className="bpd-stagenode__head">
+        <span className="bpd-stagenode__body">
+          <span className="bpd-stagenode__head">
             <span className="bpd-stagenode__n">{stage.n}</span>
             <span className="bpd-stagenode__name">{stage.name}</span>
-          </div>
-          <div className="bpd-stagenode__tagline">{stage.tagline}</div>
-        </div>
-        {stage.status === "active" && <div className="bpd-stagenode__pulse" />}
-      </div>
+          </span>
+          <span className="bpd-stagenode__tagline">{stage.tagline}</span>
+        </span>
+        {stage.status === "active" && <span className="bpd-stagenode__pulse" />}
+      </span>
       {stage.status !== "locked" && (
-        <div className="bpd-stagenode__gate" data-gate={stage.gate.status}>
+        <span className="bpd-stagenode__gate" data-gate={stage.gate.status}>
           <span className="bpd-stagenode__gate-icon">{gateNodeIcon(stage.gate.status)}</span>
           {stage.gate.label}
-        </div>
+        </span>
       )}
-    </div>
+    </button>
   );
 }
 
@@ -58,11 +64,11 @@ export default function BbosPipelineRail({ vm, selectedId, onSelect }) {
           </div>
         </div>
       </div>
-      <div className="bpd-rail__list">
+      <nav className="bpd-rail__list" aria-label="BBOS stages">
         {stages.map((s) => (
           <StageNode key={s.id} stage={s} isSelected={selectedId === s.id} onClick={onSelect} />
         ))}
-      </div>
+      </nav>
       <div className="bpd-rail__foot">
         <div className="bpd-rail__foot-dot" />
         <span className="bpd-rail__foot-text">Stage 09 returns to Stage 01</span>

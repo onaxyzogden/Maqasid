@@ -1502,6 +1502,64 @@ The hadith of niyyah is the universal lever — it transforms the same 20 minute
 Before lying down, silently say: "Ya Allah, I take this rest as a sunnah of Your Messenger (SAW), and to fuel my qiyam tonight." Keep the formula short so it survives drowsiness. After two weeks the niyyah becomes automatic.` },
       ],
     },
+    {
+      seq: 5,
+      title: "Keep the qaylulah adab \u2014 how to lie down and how to get up",
+      priority: "low", tags: ["rest", "sleep", "sunnah", "adab", "transition:qaylulah"],
+      description: "The qaylulah task already covers scheduling, environment and niyyah. What it does not cover is the prophetic manner of lying down and getting up \u2014 wudu, the right side, and the waking dhikr. These are what separate a rest that is worship from one that is merely a nap.",
+      subtasks: [
+        { title: "Make wudu and lie on the right side before the midday rest", done: false,
+          tier: "T2",
+          amanahRationale: "The Prophet (SAW) instructed wudu before lying down and named the right side specifically \u2014 a direct instruction on the posture of sleep, applied here to the daytime rest.",
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 247",
+              translation: "Al-Bara ibn Azib (RA) reported: The Prophet (SAW) said to me: \"Whenever you go to bed, perform ablution as you would for prayer, then lie down on your right side and say: Allahumma aslamtu wajhi ilayka...\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              ratNote: "Confirmed against the in-repo hadith corpus (src/data/hadith.js, bukhari:247).",
+              rationale: "Names both the preparation (wudu) and the posture (right side). Applied to qaylulah it keeps the rest inside the same adab as night sleep rather than treating it as an off-hours collapse.",
+            },
+          ],
+          description: `**Why?**
+
+Sahih al-Bukhari 247 fixes the manner of lying down: wudu first, then the right side. A rest entered this way is continuous with worship rather than an interruption of it.
+
+**How?**
+
+1. Make wudu before lying down, even for twenty minutes.
+2. Lie on the right side, not face-down or on the back.
+3. Say the sleeping dhikr rather than reaching for the phone.
+4. Benchmark: wudu and right side on every qaylulah for four weeks.` },
+        { title: "Rise from the qaylulah with the waking dhikr", done: false,
+          tier: "T2",
+          amanahRationale: "The Prophet (SAW) had a fixed formula on waking that names sleep as a small death and waking as a return \u2014 direct prophetic transmission, and the natural close of a rest taken as worship.",
+          sources: [
+            {
+              kind: "hadith",
+              ref: "Sahih al-Bukhari 6314",
+              translation: "Hudhayfah (RA) reported: When the Prophet (SAW) went to bed he would say, \"Allahumma bismika amutu wa ahya,\" and when he got up he would say, \"Alhamdu lillahi alladhi ahyana bada ma amatana wa ilayhi an-nushur.\"",
+              relevance: "direct",
+              provenanceTier: "Bayyinah",
+              hadithGrade: "Sahih",
+              ratNote: "Confirmed against the in-repo hadith corpus (src/data/hadith.js, bukhari:6314).",
+              rationale: "Closes the rest with gratitude instead of grogginess, and frames the whole pause as something given back rather than time lost.",
+            },
+          ],
+          description: `**Why?**
+
+Waking from qaylulah is the moment the rest either becomes worship or becomes sluggishness. Sahih al-Bukhari 6314 gives the words that decide it.
+
+**How?**
+
+1. On opening your eyes, say alhamdu lillahi alladhi ahyana bada ma amatana wa ilayhi an-nushur.
+2. Sit up before reaching for anything.
+3. Make wudu and move straight to the next obligation.
+4. Benchmark: the waking dhikr said before any screen, every qaylulah, for four weeks.` },
+      ],
+    },
   ],
   health_physical_excellence: [
     {

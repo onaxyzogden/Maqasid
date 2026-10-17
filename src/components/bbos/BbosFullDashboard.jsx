@@ -1,4 +1,5 @@
 import { useMemo, useState, useRef, useLayoutEffect, Fragment } from 'react';
+import { createPortal } from 'react-dom';
 import { CheckCircle, XCircle, AlertTriangle, Star, ShieldOff, RotateCcw } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useProjectStore } from '../../store/project-store';
@@ -6,6 +7,7 @@ import { getBbosTaskDefsByStage } from '../../data/bbos/bbos-task-definitions';
 import { getStage, BBOS_STAGES, BBOS_LAYERS, BBOS_REJECTION_REASONS, getBbosRejectionReason } from '../../data/bbos/bbos-pipeline';
 import { getTaskAccessLevel } from '../../data/bbos/bbos-role-access';
 import { scoreStage } from '../../data/bbos/bbos-stage-score';
+import BbosGateMoveDialog from './BbosGateMoveDialog';
 import ScopeGate from '../shared/ScopeGate';
 import DashboardTaskCard from '../shared/DashboardTaskCard';
 import GLabelBadge from '../shared/GLabelBadge';
@@ -1476,7 +1478,7 @@ function StageScoreCard({ bbosFilter, taskMap }) {
 
 const EMPTY_TASKS = [];
 
-export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, onStageAdvance }) {
+export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, onStageAdvance, onStageSelect }) {
   const tasks = useTaskStore((s) => s.tasksByProject[project.id] || EMPTY_TASKS);
   const bbosRole = project.bbosRole || 'all';
   const [activeFactory, setActiveFactoryRaw] = useState('research');
@@ -1551,6 +1553,10 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
 
   const quote = STAGE_QUOTES[bbosFilter] || '';
   const nextStage = BBOS_STAGES[(stageMeta.order ?? 0) + 1] ?? null;
+  // Advance belongs to the stage the pipeline is actually on, not the one
+  // being viewed: a finished earlier stage shows where the pipeline is instead.
+  const currentStage = getStage(project.bbosStage || 'IDY');
+  const isCurrentStage = bbosFilter === currentStage?.id;
 
   // ── Rejection / off-ramp state ────────────────────────────────────────────
   const rejectBbosPipeline = useProjectStore((s) => s.rejectBbosPipeline);
@@ -1564,11 +1570,36 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
 
   const [rejectModalOpen, setRejectModalOpen] = useState(false);
   const [rejectReasonId, setRejectReasonId] = useState(BBOS_REJECTION_REASONS[0]?.id || '');
+  const [rejectBasis, setRejectBasis] = useState('');
+
+  // The acting role is the gate-log attribution; 'all' names no one.
+  const gateBy = bbosRole !== 'all' ? bbosRole : null;
+
+  const closeReject = () => {
+    setRejectModalOpen(false);
+    setRejectBasis('');
+  };
 
   const handleConfirmReject = () => {
-    if (!rejectReasonId) return;
-    rejectBbosPipeline(project.id, rejectReasonId, project.bbosRole || null);
-    setRejectModalOpen(false);
+    if (!rejectReasonId || !rejectBasis.trim()) return;
+    // gateBy is the reviewer too: the 'all' view is no role, so it attributes
+    // neither the halt entry nor rejectedBy (as the new dashboard does).
+    rejectBbosPipeline(project.id, rejectReasonId, gateBy, {
+      basis: rejectBasis.trim(),
+      stageId: bbosFilter,
+    });
+    closeReject();
+  };
+
+  // ── Advance dialog: a written basis, and no open conditions this cycle ──
+  // Each move is logged to bbosGateLog; conditions recorded on this stage
+  // must be marked resolved (each with its own basis) before it advances.
+  // From the final stage the same dialog closes the cycle (a 'cycle' entry).
+  const [advanceOpen, setAdvanceOpen] = useState(false);
+
+  const handleAdvanceClick = () => {
+    if (!isCurrentStage) return;
+    setAdvanceOpen(true);
   };
 
   const handleResume = () => {
@@ -1637,17 +1668,27 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
             <CheckCircle size={16} className="bfd__stage-ready-icon" />
             <span className="bfd__stage-ready-text">
               Stage complete — {totalCount}/{totalCount} tasks done
+              {!isCurrentStage && currentStage && (
+                <span className="bfd__stage-ready-sub">The pipeline is at {currentStage.label}.</span>
+              )}
             </span>
-            <button className="bfd__stage-advance-btn" onClick={onStageAdvance}>
-              {nextStage ? `Advance to ${nextStage.label}` : 'Complete Cycle'} →
-            </button>
+            {isCurrentStage ? (
+              <button className="bfd__stage-advance-btn" type="button" onClick={handleAdvanceClick}>
+                {nextStage ? `Advance to ${nextStage.label}` : 'Complete Cycle'} →
+              </button>
+            ) : onStageSelect && currentStage && (
+              <button className="bfd__stage-goto-btn" type="button" onClick={() => onStageSelect(currentStage.id)}>
+                Go to {currentStage.label}
+              </button>
+            )}
           </div>
         )}
       </div>
 
-      {/* ── Reject modal ── */}
-      {rejectModalOpen && (
-        <div className="bfd__modal-overlay" onClick={() => setRejectModalOpen(false)}>
+      {/* ── Reject modal ── (portalled: a transformed ancestor in ProjectBoard
+          would otherwise trap the fixed overlay inside the content column) */}
+      {rejectModalOpen && createPortal(
+        <div className="bfd__modal-overlay" onClick={closeReject}>
           <div className="bfd__modal" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label="Reject BBOS pipeline">
             <div className="bfd__modal-head">
               <ShieldOff size={18} />
@@ -1671,16 +1712,41 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
                 </label>
               ))}
             </div>
+            <label className="bfd__modal-field">
+              <span className="bfd__modal-field-label">Basis for the rejection (required)</span>
+              <textarea
+                className="bfd__modal-textarea"
+                rows={3}
+                value={rejectBasis}
+                onChange={(e) => setRejectBasis(e.target.value)}
+                placeholder="What evidence routes this pipeline to rejection..."
+              />
+            </label>
+            {!rejectBasis.trim() && (
+              <p className="bfd__modal-hint">Write the basis to enable Confirm rejection. It is added to the gate record.</p>
+            )}
             <div className="bfd__modal-actions">
-              <button className="bfd__modal-cancel" type="button" onClick={() => setRejectModalOpen(false)}>
+              <button className="bfd__modal-cancel" type="button" onClick={closeReject}>
                 Cancel
               </button>
-              <button className="bfd__modal-confirm" type="button" onClick={handleConfirmReject} disabled={!rejectReasonId}>
+              <button className="bfd__modal-confirm" type="button" onClick={handleConfirmReject} disabled={!rejectReasonId || !rejectBasis.trim()}>
                 Confirm rejection
               </button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body,
+      )}
+
+      {/* ── Advance / Complete Cycle dialog ── (portalled by the dialog itself) */}
+      {advanceOpen && isCurrentStage && (
+        <BbosGateMoveDialog
+          project={project}
+          fromStage={stageMeta}
+          nextStage={nextStage}
+          onConfirm={onStageAdvance}
+          onClose={() => setAdvanceOpen(false)}
+        />
       )}
 
       {/* ── Task grid ── */}

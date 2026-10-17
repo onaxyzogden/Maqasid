@@ -5,6 +5,7 @@ import { useTaskStore } from '../../store/task-store';
 import { useAppStore } from '../../store/app-store';
 import { useProjectStore } from '../../store/project-store';
 import BbosRolePicker from '../bbos/BbosRolePicker';
+import BbosGateMoveDialog from '../bbos/BbosGateMoveDialog';
 import { PROJECT_COLORS } from '../../data/modules';
 import { orderBoardTasks } from '@data/orientation-selector';
 import { getBbosTaskDefsByStage } from '@data/bbos/bbos-task-definitions';
@@ -150,21 +151,37 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
     }));
   }, [isBbos, pillarProgress]);
 
-  const handleStageAdvance = useCallback(() => {
-    const currentIdx = BBOS_STAGES.findIndex((s) => s.id === bbosFilter);
+  // `record` ({ basis }) is the gate decision from the dashboard's Advance
+  // dialog; it is logged to bbosGateLog. The store refuses a recorded advance
+  // while the stage has open conditions, so the view only follows the stage
+  // when the store actually moved it. It advances from the pipeline's own
+  // stage (project.bbosStage), never from the stage merely being viewed.
+  // The header's New Cycle opens the same gate-move dialog as the dashboard.
+  const [cycleDialogOpen, setCycleDialogOpen] = useState(false);
+  const handleStageAdvance = useCallback((record) => {
+    const fromId = project?.bbosStage || 'IDY';
+    const currentIdx = BBOS_STAGES.findIndex((s) => s.id === fromId);
     const next = BBOS_STAGES[currentIdx + 1] ?? null;
+    const role = project?.bbosRole;
+    const by = role && role !== 'all' ? role : null;
     if (next) {
-      advanceBbosStage(projectId, next.id);
+      advanceBbosStage(projectId, next.id, record && { ...record, stageId: fromId, by });
+      const moved = useProjectStore.getState().projects.find((p) => p.id === projectId)?.bbosStage === next.id;
+      if (!moved) return;
       setBbosFilter(next.id);
       setActiveBbosStage(next.id);
     } else {
-      if (confirm('All stages complete. Start a new BBOS cycle? This will reset the pipeline to Identity (IDY).')) {
-        startNewBbosCycle(projectId);
-        setBbosFilter('IDY');
-        setActiveBbosStage('IDY');
-      }
+      // Closing the cycle always takes a record: a 'cycle' entry with its basis,
+      // refused by the store while the final stage has open conditions.
+      if (!record) return;
+      const fromCycle = project?.bbosCycle || 1;
+      startNewBbosCycle(projectId, { ...record, stageId: fromId, by });
+      const closed = (useProjectStore.getState().projects.find((p) => p.id === projectId)?.bbosCycle || 1) > fromCycle;
+      if (!closed) return;
+      setBbosFilter('IDY');
+      setActiveBbosStage('IDY');
     }
-  }, [bbosFilter, projectId, advanceBbosStage, setBbosFilter, setActiveBbosStage, startNewBbosCycle]);
+  }, [projectId, project?.bbosStage, project?.bbosRole, project?.bbosCycle, advanceBbosStage, setBbosFilter, setActiveBbosStage, startNewBbosCycle]);
 
   const handleStageSelect = useCallback((stageId) => {
     setBbosFilter(stageId);
@@ -361,11 +378,20 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
                 <button
                   className="btn btn-ghost"
                   style={{ fontSize: '0.8rem', color: '#c9a05a', display: 'flex', alignItems: 'center', gap: 4 }}
-                  onClick={() => { if (confirm('Start a new BBOS cycle? This resets the pipeline to Identity (IDY).')) startNewBbosCycle(projectId); }}
+                  onClick={() => setCycleDialogOpen(true)}
                   title="Complete this cycle and start a new one from Identity"
                 >
                   <RefreshCw size={14} /> New Cycle
                 </button>
+              )}
+              {cycleDialogOpen && project.bbosStage === 'OPT' && (
+                <BbosGateMoveDialog
+                  project={project}
+                  fromStage={BBOS_STAGES.find((st) => st.id === 'OPT')}
+                  nextStage={null}
+                  onConfirm={handleStageAdvance}
+                  onClose={() => setCycleDialogOpen(false)}
+                />
               )}
             </>
           )}

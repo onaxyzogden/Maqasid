@@ -6,6 +6,7 @@ export const genTaskId = () => 'tsk_' + nanoid(12);
 export const genColumnId = () => 'col_' + nanoid(8);
 export const genSubtaskId = () => 'sub_' + nanoid(8);
 export const genCheckId = () => 'chk_' + nanoid(8);
+export const genGateDecisionId = () => 'gd_' + nanoid(10);
 export const genUserId = () => 'usr_' + nanoid(12);
 
 // Money module

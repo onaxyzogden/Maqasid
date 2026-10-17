@@ -19,8 +19,11 @@
 //   - submodules:   pre-filter scope (same as the legacy array form)
 //   - matchers:     array of RegExp that a task TITLE must match against.
 //                   If at least one matcher hits, the task is included.
-//                   If matchers filter out every task, buildTasksForNode falls
-//                   back to the unfiltered submodule pool for that node.
+//                   Matchers are tested against the title and the tags, so a
+//                   `transition:*` regex claims tasks routed to this node. A
+//                   prayer node whose matchers hit nothing falls back to its
+//                   open scope pool; every other node shows only its own tasks
+//                   (see buildTasksForNode).
 //   - phaseMatchers:{ before: [RegExp], after: [RegExp] } — splits tasks into
 //                   Before/Main/After slots within a node.
 //   - moduleGroups: OPTIONAL [{ id, label, submodules: [...] }] — lets a node
@@ -386,7 +389,9 @@ export const TOD_SUBMODULES = {
   jumuah: {
     submodules: ['faith-salah', 'community', 'collective', 'people'],
     matchers: [
-      /\b(?:jumu[a']?ah|friday\s+prayer|congregational\s+prayer)\b/i,
+      // The class covers U+02BB/ʿ/’ as well as ASCII: the seed titles spell
+      // Jumuʻah with U+02BB, which [a'] alone never matched.
+      /\b(?:jumu[aʻʿ’']?ah|friday\s+prayer|congregational\s+prayer)\b/i,
       /\b(?:ghusl|miswak|perfume|white\s+clothes|walk\s+to\s+(?:the\s+)?masjid)\b/i,
       /\b(?:surah\s+al-?kahf|kahf|al-?kahf)\b/i,
       /\b(?:khutbah|sermon)\b/i,
@@ -432,7 +437,7 @@ export const TOD_SUBMODULES = {
     },
   },
   'traveler-departure': {
-    submodules: ['faith-salah', 'ummah-community', 'family-home'],
+    submodules: ['faith-salah', 'community', 'family-home'],
     matchers: [
       /\b(?:travel|safar|journey|depart|trip)\b/i,
       /\b(?:qasr|shorten.*prayer|jam[\u02bb']?|combin.*prayer)\b/i,
@@ -446,7 +451,7 @@ export const TOD_SUBMODULES = {
     },
   },
   'traveler-arrival': {
-    submodules: ['faith-salah', 'family-home', 'ummah-community'],
+    submodules: ['faith-salah', 'family-home', 'community'],
     matchers: [
       /\b(?:return(?:ing)?\s+(?:home\s+)?from\s+(?:a\s+)?(?:travel|journey)|aibun|ta\u02beibun)\b/i,
       /\btransition:traveler-arrival\b/i,
@@ -459,13 +464,23 @@ export const TOD_SUBMODULES = {
   'eid-prayer': {
     // faith-siyam holds the two ʻĪd sunan tasks (2026-10-16: without it the
     // node matched only "Jumuʻah is the eid of the week").
-    submodules: ['faith-salah', 'faith-siyam', 'ummah-community', 'family-home'],
+    submodules: ['faith-salah', 'faith-siyam', 'community', 'family-home'],
     matchers: [
-      /\beid\b/i,
+      // A bare /\beid\b/ claimed "Jumuʻah is the eid of the week" — the Friday
+      // task, rendered on the ʿId node. The day has to be named, not the word.
+      //
+      // 'faith-siyam' is in the submodule list because the ʿId practice was
+      // already authored there ("Keep the Sunan of ʻĪd al-Fitr" / "... al-Adha",
+      // 7 grounded subtasks) — it was never missing, only out of scope.
+      // Those titles also forced the shape of this pattern: a leading \b cannot
+      // fire between the U+02BB mark and Ī (non-ASCII, so not a \w), and [ie]
+      // never covered Ī. Hence (?:^|\s) and the widened vowel class.
+      /(?:^|\s)(?:e|[ʿʻ'])?[iĪī]d\s+(?:al-?)?(?:fitr|adha|prayer|day|morning|salah)\b/i,
       /\b(?:salat\s+al-?[ʿ']?id|[ʿ']?id\s+prayer|musalla)\b/i,
       /\b(?:takbir|takbeer|takbirat)\b/i,
       /\b(?:zakat\s+al-?fitr|fitrana)\b/i,
-      /\b(?:udhiyyah|qurbani|sacrifice)\b/i,
+      // /sacrifice/ dropped with it: too general a word for this node.
+      /\b(?:udhiyyah|qurbani)\b/i,
       /\btransition:eid-prayer\b/i,
     ],
     phaseMatchers: {
@@ -1144,9 +1159,8 @@ export function buildTasksForNode(nodeId, projects, tasksByProject, options = {}
     rows = open.length > 0 ? open : own;
   }
 
-  // Cross-prayer exclusion runs AFTER matching (and its fallback), so a node
-  // whose matchers hit nothing still falls back to its full scope pool before
-  // this narrows it — the exclusion trims the result, it never widens it.
+  // Cross-prayer exclusion runs AFTER matching, so it only ever trims the
+  // matched result — it never widens it.
   rows = rows.filter((r) => belongsToPrayerNode(r, nodeId));
 
   // Phase filter: before/after narrow the pool via phaseMatchers (title+tags);

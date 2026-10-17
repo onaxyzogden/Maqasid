@@ -5858,6 +5858,64 @@ The Prophet (SAW) made the masjid his first stop on coming home, and prayed two 
 4. Benchmark: your next 3 returns begin at the masjid.` },
       ],
     },
+    {
+      seq: 13,
+      title: 'Take the travel concessions fully \u2014 the fasting allowance and hastening back',
+      priority: 'medium',
+      tags: ['salah', 'sunnah', 'travel', 'safar', 'transition:traveler-departure'],
+      description: 'Qasr and jam\u02bb are already covered by the departure task. Two further allowances are not: permission to defer the fast on a journey, and the prophetic instruction to finish the errand and return rather than let travel stretch itself out. Both are concessions with a discipline attached \u2014 a deferred fast is a debt, and a hastened return is owed to the household left behind.',
+      subtasks: [
+        { title: 'Defer the fast on a genuine journey and diarise the makeup days', done: false,
+          tier: 'T2',
+          amanahRationale: 'Quran 2:184 names the traveller explicitly and states the compensation in the same breath \u2014 the concession and the makeup are one instruction, not two.',
+          sources: [
+            {
+              kind: 'quran',
+              ref: 'Quran 2:184',
+              arabic: '\u0623\u064e\u064a\u0651\u064e\u0627\u0645\u064b\u0627 \u0645\u0651\u064e\u0639\u0652\u062f\u0648\u062f\u064e\u0627\u062a\u064d \u06da \u0641\u064e\u0645\u064e\u0646 \u0643\u064e\u0627\u0646\u064e \u0645\u0650\u0646\u0643\u064f\u0645 \u0645\u0651\u064e\u0631\u0650\u064a\u0636\u064b\u0627 \u0623\u064e\u0648\u0652 \u0639\u064e\u0644\u064e\u0649\u0670 \u0633\u064e\u0641\u064e\u0631\u064d \u0641\u064e\u0639\u0650\u062f\u0651\u064e\u0629\u064c \u0645\u0651\u0650\u0646\u0652 \u0623\u064e\u064a\u0651\u064e\u0627\u0645\u064d \u0623\u064f\u062e\u064e\u0631\u064e',
+              translation: 'Fast for a specific number of days, but if one of you is ill, or on a journey, on other days later. (Abdel Haleem)',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              rationale: 'The traveller is named in the text of the concession itself, and the makeup is stated in the same clause \u2014 the allowance is never open-ended.',
+            },
+          ],
+          description: `**Why?**
+
+Quran 2:184 gives the traveller permission to defer, and in the same clause fixes the compensation: on other days later. The concession is real; so is the debt.
+
+**How?**
+
+1. Decide before setting out whether you are fasting or deferring \u2014 not mid-morning on the road.
+2. If deferring, write down the number of days owed the same day.
+3. Book the makeup days into the calendar before Shaban.
+4. Benchmark: zero deferred fasts left unrecorded at the end of any journey.` },
+        { title: 'Finish the errand and hasten back rather than stretch the trip', done: false,
+          tier: 'T3',
+          amanahRationale: 'The Prophet (SAW) described travel itself as a piece of punishment and instructed the traveller to return once the need is met \u2014 a direct instruction about the length of a journey, not only its rites.',
+          sources: [
+            {
+              kind: 'hadith',
+              ref: 'Sahih al-Bukhari 1804',
+              translation: 'Abu Hurayrah (RA) reported: The Prophet (SAW) said: "Travel is a piece of punishment \u2014 it keeps one of you from his food, his drink and his sleep. So when one of you has fulfilled his need, let him hasten his return to his family."',
+              relevance: 'direct',
+              provenanceTier: 'Bayyinah',
+              hadithGrade: 'Sahih',
+              ratNote: 'Carried verbatim from src/data/islamic/time-based-content.js (traveler-departure, before/intent), where it is the attested reference for the niyyah of travel.',
+              rationale: 'Sets the default length of a journey at the size of its purpose, and names the household as the thing being returned to \u2014 the counterweight to travel as escape.',
+            },
+          ],
+          description: `**Why?**
+
+Sahih al-Bukhari 1804 calls travel a piece of punishment and tells the traveller to return once the need is met. It is the sunnah answer to a trip that quietly extends itself.
+
+**How?**
+
+1. Name the purpose of the journey in one sentence before setting out.
+2. Set the return date against that purpose, not against convenience.
+3. When the purpose is met early, move the return earlier.
+4. Benchmark: no journey extended beyond its stated purpose without a reason you would say out loud.` },
+      ],
+    },
   ],
   faith_salah_excellence: [
     {

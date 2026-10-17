@@ -57,7 +57,10 @@ describe('node matching reads transition: tags', () => {
   it('nodes no longer borrow other nodes\u2019 tasks', () => {
     expect(titlesFor('eid-prayer')).toEqual(['Keep the Sunan of ʻĪd al-Fitr', 'Keep the Sunan of ʻĪd al-Adha']);
     expect(titlesFor('traveler-arrival')).toEqual(['Return home from travel with the Prophet’s ﷺ sunnah']);
-    expect(titlesFor('traveler-departure')).toEqual(['Travel with the Prophet’s ﷺ structure']);
+    expect(titlesFor('traveler-departure')).toEqual([
+      'Travel with the Prophet’s ﷺ structure',
+      'Take the travel concessions fully — the fasting allowance and hastening back',
+    ]);
     expect(titlesFor('jumuah')).toEqual(['Honor the Friday Sunan — Jumuʻah is the eid of the week']);
     expect(titlesFor('qiyam-rest')).toEqual(['Sleep with niyyah to rise for tahajjud']);
     expect(titlesFor('maghrib-iftar')).not.toContain('Understand the conditions that break the fast vs. those that do not');

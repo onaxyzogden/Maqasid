@@ -8,7 +8,6 @@
 import { useMemo, useState } from "react";
 import { useTaskStore } from "../../../store/task-store";
 import { useProjectStore } from "../../../store/project-store";
-import { useUndoToast } from "../../../hooks/useUndoToast";
 import { BBOS_STAGES } from "../../../data/bbos/bbos-pipeline";
 import { buildPipelineViewModel } from "./adapter/bbos-dashboard-adapter";
 import BbosPipelineRail from "./BbosPipelineRail";
@@ -22,19 +21,12 @@ const EMPTY_TASKS = [];
 export default function BbosPipelineDashboard({ project, bbosFilter, onStageSelect }) {
   const tasks = useTaskStore((s) => s.tasksByProject[project.id] || EMPTY_TASKS);
   const advanceBbosStage = useProjectStore((s) => s.advanceBbosStage);
+  const startNewBbosCycle = useProjectStore((s) => s.startNewBbosCycle);
   const rejectBbosPipeline = useProjectStore((s) => s.rejectBbosPipeline);
-  const updateProject = useProjectStore((s) => s.updateProject);
-  const undoToast = useUndoToast();
-
-  // Gate decisions write to the pipeline; snapshot the fields they touch so
-  // the toast's Undo can put the project back exactly as it was.
-  const snapshotGate = () => ({
-    bbosStage: project.bbosStage,
-    rejectedAt: project.rejectedAt ?? null,
-    rejectionReason: project.rejectionReason ?? null,
-    rejectedBy: project.rejectedBy ?? null,
-    bbosDecisions: project.bbosDecisions || [],
-  });
+  const logBbosGateDecision = useProjectStore((s) => s.logBbosGateDecision);
+  // The acting role is the attribution; 'all' is the view-everything filter,
+  // which names no one, so it records as unattributed.
+  const reviewer = project.bbosRole && project.bbosRole !== "all" ? project.bbosRole : null;
   const vm = useMemo(
     () => buildPipelineViewModel({ project, bbosFilter, tasks }),
     [project, bbosFilter, tasks],
@@ -50,8 +42,14 @@ export default function BbosPipelineDashboard({ project, bbosFilter, onStageSele
   const filterId = vm.stages.find((s) => s.id === bbosFilter)?.id || null;
   const fallbackId = filterId || vm.stages[2]?.id || vm.stages[0]?.id || null;
   const [localId, setLocalId] = useState(fallbackId);
-  const [execStage, setExecStage] = useState(null);
-  const [briefStage, setBriefStage] = useState(null);
+  // Modals hold a stage *id* and read the stage off the live VM, so a task filed
+  // inside the Execution View re-renders its row as Filed without reopening.
+  const [execStageId, setExecStageId] = useState(null);
+  const [briefStageId, setBriefStageId] = useState(null);
+  const execStage = vm.stages.find((s) => s.id === execStageId) || null;
+  const briefStage = vm.stages.find((s) => s.id === briefStageId) || null;
+  const setExecStage = (s) => setExecStageId(s?.id ?? null);
+  const setBriefStage = (s) => setBriefStageId(s?.id ?? null);
 
   const selectedId = onStageSelect ? (filterId || fallbackId) : localId;
   const handleSelect = (s) => {
@@ -75,29 +73,33 @@ export default function BbosPipelineDashboard({ project, bbosFilter, onStageSele
           onClose={() => setExecStage(null)}
           onSubmitGate={() => { setBriefStage(execStage); setExecStage(null); }}
           projectId={project.id}
+          columns={project.columns}
         />
       )}
       {briefStage && (
         <BbosApprovalBrief
           stage={briefStage}
           briefSections={vm.meta.briefSections}
-          onAdvance={(decision) => {
+          // Each move carries its record (basis, closing note) into bbosGateLog.
+          onAdvance={(record) => {
             const idx = BBOS_STAGES.findIndex((s) => s.id === briefStage.id);
             const next = BBOS_STAGES[idx + 1];
-            // Last stage (OPT) advance = cycle start, deferred to a later pass.
-            if (next) {
-              const before = snapshotGate();
-              advanceBbosStage(project.id, next.id, { ...decision, fromStage: briefStage.id });
-              undoToast(`Advanced to ${next.name || next.id}`, () => updateProject(project.id, before));
-            }
+            const gated = { ...record, stageId: briefStage.id, by: reviewer };
+            // Proceed from the last stage (OPT) closes the cycle: logged as a
+            // 'cycle' entry, and the pipeline returns to Identity.
+            if (next) advanceBbosStage(project.id, next.id, gated);
+            else startNewBbosCycle(project.id, gated);
             setBriefStage(null);
           }}
-          onReject={(reasonId, decision) => {
-            const before = snapshotGate();
-            rejectBbosPipeline(project.id, reasonId, null, { ...decision, fromStage: briefStage.id });
-            undoToast("Pipeline routed to rejection", () => updateProject(project.id, before));
+          onReject={(reasonId, record) => {
+            rejectBbosPipeline(project.id, reasonId, reviewer, { ...record, stageId: briefStage.id });
             setBriefStage(null);
           }}
+          // Proceed-with-conditions: recorded, no stage change, Brief stays open.
+          onLogConditions={(record) => logBbosGateDecision(project.id, { ...record, stageId: briefStage.id, by: reviewer })}
+          // Resolving a condition is its own entry pointing at it; no stage change.
+          onResolveCondition={(resolvesId, basis) =>
+            logBbosGateDecision(project.id, { decision: "resolved", resolvesId, basis, by: reviewer })}
           onClose={() => setBriefStage(null)}
         />
       )}

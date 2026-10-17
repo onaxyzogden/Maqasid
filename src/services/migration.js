@@ -2,7 +2,7 @@
 // Schema version: 5.0 — unified contacts model
 
 import { listKeys } from './storage';
-import { repairBoardTasks, taskHasState } from './mojibake';
+import { repairBoardTasks, taskHasState, subtaskHasState } from './mojibake';
 import { genSubtaskId, genTaskId } from './id';
 import { reconcileBoardCompletion } from './task-completion';
 
@@ -20,6 +20,7 @@ const AUDIT_V3_FLAG = 'seed_order_audit_v3';
 const COMPLETION_FLAG = 'task_completion_reconcile_v1';
 const ISTIJABAH_FLAG = 'seed_istijabah_task_v1';
 const NODE_SPLIT_FLAG = 'seed_node_split_v1';
+const PRAYER_FANOUT_FLAG = 'seed_node_content_split_v1';
 
 // Tasks deleted from the seed files on 2026-07-27 as duplicates of a sibling on
 // the same board. Titles are byte-for-byte copies taken from the seed file
@@ -90,31 +91,20 @@ export const FOLDED_SUBTASK_ORDER = {
   },
 };
 
-// Curated subtask order for two Before/After sequence-correctness fixes (2026-08):
-// the adhan-response subtask moves ahead of siwak/wudu on the pre-prayer sunnah
-// task, and the Witr Qunut moves ahead of the post-Witr tasbih on the Tahajjud
-// after board. Unlike FOLDED_SUBTASK_ORDER above (which folds subtasks orphaned
-// by a seed deletion back onto a surviving sibling), this purely re-orders rows
-// that already exist on the board — same `alignSubtaskOrder` mechanism, reused.
-// The drift guard in src/data/seed-tasks/__tests__/prayer-order.test.js pins the
-// pre-prayer-sunnah order against the seed; see wiki/decisions for the Witr one.
-const PRE_PRAYER_SUNNAH_ORDER = {
-  'Observe the pre-prayer sunnah before every salah (siwak, wudu, adhan response)': [
-    "Repeat after the mu'adhdhin and make du'a after the adhan",
-    'Use the siwak before wudu and before prayer',
-    'Perform wudu thoroughly — wet every part, especially the heels',
-    'Use a sutrah (barrier) when praying in an open space',
-  ],
-};
-
+// Curated subtask order for a Before/After sequence-correctness fix (2026-08):
+// the Witr Qunut moves ahead of the post-Witr tasbih on the Tahajjud after
+// board. Unlike FOLDED_SUBTASK_ORDER above (which folds subtasks orphaned by a
+// seed deletion back onto a surviving sibling), this purely re-orders rows that
+// already exist on the board — same `alignSubtaskOrder` mechanism, reused.
+//
+// This table also once carried a `PRE_PRAYER_SUNNAH_ORDER` against all five
+// `prayer_*_before` boards, for the generic task classifyTask() copied onto each
+// of them. That fan-out was retired in 2026-08 (see prayer-seed-tasks.js): the
+// task now lives only on `faith_salah_core`, where the seed already ships the
+// corrected order, and each prayer has its own authored Before content instead.
+// The five entries were removed rather than repointed — this pass is flagged
+// one-shot and has already fired everywhere, so repointing it would run nothing.
 export const REORDERED_SUBTASK_ORDER = {
-  // Generic sunan, duplicated onto all five daily prayers' Before boards by
-  // classifyTask() in prayer-seed-tasks.js.
-  prayer_fajr_before: PRE_PRAYER_SUNNAH_ORDER,
-  prayer_dhuhr_before: PRE_PRAYER_SUNNAH_ORDER,
-  prayer_asr_before: PRE_PRAYER_SUNNAH_ORDER,
-  prayer_maghrib_before: PRE_PRAYER_SUNNAH_ORDER,
-  prayer_isha_before: PRE_PRAYER_SUNNAH_ORDER,
   // "Seal the night with the post-Witr adhkar..." is tagged transition:post-witr,
   // which classifyTask() routes to prayer_tahajjud_after (Witr closes Tahajjud,
   // not Isha, in this app's model).
@@ -402,6 +392,41 @@ export function pruneRemovedSeedTasks(tasks, removedTitles, boardId) {
   return { next: removed.length > 0 ? next : tasks, removed, kept };
 }
 
+// Remove named subtasks that were lifted OUT of a task in the seed — the mirror
+// of pruneRemovedSeedTasks one level down. Pure: returns the same array
+// reference when nothing is pruned, so callers can skip the write.
+//
+// `removedTable` is { taskTitle: [subtaskTitle, ...] } for ONE board. A stored
+// subtask whose seed row moved to a different task would otherwise never leave:
+// the boot backfill appends missing subtasks and never removes one, so the
+// operator would see it twice — once bare under its old parent, once whole
+// under its new one.
+//
+// Same contract as the task-level prune: a row the operator has worked on is
+// NEVER deleted. It stays as a bare duplicate they can remove by hand, because
+// losing a completion silently is the worse failure.
+export function pruneRemovedSeedSubtasks(tasks, removedTable) {
+  if (!Array.isArray(tasks) || !removedTable) return { next: tasks, removed: [], kept: [] };
+  const removed = [];
+  const kept = [];
+  let changed = false;
+  const next = tasks.map((t) => {
+    const doomed = removedTable[t?.title];
+    if (!doomed?.length || !Array.isArray(t.subtasks)) return t;
+    const doomedSet = new Set(doomed);
+    const subtasks = t.subtasks.filter((st) => {
+      if (!doomedSet.has(st?.title)) return true;
+      if (subtaskHasState(st)) { kept.push(st.title); return true; }
+      removed.push(st.title);
+      return false;
+    });
+    if (subtasks.length === t.subtasks.length) return t;
+    changed = true;
+    return { ...t, subtasks };
+  });
+  return { next: changed ? next : tasks, removed, kept };
+}
+
 // One-shot prune of the five duplicated Ummah tasks removed from the seed files
 // on 2026-07-27. Runs after the mojibake repair so corrupted titles have already
 // been restored to the exact strings this table matches on.
@@ -424,6 +449,69 @@ export function pruneDedupedSeedTasks() {
     console.info(
       `[bbiz] Seed dedupe: ${keptTitles.length} duplicate task(s) kept because they carry your progress — ` +
       `delete them by hand if you no longer want them: ${keptTitles.map((t) => `"${t}"`).join(', ')}`
+    );
+  }
+}
+
+// Three generic Salah tasks that classifyTask() used to copy onto every prayer's
+// Before/After board, retired on 2026-08-29 when each prayer got its own
+// authored content. They are NOT deleted from the seed — they keep their home on
+// the `faith_salah_*` boards, and only the prayer_* copies are removed here.
+//
+// Titles are byte-for-byte copies of the seed strings as they stood before the
+// change; exact title equality is the only join between seed and storage.
+// See the plan and stages/implement-node-content-split-review.md.
+const FANNED_OUT_BEFORE = [
+  'Observe the pre-prayer sunnah before every salah (siwak, wudu, adhan response)',
+];
+const FANNED_OUT_AFTER = [
+  'Complete the post-prayer adhkar after every salah (istighfar, tasbih, Ayat al-Kursi)',
+  'Memorise the prophetic supplications specific to each prayer',
+];
+
+const FANNED_OUT_PRAYER_TASKS = Object.fromEntries(
+  ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha'].flatMap((p) => [
+    [`prayer_${p}_before`, FANNED_OUT_BEFORE],
+    [`prayer_${p}_after`, FANNED_OUT_AFTER],
+  ])
+);
+
+// One-shot prune. Same contract as
+// pruneDedupedSeedTasks: a task or subtask the operator has worked on is NEVER
+// deleted, so someone who completed the generic adhkar on Fajr keeps that row
+// beside the new Fajr-specific one and can remove it by hand. Losing their
+// progress silently is the worse failure.
+//
+// Without this the retired rows would sit on those boards forever — the boot
+// backfill only appends by title diff and never removes — each holding a slot in
+// the curated chain while rendering bare, because their description, sources and
+// tier can no longer be hydrated from the board they were removed from.
+// Approval gate: stages/implement-node-content-split-review.md
+export function pruneSplitSeedRows() {
+  if (localStorage.getItem(PREFIX + PRAYER_FANOUT_FLAG) === '1') return;
+  let removedTasks = 0;
+  const keptTitles = [];
+
+  for (const [boardId, titles] of Object.entries(FANNED_OUT_PRAYER_TASKS)) {
+    const key = `tasks_${boardId}`;
+    const tasks = read(key);
+    if (!Array.isArray(tasks) || tasks.length === 0) continue;
+    const { next, removed, kept } = pruneRemovedSeedTasks(tasks, titles, boardId);
+    keptTitles.push(...kept.map((t) => `${t} (${boardId})`));
+    if (removed.length > 0) { write(key, next); removedTasks += removed.length; }
+  }
+
+  localStorage.setItem(PREFIX + PRAYER_FANOUT_FLAG, '1');
+  if (removedTasks) {
+    console.info(
+      `[bbiz] Node content split: ${removedTasks} shared Salah task(s) removed from the ` +
+      `prayer Before/After boards — each prayer now has its own. They remain on the Faith Salah boards.`
+    );
+  }
+  if (keptTitles.length) {
+    console.info(
+      `[bbiz] Node content split: ${keptTitles.length} row(s) kept because they carry your ` +
+      `progress — delete them by hand if you no longer want them: ${keptTitles.map((t) => `"${t}"`).join(', ')}`
     );
   }
 }
@@ -1114,6 +1202,11 @@ export function runMigrations() {
   // appended) — a duplicate on the operator's board.
   renameSeedSubtaskTitles();
   alignReorderedSubtasksV3();
+  // Then drop the generic Salah tasks the 2026-08-29 content split stopped
+  // copying onto every prayer's Before/After board. Must precede mount: the
+  // boot backfill appends each prayer's own content by title diff, and a
+  // board holding both would show the retired rows beside it.
+  pruneSplitSeedRows();
   // Then the 2026-10-05 Duha restructure: moves "Learn the time window" from the
   // Excellence task to the head of the Growth task and retires the 3×/week step.
   restructureDuhaSeedSubtasks();

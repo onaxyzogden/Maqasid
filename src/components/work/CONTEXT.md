@@ -6,7 +6,7 @@ Project and task management with Kanban, List, and Gantt views. Uses dnd-kit for
 ## File Inventory
 | File | Description |
 |------|-------------|
-| ProjectBoard.jsx | View-switching hub (board/list/gantt), manages filters and side panel |
+| ProjectBoard.jsx | View-switching hub (board/list/gantt), manages filters and side panel. `handleStageAdvance(record)` advances from `project.bbosStage` (not the viewed `bbosFilter`), passes `{ basis, stageId, by }` to `advanceBbosStage` and moves the BBOS filter only if the store actually advanced (the store refuses while conditions are open). With no next stage it closes the cycle: it requires a record, calls `startNewBbosCycle(id, { basis, stageId, by })` and moves the filter to IDY only if the cycle actually incremented. The header **New Cycle** button (at OPT) opens `BbosGateMoveDialog` with `nextStage` null, which feeds the same handler |
 | DashboardView.jsx | Overview dashboard for projects: task summary cards, audit score, recent activity |
 | DashboardView.css | Dashboard grid layout, summary cards, audit score styles |
 | PillarLevelDashboard.jsx | Pillar-scoped dashboard aggregating projects under a maqasid pillar |
