@@ -108,6 +108,8 @@ See [decision: bbos-cycle-close-record](../decisions/2026-10-17-bbos-cycle-close
 
 **On main (2026-10-17):** All of the above shipped in PR #56. When it caught up with main, the operator chose "gate log wins": `bbosGateLog` is the only decision record, and main's parallel `bbosDecisions` writes and its Undo toasts on Advance, Reject and Close Cycle were dropped. Main's Execution View button **Continue to Approval Brief** was kept and now opens the Brief (it records nothing; the Brief's own actions do). Verified in preview: the Gate Check tab's button opens the Brief for the current stage, focus moves into the dialog, and the gate log is unchanged.
 
+**Undo as a recorded reversal (2026-10-17):** The Undo toasts are back on the redesigned dashboard's Advance, Halt and Close Cycle, rebuilt on top of the gate log. Undo puts the pipeline back and adds a `'reversed'` entry (`reversesId`) pointing at the undone decision. Only the last entry can be reversed, and only a proceed, halt or cycle. The undone entry stays in the Gate record, struck through with a "(reversed)" tag. The legacy dashboard has no Undo. See [[2026-10-17-bbos-gate-undo-reversal]].
+
 ## Connections
 
 - [[milos]] — Host application; BBOS is a module at `src/components/bbos/`
@@ -142,6 +144,7 @@ See [decision: bbos-cycle-close-record](../decisions/2026-10-17-bbos-cycle-close
 
 | Date | Event |
 |---|---|
+| 2026-10-17 | **Gate Undo as a recorded reversal.** `'reversed'` decision + `reversesId`, `reverseGateDecision` / `isReversed` in `bbos-gate-log.js` (last entry only; proceed/halt/cycle), store `reverseBbosGateDecision` (allowed on a rejected project). The redesigned dashboard's Advance, Halt and Close Cycle show a 6s Undo toast only when the move wrote its entry. The Gate record shows Reversed + a struck-through "(reversed)" original. Confirm copy no longer says "cannot be undone". 431 tests; preview verified all three flows plus expiry. See [decision](../decisions/2026-10-17-bbos-gate-undo-reversal.md). |
 | 2026-10-17 | **Cycle close takes a basis and is recorded.** New `'cycle'` gate decision. `startNewBbosCycle(id, record)` logs it in the closing cycle and refuses while OPT has open conditions. The legacy Complete Cycle and header New Cycle share the new `BbosGateMoveDialog`; the Brief's Close Cycle is live. 326 tests, lint and build green; all three verified in preview. See [decision](../decisions/2026-10-17-bbos-cycle-close-record.md). |
 | 2026-10-17 | **Legacy Advance follows the pipeline's actual stage.** The button shows only when the viewed stage is `project.bbosStage`; a finished earlier stage shows "The pipeline is at X" with Go to X. ProjectBoard advances from `bbosStage`. 322 tests, lint and build green; verified in preview. See [decision](../decisions/2026-10-17-bbos-legacy-gate-record-path.md). |
 | 2026-10-17 | **Legacy dashboard Advance and Reject on the gate record.** Advance dialog with required basis, open conditions listed with inline Mark resolved, and Confirm blocked while open; ProjectBoard follows the store result. Reject requires a basis and logs a halt; 'all' role attributes null. Modals portalled out of the transformed content layer. New store test (3); 322 tests, lint and build green; verified in preview. See [decision](../decisions/2026-10-17-bbos-legacy-gate-record-path.md). |

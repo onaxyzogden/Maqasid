@@ -8,6 +8,7 @@
 import { useMemo, useState } from "react";
 import { useTaskStore } from "../../../store/task-store";
 import { useProjectStore } from "../../../store/project-store";
+import { useUndoToast } from "../../../hooks/useUndoToast";
 import { BBOS_STAGES } from "../../../data/bbos/bbos-pipeline";
 import { buildPipelineViewModel } from "./adapter/bbos-dashboard-adapter";
 import BbosPipelineRail from "./BbosPipelineRail";
@@ -17,6 +18,12 @@ import BbosApprovalBrief from "./BbosApprovalBrief";
 import "./BbosPipelineDashboard.css";
 
 const EMPTY_TASKS = [];
+const UNDO_BASIS = "Undone from the confirmation toast moments after the decision.";
+
+const stageTitle = (id) => {
+  const idx = BBOS_STAGES.findIndex((s) => s.id === id);
+  return `Stage ${String(idx + 1).padStart(2, "0")} — ${BBOS_STAGES[idx]?.label || id}`;
+};
 
 export default function BbosPipelineDashboard({ project, bbosFilter, onStageSelect }) {
   const tasks = useTaskStore((s) => s.tasksByProject[project.id] || EMPTY_TASKS);
@@ -24,9 +31,25 @@ export default function BbosPipelineDashboard({ project, bbosFilter, onStageSele
   const startNewBbosCycle = useProjectStore((s) => s.startNewBbosCycle);
   const rejectBbosPipeline = useProjectStore((s) => s.rejectBbosPipeline);
   const logBbosGateDecision = useProjectStore((s) => s.logBbosGateDecision);
+  const reverseBbosGateDecision = useProjectStore((s) => s.reverseBbosGateDecision);
+  const undoToast = useUndoToast();
   // The acting role is the attribution; 'all' is the view-everything filter,
   // which names no one, so it records as unattributed.
   const reviewer = project.bbosRole && project.bbosRole !== "all" ? project.bbosRole : null;
+
+  // Run a gate move, then offer Undo only if it actually wrote its entry (a
+  // move refused for open conditions writes nothing and gets no toast). Undo
+  // appends a 'reversed' entry; the decision itself stays in the record.
+  const lastEntry = () =>
+    useProjectStore.getState().projects.find((p) => p.id === project.id)?.bbosGateLog?.at(-1) || null;
+  const moveWithUndo = (decision, move, message) => {
+    const beforeId = lastEntry()?.id;
+    move();
+    const entry = lastEntry();
+    if (!entry || entry.id === beforeId || entry.decision !== decision) return;
+    undoToast(message(entry), () =>
+      reverseBbosGateDecision(project.id, entry.id, { basis: UNDO_BASIS, by: reviewer }));
+  };
   const vm = useMemo(
     () => buildPipelineViewModel({ project, bbosFilter, tasks }),
     [project, bbosFilter, tasks],
@@ -87,12 +110,19 @@ export default function BbosPipelineDashboard({ project, bbosFilter, onStageSele
             const gated = { ...record, stageId: briefStage.id, by: reviewer };
             // Proceed from the last stage (OPT) closes the cycle: logged as a
             // 'cycle' entry, and the pipeline returns to Identity.
-            if (next) advanceBbosStage(project.id, next.id, gated);
-            else startNewBbosCycle(project.id, gated);
+            if (next) {
+              moveWithUndo("proceed", () => advanceBbosStage(project.id, next.id, gated),
+                () => `Advanced to ${stageTitle(next.id)}`);
+            } else {
+              moveWithUndo("cycle", () => startNewBbosCycle(project.id, gated),
+                (e) => `Cycle ${e.cycle} closed — Cycle ${e.cycle + 1} begins`);
+            }
             setBriefStage(null);
           }}
           onReject={(reasonId, record) => {
-            rejectBbosPipeline(project.id, reasonId, reviewer, { ...record, stageId: briefStage.id });
+            moveWithUndo("halt",
+              () => rejectBbosPipeline(project.id, reasonId, reviewer, { ...record, stageId: briefStage.id }),
+              () => "Pipeline routed to rejection");
             setBriefStage(null);
           }}
           // Proceed-with-conditions: recorded, no stage change, Brief stays open.

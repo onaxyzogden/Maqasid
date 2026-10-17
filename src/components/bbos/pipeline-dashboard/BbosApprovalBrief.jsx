@@ -27,6 +27,7 @@ const DECISION_LABEL = {
   halt: "Halted",
   resolved: "Condition resolved",
   cycle: "Cycle closed",
+  reversed: "Reversed",
 };
 
 const formatAt = (iso) => {
@@ -179,12 +180,15 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
               ? "⧁  Approve & Advance Stage"
               : "⧁  Approve & Close Cycle";
       const reasonLabel = BBOS_REJECTION_REASONS.find((r) => r.id === reasonId)?.label;
+      // Undo is offered for a few seconds afterwards; it adds a 'reversed'
+      // entry, so the decision itself always stays in the gate record.
+      const undoNote = "You can Undo it for a few seconds afterwards; the decision stays in the gate record.";
       const confirmText =
         decision === "halt"
-          ? `Halt at Stage ${stage.n} — ${stage.name} and route to Rejection for "${reasonLabel}"? This stops the pipeline and cannot be undone here.`
+          ? `Halt at Stage ${stage.n} — ${stage.name} and route to Rejection for "${reasonLabel}"? This stops the pipeline. ${undoNote}`
           : hasNext
-            ? `Advance from Stage ${stage.n} — ${stage.name} to Stage ${gate?.nextStageN}? This moves the pipeline forward and cannot be undone here.`
-            : `Close this cycle at Stage ${stage.n} — ${stage.name} and return the pipeline to Identity for the next cycle? This cannot be undone here.`;
+            ? `Advance from Stage ${stage.n} — ${stage.name} to Stage ${gate?.nextStageN}? This moves the pipeline forward. ${undoNote}`
+            : `Close this cycle at Stage ${stage.n} — ${stage.name} and return the pipeline to Identity for the next cycle? ${undoNote}`;
       const choose = (key) => { if (canAct) { up("decision", key); setConfirming(false); setRecorded(null); } };
       const record = { basis, closingNote, conditions };
       const fireAction = () => {
@@ -217,6 +221,7 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
         setRecorded({ at: new Date().toISOString(), kind: "resolved" });
       };
       const logById = Object.fromEntries(log.map((e) => [e.id, e]));
+      const reversedIds = new Set(log.filter((e) => e.decision === "reversed").map((e) => e.reversesId));
       return (
         <div className="bpd-col" style={{ gap: 14 }}>
           {gate && (
@@ -408,9 +413,16 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
             ) : (
               <ol className="bpd-brief__log-list">
                 {log.map((e) => (
-                  <li key={e.id} className="bpd-brief__log-entry" data-decision={e.decision}>
+                  <li
+                    key={e.id}
+                    className={`bpd-brief__log-entry${reversedIds.has(e.id) ? " bpd-brief__log-entry--reversed" : ""}`}
+                    data-decision={e.decision}
+                  >
                     <div className="bpd-brief__log-head">
-                      <span className="bpd-brief__log-decision">{DECISION_LABEL[e.decision] || e.decision}</span>
+                      <span className="bpd-brief__log-decision">
+                        {DECISION_LABEL[e.decision] || e.decision}
+                        {reversedIds.has(e.id) && <span className="bpd-brief__log-tag">(reversed)</span>}
+                      </span>
                       <span className="bpd-brief__log-meta">
                         Cycle {e.cycle} · {formatAt(e.at)}{e.by ? ` · ${e.by}` : ""}
                       </span>
@@ -425,6 +437,13 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
                       <div className="bpd-brief__log-line">
                         <span className="bpd-brief__log-key">Resolves</span>
                         {logById[e.resolvesId]?.conditions || e.resolvesId}
+                      </div>
+                    )}
+                    {e.decision === "reversed" && (
+                      <div className="bpd-brief__log-line">
+                        <span className="bpd-brief__log-key">Undoes</span>
+                        {DECISION_LABEL[logById[e.reversesId]?.decision] || e.reversesId}
+                        {logById[e.reversesId] ? ` · ${formatAt(logById[e.reversesId].at)}` : ""}
                       </div>
                     )}
                     <div className="bpd-brief__log-line"><span className="bpd-brief__log-key">Basis</span>{e.basis}</div>
