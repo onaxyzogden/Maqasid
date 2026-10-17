@@ -3,6 +3,14 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-17] ship | PR #56 merged; feature branch deleted
+
+PR #56 (BBOS gate record, plus the Islamic node-task catch-up) is merged into main as 0e2498e.
+
+- **Preview check before merge:** the Execution View's Gate Check tab shows **Continue to Approval Brief**. It opens the Brief for the current stage, moves focus into the dialog, and leaves the gate log unchanged (8 entries before and after). The Vite 500s in the console dated from the moment `migration.js` still held conflict markers. After a reload, no new errors appeared.
+- **Branch:** `feat/desktop-pillar-glyphs` is deleted locally and on GitHub. Work continues from main.
+- **Wiki:** [[bbos-pipeline]] gains an "On main" note recording that the gate log is the single decision record.
+
 ## [2026-10-17] merge | PR #56 catches up to main: the gate log wins, main's node split wins
 
 Merged origin/main (4282456) into feat/desktop-pillar-glyphs to clear PR #56's conflicts. The operator chose the following.

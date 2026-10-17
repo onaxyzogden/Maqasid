@@ -2,7 +2,7 @@
 title: "BBOS Pipeline"
 type: entity
 created: 2026-04-09
-updated: 2026-06-19
+updated: 2026-10-17
 tags: [bbos, pipeline, islamic-business, covenant, stages, barakah, truth-safe, two-factory]
 sources: 4
 ---
@@ -105,6 +105,8 @@ See [decision: bbos-gate-decision-log](../decisions/2026-10-17-bbos-gate-decisio
 - the Brief's "Close Cycle (deferred)" is now a live **Close Cycle**.
 
 See [decision: bbos-cycle-close-record](../decisions/2026-10-17-bbos-cycle-close-record.md).
+
+**On main (2026-10-17):** All of the above shipped in PR #56. When it caught up with main, the operator chose "gate log wins": `bbosGateLog` is the only decision record, and main's parallel `bbosDecisions` writes and its Undo toasts on Advance, Reject and Close Cycle were dropped. Main's Execution View button **Continue to Approval Brief** was kept and now opens the Brief (it records nothing; the Brief's own actions do). Verified in preview: the Gate Check tab's button opens the Brief for the current stage, focus moves into the dialog, and the gate log is unchanged.
 
 ## Connections
 
