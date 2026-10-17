@@ -3,6 +3,21 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-17] feat | BBOS legacy dashboard: Advance and Reject go through the gate record
+
+This closes the follow-up from the conditions-resolution pass. The operator asked to route the ProjectBoard advance through the record path, with open conditions listed and resolved inline, and then asked to include Reject. Decision: [[2026-10-17-bbos-legacy-gate-record-path]]. **Amanah gate:** positive. Every routing decision on a covenant pipeline now carries a written basis, in both dashboards.
+
+- **BbosFullDashboard:** Advance now opens a dialog:
+  - open conditions, each with Mark resolved behind its own basis;
+  - a required routing basis;
+  - Confirm blocked while any condition is open.
+
+  Reject needs a basis and logs a `halt`. The 'all' role logs `by`/`rejectedBy` null; preview caught a `by: "all"` leak, which was fixed. Both modals are portalled to `document.body`, out of ProjectBoard's transformed layer.
+- **ProjectBoard:** `handleStageAdvance(record)` passes `{ basis, stageId, by }`, and follows the stage only if the store moved.
+- **Unchanged:** Complete Cycle.
+- **Tests:** a new `src/store/__tests__/project-store-bbos-gate.test.js` (3). 322 tests, lint and build green. Preview verified with screenshots.
+- **Open:** the legacy view's Advance button keys off the viewed stage, not `bbosStage` (pre-existing).
+
 ## [2026-10-17] feat | BBOS gate conditions: resolved by record, and open conditions block Advance
 
 This closes the open item from the gate-decision-log pass. The operator chose **block** over warn and approved the plan. Decision: [[2026-10-17-bbos-gate-conditions-resolution]]. **Amanah gate:** positive. A condition placed on a covenant routing decision now has to be honoured, on the record, before the pipeline moves on. No capital surface is touched.

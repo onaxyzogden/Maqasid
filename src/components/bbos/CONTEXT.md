@@ -6,7 +6,7 @@ Barakah Business Operating System pipeline UI: stage visualization, role-based a
 ## File Inventory
 | File | Description |
 |------|-------------|
-| BbosFullDashboard.jsx | Unified stage dashboard: Two-Factory layout (Research/Asset), Assembly Gate, StageScoreCard, task groups by prefix |
+| BbosFullDashboard.jsx | Unified stage dashboard (legacy view, `bbiz_bbos_new_dash`='false'): Two-Factory layout (Research/Asset), Assembly Gate, StageScoreCard, task groups by prefix. Advance opens a dialog: a required basis, open conditions listed with inline Mark resolved, and Confirm blocked while any are open; it calls `onStageAdvance({ basis })`. Reject needs a reason and a basis, and is logged as a halt. Both modals are portalled to `document.body`, because ProjectBoard's transformed `.pb-content__layer` traps `position: fixed`. The 'all' role attributes nothing (`by` / `rejectedBy` null) |
 | BbosFullDashboard.css | Factory section tints, assembly gate bar, locked/cleared states, task card styles |
 | _(BbosPipelineHeader — removed)_ | Stage navigation now handled by LevelNavigator in `components/shared/` with `gateIndicators` prop for 00A/01B patch stages |
 | BbosRoleBadge.jsx | Role abbreviation badge styled with role.color and role.bg |

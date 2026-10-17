@@ -30,7 +30,7 @@ superseded_by: null
 ## Consequences
 
 - A condition is now a promise with a visible close: who resolved it, when, and on what basis.
-- The store guard only applies to recorded advances. The legacy record-less advance (ProjectBoard, BbosFullDashboard) bypasses it, as it bypasses the log itself. Routing those callers through a record is a later step.
+- The store guard only applies to recorded advances. The legacy record-less advance (ProjectBoard, BbosFullDashboard) bypasses it, as it bypasses the log itself. Routing those callers through a record is a later step. *(Done: [[2026-10-17-bbos-legacy-gate-record-path]].)*
 - Halt is not blocked by open conditions; a stage can still be routed to rejection.
 - Verified: 319 tests, lint and build green. In preview, IDY with a recorded condition blocked Advance; marking it resolved with a basis cleared the block, and Advance moved IDY→CRD.
 

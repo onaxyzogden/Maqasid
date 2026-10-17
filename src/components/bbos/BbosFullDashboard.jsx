@@ -1,11 +1,13 @@
 import { useMemo, useState, useRef, useLayoutEffect, Fragment } from 'react';
-import { CheckCircle, XCircle, AlertTriangle, Star, ShieldOff, RotateCcw } from 'lucide-react';
+import { createPortal } from 'react-dom';
+import { CheckCircle, XCircle, AlertTriangle, Star, ShieldOff, RotateCcw, ArrowRight } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useProjectStore } from '../../store/project-store';
 import { getBbosTaskDefsByStage } from '../../data/bbos/bbos-task-definitions';
 import { getStage, BBOS_STAGES, BBOS_LAYERS, BBOS_REJECTION_REASONS, getBbosRejectionReason } from '../../data/bbos/bbos-pipeline';
 import { getTaskAccessLevel } from '../../data/bbos/bbos-role-access';
 import { scoreStage } from '../../data/bbos/bbos-stage-score';
+import { openConditions } from '../../data/bbos/bbos-gate-log';
 import ScopeGate from '../shared/ScopeGate';
 import DashboardTaskCard from '../shared/DashboardTaskCard';
 import GLabelBadge from '../shared/GLabelBadge';
@@ -1564,11 +1566,71 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
 
   const [rejectModalOpen, setRejectModalOpen] = useState(false);
   const [rejectReasonId, setRejectReasonId] = useState(BBOS_REJECTION_REASONS[0]?.id || '');
+  const [rejectBasis, setRejectBasis] = useState('');
+
+  // The acting role is the gate-log attribution; 'all' names no one.
+  const gateBy = bbosRole !== 'all' ? bbosRole : null;
+
+  const closeReject = () => {
+    setRejectModalOpen(false);
+    setRejectBasis('');
+  };
 
   const handleConfirmReject = () => {
-    if (!rejectReasonId) return;
-    rejectBbosPipeline(project.id, rejectReasonId, project.bbosRole || null);
-    setRejectModalOpen(false);
+    if (!rejectReasonId || !rejectBasis.trim()) return;
+    // gateBy is the reviewer too: the 'all' view is no role, so it attributes
+    // neither the halt entry nor rejectedBy (as the new dashboard does).
+    rejectBbosPipeline(project.id, rejectReasonId, gateBy, {
+      basis: rejectBasis.trim(),
+      stageId: bbosFilter,
+    });
+    closeReject();
+  };
+
+  // ── Advance dialog: a written basis, and no open conditions this cycle ──
+  // Each move is logged to bbosGateLog; conditions recorded on this stage
+  // must be marked resolved (each with its own basis) before it advances.
+  const logBbosGateDecision = useProjectStore((s) => s.logBbosGateDecision);
+  const openConds = openConditions(project.bbosGateLog, bbosFilter, project.bbosCycle || 1);
+  const [advanceOpen, setAdvanceOpen] = useState(false);
+  const [advanceBasis, setAdvanceBasis] = useState('');
+  const [resolvingId, setResolvingId] = useState(null);
+  const [resolveBasis, setResolveBasis] = useState('');
+  const [resolvedCount, setResolvedCount] = useState(0);
+
+  const closeAdvance = () => {
+    setAdvanceOpen(false);
+    setAdvanceBasis('');
+    setResolvingId(null);
+    setResolveBasis('');
+    setResolvedCount(0);
+  };
+
+  const handleAdvanceClick = () => {
+    // Last stage: cycle completion keeps its own confirm in ProjectBoard.
+    if (!nextStage) { onStageAdvance(); return; }
+    setAdvanceOpen(true);
+  };
+
+  const handleRecordResolution = () => {
+    if (!resolvingId || !resolveBasis.trim()) return;
+    logBbosGateDecision(project.id, {
+      decision: 'resolved',
+      resolvesId: resolvingId,
+      basis: resolveBasis.trim(),
+      by: gateBy,
+    });
+    setResolvingId(null);
+    setResolveBasis('');
+    setResolvedCount((n) => n + 1);
+  };
+
+  const advanceReady = !!advanceBasis.trim() && openConds.length === 0;
+
+  const handleConfirmAdvance = () => {
+    if (!advanceReady) return;
+    onStageAdvance({ basis: advanceBasis.trim() });
+    closeAdvance();
   };
 
   const handleResume = () => {
@@ -1638,16 +1700,17 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
             <span className="bfd__stage-ready-text">
               Stage complete — {totalCount}/{totalCount} tasks done
             </span>
-            <button className="bfd__stage-advance-btn" onClick={onStageAdvance}>
+            <button className="bfd__stage-advance-btn" type="button" onClick={handleAdvanceClick}>
               {nextStage ? `Advance to ${nextStage.label}` : 'Complete Cycle'} →
             </button>
           </div>
         )}
       </div>
 
-      {/* ── Reject modal ── */}
-      {rejectModalOpen && (
-        <div className="bfd__modal-overlay" onClick={() => setRejectModalOpen(false)}>
+      {/* ── Reject modal ── (portalled: a transformed ancestor in ProjectBoard
+          would otherwise trap the fixed overlay inside the content column) */}
+      {rejectModalOpen && createPortal(
+        <div className="bfd__modal-overlay" onClick={closeReject}>
           <div className="bfd__modal" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label="Reject BBOS pipeline">
             <div className="bfd__modal-head">
               <ShieldOff size={18} />
@@ -1671,16 +1734,125 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
                 </label>
               ))}
             </div>
+            <label className="bfd__modal-field">
+              <span className="bfd__modal-field-label">Basis for the rejection (required)</span>
+              <textarea
+                className="bfd__modal-textarea"
+                rows={3}
+                value={rejectBasis}
+                onChange={(e) => setRejectBasis(e.target.value)}
+                placeholder="What evidence routes this pipeline to rejection..."
+              />
+            </label>
+            {!rejectBasis.trim() && (
+              <p className="bfd__modal-hint">Write the basis to enable Confirm rejection. It is added to the gate record.</p>
+            )}
             <div className="bfd__modal-actions">
-              <button className="bfd__modal-cancel" type="button" onClick={() => setRejectModalOpen(false)}>
+              <button className="bfd__modal-cancel" type="button" onClick={closeReject}>
                 Cancel
               </button>
-              <button className="bfd__modal-confirm" type="button" onClick={handleConfirmReject} disabled={!rejectReasonId}>
+              <button className="bfd__modal-confirm" type="button" onClick={handleConfirmReject} disabled={!rejectReasonId || !rejectBasis.trim()}>
                 Confirm rejection
               </button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body,
+      )}
+
+      {/* ── Advance modal ── (portalled, as above) */}
+      {advanceOpen && nextStage && createPortal(
+        <div className="bfd__modal-overlay" onClick={closeAdvance}>
+          <div className="bfd__modal bfd__modal--advance" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label={`Advance to ${nextStage.label}`}>
+            <div className="bfd__modal-head">
+              <ArrowRight size={18} />
+              <span>Advance to {nextStage.label}</span>
+            </div>
+            <p className="bfd__modal-desc">
+              Move the pipeline from {stageMeta.label} to {nextStage.label}. The decision and its basis are added to the gate record and cannot be edited.
+            </p>
+
+            {openConds.length > 0 && (
+              <section className="bfd__open-conds" aria-label="Open conditions">
+                <div className="bfd__open-conds-head">
+                  Open conditions · {openConds.length} to resolve before advancing
+                </div>
+                {openConds.map((c) => (
+                  <div key={c.id} className="bfd__open-cond">
+                    <div className="bfd__open-cond-text">{c.conditions}</div>
+                    <div className="bfd__open-cond-meta">
+                      Recorded {new Date(c.at).toLocaleString()}{c.by ? ` · ${c.by}` : ''}
+                    </div>
+                    {resolvingId === c.id ? (
+                      <>
+                        <label className="bfd__modal-field">
+                          <span className="bfd__modal-field-label">Basis for resolving this condition (required)</span>
+                          <textarea
+                            className="bfd__modal-textarea"
+                            rows={2}
+                            value={resolveBasis}
+                            onChange={(e) => setResolveBasis(e.target.value)}
+                            placeholder="What closed this gap, and where it is evidenced..."
+                            autoFocus
+                          />
+                        </label>
+                        <div className="bfd__modal-actions">
+                          <button className="bfd__modal-cancel" type="button" onClick={() => { setResolvingId(null); setResolveBasis(''); }}>
+                            Cancel
+                          </button>
+                          <button className="bfd__modal-confirm bfd__modal-confirm--go" type="button" onClick={handleRecordResolution} disabled={!resolveBasis.trim()}>
+                            Record Resolution
+                          </button>
+                        </div>
+                      </>
+                    ) : (
+                      <button
+                        className="bfd__modal-cancel bfd__open-cond-btn"
+                        type="button"
+                        onClick={() => { setResolvingId(c.id); setResolveBasis(''); }}
+                      >
+                        Mark resolved
+                      </button>
+                    )}
+                  </div>
+                ))}
+              </section>
+            )}
+
+            {resolvedCount > 0 && (
+              <p className="bfd__modal-status" role="status">
+                {resolvedCount} condition{resolvedCount === 1 ? '' : 's'} marked resolved and added to the gate record.
+              </p>
+            )}
+
+            <label className="bfd__modal-field">
+              <span className="bfd__modal-field-label">Basis for the routing decision (required)</span>
+              <textarea
+                className="bfd__modal-textarea"
+                rows={3}
+                value={advanceBasis}
+                onChange={(e) => setAdvanceBasis(e.target.value)}
+                placeholder="Record the specific basis for advancing this stage..."
+              />
+            </label>
+            {openConds.length > 0 ? (
+              <p className="bfd__modal-blocked" role="note">
+                Advance is blocked: {openConds.length} open condition{openConds.length === 1 ? '' : 's'} must be marked resolved first.
+              </p>
+            ) : !advanceBasis.trim() && (
+              <p className="bfd__modal-hint">Write the basis to enable Confirm advance.</p>
+            )}
+            <div className="bfd__modal-actions">
+              <button className="bfd__modal-cancel" type="button" onClick={closeAdvance}>
+                Cancel
+              </button>
+              <button className="bfd__modal-confirm bfd__modal-confirm--go" type="button" onClick={handleConfirmAdvance} disabled={!advanceReady}>
+                Confirm advance
+              </button>
+            </div>
+          </div>
+        </div>,
+        document.body,
       )}
 
       {/* ── Task grid ── */}
