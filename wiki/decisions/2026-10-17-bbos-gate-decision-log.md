@@ -32,7 +32,7 @@ superseded_by: null
 ## Consequences
 
 - The written basis of a covenant routing decision now outlives the click. A Halt keeps its reason and basis alongside `rejectedAt`.
-- Recorded conditions do **not** block the next Advance, and there is no way to mark them resolved yet. Gating Advance on open conditions is a later decision.
+- Recorded conditions do **not** block the next Advance, and there is no way to mark them resolved yet. Gating Advance on open conditions is a later decision. *(Followed up the same day in [[2026-10-17-bbos-gate-conditions-resolution]]: conditions are resolved by record, and open ones block Advance.)*
 - The Stewardship Closing note is saved only with a stage decision, not on its own.
 - Brief project fields, readiness checks and Exec View notes are still not persisted.
 

@@ -91,9 +91,11 @@ Pipeline UI fully aligned with v2.4 protocol as of Sprint 7 (2026-04-11), with f
 - **Store:** `advanceBbosStage` and `rejectBbosPipeline` take an optional trailing `record`, so legacy callers are unchanged. The new `logBbosGateDecision` records a decision without moving the stage.
 - **Proceed with Conditions** now works. It needs conditions and a basis, logs with no stage change, and leaves the Brief open.
 - **Gate record:** a list in the Brief's Stage Decision section shows the stage's entries, newest first, through the adapter's `brief.gate.log`.
-- **Not yet:** conditions do not block a later Advance.
+- **Conditions resolution (same day):** see below.
 
 See [decision: bbos-gate-decision-log](../decisions/2026-10-17-bbos-gate-decision-log.md).
+
+**Conditions resolution (2026-10-17):** A condition is closed by its own `'resolved'` entry. Its `resolvesId` points at the conditions entry, and it needs its own basis; the conditions entry is never edited. `openConditions(log, stageId, cycle)` lists the unresolved ones for the current cycle, and the adapter exposes them as `brief.gate.openConditions`. The operator chose **block**: with open conditions, Proceed is disabled in the Brief (with a note saying why), and `advanceBbosStage` refuses a recorded advance from that stage. The legacy record-less advance bypasses the guard. The Brief has an "Open conditions" panel, with "Mark resolved" behind a required basis. See [decision: bbos-gate-conditions-resolution](../decisions/2026-10-17-bbos-gate-conditions-resolution.md).
 
 ## Connections
 
@@ -129,6 +131,7 @@ See [decision: bbos-gate-decision-log](../decisions/2026-10-17-bbos-gate-decisio
 
 | Date | Event |
 |---|---|
+| 2026-10-17 | **Gate conditions resolution, and open conditions block Advance.** A `'resolved'` gate entry (with `resolvesId` and its own basis) closes a conditions entry without editing it. `openConditions()` is scoped to stage and current cycle. The operator chose block: Proceed is disabled in the Brief while conditions are open, and the store refuses a recorded advance. The Brief gains an Open conditions panel with Mark resolved. 319 tests, lint and build green. Verified in preview: blocked, resolved, then IDY→CRD. See [decision](../decisions/2026-10-17-bbos-gate-conditions-resolution.md). |
 | 2026-10-17 | **Gate decision log + Proceed-with-Conditions.** The operator approved the held store change. `project.bbosGateLog` (only ever added to, via the pure helpers in `bbos-gate-log.js`) stores each decision's basis, conditions, reason and closing note. `advanceBbosStage` / `rejectBbosPipeline` take an optional `record`; the new `logBbosGateDecision` does the same without changing the stage. Conditions are logged with no stage change, and the Brief shows a per-stage Gate record. 5 new tests (314 total), lint and build green. Verified in preview: a conditions entry, then Proceed IDY→CRD, each logged. See [decision](../decisions/2026-10-17-bbos-gate-decision-log.md). |
 | 2026-10-17 | **UX audit + 5-step fix pass on the redesigned dashboard.** Focus ring and AA tertiary contrast; rail nodes become buttons; dead Exec View buttons disabled with a "not wired" note (Mark Reviewed & File wired via `moveTask`); visible upload errors with retry; required gate basis plus an inline confirm before Advance/Halt; shared `useBpdDialog` hook (roles, Esc, focus trap/restore, dirty-discard guard). The store change to persist the basis is held for the operator's OK. Lint/test (309)/build green; verified in preview with light and dark screenshots. See [decision](../decisions/2026-10-17-bbos-dashboard-honest-controls.md). |
 | 2026-06-19 | **Center the Stage Overview duʿāʾ block** — follow-up tweak to `BbosStageOverview`'s attribute card. The duʿāʾ lines were split-aligned (Arabic `.bpd-attrcard__dua-ar` right, translation `.bpd-attrcard__dua-tr` defaulting left); both now `text-align: center` (Arabic keeps `direction: rtl` for correct shaping). Two CSS declarations in `BbosPipelineDashboard.css`; theme-agnostic (applies in both light and dark). Verified live via computed-style inspection + screenshot. |

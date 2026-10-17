@@ -85,6 +85,9 @@ export default function BbosPipelineDashboard({ project, bbosFilter, onStageSele
           }}
           // Proceed-with-conditions: recorded, no stage change, Brief stays open.
           onLogConditions={(record) => logBbosGateDecision(project.id, { ...record, stageId: briefStage.id, by: reviewer })}
+          // Resolving a condition is its own entry pointing at it; no stage change.
+          onResolveCondition={(resolvesId, basis) =>
+            logBbosGateDecision(project.id, { decision: "resolved", resolvesId, basis, by: reviewer })}
           onClose={() => setBriefStage(null)}
         />
       )}

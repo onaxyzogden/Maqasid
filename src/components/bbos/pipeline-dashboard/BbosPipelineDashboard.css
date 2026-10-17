@@ -853,6 +853,19 @@
   background: transparent; color: var(--bpd-text-secondary); border: 1px solid var(--bpd-border-mid);
 }
 .bpd-brief__confirm-btn--go { background: var(--c); color: var(--bpd-bg); border-color: var(--c); }
+.bpd-brief__confirm-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* open conditions: recorded gaps that block Advance until each is resolved */
+.bpd-brief__open {
+  display: flex; flex-direction: column; gap: 10px; padding: 12px 14px; border-radius: 9px;
+  background: var(--bpd-gold-dim); border: 1px solid color-mix(in srgb, var(--bpd-gold) 40%, transparent);
+}
+.bpd-brief__open-item { padding: 10px 12px; border-radius: 8px; background: var(--bpd-bg3); border-left: 3px solid var(--bpd-gold); }
+.bpd-brief__open-btn { margin-top: 10px; min-height: 36px; }
+.bpd-brief__blocked {
+  font-size: 12px; font-family: var(--bpd-font-ui); color: var(--bpd-gold); line-height: 1.6;
+  padding: 8px 12px; border-radius: 7px; border: 1px dashed color-mix(in srgb, var(--bpd-gold) 50%, transparent);
+}
 
 /* gate record: every decision taken at this stage, with its written basis */
 .bpd-brief__recorded {
@@ -869,6 +882,7 @@
 }
 .bpd-brief__log-entry[data-decision="proceed"] { --c: var(--bpd-complete); }
 .bpd-brief__log-entry[data-decision="halt"] { --c: var(--bpd-red); }
+.bpd-brief__log-entry[data-decision="resolved"] { --c: var(--bpd-complete); }
 .bpd-brief__log-head { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
 .bpd-brief__log-decision { font-size: 12px; font-weight: 600; color: var(--c); font-family: var(--bpd-font-ui); }
 .bpd-brief__log-meta { font-size: 11px; color: var(--bpd-text-tertiary); font-family: var(--bpd-font-ui); }

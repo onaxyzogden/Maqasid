@@ -80,3 +80,4 @@ function initDepartments() {
 - `project-store` BBOS gate actions write to `project.bbosGateLog`, which is only ever added to (helpers in `data/bbos/bbos-gate-log.js`).
   - `advanceBbosStage(id, stageId, record?)` and `rejectBbosPipeline(id, reasonId, reviewer?, record?)` log only when a `record` with a non-empty `basis` is passed, so legacy callers log nothing.
   - `logBbosGateDecision(id, record)` adds an entry without moving the stage, and is a no-op on a project that is rejected or not on BBOS.
+  - `advanceBbosStage` refuses a *recorded* advance while the stage it leaves has open conditions this cycle (`openConditions`). A record-less legacy advance bypasses this.

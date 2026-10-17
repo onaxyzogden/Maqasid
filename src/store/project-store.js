@@ -6,7 +6,7 @@ import { preloadPillarSeeds, getBoardSeeds } from '../services/seed-hydrator';
 import { WEEKLY_BOARDS } from '@data/seed-tasks/weekly-seed-tasks';
 import { PRAYER_BOARDS } from '@data/prayer-pillars';
 import { BBOS_TASK_DEFINITIONS } from '@data/bbos/bbos-task-definitions';
-import { appendGateEntry } from '@data/bbos/bbos-gate-log';
+import { appendGateEntry, openConditions } from '@data/bbos/bbos-gate-log';
 
 // Pillar seed files are loaded lazily via the seed-hydrator. Each
 // ensure*Projects awaits its pillar's preload; the strip-pass below also
@@ -639,10 +639,12 @@ export const useProjectStore = create((set, get) => ({
 
   // `record` (optional) is the gate decision being acted on — appended to
   // bbosGateLog with its written basis (see data/bbos/bbos-gate-log.js).
-  // Callers that pass no record behave exactly as before.
+  // Callers that pass no record behave exactly as before. A recorded advance
+  // is refused while the stage it leaves has open conditions this cycle.
   advanceBbosStage: (projectId, stageId, record = null) => set((s) => {
     const projects = s.projects.map((p) =>
-      p.id === projectId && p.bbosEnabled && !p.rejectedAt
+      p.id === projectId && p.bbosEnabled && !p.rejectedAt &&
+      !(record && openConditions(p.bbosGateLog, record.stageId, p.bbosCycle || 1).length)
         ? appendGateEntry(
             { ...p, bbosStage: stageId, updatedAt: new Date().toISOString() },
             record && { ...record, decision: 'proceed', toStageId: stageId },

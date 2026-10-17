@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-17] feat | BBOS gate conditions: resolved by record, and open conditions block Advance
+
+This closes the open item from the gate-decision-log pass. The operator chose **block** over warn and approved the plan. Decision: [[2026-10-17-bbos-gate-conditions-resolution]]. **Amanah gate:** positive. A condition placed on a covenant routing decision now has to be honoured, on the record, before the pipeline moves on. No capital surface is touched.
+
+- **Data:** a new decision `'resolved'`, with `resolvesId` pointing at the conditions entry and its own basis. It takes the stage and cycle from that entry, and refuses an unknown, non-conditions or already-resolved target. The log stays add-only. `openConditions(log, stageId, cycle)` is a new pure helper.
+- **Adapter:** `brief.gate.openConditions` (current cycle).
+- **Store:** `advanceBbosStage` refuses a recorded advance while the stage it leaves has open conditions. Record-less legacy advances bypass it.
+- **Brief:** an Open conditions panel with Mark resolved behind a required basis. With conditions open, Proceed is disabled and a note explains why. The Gate record shows "Condition resolved" with a Resolves line.
+- **Verified:** 319 tests (5 new), lint and build green. In preview: conditions recorded at IDY, Advance blocked, condition resolved, then Advance IDY→CRD.
+
 ## [2026-10-17] feat | BBOS gate decision log: the basis is kept, and Proceed-with-Conditions is recorded
 
 Follow-up to the honest-controls pass. The operator approved the store change that pass had held back. Decision: [[2026-10-17-bbos-gate-decision-log]]. **Amanah gate:** positive. The written basis of a covenant routing decision is now kept as a record, and no capital surface is touched.
