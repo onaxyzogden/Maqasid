@@ -3,6 +3,22 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-17] build | BBOS gate Undo window lengthened to 15s
+
+Branch `feat/bbos-gate-undo`. The default 6s Undo window was easy to miss, so gate-move toasts now stay up 15s. `useUndoToast` gained an optional `{ duration }` and the dashboard passes `GATE_UNDO_MS = 15000`. The confirm copy now says "15 seconds". A "Reverse last decision" control in the Brief was considered and not built. Undo stays an immediate correction with a fixed basis, and reversing an older decision is a fresh gate decision with its own basis. Recorded in [decision](decisions/2026-10-17-bbos-gate-undo-reversal.md).
+
+- **Verified:** 431 tests, lint, build. Preview: the Close Cycle toast was still up at 10s (screenshot). Proceed IDY→CRD, then Undo clicked at 12.7s, returned it to IDY with a `reversed` entry. No console errors. The dev server had to be restarted because it was serving a stale module. The test project now sits at IDY, cycle 2.
+
+## [2026-10-17] build | BBOS gate Undo returns as a recorded reversal
+
+Branch `feat/bbos-gate-undo`. The Undo toasts dropped when PR #56 merged are back on the redesigned dashboard's Advance, Halt and Close Cycle. Undo now adds a `'reversed'` entry instead of restoring a snapshot. The operator chose "Add a 'reversed' entry".
+
+- **Gate log:** `'reversed'` + `reversesId`. Only the last entry can be reversed, and only a proceed, halt or cycle. `reverseGateDecision` restores the stage, clears the rejection or rewinds the cycle. Store action `reverseBbosGateDecision`.
+- **UI:** a toast appears only when the move wrote its entry. The Gate record shows the reversal and strikes through the original. The confirm copy now mentions Undo.
+- **Verified:** 431 tests (5 new), lint, build. Preview: all three flows and an expired toast, screenshots, no console errors. The test project `proj_dUifZgG8eXqL` now carries test entries and sits at OPT, cycle 1.
+- **Deferred:** Undo on the legacy dashboard. A longer toast window, or a "reverse last decision" control in the Brief, since 6s proved easy to miss.
+- **Wiki:** [[2026-10-17-bbos-gate-undo-reversal]], [[bbos-pipeline]].
+
 ## [2026-10-17] ship | PR #56 merged; feature branch deleted
 
 PR #56 (BBOS gate record, plus the Islamic node-task catch-up) is merged into main as 0e2498e.

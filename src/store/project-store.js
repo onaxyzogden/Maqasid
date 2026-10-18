@@ -6,7 +6,7 @@ import { preloadPillarSeeds, getBoardSeeds } from '../services/seed-hydrator';
 import { WEEKLY_BOARDS } from '@data/seed-tasks/weekly-seed-tasks';
 import { PRAYER_BOARDS } from '@data/prayer-pillars';
 import { BBOS_TASK_DEFINITIONS } from '@data/bbos/bbos-task-definitions';
-import { appendGateEntry, openConditions } from '@data/bbos/bbos-gate-log';
+import { appendGateEntry, openConditions, reverseGateDecision } from '@data/bbos/bbos-gate-log';
 
 // Pillar seed files are loaded lazily via the seed-hydrator. Each
 // ensure*Projects awaits its pillar's preload; the strip-pass below also
@@ -682,6 +682,19 @@ export const useProjectStore = create((set, get) => ({
         ? { ...appendGateEntry(p, record), updatedAt: new Date().toISOString() }
         : p
     );
+    persistProjects(projects);
+    return { projects };
+  }),
+
+  // Undo of the last gate move (proceed, halt, cycle): the pipeline is put back
+  // and a 'reversed' entry is appended; nothing in the log is removed. Not
+  // gated on rejectedAt, since undoing a halt is the point.
+  reverseBbosGateDecision: (projectId, entryId, { basis, by = null } = {}) => set((s) => {
+    const projects = s.projects.map((p) => {
+      if (p.id !== projectId || !p.bbosEnabled) return p;
+      const reversed = reverseGateDecision(p, entryId, { basis, by });
+      return reversed === p ? p : { ...reversed, updatedAt: new Date().toISOString() };
+    });
     persistProjects(projects);
     return { projects };
   }),

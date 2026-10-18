@@ -883,6 +883,11 @@
 .bpd-brief__log-entry[data-decision="proceed"] { --c: var(--bpd-complete); }
 .bpd-brief__log-entry[data-decision="halt"] { --c: var(--bpd-red); }
 .bpd-brief__log-entry[data-decision="resolved"] { --c: var(--bpd-complete); }
+.bpd-brief__log-entry[data-decision="reversed"] { --c: var(--bpd-text-secondary); }
+/* An undone move stays in the record, visibly set aside. */
+.bpd-brief__log-entry--reversed { opacity: 0.7; }
+.bpd-brief__log-entry--reversed .bpd-brief__log-decision { text-decoration: line-through; }
+.bpd-brief__log-tag { margin-left: 6px; font-weight: 500; color: var(--bpd-text-secondary); display: inline-block; text-decoration: none; }
 .bpd-brief__log-head { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
 .bpd-brief__log-decision { font-size: 12px; font-weight: 600; color: var(--c); font-family: var(--bpd-font-ui); }
 .bpd-brief__log-meta { font-size: 11px; color: var(--bpd-text-tertiary); font-family: var(--bpd-font-ui); }

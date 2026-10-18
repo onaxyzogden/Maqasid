@@ -13,12 +13,21 @@
 // Closing a cycle at the final stage is a 'cycle' entry: logged in the cycle
 // it closes, on the stage it closes from, with toStageId 'IDY' (the next
 // cycle's first stage). The store increments the cycle after appending it.
+//
+// Undo is a record too: a 'reversed' entry points at the move it undoes
+// (reversesId) and the pipeline is put back. Only the last entry in the log,
+// and only a move (proceed, halt, cycle), can be reversed.
 import { genGateDecisionId } from '../../services/id';
 
-export const GATE_DECISIONS = ['proceed', 'conditions', 'halt', 'resolved', 'cycle'];
+export const GATE_DECISIONS = ['proceed', 'conditions', 'halt', 'resolved', 'cycle', 'reversed'];
+const REVERSIBLE = ['proceed', 'halt', 'cycle'];
 
 const isResolved = (log, conditionsId) =>
   (log || []).some((e) => e.decision === 'resolved' && e.resolvesId === conditionsId);
+
+/** True when a 'reversed' entry undoes the entry with this id. */
+export const isReversed = (log, id) =>
+  (log || []).some((e) => e.decision === 'reversed' && e.reversesId === id);
 
 /**
  * Build one log entry. Returns null when the record is not loggable
@@ -51,6 +60,15 @@ export function buildGateEntry(project, record) {
     cycle = target.cycle;
     resolvesId = target.id;
   }
+  let reversesId = null;
+  if (record.decision === 'reversed') {
+    const log = project?.bbosGateLog || [];
+    const target = log[log.length - 1];
+    if (!target || target.id !== record.reversesId || !REVERSIBLE.includes(target.decision)) return null;
+    stageId = target.stageId;
+    cycle = target.cycle;
+    reversesId = target.id;
+  }
   if (!stageId) return null;
 
   return {
@@ -65,7 +83,8 @@ export function buildGateEntry(project, record) {
     toStageId: record.decision === 'proceed' ? record.toStageId || null
       : record.decision === 'cycle' ? 'IDY' : null,
     resolvesId,
-    closingNote: record.decision === 'resolved' ? null : text(record.closingNote),
+    reversesId,
+    closingNote: record.decision === 'resolved' || record.decision === 'reversed' ? null : text(record.closingNote),
     by: record.by || null,
   };
 }
@@ -75,6 +94,22 @@ export function appendGateEntry(project, record) {
   const entry = buildGateEntry(project, record);
   if (!entry) return project;
   return { ...project, bbosGateLog: [...(project.bbosGateLog || []), entry] };
+}
+
+/**
+ * Undo the last move: put the pipeline back where that entry found it and
+ * append a 'reversed' entry. Returns the project unchanged when refused.
+ * (A target that is already reversed is never last, so the last-entry rule
+ * also stops a double reversal.)
+ */
+export function reverseGateDecision(project, entryId, { basis, by = null } = {}) {
+  const log = project?.bbosGateLog || [];
+  const target = log[log.length - 1];
+  const logged = appendGateEntry(project, { decision: 'reversed', reversesId: entryId, basis, by });
+  if (logged === project) return project;
+  if (target.decision === 'proceed') return { ...logged, bbosStage: target.stageId };
+  if (target.decision === 'halt') return { ...logged, rejectedAt: null, rejectionReason: null, rejectedBy: null };
+  return { ...logged, bbosCycle: target.cycle, bbosStage: target.stageId };
 }
 
 /** Entries for one stage, newest first. */

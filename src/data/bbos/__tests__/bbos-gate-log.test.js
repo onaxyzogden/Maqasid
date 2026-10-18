@@ -1,6 +1,8 @@
 // Contract guard for the BBOS gate-decision record (project.bbosGateLog).
 import { describe, it, expect } from "vitest";
-import { buildGateEntry, appendGateEntry, gateEntriesForStage, openConditions } from "../bbos-gate-log";
+import {
+  buildGateEntry, appendGateEntry, gateEntriesForStage, openConditions, isReversed, reverseGateDecision,
+} from "../bbos-gate-log";
 import { buildPipelineViewModel } from "../../../components/bbos/pipeline-dashboard/adapter/bbos-dashboard-adapter";
 
 const project = { id: "p1", bbosEnabled: true, bbosStage: "CRD", bbosCycle: 2, columns: [] };
@@ -125,5 +127,56 @@ describe("openConditions", () => {
     const crd = vm.stages.find((s) => s.id === "CRD");
     expect(crd.brief.gate.openConditions.map((e) => e.conditions)).toEqual(["open one"]);
     expect(crd.brief.gate.log[0].decision).toBe("resolved");
+  });
+});
+
+describe("reversal (Undo)", () => {
+  const basis = "Undone from the toast.";
+  const moved = (decision, extra = {}) => {
+    const p = appendGateEntry(project, { stageId: "CRD", decision, basis: "b", ...extra });
+    return { p, id: p.bbosGateLog.at(-1).id };
+  };
+
+  it("takes the target's stage and cycle and points at it", () => {
+    const { p, id } = moved("proceed", { toStageId: "STR" });
+    const e = buildGateEntry({ ...p, bbosCycle: 3 }, { decision: "reversed", reversesId: id, basis, by: "OW" });
+    expect(e).toMatchObject({ decision: "reversed", reversesId: id, stageId: "CRD", cycle: 2, basis, by: "OW", toStageId: null });
+  });
+
+  it("refuses anything but the last move, a non-move, an unknown id, or an empty basis", () => {
+    const { p, id } = moved("proceed", { toStageId: "STR" });
+    const later = appendGateEntry(p, { stageId: "STR", decision: "conditions", basis: "b", conditions: "c" });
+    expect(buildGateEntry(later, { decision: "reversed", reversesId: id, basis })).toBeNull();
+    const condId = later.bbosGateLog.at(-1).id;
+    expect(buildGateEntry(later, { decision: "reversed", reversesId: condId, basis })).toBeNull();
+    expect(buildGateEntry(p, { decision: "reversed", reversesId: "gd_nope", basis })).toBeNull();
+    expect(buildGateEntry(p, { decision: "reversed", reversesId: id, basis: " " })).toBeNull();
+  });
+
+  it("cannot reverse twice, or reverse a reversal", () => {
+    const { p, id } = moved("proceed", { toStageId: "STR" });
+    const once = reverseGateDecision({ ...p, bbosStage: "STR" }, id, { basis });
+    expect(isReversed(once.bbosGateLog, id)).toBe(true);
+    expect(reverseGateDecision(once, id, { basis })).toBe(once);
+    expect(reverseGateDecision(once, once.bbosGateLog.at(-1).id, { basis })).toBe(once);
+  });
+
+  it("puts the pipeline back for each kind of move, keeping the original entry", () => {
+    const pr = moved("proceed", { toStageId: "STR" });
+    const backFromProceed = reverseGateDecision({ ...pr.p, bbosStage: "STR" }, pr.id, { basis });
+    expect(backFromProceed.bbosStage).toBe("CRD");
+    expect(backFromProceed.bbosGateLog.map((e) => e.decision)).toEqual(["proceed", "reversed"]);
+
+    const h = moved("halt", { reasonId: "riba" });
+    const halted = { ...h.p, rejectedAt: "2026-10-17T00:00:00Z", rejectionReason: "riba", rejectedBy: "OW" };
+    expect(reverseGateDecision(halted, h.id, { basis })).toMatchObject({ rejectedAt: null, rejectionReason: null, rejectedBy: null });
+
+    const c = moved("cycle");
+    const next = reverseGateDecision({ ...c.p, bbosStage: "IDY", bbosCycle: 3 }, c.id, { basis });
+    expect(next).toMatchObject({ bbosStage: "CRD", bbosCycle: 2 });
+  });
+
+  it("returns the project unchanged when refused", () => {
+    expect(reverseGateDecision(project, "gd_nope", { basis })).toBe(project);
   });
 });
