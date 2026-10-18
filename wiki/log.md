@@ -17,6 +17,10 @@ Branch `feat/bbos-stage-grounding`. `bbos-stage-islamic.js` now matches the [sta
 - **Verified build:** 435 tests (new `bbos-stage-islamic.test.js`), lint (divine-names: 108), build. Preview of the redesigned dashboard: the IDY overview shows Al-Awwal · Ash-Shahid with 20:25–26, and the OPT overview shows three attributes with "Allāhumma ḥāsibnī ḥisāban yasīrā". No console errors.
 - **Test data:** project `proj_MIxEnNKluxpb` ("Grounding Preview") is left in local preview storage.
 
+## [2026-10-18] change | BBOS redesigned dashboard: mobile layout
+
+This applies the top three fixes from the 375px mobile audit of the redesigned BBOS dashboard. Below 768px the rail becomes a horizontal stage strip and the shell scrolls as one column, so the overview width goes from 103px to 337px. The Brief's section nav becomes a tab row above its content, and its grids collapse to one column. The Amanah Gate verdict wraps instead of clipping to "BLOCK…". Tabs and download buttons are now 44px touch targets. Desktop is unchanged. 431 tests, lint and build green; screenshots taken at 375px and on desktop. Branch `feat/bbos-mobile-layout`. Deferred: a sticky CTA row, the project toolbar's off-screen Board/List/Gantt switcher (outside `.bpd`), and the 12px text-size floor.
+
 ## [2026-10-17] decision | BBOS stage grounding reconciled with the Factory docs
 
 The operator reviewed the nine BBOS Factory annotated docs. Their attributes and du'as differed from `bbos-stage-islamic.js` at almost every stage, so the operator settled each stage in turn: 5 merges, 1 docs as written, 2 docs with fixed closings, and none kept as the app had it. Unsourced and misattributed du'as were replaced with Qur'anic or authenticated texts, and no Name repeats across stages. Recorded in [decision](decisions/2026-10-17-bbos-stage-grounding-reconciliation.md). Re-grounding the app is not done yet and needs its own approved plan. Fixing the docs is the operator's work.

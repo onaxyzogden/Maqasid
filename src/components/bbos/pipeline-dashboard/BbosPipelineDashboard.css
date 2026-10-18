@@ -899,3 +899,53 @@
   display: inline-block; min-width: 76px; color: var(--bpd-text-tertiary);
   text-transform: uppercase; letter-spacing: 0.08em; font-size: 10px;
 }
+
+/* gate verdict: let the value drop below the label instead of clipping */
+.bpd-brief__gate-verdict { flex-wrap: wrap; gap: 4px 12px; }
+.bpd-brief__gate-verdict-value { white-space: nowrap; }
+
+/* ============================ MOBILE (<768px) =============================
+   The 240px rail turns into a horizontal stage strip above the overview, the
+   whole shell scrolls as one column, and the Brief's section nav becomes a
+   horizontal tab row above its content. */
+@media (max-width: 767px) {
+  .bpd { flex-direction: column; overflow-x: hidden; overflow-y: auto; }
+
+  .bpd-rail {
+    width: 100%; flex-shrink: 0; overflow: visible;
+    border-right: 0; border-bottom: 1px solid var(--bpd-border);
+  }
+  .bpd-rail__head { padding: 12px 16px; }
+  .bpd-rail__list {
+    flex: none; display: flex; gap: 4px; padding: 6px 8px;
+    overflow-x: auto; overflow-y: hidden; scroll-snap-type: x proximity;
+  }
+  .bpd-stagenode { flex: 0 0 200px; width: auto; scroll-snap-align: start; }
+  .bpd-rail__foot { display: none; }
+
+  .bpd-main { overflow: visible; }
+  .bpd-overview { height: auto; overflow: visible; padding: 20px 16px 96px; }
+  .bpd-overview__head { flex-wrap: wrap; gap: 12px; }
+  .bpd-overview__head-right { align-items: flex-start; }
+  .bpd-overview__title { font-size: 22px; letter-spacing: 0.12em; }
+
+  .bpd-fieldgrid, .bpd-metricgrid, .bpd-brief__readiness-grid { grid-template-columns: 1fr; }
+  .bpd-brief__readiness-cell--bordered { border-right: 0; border-bottom: 1px solid var(--bpd-border); }
+
+  .bpd-modal--exec, .bpd-modal--brief { height: 88vh; height: 88dvh; }
+  .bpd-modal--brief .bpd-modal__head { flex-wrap: wrap; gap: 8px; padding: 12px 16px; }
+  .bpd-brief__body { flex-direction: column; }
+  .bpd-brief__nav {
+    width: 100%; flex-shrink: 0; display: flex; overflow-x: auto; overflow-y: hidden;
+    padding: 0 8px; border-right: 0; border-bottom: 1px solid var(--bpd-border);
+  }
+  .bpd-brief__navbtn {
+    width: auto; flex: 0 0 auto; min-height: 44px; white-space: nowrap;
+    border-left: 0; border-bottom: 2px solid transparent; border-radius: 0;
+  }
+  .bpd-brief__navbtn[data-active="true"] { border-bottom-color: var(--bpd-gold); }
+  .bpd-brief__content { padding: 16px 16px 40px; }
+
+  /* touch targets */
+  .bpd-tab, .bpd-dl-btn { min-height: 44px; }
+}
