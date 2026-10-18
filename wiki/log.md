@@ -15,7 +15,7 @@ This does the decision's "Docs" consequence. Nine new files, `BBOS_0N_<STAGE>_An
 - **DEL:** Ash-Shakur removed, and the Offboarding annotation reassigned to Al-Wali.
 - **RET:** heading fixed.
 
-Every rewritten passage is highlighted yellow for the operator's review. Names keep the docs' ASCII spelling (As-Sami, Al-Musawwir). Deferred: the old codes QAL, FUL and SAL in history rows and some CRD/OUT protocol text.
+Every rewritten passage is highlighted yellow for the operator's review. Names keep the docs' ASCII spelling (As-Sami, Al-Musawwir). Old stage codes are replaced too: QAL → CRD (the Assemble Contract command is now `VIABILITY CRD-CHECK`), and SAL/FUL → SLS/DEL in OPT's Canonical Metrics. History rows are marked "CRD (was QAL)" and "DEL (was FUL)".
 
 ## [2026-10-18] fix | BBOS printed-edition checks: Ibn Ḥibbān wording, OPT opening replaced
 
