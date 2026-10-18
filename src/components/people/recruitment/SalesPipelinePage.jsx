@@ -114,8 +114,8 @@ export default function SalesPipelinePage() {
                           {company && <div className="sp-card__company">{company.name}</div>}
                           {lead.email && <div className="sp-card__email">{lead.email}</div>}
                         </div>
-                        <button className="sp-card__menu" onClick={(e) => e.stopPropagation()}>
-                          <MoreHorizontal size={14} />
+                        <button type="button" className="sp-card__menu btn-soon" aria-disabled="true" title="Coming soon" aria-label={`Options for ${name} (coming soon)`} onClick={(e) => e.stopPropagation()} onKeyDown={(e) => e.stopPropagation()}>
+                          <MoreHorizontal size={14} aria-hidden="true" />
                         </button>
                       </div>
                       {/* Quick-move buttons — show adjacent stages in pipeline order */}

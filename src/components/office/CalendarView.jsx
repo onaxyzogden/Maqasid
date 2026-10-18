@@ -129,11 +129,16 @@ export default function CalendarView() {
         <div className="cal-controls-right">
           <div className="cal-view-toggle">
             {VIEWS.map(v => (
-              <button key={v} className={`cal-view-btn ${activeView === v ? 'active' : ''}`}
-                onClick={() => setActiveView(v)}>{v}</button>
+              // Only Month is built; the others are placeholders until their grids exist.
+              v === 'Month' ? (
+                <button type="button" key={v} className={`cal-view-btn ${activeView === v ? 'active' : ''}`}
+                  aria-pressed={activeView === v} onClick={() => setActiveView(v)}>{v}</button>
+              ) : (
+                <button type="button" key={v} className="cal-view-btn btn-soon" aria-disabled="true" title="Coming soon" aria-label={`${v} view (coming soon)`}>{v}</button>
+              )
             ))}
           </div>
-          <button className="btn btn-ghost cal-absence-btn">Request absence</button>
+          <button type="button" className="btn btn-ghost cal-absence-btn btn-soon btn-soon--tag" aria-disabled="true" title="Coming soon" aria-label="Request absence (coming soon)">Request absence</button>
           <button className="btn btn-primary cal-event-btn" onClick={() => setShowForm(true)}>
             <Plus size={16} /> Event
           </button>

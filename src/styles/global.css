@@ -220,6 +220,30 @@ textarea:read-only {
 .btn-ghost { background: none; color: var(--text2); }
 .btn-ghost:hover { color: var(--primary-text); background: var(--primary-bg); }
 
+/* A control whose feature isn't built yet. Pair with aria-disabled="true"
+   (stays focusable so the "Coming soon" title is announced) and no handler.
+   Add .btn-soon--tag where there is room for a visible "Soon" hint. */
+.btn-soon,
+.btn-soon:hover {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: none;
+  color: var(--text3);
+}
+.btn-soon--tag { white-space: nowrap; }
+.btn-soon--tag::after {
+  content: "Soon";
+  margin-left: var(--space-1);
+  padding: 0 5px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
 /* ── Shared component styles (used across all modules) ── */
 
 /* Empty states */

@@ -351,8 +351,8 @@ export default function RecruitmentPage() {
                           <span className="recruit-card__pill recruit-card__pill--hold">On Hold</span>
                         )}
                         {!isOnHold && (
-                          <button className="recruit-card__menu" onClick={(e) => e.stopPropagation()}>
-                            <MoreHorizontal size={14} />
+                          <button type="button" className="recruit-card__menu btn-soon" aria-disabled="true" title="Coming soon" aria-label={`Options for ${posting.title} (coming soon)`} onClick={(e) => e.stopPropagation()} onKeyDown={(e) => e.stopPropagation()}>
+                            <MoreHorizontal size={14} aria-hidden="true" />
                           </button>
                         )}
                       </div>

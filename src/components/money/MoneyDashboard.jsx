@@ -323,10 +323,10 @@ export default function MoneyDashboard({ onNavigate }) {
             </p>
           )}
           <div className="md-quick-actions">
-            <button className="md-action-btn"><PiggyBank size={18} /><span>Top up</span></button>
-            <button className="md-action-btn"><ArrowUpRight size={18} /><span>Send</span></button>
-            <button className="md-action-btn"><ArrowDownRight size={18} /><span>Request</span></button>
-            <button className="md-action-btn"><MoreHorizontal size={18} /><span>More</span></button>
+            <button type="button" className="md-action-btn btn-soon" aria-disabled="true" title="Coming soon" aria-label="Top up (coming soon)"><PiggyBank size={18} aria-hidden="true" /><span>Top up</span></button>
+            <button type="button" className="md-action-btn btn-soon" aria-disabled="true" title="Coming soon" aria-label="Send (coming soon)"><ArrowUpRight size={18} aria-hidden="true" /><span>Send</span></button>
+            <button type="button" className="md-action-btn btn-soon" aria-disabled="true" title="Coming soon" aria-label="Request (coming soon)"><ArrowDownRight size={18} aria-hidden="true" /><span>Request</span></button>
+            <button type="button" className="md-action-btn btn-soon" aria-disabled="true" title="Coming soon" aria-label="More (coming soon)"><MoreHorizontal size={18} aria-hidden="true" /><span>More</span></button>
           </div>
         </div>
       </div>

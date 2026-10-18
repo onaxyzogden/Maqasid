@@ -133,15 +133,15 @@ export default function TeamChat() {
         <div className="chat-input-section">
           <div className="chat-input-label">Create meeting</div>
           <div className="chat-rich-toolbar">
-            <button className="btn-ghost chat-toolbar-btn" title="Bold" aria-label="Bold"><Bold size={16} aria-hidden="true" /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Italic" aria-label="Italic"><Italic size={16} aria-hidden="true" /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Underline" aria-label="Underline"><Underline size={16} aria-hidden="true" /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Strikethrough" aria-label="Strikethrough"><Strikethrough size={16} aria-hidden="true" /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Link" aria-label="Link"><Link size={16} aria-hidden="true" /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Voice" aria-label="Voice"><Mic size={16} aria-hidden="true" /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Video" aria-label="Video"><Video size={16} aria-hidden="true" /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Emoji" aria-label="Emoji"><Smile size={16} aria-hidden="true" /></button>
-            <button className="btn-ghost chat-toolbar-btn" title="Attach" aria-label="Attach"><Paperclip size={16} aria-hidden="true" /></button>
+            <button type="button" className="btn-ghost chat-toolbar-btn btn-soon" aria-disabled="true" title="Bold: coming soon" aria-label="Bold (coming soon)"><Bold size={16} aria-hidden="true" /></button>
+            <button type="button" className="btn-ghost chat-toolbar-btn btn-soon" aria-disabled="true" title="Italic: coming soon" aria-label="Italic (coming soon)"><Italic size={16} aria-hidden="true" /></button>
+            <button type="button" className="btn-ghost chat-toolbar-btn btn-soon" aria-disabled="true" title="Underline: coming soon" aria-label="Underline (coming soon)"><Underline size={16} aria-hidden="true" /></button>
+            <button type="button" className="btn-ghost chat-toolbar-btn btn-soon" aria-disabled="true" title="Strikethrough: coming soon" aria-label="Strikethrough (coming soon)"><Strikethrough size={16} aria-hidden="true" /></button>
+            <button type="button" className="btn-ghost chat-toolbar-btn btn-soon" aria-disabled="true" title="Link: coming soon" aria-label="Link (coming soon)"><Link size={16} aria-hidden="true" /></button>
+            <button type="button" className="btn-ghost chat-toolbar-btn btn-soon" aria-disabled="true" title="Voice: coming soon" aria-label="Voice (coming soon)"><Mic size={16} aria-hidden="true" /></button>
+            <button type="button" className="btn-ghost chat-toolbar-btn btn-soon" aria-disabled="true" title="Video: coming soon" aria-label="Video (coming soon)"><Video size={16} aria-hidden="true" /></button>
+            <button type="button" className="btn-ghost chat-toolbar-btn btn-soon" aria-disabled="true" title="Emoji: coming soon" aria-label="Emoji (coming soon)"><Smile size={16} aria-hidden="true" /></button>
+            <button type="button" className="btn-ghost chat-toolbar-btn btn-soon" aria-disabled="true" title="Attach: coming soon" aria-label="Attach (coming soon)"><Paperclip size={16} aria-hidden="true" /></button>
           </div>
           <div className="chat-input-bar">
             <input value={newMsg} onChange={(e) => setNewMsg(e.target.value)}

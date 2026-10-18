@@ -38,7 +38,7 @@ export default function SubmoduleSlideUp({ submoduleId, fallbackLabel, onClose }
         </header>
         <div className="pp-slideup__body">
           {entry ? (
-            <PillarLevelPage {...entry} />
+            <PillarLevelPage {...entry} syncRoute={false} />
           ) : (
             <div className="pp-slideup__empty">
               Dashboard coming soon for this module.
