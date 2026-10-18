@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import {
   X, Sparkles, Check, RotateCcw, AlertTriangle, ChevronDown, ChevronUp,
@@ -15,6 +15,8 @@ import { downloadTaskTemplate, validateTaskTemplate, importTaskTemplate } from '
 import { useAppStore } from '../../store/app-store';
 import { usePeopleStore, getInitials } from '../../store/people-store';
 import { useProjectStore } from '../../store/project-store';
+import { useToastStore } from '../../store/toast-store';
+import { errorListMessage } from '../../lib/error-list';
 import { getTaskAccessLevel, getBbosRole } from '../../data/bbos/bbos-role-access';
 import { getAiConfig, hasAiConfig } from '@services/ai/ai-settings';
 import { streamCompletion, AiClientError } from '@services/ai/ai-client';
@@ -24,6 +26,8 @@ import GLabelPicker from '../shared/GLabelPicker';
 import ErrorBoundary from '../shared/ErrorBoundary';
 import './BbosTaskPanel.css';
 import { localDayKey } from '../../lib/format-date';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
+import Modal from '../shared/Modal';
 
 function formatDateTime(iso) {
   if (!iso) return '';
@@ -83,6 +87,9 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
       setTimeout(() => onClose(), 200);
     };
   }, [onClose]);
+  // Escape closes; Tab stays inside. Handed to the runway sub-dialog while open.
+  const closeViaRef = useCallback(() => handleClose.current(), []);
+  const trapRef = useFocusTrap(!runwayModal, closeViaRef);
 
   const def = task?.bbosTaskType ? getBbosTaskDef(task.bbosTaskType) : null;
   const stageAttrs = def ? (getBbosStageIslamic(def.stage)?.attrs || []) : [];
@@ -320,7 +327,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
         const json = JSON.parse(ev.target.result);
         const validation = validateTaskTemplate(json, def);
         if (!validation.valid) {
-          alert('Template validation failed:\n' + validation.errors.join('\n'));
+          useToastStore.getState().addToast({ type: 'error', duration: 10000, message: errorListMessage("This template can't be imported. Nothing was changed:", validation.errors) });
           return;
         }
         const { fieldData, gLabel } = importTaskTemplate(json, def);
@@ -330,9 +337,10 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
         setLocalFields((prev) => ({ ...prev, ...fieldData }));
         if (gLabel) handleGLabelChange(gLabel);
         advanceToInProgress();
-        alert(`Template imported: ${Object.keys(fieldData).length} field(s) populated.`);
+        const filled = Object.keys(fieldData).length;
+        useToastStore.getState().addToast({ type: 'success', message: `Template imported: ${filled} ${filled === 1 ? 'field' : 'fields'} filled in.` });
       } catch (err) {
-        alert('Template import failed: ' + err.message);
+        useToastStore.getState().addToast({ type: 'error', duration: 8000, message: `Template import failed: ${err.message}` });
       }
     };
     reader.readAsText(file);
@@ -352,6 +360,11 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
 
   const panel = (
     <div
+      ref={trapRef}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="btp-title"
+      tabIndex={-1}
       className={`bbos-task-panel${closing ? ' tdp-scale-out' : ' tdp-scale-in'}`}
       style={accentColor ? { '--btp-accent': accentColor } : undefined}
       onClick={(e) => e.stopPropagation()}
@@ -382,7 +395,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
           </div>
 
           {/* Title */}
-          <h1 className="btp-title">{def.label}</h1>
+          <h1 id="btp-title" className="btp-title">{def.label}</h1>
 
           {/* Meta row: assignee + governing attributes */}
           <div className="btp-header__meta">
@@ -433,7 +446,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
         </div>
 
         <button type="button" className="btp-close-btn" onClick={() => handleClose.current()} aria-label="Close panel">
-          <X size={18} />
+          <X size={18} aria-hidden="true" />
         </button>
       </div>
 
@@ -835,17 +848,23 @@ function RunwayDateModal({ allTasks, runwayMonths, projectId, updateTask, onClos
   };
 
   return createPortal(
-    <div className="rda-overlay" onClick={(e) => e.target === e.currentTarget && onClose()}>
-      <div className="rda-modal">
+    <Modal
+      onClose={onClose}
+      labelledBy="rda-title"
+      dirty={false}
+      overlayClassName="rda-overlay"
+      className="rda-modal"
+      style={{ outline: 'none' }}
+    >
 
         {/* Header */}
         <div className="rda-header">
           <div className="rda-header-title">
-            <span className="rda-header-icon">📅</span>
-            <span>Runway Date Assignment</span>
+            <span className="rda-header-icon" aria-hidden="true">📅</span>
+            <span id="rda-title">Runway Date Assignment</span>
           </div>
-          <button className="rda-close" onClick={onClose} aria-label="Close">
-            <X size={16} />
+          <button type="button" className="rda-close" onClick={onClose} aria-label="Close">
+            <X size={16} aria-hidden="true" />
           </button>
         </div>
 
@@ -904,8 +923,7 @@ function RunwayDateModal({ allTasks, runwayMonths, projectId, updateTask, onClos
           </button>
         </div>
 
-      </div>
-    </div>,
+    </Modal>,
     document.body
   );
 }

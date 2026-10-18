@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useProjectStore } from '@store/project-store';
 import { useTaskStore } from '@store/task-store';
 import { safeGet, safeSet } from '@services/storage';
@@ -25,6 +26,10 @@ const LEVEL_COLORS = { core: '#C8A96E', growth: '#4ab8a8', excellence: '#8b5cf6'
  *   ensureProjects — Zustand selector fn, e.g. (s) => s.ensureHealthProjects
  *   pillars        — array of { id, label, route } passed to LevelNavigator
  *   levelRoutes    — { core: '/app/...', growth: '...', excellence: '...' }
+ *   syncRoute      — when true (default), a segment click navigates to that
+ *                    segment's route so the Sidebar, Back and reload agree.
+ *                    Embedded hosts (SubmoduleSlideUp) pass false and switch
+ *                    in place without touching the URL.
  */
 export default function PillarLevelPage({
   pillarKey: initialPillarKey,
@@ -35,9 +40,12 @@ export default function PillarLevelPage({
   pillars = [],
   levelRoutes = {},
   levelDescriptions,
+  syncRoute = true,
 }) {
-  // Local submodule state — initialised from the wrapper page's prop, then
-  // updated in-place on tab click so the page never unmounts on submodule switch.
+  const navigate = useNavigate();
+  // Local submodule state, initialised from the wrapper page's prop. With
+  // syncRoute (default) a tab click navigates, so the routed wrapper remounts
+  // this page; embedded hosts (syncRoute=false) switch in place instead.
   const [pillarKey, setPillarKey] = useState(initialPillarKey);
   const [subsegTask, setSubsegTask] = useState(null);
 
@@ -60,9 +68,13 @@ export default function PillarLevelPage({
   const getProject = useProjectStore((s) => s.getProject);
   const projects = useProjectStore((s) => s.projects);
   const loadTasks = useTaskStore((s) => s.loadTasks);
+  // Seeding runs once on mount; until then a missing board means "loading",
+  // afterwards it means the level has no board.
+  const [seeded, setSeeded] = useState(false);
 
   useEffect(() => {
     ensureProjectsFn();
+    setSeeded(true);
     // After seeding, explicitly reload tasks. The projects-dep effect below
     // won't re-fire when the project already existed in the store (AppShell
     // preloads all projects on startup), leaving the store stale if localStorage
@@ -86,12 +98,6 @@ export default function PillarLevelPage({
 
   const boardId = `${boardPrefix}_${pillarKey}_${activeLevel}`;
   const project = getProject(boardId);
-
-  // Keep the last-rendered project so the UI never goes blank mid-switch.
-  const lastProjectRef = useRef(project);
-  if (project) lastProjectRef.current = project;
-  const displayProject = project || lastProjectRef.current;
-  const displayProjectId = project ? boardId : lastProjectRef.current?.id;
 
   // Two-layer cross-fade on level switch.
   const [prevProject, setPrevProject] = useState(null);
@@ -133,8 +139,10 @@ export default function PillarLevelPage({
           const nextKey = moduleToKey[clickedPillarId] || clickedPillarId;
           if (nextKey === pillarKey) return;
           const nextRoute = pillars.find((p) => p.id === clickedPillarId)?.route;
-          setPillarKey(nextKey);
-          if (nextRoute) window.history.replaceState(null, '', nextRoute);
+          // Go through the router so useLocation consumers (Sidebar active
+          // state, Back, reload) see the new segment.
+          if (syncRoute && nextRoute) navigate(nextRoute, { replace: true });
+          else setPillarKey(nextKey);
         }}
         onSubsegClick={(taskId, pillarId) => {
           const key = moduleToKey[pillarId] || pillarId;
@@ -154,14 +162,19 @@ export default function PillarLevelPage({
       )}
       <div className="fpb-layout">
         <div className="fpb-content">
-          {prevProject && prevProject.id !== displayProjectId && (
+          {prevProject && prevProject.id !== boardId && (
             <div key={prevProject.id} className="fpb-content__layer fpb-content__layer--out">
               <ProjectBoard projectId={prevProject.id} project={prevProject} hideFilter hideViewSwitcher />
             </div>
           )}
-          {displayProject ? (
-            <div key={displayProjectId} className="fpb-content__layer fpb-content__layer--in">
-              <ProjectBoard projectId={displayProjectId} project={displayProject} hideFilter hideViewSwitcher />
+          {project ? (
+            <div key={boardId} className="fpb-content__layer fpb-content__layer--in">
+              <ProjectBoard projectId={boardId} project={project} hideFilter hideViewSwitcher />
+            </div>
+          ) : seeded ? (
+            <div className="fpb-content__layer fpb-empty" role="status">
+              <p className="fpb-empty__title">This level isn't set up yet</p>
+              <p className="fpb-empty__body">There's no board for this level of the module. Pick another level above.</p>
             </div>
           ) : (
             <div className="fpb-content__layer" style={{ padding: 'var(--space-6)', display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>

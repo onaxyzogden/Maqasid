@@ -102,6 +102,7 @@
 }
 
 .toast__message {
+  white-space: pre-line;
   flex: 1;
   line-height: 1.4;
 }

@@ -1,10 +1,12 @@
 import { create } from 'zustand';
+import { useToastStore } from './toast-store';
 import { safeGetJSON, safeSet } from '../services/storage';
 import { genTaskId, genSubtaskId, genCheckId, genAttachmentId } from '../services/id';
 import { hydrateTasks, stripSeedFields, preloadBoardSeeds } from '../services/seed-hydrator';
 import { resolveSubmoduleFromProject } from '../data/maqasid-resolve';
 import { useProjectStore } from './project-store';
 import { syncTaskCompletion, completionColumns, placeMovedTask } from '../services/task-completion';
+import { isOverdue, parseLocal } from '../lib/format-date';
 
 // Project IDs encode level as `{pillar}_{module}_{core|growth|excellence}`.
 // Returns 'core' | 'growth' | 'excellence' | null.
@@ -221,12 +223,12 @@ export const useTaskStore = create((set, get) => ({
     const MAX_BYTES = 500 * 1024; // 500 KB — realistic for localStorage
     const MAX_ATTACHMENTS = 5;
     if (file.size > MAX_BYTES) {
-      alert(`File too large. Maximum size is 500 KB.`);
+      useToastStore.getState().addToast({ type: 'error', duration: 6000, message: `"${file.name}" is too large. Attachments can be up to 500 KB.` });
       return;
     }
     const task = (get().tasksByProject[projectId] || []).find((t) => t.id === taskId);
     if ((task?.attachments || []).length >= MAX_ATTACHMENTS) {
-      alert(`Maximum ${MAX_ATTACHMENTS} attachments per task.`);
+      useToastStore.getState().addToast({ type: 'error', duration: 6000, message: `A task can hold up to ${MAX_ATTACHMENTS} attachments. Remove one to add "${file.name}".` });
       return;
     }
     // Estimate localStorage usage — warn at 80% of ~5 MB quota
@@ -234,7 +236,7 @@ export const useTaskStore = create((set, get) => ({
       const used = new Blob(Object.values(localStorage)).size;
       const quota = 5 * 1024 * 1024;
       if (used + file.size * 1.4 > quota * 0.8) {
-        alert('Storage is nearly full. Remove old attachments or export data before adding more.');
+        useToastStore.getState().addToast({ type: 'error', duration: 8000, message: `Storage is nearly full, so "${file.name}" wasn't attached. Remove old attachments or export your data first.` });
         return;
       }
     } catch { /* estimation failed — proceed anyway */ }
@@ -310,7 +312,7 @@ export const useTaskStore = create((set, get) => ({
     return {
       total: tasks.length,
       completed: tasks.filter((t) => t.completedAt).length,
-      overdue: tasks.filter((t) => t.dueDate && new Date(t.dueDate) < new Date() && !t.completedAt).length,
+      overdue: tasks.filter((t) => isOverdue(t.dueDate) && !t.completedAt).length,
     };
   },
 
@@ -401,7 +403,7 @@ export const useTaskStore = create((set, get) => ({
           if (level && projectLevel && projectLevel !== level) continue;
           deepWork.push(hydrated);
         } else {
-          const due = task.dueDate ? new Date(task.dueDate) : null;
+          const due = task.dueDate ? parseLocal(task.dueDate) : null;
           if (due) due.setHours(0, 0, 0, 0);
           const dueTodayOrOverdue = due && due.getTime() <= today.getTime();
           maintenance.push({ ...hydrated, _maintenanceUrgent: !!dueTodayOrOverdue });
@@ -498,7 +500,7 @@ export const useTaskStore = create((set, get) => ({
     return tasks.filter((task) => {
       if (priorities?.length > 0 && !priorities.includes(task.priority)) return false;
       if (dueDate) {
-        const d = task.dueDate ? new Date(task.dueDate) : null;
+        const d = task.dueDate ? parseLocal(task.dueDate) : null;
         if (d) d.setHours(0, 0, 0, 0);
         switch (dueDate) {
           case 'overdue': if (!d || d >= now) return false; break;

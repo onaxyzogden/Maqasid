@@ -97,6 +97,9 @@ export default function ContactsToolbar({
         <div style={{ marginLeft: 'auto', display: 'flex', gap: 4, alignItems: 'center' }}>
           <span style={{ fontSize: 12, color: 'var(--text3)' }}>Cards</span>
           <button
+            type="button"
+            aria-label="Card view"
+            aria-pressed={viewMode === 'cards'}
             onClick={() => setViewMode('cards')}
             style={{
               padding: 6, borderRadius: 6, border: '1.5px solid var(--border)',
@@ -104,9 +107,12 @@ export default function ContactsToolbar({
               cursor: 'pointer', display: 'flex', alignItems: 'center', color: 'var(--text2)',
             }}
           >
-            <LayoutGrid size={16} />
+            <LayoutGrid size={16} aria-hidden="true" />
           </button>
           <button
+            type="button"
+            aria-label="Table view"
+            aria-pressed={viewMode === 'table'}
             onClick={() => setViewMode('table')}
             style={{
               padding: 6, borderRadius: 6, border: '1.5px solid var(--border)',

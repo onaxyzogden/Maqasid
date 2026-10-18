@@ -236,8 +236,8 @@ export default function JournalPanel() {
                 onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); addCustomTag(); } }}
               />
               {tagInput.trim() && (
-                <button className="journal-panel__tag-add-btn" onClick={addCustomTag}>
-                  <Plus size={14} />
+                <button type="button" className="journal-panel__tag-add-btn" onClick={addCustomTag} aria-label="Add tag">
+                  <Plus size={14} aria-hidden="true" />
                 </button>
               )}
             </div>

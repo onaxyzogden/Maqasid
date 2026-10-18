@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { useTaskStore } from '@store/task-store';
 import { useProjectStore } from '@store/project-store';
 import { Inbox } from 'lucide-react';
+import { isOverdue, parseLocal } from '../../../lib/format-date';
 
 export default function WorkTab({ contactId }) {
   const getTasksByAssignee = useTaskStore((s) => s.getTasksByAssignee);
@@ -57,9 +58,9 @@ export default function WorkTab({ contactId }) {
         <tbody>
           {tasks.map((task) => {
             const done = !!task.completedAt;
-            const overdue = !done && task.dueDate && new Date(task.dueDate) < new Date();
+            const overdue = !done && isOverdue(task.dueDate);
             const dueLabel = task.dueDate
-              ? new Date(task.dueDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
+              ? parseLocal(task.dueDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
               : '\u2014';
             return (
               <tr key={`${task.projectId}_${task.id}`} style={{

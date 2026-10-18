@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import { usePeopleStore } from '@store/people-store';
 import { DEPT_COLORS } from '@data/config/people-departments';
+import Modal from '../../shared/Modal';
+import FieldError from '../../shared/FieldError';
+import { useRequiredField } from '../../../hooks/useRequiredField';
 
 export default function AddDepartmentModal({ onClose }) {
   const addDepartment = usePeopleStore((s) => s.addDepartment);
@@ -12,6 +15,8 @@ export default function AddDepartmentModal({ onClose }) {
   const triggerClose = () => { setLeaving(true); setTimeout(onClose, 200); };
 
   const canSubmit = name.trim();
+  const uid = useId();
+  const req = useRequiredField(!!canSubmit, `${uid}-name`);
 
   function handleSubmit() {
     if (!canSubmit) return;
@@ -27,36 +32,35 @@ export default function AddDepartmentModal({ onClose }) {
   const labelStyle = { fontSize: 12, fontWeight: 500, color: 'var(--text2)', marginBottom: 4, display: 'block' };
 
   return createPortal(
-    <div style={{
-      position: 'fixed', inset: 0, zIndex: 1000,
-      background: 'var(--overlay)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-      animation: leaving ? 'fadeOut 200ms var(--ease) forwards' : undefined,
-    }} onClick={triggerClose}>
-      <div
-        style={{
-          width: 380, background: 'var(--surface)', borderRadius: 12,
-          boxShadow: 'var(--shadow-xl)', padding: 24,
-          animation: leaving ? 'scaleOut 200ms var(--ease) forwards' : 'scaleIn 150ms var(--ease)',
-        }}
-        onClick={(e) => e.stopPropagation()}
-      >
+    <Modal
+      onClose={triggerClose}
+      labelledBy={`${uid}-title`}
+      overlayStyle={{ animation: leaving ? 'fadeOut 200ms var(--ease) forwards' : undefined }}
+      className=""
+      style={{
+        width: 380, background: 'var(--surface)', borderRadius: 12,
+        boxShadow: 'var(--shadow-xl)', padding: 24, outline: 'none',
+        animation: leaving ? 'scaleOut 200ms var(--ease) forwards' : 'scaleIn 150ms var(--ease)',
+      }}
+    >
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
-          <div style={{ fontWeight: 700, fontSize: 15, color: 'var(--text)' }}>Add Department</div>
-          <button onClick={triggerClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text2)', padding: 4 }}>
-            <X size={18} />
+          <h2 id={`${uid}-title`} style={{ margin: 0, fontWeight: 700, fontSize: 15, color: 'var(--text)' }}>Add Department</h2>
+          <button type="button" onClick={triggerClose} aria-label="Close" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text2)', padding: 4 }}>
+            <X size={18} aria-hidden="true" />
           </button>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
           <div>
-            <label style={labelStyle}>Department name *</label>
-            <input style={inputStyle} value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Product" autoFocus />
+            <label htmlFor={`${uid}-name`} style={labelStyle}>Department name *</label>
+            <input id={`${uid}-name`} {...req.fieldProps} style={inputStyle} value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Product" autoFocus />
+            <FieldError id={req.errorId} show={req.show}>Enter a department name</FieldError>
           </div>
           <div>
-            <label style={labelStyle}>Color</label>
-            <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+            <div id={`${uid}-color`} style={labelStyle}>Color</div>
+            <div role="group" aria-labelledby={`${uid}-color`} style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
               {DEPT_COLORS.map((c) => (
-                <button key={c} onClick={() => setColor(c)} style={{
+                <button type="button" key={c} aria-label={`Colour ${c}`} aria-pressed={color === c} onClick={() => setColor(c)} style={{
                   width: 28, height: 28, borderRadius: '50%', background: c,
                   border: color === c ? '3px solid var(--text)' : '3px solid transparent',
                   cursor: 'pointer', transition: 'border-color var(--duration) var(--ease)',
@@ -69,21 +73,19 @@ export default function AddDepartmentModal({ onClose }) {
         <div style={{ display: 'flex', gap: 8, marginTop: 20, justifyContent: 'flex-end' }}>
           <button className="btn btn-ghost" onClick={triggerClose}>Cancel</button>
           <button
-            onClick={handleSubmit}
-            disabled={!canSubmit}
+            type="button"
+            onClick={req.guard(handleSubmit)}
             style={{
               padding: '8px 20px', borderRadius: 8,
-              background: canSubmit ? 'var(--text)' : 'var(--bg4)',
-              color: canSubmit ? 'var(--bg)' : 'var(--text3)',
+              background: 'var(--text)', color: 'var(--bg)',
               border: 'none', fontWeight: 600, fontSize: 13,
-              cursor: canSubmit ? 'pointer' : 'not-allowed',
+              cursor: 'pointer',
             }}
           >
             Add Department
           </button>
         </div>
-      </div>
-    </div>,
+    </Modal>,
     document.body
   );
 }

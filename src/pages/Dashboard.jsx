@@ -23,7 +23,7 @@ import { getBbosTaskDefsByStage } from '../data/bbos/bbos-task-definitions';
 import ChartTooltip from '../components/shared/ChartTooltip';
 import './Dashboard.css';
 import '../components/bbos/BbosFullDashboard.css';
-import { localDayKey } from '../lib/format-date';
+import { isOverdue, localDayKey } from '../lib/format-date';
 
 function BCGChart({ data }) {
   const svgRef = useRef(null);
@@ -388,7 +388,7 @@ export default function Dashboard() {
         !t.completedAt && !firstColIds.has(t.columnId) && !lastColIds.has(t.columnId)
       ).length,
       overdue: allTasks.filter((t) =>
-        t.dueDate && new Date(t.dueDate) < now && !t.completedAt
+        isOverdue(t.dueDate, now) && !t.completedAt
       ).length,
     };
   }, [allTasks, projects, events]);
@@ -446,7 +446,7 @@ export default function Dashboard() {
         const pillarTasks = pillarProjects.flatMap((p) => tasksByProject[p.id] || []);
         const openCount = pillarTasks.filter((t) => !t.completedAt).length;
         const overdueCount = pillarTasks.filter(
-          (t) => t.dueDate && new Date(t.dueDate) < now && !t.completedAt
+          (t) => isOverdue(t.dueDate, now) && !t.completedAt
         ).length;
         return { pillar, openCount, overdueCount };
       })

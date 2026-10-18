@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import { useContactsStore } from '@store/contacts-store';
 import { useAuthStore } from '@store/auth-store';
 import { CLOCK_IN_LOCATIONS } from '@data/config/contact-config';
 import { localDayKey } from '../../../lib/format-date';
+import Modal from '../../shared/Modal';
 
 const ICONS = { office: '🏢', remote: '🏠', field: '📍' };
 
@@ -37,6 +38,9 @@ export default function ClockInModal({ contactId, onClose }) {
     triggerClose();
   }
 
+  const uid = useId();
+  const fid = (name) => `${uid}-${name}`;
+
   const inputStyle = {
     width: '100%', padding: '8px 12px', borderRadius: 8,
     border: '1.5px solid var(--border)', background: 'var(--bg)',
@@ -44,22 +48,23 @@ export default function ClockInModal({ contactId, onClose }) {
   };
 
   return createPortal(
-    <div style={{
-      position: 'fixed', inset: 0, zIndex: 900,
-      background: 'var(--overlay)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-      animation: leaving ? 'fadeOut 200ms var(--ease) forwards' : undefined,
-    }} onClick={triggerClose}>
-      <div style={{
+    <Modal
+      onClose={triggerClose}
+      labelledBy={fid('title')}
+      overlayStyle={{ zIndex: 900, animation: leaving ? 'fadeOut 200ms var(--ease) forwards' : undefined }}
+      className=""
+      style={{
         width: 400, background: 'var(--surface)', borderRadius: 16,
-        boxShadow: 'var(--shadow-xl)', padding: '24px',
+        boxShadow: 'var(--shadow-xl)', padding: '24px', outline: 'none',
         display: 'flex', flexDirection: 'column', gap: 20,
         animation: leaving ? 'scaleOut 200ms var(--ease) forwards' : 'scaleIn 180ms var(--ease)',
-      }} onClick={(e) => e.stopPropagation()}>
+      }}
+    >
         {/* Header */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <div style={{ fontWeight: 700, fontSize: 15, color: 'var(--text)' }}>Clocking in</div>
-          <button onClick={triggerClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text3)', padding: 4 }}>
-            <X size={16} />
+          <h2 id={fid('title')} style={{ margin: 0, fontWeight: 700, fontSize: 15, color: 'var(--text)' }}>Clocking in</h2>
+          <button type="button" onClick={triggerClose} aria-label="Close" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text3)', padding: 4 }}>
+            <X size={16} aria-hidden="true" />
           </button>
         </div>
 
@@ -91,7 +96,7 @@ export default function ClockInModal({ contactId, onClose }) {
                 onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.85'; }}
                 onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}
               >
-                <span style={{ fontSize: 22 }}>{loc.icon}</span>
+                <span aria-hidden="true" style={{ fontSize: 22 }}>{loc.icon}</span>
                 {loc.label}
               </button>
             ))}
@@ -106,6 +111,8 @@ export default function ClockInModal({ contactId, onClose }) {
             <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
           </div>
           <button
+            type="button"
+            aria-expanded={showManual}
             onClick={() => setShowManual((s) => !s)}
             style={{
               width: '100%', padding: '9px 0', borderRadius: 8,
@@ -122,23 +129,23 @@ export default function ClockInModal({ contactId, onClose }) {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10, borderTop: '1px solid var(--border)', paddingTop: 14 }}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
               <div>
-                <div style={{ fontSize: 11, color: 'var(--text3)', marginBottom: 3 }}>Date</div>
-                <input type="date" style={inputStyle} value={manualDate} onChange={(e) => setManualDate(e.target.value)} />
+                <label htmlFor={fid('date')} style={{ display: 'block', fontSize: 11, color: 'var(--text3)', marginBottom: 3 }}>Date</label>
+                <input id={fid('date')} type="date" style={inputStyle} value={manualDate} onChange={(e) => setManualDate(e.target.value)} />
               </div>
               <div>
-                <div style={{ fontSize: 11, color: 'var(--text3)', marginBottom: 3 }}>Time</div>
-                <input type="time" style={inputStyle} value={manualTime} onChange={(e) => setManualTime(e.target.value)} />
+                <label htmlFor={fid('time')} style={{ display: 'block', fontSize: 11, color: 'var(--text3)', marginBottom: 3 }}>Time</label>
+                <input id={fid('time')} type="time" style={inputStyle} value={manualTime} onChange={(e) => setManualTime(e.target.value)} />
               </div>
             </div>
             <div>
-              <div style={{ fontSize: 11, color: 'var(--text3)', marginBottom: 3 }}>Location</div>
-              <select style={inputStyle} value={manualLocation} onChange={(e) => setManualLocation(e.target.value)}>
+              <label htmlFor={fid('loc')} style={{ display: 'block', fontSize: 11, color: 'var(--text3)', marginBottom: 3 }}>Location</label>
+              <select id={fid('loc')} style={inputStyle} value={manualLocation} onChange={(e) => setManualLocation(e.target.value)}>
                 {CLOCK_IN_LOCATIONS.map((l) => <option key={l.id} value={l.id}>{l.label}</option>)}
               </select>
             </div>
             <div>
-              <div style={{ fontSize: 11, color: 'var(--text3)', marginBottom: 3 }}>Description (optional)</div>
-              <input style={inputStyle} value={manualDesc} onChange={(e) => setManualDesc(e.target.value)} placeholder="Notes..." />
+              <label htmlFor={fid('desc')} style={{ display: 'block', fontSize: 11, color: 'var(--text3)', marginBottom: 3 }}>Description (optional)</label>
+              <input id={fid('desc')} style={inputStyle} value={manualDesc} onChange={(e) => setManualDesc(e.target.value)} placeholder="Notes..." />
             </div>
             <button onClick={clockInManual} style={{
               padding: '9px 0', background: 'var(--mod-people)', color: '#fff',
@@ -146,8 +153,7 @@ export default function ClockInModal({ contactId, onClose }) {
             }}>Save Clock-In</button>
           </div>
         )}
-      </div>
-    </div>,
+    </Modal>,
     document.body
   );
 }

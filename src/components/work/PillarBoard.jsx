@@ -251,6 +251,7 @@ function PillarResourcesTab({ modulePrefix, pillarKey, pillarName }) {
         )}
         <input
           className="pillar-resources__input"
+          aria-label="Resource title"
           placeholder="Resource title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -258,6 +259,7 @@ function PillarResourcesTab({ modulePrefix, pillarKey, pillarName }) {
         {mode === 'link' && (
           <input
             className="pillar-resources__input"
+            aria-label="Resource URL"
             placeholder="URL (https://...)"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
@@ -265,6 +267,7 @@ function PillarResourcesTab({ modulePrefix, pillarKey, pillarName }) {
         )}
         <textarea
           className="pillar-resources__textarea"
+          aria-label="Note (optional)"
           placeholder="Optional note..."
           value={note}
           onChange={(e) => setNote(e.target.value)}

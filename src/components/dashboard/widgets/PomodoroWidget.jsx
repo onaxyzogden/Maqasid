@@ -42,11 +42,11 @@ export default function PomodoroWidget() {
       <div className="ctx-widget__big ctx-widget__mono">{format(state.remaining)}</div>
       <div className="ctx-widget__actions">
         <button type="button" className="ctx-widget__btn" onClick={() => dispatch({ type: 'toggle' })}>
-          {state.running ? <Pause size={14} /> : <Play size={14} />}
+          {state.running ? <Pause size={14} aria-hidden="true" /> : <Play size={14} aria-hidden="true" />}
           <span>{state.running ? 'Pause' : 'Start'}</span>
         </button>
-        <button type="button" className="ctx-widget__btn ctx-widget__btn--ghost" onClick={() => dispatch({ type: 'reset' })}>
-          <RotateCcw size={14} />
+        <button type="button" className="ctx-widget__btn ctx-widget__btn--ghost" onClick={() => dispatch({ type: 'reset' })} aria-label="Reset timer" title="Reset timer">
+          <RotateCcw size={14} aria-hidden="true" />
         </button>
       </div>
     </div>

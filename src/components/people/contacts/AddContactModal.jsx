@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import { useContactsStore } from '@store/contacts-store';
 import { useAuthStore } from '@store/auth-store';
 import { useToastStore } from '@store/toast-store';
 import { LEAD_STAGES, LEAD_SOURCES } from '@data/config/contact-config';
+import SlideIn from '../../shared/SlideIn';
+import FieldError from '../../shared/FieldError';
+import { useRequiredField } from '../../../hooks/useRequiredField';
 
 const ENTITY_TYPES = ['person', 'company'];
 const PERSON_TYPES = ['contact', 'lead', 'client', 'employee'];
@@ -47,6 +50,12 @@ export default function AddContactModal({ onClose, initialContactType = 'contact
   const canSubmit = entityType === 'person'
     ? (firstName.trim() || email.trim())
     : companyName.trim();
+
+  const uid = useId();
+  const fid = (name) => `${uid}-${name}`;
+  // Person needs a first name or an email; a company needs its name. Submit
+  // stays enabled and says which, instead of silently greying out.
+  const req = useRequiredField(!!canSubmit, entityType === 'person' ? fid('first') : fid('company'));
 
   function handleSubmit() {
     if (!canSubmit) return;
@@ -91,38 +100,36 @@ export default function AddContactModal({ onClose, initialContactType = 'contact
   const labelStyle = { fontSize: 12, fontWeight: 500, color: 'var(--text2)', marginBottom: 4, display: 'block' };
 
   return createPortal(
-    <div style={{
-      position: 'fixed', inset: 0, zIndex: 1000,
-      background: 'var(--overlay)', display: 'flex', alignItems: 'center', justifyContent: 'flex-end',
-      animation: leaving ? 'fadeOut 200ms var(--ease) forwards' : undefined,
-    }} onClick={triggerClose}>
-      <div
-        style={{
-          width: 420, height: '100%', background: 'var(--surface)',
-          boxShadow: 'var(--shadow-xl)', overflowY: 'auto',
-          display: 'flex', flexDirection: 'column',
-          animation: leaving ? 'slideOutRight 200ms var(--ease) forwards' : 'slideInRight 200ms var(--ease)',
-        }}
-        onClick={(e) => e.stopPropagation()}
-      >
+    <SlideIn
+      onClose={triggerClose}
+      labelledBy={fid('title')}
+      overlayStyle={{
+        zIndex: 1000, background: 'var(--overlay)',
+        animation: leaving ? 'fadeOut 200ms var(--ease) forwards' : undefined,
+      }}
+      style={{
+        boxShadow: 'var(--shadow-xl)',
+        animation: leaving ? 'slideOutRight 200ms var(--ease) forwards' : undefined,
+      }}
+    >
         {/* Header */}
         <div style={{ padding: '20px 20px 0', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div>
-            <div style={{ fontWeight: 700, fontSize: 15, color: 'var(--text)' }}>Add a New Contact</div>
+            <h2 id={fid('title')} style={{ margin: 0, fontWeight: 700, fontSize: 15, color: 'var(--text)' }}>Add a New Contact</h2>
             <div style={{ fontSize: 12, color: 'var(--text3)', marginTop: 2 }}>Add and manage contacts in your CRM.</div>
           </div>
-          <button onClick={triggerClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text2)', padding: 4 }}>
-            <X size={18} />
+          <button type="button" onClick={triggerClose} aria-label="Close" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text2)', padding: 4 }}>
+            <X size={18} aria-hidden="true" />
           </button>
         </div>
 
         <div style={{ padding: '16px 20px', flex: 1, display: 'flex', flexDirection: 'column', gap: 14 }}>
           {/* Entity toggle */}
           <div>
-            <label style={labelStyle}>Entity</label>
-            <div style={{ display: 'flex', gap: 6 }}>
+            <div id={fid('entity')} style={labelStyle}>Entity</div>
+            <div role="group" aria-labelledby={fid('entity')} style={{ display: 'flex', gap: 6 }}>
               {ENTITY_TYPES.map((et) => (
-                <button key={et} onClick={() => setEntityType(et)} style={{
+                <button type="button" key={et} aria-pressed={entityType === et} onClick={() => setEntityType(et)} style={{
                   flex: 1, padding: '7px 0', borderRadius: 8, border: '1.5px solid',
                   borderColor: entityType === et ? 'var(--mod-people)' : 'var(--border)',
                   background: entityType === et ? 'rgba(139,92,246,0.1)' : 'transparent',
@@ -139,10 +146,10 @@ export default function AddContactModal({ onClose, initialContactType = 'contact
             <>
               {/* Type toggle */}
               <div>
-                <label style={labelStyle}>Type</label>
-                <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
+                <div id={fid('ptype')} style={labelStyle}>Type</div>
+                <div role="group" aria-labelledby={fid('ptype')} style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
                   {PERSON_TYPES.map((t) => (
-                    <button key={t} onClick={() => setContactType(t)} style={{
+                    <button type="button" key={t} aria-pressed={contactType === t} onClick={() => setContactType(t)} style={{
                       padding: '5px 12px', borderRadius: 6, border: '1.5px solid',
                       borderColor: contactType === t ? 'var(--mod-people)' : 'var(--border)',
                       background: contactType === t ? 'rgba(139,92,246,0.1)' : 'transparent',
@@ -158,21 +165,22 @@ export default function AddContactModal({ onClose, initialContactType = 'contact
               {/* Person fields */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
                 <div>
-                  <label style={labelStyle}>First name</label>
-                  <input style={inputStyle} value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="First name" />
+                  <label htmlFor={fid('first')} style={labelStyle}>First name</label>
+                  <input id={fid('first')} {...req.fieldProps} style={inputStyle} value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="First name" />
+                  <FieldError id={req.errorId} show={req.show && entityType === 'person'}>Enter a first name or email</FieldError>
                 </div>
                 <div>
-                  <label style={labelStyle}>Last name</label>
-                  <input style={inputStyle} value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Last name" />
+                  <label htmlFor={fid('last')} style={labelStyle}>Last name</label>
+                  <input id={fid('last')} style={inputStyle} value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Last name" />
                 </div>
               </div>
               <div>
-                <label style={labelStyle}>Email</label>
-                <input style={inputStyle} type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+                <label htmlFor={fid('email')} style={labelStyle}>Email</label>
+                <input id={fid('email')} {...req.fieldProps} style={inputStyle} type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
               </div>
 
               {/* Show more toggle */}
-              <button onClick={() => setShowMore((s) => !s)} style={{
+              <button type="button" aria-expanded={showMore} onClick={() => setShowMore((s) => !s)} style={{
                 background: 'none', border: 'none', cursor: 'pointer',
                 color: 'var(--text3)', fontSize: 12, textAlign: 'left', padding: 0,
                 display: 'flex', alignItems: 'center', gap: 6,
@@ -185,12 +193,12 @@ export default function AddContactModal({ onClose, initialContactType = 'contact
               {showMore && (
                 <>
                   <div>
-                    <label style={labelStyle}>Phone number</label>
-                    <input style={inputStyle} value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone number" />
+                    <label htmlFor={fid('phone')} style={labelStyle}>Phone number</label>
+                    <input id={fid('phone')} style={inputStyle} value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone number" />
                   </div>
                   <div>
-                    <label style={labelStyle}>Job title</label>
-                    <input style={inputStyle} value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} placeholder="Job title" />
+                    <label htmlFor={fid('job')} style={labelStyle}>Job title</label>
+                    <input id={fid('job')} style={inputStyle} value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} placeholder="Job title" />
                   </div>
                 </>
               )}
@@ -201,10 +209,10 @@ export default function AddContactModal({ onClose, initialContactType = 'contact
                   <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--text3)', textAlign: 'center' }}>Interested in…</div>
 
                   <div>
-                    <label style={labelStyle}>Lead Source</label>
-                    <div style={{ display: 'flex', gap: 6 }}>
+                    <div id={fid('source')} style={labelStyle}>Lead Source</div>
+                    <div role="group" aria-labelledby={fid('source')} style={{ display: 'flex', gap: 6 }}>
                       {LEAD_SOURCES.map((ls) => (
-                        <button key={ls.id} onClick={() => setLeadSource(ls.id)} style={{
+                        <button type="button" key={ls.id} aria-pressed={leadSource === ls.id} onClick={() => setLeadSource(ls.id)} style={{
                           flex: 1, padding: '6px 0', borderRadius: 6, border: '1.5px solid',
                           borderColor: leadSource === ls.id ? 'var(--mod-people)' : 'var(--border)',
                           background: leadSource === ls.id ? 'rgba(139,92,246,0.1)' : 'transparent',
@@ -217,21 +225,21 @@ export default function AddContactModal({ onClose, initialContactType = 'contact
                     </div>
                   </div>
                   <div>
-                    <label style={labelStyle}>Request title</label>
-                    <input style={inputStyle} value={requestTitle} onChange={(e) => setRequestTitle(e.target.value)} placeholder="Request title" />
+                    <label htmlFor={fid('reqtitle')} style={labelStyle}>Request title</label>
+                    <input id={fid('reqtitle')} style={inputStyle} value={requestTitle} onChange={(e) => setRequestTitle(e.target.value)} placeholder="Request title" />
                   </div>
                   <div>
-                    <label style={labelStyle}>Request description</label>
-                    <textarea style={{ ...inputStyle, resize: 'vertical', minHeight: 72 }}
+                    <label htmlFor={fid('reqdesc')} style={labelStyle}>Request description</label>
+                    <textarea id={fid('reqdesc')} style={{ ...inputStyle, resize: 'vertical', minHeight: 72 }}
                       value={requestDesc} onChange={(e) => setRequestDesc(e.target.value)} placeholder="Request description" />
                   </div>
                   <div>
-                    <label style={labelStyle}>Estimated Budget</label>
-                    <input style={inputStyle} type="number" value={budget} onChange={(e) => setBudget(e.target.value)} placeholder="Estimated Budget" />
+                    <label htmlFor={fid('budget')} style={labelStyle}>Estimated Budget</label>
+                    <input id={fid('budget')} style={inputStyle} type="number" value={budget} onChange={(e) => setBudget(e.target.value)} placeholder="Estimated Budget" />
                   </div>
                   <div>
-                    <label style={labelStyle}>Lead status</label>
-                    <select style={inputStyle} value={leadStatus} onChange={(e) => setLeadStatus(e.target.value)}>
+                    <label htmlFor={fid('status')} style={labelStyle}>Lead status</label>
+                    <select id={fid('status')} style={inputStyle} value={leadStatus} onChange={(e) => setLeadStatus(e.target.value)}>
                       {LEAD_STAGES.map((s) => (
                         <option key={s.id} value={s.id}>{s.label}</option>
                       ))}
@@ -250,10 +258,10 @@ export default function AddContactModal({ onClose, initialContactType = 'contact
             <>
               {/* Company type toggle */}
               <div>
-                <label style={labelStyle}>Type</label>
-                <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
+                <div id={fid('ctype')} style={labelStyle}>Type</div>
+                <div role="group" aria-labelledby={fid('ctype')} style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
                   {COMPANY_TYPES.map((t) => (
-                    <button key={t} onClick={() => setCompanyType(t)} style={{
+                    <button type="button" key={t} aria-pressed={companyType === t} onClick={() => setCompanyType(t)} style={{
                       padding: '5px 12px', borderRadius: 6, border: '1.5px solid',
                       borderColor: companyType === t ? 'var(--mod-people)' : 'var(--border)',
                       background: companyType === t ? 'rgba(139,92,246,0.1)' : 'transparent',
@@ -267,25 +275,26 @@ export default function AddContactModal({ onClose, initialContactType = 'contact
               </div>
 
               <div>
-                <label style={labelStyle}>Company name *</label>
-                <input style={inputStyle} value={companyName} onChange={(e) => setCompanyName(e.target.value)} placeholder="Company name" />
+                <label htmlFor={fid('company')} style={labelStyle}>Company name *</label>
+                <input id={fid('company')} {...req.fieldProps} style={inputStyle} value={companyName} onChange={(e) => setCompanyName(e.target.value)} placeholder="Company name" />
+                <FieldError id={req.errorId} show={req.show && entityType === 'company'}>Enter the company name</FieldError>
               </div>
               <div>
-                <label style={labelStyle}>Email</label>
-                <input style={inputStyle} type="email" value={companyEmail} onChange={(e) => setCompanyEmail(e.target.value)} placeholder="Email" />
+                <label htmlFor={fid('cemail')} style={labelStyle}>Email</label>
+                <input id={fid('cemail')} style={inputStyle} type="email" value={companyEmail} onChange={(e) => setCompanyEmail(e.target.value)} placeholder="Email" />
               </div>
               <div>
-                <label style={labelStyle}>Phone</label>
-                <input style={inputStyle} value={companyPhone} onChange={(e) => setCompanyPhone(e.target.value)} placeholder="Phone number" />
+                <label htmlFor={fid('cphone')} style={labelStyle}>Phone</label>
+                <input id={fid('cphone')} style={inputStyle} value={companyPhone} onChange={(e) => setCompanyPhone(e.target.value)} placeholder="Phone number" />
               </div>
               <div>
-                <label style={labelStyle}>Description</label>
-                <textarea style={{ ...inputStyle, resize: 'vertical', minHeight: 72 }}
+                <label htmlFor={fid('cdesc')} style={labelStyle}>Description</label>
+                <textarea id={fid('cdesc')} style={{ ...inputStyle, resize: 'vertical', minHeight: 72 }}
                   value={description} onChange={(e) => setDescription(e.target.value)} placeholder="What does this company do?" />
               </div>
               <div>
-                <label style={labelStyle}>Website</label>
-                <input style={inputStyle} value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="https://..." />
+                <label htmlFor={fid('website')} style={labelStyle}>Website</label>
+                <input id={fid('website')} style={inputStyle} value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="https://..." />
               </div>
             </>
           )}
@@ -294,21 +303,19 @@ export default function AddContactModal({ onClose, initialContactType = 'contact
         {/* Submit */}
         <div style={{ padding: '0 20px 20px' }}>
           <button
-            onClick={handleSubmit}
-            disabled={!canSubmit}
+            type="button"
+            onClick={req.guard(handleSubmit)}
             style={{
               width: '100%', padding: '11px 0', borderRadius: 10,
-              background: canSubmit ? 'var(--text)' : 'var(--bg4)',
-              color: canSubmit ? 'var(--bg)' : 'var(--text3)',
-              border: 'none', fontWeight: 600, fontSize: 14, cursor: canSubmit ? 'pointer' : 'not-allowed',
+              background: 'var(--text)', color: 'var(--bg)',
+              border: 'none', fontWeight: 600, fontSize: 14, cursor: 'pointer',
               transition: 'background var(--duration) var(--ease)',
             }}
           >
             Add new contact
           </button>
         </div>
-      </div>
-    </div>,
+    </SlideIn>,
     document.body
   );
 }
