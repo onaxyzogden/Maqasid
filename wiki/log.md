@@ -3,6 +3,20 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-18] build | BBOS stage attributes and du'as re-grounded
+
+Branch `feat/bbos-stage-grounding`. `bbos-stage-islamic.js` now matches the [stage grounding decision](decisions/2026-10-17-bbos-stage-grounding-reconciliation.md), whose status moves to implemented. The operator approved A1–A6:
+- `dua.source` is kept, and `sources[]` is added beside it.
+- IDY's arinā du'a is a non-prophetic `closingDua` with no `sources`.
+- OPT has 4 readiness rows, one of them the paired row "As-Subbuh · Al-Quddus".
+- Registry gains `as-sittir` and `as-subbuh`, neither among the ninety-nine.
+- Excerpts are marked "(excerpt)".
+- `closingDua` appears only at IDY, OFR, SLS, RET and OPT.
+
+- **Verified sources:** Qur'an text checked through the Quran MCP. Hadith numbers checked rather than taken from the docs: Abu Dawud 4012, Muslim 487, Muslim 1955, Nasāʾī 1305 and Ibn Ḥibbān 974. Aḥmad 24215 is graded hasan with a jayyid isnad per al-Albani. Ibn Ḥibbān 974 and Aḥmad 24215 were checked through secondary takhrij only. Nothing was left unverifiable.
+- **Verified build:** 435 tests (new `bbos-stage-islamic.test.js`), lint (divine-names: 108), build. Preview of the redesigned dashboard: the IDY overview shows Al-Awwal · Ash-Shahid with 20:25–26, and the OPT overview shows three attributes with "Allāhumma ḥāsibnī ḥisāban yasīrā". No console errors.
+- **Test data:** project `proj_MIxEnNKluxpb` ("Grounding Preview") is left in local preview storage.
+
 ## [2026-10-18] merge | PR #58: BBOS dashboard mobile layout on main
 
 [onaxyzogden/Maqasid#58](https://github.com/onaxyzogden/Maqasid/pull/58) merged as `d17fc92`, carrying `60538e7` (the change entry below). Still deferred: a sticky CTA row and the 12px text floor. The project toolbar's off-screen view switcher is being handled in its own session.
