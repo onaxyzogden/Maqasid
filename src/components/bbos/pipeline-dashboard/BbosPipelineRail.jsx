@@ -1,4 +1,5 @@
 // BBOS Pipeline Dashboard - left rail (header + cycle progress + stage nodes).
+import { useEffect, useRef } from "react";
 import { Arc, Ornament } from "./primitives";
 import { gateNodeIcon, layerVars } from "./palette";
 import { rowActivation } from '../../../lib/row-activation';
@@ -44,6 +45,14 @@ export default function BbosPipelineRail({ vm, selectedId, onSelect }) {
   const { stages, meta } = vm;
   const active = stages.find((s) => s.id === meta.activeStageId);
   const pct = meta.totalStages ? (meta.doneCount / meta.totalStages) * 100 : 0;
+  const listRef = useRef(null);
+
+  // On mobile the list is a horizontal strip; keep the selected stage in view.
+  // block: "nearest" leaves the vertical desktop list alone when it is visible.
+  useEffect(() => {
+    const node = listRef.current?.querySelector('[data-selected="true"]');
+    node?.scrollIntoView?.({ block: "nearest", inline: "nearest" });
+  }, [selectedId]);
 
   return (
     <div className="bpd-rail">
@@ -64,7 +73,7 @@ export default function BbosPipelineRail({ vm, selectedId, onSelect }) {
           </div>
         </div>
       </div>
-      <nav className="bpd-rail__list" aria-label="BBOS stages">
+      <nav className="bpd-rail__list" aria-label="BBOS stages" ref={listRef}>
         {stages.map((s) => (
           <StageNode key={s.id} stage={s} isSelected={selectedId === s.id} onClick={onSelect} />
         ))}
