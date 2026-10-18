@@ -281,14 +281,15 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', minHeight: 0 }}>
       {/* Unified header: project info + BBOS actions + view switcher */}
-      {!hideViewSwitcher && <div style={{
+      {!hideViewSwitcher && <div className="pb-header" style={{
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         gap: 'var(--space-3)', marginBottom: 'var(--space-2)', flexShrink: 0,
       }}>
         {/* Left: project color + BBOS info + stage bundle actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
+        <div className="pb-header__left" style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
           <div ref={colorPickerRef} style={{ position: 'relative', flexShrink: 0 }}>
             <button
+              className="pb-swatch"
               onClick={() => setColorPickerOpen((v) => !v)}
               title="Change project color"
               style={{
@@ -397,14 +398,12 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
           )}
         </div>
         {/* Right: view switcher + drag toggle */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
-        <div style={{ display: 'flex', gap: 'var(--space-1)', background: 'var(--bg3)', borderRadius: 'var(--radius)', padding: 2 }}>
+        <div className="pb-header__right" style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
+        <div className="pb-viewswitch" role="group" aria-label="Project view" style={{ display: 'flex', gap: 'var(--space-1)', background: 'var(--bg3)', borderRadius: 'var(--radius)', padding: 2 }}>
           <button
             onClick={() => setView('dashboard')}
-            className="btn btn-ghost"
+            className="btn btn-ghost pb-viewswitch__btn"
             style={{
-              padding: 'var(--space-1) var(--space-3)', fontSize: '0.85rem',
-              borderRadius: 'var(--radius-sm)',
               background: view === 'dashboard' ? 'var(--surface)' : 'transparent',
               boxShadow: view === 'dashboard' ? 'var(--shadow-xs)' : 'none',
               color: view === 'dashboard' ? 'var(--text)' : 'var(--text2)',
@@ -414,10 +413,8 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
           </button>
           <button
             onClick={() => setView('board')}
-            className="btn btn-ghost"
+            className="btn btn-ghost pb-viewswitch__btn"
             style={{
-              padding: 'var(--space-1) var(--space-3)', fontSize: '0.85rem',
-              borderRadius: 'var(--radius-sm)',
               background: view === 'board' ? 'var(--surface)' : 'transparent',
               boxShadow: view === 'board' ? 'var(--shadow-xs)' : 'none',
               color: view === 'board' ? 'var(--text)' : 'var(--text2)',
@@ -427,10 +424,8 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
           </button>
           <button
             onClick={() => setView('list')}
-            className="btn btn-ghost"
+            className="btn btn-ghost pb-viewswitch__btn"
             style={{
-              padding: 'var(--space-1) var(--space-3)', fontSize: '0.85rem',
-              borderRadius: 'var(--radius-sm)',
               background: view === 'list' ? 'var(--surface)' : 'transparent',
               boxShadow: view === 'list' ? 'var(--shadow-xs)' : 'none',
               color: view === 'list' ? 'var(--text)' : 'var(--text2)',
@@ -440,10 +435,8 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
           </button>
           <button
             onClick={() => setView('gantt')}
-            className="btn btn-ghost"
+            className="btn btn-ghost pb-viewswitch__btn"
             style={{
-              padding: 'var(--space-1) var(--space-3)', fontSize: '0.85rem',
-              borderRadius: 'var(--radius-sm)',
               background: view === 'gantt' ? 'var(--surface)' : 'transparent',
               boxShadow: view === 'gantt' ? 'var(--shadow-xs)' : 'none',
               color: view === 'gantt' ? 'var(--text)' : 'var(--text2)',

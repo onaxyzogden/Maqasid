@@ -64,6 +64,14 @@ StageSidebar (BBOS pipeline navigation)
 - Change column behavior → modify KanbanColumn (droppable) + KanbanBoard drag handlers
 
 ## Gotchas
+- **Project toolbar (`.pb-header`) has a phone layout in `ProjectBoard.css`.** Desktop layout is the
+  inline styles (left cluster | right cluster). At `max-width: 767px` both clusters go
+  `display: contents` (with `!important`, to beat the inline `display:flex`) so every control wraps
+  in one row: BBOS chip + role picker, Download / Upload / drag toggle, then `.pb-viewswitch` on its
+  own full-width row (`order: 1`). Every control is 44px tall, and the 12px colour swatch gets a
+  `::after` halo for a 44px tap area. Switcher button padding lives in `.btn.pb-viewswitch__btn` (not
+  inline) so mobile can tighten it. Flow layout only, never `position:fixed`. If you add a toolbar
+  control, check it at 375px in Board view, where the drag toggle makes the widest row.
 - **`orderBoardTasks` is the ONE task comparator — never write `a.seedOrder - b.seedOrder` again.**
   It lives in [orientation-selector.js](../../data/orientation-selector.js) and every sorting surface
   imports it (KanbanBoard, ListView, StageSidebar, PillarLevelDashboard, ProjectBoard,

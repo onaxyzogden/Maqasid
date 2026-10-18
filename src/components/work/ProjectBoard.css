@@ -34,3 +34,67 @@
   from { opacity: 1; }
   to   { opacity: 0; }
 }
+
+/* ── Project toolbar view switcher (Dashboard / Board / List / Gantt) ── */
+.btn.pb-viewswitch__btn {
+  padding: var(--space-1) var(--space-3);
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Project toolbar (.pb-header) — phone width ──
+   Desktop layout lives in the inline styles (left cluster | right cluster).
+   Below 768px both clusters dissolve (display: contents) so every control is
+   a direct item of one wrapping row: BBOS chip + role picker, then
+   Download / Upload / drag toggle, then the view switcher on its own
+   full-width row (order: 1). Nothing is pushed off-screen; the switcher keeps
+   a thin visible scrollbar only as a fallback for screens too narrow to fit
+   it. Every control gets a 44px tap height. Flow layout only — no
+   position:fixed. */
+@media (max-width: 767px) {
+  .pb-header {
+    flex-wrap: wrap;
+    justify-content: flex-start !important; /* beats the inline space-between */
+  }
+
+  .pb-header__left,
+  .pb-header__right {
+    display: contents !important; /* beats the inline display:flex */
+  }
+
+  .pb-header .btn,
+  .pb-header .bbos-role-picker__trigger {
+    min-height: 44px;
+    white-space: nowrap;
+  }
+
+  /* Drag toggle: square 44px target. */
+  .pb-header__right > .btn {
+    min-width: 44px;
+    justify-content: center;
+  }
+
+  /* 12px swatch keeps its look; an invisible halo makes the tap area 44px. */
+  .pb-swatch {
+    position: relative;
+  }
+  .pb-swatch::after {
+    content: '';
+    position: absolute;
+    inset: -16px;
+  }
+
+  .pb-viewswitch {
+    order: 1;
+    flex: 1 1 100%;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .btn.pb-viewswitch__btn {
+    flex: 1 0 auto;
+    gap: var(--space-1);
+    padding-inline: var(--space-2);
+  }
+}
