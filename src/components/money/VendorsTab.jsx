@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Plus, Search, Store, X, ExternalLink, Pencil, Trash2 } from 'lucide-react';
 import { useMoneyStore, formatCurrency } from '../../store/money-store';
+import { useConfirm } from '../../store/confirm-store';
 import { localDayKey } from '../../lib/format-date';
 import SlideIn from '../shared/SlideIn';
 import { useRequiredField } from '../../hooks/useRequiredField';
@@ -48,6 +49,7 @@ function VendorPanel({ vendor, onClose }) {
 }
 
 export default function VendorsTab() {
+  const confirm = useConfirm();
   const vendors = useMoneyStore((s) => s.vendors);
   const expenses = useMoneyStore((s) => s.expenses);
   const deleteVendor = useMoneyStore((s) => s.deleteVendor);
@@ -136,7 +138,7 @@ export default function VendorsTab() {
                     <button className="row-action-btn" onClick={() => updateVendor(v.id, { status: v.status === 'active' ? 'archived' : 'active' })} title={v.status === 'active' ? 'Archive' : 'Activate'} aria-label={v.status === 'active' ? 'Archive' : 'Activate'}>
                       <Store size={14} aria-hidden="true" />
                     </button>
-                    <button className="row-action-btn danger" onClick={() => { if (confirm('Delete this vendor?')) deleteVendor(v.id); }} title="Delete" aria-label={`Delete ${v.name}`}><Trash2 size={14} aria-hidden="true" /></button>
+                    <button className="row-action-btn danger" onClick={async () => { if (await confirm({ title: `Delete vendor "${v.name}"?`, body: "This can't be undone.", confirmLabel: 'Delete vendor', danger: true })) deleteVendor(v.id); }} title="Delete" aria-label={`Delete ${v.name}`}><Trash2 size={14} aria-hidden="true" /></button>
                   </div>
                 </td>
               </tr>

@@ -1,11 +1,13 @@
 import { useState, useMemo } from 'react';
 import { Search, X, Send, Trash2 } from 'lucide-react';
 import { useTechStore } from '../../store/tech-store';
+import { useConfirm } from '../../store/confirm-store';
 import SlideIn from '../shared/SlideIn';
 import { useRequiredField } from '../../hooks/useRequiredField';
 import FieldError from '../../components/shared/FieldError';
 
 export default function EmailCampaignsTab() {
+  const confirm = useConfirm();
   const campaigns = useTechStore((s) => s.campaigns);
   const addCampaign = useTechStore((s) => s.addCampaign);
   const sendCampaign = useTechStore((s) => s.sendCampaign);
@@ -95,7 +97,7 @@ export default function EmailCampaignsTab() {
                     {c.status === 'pending' && (
                       <button className="row-action-btn" onClick={() => sendCampaign(c.id)} title="Send" aria-label="Send"><Send size={14} aria-hidden="true" /></button>
                     )}
-                    <button className="row-action-btn danger" onClick={() => { if (confirm(`Delete campaign "${c.name}"? This can't be undone.`)) deleteCampaign(c.id); }} aria-label={`Delete campaign ${c.name}`}><Trash2 size={14} aria-hidden="true" /></button>
+                    <button className="row-action-btn danger" onClick={async () => { if (await confirm({ title: `Delete campaign "${c.name}"?`, body: "This can't be undone.", confirmLabel: 'Delete campaign', danger: true })) deleteCampaign(c.id); }} aria-label={`Delete campaign ${c.name}`}><Trash2 size={14} aria-hidden="true" /></button>
                   </div>
                 </td>
               </tr>

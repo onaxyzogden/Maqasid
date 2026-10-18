@@ -1,11 +1,13 @@
 import { useState, useMemo } from 'react';
 import { Plus, CheckCircle2, MessageCircle, X, Send, Trash2, Search } from 'lucide-react';
 import { useOfficeStore } from '../../store/office-store';
+import { useConfirm } from '../../store/confirm-store';
 import { useAuthStore } from '../../store/auth-store';
 import './Forum.css';
 import { rowActivation } from '../../lib/row-activation';
 
 export default function Forum() {
+  const confirm = useConfirm();
   const qaItems = useOfficeStore((s) => s.qaItems);
   const addQuestion = useOfficeStore((s) => s.addQuestion);
   const addAnswer = useOfficeStore((s) => s.addAnswer);
@@ -122,7 +124,7 @@ export default function Forum() {
                   <MessageCircle size={14} /> {qa.answers.length} repl{qa.answers.length !== 1 ? 'ies' : 'y'}
                 </div>
               </div>
-              <button className="row-action-btn danger" onClick={(e) => { e.stopPropagation(); if (confirm(`Delete question "${qa.title}" and its answers? This can't be undone.`)) deleteQuestion(qa.id); }} aria-label={`Delete question ${qa.title}`}><Trash2 size={14} aria-hidden="true" /></button>
+              <button className="row-action-btn danger" onClick={async (e) => { e.stopPropagation(); if (await confirm({ title: `Delete question "${qa.title}"?`, body: "Its answers are deleted too. This can't be undone.", confirmLabel: 'Delete question', danger: true })) deleteQuestion(qa.id); }} aria-label={`Delete question ${qa.title}`}><Trash2 size={14} aria-hidden="true" /></button>
             </div>
           ))}
         </div>
