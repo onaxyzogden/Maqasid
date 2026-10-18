@@ -3,6 +3,10 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-18] merge | PR #58: BBOS dashboard mobile layout on main
+
+[onaxyzogden/Maqasid#58](https://github.com/onaxyzogden/Maqasid/pull/58) merged as `d17fc92`, carrying `60538e7` (the change entry below). Still deferred: a sticky CTA row and the 12px text floor. The project toolbar's off-screen view switcher is being handled in its own session.
+
 ## [2026-10-18] change | BBOS redesigned dashboard: mobile layout
 
 This applies the top three fixes from the 375px mobile audit of the redesigned BBOS dashboard. Below 768px the rail becomes a horizontal stage strip and the shell scrolls as one column, so the overview width goes from 103px to 337px. The Brief's section nav becomes a tab row above its content, and its grids collapse to one column. The Amanah Gate verdict wraps instead of clipping to "BLOCK…". Tabs and download buttons are now 44px touch targets. Desktop is unchanged. 431 tests, lint and build green; screenshots taken at 375px and on desktop. Branch `feat/bbos-mobile-layout`. Deferred: a sticky CTA row, the project toolbar's off-screen Board/List/Gantt switcher (outside `.bpd`), and the 12px text-size floor.
