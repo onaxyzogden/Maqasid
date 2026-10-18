@@ -68,10 +68,16 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
   // Live next-stage number off the gate VM; null on the final stage (OPT),
   // where "proceed" closes the cycle (a 'cycle' entry) and returns to Identity.
   const hasNext = !!gate?.nextStageN;
+  // A BLOCKED gate verdict locks "proceed" — the stage cannot advance past a
+  // failed gate. Conditions (no stage change) and Halt stay available.
+  const gateBlocked = gate?.verdict === "BLOCKED";
   const gateOpts = [
     { key: "proceed",
       label: hasNext ? `Proceed to Stage ${gate.nextStageN}` : "Close Cycle",
-      sub: hasNext ? "Routing conditions met" : "Cycle closes; the pipeline returns to Identity",
+      sub: gateBlocked
+        ? "Locked — gate verdict is BLOCKED. Resolve the unmet signals in Findings first."
+        : hasNext ? "Routing conditions met" : "Cycle closes; the pipeline returns to Identity",
+      locked: gateBlocked,
       c: "var(--bpd-complete)", cd: "var(--bpd-complete-dim)" },
     { key: "conditions", label: "Proceed with Conditions", sub: "Gaps must be resolved before next stage begins",
       c: "var(--bpd-gold)", cd: "var(--bpd-gold-dim)" },
@@ -166,7 +172,7 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
       const advanceBlocked = decision === "proceed" && openConds.length > 0;
       const decisionReady =
         canAct &&
-        ((decision === "proceed" && !advanceBlocked) ||
+        ((decision === "proceed" && !advanceBlocked && !gateBlocked) ||
           (decision === "halt" && reasonId) ||
           (decision === "conditions" && conditions.trim().length > 0));
       const actionReady = decisionReady && hasBasis;
@@ -189,7 +195,7 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
           : hasNext
             ? `Advance from Stage ${stage.n} — ${stage.name} to Stage ${gate?.nextStageN}? This moves the pipeline forward. ${undoNote}`
             : `Close this cycle at Stage ${stage.n} — ${stage.name} and return the pipeline to Identity for the next cycle? ${undoNote}`;
-      const choose = (key) => { if (canAct) { up("decision", key); setConfirming(false); setRecorded(null); } };
+      const choose = (key) => { if (canAct && !gateOpts.find((o) => o.key === key)?.locked) { up("decision", key); setConfirming(false); setRecorded(null); } };
       const record = { basis, closingNote, conditions };
       const fireAction = () => {
         if (!actionReady) return;
@@ -288,17 +294,24 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
               </ol>
             </section>
           )}
+          {canAct && gateBlocked && (
+            <div className="bpd-brief__blocked" role="status">
+              {gate.label || "This gate"} is BLOCKED &mdash; advancing is locked until the
+              unmet signals in Findings are resolved. You can still record conditions, or halt and route to rejection.
+            </div>
+          )}
           <div className="bpd-col" style={{ gap: 14 }} role="radiogroup" aria-label="Routing decision">
             {gateOpts.map((opt) => (
               <div
                 key={opt.key}
                 className="bpd-brief__gate-opt"
                 data-selected={decision === opt.key ? "true" : "false"}
+                data-locked={opt.locked ? "true" : undefined}
                 style={{ "--c": opt.c, "--c-dim": opt.cd }}
                 role="radio"
                 aria-checked={decision === opt.key}
-                aria-disabled={canAct ? undefined : "true"}
-                tabIndex={canAct ? 0 : -1}
+                aria-disabled={canAct && !opt.locked ? undefined : "true"}
+                tabIndex={canAct && !opt.locked ? 0 : -1}
                 onClick={() => choose(opt.key)}
                 onKeyDown={onActivate(() => choose(opt.key))}
               >

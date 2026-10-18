@@ -3,6 +3,26 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-15] fix | MILOS — UX audit P0s: BBOS gate lock, saves that didn't save, People archive/status
+
+Operator ran `/ux-engine:ux-audit whole app`, then said *"fix #1–3 first"*. Branch `fix/ux-gate-people-data`, [onaxyzogden/Maqasid#62](https://github.com/onaxyzogden/Maqasid/pull/62); main merged in on 2026-10-18 to clear conflicts. **Amanah gate:** positive (a gate decision on a failed covenant check can no longer be waved through; no record is lost silently).
+
+- **#1 BBOS gate advanced while BLOCKED.**
+  - In `BbosApprovalBrief.jsx`, "Proceed to Stage N" is locked (`aria-disabled`, `data-locked`) when `gate.verdict === "BLOCKED"`. A `role="status"` note explains why, and Halt stays available.
+  - In the classic `BbosFullDashboard.jsx`, Advance also requires `scoreStage(...).verdict !== 'BLOCKED'`, and a red banner shows when the tasks are done but the gate is blocked. After merging main, the lock applies only on the pipeline's current stage, so a finished earlier stage keeps main's **Go to X** link.
+  - "Proceed with Conditions" stays selectable: on main it records conditions with no stage change.
+- **#2 Saves that didn't save.**
+  - `SalaryTab` bank details now save via `updateContact`, with a toast.
+  - `PersonalTab.saveHR` creates the HR record when it is missing, where it used to drop the edit.
+  - `BbosExecView`: main's `NOT_WIRED` disabled buttons and `bpd-notwired` note replace this branch's "Draft — not saved" note. The branch keeps only its field labels (`useId`/`htmlFor`, `aria-label` on the textareas).
+- **#3 People archive/status.**
+  - `archived` was added to `EMPLOYEE_STATUSES`.
+  - The HR list and headcount exclude archived employees unless the Archived filter is on.
+  - Deactivate sets `inactive`; it used to set `archived`.
+  - Undo toasts were added to Archive, Restore, Activate/Deactivate, Add to Pipeline and Make Client. Archived views offer Restore.
+- **Verified:** screenshots in the preview of the archive/restore/undo flows, headcount, Deactivate→`inactive`, the bank-details save, the HR-record creation, the classic BLOCKED banner with no Advance button, and the new-dashboard brief with Proceed locked. `npm run lint` passes (1 pre-existing warning), `npm test` 376/376, and the build is green.
+- **Found, not fixed:** People renders `DetailPanel` twice (stacked panels). Main fixed this in `6aceb71`, and the merge keeps main's removal from `HRPage`.
+
 ## [2026-10-18] fix | BBOS printed-edition checks: Ibn Ḥibbān wording, OPT opening replaced
 
 Branch `fix/bbos-printed-edition-checks`. This closes the item deferred from PR #59: the two hadith numbers that had only been checked through secondary takhrij were checked against the printed editions. **Ibn Ḥibbān 974** is confirmed: it is the al-Iḥsān number, cross-referenced by *al-Taʿlīqāt al-Ḥisān* 970 and *al-Taqāsīm* 6737, and al-Albānī grades it ṣaḥīḥ. The SLS Arabic is reordered to Ibn Ḥibbān's wording ("…al-ḥazna sahlan idhā shiʾt"). **Musnad Aḥmad 24215**'s number is confirmed (al-Risālah 40/260), but its editors weaken the du'a phrase itself as Ibn Isḥāq's solitary addition. Al-Ḥākim and al-Dhahabī grade it ṣaḥīḥ. The operator chose to replace OPT's opening with **Al-Ḥashr 59:18** (Sahih International). The decision is amended and the entity updated. At commit: 435 tests, lint and build green.

@@ -15,6 +15,7 @@ function EditableField({ label, value, fieldKey, onSave }) {
         <div style={{ display: 'flex', gap: 6 }}>
           <input
             autoFocus
+            aria-label={label}
             value={val}
             onChange={(e) => setVal(e.target.value)}
             style={{
@@ -26,11 +27,11 @@ function EditableField({ label, value, fieldKey, onSave }) {
           <button onClick={() => { onSave(fieldKey, val); setEditing(false); }} style={{
             padding: '6px 10px', background: 'var(--mod-people)', color: '#fff',
             border: 'none', borderRadius: 6, cursor: 'pointer', fontSize: 12,
-          }}>✓</button>
+          }} aria-label={`Save ${label}`}>✓</button>
           <button onClick={() => { setVal(value || ''); setEditing(false); }} style={{
             padding: '6px 10px', background: 'var(--bg3)', color: 'var(--text2)',
             border: '1.5px solid var(--border)', borderRadius: 6, cursor: 'pointer', fontSize: 12,
-          }}>✕</button>
+          }} aria-label={`Cancel editing ${label}`}>✕</button>
         </div>
       </div>
     );
@@ -51,6 +52,7 @@ export default function PersonalTab({ contactId }) {
   const hrRecords      = useContactsStore((s) => s.hrRecords);
   const updateContact  = useContactsStore((s) => s.updateContact);
   const updateHRRecord = useContactsStore((s) => s.updateHRRecord);
+  const addHRRecord    = useContactsStore((s) => s.addHRRecord);
 
   const contact = contacts.find((c) => c.id === contactId);
   const hrRec   = hrRecords.find((r) => r.contactId === contactId);
@@ -59,7 +61,9 @@ export default function PersonalTab({ contactId }) {
     updateContact(contactId, { [key]: val });
   }
   function saveHR(key, val) {
-    if (hrRec) updateHRRecord(hrRec.id, { [key]: val });
+    // No HR record yet: create one first so the edit isn't silently dropped
+    const rec = hrRec || addHRRecord({ contactId });
+    updateHRRecord(rec.id, { [key]: val });
   }
 
   if (!contact) return null;

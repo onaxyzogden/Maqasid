@@ -1557,6 +1557,13 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
   // being viewed: a finished earlier stage shows where the pipeline is instead.
   const currentStage = getStage(project.bbosStage || 'IDY');
   const isCurrentStage = bbosFilter === currentStage?.id;
+  // Same verdict the StageScoreCard shows: a BLOCKED gate locks advancement
+  // even when every task is Done. Only the current stage can be locked; a
+  // finished earlier stage still offers its "Go to" link.
+  const gateBlocked = useMemo(
+    () => isCurrentStage && scoreStage(bbosFilter, taskMap)?.verdict === 'BLOCKED',
+    [isCurrentStage, bbosFilter, taskMap],
+  );
 
   // ── Rejection / off-ramp state ────────────────────────────────────────────
   const rejectBbosPipeline = useProjectStore((s) => s.rejectBbosPipeline);
@@ -1663,7 +1670,7 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
           </button>
         )}
 
-        {!isRejected && stagePct === 100 && onStageAdvance && (
+        {!isRejected && stagePct === 100 && onStageAdvance && !gateBlocked && (
           <div className="bfd__stage-ready">
             <CheckCircle size={16} className="bfd__stage-ready-icon" />
             <span className="bfd__stage-ready-text">
@@ -1681,6 +1688,15 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
                 Go to {currentStage.label}
               </button>
             )}
+          </div>
+        )}
+        {!isRejected && stagePct === 100 && onStageAdvance && gateBlocked && (
+          <div className="bfd__stage-ready bfd__stage-ready--blocked" role="status">
+            <ShieldOff size={16} className="bfd__stage-ready-icon" aria-hidden="true" />
+            <span className="bfd__stage-ready-text">
+              Tasks done, but the stage gate is BLOCKED — strengthen the weak signals in the
+              Stage Score below before advancing, or reject the pipeline.
+            </span>
           </div>
         )}
       </div>

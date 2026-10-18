@@ -3,7 +3,7 @@
 // unsaved-typing guard come from useBpdDialog.
 // Buttons with no live model behind them yet render disabled with NOT_WIRED as
 // their tooltip — never a live-looking button that does nothing.
-import { useRef, useState } from "react";
+import { useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useTaskStore } from "../../../store/task-store";
 import { useBpdDialog } from "./useBpdDialog";
@@ -38,7 +38,7 @@ function AssetRow({ item, expanded, onToggle, onFile }) {
           {item.content ? (
             <div className="bpd-row__content">{item.content}</div>
           ) : (
-            <textarea className="bpd-textarea bpd-textarea--asset" placeholder={`Paste or type content for ${item.label}...`} />
+            <textarea className="bpd-textarea bpd-textarea--asset" aria-label={`Content for ${item.label}`} placeholder={`Paste or type content for ${item.label}...`} />
           )}
           <div className="bpd-row__actions">
             {item.status !== "filed" && (
@@ -74,12 +74,13 @@ const CALL_FIELDS = [
 ];
 
 function FieldGrid({ fields }) {
+  const baseId = useId();
   return (
     <div className="bpd-fieldgrid">
       {fields.map(([label, placeholder], i) => (
         <div key={i}>
-          <div className="bpd-field__label">{label}</div>
-          <input className="bpd-input" placeholder={placeholder} />
+          <label className="bpd-field__label" htmlFor={`${baseId}-${i}`}>{label}</label>
+          <input id={`${baseId}-${i}`} className="bpd-input" placeholder={placeholder} />
         </div>
       ))}
     </div>
@@ -122,12 +123,12 @@ function TaskRow({ task, expanded, onToggle }) {
                 <div className="bpd-upload__main">↑ Upload evidence</div>
                 <div className="bpd-upload__sub">Photo, document, or signed confirmation</div>
               </div>
-              <textarea className="bpd-textarea bpd-textarea--note" placeholder="Notes on this milestone..." />
+              <textarea className="bpd-textarea bpd-textarea--note" aria-label="Notes on this milestone" placeholder="Notes on this milestone..." />
             </div>
           )}
           {(task.type === "confirmation" || task.type === "filing") && (
             <div style={{ marginTop: 10 }}>
-              <textarea className="bpd-textarea bpd-textarea--note" placeholder="Notes or reference..." />
+              <textarea className="bpd-textarea bpd-textarea--note" aria-label="Notes or reference" placeholder="Notes or reference..." />
             </div>
           )}
           <button type="button" className="bpd-pillbtn bpd-pillbtn--complete" disabled title={NOT_WIRED}>✓ Mark Complete</button>
@@ -330,6 +331,7 @@ export default function BbosExecView({ stage, onClose, onSubmitGate, projectId, 
             <div className="bpd-cycle-statement__label">Cycle Completion Statement</div>
             <textarea
               className="bpd-cycle-statement__textarea"
+              aria-label="Cycle Completion Statement"
               placeholder="State in your own words what this cycle taught you about your capacity for honest stewardship. This is not a performance summary. It is a reflection on what changed in you — not just what changed in the system."
             />
             <button type="button" className="bpd-btn-gold bpd-btn-gold--cycle" disabled title="Cycle restart is not wired in this preview">
@@ -378,6 +380,7 @@ export default function BbosExecView({ stage, onClose, onSubmitGate, projectId, 
               <div className="bpd-import-panel__label">Paste JSON Pack</div>
               <textarea
                 className="bpd-import-panel__textarea"
+                aria-label="Paste JSON Pack"
                 value={importText}
                 onChange={(e) => setImportText(e.target.value)}
                 placeholder={"{\n  \"stage\": \"STR\",\n  \"research\": [...],\n  \"assets\": [...]\n}"}

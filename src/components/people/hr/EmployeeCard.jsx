@@ -20,9 +20,12 @@ export default function EmployeeCard({ employee, department, onClick, onMenuActi
         </span>
         <button
           className="emp-card__menu"
+          aria-label={`Actions for ${displayName}`}
+          aria-haspopup="menu"
+          aria-expanded={menuOpen}
           onClick={(e) => { e.stopPropagation(); setMenuOpen((v) => !v); }}
         >
-          <MoreHorizontal size={14} />
+          <MoreHorizontal size={14} aria-hidden="true" />
         </button>
         {menuOpen && (
           <>
@@ -37,12 +40,21 @@ export default function EmployeeCard({ employee, department, onClick, onMenuActi
               >
                 View Details
               </button>
-              <button
-                className="emp-card__dropdown-item emp-card__dropdown-item--danger"
-                onClick={(e) => { e.stopPropagation(); setMenuOpen(false); onMenuAction?.('archive', employee); }}
-              >
-                Archive
-              </button>
+              {employee.status === 'archived' ? (
+                <button
+                  className="emp-card__dropdown-item"
+                  onClick={(e) => { e.stopPropagation(); setMenuOpen(false); onMenuAction?.('restore', employee); }}
+                >
+                  Restore
+                </button>
+              ) : (
+                <button
+                  className="emp-card__dropdown-item emp-card__dropdown-item--danger"
+                  onClick={(e) => { e.stopPropagation(); setMenuOpen(false); onMenuAction?.('archive', employee); }}
+                >
+                  Archive
+                </button>
+              )}
             </div>
           </>
         )}
