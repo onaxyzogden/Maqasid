@@ -3,6 +3,24 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-18] fix | BBOS numbering is 1-based; IDY closing du'a is Ṣaḥīḥ Muslim 770
+
+Branch `fix/bbos-printed-edition-checks`. Two operator requests. (1) Stage numbering starts at 1: patch sub-stages `00A`/`01B` become `01A`/`03B` in `bbos-pipeline.js`, the task labels, both CONTEXT.md files and [[bbos-pipeline]]. In the v2.0 Factory docs, DEL PROMPT 06.* becomes 07.* and OPT PROMPT 08.* becomes 09.*, with history rows marked "(now …)". (2) The only non-Qur'anic, non-prophetic du'a, IDY's closing "arinā l-ḥaqqa ḥaqqan", is replaced by Ṣaḥīḥ Muslim 770 (ʿĀʾishah; ʿAbd al-Bāqī 1/534; the Prophet's ﷺ night-prayer opening, "ihdinī limā ukhtulifa fīhi mina l-ḥaqqi bi-idhnik") in the app and in the IDY v2.0 doc. The stage test now rejects any non-prophetic du'a. Recorded as an amendment to [[2026-10-17-bbos-stage-grounding-reconciliation]]. `npm test` (435), `npm run lint` and `npm run build` pass.
+
+## [2026-10-18] docs | BBOS Factory docs drafted at v2.0 to match the app
+
+This does the decision's "Docs" consequence. Nine new files, `BBOS_0N_<STAGE>_Annotated_v2_0.docx`, were written to the operator's *BBOS Factory Docs* folder by a python-docx script. The originals are untouched, and the docx files are not in the repo.
+- **All docs:** opening and closing du'as copied word for word from `bbos-stage-islamic.js`. Verse openings and closings are titled "Āyah". Subheader layer v2.0. A v2.0 version row with Approved By "Pending review".
+- **CRD and OUT** keep their sourced closings. OUT's Tirmidhī 3563 source is completed.
+- **STR and DEL** lose their unsourced closings.
+- **IDY:** arc table renumbered 01–09 with current codes and Names.
+- **STR:** heading fixed. Al-Musawwir block, anchor paragraph, fourth placement point and readiness/reflection rows added. VoC attributions anonymised, and three lines from named published authors paraphrased.
+- **SLS:** rewritten from Ar-Razzaq · Al-Latif · As-Sittir to As-Sami · Al-Latif.
+- **DEL:** Ash-Shakur removed, and the Offboarding annotation reassigned to Al-Wali.
+- **RET:** heading fixed.
+
+Every rewritten passage is highlighted yellow for the operator's review. Names keep the docs' ASCII spelling (As-Sami, Al-Musawwir). Old stage codes are replaced too: QAL → CRD (the Assemble Contract command is now `VIABILITY CRD-CHECK`), and SAL/FUL → SLS/DEL in OPT's Canonical Metrics. History rows are marked "CRD (was QAL)" and "DEL (was FUL)".
+
 ## [2026-10-15] fix | MILOS — UX audit P0s: BBOS gate lock, saves that didn't save, People archive/status
 
 Operator ran `/ux-engine:ux-audit whole app`, then said *"fix #1–3 first"*. Branch `fix/ux-gate-people-data`, [onaxyzogden/Maqasid#62](https://github.com/onaxyzogden/Maqasid/pull/62); main merged in on 2026-10-18 to clear conflicts. **Amanah gate:** positive (a gate decision on a failed covenant check can no longer be waved through; no record is lost silently).

@@ -21,11 +21,8 @@ describe('BBOS stage du\'as', () => {
       for (const [slot, dua] of duasOf(data)) {
         const label = `${id}.${slot}`;
         expect(dua.source, label).toBeTruthy();
-        // The one non-prophetic du'a is labelled as such and carries no attestation.
-        if (/not a hadith/i.test(dua.source)) {
-          expect(dua.sources, label).toBeUndefined();
-          continue;
-        }
+        // Only Qur'anic or prophetic du'as: no non-prophetic text without attestation.
+        expect(dua.source, label).not.toMatch(/not a hadith|non-prophetic/i);
         expect(Array.isArray(dua.sources) && dua.sources.length > 0, label).toBe(true);
         for (const s of dua.sources) {
           expect(KINDS, label).toContain(s.kind);
