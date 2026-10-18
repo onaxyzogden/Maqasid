@@ -3,6 +3,12 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-18] build | Project toolbar usable at phone width
+
+Branch `feat/project-toolbar-mobile`. At 375px the toolbar above the BBOS pipeline dashboard overflowed, and the Board/List/Gantt switcher sat off-screen at about x=436–804. Now, below 768px, the two clusters collapse (`display: contents`) into one wrapping row: chip + role picker, then Download / Upload / drag toggle, then the view switcher on its own full-width row. Every control is 44px tall, and the colour swatch gets an invisible 44px tap halo. Desktop is unchanged (same inline layout, and the switcher buttons measure the same). The change is CSS only, in `ProjectBoard.css`, plus class hooks in `ProjectBoard.jsx`. `pipeline-dashboard/` was not touched. Its mobile layout is on `feat/bbos-mobile-layout`.
+
+- **Verified:** 431 tests, lint, build. Preview at 375px in Dashboard and Board views: switcher `scrollWidth == clientWidth`, document width 375, and a real tap on Gantt switched view (screenshots). Checked desktop at 1280px.
+
 ## [2026-10-17] decision | BBOS stage grounding reconciled with the Factory docs
 
 The operator reviewed the nine BBOS Factory annotated docs. Their attributes and du'as differed from `bbos-stage-islamic.js` at almost every stage, so the operator settled each stage in turn: 5 merges, 1 docs as written, 2 docs with fixed closings, and none kept as the app had it. Unsourced and misattributed du'as were replaced with Qur'anic or authenticated texts, and no Name repeats across stages. Recorded in [decision](decisions/2026-10-17-bbos-stage-grounding-reconciliation.md). Re-grounding the app is not done yet and needs its own approved plan. Fixing the docs is the operator's work.
