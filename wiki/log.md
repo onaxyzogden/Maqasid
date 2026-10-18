@@ -30,6 +30,13 @@ Continues the 2026-10-15 audit after #1–3 merged ([onaxyzogden/Maqasid#62](htt
 - **#11:** Budget, Expense and Absence use `useRequiredField` + `FieldError` (Absence also checks that end ≥ start). Done is allowed for tasks with no subtasks.
 
 Decision: [[2026-10-18-shared-modal-and-btn-soon]]. Lint (1 pre-existing warning), 440 tests and the build pass, with preview screenshots for each phase. **Deferred:** mount EditSidePanel, real Calendar views, persist BbosExecView fields, and the audit's "Also found" list.
+## [2026-10-18] fix | MILOS — glossary tooltip no longer opens by itself on the Daily Niyyah gate
+
+The operator sent a phone screenshot: the "Ar-Rahman" glossary tooltip was open on the Daily Niyyah gate before anything was tapped. **Cause:** `useFocusTrap` focused the dialog's first focusable element on open, which was the `AL-RAHMĀN` IslamicTerm (`tabindex=0`), and the package term opens its tooltip `onFocus`.
+
+- `src/hooks/useFocusTrap.js`: if the first focusable is a glossary term (`.islamic-term`), the dialog container itself takes focus (`tabindex=-1`). Screen readers start at the top and nothing opens unasked. Terms stay in the Tab order, and tap or hover still opens them.
+- `src/styles/tokens.css`: `[tabindex="-1"]:focus-visible { outline: none }`. A container focused from code is never a keyboard stop. Roving tabs keep their ring: verified with ArrowRight on the popup tabs.
+- **Verified in Chromium (390×844, touch):** before, focus was on the term with the tooltip open; after, focus is on `.niyyah-card` with no tooltip, no ring and no scroll; tapping a term still opens its tooltip. `npm test` 435/435, lint and build green.
 
 ## [2026-10-18] fix | BBOS numbering is 1-based; IDY closing du'a is Ṣaḥīḥ Muslim 770
 
