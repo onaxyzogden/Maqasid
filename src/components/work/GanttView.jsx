@@ -7,6 +7,7 @@ import ScopeGate from '../shared/ScopeGate';
 import EmptyState from '../shared/EmptyState';
 import './GanttView.css';
 import { rowActivation } from '../../lib/row-activation';
+import { parseLocal } from '../../lib/format-date';
 
 /* ── helpers ── */
 function toDay(d) { return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
@@ -58,8 +59,8 @@ export default function GanttView({ project, onSelectTask, filters, bbosRole, bb
     const undated = [];
 
     for (const t of tasks) {
-      const start = t.startDate ? toDay(new Date(t.startDate)) : null;
-      const end = t.dueDate ? toDay(new Date(t.dueDate)) : null;
+      const start = t.startDate ? toDay(parseLocal(t.startDate)) : null;
+      const end = t.dueDate ? toDay(parseLocal(t.dueDate)) : null;
       if (start || end) {
         const s = start || (end ? addDays(end, -2) : toDay(new Date()));
         const e = end || addDays(s, 2);

@@ -3,6 +3,7 @@ import { Inbox } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { BBOS_STAGES } from '../../data/bbos/bbos-pipeline';
 import { orderBoardTasks } from '../../data/orientation-selector';
+import { isOverdue, parseLocal } from '../../lib/format-date';
 import './StageSidebar.css';
 
 const PRI_COLORS = {
@@ -54,10 +55,10 @@ export default function StageSidebar({ projectId, project, stageId, selectedTask
           {tasks.map((task) => {
             const isSelected = task.id === selectedTaskId;
             const col = colMap[task.columnId];
-            const isOverdue = task.dueDate && new Date(task.dueDate) < now && !task.completedAt;
+            const overdue = isOverdue(task.dueDate, now) && !task.completedAt;
             let dueLabel = null;
             if (task.dueDate) {
-              const d = new Date(task.dueDate);
+              const d = parseLocal(task.dueDate);
               dueLabel = d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
             }
 
@@ -84,7 +85,7 @@ export default function StageSidebar({ projectId, project, stageId, selectedTask
                       <span className="stage-sidebar__col-badge">{col.name}</span>
                     )}
                     {dueLabel && (
-                      <span className={`stage-sidebar__due${isOverdue ? ' stage-sidebar__due--overdue' : ''}`}>
+                      <span className={`stage-sidebar__due${overdue ? ' stage-sidebar__due--overdue' : ''}`}>
                         {dueLabel}
                       </span>
                     )}

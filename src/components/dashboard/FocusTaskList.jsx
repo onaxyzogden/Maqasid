@@ -5,11 +5,11 @@ import { useTaskStore } from '../../store/task-store';
 import { useProjectStore } from '../../store/project-store';
 import { useThresholdStore } from '../../store/threshold-store';
 import { MAQASID_PILLARS, getSubmoduleLabel } from '../../data/maqasid';
+import { isOverdue } from '../../lib/format-date';
 import './FocusTaskList.css';
 
 function TaskRow({ task, project, accentColor, maintenance }) {
-  const due = task.dueDate ? new Date(task.dueDate) : null;
-  const overdue = task._maintenanceUrgent && due && due < new Date(new Date().toDateString());
+  const overdue = task._maintenanceUrgent && isOverdue(task.dueDate);
   return (
     <Link
       to={`/app/work/${task.projectId}`}

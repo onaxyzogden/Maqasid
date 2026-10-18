@@ -4,7 +4,7 @@ import { useMoneyStore, formatCurrency, getInvoiceTotal } from '../../store/mone
 import { INVOICE_STATUSES, CURRENCIES } from '@data/config/money-categories';
 import { genLineItemId } from '../../services/id';
 import './ExpenseList.css';
-import { localDayKey } from '../../lib/format-date';
+import { localDayKey, parseLocal } from '../../lib/format-date';
 import { rowActivation } from '../../lib/row-activation';
 import SlideIn from '../shared/SlideIn';
 import { useRequiredField } from '../../hooks/useRequiredField';
@@ -357,7 +357,7 @@ export default function IncomeTab() {
             /* Invoices table */
             filteredInvoices.length === 0 ? (
               <div className="money-empty-state">
-                <p>No invoices for {new Date(startDate).toLocaleDateString('en', { day: '2-digit', month: 'short', year: 'numeric' })} - {new Date(endDate).toLocaleDateString('en', { day: '2-digit', month: 'short', year: 'numeric' })}</p>
+                <p>No invoices for {parseLocal(startDate).toLocaleDateString('en', { day: '2-digit', month: 'short', year: 'numeric' })} - {parseLocal(endDate).toLocaleDateString('en', { day: '2-digit', month: 'short', year: 'numeric' })}</p>
               </div>
             ) : (
               <table className="money-table">
@@ -367,8 +367,8 @@ export default function IncomeTab() {
                     <tr key={inv.id} className="expense-row" {...rowActivation(() => { setEditInvoice(inv); setShowInvoicePanel(true); }, { role: null })}>
                       <td style={{ fontFamily: 'var(--font-mono)', fontWeight: 500 }}>{inv.number}</td>
                       <td>{inv.clientName || '—'}</td>
-                      <td>{new Date(inv.date).toLocaleDateString('en', { month: 'short', day: 'numeric' })}</td>
-                      <td>{inv.dueDate ? new Date(inv.dueDate).toLocaleDateString('en', { month: 'short', day: 'numeric' }) : '—'}</td>
+                      <td>{parseLocal(inv.date).toLocaleDateString('en', { month: 'short', day: 'numeric' })}</td>
+                      <td>{inv.dueDate ? parseLocal(inv.dueDate).toLocaleDateString('en', { month: 'short', day: 'numeric' }) : '—'}</td>
                       <td style={{ textAlign: 'right' }} className="amount">{formatCurrency(getInvoiceTotal(inv), inv.currency)}</td>
                       <td><span className={`status-badge status-${inv.displayStatus}`}>{inv.displayStatus}</span></td>
                       <td onClick={(e) => e.stopPropagation()}>
@@ -393,7 +393,7 @@ export default function IncomeTab() {
                 <tbody>
                   {filteredIncomes.map((inc) => (
                     <tr key={inc.id}>
-                      <td>{new Date(inc.date).toLocaleDateString('en', { month: 'short', day: 'numeric', year: 'numeric' })}</td>
+                      <td>{parseLocal(inc.date).toLocaleDateString('en', { month: 'short', day: 'numeric', year: 'numeric' })}</td>
                       <td style={{ fontWeight: 500 }}>{inc.fromName}</td>
                       <td><span style={{ fontSize: '0.75rem', textTransform: 'capitalize' }}>{inc.fromType}</span></td>
                       <td style={{ maxWidth: 200 }} className="truncate">{inc.description || '—'}</td>

@@ -5,6 +5,7 @@ import { hydrateTasks, stripSeedFields, preloadBoardSeeds } from '../services/se
 import { resolveSubmoduleFromProject } from '../data/maqasid-resolve';
 import { useProjectStore } from './project-store';
 import { syncTaskCompletion, completionColumns, placeMovedTask } from '../services/task-completion';
+import { isOverdue, parseLocal } from '../lib/format-date';
 
 // Project IDs encode level as `{pillar}_{module}_{core|growth|excellence}`.
 // Returns 'core' | 'growth' | 'excellence' | null.
@@ -310,7 +311,7 @@ export const useTaskStore = create((set, get) => ({
     return {
       total: tasks.length,
       completed: tasks.filter((t) => t.completedAt).length,
-      overdue: tasks.filter((t) => t.dueDate && new Date(t.dueDate) < new Date() && !t.completedAt).length,
+      overdue: tasks.filter((t) => isOverdue(t.dueDate) && !t.completedAt).length,
     };
   },
 
@@ -401,7 +402,7 @@ export const useTaskStore = create((set, get) => ({
           if (level && projectLevel && projectLevel !== level) continue;
           deepWork.push(hydrated);
         } else {
-          const due = task.dueDate ? new Date(task.dueDate) : null;
+          const due = task.dueDate ? parseLocal(task.dueDate) : null;
           if (due) due.setHours(0, 0, 0, 0);
           const dueTodayOrOverdue = due && due.getTime() <= today.getTime();
           maintenance.push({ ...hydrated, _maintenanceUrgent: !!dueTodayOrOverdue });
@@ -498,7 +499,7 @@ export const useTaskStore = create((set, get) => ({
     return tasks.filter((task) => {
       if (priorities?.length > 0 && !priorities.includes(task.priority)) return false;
       if (dueDate) {
-        const d = task.dueDate ? new Date(task.dueDate) : null;
+        const d = task.dueDate ? parseLocal(task.dueDate) : null;
         if (d) d.setHours(0, 0, 0, 0);
         switch (dueDate) {
           case 'overdue': if (!d || d >= now) return false; break;
