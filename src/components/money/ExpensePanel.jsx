@@ -6,6 +6,8 @@ import { CURRENCIES } from '@data/config/money-categories';
 import CategoryPanel from './CategoryPanel';
 import { localDayKey } from '../../lib/format-date';
 import SlideIn from '../shared/SlideIn';
+import FieldError from '../shared/FieldError';
+import { useRequiredField } from '../../hooks/useRequiredField';
 
 export default function ExpensePanel({ expense, onClose }) {
   const categories = useMoneyStore((s) => s.categories);
@@ -20,6 +22,7 @@ export default function ExpensePanel({ expense, onClose }) {
   const isEdit = !!expense;
 
   const [description, setDescription] = useState(expense?.description || '');
+  const nameReq = useRequiredField(!!description.trim(), 'expense-description');
   const [categoryId, setCategoryId] = useState(expense?.categoryId || '');
   const [amount, setAmount] = useState(expense?.amount || '');
   const [currency, setCurrency] = useState(expense?.currency || 'CAD');
@@ -108,7 +111,7 @@ export default function ExpensePanel({ expense, onClose }) {
             <button type="button" className={`money-status-toggle ${status === 'paid' ? 'active-paid' : ''}`} onClick={() => setStatus('paid')}>Paid</button>
             <button type="button" className={`money-status-toggle ${status === 'unpaid' ? 'active-unpaid' : ''}`} onClick={() => setStatus('unpaid')}>Unpaid</button>
           </div>
-          <button type="button" className="money-slidein-close" onClick={onClose} aria-label="Close panel"><X size={18} /></button>
+          <button type="button" className="money-slidein-close" onClick={onClose} aria-label="Close panel"><X size={18} aria-hidden="true" /></button>
         </div>
 
         <div className="money-slidein-body">
@@ -120,9 +123,10 @@ export default function ExpensePanel({ expense, onClose }) {
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Expense name"
             aria-label="Expense name"
-            aria-required="true"
+            {...nameReq.fieldProps}
             autoFocus
           />
+          <FieldError id={nameReq.errorId} show={nameReq.show}>Enter an expense name</FieldError>
 
           <div className="money-field-row" style={{ marginTop: 'var(--space-4)' }}>
             <div className="money-field" style={{ flex: 1 }}>
@@ -217,7 +221,7 @@ export default function ExpensePanel({ expense, onClose }) {
           )}
           <div style={{ flex: 1 }} />
           <button type="button" className="btn btn-ghost" onClick={onClose}>Cancel</button>
-          <button type="button" className="btn btn-primary" onClick={handleSave} disabled={!description.trim()} style={{ background: 'var(--mod-money)' }}>
+          <button type="button" className="btn btn-primary" onClick={nameReq.guard(handleSave)} style={{ background: 'var(--mod-money)' }}>
             {isEdit ? 'Save' : 'Add Expense'}
           </button>
         </div>

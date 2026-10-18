@@ -2,6 +2,8 @@ import { useState, useMemo } from 'react';
 import { Plus, Search, X, Pencil, Trash2, Target, TrendingUp, TrendingDown, AlertTriangle } from 'lucide-react';
 import { useMoneyStore, formatCurrency } from '../../store/money-store';
 import SlideIn from '../shared/SlideIn';
+import FieldError from '../shared/FieldError';
+import { useRequiredField } from '../../hooks/useRequiredField';
 
 /* ─── helpers ─── */
 const fmt = (n) => formatCurrency(n);
@@ -21,6 +23,8 @@ function BudgetPanel({ budget, usedCategoryIds, onClose }) {
 
   const [categoryId, setCategoryId] = useState(budget?.categoryId || '');
   const [monthlyLimit, setMonthlyLimit] = useState(budget?.monthlyLimit?.toString() || '');
+  const catReq = useRequiredField(!!categoryId, 'budgettab-category');
+  const limReq = useRequiredField(Number(monthlyLimit) > 0, 'budgettab-monthly-limit');
 
   // Only show categories that don't already have a budget (unless editing that budget)
   const availableCategories = categories.filter(
@@ -38,21 +42,23 @@ function BudgetPanel({ budget, usedCategoryIds, onClose }) {
     <SlideIn onClose={onClose} label="Budget">
         <div className="money-slidein-header">
           <h3>{isEdit ? 'Edit Budget' : 'Add Budget'}</h3>
-          <button className="money-slidein-close" onClick={onClose} aria-label="Close panel"><X size={18} /></button>
+          <button className="money-slidein-close" onClick={onClose} aria-label="Close panel"><X size={18} aria-hidden="true" /></button>
         </div>
         <div className="money-slidein-body">
           <div className="money-field">
             <label htmlFor="budgettab-category">Category *</label>
-            <select id="budgettab-category" value={categoryId} onChange={(e) => setCategoryId(e.target.value)}>
+            <select id="budgettab-category" {...catReq.fieldProps} value={categoryId} onChange={(e) => setCategoryId(e.target.value)}>
               <option value="">Select a category</option>
               {availableCategories.map((c) => (
                 <option key={c.id} value={c.id}>{c.name}</option>
               ))}
             </select>
+            <FieldError id={catReq.errorId} show={catReq.show}>Choose a category</FieldError>
           </div>
           <div className="money-field">
             <label htmlFor="budgettab-monthly-limit">Monthly Limit *</label>
             <input id="budgettab-monthly-limit"
+              {...limReq.fieldProps}
               type="number"
               min="0"
               step="0.01"
@@ -61,13 +67,13 @@ function BudgetPanel({ budget, usedCategoryIds, onClose }) {
               placeholder="0.00"
               autoFocus
             />
+            <FieldError id={limReq.errorId} show={limReq.show}>Enter a monthly limit above 0</FieldError>
           </div>
         </div>
         <div className="money-slidein-footer">
           <button
             className="btn btn-primary"
-            onClick={handleSave}
-            disabled={!categoryId || !monthlyLimit || Number(monthlyLimit) <= 0}
+            onClick={catReq.guard(limReq.guard(handleSave))}
             style={{ background: 'var(--mod-money)', width: '100%' }}
           >
             {isEdit ? 'Save' : 'Add Budget'}

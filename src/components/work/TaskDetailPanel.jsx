@@ -199,7 +199,8 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
   const tierSet = new Set(allSubtasks.map(deriveSubtaskTier).filter(Boolean));
   const sharedTier = tierSet.size === 1 ? [...tierSet][0] : null;
   const isLocked = totalCount > 0 && doneCount < totalCount;
-  const isReady = totalCount > 0 && doneCount === totalCount;
+  // A task with no subtasks has nothing to check off, so it can be marked Done.
+  const isReady = doneCount === totalCount;
 
   // Build header label from project name
   const headerLabel = project?.name || 'Project';

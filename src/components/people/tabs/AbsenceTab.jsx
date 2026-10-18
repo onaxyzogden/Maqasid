@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { Trash2 } from 'lucide-react';
 import { useContactsStore } from '../../../store/contacts-store';
 import { useUndoToast } from '@hooks/useUndoToast';
 import { ABSENCE_TYPES, ABSENCE_STATUSES } from '@data/config/contact-config';
 import { differenceInBusinessDays, parseISO, isValid } from 'date-fns';
+import FieldError from '../../shared/FieldError';
+import { useRequiredField } from '../../../hooks/useRequiredField';
 
 function StatBox({ label, value, color = 'var(--text)' }) {
   return (
@@ -30,6 +32,11 @@ export default function AbsenceTab({ contactId }) {
 
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({ subType: 'annual', startDate: '', endDate: '', note: '' });
+  const uid = useId();
+  // yyyy-MM-dd strings compare correctly as text.
+  const endBeforeStart = !!form.startDate && !!form.endDate && form.endDate < form.startDate;
+  const startReq = useRequiredField(!!form.startDate, `${uid}-start`);
+  const endReq   = useRequiredField(!!form.endDate && !endBeforeStart, `${uid}-end`);
 
   const records = absenceRecords.filter((a) => a.contactId === contactId);
   const stats   = computeVacationStats(contactId);
@@ -40,7 +47,7 @@ export default function AbsenceTab({ contactId }) {
   const absPending = absences.filter((a) => a.status === 'pending').reduce((s, a) => s + (a.days || 0), 0);
 
   function handleRequestTimeOff() {
-    if (!form.startDate || !form.endDate) return;
+    if (!form.startDate || !form.endDate || endBeforeStart) return;
     let days = 0;
     try {
       const s = parseISO(form.startDate), e = parseISO(form.endDate);
@@ -100,25 +107,27 @@ export default function AbsenceTab({ contactId }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10, padding: 14, background: 'var(--bg)', borderRadius: 10, border: '1.5px solid var(--border)' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
             <div>
-              <div style={{ fontSize: 11, color: 'var(--text3)', marginBottom: 3 }}>Type</div>
-              <select style={inputStyle} value={form.subType} onChange={(e) => setForm((f) => ({ ...f, subType: e.target.value }))}>
+              <label htmlFor={`${uid}-type`} style={{ display: 'block', fontSize: 11, color: 'var(--text3)', marginBottom: 3 }}>Type</label>
+              <select id={`${uid}-type`} style={inputStyle} value={form.subType} onChange={(e) => setForm((f) => ({ ...f, subType: e.target.value }))}>
                 {ABSENCE_TYPES.map((t) => <option key={t.id} value={t.id}>{t.label}</option>)}
               </select>
             </div>
             <div>
-              <div style={{ fontSize: 11, color: 'var(--text3)', marginBottom: 3 }}>Note</div>
-              <input style={inputStyle} value={form.note} onChange={(e) => setForm((f) => ({ ...f, note: e.target.value })) } placeholder="Optional note" />
+              <label htmlFor={`${uid}-note`} style={{ display: 'block', fontSize: 11, color: 'var(--text3)', marginBottom: 3 }}>Note</label>
+              <input id={`${uid}-note`} style={inputStyle} value={form.note} onChange={(e) => setForm((f) => ({ ...f, note: e.target.value })) } placeholder="Optional note" />
             </div>
             <div>
-              <div style={{ fontSize: 11, color: 'var(--text3)', marginBottom: 3 }}>Start date</div>
-              <input type="date" style={inputStyle} value={form.startDate} onChange={(e) => setForm((f) => ({ ...f, startDate: e.target.value }))} />
+              <label htmlFor={`${uid}-start`} style={{ display: 'block', fontSize: 11, color: 'var(--text3)', marginBottom: 3 }}>Start date</label>
+              <input id={`${uid}-start`} type="date" {...startReq.fieldProps} style={inputStyle} value={form.startDate} onChange={(e) => setForm((f) => ({ ...f, startDate: e.target.value }))} />
+              <FieldError id={startReq.errorId} show={startReq.show}>Choose a start date</FieldError>
             </div>
             <div>
-              <div style={{ fontSize: 11, color: 'var(--text3)', marginBottom: 3 }}>End date</div>
-              <input type="date" style={inputStyle} value={form.endDate} onChange={(e) => setForm((f) => ({ ...f, endDate: e.target.value }))} />
+              <label htmlFor={`${uid}-end`} style={{ display: 'block', fontSize: 11, color: 'var(--text3)', marginBottom: 3 }}>End date</label>
+              <input id={`${uid}-end`} type="date" min={form.startDate || undefined} {...endReq.fieldProps} style={inputStyle} value={form.endDate} onChange={(e) => setForm((f) => ({ ...f, endDate: e.target.value }))} />
+              <FieldError id={endReq.errorId} show={endReq.show}>{endBeforeStart ? 'End date must be on or after start date' : 'Choose an end date'}</FieldError>
             </div>
           </div>
-          <button onClick={handleRequestTimeOff} style={{
+          <button type="button" onClick={startReq.guard(endReq.guard(handleRequestTimeOff))} style={{
             padding: '8px 0', borderRadius: 8, background: 'var(--mod-people)', color: '#fff',
             border: 'none', fontWeight: 600, fontSize: 13, cursor: 'pointer',
           }}>Submit Request</button>
