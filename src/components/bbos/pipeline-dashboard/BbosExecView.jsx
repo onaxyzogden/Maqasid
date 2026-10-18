@@ -1,7 +1,7 @@
 // BBOS Pipeline Dashboard - Execution View modal (tabs, factories, gate, retro).
 // Rendered via portal to document.body with body scroll-lock (mirrors
 // BbosTaskPanel).
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useTaskStore } from "../../../store/task-store";
 import { downloadStageBundleTemplate, validateStageBundleTemplate, importStageBundleTemplate } from "@services/bbos-template";
@@ -12,6 +12,11 @@ import {
   bhiVars, iLabel, itemVars, metricVars, restoVars, typeLabel, typeVars,
   execTypeLabel, statusVars,
 } from "./palette";
+
+// These execution fields are not yet wired to a store: say so rather than imply they save.
+function DraftNote() {
+  return <div className="bpd-draft-note" role="note">Draft — not saved. Copy anything you need to keep.</div>;
+}
 
 function AssetRow({ item, expanded, onToggle }) {
   return (
@@ -33,7 +38,10 @@ function AssetRow({ item, expanded, onToggle }) {
           {item.content ? (
             <div className="bpd-row__content">{item.content}</div>
           ) : (
-            <textarea className="bpd-textarea bpd-textarea--asset" placeholder={`Paste or type content for ${item.label}...`} />
+            <>
+              <textarea className="bpd-textarea bpd-textarea--asset" aria-label={`Content for ${item.label}`} placeholder={`Paste or type content for ${item.label}...`} />
+              <DraftNote />
+            </>
           )}
           <div className="bpd-row__actions">
             {item.status !== "filed" && <button className="bpd-pillbtn bpd-pillbtn--file">✓ Mark Reviewed & File</button>}
@@ -59,15 +67,19 @@ const CALL_FIELDS = [
 ];
 
 function FieldGrid({ fields }) {
+  const baseId = useId();
   return (
-    <div className="bpd-fieldgrid">
-      {fields.map(([label, placeholder], i) => (
-        <div key={i}>
-          <div className="bpd-field__label">{label}</div>
-          <input className="bpd-input" placeholder={placeholder} />
-        </div>
-      ))}
-    </div>
+    <>
+      <div className="bpd-fieldgrid">
+        {fields.map(([label, placeholder], i) => (
+          <div key={i}>
+            <label className="bpd-field__label" htmlFor={`${baseId}-${i}`}>{label}</label>
+            <input id={`${baseId}-${i}`} className="bpd-input" placeholder={placeholder} />
+          </div>
+        ))}
+      </div>
+      <DraftNote />
+    </>
   );
 }
 
@@ -107,12 +119,14 @@ function TaskRow({ task, expanded, onToggle }) {
                 <div className="bpd-upload__main">↑ Upload evidence</div>
                 <div className="bpd-upload__sub">Photo, document, or signed confirmation</div>
               </div>
-              <textarea className="bpd-textarea bpd-textarea--note" placeholder="Notes on this milestone..." />
+              <textarea className="bpd-textarea bpd-textarea--note" aria-label="Notes on this milestone" placeholder="Notes on this milestone..." />
+              <DraftNote />
             </div>
           )}
           {(task.type === "confirmation" || task.type === "filing") && (
             <div style={{ marginTop: 10 }}>
-              <textarea className="bpd-textarea bpd-textarea--note" placeholder="Notes or reference..." />
+              <textarea className="bpd-textarea bpd-textarea--note" aria-label="Notes or reference" placeholder="Notes or reference..." />
+              <DraftNote />
             </div>
           )}
           <button className="bpd-pillbtn bpd-pillbtn--complete">✓ Mark Complete</button>
@@ -322,8 +336,10 @@ export default function BbosExecView({ stage, onClose, onSubmitGate, projectId }
             <div className="bpd-cycle-statement__label">Cycle Completion Statement</div>
             <textarea
               className="bpd-cycle-statement__textarea"
+              aria-label="Cycle Completion Statement"
               placeholder="State in your own words what this cycle taught you about your capacity for honest stewardship. This is not a performance summary. It is a reflection on what changed in you — not just what changed in the system."
             />
+            <DraftNote />
             <button className="bpd-btn-gold bpd-btn-gold--cycle">⧁  Close Cycle — Begin Cycle 2</button>
           </div>
         </div>

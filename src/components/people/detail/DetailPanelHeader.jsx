@@ -1,5 +1,6 @@
 import { X, Mail, Edit2, TrendingUp } from 'lucide-react';
 import { useContactsStore } from '@store/contacts-store';
+import { useUndoToast } from '../../../hooks/useUndoToast';
 import AvatarInitials from '../shared/AvatarInitials';
 import TypeBadge from '../shared/TypeBadge';
 
@@ -8,6 +9,7 @@ export default function DetailPanelHeader({ entry, displayName, onClose }) {
   const editPanelOpen  = useContactsStore((s) => s.editPanelOpen);
   const closeEditPanel = useContactsStore((s) => s.closeEditPanel);
   const updateContact  = useContactsStore((s) => s.updateContact);
+  const undoToast      = useUndoToast();
 
   const btnStyle = { background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text3)', padding: 4, borderRadius: 6 };
 
@@ -26,7 +28,11 @@ export default function DetailPanelHeader({ entry, displayName, onClose }) {
       <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 6 }}>
         {!isCompany && entry.contactType !== 'lead' && (
           <button
-            onClick={() => updateContact(entry.id, { contactType: 'lead', leadStatus: 'pending_contact' })}
+            onClick={() => {
+              const prev = { contactType: entry.contactType, leadStatus: entry.leadStatus };
+              updateContact(entry.id, { contactType: 'lead', leadStatus: 'pending_contact' });
+              undoToast(`${displayName} added to pipeline`, () => updateContact(entry.id, prev));
+            }}
             title="Add to Pipeline"
             style={{ ...btnStyle, color: 'var(--mod-people)' }} aria-label="Add to Pipeline">
             <TrendingUp size={16} aria-hidden="true" />
@@ -35,8 +41,8 @@ export default function DetailPanelHeader({ entry, displayName, onClose }) {
         <button onClick={editPanelOpen ? closeEditPanel : openEditPanel} title="Edit" style={btnStyle} aria-label="Edit">
           <Edit2 size={16} aria-hidden="true" />
         </button>
-        <button onClick={onClose} style={btnStyle}>
-          <X size={18} />
+        <button onClick={onClose} style={btnStyle} aria-label="Close details">
+          <X size={18} aria-hidden="true" />
         </button>
       </div>
 

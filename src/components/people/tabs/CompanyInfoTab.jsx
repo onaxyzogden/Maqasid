@@ -1,10 +1,23 @@
 import { useState } from 'react';
 import { useContactsStore } from '../../../store/contacts-store';
+import { useUndoToast } from '../../../hooks/useUndoToast';
 import { formatDate } from '../../../lib/format-date';
 
 export default function CompanyInfoTab({ company }) {
   const updateCompany = useContactsStore((s) => s.updateCompany);
   const makeClient    = useContactsStore((s) => s.makeClient);
+  const updateContact = useContactsStore((s) => s.updateContact);
+  const undoToast     = useUndoToast();
+
+  const handleMakeClient = () => {
+    const prev = useContactsStore.getState().contacts
+      .filter((c) => c.companyId === company.id && c.contactType !== 'client')
+      .map((c) => [c.id, c.contactType]);
+    makeClient(company.id);
+    undoToast(`${company.name || 'Company'} contacts marked as clients`, () => {
+      prev.forEach(([id, contactType]) => updateContact(id, { contactType }));
+    });
+  };
   const [editing, setEditing] = useState(false);
   const [form, setForm] = useState({
     name:        company.name        || '',
@@ -155,7 +168,7 @@ export default function CompanyInfoTab({ company }) {
       </div>
 
       {/* Make Client CTA */}
-      <button onClick={() => makeClient(company.id)} style={{
+      <button onClick={handleMakeClient} style={{
         width: '100%', padding: '11px 0', borderRadius: 10,
         background: 'var(--text)', color: 'var(--bg)',
         border: 'none', fontWeight: 700, fontSize: 14, cursor: 'pointer',

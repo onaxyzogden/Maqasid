@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { Plus, Trash2 } from 'lucide-react';
 import { useUndoToast } from '@hooks/useUndoToast';
+import { useToastStore } from '@store/toast-store';
 import { useContactsStore } from '../../../store/contacts-store';
 import { SALARY_TYPES } from '@data/config/contact-config';
 import CollapsibleSection from '../shared/CollapsibleSection';
@@ -11,7 +12,12 @@ export default function SalaryTab({ contactId }) {
   const addSalary     = useContactsStore((s) => s.addSalary);
   const deleteSalary  = useContactsStore((s) => s.deleteSalary);
   const restoreRecord = useContactsStore((s) => s.restoreRecord);
+  const updateContact = useContactsStore((s) => s.updateContact);
+  // Bank details live on the contact record — always present, unlike the HR record.
+  const contact       = useContactsStore((s) => s.contacts.find((c) => c.id === contactId));
+  const addToast      = useToastStore((s) => s.addToast);
   const undoToast     = useUndoToast();
+  const bankId        = useId();
 
   const handleDelete = (r) => {
     const index = salaryRecords.findIndex((x) => x.id === r.id);
@@ -41,6 +47,17 @@ export default function SalaryTab({ contactId }) {
     setShowSalaryForm(false);
   }
 
+  function openBankForm() {
+    setBForm({ bankName: contact?.bankName || '', bankAccount: contact?.bankAccount || '' });
+    setShowBankForm(true);
+  }
+
+  function submitBank() {
+    updateContact(contactId, { bankName: bForm.bankName.trim(), bankAccount: bForm.bankAccount.trim() });
+    addToast({ type: 'success', message: 'Bank details saved' });
+    setShowBankForm(false);
+  }
+
   function submitComp() {
     if (!cForm.amount) return;
     addSalary({ contactId, ...cForm, amount: Number(cForm.amount), currency: 'USD', effectiveDate: localDayKey() });
@@ -61,16 +78,35 @@ export default function SalaryTab({ contactId }) {
       <CollapsibleSection title="Bank Details">
         {showBankForm ? (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8, paddingLeft: 22 }}>
-            <input style={inputStyle} placeholder="Bank name" value={bForm.bankName} onChange={(e) => setBForm((f) => ({ ...f, bankName: e.target.value }))} />
-            <input style={inputStyle} placeholder="Account number" value={bForm.bankAccount} onChange={(e) => setBForm((f) => ({ ...f, bankAccount: e.target.value }))} />
-            <button onClick={() => setShowBankForm(false)} style={{
-              padding: '7px 0', background: 'var(--mod-people)', color: '#fff',
-              border: 'none', borderRadius: 8, cursor: 'pointer', fontWeight: 600, fontSize: 13,
-            }}>Save Bank Details</button>
+            <label htmlFor={`${bankId}-name`} style={{ fontSize: 12, color: 'var(--text2)', fontWeight: 500 }}>Bank name</label>
+            <input id={`${bankId}-name`} style={inputStyle} value={bForm.bankName} onChange={(e) => setBForm((f) => ({ ...f, bankName: e.target.value }))} />
+            <label htmlFor={`${bankId}-account`} style={{ fontSize: 12, color: 'var(--text2)', fontWeight: 500 }}>Account number</label>
+            <input id={`${bankId}-account`} style={inputStyle} value={bForm.bankAccount} onChange={(e) => setBForm((f) => ({ ...f, bankAccount: e.target.value }))} />
+            <div style={{ display: 'flex', gap: 8 }}>
+              <button onClick={submitBank} style={{
+                flex: 1, padding: '7px 0', background: 'var(--mod-people)', color: '#fff',
+                border: 'none', borderRadius: 8, cursor: 'pointer', fontWeight: 600, fontSize: 13,
+              }}>Save Bank Details</button>
+              <button onClick={() => setShowBankForm(false)} style={{
+                padding: '7px 14px', background: 'var(--bg3)', border: '1.5px solid var(--border)',
+                borderRadius: 8, cursor: 'pointer', color: 'var(--text2)', fontSize: 13, fontWeight: 500,
+              }}>Cancel</button>
+            </div>
+          </div>
+        ) : contact?.bankName || contact?.bankAccount ? (
+          <div style={{ paddingLeft: 22, display: 'flex', alignItems: 'center', gap: 12 }}>
+            <div style={{ fontSize: 13, color: 'var(--text)', flex: 1 }}>
+              <div>{contact.bankName || 'Bank not set'}</div>
+              <div style={{ color: 'var(--text2)' }}>{contact.bankAccount || 'No account number'}</div>
+            </div>
+            <button onClick={openBankForm} style={{
+              padding: '6px 14px', background: 'var(--bg3)', border: '1.5px solid var(--border)',
+              borderRadius: 6, cursor: 'pointer', color: 'var(--text2)', fontSize: 12, fontWeight: 500,
+            }}>Edit Details</button>
           </div>
         ) : (
           <div style={{ paddingLeft: 22 }}>
-            <button onClick={() => setShowBankForm(true)} style={{
+            <button onClick={openBankForm} style={{
               padding: '6px 14px', background: 'var(--bg3)', border: '1.5px solid var(--border)',
               borderRadius: 6, cursor: 'pointer', color: 'var(--text2)', fontSize: 12, fontWeight: 500,
             }}>Add Details</button>

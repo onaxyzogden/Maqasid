@@ -3,6 +3,26 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-15] fix | MILOS — UX audit P0s: BBOS gate lock, saves that didn't save, People archive/status
+
+Operator ran `/ux-engine:ux-audit whole app`, then said *"fix #1–3 first"*. Branch `fix/ux-gate-people-data`; not yet committed. **Amanah gate:** positive (a gate decision on a failed covenant check can no longer be waved through; no record is lost silently).
+
+- **#1 BBOS gate advanced while BLOCKED.**
+  - In `BbosApprovalBrief.jsx`, "Proceed to Stage N" is locked (`aria-disabled`, `data-locked`) when `gate.verdict === "BLOCKED"`. A `role="status"` note explains why, and Halt stays available.
+  - In the classic `BbosFullDashboard.jsx`, Advance also requires `scoreStage(...).verdict !== 'BLOCKED'`, and a red banner shows when the tasks are done but the gate is blocked.
+  - "Proceed with Conditions" is inert by design; it never advances.
+- **#2 Saves that didn't save.**
+  - `SalaryTab` bank details now save via `updateContact`, with a toast.
+  - `PersonalTab.saveHR` creates the HR record when it is missing, where it used to drop the edit.
+  - The `BbosExecView` fields are mock-backed, so they are labelled "Draft — not saved" rather than appearing to persist. Real persistence is deferred.
+- **#3 People archive/status.**
+  - `archived` was added to `EMPLOYEE_STATUSES`.
+  - The HR list and headcount exclude archived employees unless the Archived filter is on.
+  - Deactivate sets `inactive`; it used to set `archived`.
+  - Undo toasts were added to Archive, Restore, Activate/Deactivate, Add to Pipeline and Make Client. Archived views offer Restore.
+- **Verified:** screenshots in the preview of the archive/restore/undo flows, headcount, Deactivate→`inactive`, the bank-details save, the HR-record creation, the classic BLOCKED banner with no Advance button, and the new-dashboard brief with Proceed locked. `npm run lint` passes (1 pre-existing warning), `npm test` 376/376, and the build is green.
+- **Found, not fixed:** People renders `DetailPanel` twice (stacked panels); this was spun off as a separate task.
+
 ## [2026-10-15] fix | MILOS — last two contrast failures (navigator, pillar intro popup)
 
 Follow-up to the WCAG audit (#50, #51). The operator chose these by selection: full-strength side-panel text with only the chevron dimmed; level labels in a deeper shade of the same hue; a deeper popup header with white text kept; the navigator fix shipped as package 0.3.3. **Amanah gate:** positive (readability; no data or fiqh surface).

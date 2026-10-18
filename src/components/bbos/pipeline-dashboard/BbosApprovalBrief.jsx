@@ -43,10 +43,16 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
   // Live next-stage number off the gate VM; null on the final stage (OPT),
   // where "proceed" would mean a cycle restart (deferred to a later pass).
   const hasNext = !!gate?.nextStageN;
+  // A BLOCKED gate verdict locks "proceed" — the stage cannot advance past a
+  // failed gate. Halt remains available as the honest exit.
+  const gateBlocked = gate?.verdict === "BLOCKED";
   const gateOpts = [
     { key: "proceed",
       label: hasNext ? `Proceed to Stage ${gate.nextStageN}` : "Close Cycle (deferred)",
-      sub: hasNext ? "Routing conditions met" : "Cycle restart is not wired in this pass",
+      sub: gateBlocked
+        ? "Locked — gate verdict is BLOCKED. Resolve the unmet signals in Findings first."
+        : hasNext ? "Routing conditions met" : "Cycle restart is not wired in this pass",
+      locked: gateBlocked,
       c: "var(--bpd-complete)", cd: "var(--bpd-complete-dim)" },
     { key: "conditions", label: "Proceed with Conditions", sub: "Gaps must be resolved before next stage begins",
       c: "var(--bpd-gold)", cd: "var(--bpd-gold-dim)" },
@@ -136,7 +142,7 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
       // advance, halt -> reject (with a reason), conditions is inert/annotated.
       const actionReady =
         canAct &&
-        ((decision === "proceed" && hasNext) ||
+        ((decision === "proceed" && hasNext && !gateBlocked) ||
           (decision === "halt" && reasonId));
       const actionLabel =
         decision === "halt"
@@ -168,19 +174,28 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
               This stage is not active &mdash; the routing decision is read-only.
             </div>
           )}
+          {canAct && gateBlocked && (
+            <div className="bpd-empty" role="status">
+              {gate.label || "This gate"} is BLOCKED &mdash; advancing is locked until the
+              unmet signals in Findings are resolved. You can still halt and route to rejection.
+            </div>
+          )}
           <div role="radiogroup" aria-label="Routing decision" className="bpd-col" style={{ gap: 14 }}>
-          {gateOpts.map((opt) => (
+          {gateOpts.map((opt) => {
+            const selectable = canAct && !opt.locked;
+            return (
             <div
               key={opt.key}
               className="bpd-brief__gate-opt"
               data-selected={decision === opt.key ? "true" : "false"}
+              data-locked={opt.locked ? "true" : undefined}
               style={{ "--c": opt.c, "--c-dim": opt.cd }}
               role="radio"
               aria-checked={decision === opt.key}
-              aria-disabled={!canAct}
-              tabIndex={canAct ? 0 : -1}
-              onClick={() => { if (canAct) { up("decision", opt.key); setConfirming(false); } }}
-              onKeyDown={keyActivate(() => { if (canAct) { up("decision", opt.key); setConfirming(false); } })}
+              aria-disabled={!selectable}
+              tabIndex={selectable ? 0 : -1}
+              onClick={() => { if (selectable) { up("decision", opt.key); setConfirming(false); } }}
+              onKeyDown={keyActivate(() => { if (selectable) { up("decision", opt.key); setConfirming(false); } })}
             >
               <div className="bpd-brief__gate-radio">
                 {decision === opt.key && <div className="bpd-brief__gate-radio-dot" />}
@@ -190,7 +205,8 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
                 <div className="bpd-brief__gate-sub">{opt.sub}</div>
               </div>
             </div>
-          ))}
+            );
+          })}
           </div>
           {decision === "halt" && (
             <div className="bpd-col" style={{ gap: 8 }} role="radiogroup" aria-labelledby="bpd-reject-reason-label">

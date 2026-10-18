@@ -1551,6 +1551,9 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
 
   const quote = STAGE_QUOTES[bbosFilter] || '';
   const nextStage = BBOS_STAGES[(stageMeta.order ?? 0) + 1] ?? null;
+  // Same verdict the StageScoreCard shows: a BLOCKED gate locks advancement
+  // even when every task is Done.
+  const gateBlocked = useMemo(() => scoreStage(bbosFilter, taskMap)?.verdict === 'BLOCKED', [bbosFilter, taskMap]);
 
   // ── Rejection / off-ramp state ────────────────────────────────────────────
   const rejectBbosPipeline = useProjectStore((s) => s.rejectBbosPipeline);
@@ -1632,7 +1635,7 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
           </button>
         )}
 
-        {!isRejected && stagePct === 100 && onStageAdvance && (
+        {!isRejected && stagePct === 100 && onStageAdvance && !gateBlocked && (
           <div className="bfd__stage-ready">
             <CheckCircle size={16} className="bfd__stage-ready-icon" />
             <span className="bfd__stage-ready-text">
@@ -1641,6 +1644,15 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
             <button className="bfd__stage-advance-btn" onClick={onStageAdvance}>
               {nextStage ? `Advance to ${nextStage.label}` : 'Complete Cycle'} →
             </button>
+          </div>
+        )}
+        {!isRejected && stagePct === 100 && onStageAdvance && gateBlocked && (
+          <div className="bfd__stage-ready bfd__stage-ready--blocked" role="status">
+            <ShieldOff size={16} className="bfd__stage-ready-icon" aria-hidden="true" />
+            <span className="bfd__stage-ready-text">
+              Tasks done, but the stage gate is BLOCKED — strengthen the weak signals in the
+              Stage Score below before advancing, or reject the pipeline.
+            </span>
           </div>
         )}
       </div>

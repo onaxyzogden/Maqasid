@@ -30,6 +30,7 @@ export const EMPLOYEE_STATUSES = [
   { id: 'active', label: 'Active', color: '#22c55e' },
   { id: 'on-leave', label: 'On Leave', color: '#f59e0b' },
   { id: 'inactive', label: 'Inactive', color: '#6b7280' },
+  { id: 'archived', label: 'Archived', color: '#6b7280' },
 ];
 
 export const DEFAULT_LEAVE_BALANCE = { annual: 20, sick: 10, personal: 5 };

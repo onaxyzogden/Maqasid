@@ -94,6 +94,12 @@
   transition: opacity var(--duration-sm) var(--ease);
 }
 .bfd__stage-advance-btn:hover { opacity: 0.85; }
+.bfd__stage-ready--blocked {
+  background: color-mix(in srgb, var(--pri-urgent) 8%, transparent);
+  border-color: color-mix(in srgb, var(--pri-urgent) 30%, transparent);
+}
+.bfd__stage-ready--blocked .bfd__stage-ready-icon,
+.bfd__stage-ready--blocked .bfd__stage-ready-text { color: var(--pri-urgent); }
 
 /* ── Grid ── */
 .bfd__grid {

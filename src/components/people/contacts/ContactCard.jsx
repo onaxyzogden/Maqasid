@@ -6,10 +6,13 @@ import AvatarInitials from '../shared/AvatarInitials';
 import TypeBadge from '../shared/TypeBadge';
 import './ContactCard.css';
 import { rowActivation } from '../../../lib/row-activation';
+import { useUndoToast } from '../../../hooks/useUndoToast';
 
 export default function ContactCard({ contact, company }) {
   const selectContact     = useContactsStore((s) => s.selectContact);
   const archiveContact    = useContactsStore((s) => s.archiveContact);
+  const updateContact     = useContactsStore((s) => s.updateContact);
+  const undoToast         = useUndoToast();
   const selectedContactId = useContactsStore((s) => s.selectedContactId);
   const isSelected = selectedContactId === contact.id;
 
@@ -17,6 +20,17 @@ export default function ContactCard({ contact, company }) {
 
   const displayName = getDisplayName(contact);
   const isCompany = contact.entityType === 'company';
+  const isArchived = contact.status === 'archived';
+
+  const handleArchive = () => {
+    const prev = contact.status || 'active';
+    archiveContact(contact.id);
+    undoToast(`${displayName} archived`, () => updateContact(contact.id, { status: prev }));
+  };
+  const handleRestore = () => {
+    updateContact(contact.id, { status: 'active' });
+    undoToast(`${displayName} restored`, () => archiveContact(contact.id));
+  };
 
   return (
     <div
@@ -30,7 +44,7 @@ export default function ContactCard({ contact, company }) {
         <button
           className="contact-card__menu"
           onClick={(e) => { e.stopPropagation(); setMenuOpen((v) => !v); }}
-          title="Options" aria-label="Options">
+          title="Options" aria-label={`Actions for ${displayName}`} aria-haspopup="menu" aria-expanded={menuOpen}>
           <MoreHorizontal size={14} aria-hidden="true" />
         </button>
         {menuOpen && (
@@ -46,12 +60,21 @@ export default function ContactCard({ contact, company }) {
               >
                 View Details
               </button>
-              <button
-                className="contact-card__dropdown-item contact-card__dropdown-item--danger"
-                onClick={(e) => { e.stopPropagation(); setMenuOpen(false); archiveContact(contact.id); }}
-              >
-                Archive
-              </button>
+              {isArchived ? (
+                <button
+                  className="contact-card__dropdown-item"
+                  onClick={(e) => { e.stopPropagation(); setMenuOpen(false); handleRestore(); }}
+                >
+                  Restore
+                </button>
+              ) : (
+                <button
+                  className="contact-card__dropdown-item contact-card__dropdown-item--danger"
+                  onClick={(e) => { e.stopPropagation(); setMenuOpen(false); handleArchive(); }}
+                >
+                  Archive
+                </button>
+              )}
             </div>
           </>
         )}
