@@ -25,8 +25,15 @@ The 2026-10-15 whole-app UX audit (#4, #6) found about a dozen hand-rolled overl
    - Markup: `aria-disabled="true"`, `title="Coming soon"`, an explicit `aria-label="X (coming soon)"`, and no click handler.
    - `.btn-soon--tag` adds a visible "Soon" pill where there is space.
 
+4. **No native browser dialogs** (amendment, same day, branch `fix/ux-confirm-dialogs`). `window.confirm()` and `alert()` are gone from `src/`.
+   - **Questions** use `store/confirm-store.js`: `useConfirm()` inside components, `requestConfirm()` outside them. Both return a Promise<boolean>, and requests queue.
+   - `shared/ConfirmDialog.jsx` is mounted once in AppShell and renders the prompt as an `alertdialog`, with the body wired to `aria-describedby`. Focus starts on Cancel, and Escape or the backdrop counts as no.
+   - A destructive prompt names the item in its title, uses a verb + noun button ("Delete vendor"), sets `danger`, and says what else goes with the item or what is kept.
+   - **Outcomes** (import errors, limits, results) are toasts that name the file or item. Validation lists are capped at three lines by `lib/error-list.js`.
+
 ## Consequences
 
 - New dialogs must use `Modal` or `SlideIn`. A raw backdrop `div` is a regression.
 - When a `.btn-soon` feature ships, remove the class and attributes in the same change. Open items: EditSidePanel mount, Calendar views, Money transfers, and TeamChat formatting.
 - PillarLevelPage segment switches now go through the router (`navigate(…, { replace: true })`). Each segment's own CeremonyGuard therefore applies, which the old `history.replaceState` skipped.
+- A new `window.confirm()` or `alert()` is a regression. Undo-instead-of-confirm for row deletes is the next step, still deferred.

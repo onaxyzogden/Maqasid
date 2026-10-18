@@ -26,6 +26,8 @@ Reusable UI components used across multiple modules: search, labels, tables, too
 | ViewToggle.jsx | Two-button toggle (Overview/Framework); role="tablist" with aria-selected | Pages with dual views |
 | ViewToggle.css | Toggle button styles, active/inactive states | Pages with dual views |
 | SyncStatusChip.jsx | **DORMANT.** Cloud sync status pill in the sidebar footer. Returns `null` unless `authStatus === 'authenticated'` | Sidebar (renders nothing) |
+| Modal.jsx / Modal.css | Centred dialog (sibling of SlideIn): focus trap, Escape, backdrop, dirty-discard, focus return. Props `onClose, label/labelledBy, describedBy, role ('dialog' or 'alertdialog'), dirty, active, dismissible, overlayClassName, className` | ~12 dialogs; ConfirmDialog |
+| ConfirmDialog.jsx / .css | The app's only confirm prompt. Renders the head of `store/confirm-store.js`'s queue as an `alertdialog`. Focus starts on Cancel; Escape and backdrop answer false. Danger button is a fixed #dc2626 (AA in dark mode). Overlay z-index 10001, above ceremonies and BPD dialogs | Mounted once in AppShell |
 | FirstLoginModal.jsx | **DORMANT.** Resolves the first-login local-vs-cloud data conflict (keep local / use cloud / keep local without pushing) | AppShell (never triggered) |
 
 ## Store Dependencies
@@ -47,6 +49,9 @@ Reusable UI components used across multiple modules: search, labels, tables, too
 - **Accessibility**: proper ARIA roles on ViewToggle and SearchPalette
 
 ## Gotchas
+- **No native `window.confirm()` / `alert()`.** In components use `const confirm = useConfirm(); if (await confirm({ title, body, confirmLabel, danger }))`. Outside React use `requestConfirm(opts)` (both from `store/confirm-store.js`). Report outcomes with `useToastStore.getState().addToast(...)`; toast messages keep `\n` line breaks, and `lib/error-list.js` `errorListMessage()` caps a validation list at 3 items. Destructive titles name the item.
+- Stacked dialogs: `useFocusTrap` ignores Escape when focus is inside a different `[aria-modal="true"]`, so a ConfirmDialog over a SlideIn closes only itself.
+- Toasts (z-index 9999) render under ConfirmDialog. An `extraAction` that needs to report success should pass `doneLabel`.
 - IslamicTerm tooltip uses fixed positioning via portal — parent scroll doesn't break it
 - SearchPalette has min 2-char threshold before showing results
 - MaqasidTable reuses `PillarDashboard.css` styles
