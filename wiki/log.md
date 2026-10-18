@@ -3,6 +3,10 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-18] merge | PR #60: project toolbar phone layout on main
+
+[onaxyzogden/Maqasid#60](https://github.com/onaxyzogden/Maqasid/pull/60) merged as `4f75bf5`, carrying `666801c` (the build entry below) and three merges from main that resolved wiki-only conflicts in `wiki/log.md`. At merge: 435 tests, lint and build green.
+
 ## [2026-10-18] build | Project toolbar usable at phone width
 
 Branch `feat/project-toolbar-mobile`. At 375px the toolbar above the BBOS pipeline dashboard overflowed, and the Board/List/Gantt switcher sat off-screen at about x=436–804. Now, below 768px, the two clusters collapse (`display: contents`) into one wrapping row: chip + role picker, then Download / Upload / drag toggle, then the view switcher on its own full-width row. Every control is 44px tall, and the colour swatch gets an invisible 44px tap halo. Desktop is unchanged (same inline layout, and the switcher buttons measure the same). The change is CSS only, in `ProjectBoard.css`, plus class hooks in `ProjectBoard.jsx`. `pipeline-dashboard/` was not touched. Its mobile layout is on `feat/bbos-mobile-layout`.
