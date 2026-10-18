@@ -132,7 +132,7 @@ export default function Settings() {
           importAll(data);
           window.location.reload();
         } catch (err) {
-          addToast({ type: 'error', duration: 10000, message: `Import failed: ${err.message}. Your previous data was backed up; use Restore Backup to bring it back.` });
+          addToast({ type: 'error', duration: 10000, message: `Import failed: ${err.message}. Your previous data was backed up.`, action: { label: 'Restore backup', onClick: handleRestoreBackup } });
         }
       };
       reader.readAsText(file);
@@ -162,7 +162,7 @@ export default function Settings() {
       body: "Every project, task, journal entry and setting stored on this device is erased. This can't be undone.\nExport a backup first if you might want any of it back.",
       confirmLabel: 'Delete all data',
       danger: true,
-      extraAction: { label: 'Export a backup first', onClick: handleExport },
+      extraAction: { label: 'Export a backup first', doneLabel: 'Backup downloaded', onClick: handleExport },
     })) {
       clearAll();
       window.location.reload();

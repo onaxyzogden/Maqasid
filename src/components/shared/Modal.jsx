@@ -21,6 +21,8 @@ export default function Modal({
   onClose,
   label,
   labelledBy,
+  describedBy,
+  role = 'dialog',
   dirty,
   active = true,
   dismissible = true,
@@ -70,10 +72,11 @@ export default function Modal({
         ref={trapRef}
         className={className}
         style={style}
-        role="dialog"
+        role={role}
         aria-modal="true"
         aria-label={labelledBy ? undefined : label}
         aria-labelledby={labelledBy}
+        aria-describedby={describedBy}
         tabIndex={-1}
         onInput={markTouched}
         onChange={markTouched}

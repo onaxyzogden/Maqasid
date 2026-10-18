@@ -57,7 +57,7 @@ export default function ExpensePanel({ expense, onClose }) {
 
   const handleDelete = async () => {
     if (!isEdit) return;
-    if (await confirm({ title: `Delete expense "${expense.description}"?`, body: "This can't be undone.", confirmLabel: 'Delete expense', danger: true })) {
+    if (await confirm({ title: expense.description ? `Delete expense "${expense.description}"?` : 'Delete this expense?', body: "This can't be undone.", confirmLabel: 'Delete expense', danger: true })) {
       deleteExpense(expense.id);
       addToast({ message: `"${expense.description}" removed`, type: 'info' });
       onClose();

@@ -13,9 +13,10 @@ import { create } from 'zustand';
  * the head of the queue.
  *
  * Request shape: { title, body?, confirmLabel = 'Confirm', cancelLabel = 'Cancel',
- *                  danger = false, extraAction?: { label, onClick } }
+ *                  danger = false, extraAction?: { label, onClick, doneLabel? } }
  * `extraAction` is a third button that runs its handler and leaves the dialog
- * open (e.g. "Export a backup first" on Clear All Data).
+ * open (e.g. "Export a backup first" on Clear All Data). With `doneLabel`, the
+ * button then shows that label and disables, since toasts sit under the dialog.
  */
 let nextId = 1;
 

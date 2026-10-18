@@ -40,7 +40,8 @@
 .confirm-dialog__extra { margin-right: auto; }
 
 .confirm-dialog__danger {
-  background: var(--danger);
+  /* Fixed, not var(--danger): dark mode's #f87171 gives white text 2.8:1. */
+  background: #dc2626;
   color: #fff;
   border: none;
 }

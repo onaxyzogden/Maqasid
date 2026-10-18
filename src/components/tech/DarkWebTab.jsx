@@ -113,7 +113,7 @@ export default function DarkWebTab() {
                         {b.status === 'open' && (
                           <button className="row-action-btn" onClick={() => clearBreach(b.id)} title="Clear" aria-label="Clear"><Check size={14} aria-hidden="true" /></button>
                         )}
-                        <button className="row-action-btn danger" onClick={async () => { if (await confirm({ title: `Delete the breach record from ${b.source || b.email}?`, body: "This can't be undone.", confirmLabel: 'Delete record', danger: true })) deleteBreach(b.id); }} aria-label={`Delete breach from ${b.source || b.email}`}><Trash2 size={14} aria-hidden="true" /></button>
+                        <button className="row-action-btn danger" onClick={async () => { if (await confirm({ title: (b.source || b.email) ? `Delete the breach record from ${b.source || b.email}?` : 'Delete this breach record?', body: "This can't be undone.", confirmLabel: 'Delete record', danger: true })) deleteBreach(b.id); }} aria-label={`Delete breach from ${b.source || b.email}`}><Trash2 size={14} aria-hidden="true" /></button>
                       </div>
                     </td>
                   </tr>

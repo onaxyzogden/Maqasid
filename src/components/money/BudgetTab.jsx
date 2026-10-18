@@ -212,7 +212,7 @@ export default function BudgetTab() {
                   <button className="row-action-btn" onClick={() => { setEditBudget(b); setShowPanel(true); }} title="Edit" aria-label={`Edit ${b.cat?.name || 'category'} budget`}>
                     <Pencil size={14} aria-hidden="true" />
                   </button>
-                  <button className="row-action-btn danger" onClick={async () => { if (await confirm({ title: `Delete the ${b.cat?.name || 'category'} budget?`, body: "Expenses in this category are kept. This can't be undone.", confirmLabel: 'Delete budget', danger: true })) deleteBudget(b.id); }} title="Delete" aria-label={`Delete ${b.cat?.name || 'category'} budget`}>
+                  <button className="row-action-btn danger" onClick={async () => { if (await confirm({ title: b.cat?.name ? `Delete the ${b.cat.name} budget?` : 'Delete this budget?', body: "Expenses in this category are kept. This can't be undone.", confirmLabel: 'Delete budget', danger: true })) deleteBudget(b.id); }} title="Delete" aria-label={`Delete ${b.cat?.name || 'category'} budget`}>
                     <Trash2 size={14} aria-hidden="true" />
                   </button>
                 </div>

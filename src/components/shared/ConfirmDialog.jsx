@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useConfirmStore } from '../../store/confirm-store';
 import Modal from './Modal';
 import './ConfirmDialog.css';
@@ -16,6 +16,7 @@ export default function ConfirmDialog() {
 
 function ConfirmBox({ req, answer }) {
   const cancelRef = useRef(null);
+  const [extraDone, setExtraDone] = useState(false);
   useEffect(() => { cancelRef.current?.focus(); }, []);
   const {
     id, title, body, confirmLabel = 'Confirm', cancelLabel = 'Cancel', danger = false, extraAction,
@@ -27,6 +28,8 @@ function ConfirmBox({ req, answer }) {
     <Modal
       onClose={() => answer(id, false)}
       labelledBy={titleId}
+      describedBy={body ? bodyId : undefined}
+      role="alertdialog"
       dirty={false}
       overlayClassName="ui-modal-overlay confirm-dialog-overlay"
       className="ui-modal confirm-dialog"
@@ -35,8 +38,14 @@ function ConfirmBox({ req, answer }) {
       {body && <p id={bodyId} className="confirm-dialog__body">{body}</p>}
       <div className="confirm-dialog__actions">
         {extraAction && (
-          <button type="button" className="btn btn-ghost confirm-dialog__extra" onClick={extraAction.onClick}>
-            {extraAction.label}
+          // Toasts sit under this overlay, so the button itself says it worked.
+          <button
+            type="button"
+            className="btn btn-ghost confirm-dialog__extra"
+            disabled={extraDone}
+            onClick={() => { extraAction.onClick(); if (extraAction.doneLabel) { setExtraDone(true); cancelRef.current?.focus(); } }}
+          >
+            {extraDone ? extraAction.doneLabel : extraAction.label}
           </button>
         )}
         <button type="button" ref={cancelRef} className="btn btn-secondary" onClick={() => answer(id, false)}>
