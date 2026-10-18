@@ -31,7 +31,7 @@ The operator settled it stage by stage, one stage at a time. Each pick is listed
 | 06 SLS | As-Samīʿ · Al-Laṭīf | "Allāhumma lā sahla…" (Ibn Ḥibbān, needs hadith number) | Closing: Al-Aḥzāb 33:70–71 | Merge |
 | 07 DEL | Al-Muḥsin · Al-Walī | Al-Baqarah 2:127 "Rabbanā taqabbal minnā…" | Anchor: Muslim 1955 (iḥsān in all things); the unsourced "adapted" du'a is dropped | Merge |
 | 08 RET | Ash-Shakūr · Al-Wadūd | An-Naml 27:19 (cited as 27:19 only) | Closing: Al-Anfāl 8:63, replacing the disputed al-Ḥākim du'a | Docs + fix |
-| 09 OPT | Al-Ḥasīb · As-Subbūḥ · Al-Quddūs | "Allāhumma ḥāsibnī ḥisāban yasīrā" (Musnad Aḥmad, ʿĀʾishah, needs number) | Muslim 487 for the two Names; closing: Al-Anʿām 6:104, replacing the unsourced one | Docs + fix |
+| 09 OPT | Al-Ḥasīb · As-Subbūḥ · Al-Quddūs | Al-Ḥashr 59:18 "wal-tanẓur nafsun mā qaddamat li-ghad" (amended 2026-10-18; was Aḥmad 24215 "Allāhumma ḥāsibnī…") | Muslim 487 for the two Names; closing: Al-Anʿām 6:104, replacing the unsourced one | Docs + fix |
 
 No Name repeats across the nine stages, and no opening text is used twice.
 
@@ -42,8 +42,13 @@ No Name repeats across the nine stages, and no opening text is used twice.
 
 ## Consequences
 
-- **App:** implemented on 2026-10-18 (branch `feat/bbos-stage-grounding`). `bbos-stage-islamic.js` is re-grounded to this table. Every Qur'an or hadith du'a carries `sources[]` with a provenance tier, and the hadith numbers were checked when the change was made: Abu Dawud 4012, Muslim 487, Muslim 1955, al-Nasāʾī 1305, Ibn Ḥibbān 974 and Aḥmad 24215. The last two were checked through secondary takhrij, not the printed edition. The registry gained As-Sittīr and As-Subbūḥ. The secondary IDY du'a became a non-prophetic `closingDua`.
+- **App:** implemented on 2026-10-18 (branch `feat/bbos-stage-grounding`). `bbos-stage-islamic.js` is re-grounded to this table. Every Qur'an or hadith du'a carries `sources[]` with a provenance tier, and the hadith numbers were checked when the change was made: Abu Dawud 4012, Muslim 487, Muslim 1955, al-Nasāʾī 1305, Ibn Ḥibbān 974 and Aḥmad 24215. The last two were first checked through secondary takhrij, then against the printed editions (see the amendment below). The registry gained As-Sittīr and As-Subbūḥ. The secondary IDY du'a became a non-prophetic `closingDua`.
 - **Docs:** the operator owns the docs. They need a version bump to match, and the internal fixes from the review: the stale 00–08 arc table in IDY, the "STRUCTURE (STR)UCTURE" and "RETAIN (RET)AIN" headings, mismatched subheader versions, and the third-party quote block in STR (paraphrase anonymously, or remove).
 - **Gates:** the gates the docs name (Amanah, Viability, Baseline, Pre-Ship, Constraint) are not modelled in the app. That is out of scope here.
+
+## Amendment (2026-10-18): printed-edition checks
+
+- **Ibn Ḥibbān 974 (SLS) — confirmed.** 974 is the al-Iḥsān number (ed. al-Arnaʾūṭ, al-Risālah). Al-Albānī's *al-Taʿlīqāt al-Ḥisān* gives it as 970 "= 974" and grades it ṣaḥīḥ (*al-Ṣaḥīḥah* 2643); the Dār Ibn Ḥazm *al-Taqāsīm wa-l-Anwāʿ* gives 6737 "= 974". The app's Arabic had followed Ibn al-Sunnī's word order ("idhā shiʾta sahlā"). It now follows Ibn Ḥibbān's: "wa anta tajʿalu l-ḥazna sahlan idhā shiʾt".
+- **Musnad Aḥmad 24215 (OPT) — replaced.** The number and text are confirmed in al-Risālah (vol. 40, p. 260). But the editors grade the hadith ṣaḥīḥ *except* the phrase "Allāhumma ḥāsibnī ḥisāban yasīrā", which they treat as Muḥammad ibn Isḥāq's solitary addition, and they cite al-Dhahabī on the nakārah in what he narrates alone. Al-Ḥākim (1/57, 255) graded it ṣaḥīḥ on Muslim's condition, and al-Dhahabī agreed in the *Talkhīṣ*. Since the opening du'a is exactly the disputed phrase, the operator chose Al-Ḥashr 59:18, the self-audit ayah, as OPT's opening. The du'a is not vetoed: it stays authentic per al-Ḥākim and may be used elsewhere with its grading noted.
 
 Related: [[bbos-pipeline]].
