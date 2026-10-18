@@ -2,6 +2,12 @@ import { useEffect, useRef } from 'react';
 
 const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
+// Glossary terms (@ogden/ui-components IslamicTerm) open their tooltip on
+// focus. They stay in the Tab order, but a dialog never focuses one on open —
+// otherwise the Daily Niyyah gate greeted every user with the "Ar-Rahman"
+// tooltip before they had touched anything.
+const TOOLTIP_TRIGGER = '.islamic-term';
+
 /**
  * Traps focus inside a container when `active` is true.
  * Moves focus into the container on mount, restores on unmount.
@@ -23,8 +29,14 @@ export function useFocusTrap(active, onClose) {
       // Respect an autoFocus field the container already focused.
       if (el.contains(document.activeElement)) return;
       const first = el.querySelector(FOCUSABLE);
-      if (first) first.focus();
-      else el.focus();
+      if (first && !first.matches(TOOLTIP_TRIGGER)) {
+        first.focus();
+        return;
+      }
+      // No control, or it would pop a tooltip: focus the dialog itself so
+      // screen readers start at the top and nothing opens unasked.
+      if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '-1');
+      el.focus();
     }, 50);
 
     const handleKeyDown = (e) => {

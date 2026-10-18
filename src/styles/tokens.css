@@ -395,6 +395,11 @@
   outline: 2px solid var(--primary-strong);
   outline-offset: 2px;
 }
+/* A tabindex="-1" container (a dialog focused on open, see useFocusTrap) is
+   never a keyboard stop, so it never shows the ring. */
+[tabindex="-1"]:focus-visible {
+  outline: none;
+}
 
 /* Skip link — visually hidden until focused */
 .skip-link {

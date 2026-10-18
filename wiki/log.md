@@ -3,6 +3,14 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-18] fix | MILOS — glossary tooltip no longer opens by itself on the Daily Niyyah gate
+
+The operator sent a phone screenshot: the "Ar-Rahman" glossary tooltip was open on the Daily Niyyah gate before anything was tapped. **Cause:** `useFocusTrap` focused the dialog's first focusable element on open, which was the `AL-RAHMĀN` IslamicTerm (`tabindex=0`), and the package term opens its tooltip `onFocus`.
+
+- `src/hooks/useFocusTrap.js`: if the first focusable is a glossary term (`.islamic-term`), the dialog container itself takes focus (`tabindex=-1`). Screen readers start at the top and nothing opens unasked. Terms stay in the Tab order, and tap or hover still opens them.
+- `src/styles/tokens.css`: `[tabindex="-1"]:focus-visible { outline: none }`. A container focused from code is never a keyboard stop. Roving tabs keep their ring: verified with ArrowRight on the popup tabs.
+- **Verified in Chromium (390×844, touch):** before, focus was on the term with the tooltip open; after, focus is on `.niyyah-card` with no tooltip, no ring and no scroll; tapping a term still opens its tooltip. `npm test` 435/435, lint and build green.
+
 ## [2026-10-18] fix | BBOS numbering is 1-based; IDY closing du'a is Ṣaḥīḥ Muslim 770
 
 Branch `fix/bbos-printed-edition-checks`. Two operator requests. (1) Stage numbering starts at 1: patch sub-stages `00A`/`01B` become `01A`/`03B` in `bbos-pipeline.js`, the task labels, both CONTEXT.md files and [[bbos-pipeline]]. In the v2.0 Factory docs, DEL PROMPT 06.* becomes 07.* and OPT PROMPT 08.* becomes 09.*, with history rows marked "(now …)". (2) The only non-Qur'anic, non-prophetic du'a, IDY's closing "arinā l-ḥaqqa ḥaqqan", is replaced by Ṣaḥīḥ Muslim 770 (ʿĀʾishah; ʿAbd al-Bāqī 1/534; the Prophet's ﷺ night-prayer opening, "ihdinī limā ukhtulifa fīhi mina l-ḥaqqi bi-idhnik") in the app and in the IDY v2.0 doc. The stage test now rejects any non-prophetic du'a. Recorded as an amendment to [[2026-10-17-bbos-stage-grounding-reconciliation]]. `npm test` (435), `npm run lint` and `npm run build` pass.
