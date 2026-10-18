@@ -180,9 +180,9 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
               ? "⧁  Approve & Advance Stage"
               : "⧁  Approve & Close Cycle";
       const reasonLabel = BBOS_REJECTION_REASONS.find((r) => r.id === reasonId)?.label;
-      // Undo is offered for a few seconds afterwards; it adds a 'reversed'
+      // Undo is offered for 15 seconds afterwards; it adds a 'reversed'
       // entry, so the decision itself always stays in the gate record.
-      const undoNote = "You can Undo it for a few seconds afterwards; the decision stays in the gate record.";
+      const undoNote = "You can Undo it for 15 seconds afterwards; the decision stays in the gate record.";
       const confirmText =
         decision === "halt"
           ? `Halt at Stage ${stage.n} — ${stage.name} and route to Rejection for "${reasonLabel}"? This stops the pipeline. ${undoNote}`

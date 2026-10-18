@@ -27,9 +27,9 @@ Undo puts the pipeline back and **adds** a `'reversed'` entry that points at the
     - If the reversal is refused, it returns the same object.
   - `isReversed(log, id)`.
 - **Store:** `reverseBbosGateDecision(projectId, entryId, { basis, by })`. It works on any BBOS project and is deliberately not blocked by `rejectedAt`, because undoing a Halt has to work on a rejected project.
-- **Redesigned dashboard:** Advance, Halt and Close Cycle show an info toast with Undo (6s, `useUndoToast`). Messages: "Advanced to Stage NN — Name", "Pipeline routed to rejection", "Cycle N closed — Cycle N+1 begins". A toast appears only if the move actually wrote its entry, so a move refused for open conditions shows none. The fixed basis is "Undone from the confirmation toast moments after the decision." and is attributed to the acting role.
+- **Redesigned dashboard:** Advance, Halt and Close Cycle show an info toast with Undo (15s, `useUndoToast` with `duration`). Messages: "Advanced to Stage NN — Name", "Pipeline routed to rejection", "Cycle N closed — Cycle N+1 begins". A toast appears only if the move actually wrote its entry, so a move refused for open conditions shows none. The fixed basis is "Undone from the confirmation toast moments after the decision." and is attributed to the acting role.
 - **Gate record:** a `Reversed` entry shows "Undoes <decision> · <time>". The undone entry stays in place, struck through and dimmed, with a "(reversed)" tag.
-- **Confirm copy:** the inline confirm used to say "cannot be undone here", which is no longer true. It now says Undo is available for a few seconds and that the decision stays in the gate record.
+- **Confirm copy:** the inline confirm used to say "cannot be undone here", which is no longer true. It now says Undo is available for 15 seconds and that the decision stays in the gate record.
 
 ## Amanah
 
@@ -52,4 +52,4 @@ The record of each decision stays whole. A reversal is a decision in its own rig
 
 ## Observation (not acted on)
 
-During testing the 6s toast window was easy to miss. It ran out between ordinary tool round-trips more than once. A longer window, or a "Reverse last decision" control in the Brief, may be worth considering for slower readers. Deferred.
+During testing the default 6s toast window was easy to miss. It ran out between ordinary tool round-trips more than once. **Resolved:** gate toasts now stay up 15s (`GATE_UNDO_MS`). A "Reverse last decision" control in the Brief was considered and not built. It would allow reversing long after the decision, which is a different act from an immediate correction, and it would need its own basis input rather than the fixed toast basis. Reversing an older decision stays a matter for a fresh gate decision with its own basis.

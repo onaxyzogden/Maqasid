@@ -19,6 +19,9 @@ import "./BbosPipelineDashboard.css";
 
 const EMPTY_TASKS = [];
 const UNDO_BASIS = "Undone from the confirmation toast moments after the decision.";
+// A gate decision is weightier than a routine delete, and the operator may still
+// be reading the Brief when the toast lands, so its Undo stays up longer than 6s.
+const GATE_UNDO_MS = 15000;
 
 const stageTitle = (id) => {
   const idx = BBOS_STAGES.findIndex((s) => s.id === id);
@@ -48,7 +51,8 @@ export default function BbosPipelineDashboard({ project, bbosFilter, onStageSele
     const entry = lastEntry();
     if (!entry || entry.id === beforeId || entry.decision !== decision) return;
     undoToast(message(entry), () =>
-      reverseBbosGateDecision(project.id, entry.id, { basis: UNDO_BASIS, by: reviewer }));
+      reverseBbosGateDecision(project.id, entry.id, { basis: UNDO_BASIS, by: reviewer }),
+    { duration: GATE_UNDO_MS });
   };
   const vm = useMemo(
     () => buildPipelineViewModel({ project, bbosFilter, tasks }),
