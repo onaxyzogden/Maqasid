@@ -3,6 +3,10 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-17] merge | PR #57: BBOS gate Undo on main
+
+[onaxyzogden/Maqasid#57](https://github.com/onaxyzogden/Maqasid/pull/57) merged as `efb629d`. It carries `a2f4631` (Undo as a recorded `'reversed'` gate-log entry) and `52e77db` (15s toast window). Everything in the two entries below is now on `main`. Still deferred: Undo on the legacy dashboard, and clearing the test entries from `proj_dUifZgG8eXqL`.
+
 ## [2026-10-17] build | BBOS gate Undo window lengthened to 15s
 
 Branch `feat/bbos-gate-undo`. The default 6s Undo window was easy to miss, so gate-move toasts now stay up 15s. `useUndoToast` gained an optional `{ duration }` and the dashboard passes `GATE_UNDO_MS = 15000`. The confirm copy now says "15 seconds". A "Reverse last decision" control in the Brief was considered and not built. Undo stays an immediate correction with a fixed basis, and reversing an older decision is a fresh gate decision with its own basis. Recorded in [decision](decisions/2026-10-17-bbos-gate-undo-reversal.md).
