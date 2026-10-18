@@ -9,6 +9,10 @@ Branch `feat/project-toolbar-mobile`. At 375px the toolbar above the BBOS pipeli
 
 - **Verified:** 431 tests, lint, build. Preview at 375px in Dashboard and Board views: switcher `scrollWidth == clientWidth`, document width 375, and a real tap on Gantt switched view (screenshots). Checked desktop at 1280px.
 
+## [2026-10-18] merge | PR #59: BBOS stage grounding on main
+
+[onaxyzogden/Maqasid#59](https://github.com/onaxyzogden/Maqasid/pull/59) merged as `aa7867c`, carrying `773ee9b` (the build entry below) and two merges from main that resolved wiki-only conflicts. Still deferred: checking Ibn Ḥibbān 974 and Aḥmad 24215 against the printed editions, and the operator's version bump of the Factory docs.
+
 ## [2026-10-18] build | BBOS stage attributes and du'as re-grounded
 
 Branch `feat/bbos-stage-grounding`. `bbos-stage-islamic.js` now matches the [stage grounding decision](decisions/2026-10-17-bbos-stage-grounding-reconciliation.md), whose status moves to implemented. The operator approved A1–A6:
