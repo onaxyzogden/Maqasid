@@ -3,6 +3,20 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-18] docs | BBOS Factory docs drafted at v2.0 to match the app
+
+This does the decision's "Docs" consequence. Nine new files, `BBOS_0N_<STAGE>_Annotated_v2_0.docx`, were written to the operator's *BBOS Factory Docs* folder by a python-docx script. The originals are untouched, and the docx files are not in the repo.
+- **All docs:** opening and closing du'as copied word for word from `bbos-stage-islamic.js`. Verse openings and closings are titled "Āyah". Subheader layer v2.0. A v2.0 version row with Approved By "Pending review".
+- **CRD and OUT** keep their sourced closings. OUT's Tirmidhī 3563 source is completed.
+- **STR and DEL** lose their unsourced closings.
+- **IDY:** arc table renumbered 01–09 with current codes and Names.
+- **STR:** heading fixed. Al-Musawwir block, anchor paragraph, fourth placement point and readiness/reflection rows added. VoC attributions anonymised, and three lines from named published authors paraphrased.
+- **SLS:** rewritten from Ar-Razzaq · Al-Latif · As-Sittir to As-Sami · Al-Latif.
+- **DEL:** Ash-Shakur removed, and the Offboarding annotation reassigned to Al-Wali.
+- **RET:** heading fixed.
+
+Every rewritten passage is highlighted yellow for the operator's review. Names keep the docs' ASCII spelling (As-Sami, Al-Musawwir). Deferred: the old codes QAL, FUL and SAL in history rows and some CRD/OUT protocol text.
+
 ## [2026-10-18] fix | BBOS printed-edition checks: Ibn Ḥibbān wording, OPT opening replaced
 
 Branch `fix/bbos-printed-edition-checks`. This closes the item deferred from PR #59: the two hadith numbers that had only been checked through secondary takhrij were checked against the printed editions. **Ibn Ḥibbān 974** is confirmed: it is the al-Iḥsān number, cross-referenced by *al-Taʿlīqāt al-Ḥisān* 970 and *al-Taqāsīm* 6737, and al-Albānī grades it ṣaḥīḥ. The SLS Arabic is reordered to Ibn Ḥibbān's wording ("…al-ḥazna sahlan idhā shiʾt"). **Musnad Aḥmad 24215**'s number is confirmed (al-Risālah 40/260), but its editors weaken the du'a phrase itself as Ibn Isḥāq's solitary addition. Al-Ḥākim and al-Dhahabī grade it ṣaḥīḥ. The operator chose to replace OPT's opening with **Al-Ḥashr 59:18** (Sahih International). The decision is amended and the entity updated. At commit: 435 tests, lint and build green.
