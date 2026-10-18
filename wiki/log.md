@@ -3,6 +3,10 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-17] decision | BBOS stage grounding reconciled with the Factory docs
+
+The operator reviewed the nine BBOS Factory annotated docs. Their attributes and du'as differed from `bbos-stage-islamic.js` at almost every stage, so the operator settled each stage in turn: 5 merges, 1 docs as written, 2 docs with fixed closings, and none kept as the app had it. Unsourced and misattributed du'as were replaced with Qur'anic or authenticated texts, and no Name repeats across stages. Recorded in [decision](decisions/2026-10-17-bbos-stage-grounding-reconciliation.md). Re-grounding the app is not done yet and needs its own approved plan. Fixing the docs is the operator's work.
+
 ## [2026-10-17] merge | PR #57: BBOS gate Undo on main
 
 [onaxyzogden/Maqasid#57](https://github.com/onaxyzogden/Maqasid/pull/57) merged as `efb629d`. It carries `a2f4631` (Undo as a recorded `'reversed'` gate-log entry) and `52e77db` (15s toast window). Everything in the two entries below is now on `main`. Still deferred: Undo on the legacy dashboard, and clearing the test entries from `proj_dUifZgG8eXqL`.
