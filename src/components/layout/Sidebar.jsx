@@ -46,6 +46,24 @@ export default function Sidebar() {
 
   if (mobile && !sidebarOpen) return null;
 
+  // The header navigates; this sibling button only expands/collapses, so it
+  // can be reached and announced on its own (a nested click target inside the
+  // header was mouse-only).
+  const renderExpandToggle = (id, label, isExpanded) => (
+    <button
+      type="button"
+      className="pillar-toggle"
+      aria-expanded={isExpanded}
+      aria-label={`${isExpanded ? 'Collapse' : 'Expand'} ${label}`}
+      onClick={() => {
+        if (!isExpanded) { collapseAllPillars(); togglePillar(id); }
+        else togglePillar(id);
+      }}
+    >
+      <ChevronDown size={14} aria-hidden="true" className={`pillar-chevron ${isExpanded ? 'expanded' : ''}`} />
+    </button>
+  );
+
   const renderPillarGroup = (pillar) => {
     const PillarIcon = PILLAR_ICON_MAP[pillar.icon];
     const subModules = pillar.subModuleIds.map((id) => modulesById[id]).filter(Boolean);
@@ -60,10 +78,12 @@ export default function Sidebar() {
 
     return (
       <div key={pillar.id} className="pillar-group">
+        <div className="pillar-header-row">
         <button
+          type="button"
           className={`pillar-header ${hasActiveChild || isPillarActive ? 'has-active' : ''}`}
           style={{ '--pillar-color': `var(--pillar-${pillar.id})` }}
-          aria-expanded={isExpanded}
+          aria-current={isPillarActive ? 'page' : undefined}
           onClick={() => {
             if (collapsed) {
               toggleSidebar();
@@ -77,23 +97,16 @@ export default function Sidebar() {
           }}
           title={label}
         >
-          {PillarIcon && <PillarIcon size={16} style={{ color: `var(--pillar-${pillar.id})` }} />}
+          {PillarIcon && <PillarIcon size={16} aria-hidden="true" style={{ color: `var(--pillar-${pillar.id})` }} />}
           {!collapsed && (
             <>
               <span className="pillar-label">{label}</span>
               {isScaffold && <span className="sidebar-badge">Soon</span>}
-              <ChevronDown
-                size={14}
-                className={`pillar-chevron ${isExpanded ? 'expanded' : ''}`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  if (!isExpanded) { collapseAllPillars(); togglePillar(pillar.id); }
-                  else togglePillar(pillar.id);
-                }}
-              />
             </>
           )}
         </button>
+        {!collapsed && renderExpandToggle(pillar.id, label, isExpanded)}
+        </div>
 
         {!collapsed && isExpanded && (
           <div className="pillar-children">
@@ -109,10 +122,11 @@ export default function Sidebar() {
                     key={mod.id}
                     to={route}
                     className={`sidebar-item pillar-submodule ${isActive ? 'active' : ''}`}
+                    aria-current={isActive ? 'page' : undefined}
                     onClick={handleNavClick}
                     title={mod.name}
                   >
-                    {Icon && <Icon size={16} style={isActive ? { color: mod.color } : undefined} />}
+                    {Icon && <Icon size={16} aria-hidden="true" style={isActive ? { color: mod.color } : undefined} />}
                     <span>{mod.name}</span>
                   </Link>
                 );
@@ -159,6 +173,7 @@ export default function Sidebar() {
         <Link
           to="/app/prophetic-path"
           className={`sidebar-item ${location.pathname === '/app/prophetic-path' ? 'active' : ''}`}
+          aria-current={location.pathname === '/app/prophetic-path' ? 'page' : undefined}
           onClick={handleNavClick}
           title="Prophetic Path"
         >
@@ -169,6 +184,7 @@ export default function Sidebar() {
         <Link
           to="/app/orientation"
           className={`sidebar-item ${location.pathname === '/app/orientation' ? 'active' : ''}`}
+          aria-current={location.pathname === '/app/orientation' ? 'page' : undefined}
           onClick={handleNavClick}
           title="Orientation"
         >
@@ -179,6 +195,7 @@ export default function Sidebar() {
         <Link
           to="/app"
           className={`sidebar-item ${location.pathname === '/app' ? 'active' : ''}`}
+          aria-current={location.pathname === '/app' ? 'page' : undefined}
           onClick={handleNavClick}
           title="Dashboard"
         >
@@ -210,10 +227,12 @@ export default function Sidebar() {
           const isExpanded = expandedPillars.ogden || hasActiveChild || onOgdenLevelRoute;
           return (
             <div className="pillar-group">
+              <div className="pillar-header-row">
               <button
+                type="button"
                 className={`pillar-header ${hasActiveChild || onOgdenLevelRoute ? 'has-active' : ''}`}
                 style={{ '--pillar-color': OGDEN_ACCENT }}
-                aria-expanded={isExpanded}
+                aria-current={location.pathname === ogdenRoute ? 'page' : undefined}
                 onClick={() => {
                   if (collapsed) {
                     toggleSidebar();
@@ -227,22 +246,11 @@ export default function Sidebar() {
                 }}
                 title="OGDEN Ecosystem"
               >
-                {OgdenIcon && <OgdenIcon size={16} style={{ color: OGDEN_ACCENT }} />}
-                {!collapsed && (
-                  <>
-                    <span className="pillar-label">OGDEN Ecosystem</span>
-                    <ChevronDown
-                      size={14}
-                      className={`pillar-chevron ${isExpanded ? 'expanded' : ''}`}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        if (!isExpanded) { collapseAllPillars(); togglePillar('ogden'); }
-                        else togglePillar('ogden');
-                      }}
-                    />
-                  </>
-                )}
+                {OgdenIcon && <OgdenIcon size={16} aria-hidden="true" style={{ color: OGDEN_ACCENT }} />}
+                {!collapsed && <span className="pillar-label">OGDEN Ecosystem</span>}
               </button>
+              {!collapsed && renderExpandToggle('ogden', 'OGDEN Ecosystem', isExpanded)}
+              </div>
 
               {!collapsed && isExpanded && (
                 <div className="pillar-children">
@@ -255,6 +263,7 @@ export default function Sidebar() {
                         key={child.id}
                         to={route}
                         className={`sidebar-item pillar-submodule ${isActive ? 'active' : ''}`}
+                        aria-current={isActive ? 'page' : undefined}
                         onClick={handleNavClick}
                         title={child.name}
                       >

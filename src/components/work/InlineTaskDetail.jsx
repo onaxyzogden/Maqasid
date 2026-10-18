@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import { useId, useState, useEffect, useLayoutEffect, useRef } from 'react';
 import {
   X, Calendar, Plus, CheckCircle2, Square,
 } from 'lucide-react';
@@ -27,6 +27,7 @@ export default function InlineTaskDetail({ project, projectId, taskId, onClose }
   const [notes, setNotes]           = useState('');
 
   const saveTimeout   = useRef(null);
+  const uid           = useId();
   const titleRef      = useRef(null);
   const moveTaskRef   = useRef(moveTask);
   useEffect(() => { moveTaskRef.current = moveTask; });
@@ -138,14 +139,15 @@ export default function InlineTaskDetail({ project, projectId, taskId, onClose }
   return (
     <div ref={cardRef} className="iltd" onClick={(e) => e.stopPropagation()}>
       {/* Close */}
-      <button className="iltd__close" onClick={onClose} title="Close" aria-label="Close">
-        <X size={16} />
+      <button type="button" className="iltd__close" onClick={onClose} title="Close" aria-label="Close">
+        <X size={16} aria-hidden="true" />
       </button>
 
       {/* Title */}
       <textarea
         ref={titleRef}
         className="iltd__title"
+        aria-label="Task title"
         value={title}
         onChange={(e) => { setTitle(e.target.value); autoSave('title', e.target.value); }}
         placeholder="Task title"
@@ -155,8 +157,9 @@ export default function InlineTaskDetail({ project, projectId, taskId, onClose }
       {/* Priority + Status */}
       <div className="iltd__controls">
         <div className="iltd__control">
-          <label>Priority</label>
+          <label htmlFor={`${uid}-priority`}>Priority</label>
           <select
+            id={`${uid}-priority`}
             className="iltd__select"
             value={task.priority}
             onChange={(e) => updateTask(projectId, taskId, { priority: e.target.value })}
@@ -168,8 +171,9 @@ export default function InlineTaskDetail({ project, projectId, taskId, onClose }
           </select>
         </div>
         <div className="iltd__control">
-          <label>Status</label>
+          <label htmlFor={`${uid}-status`}>Status</label>
           <select
+            id={`${uid}-status`}
             className="iltd__select"
             value={task.columnId}
             onChange={(e) => handleStatusChange(e.target.value)}
@@ -180,10 +184,11 @@ export default function InlineTaskDetail({ project, projectId, taskId, onClose }
           </select>
         </div>
         <div className="iltd__control">
-          <label>Due date</label>
+          <label htmlFor={`${uid}-due`}>Due date</label>
           <div className="iltd__due-row">
-            <Calendar size={14} />
+            <Calendar size={14} aria-hidden="true" />
             <input
+              id={`${uid}-due`}
               type="date"
               className="iltd__date-input"
               value={task.dueDate || ''}
@@ -218,8 +223,8 @@ export default function InlineTaskDetail({ project, projectId, taskId, onClose }
             <div className="iltd__subtask-group-label">To Do</div>
             {todoSubtasks.map((st) => (
               <div key={st.id} className="iltd__subtask-item">
-                <button className="iltd__subtask-check" onClick={() => toggleSubtask(projectId, taskId, st.id)}>
-                  <Square size={18} />
+                <button type="button" className="iltd__subtask-check" onClick={() => toggleSubtask(projectId, taskId, st.id)} aria-label={`Mark "${st.title}" done`}>
+                  <Square size={18} aria-hidden="true" />
                 </button>
                 <div className="iltd__subtask-content">
                   <span className="iltd__subtask-title">{st.title}</span>
@@ -238,8 +243,8 @@ export default function InlineTaskDetail({ project, projectId, taskId, onClose }
             <div className="iltd__subtask-group-label">Completed</div>
             {doneSubtasks.map((st) => (
               <div key={st.id} className="iltd__subtask-item">
-                <button className="iltd__subtask-check iltd__subtask-check--done" onClick={() => toggleSubtask(projectId, taskId, st.id)}>
-                  <CheckCircle2 size={18} />
+                <button type="button" className="iltd__subtask-check iltd__subtask-check--done" onClick={() => toggleSubtask(projectId, taskId, st.id)} aria-label={`Mark "${st.title}" not done`}>
+                  <CheckCircle2 size={18} aria-hidden="true" />
                 </button>
                 <div className="iltd__subtask-content">
                   <span className="iltd__subtask-title done">{st.title}</span>
@@ -261,6 +266,7 @@ export default function InlineTaskDetail({ project, projectId, taskId, onClose }
         <div className="iltd__section-label">Notes</div>
         <textarea
           className="iltd__textarea"
+          aria-label="Notes"
           value={notes}
           onChange={(e) => { setNotes(e.target.value); autoSave('notes', e.target.value); }}
           placeholder="Add notes..."
@@ -277,7 +283,7 @@ export default function InlineTaskDetail({ project, projectId, taskId, onClose }
             {task.tags?.map((tag) => (
               <span key={tag} className="iltd__tag">
                 {tag}
-                <button className="iltd__tag-remove" onClick={() => removeTag(tag)}><X size={14} /></button>
+                <button type="button" className="iltd__tag-remove" onClick={() => removeTag(tag)} aria-label={`Remove tag ${tag}`}><X size={14} aria-hidden="true" /></button>
               </span>
             ))}
             <button
