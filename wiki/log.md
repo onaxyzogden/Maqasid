@@ -3,6 +3,10 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-18] fix | BBOS printed-edition checks: Ibn Ḥibbān wording, OPT opening replaced
+
+Branch `fix/bbos-printed-edition-checks`. This closes the item deferred from PR #59: the two hadith numbers that had only been checked through secondary takhrij were checked against the printed editions. **Ibn Ḥibbān 974** is confirmed: it is the al-Iḥsān number, cross-referenced by *al-Taʿlīqāt al-Ḥisān* 970 and *al-Taqāsīm* 6737, and al-Albānī grades it ṣaḥīḥ. The SLS Arabic is reordered to Ibn Ḥibbān's wording ("…al-ḥazna sahlan idhā shiʾt"). **Musnad Aḥmad 24215**'s number is confirmed (al-Risālah 40/260), but its editors weaken the du'a phrase itself as Ibn Isḥāq's solitary addition. Al-Ḥākim and al-Dhahabī grade it ṣaḥīḥ. The operator chose to replace OPT's opening with **Al-Ḥashr 59:18** (Sahih International). The decision is amended and the entity updated. At commit: 435 tests, lint and build green.
+
 ## [2026-10-18] merge | PR #60: project toolbar phone layout on main
 
 [onaxyzogden/Maqasid#60](https://github.com/onaxyzogden/Maqasid/pull/60) merged as `4f75bf5`, carrying `666801c` (the build entry below) and three merges from main that resolved wiki-only conflicts in `wiki/log.md`. At merge: 435 tests, lint and build green.
