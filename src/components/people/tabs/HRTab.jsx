@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useContactsStore } from '../../../store/contacts-store';
 import { EMPLOYMENT_TYPES } from '@data/config/contact-config';
+import { useUndoToast } from '../../../hooks/useUndoToast';
 import { differenceInYears, differenceInDays, parseISO, isValid } from 'date-fns';
 
 function StatItem({ value, label }) {
@@ -26,6 +27,7 @@ export default function HRTab({ contactId }) {
   const hrRecords  = useContactsStore((s) => s.hrRecords);
   const departments = useContactsStore((s) => s.departments);
   const updateContact   = useContactsStore((s) => s.updateContact);
+  const undoToast       = useUndoToast();
   const addHRRecord     = useContactsStore((s) => s.addHRRecord);
   const updateHRRecord  = useContactsStore((s) => s.updateHRRecord);
 
@@ -173,7 +175,12 @@ export default function HRTab({ contactId }) {
             </span>
           </div>
           <button
-            onClick={() => updateContact(contactId, { status: contact?.status === 'active' ? 'archived' : 'active' })}
+            onClick={() => {
+              const prev = contact?.status || 'active';
+              const next = prev === 'active' ? 'inactive' : 'active';
+              updateContact(contactId, { status: next });
+              undoToast(next === 'inactive' ? 'Employee deactivated' : 'Employee activated', () => updateContact(contactId, { status: prev }));
+            }}
             style={{
               padding: '5px 12px', borderRadius: 6, border: 'none', cursor: 'pointer',
               background: contact?.status === 'active' ? 'var(--text)' : 'var(--success)',

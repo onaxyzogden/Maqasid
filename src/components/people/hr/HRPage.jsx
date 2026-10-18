@@ -12,6 +12,7 @@ import TimesheetTab from './TimesheetTab';
 import SalariesTab from './SalariesTab';
 import StatsTab from './StatsTab';
 import OrganizationTab from './OrganizationTab';
+import { useUndoToast } from '../../../hooks/useUndoToast';
 import './HRPage.css';
 
 const HR_TABS = [
@@ -28,7 +29,8 @@ export default function HRPage() {
   const departments     = usePeopleStore((s) => s.departments);
   const contacts        = useContactsStore((s) => s.contacts);
   const selectContact   = useContactsStore((s) => s.selectContact);
-  const archiveContact  = useContactsStore((s) => s.archiveContact);
+  const updateContact   = useContactsStore((s) => s.updateContact);
+  const undoToast       = useUndoToast();
 
   // Merge people-store employees + contacts-store employee-type contacts
   const employees = useMemo(() => {
@@ -37,7 +39,7 @@ export default function HRPage() {
       _source: 'people',
     }));
     const fromContacts = contacts
-      .filter((c) => c.contactType === 'employee' && c.status !== 'archived')
+      .filter((c) => c.contactType === 'employee')
       .map((c) => ({
         id: c.id,
         name: getDisplayName(c),
@@ -75,8 +77,11 @@ export default function HRPage() {
   const [showAddEmp, setShowAddEmp] = useState(false);
   const [showAddDept, setShowAddDept] = useState(false);
 
+  // Archived employees stay recoverable but drop out of headcount and the other tabs
+  const current = useMemo(() => employees.filter((e) => e.status !== 'archived'), [employees]);
+
   // Stats
-  const activeEmps = employees.filter((e) => e.status === 'active');
+  const activeEmps = current.filter((e) => e.status === 'active');
   const ftCount = activeEmps.filter((e) => e.employmentType === 'full_time' || !e.employmentType).length;
   const ptCount = activeEmps.filter((e) => e.employmentType === 'part_time').length;
   const contractCount = activeEmps.filter((e) => e.employmentType === 'contract').length;
@@ -88,7 +93,7 @@ export default function HRPage() {
   }, [departments]);
 
   const filtered = useMemo(() => {
-    let list = employees;
+    let list = statusFilter === 'archived' ? employees : current;
 
     if (typeFilter !== 'all') {
       list = list.filter((e) => (e.employmentType || 'full_time') === typeFilter);
@@ -108,7 +113,7 @@ export default function HRPage() {
       );
     }
     return list;
-  }, [employees, typeFilter, statusFilter, deptFilter, search]);
+  }, [employees, current, typeFilter, statusFilter, deptFilter, search]);
 
   // Unique departments that have employees
   const usedDepts = useMemo(() => {
@@ -120,13 +125,19 @@ export default function HRPage() {
     selectContact(id);
   };
 
+  const setEmpStatus = (emp, status) => {
+    if (emp._source === 'contacts') updateContact(emp.id, { status });
+    else updateEmployee(emp.id, { status });
+  };
+
   const handleMenuAction = (action, emp) => {
+    const prev = emp.status && emp.status !== 'archived' ? emp.status : 'active';
     if (action === 'archive') {
-      if (emp._source === 'contacts') {
-        archiveContact(emp.id);
-      } else {
-        updateEmployee(emp.id, { status: 'archived' });
-      }
+      setEmpStatus(emp, 'archived');
+      undoToast(`${emp.name || 'Employee'} archived`, () => setEmpStatus(emp, prev));
+    } else if (action === 'restore') {
+      setEmpStatus(emp, 'active');
+      undoToast(`${emp.name || 'Employee'} restored`, () => setEmpStatus(emp, 'archived'));
     }
   };
 
@@ -135,7 +146,7 @@ export default function HRPage() {
       {/* Stats Banner */}
       <div className="hr-stats-banner">
         <div className="hr-stat">
-          <span className="hr-stat__value">{employees.length}</span>
+          <span className="hr-stat__value">{current.length}</span>
           <span className="hr-stat__label">Total Headcount</span>
         </div>
         <div className="hr-stat">
@@ -264,22 +275,22 @@ export default function HRPage() {
 
       {/* Timesheet tab */}
       {activeTab === 'timesheet' && (
-        <TimesheetTab employees={employees} onSelectEmployee={handleSelectEmployee} />
+        <TimesheetTab employees={current} onSelectEmployee={handleSelectEmployee} />
       )}
 
       {/* Salaries tab */}
       {activeTab === 'salaries' && (
-        <SalariesTab employees={employees} onSelectEmployee={handleSelectEmployee} />
+        <SalariesTab employees={current} onSelectEmployee={handleSelectEmployee} />
       )}
 
       {/* Stats tab */}
       {activeTab === 'stats' && (
-        <StatsTab employees={employees} />
+        <StatsTab employees={current} />
       )}
 
       {/* Organization tab */}
       {activeTab === 'organization' && (
-        <OrganizationTab employees={employees} />
+        <OrganizationTab employees={current} />
       )}
 
       {showAddEmp && <AddEmployeeModal onClose={() => setShowAddEmp(false)} />}

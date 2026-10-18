@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { X, ChevronDown, ChevronRight } from 'lucide-react';
 import { useContactsStore } from '@store/contacts-store';
 import { getDisplayName } from '@data/config/contact-config';
+import { useUndoToast } from '../../../hooks/useUndoToast';
 
 function EditRow({ label, children, defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -31,6 +32,7 @@ export default function EditSidePanel() {
   const updateContact     = useContactsStore((s) => s.updateContact);
   const updateCompany     = useContactsStore((s) => s.updateCompany);
   const archiveContact    = useContactsStore((s) => s.archiveContact);
+  const undoToast         = useUndoToast();
 
   const contact = contacts.find((c) => c.id === selectedContactId);
   const company = companies.find((c) => c.id === selectedContactId);
@@ -98,7 +100,13 @@ export default function EditSidePanel() {
       )}
 
       <EditRow label="Archive">
-        <button onClick={() => { archiveContact(selectedContactId); closeEditPanel(); }} style={{
+        <button onClick={() => {
+          const id = selectedContactId;
+          const prev = contact?.status || 'active';
+          archiveContact(id);
+          closeEditPanel();
+          undoToast('Contact archived', () => updateContact(id, { status: prev }));
+        }} style={{
           padding: '7px 14px', background: 'var(--danger-bg)', color: 'var(--danger)',
           border: '1px solid var(--danger-border)', borderRadius: 7, cursor: 'pointer', fontSize: 12, fontWeight: 600,
         }}>Archive contact</button>
