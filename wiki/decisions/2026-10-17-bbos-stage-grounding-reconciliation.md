@@ -2,7 +2,7 @@
 title: "BBOS stage attributes and du'as reconciled between the Factory docs and the app"
 type: decision
 date: 2026-10-17
-status: accepted
+status: implemented
 project: milos
 tags: [bbos, grounding, attributes, dua, sources]
 ---
@@ -42,7 +42,7 @@ No Name repeats across the nine stages, and no opening text is used twice.
 
 ## Consequences
 
-- **App:** `bbos-stage-islamic.js` (attrs, dua, readiness and reflection signs) has to be re-grounded to this table. That change needs its own approved plan; it is not done yet.
+- **App:** implemented on 2026-10-18 (branch `feat/bbos-stage-grounding`). `bbos-stage-islamic.js` is re-grounded to this table. Every Qur'an or hadith du'a carries `sources[]` with a provenance tier, and the hadith numbers were checked when the change was made: Abu Dawud 4012, Muslim 487, Muslim 1955, al-Nasāʾī 1305, Ibn Ḥibbān 974 and Aḥmad 24215. The last two were checked through secondary takhrij, not the printed edition. The registry gained As-Sittīr and As-Subbūḥ. The secondary IDY du'a became a non-prophetic `closingDua`.
 - **Docs:** the operator owns the docs. They need a version bump to match, and the internal fixes from the review: the stale 00–08 arc table in IDY, the "STRUCTURE (STR)UCTURE" and "RETAIN (RET)AIN" headings, mismatched subheader versions, and the third-party quote block in STR (paraphrase anonymously, or remove).
 - **Gates:** the gates the docs name (Amanah, Viability, Baseline, Pre-Ship, Constraint) are not modelled in the app. That is out of scope here.
 

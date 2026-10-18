@@ -3,6 +3,20 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-18] build | BBOS stage attributes and du'as re-grounded
+
+Branch `feat/bbos-stage-grounding`. `bbos-stage-islamic.js` now matches the [stage grounding decision](decisions/2026-10-17-bbos-stage-grounding-reconciliation.md), whose status moves to implemented. The operator approved A1–A6:
+- `dua.source` is kept, and `sources[]` is added beside it.
+- IDY's arinā du'a is a non-prophetic `closingDua` with no `sources`.
+- OPT has 4 readiness rows, one of them the paired row "As-Subbuh · Al-Quddus".
+- Registry gains `as-sittir` and `as-subbuh`, neither among the ninety-nine.
+- Excerpts are marked "(excerpt)".
+- `closingDua` appears only at IDY, OFR, SLS, RET and OPT.
+
+- **Verified sources:** Qur'an text checked through the Quran MCP. Hadith numbers checked rather than taken from the docs: Abu Dawud 4012, Muslim 487, Muslim 1955, Nasāʾī 1305 and Ibn Ḥibbān 974. Aḥmad 24215 is graded hasan with a jayyid isnad per al-Albani. Ibn Ḥibbān 974 and Aḥmad 24215 were checked through secondary takhrij only. Nothing was left unverifiable.
+- **Verified build:** 435 tests (new `bbos-stage-islamic.test.js`), lint (divine-names: 108), build. Preview of the redesigned dashboard: the IDY overview shows Al-Awwal · Ash-Shahid with 20:25–26, and the OPT overview shows three attributes with "Allāhumma ḥāsibnī ḥisāban yasīrā". No console errors.
+- **Test data:** project `proj_MIxEnNKluxpb` ("Grounding Preview") is left in local preview storage.
+
 ## [2026-10-17] decision | BBOS stage grounding reconciled with the Factory docs
 
 The operator reviewed the nine BBOS Factory annotated docs. Their attributes and du'as differed from `bbos-stage-islamic.js` at almost every stage, so the operator settled each stage in turn: 5 merges, 1 docs as written, 2 docs with fixed closings, and none kept as the app had it. Unsourced and misattributed du'as were replaced with Qur'anic or authenticated texts, and no Name repeats across stages. Recorded in [decision](decisions/2026-10-17-bbos-stage-grounding-reconciliation.md). Re-grounding the app is not done yet and needs its own approved plan. Fixing the docs is the operator's work.

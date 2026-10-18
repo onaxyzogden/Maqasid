@@ -1098,6 +1098,28 @@ export const DIVINE_NAMES = {
       rationale: 'The Prophet ﷺ ascribes this Name to Allah explicitly.',
     },
   },
+  'as-sittir': {
+    name: 'As-Sittīr', name_ar: 'الستير', title: 'The Concealer', inNinetyNine: false,
+    gloss: 'Modest and concealing, He loves that faults be covered rather than exposed.',
+    source: {
+      kind: 'hadith', ref: 'Sunan Abi Dawud 4012',
+      arabic: 'إِنَّ اللَّهَ عَزَّ وَجَلَّ حَيِيٌّ سِتِّيرٌ يُحِبُّ الْحَيَاءَ وَالسَّتْرَ',
+      translation: 'Indeed Allah, Mighty and Majestic, is Modest and Concealing; He loves modesty and concealment.',
+      relevance: 'direct', provenanceTier: 'Bayyinah',
+      rationale: 'The Prophet ﷺ ascribes this Name to Allah explicitly (graded Sahih by al-Albani); it is not in the Tirmidhi enumeration.',
+    },
+  },
+  'as-subbuh': {
+    name: 'As-Subbūḥ', name_ar: 'السبوح', title: 'The Glorified', inNinetyNine: false,
+    gloss: 'Exalted above every flaw and every likeness, glorified in the bowing and prostration of His servants.',
+    source: {
+      kind: 'hadith', ref: 'Sahih Muslim 487',
+      arabic: 'سُبُّوحٌ قُدُّوسٌ رَبُّ الْمَلَائِكَةِ وَالرُّوحِ',
+      translation: 'All-Glorious, All-Holy, Lord of the angels and the Spirit.',
+      relevance: 'direct', provenanceTier: 'Bayyinah',
+      rationale: 'The Prophet ﷺ addressed Allah by this Name in rukuʿ and sujud (narrated by ʿAʾishah); it is not in the Tirmidhi enumeration.',
+    },
+  },
 };
 
 /** Number of registry entries that belong to the Tirmidhi enumeration. */

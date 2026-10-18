@@ -154,7 +154,7 @@ function attrLabel(a) {
 function attributesFor(stageId, stageMeta) {
   const islamic = getBbosStageIslamic(stageId);
   if (islamic?.attrs?.length) return islamic.attrs.map(attrLabel);
-  // Fallback: split the BBOS_STAGES attrs string ("Al-Awwal · Al-Badi").
+  // Fallback: split the BBOS_STAGES attrs string ("Al-Awwal · Ash-Shahid"; OPT carries three).
   if (stageMeta?.attrs) return stageMeta.attrs.split("·").map((s) => s.trim()).filter(Boolean);
   return [];
 }
