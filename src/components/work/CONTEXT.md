@@ -6,7 +6,7 @@ Project and task management with Kanban, List, and Gantt views. Uses dnd-kit for
 ## File Inventory
 | File | Description |
 |------|-------------|
-| ProjectBoard.jsx | View-switching hub (board/list/gantt), manages filters and side panel |
+| ProjectBoard.jsx | View-switching hub (board/list/gantt), manages filters and side panel. `handleStageAdvance(record)` advances from `project.bbosStage` (not the viewed `bbosFilter`), passes `{ basis, stageId, by }` to `advanceBbosStage` and moves the BBOS filter only if the store actually advanced (the store refuses while conditions are open). With no next stage it closes the cycle: it requires a record, calls `startNewBbosCycle(id, { basis, stageId, by })` and moves the filter to IDY only if the cycle actually incremented. The header **New Cycle** button (at OPT) opens `BbosGateMoveDialog` with `nextStage` null, which feeds the same handler |
 | DashboardView.jsx | Overview dashboard for projects: task summary cards, audit score, recent activity |
 | DashboardView.css | Dashboard grid layout, summary cards, audit score styles |
 | PillarLevelDashboard.jsx | Pillar-scoped dashboard aggregating projects under a maqasid pillar |
@@ -64,6 +64,14 @@ StageSidebar (BBOS pipeline navigation)
 - Change column behavior → modify KanbanColumn (droppable) + KanbanBoard drag handlers
 
 ## Gotchas
+- **Project toolbar (`.pb-header`) has a phone layout in `ProjectBoard.css`.** Desktop layout is the
+  inline styles (left cluster | right cluster). At `max-width: 767px` both clusters go
+  `display: contents` (with `!important`, to beat the inline `display:flex`) so every control wraps
+  in one row: BBOS chip + role picker, Download / Upload / drag toggle, then `.pb-viewswitch` on its
+  own full-width row (`order: 1`). Every control is 44px tall, and the 12px colour swatch gets a
+  `::after` halo for a 44px tap area. Switcher button padding lives in `.btn.pb-viewswitch__btn` (not
+  inline) so mobile can tighten it. Flow layout only, never `position:fixed`. If you add a toolbar
+  control, check it at 375px in Board view, where the drag toggle makes the widest row.
 - **`orderBoardTasks` is the ONE task comparator — never write `a.seedOrder - b.seedOrder` again.**
   It lives in [orientation-selector.js](../../data/orientation-selector.js) and every sorting surface
   imports it (KanbanBoard, ListView, StageSidebar, PillarLevelDashboard, ProjectBoard,

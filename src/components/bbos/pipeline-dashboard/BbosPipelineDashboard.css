@@ -27,7 +27,7 @@
   /* text */
   --bpd-text-primary: #EEE8D5;
   --bpd-text-secondary: #7A7890;
-  --bpd-text-tertiary: #3E3E58;
+  --bpd-text-tertiary: #8A88A2; /* ~5:1 on bg2 (was #3E3E58, ~1.9:1) */
   /* gold */
   --bpd-gold: #C9A84C;
   --bpd-gold-dim: #1A150A;
@@ -80,7 +80,7 @@
   /* text */
   --bpd-text-primary: #1C1B2A;
   --bpd-text-secondary: #5A5870;
-  --bpd-text-tertiary: #9A98AC;
+  --bpd-text-tertiary: #6E6C84; /* ~4.8:1 on bg2 (was #9A98AC, ~2.6:1) */
   /* gold */
   --bpd-gold: #9E7C1F;
   --bpd-gold-dim: #F7EFD7;
@@ -123,8 +123,12 @@
 .bpd button, .bpd-modal-overlay button { font-family: inherit; }
 .bpd input, .bpd textarea,
 .bpd-modal-overlay input, .bpd-modal-overlay textarea { font-family: inherit; }
-/* Visible keyboard focus across the dashboard and its modals (WCAG 2.4.7). */
-.bpd :focus-visible, .bpd-modal-overlay :focus-visible { outline: 2px solid var(--primary-strong); outline-offset: 2px; }
+/* Keyboard focus ring (WCAG 2.4.7). Mouse clicks don't trigger :focus-visible on
+   buttons, so the look is unchanged for pointer users. Text fields keep their gold
+   border-on-focus and also get the ring. */
+.bpd :focus-visible, .bpd-modal-overlay :focus-visible {
+  outline: 2px solid var(--bpd-gold); outline-offset: 2px;
+}
 .bpd ::-webkit-scrollbar, .bpd-modal-overlay ::-webkit-scrollbar { width: 3px; height: 3px; }
 .bpd ::-webkit-scrollbar-track, .bpd-modal-overlay ::-webkit-scrollbar-track { background: transparent; }
 .bpd ::-webkit-scrollbar-thumb, .bpd-modal-overlay ::-webkit-scrollbar-thumb { background: var(--bpd-border); border-radius: 2px; }
@@ -196,9 +200,12 @@
 
 /* ----- StageNode ----- */
 .bpd-stagenode {
+  display: block; width: 100%; text-align: left; color: inherit; font: inherit;
   padding: 10px 14px; cursor: pointer; background: transparent; border-radius: 10px;
-  border-left: 2px solid transparent; transition: all 0.2s;
+  border: none; border-left: 2px solid transparent;
+  transition: background 0.2s, border-color 0.2s, opacity 0.2s;
 }
+.bpd-stagenode:focus-visible { outline-offset: -2px; }
 .bpd-stagenode[data-selected="true"] { background: var(--c-dim); border-left-color: var(--c); }
 .bpd-stagenode[data-locked="true"] { cursor: default; opacity: 0.45; }
 .bpd-stagenode__row { display: flex; align-items: center; gap: 10px; }
@@ -211,7 +218,7 @@
 }
 .bpd-stagenode[data-selected="true"] .bpd-stagenode__name { color: var(--c); }
 .bpd-stagenode__tagline {
-  font-size: 12px; color: var(--bpd-text-tertiary); font-family: var(--bpd-font-ui);
+  display: block; font-size: 12px; color: var(--bpd-text-tertiary); font-family: var(--bpd-font-ui);
   font-style: italic; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 .bpd-stagenode__pulse {
@@ -425,7 +432,7 @@
   border-radius: 5px; text-transform: uppercase; letter-spacing: 0.08em;
 }
 .bpd-modal__close {
-  width: 28px; height: 28px; border-radius: 6px; background: var(--bpd-bg4);
+  width: 40px; height: 40px; border-radius: 8px; background: var(--bpd-bg4);
   border: 1px solid var(--bpd-border); color: var(--bpd-text-secondary);
   font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center;
 }
@@ -570,13 +577,20 @@
 .bpd-parse-result { font-size: 11px; font-family: var(--bpd-font-ui); }
 .bpd-parse-result--ok { color: var(--bpd-teal); }
 .bpd-parse-result--err { color: var(--bpd-red); margin-top: 6px; display: block; white-space: pre-wrap; }
+.bpd-parse-result__retry {
+  display: inline-block; margin-left: 10px; padding: 3px 10px; border-radius: 6px; cursor: pointer;
+  background: transparent; border: 1px solid color-mix(in srgb, var(--bpd-red) 40%, transparent);
+  color: var(--bpd-red); font-size: 11px; font-family: var(--bpd-font-ui);
+}
 
 /* import stage-pack */
 .bpd-import-trigger {
   background: var(--bpd-bg3); border: 2px dashed var(--bpd-border-mid); border-radius: 10px;
   padding: 12px 16px; margin-bottom: 10px; display: flex; align-items: center; gap: 12px;
   cursor: pointer; transition: border-color 0.2s;
+  width: 100%; text-align: left; color: inherit; font: inherit;
 }
+.bpd-import-trigger__title, .bpd-import-trigger__sub { display: block; }
 .bpd-import-trigger[data-open="true"] { border-color: color-mix(in srgb, var(--bpd-gold) 27%, transparent); }
 .bpd-import-trigger__icon {
   width: 30px; height: 30px; border-radius: 7px; background: var(--bpd-gold-dim);
@@ -616,6 +630,12 @@
 .bpd-btn-gold--cycle { margin-top: 10px; width: 100%; padding: 11px 0; border-radius: 8px; font-size: 12px; }
 .bpd-btn-gold--approve { width: 100%; padding: 11px 0; border-radius: 8px; font-size: 12px; }
 .bpd-btn-gold:disabled { opacity: 0.4; cursor: not-allowed; }
+/* Every un-wired or not-yet-ready control reads as unavailable, not as a live button. */
+.bpd-modal-overlay button:disabled { opacity: 0.4; cursor: not-allowed; }
+.bpd-notwired {
+  font-size: 11px; color: var(--bpd-text-tertiary); font-family: var(--bpd-font-ui);
+  font-style: italic; margin-top: 6px; text-align: center;
+}
 
 /* gate verdict header (live scoreStage verdict + stage status) */
 .bpd-brief__gate-verdict {
@@ -800,7 +820,7 @@
 /* gate section */
 .bpd-brief__gate-opt {
   padding: 12px 16px; background: var(--bpd-bg3); border: 1px solid var(--bpd-border); border-radius: 9px;
-  cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 12px;
+  cursor: pointer; transition: background 0.2s, border-color 0.2s; display: flex; align-items: center; gap: 12px;
 }
 .bpd-brief__gate-opt[data-locked="true"] { cursor: not-allowed; opacity: 0.6; }
 .bpd-brief__gate-opt[data-selected="true"] { border-color: color-mix(in srgb, var(--c) 33%, transparent); background: var(--c-dim); }
@@ -819,24 +839,114 @@
   font-size: 12px; font-family: var(--bpd-font-ui); font-style: italic; resize: vertical; line-height: 1.7;
 }
 .bpd-brief__gate-textarea:focus { border-color: color-mix(in srgb, var(--bpd-gold) 27%, transparent); }
+.bpd-brief__gate-opt[aria-disabled="true"] { cursor: default; }
+.bpd-brief__basis-hint { font-size: 11px; color: var(--bpd-text-tertiary); font-family: var(--bpd-font-ui); margin-top: -6px; }
 
-/* Approval Brief two-step confirm: secondary "Back" action */
-.bpd-btn-ghost-confirm {
-  min-height: 40px;
-  padding: 0 16px;
-  border-radius: 8px;
-  border: 1px solid var(--bpd-border-mid);
-  background: transparent;
-  color: var(--bpd-text-secondary, inherit);
-  cursor: pointer;
+/* inline confirm step for Advance / Halt: restates the move before it fires */
+.bpd-brief__confirm {
+  padding: 12px 14px; border-radius: 9px; background: var(--c-dim);
+  border: 1px solid color-mix(in srgb, var(--c) 40%, transparent);
 }
-.bpd-btn-ghost-confirm:hover { border-color: var(--bpd-gold); }
+.bpd-brief__confirm-text { font-size: 12px; color: var(--bpd-text-primary); font-family: var(--bpd-font-ui); line-height: 1.6; }
+.bpd-brief__confirm-row { display: flex; gap: 8px; margin-top: 10px; justify-content: flex-end; }
+.bpd-brief__confirm-btn {
+  padding: 8px 16px; border-radius: 7px; font-size: 12px; font-family: var(--bpd-font-ui); font-weight: 600; cursor: pointer;
+  background: transparent; color: var(--bpd-text-secondary); border: 1px solid var(--bpd-border-mid);
+}
+.bpd-brief__confirm-btn--go { background: var(--c); color: var(--bpd-bg); border-color: var(--c); }
+.bpd-brief__confirm-btn:disabled { opacity: 0.45; cursor: not-allowed; }
 
-/* Unsaved execution fields (BbosExecView) — honest about not persisting */
-.bpd-draft-note {
-  margin-top: 6px;
-  font-size: 11px;
-  font-style: italic;
-  color: var(--bpd-text-secondary);
-  font-family: var(--bpd-font-ui);
+/* open conditions: recorded gaps that block Advance until each is resolved */
+.bpd-brief__open {
+  display: flex; flex-direction: column; gap: 10px; padding: 12px 14px; border-radius: 9px;
+  background: var(--bpd-gold-dim); border: 1px solid color-mix(in srgb, var(--bpd-gold) 40%, transparent);
+}
+.bpd-brief__open-item { padding: 10px 12px; border-radius: 8px; background: var(--bpd-bg3); border-left: 3px solid var(--bpd-gold); }
+.bpd-brief__open-btn { margin-top: 10px; min-height: 36px; }
+.bpd-brief__blocked {
+  font-size: 12px; font-family: var(--bpd-font-ui); color: var(--bpd-gold); line-height: 1.6;
+  padding: 8px 12px; border-radius: 7px; border: 1px dashed color-mix(in srgb, var(--bpd-gold) 50%, transparent);
+}
+
+/* gate record: every decision taken at this stage, with its written basis */
+.bpd-brief__recorded {
+  font-size: 12px; font-family: var(--bpd-font-ui); color: var(--bpd-gold);
+  padding: 8px 12px; border-radius: 7px; background: var(--bpd-gold-dim);
+}
+.bpd-brief__log { margin-top: 10px; padding-top: 14px; border-top: 1px solid var(--bpd-border); }
+.bpd-brief__log-empty { font-size: 12px; color: var(--bpd-text-tertiary); font-family: var(--bpd-font-ui); font-style: italic; }
+.bpd-brief__log-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.bpd-brief__log-entry {
+  --c: var(--bpd-gold);
+  padding: 10px 12px; border-radius: 8px; background: var(--bpd-bg3);
+  border-left: 3px solid var(--c);
+}
+.bpd-brief__log-entry[data-decision="proceed"] { --c: var(--bpd-complete); }
+.bpd-brief__log-entry[data-decision="halt"] { --c: var(--bpd-red); }
+.bpd-brief__log-entry[data-decision="resolved"] { --c: var(--bpd-complete); }
+.bpd-brief__log-entry[data-decision="reversed"] { --c: var(--bpd-text-secondary); }
+/* An undone move stays in the record, visibly set aside. */
+.bpd-brief__log-entry--reversed { opacity: 0.7; }
+.bpd-brief__log-entry--reversed .bpd-brief__log-decision { text-decoration: line-through; }
+.bpd-brief__log-tag { margin-left: 6px; font-weight: 500; color: var(--bpd-text-secondary); display: inline-block; text-decoration: none; }
+.bpd-brief__log-head { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+.bpd-brief__log-decision { font-size: 12px; font-weight: 600; color: var(--c); font-family: var(--bpd-font-ui); }
+.bpd-brief__log-meta { font-size: 11px; color: var(--bpd-text-tertiary); font-family: var(--bpd-font-ui); }
+.bpd-brief__log-line {
+  font-size: 12px; color: var(--bpd-text-secondary); font-family: var(--bpd-font-ui);
+  line-height: 1.6; white-space: pre-wrap; margin-top: 2px;
+}
+.bpd-brief__log-key {
+  display: inline-block; min-width: 76px; color: var(--bpd-text-tertiary);
+  text-transform: uppercase; letter-spacing: 0.08em; font-size: 10px;
+}
+
+/* gate verdict: let the value drop below the label instead of clipping */
+.bpd-brief__gate-verdict { flex-wrap: wrap; gap: 4px 12px; }
+.bpd-brief__gate-verdict-value { white-space: nowrap; }
+
+/* ============================ MOBILE (<768px) =============================
+   The 240px rail turns into a horizontal stage strip above the overview, the
+   whole shell scrolls as one column, and the Brief's section nav becomes a
+   horizontal tab row above its content. */
+@media (max-width: 767px) {
+  .bpd { flex-direction: column; overflow-x: hidden; overflow-y: auto; }
+
+  .bpd-rail {
+    width: 100%; flex-shrink: 0; overflow: visible;
+    border-right: 0; border-bottom: 1px solid var(--bpd-border);
+  }
+  .bpd-rail__head { padding: 12px 16px; }
+  .bpd-rail__list {
+    flex: none; display: flex; gap: 4px; padding: 6px 8px;
+    overflow-x: auto; overflow-y: hidden; scroll-snap-type: x proximity;
+  }
+  .bpd-stagenode { flex: 0 0 200px; width: auto; scroll-snap-align: start; }
+  .bpd-rail__foot { display: none; }
+
+  .bpd-main { overflow: visible; }
+  .bpd-overview { height: auto; overflow: visible; padding: 20px 16px 96px; }
+  .bpd-overview__head { flex-wrap: wrap; gap: 12px; }
+  .bpd-overview__head-right { align-items: flex-start; }
+  .bpd-overview__title { font-size: 22px; letter-spacing: 0.12em; }
+
+  .bpd-fieldgrid, .bpd-metricgrid, .bpd-brief__readiness-grid { grid-template-columns: 1fr; }
+  .bpd-brief__readiness-cell--bordered { border-right: 0; border-bottom: 1px solid var(--bpd-border); }
+
+  .bpd-modal--exec, .bpd-modal--brief { height: 88vh; height: 88dvh; }
+  .bpd-modal--brief .bpd-modal__head { flex-wrap: wrap; gap: 8px; padding: 12px 16px; }
+  .bpd-brief__body { flex-direction: column; }
+  .bpd-brief__nav {
+    width: 100%; flex-shrink: 0; display: flex; overflow-x: auto; overflow-y: hidden;
+    padding: 0 8px; border-right: 0; border-bottom: 1px solid var(--bpd-border);
+  }
+  .bpd-brief__navbtn {
+    width: auto; flex: 0 0 auto; min-height: 44px; white-space: nowrap;
+    border-left: 0; border-bottom: 2px solid transparent; border-radius: 0;
+  }
+  .bpd-brief__navbtn[data-active="true"] { border-bottom-color: var(--bpd-gold); }
+  .bpd-brief__content { padding: 16px 16px 40px; }
+
+  /* touch targets */
+  .bpd-tab, .bpd-dl-btn { min-height: 44px; }
 }

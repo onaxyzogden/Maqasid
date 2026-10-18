@@ -5,23 +5,263 @@ type: log
 
 ## [2026-10-15] fix | MILOS — UX audit P0s: BBOS gate lock, saves that didn't save, People archive/status
 
-Operator ran `/ux-engine:ux-audit whole app`, then said *"fix #1–3 first"*. Branch `fix/ux-gate-people-data`; not yet committed. **Amanah gate:** positive (a gate decision on a failed covenant check can no longer be waved through; no record is lost silently).
+Operator ran `/ux-engine:ux-audit whole app`, then said *"fix #1–3 first"*. Branch `fix/ux-gate-people-data`, [onaxyzogden/Maqasid#62](https://github.com/onaxyzogden/Maqasid/pull/62); main merged in on 2026-10-18 to clear conflicts. **Amanah gate:** positive (a gate decision on a failed covenant check can no longer be waved through; no record is lost silently).
 
 - **#1 BBOS gate advanced while BLOCKED.**
   - In `BbosApprovalBrief.jsx`, "Proceed to Stage N" is locked (`aria-disabled`, `data-locked`) when `gate.verdict === "BLOCKED"`. A `role="status"` note explains why, and Halt stays available.
-  - In the classic `BbosFullDashboard.jsx`, Advance also requires `scoreStage(...).verdict !== 'BLOCKED'`, and a red banner shows when the tasks are done but the gate is blocked.
-  - "Proceed with Conditions" is inert by design; it never advances.
+  - In the classic `BbosFullDashboard.jsx`, Advance also requires `scoreStage(...).verdict !== 'BLOCKED'`, and a red banner shows when the tasks are done but the gate is blocked. After merging main, the lock applies only on the pipeline's current stage, so a finished earlier stage keeps main's **Go to X** link.
+  - "Proceed with Conditions" stays selectable: on main it records conditions with no stage change.
 - **#2 Saves that didn't save.**
   - `SalaryTab` bank details now save via `updateContact`, with a toast.
   - `PersonalTab.saveHR` creates the HR record when it is missing, where it used to drop the edit.
-  - The `BbosExecView` fields are mock-backed, so they are labelled "Draft — not saved" rather than appearing to persist. Real persistence is deferred.
+  - `BbosExecView`: main's `NOT_WIRED` disabled buttons and `bpd-notwired` note replace this branch's "Draft — not saved" note. The branch keeps only its field labels (`useId`/`htmlFor`, `aria-label` on the textareas).
 - **#3 People archive/status.**
   - `archived` was added to `EMPLOYEE_STATUSES`.
   - The HR list and headcount exclude archived employees unless the Archived filter is on.
   - Deactivate sets `inactive`; it used to set `archived`.
   - Undo toasts were added to Archive, Restore, Activate/Deactivate, Add to Pipeline and Make Client. Archived views offer Restore.
 - **Verified:** screenshots in the preview of the archive/restore/undo flows, headcount, Deactivate→`inactive`, the bank-details save, the HR-record creation, the classic BLOCKED banner with no Advance button, and the new-dashboard brief with Proceed locked. `npm run lint` passes (1 pre-existing warning), `npm test` 376/376, and the build is green.
-- **Found, not fixed:** People renders `DetailPanel` twice (stacked panels); this was spun off as a separate task.
+- **Found, not fixed:** People renders `DetailPanel` twice (stacked panels). Main fixed this in `6aceb71`, and the merge keeps main's removal from `HRPage`.
+
+## [2026-10-18] fix | BBOS printed-edition checks: Ibn Ḥibbān wording, OPT opening replaced
+
+Branch `fix/bbos-printed-edition-checks`. This closes the item deferred from PR #59: the two hadith numbers that had only been checked through secondary takhrij were checked against the printed editions. **Ibn Ḥibbān 974** is confirmed: it is the al-Iḥsān number, cross-referenced by *al-Taʿlīqāt al-Ḥisān* 970 and *al-Taqāsīm* 6737, and al-Albānī grades it ṣaḥīḥ. The SLS Arabic is reordered to Ibn Ḥibbān's wording ("…al-ḥazna sahlan idhā shiʾt"). **Musnad Aḥmad 24215**'s number is confirmed (al-Risālah 40/260), but its editors weaken the du'a phrase itself as Ibn Isḥāq's solitary addition. Al-Ḥākim and al-Dhahabī grade it ṣaḥīḥ. The operator chose to replace OPT's opening with **Al-Ḥashr 59:18** (Sahih International). The decision is amended and the entity updated. At commit: 435 tests, lint and build green.
+
+## [2026-10-18] merge | PR #60: project toolbar phone layout on main
+
+[onaxyzogden/Maqasid#60](https://github.com/onaxyzogden/Maqasid/pull/60) merged as `4f75bf5`, carrying `666801c` (the build entry below) and three merges from main that resolved wiki-only conflicts in `wiki/log.md`. At merge: 435 tests, lint and build green.
+
+## [2026-10-18] build | Project toolbar usable at phone width
+
+Branch `feat/project-toolbar-mobile`. At 375px the toolbar above the BBOS pipeline dashboard overflowed, and the Board/List/Gantt switcher sat off-screen at about x=436–804. Now, below 768px, the two clusters collapse (`display: contents`) into one wrapping row: chip + role picker, then Download / Upload / drag toggle, then the view switcher on its own full-width row. Every control is 44px tall, and the colour swatch gets an invisible 44px tap halo. Desktop is unchanged (same inline layout, and the switcher buttons measure the same). The change is CSS only, in `ProjectBoard.css`, plus class hooks in `ProjectBoard.jsx`. `pipeline-dashboard/` was not touched. Its mobile layout shipped separately in [onaxyzogden/Maqasid#58](https://github.com/onaxyzogden/Maqasid/pull/58).
+
+- **Verified:** 431 tests, lint, build. Preview at 375px in Dashboard and Board views: switcher `scrollWidth == clientWidth`, document width 375, and a real tap on Gantt switched view (screenshots). Checked desktop at 1280px.
+
+## [2026-10-18] merge | PR #59: BBOS stage grounding on main
+
+[onaxyzogden/Maqasid#59](https://github.com/onaxyzogden/Maqasid/pull/59) merged as `aa7867c`, carrying `773ee9b` (the build entry below) and two merges from main that resolved wiki-only conflicts. Still deferred: checking Ibn Ḥibbān 974 and Aḥmad 24215 against the printed editions, and the operator's version bump of the Factory docs.
+
+## [2026-10-18] build | BBOS stage attributes and du'as re-grounded
+
+Branch `feat/bbos-stage-grounding`. `bbos-stage-islamic.js` now matches the [stage grounding decision](decisions/2026-10-17-bbos-stage-grounding-reconciliation.md), whose status moves to implemented. The operator approved A1–A6:
+- `dua.source` is kept, and `sources[]` is added beside it.
+- IDY's arinā du'a is a non-prophetic `closingDua` with no `sources`.
+- OPT has 4 readiness rows, one of them the paired row "As-Subbuh · Al-Quddus".
+- Registry gains `as-sittir` and `as-subbuh`, neither among the ninety-nine.
+- Excerpts are marked "(excerpt)".
+- `closingDua` appears only at IDY, OFR, SLS, RET and OPT.
+
+- **Verified sources:** Qur'an text checked through the Quran MCP. Hadith numbers checked rather than taken from the docs: Abu Dawud 4012, Muslim 487, Muslim 1955, Nasāʾī 1305 and Ibn Ḥibbān 974. Aḥmad 24215 is graded hasan with a jayyid isnad per al-Albani. Ibn Ḥibbān 974 and Aḥmad 24215 were checked through secondary takhrij only. Nothing was left unverifiable.
+- **Verified build:** 435 tests (new `bbos-stage-islamic.test.js`), lint (divine-names: 108), build. Preview of the redesigned dashboard: the IDY overview shows Al-Awwal · Ash-Shahid with 20:25–26, and the OPT overview shows three attributes with "Allāhumma ḥāsibnī ḥisāban yasīrā". No console errors.
+- **Test data:** project `proj_MIxEnNKluxpb` ("Grounding Preview") is left in local preview storage.
+
+## [2026-10-18] merge | PR #58: BBOS dashboard mobile layout on main
+
+[onaxyzogden/Maqasid#58](https://github.com/onaxyzogden/Maqasid/pull/58) merged as `d17fc92`, carrying `60538e7` (the change entry below). Still deferred: a sticky CTA row and the 12px text floor. The project toolbar's off-screen view switcher is being handled in its own session.
+
+## [2026-10-18] change | BBOS redesigned dashboard: mobile layout
+
+This applies the top three fixes from the 375px mobile audit of the redesigned BBOS dashboard. Below 768px the rail becomes a horizontal stage strip and the shell scrolls as one column, so the overview width goes from 103px to 337px. The Brief's section nav becomes a tab row above its content, and its grids collapse to one column. The Amanah Gate verdict wraps instead of clipping to "BLOCK…". Tabs and download buttons are now 44px touch targets. Desktop is unchanged. 431 tests, lint and build green; screenshots taken at 375px and on desktop. Branch `feat/bbos-mobile-layout`. Deferred: a sticky CTA row, the project toolbar's off-screen Board/List/Gantt switcher (outside `.bpd`), and the 12px text-size floor.
+
+## [2026-10-17] decision | BBOS stage grounding reconciled with the Factory docs
+
+The operator reviewed the nine BBOS Factory annotated docs. Their attributes and du'as differed from `bbos-stage-islamic.js` at almost every stage, so the operator settled each stage in turn: 5 merges, 1 docs as written, 2 docs with fixed closings, and none kept as the app had it. Unsourced and misattributed du'as were replaced with Qur'anic or authenticated texts, and no Name repeats across stages. Recorded in [decision](decisions/2026-10-17-bbos-stage-grounding-reconciliation.md). Re-grounding the app is not done yet and needs its own approved plan. Fixing the docs is the operator's work.
+
+## [2026-10-17] merge | PR #57: BBOS gate Undo on main
+
+[onaxyzogden/Maqasid#57](https://github.com/onaxyzogden/Maqasid/pull/57) merged as `efb629d`. It carries `a2f4631` (Undo as a recorded `'reversed'` gate-log entry) and `52e77db` (15s toast window). Everything in the two entries below is now on `main`. Still deferred: Undo on the legacy dashboard, and clearing the test entries from `proj_dUifZgG8eXqL`.
+
+## [2026-10-17] build | BBOS gate Undo window lengthened to 15s
+
+Branch `feat/bbos-gate-undo`. The default 6s Undo window was easy to miss, so gate-move toasts now stay up 15s. `useUndoToast` gained an optional `{ duration }` and the dashboard passes `GATE_UNDO_MS = 15000`. The confirm copy now says "15 seconds". A "Reverse last decision" control in the Brief was considered and not built. Undo stays an immediate correction with a fixed basis, and reversing an older decision is a fresh gate decision with its own basis. Recorded in [decision](decisions/2026-10-17-bbos-gate-undo-reversal.md).
+
+- **Verified:** 431 tests, lint, build. Preview: the Close Cycle toast was still up at 10s (screenshot). Proceed IDY→CRD, then Undo clicked at 12.7s, returned it to IDY with a `reversed` entry. No console errors. The dev server had to be restarted because it was serving a stale module. The test project now sits at IDY, cycle 2.
+
+## [2026-10-17] build | BBOS gate Undo returns as a recorded reversal
+
+Branch `feat/bbos-gate-undo`. The Undo toasts dropped when PR #56 merged are back on the redesigned dashboard's Advance, Halt and Close Cycle. Undo now adds a `'reversed'` entry instead of restoring a snapshot. The operator chose "Add a 'reversed' entry".
+
+- **Gate log:** `'reversed'` + `reversesId`. Only the last entry can be reversed, and only a proceed, halt or cycle. `reverseGateDecision` restores the stage, clears the rejection or rewinds the cycle. Store action `reverseBbosGateDecision`.
+- **UI:** a toast appears only when the move wrote its entry. The Gate record shows the reversal and strikes through the original. The confirm copy now mentions Undo.
+- **Verified:** 431 tests (5 new), lint, build. Preview: all three flows and an expired toast, screenshots, no console errors. The test project `proj_dUifZgG8eXqL` now carries test entries and sits at OPT, cycle 1.
+- **Deferred:** Undo on the legacy dashboard. A longer toast window, or a "reverse last decision" control in the Brief, since 6s proved easy to miss.
+- **Wiki:** [[2026-10-17-bbos-gate-undo-reversal]], [[bbos-pipeline]].
+
+## [2026-10-17] ship | PR #56 merged; feature branch deleted
+
+PR #56 (BBOS gate record, plus the Islamic node-task catch-up) is merged into main as 0e2498e.
+
+- **Preview check before merge:** the Execution View's Gate Check tab shows **Continue to Approval Brief**. It opens the Brief for the current stage, moves focus into the dialog, and leaves the gate log unchanged (8 entries before and after). The Vite 500s in the console dated from the moment `migration.js` still held conflict markers. After a reload, no new errors appeared.
+- **Branch:** `feat/desktop-pillar-glyphs` is deleted locally and on GitHub. Work continues from main.
+- **Wiki:** [[bbos-pipeline]] gains an "On main" note recording that the gate log is the single decision record.
+
+## [2026-10-17] merge | PR #56 catches up to main: the gate log wins, main's node split wins
+
+Merged origin/main (4282456) into feat/desktop-pillar-glyphs to clear PR #56's conflicts. The operator chose the following.
+
+- **BBOS: "Gate log wins".**
+  - `bbosGateLog` is the only decision record. Main's `bbosDecisions` writes and its Undo toasts on Advance, Reject and Close Cycle are dropped.
+  - Main's ExecView "Continue to Approval Brief" button is kept, now wired to open the Brief. The modal input font rule is kept too.
+- **Islamic: "Main's versions".**
+  - Main's seed, matchers and migrations win: `seed_istijabah_task_v1`, `seed_node_split_v1`, `rowMatches`, the prayer-node fallback and the own-tasks rule.
+  - The branch's istijabah and du'a-of-return tasks are dropped, and so is `seed_node_content_split_v2`.
+  - Kept from the branch: the travel concessions task (seq 13), the qaylulah adab and community ʻĪd tasks, the per-prayer Before/After content and its fan-out prune, the ceremonies, `'community'` for `'ummah-community'`, and the U+02BB Jumuʻah class.
+  - See the notes on [[2026-08-29-milos-five-node-content-split]] and [[2026-08-29-milos-node-content-split]].
+- **Tests.**
+  - Branch tests adapted: five-node-content now passes tags, and its arrival title is main's; no-fallback now checks main's taraweeh task.
+  - Main's node-matching test now lists the concessions task on traveler-departure.
+  - 426 tests, lint and build are green.
+
+## [2026-10-17] feat | BBOS cycle close takes a basis and is recorded
+
+The operator asked to "give Complete Cycle a required basis and record it". They chose all three surfaces, recorded as a new `'cycle'` decision. **Amanah gate:** positive. Closing a cycle is a routing decision, and now it is made on a written basis like every other one.
+
+- **Gate log:** `'cycle'` joins `GATE_DECISIONS`. It is logged in the closing cycle, on OPT, with `toStageId: 'IDY'`.
+- **Store:** `startNewBbosCycle(id, record?)` logs the entry, then resets and increments. With a record, it is refused while OPT has open conditions.
+- **Legacy UI:** the Advance dialog was extracted to `BbosGateMoveDialog`. The dashboard's Complete Cycle and ProjectBoard's header New Cycle both use it; there is no `confirm()` any more.
+- **Brief:** "Close Cycle (deferred)" is now **Close Cycle**, blocked by open conditions. The Gate record shows "Cycle closed".
+- **Verified:** 326 tests, lint and build green. All three paths were checked in preview with screenshots; the test project was restored.
+
+See [[2026-10-17-bbos-cycle-close-record]], [[bbos-pipeline]].
+
+## [2026-10-17] fix | BBOS legacy dashboard: Advance follows the pipeline's actual stage
+
+This closes the open item left by [[2026-10-17-bbos-legacy-gate-record-path]]; the decision page records it as a follow-up. **Amanah gate:** positive. A routing decision can only be made from the stage the pipeline is really on.
+
+- **BbosFullDashboard:** Advance shows only when the viewed stage equals `project.bbosStage`. A finished earlier stage says "The pipeline is at X" and offers **Go to X**, through the existing `onStageSelect`. The dialog cannot open off-stage.
+- **ProjectBoard:** `handleStageAdvance` takes the from-stage and the gate `stageId` from `bbosStage`, not from the viewed filter.
+- **Verified:** 322 tests, lint and build green. In preview, viewing CRD with the pipeline at STR showed Go to Structure, which switched the view; with the pipeline at CRD, Advance to Structure showed.
+
+## [2026-10-17] feat | BBOS legacy dashboard: Advance and Reject go through the gate record
+
+This closes the follow-up from the conditions-resolution pass. The operator asked to route the ProjectBoard advance through the record path, with open conditions listed and resolved inline, and then asked to include Reject. Decision: [[2026-10-17-bbos-legacy-gate-record-path]]. **Amanah gate:** positive. Every routing decision on a covenant pipeline now carries a written basis, in both dashboards.
+
+- **BbosFullDashboard:** Advance now opens a dialog:
+  - open conditions, each with Mark resolved behind its own basis;
+  - a required routing basis;
+  - Confirm blocked while any condition is open.
+
+  Reject needs a basis and logs a `halt`. The 'all' role logs `by`/`rejectedBy` null; preview caught a `by: "all"` leak, which was fixed. Both modals are portalled to `document.body`, out of ProjectBoard's transformed layer.
+- **ProjectBoard:** `handleStageAdvance(record)` passes `{ basis, stageId, by }`, and follows the stage only if the store moved.
+- **Unchanged:** Complete Cycle.
+- **Tests:** a new `src/store/__tests__/project-store-bbos-gate.test.js` (3). 322 tests, lint and build green. Preview verified with screenshots.
+- **Open:** the legacy view's Advance button keys off the viewed stage, not `bbosStage` (pre-existing).
+
+## [2026-10-17] feat | BBOS gate conditions: resolved by record, and open conditions block Advance
+
+This closes the open item from the gate-decision-log pass. The operator chose **block** over warn and approved the plan. Decision: [[2026-10-17-bbos-gate-conditions-resolution]]. **Amanah gate:** positive. A condition placed on a covenant routing decision now has to be honoured, on the record, before the pipeline moves on. No capital surface is touched.
+
+- **Data:** a new decision `'resolved'`, with `resolvesId` pointing at the conditions entry and its own basis. It takes the stage and cycle from that entry, and refuses an unknown, non-conditions or already-resolved target. The log stays add-only. `openConditions(log, stageId, cycle)` is a new pure helper.
+- **Adapter:** `brief.gate.openConditions` (current cycle).
+- **Store:** `advanceBbosStage` refuses a recorded advance while the stage it leaves has open conditions. Record-less legacy advances bypass it.
+- **Brief:** an Open conditions panel with Mark resolved behind a required basis. With conditions open, Proceed is disabled and a note explains why. The Gate record shows "Condition resolved" with a Resolves line.
+- **Verified:** 319 tests (5 new), lint and build green. In preview: conditions recorded at IDY, Advance blocked, condition resolved, then Advance IDY→CRD.
+
+## [2026-10-17] feat | BBOS gate decision log: the basis is kept, and Proceed-with-Conditions is recorded
+
+Follow-up to the honest-controls pass. The operator approved the store change that pass had held back. Decision: [[2026-10-17-bbos-gate-decision-log]]. **Amanah gate:** positive. The written basis of a covenant routing decision is now kept as a record, and no capital surface is touched.
+
+- **`project.bbosGateLog`:** entries are only ever added, never changed. Each holds the id (`gd_…`), the time, cycle and stage, the decision, the basis, the conditions, reason or target stage where they apply, the closing note, and the acting role. It is built by the pure helpers in `src/data/bbos/bbos-gate-log.js`.
+- **Store:** `advanceBbosStage` and `rejectBbosPipeline` take an optional trailing `record`, so legacy callers are unchanged. The new `logBbosGateDecision` adds an entry with no stage change.
+- **Brief:** Proceed with Conditions needs written conditions and a basis. It records straight away (there is no confirm step, because nothing moves), clears the form and shows a status line. A per-stage **Gate record** list shows entries newest first, through the adapter's `brief.gate.log`.
+- **Attribution:** `by` is the BBOS role, and the `'all'` view filter is recorded as null.
+- **Verified:** 314 tests, lint and build green. In preview, a conditions entry was logged with the stage staying IDY, then Proceed went IDY→CRD with its entry logged, both shown in the Gate record.
+- **Open:** conditions don't block Advance, and there is no way to resolve them yet.
+
+## [2026-10-17] fix | BBOS redesigned dashboard — UX audit, then honest controls and a protected gate decision
+
+The operator ran `/ux-engine:ux-audit` on the redesigned pipeline dashboard (`bbosNewDashboard` flag) and approved the resulting 5-step fix plan. Decision: [[2026-10-17-bbos-dashboard-honest-controls]]. **Amanah gate:** positive. It protects the written basis of a covenant gate decision and does not touch any capital surface.
+
+- **The audit's P0s:** every primary write control in the Execution View did nothing; typed gate reasoning could be lost to one stray scrim click; Advance/Halt fired on one click with no basis required.
+- **Dead buttons are now disabled and say why** ("Not wired in this preview: nothing is saved yet"). The one exception is **Mark Reviewed & File**, wired through `taskStore.moveTask` to the project's Done column; the row re-renders as Filed because modals now track a stage *id* and read the live view model.
+- **Gate decision:** the basis textarea is controlled and required. The action opens an inline `alertdialog` confirm that restates the move ("Advance from Stage n — … to Stage n+1? … cannot be undone here."). Gate options and rejection reasons are `role="radio"` within radiogroups; readiness cells are `role="checkbox"`.
+- **New `useBpdDialog.js` hook** shared by both modals: scroll-lock, focus in and restore, Esc, Tab trap, and a `window.confirm` discard prompt when dirty.
+- **A11y baseline:** gold `:focus-visible` ring (the blanket `outline:none` is gone); tertiary text raised to `#8A88A2` dark / `#6E6C84` light; rail StageNode is a `<button>`; × is 40px with an `aria-label`; labels added to the Brief's project fields.
+- **Held, not done:** persisting the basis and closing reflection through `advanceBbosStage` / `rejectBbosPipeline`. This is a project-store signature change and needs the operator's separate OK.
+- **Verified:** `npm run lint` green, `npm test` 309/309 across 18 files, `npm run build` ✓. In preview (dev-only test project and user in localStorage): screenshots of the focus ring on the rail, Approve blocked with an empty basis plus the hint, the inline confirm, and the Exec upload error with retry in both light and dark. Also checked: the dirty scrim/Esc prompt, focus returning to the trigger, and body overflow restored.
+- **Pages touched:** [[bbos-pipeline]], wiki/decisions/2026-10-17-bbos-dashboard-honest-controls.md (new), wiki/index.md, `src/components/bbos/CONTEXT.md`.
+
+## [2026-08-29] feat | MILOS — the five non-prayer nodes get their own tasks and their own ceremonies
+
+Second pass of the same date, filling the gap the first pass's fallback removal deliberately exposed and deferred. Operator widened scope to the maximal option at every choice: all four thin nodes (`jumuah`, `eid-prayer`, `qaylulah`, `traveler-departure`) get authored content, `traveler-arrival` is added as a fifth node rather than left as departure's mirror, and Eid's content is split across Salah and Community. Decision: [[2026-08-29-milos-five-node-content-split]]. **Amanah gate:** positive — closes an authenticity gap (nodes were showing borrowed or wrong content), authors nothing beyond what already-attested sources support, touches no capital/CSRA surface.
+
+- **Four defects under five symptoms, all in `prophetic-path-submodules.js`.** `jumuah`'s matcher was ASCII-only against a seed title carrying **U+02BB** (`Jumuʻah`) — zero matches ever. `eid-prayer`'s bare `/\beid\b/i` claimed that same Friday task off the substring "the eid of the week." `traveler-arrival` matched bare `home`/`return`/`arrival` — every title on `family_home_growth` answered to it, rendering nine wrong rows. Three node entries scoped the dead submodule id `'ummah-community'` instead of `'community'`, blinding them to the Ummah boards entirely.
+- **Content was derived, not manufactured, except for one genuine void.** Four of the five nodes already had their practice as subtasks inside an existing hub task — the gap was visibility (the four defects above), not missing content. Only `eid-prayer` had nothing anywhere; its prayer-sunan half went to `faith_salah_growth`, its communal half (Zakat al-Fitr before the prayer, udhiyah, household) to `ummah_community_growth`, per the operator's split choice.
+- **Only one row physically moved.** The duʿāʾ of return was a subtask of the travel hub on `faith_salah_growth`; it is now the first subtask of the new `traveler-arrival` task instead, or the boot backfill's title-diff would have shown it twice on one board. Everything else Part 2 added is a title the backfill delivers on its own — nothing else needed a storage prune.
+- **Five ceremonies, each keyed by node id, none inherited.** Repeats the `istijabah-hour` pattern from the same-day first pass: `THRESHOLD_MODULE_BY_NODE` repoints all five off `'faith-salah'`/`'health-physical'`/nothing-at-all (the travel pair had **no key** and were falling through to the **Work** ceremony on the road) onto their own ids, all five join `DAILY_CEREMONY_MODULES`, and none opens on Al-Baqarah 2:186 — reusing Salah's duʿāʾ was the original defect this whole line of work exists to fix. Names chosen for the threshold: Al-Jāmiʿ + An-Nūr (`jumuah`), Ash-Shakūr + Al-Karīm (`eid-prayer`), As-Salām + Al-Muqīt (`qaylulah`), Al-Wakīl + Al-Ḥafīẓ (`traveler-departure`), Al-Barr + At-Tawwāb (`traveler-arrival`).
+- **A corrected premise, found mid-implementation.** The plan implied fixing `jumuah`'s matcher would leave it showing exactly one task (the Friday sunan). The real 102-board production dump showed **three** — two pre-existing Ummah congregational-prayer rows genuinely also answer to the matcher's long-standing `congregational\s+prayer` alternative and are correctly kept, not a regression. The first test fixture, built from a 5-board slice, asserted the wrong (1-task) count and passed — it was widened to 6 boards once the full-production dump disagreed, rather than shipped as a false pin.
+- **Storage prune is the narrowest yet shipped:** one board, one task, one subtask (`faith_salah_growth` / travel hub / the relocated duʿāʾ), flag `seed_node_content_split_v2`, same `subtaskHasState()` guard as the first pass — a worked-on row is kept beside its replacement, named in a console line. Gated by `stages/implement-five-node-content-review.md`, **awaiting Yousef's sign-off** — not yet run against real operator storage.
+- **Live-verified for all five nodes via their real production trigger**, not source hacks: `qaylulah` direct click; the travel pair via the actual Settings "Begin Travel"/"End Travel" buttons; `eid-prayer` via a fake `bbiz_prayer_hijri` from the console; `jumuah` via a temporary `isFriday()` override with the revert **explicitly double-checked** — empty `git diff`, no `TEMP VERIFY` string anywhere in `src/`.
+- `npm test` **309/309 across 18 files**, `npm run lint` green (grounding `0 ≤ 0` all 8 pillars, inline-refs `0 ≤ 0`, `divine-names: OK — 106 names, 126 module attributes`) apart from one pre-existing unrelated warning in `IslamicPanel.jsx:32`; `npm run build` ✓. Uncommitted at time of writing on `feat/desktop-pillar-glyphs`, pending this session's commit.
+
+## [2026-08-29] feat | MILOS — every prayer node gets its own Before/After, and the Hour of Acceptance stops borrowing Salah
+
+Operator, two complaints raised together: *"I'd like for each of the prayer nodes to have their own unique before/after set of tasks/subtasks. I'd also like for the “Hour of Acceptance” node to display it's own content rather than reusing Salah's content"* — both confirmed by **running the real seed modules and dumping the generated boards**, not by reading. Four choices made by selection, all four landing on the more expensive option (specialize per prayer · derive then author · own seed tasks + kill the fallback · own ceremony content), then a plan approved. Decision: [[2026-08-29-milos-node-content-split]]. **Amanah gate:** positive — it stops one practice being presented to the operator as another's, derives replacement content from already-attested rows rather than manufacturing fiqh, and touches no capital / CSRA / salam / yield-share surface.
+
+- **One symptom, three unrelated causes — which is why it survived.** (1) `classifyTask()` ended with a fallthrough `return FIVE_DAILY.map((p) => \`prayer_${p}_${phase}\`)` that copied any phase-tagged Faith task onto **all five daily prayers**; three titles hit it and, because the boards are 1–3 tasks deep, they dominated — **Asr Before was *only* the shared task**. (2) `buildTasksForNode()` ended its matcher stage `rows = matched.length > 0 ? matched : scopePool`, so a node matching nothing silently inherited its whole submodule pool: `istijabah-hour` matched **0 of 43** rows and rendered **twenty generic Salah tasks**, `isha-taraweeh` **0 of 45**. (3) `THRESHOLD_MODULE_BY_NODE['istijabah-hour']` was literally `'faith-salah'`, so Before opened on *"Before Standing in Salah"* (Al-Baqarah 2:186) and asked what the operator was bringing into a prayer they were not about to pray.
+- **The practice the node is named after existed as one subtask.** Zero seed tasks anywhere carried `transition:istijabah-hour`; *Make duʿāʾ in the last hour before Maghrib on Friday* (Bukhārī 935) was buried inside `Honor the Friday Sunan` on `faith_salah_growth`. It is now a task of its own with four grounded subtasks (Bukhārī 935 / 6338 / 6340), and the subtask is relocated rather than duplicated.
+- **The replacement content was derived by reviving code that already existed, not authored from scratch.** `getPrayerPhaseSunnah(prayerId, phase)` was exported, grounded, and had **zero consumers** — its own comment says it was written *"so the six prayer nodes no longer share one generic faith-salah threshold."* A new `buildRawatibTasks()` consumes it and passes each row's `sources` array through **verbatim**, so both grounding ratchets were structurally incapable of moving. A duplication bug is not a licence to manufacture new fiqh. Hand-authored additions then rewrite the three retired practices once per prayer (Fajr's *aṣ-ṣalātu khayrun min an-nawm* → *ṣadaqta wa bararta*; Asr as *al-ṣalāt al-wusṭā*, Al-Baqarah 2:238, with **no nafl after**; Maghrib's short window and awwābīn; Isha sealing with Witr).
+- **`faith-seed-tasks.js` keeps the three generic tasks** — only their *copies* onto prayer boards go away, so the Faith pillar's `seq` chains and grounding counts are untouched. The per-prayer replacements live in `prayer-seed-tasks.js`, which already emits board-only tasks.
+- **The whole-pool fallback is removed outright rather than excluded per node.** `rows = matched`. Showing another practice's content is worse than showing none, and both empty states already existed (`MirrorCard`, `NodePhaseSlideUp`), so no new UI was needed. The cost is named and accepted: five thinly-matching non-prayer nodes (`jumuah` 1/30, `eid-prayer` 1/42, `qaylulah` 1/25, `traveler-departure` 1/42) now show honestly short boards. **Out of scope, deliberately.**
+- **A Prophetic Path node authors its own ceremony for the first time.** `MODULE_ATTRS['istijabah-hour']` is the first **node id** rather than registered pillar submodule to own an entry; `getModuleData()` resolves it directly. Two consequences handled rather than discovered later: `getPillarForModule()` returns `null` for it, which would have **silently dropped the readiness pause-ayah** — `CeremonyFlow` now reads `data?.readinessAyatKey ?? pillar?.readinessAyatKey`, one additive line letting any module declare its own registry; and `'istijabah-hour'` joins `DAILY_CEREMONY_MODULES` or its completion would never clear at Maghrib rollover.
+- **The plan's readiness design was rejected mid-implementation, on reading the data it depended on.** The plan said `readinessAyatKey: 'faith'`, which is correct — but the `faith` registry's **6-bit matrix is authored against Al-Mutakabbir M1–M4 / Al-Wakīl W1–W2 row semantics**. Six istijabah rows would have built *matching* keys that surfaced ayah framings **written for entirely different questions** — a failure far harder to notice than a missing ayah. Four rows were authored instead, mirroring `faith-salah`, whose 4-bit key already never matches and whose pause ayah is therefore already inert. The key is kept so the module declares its registry rather than depending on a parent it does not have, and **the inertness is written into the entry's own comment rather than papered over**.
+- **Names and duʿāʾ chosen for this hour, not inherited.** **Al-Mujīb** (Quran 11:61) because it is the Name this hour turns on, and **As-Samīʿ** (Quran 2:127) added because its registry gloss — *no prayer is ever mislaid* — answers the specific failure mode of a short, silent hour. Opening duʿāʾ **Ghafir 40:60** (`ادعوني أستجب لكم` — the same *j-w-b* root as *istijābah*), closing **Al-Baqarah 2:152**, deliberately avoiding 2:186 because reusing it *was* the reported defect.
+- **Cross-prayer uniqueness proved against real seeded storage, not only by test:** `crossPrayerDuplicates: []`, board depths Fajr 4/4, Dhuhr 3/2, Asr 3/3, Maghrib 3/3, Isha 3/5, Tahajjud 4/3 — Asr Before went from **1 shared task to 3 of its own**. A cross-board uniqueness guard was added to `prayer-order.test.js` so the reported defect is now stated as a test.
+- **Two existing tests broke by design and were rewritten rather than deleted.** `'every override lists exactly the tasks on its board'` is a set-equality drift guard — its tables were updated and the guard kept exactly as it is, because it is what proves the new boards are right. `'opens every _after board on the core post-prayer adhkar'` had one of the retired titles as its `CORE_ADHKAR` constant; rewritten to assert the **per-prayer** adhkar opens each board and the memorisation task never sorts first, preserving the intent (excellence tier must not lock the chain) while only the constants change.
+- **The storage prune keeps anything the operator has worked on, and that was verified in two rounds against a real profile.** `pruneSplitSeedRows()` (flag `seed_node_content_split_v1`) runs both halves — 10 boards × 3 retired titles, 1 board × 1 relocated subtask. Round 1: the untouched generic adhkar was **removed** from `prayer_fajr_after`; the supplications task, carrying a completed subtask, was **kept**, with the console saying so by name. Round 2, with the istijabah subtask marked `done`: **kept**, alongside the new task — exactly the documented "visible twice, delete by hand" case. Losing a completion silently is the worse failure. Gated by `stages/implement-node-content-split-review.md` per the repo's CI/CD safety rule.
+- **Screenshots worked, and every claim about the UI rests on one.** Hour of Acceptance verified on **all three tabs** on a freshly seeded profile: Before → *"BEFORE THE HOUR OF ISTIJABAH"* / Ghafir 40:60; During → its own `Keep the hour of istijabah` task at 0/4 (**not** the twenty-task Salah pool); After → *"AFTER THE HOUR"* / Al-Baqarah 2:152, plus Al-Mujīb + As-Samīʿ with their Quran chips and its own 2-row reflection. Two prayer boards captured: Fajr Before opening on *Reclaim the day with the waking du'a and morning adhkar*, Asr Before on *Guard al-ṣalāt al-wusṭā — pray ʿAṣr before the sun yellows*.
+- **One surface could not be screenshotted and is recorded as such rather than worked around.** The `isha-taraweeh` node renders **only during Ramadan**, and today is 29 Aug 2026 — reaching it would have required a second temporary source hack, which was refused. Its behaviour is pinned by a passing test instead (it matches its parent Ramadan task and returns `[]` rather than the Salah pool).
+- **A self-inflicted diagnosis worth not repeating.** The During tab first showed *"No tasks queued for this window."* and looked like a product bug. It was not: `bbiz_tasks_faith_salah_growth` had been **deleted by my own earlier test cleanup**, and **boards do not re-seed once removed** — the board stays permanently empty for that profile. Recovery needed a full `bbiz_` wipe and a fresh onboarding pass. The empty state was then re-confirmed gone on the reseeded profile.
+- **The temporary Friday override was reverted and the revert was verified.** `istijabah-hour` is Friday-only and today is Saturday, so `isFriday()` was forced to `return true` to reach the node. Restored to `return date.getDay() === 5`; `git diff` on `PropheticPath.jsx` is **empty** and no `TEMP VERIFY` marker survives anywhere in `src/`.
+- **Flagged, not fixed (pre-existing).** The `jumuah` node does not pick up `Honor the Friday Sunan — Jumuʻah is the eid of the week`: its matcher `/\b(?:jumu[a']?ah|…)\b/i` allows only ASCII `a`/`'` while the title uses **U+02BB**, so `eid-prayer` claims the task instead. Also unchanged by design: `titleMatches()` reads the **title only**, so the `transition:*` regexes sitting in the matcher lists can never fire — left alone, because widening it to tags would change matching for **all twenty nodes at once**.
+- **Verified:** `npm test` **300/300 across 17 files** (up from 290), `npm run lint` green end-to-end (`[STRICT] OK: 0 ≤ ratchet 0`, inline-refs **0 ≤ 0** across 2052 subtasks / 8 pillars, `divine-names: OK — 106 names (99 of the ninety-nine), 116 module attributes, all attested`, 41 glyphs, 7 cards), `npm run build` ✓ 8.11s.
+- **Pages touched:** wiki/decisions/2026-08-29-milos-node-content-split.md (new), [[milos]], wiki/index.md.
+## [2026-10-17] fix | MILOS — every Prophetic Path node shows only its own tasks
+
+Operator: *"Why would it show either no tasks or the tasks of another when it's been defined? Are there any other [nodes] borrowing tasks from others?"* An audit found seven nodes borrowing, plus a fallback that made any node show its whole scope once its own tasks were done. Operator chose by selection:
+- own tasks only, and ticked when all are finished;
+- split the shared tasks (rather than filter steps);
+- add both sourced return sunnahs;
+- keep post-Witr adhkar on Witr.
+
+**Amanah gate:** positive.
+
+- **Engine** (`prophetic-path-submodules.js`, non-prayer nodes only): a task routed elsewhere (`transition:` tags none of which the node names) is never shown. Finished own tasks stay and show ticked. There is no scope fallback any more.
+- **Node fixes:**
+  - Eid's scope gains `faith-siyam`, where both ʻĪd tasks live.
+  - Witr claims `post-witr`, Bedtime claims `pre-sleep`, and Taraweeh claims `laylat-al-qadr`. Laylat al-Qadr is a date banner, not a task node.
+  - Keywords tightened on Traveler Arrival, Jumuʻah, Iftar and Bedtime.
+- **Seeds:**
+  - Ramadan becomes *Break the fast… iftar duʻaʻ* (renamed), plus *Stand the nights of Ramadan in taraweeh* and *Seek Laylat al-Qadr in the last ten nights*.
+  - Travel loses its return du'a to *Return home from travel…*, which also gets "not unannounced at night" (Bukhari 5244, 1801) and "two rakʿat at the masjid" (Bukhari 3088).
+- **Migration** `seed_node_split_v1`: rename, untag, insert, move rows by reference with their ticks, align, promote completion. Gate: `stages/implement-node-own-tasks-review.md`. Pass-2's drift guard now reads the seed through the split.
+- **Verified:**
+  - `npm test` 399/399; lint and build green.
+  - New tests: no node shows a task routed elsewhere; every node owns something; the done-state shows ticked own tasks.
+  - Live migration in Chromium: ticks carried and the moved routing tags stripped.
+
+## [2026-10-16] fix | MILOS — Hour of Acceptance gets its own task
+
+Operator: *"Review the tasks that appear in the Hour of Acceptance node in prophetic path page. It's not right."* The node showed the whole Friday Sunan task, which carried `transition:istijabah-hour` (added 2026-10-05). Ghusl, walking early and the khutbah are over long before the last hour before Maghrib; only the du'a step belonged. Operator chose by selection: a dedicated task; move the du'a step (not copy); three new steps (when the hour falls, certainty, praise and salawat), declining a thinner-grounded "wait till Maghrib" step. **Amanah gate:** positive.
+
+- **Seed:** `faith_salah_growth` gains "Seek the Hour of Acceptance on Friday" (`seq` 7). Its steps, in order:
+  1. Learn when it falls: Abu Dawud 1048, plus Tirmidhi 489 as support only.
+  2. Call on Allah certain of being answered: Tirmidhi 3479, marked **T2/Qarina** because its chain is disputed.
+  3. Open with praise and salawat: Tirmidhi 3477.
+  4. The last-hour du'a, moved byte-for-byte.
+
+  The Jumuʻah task keeps its five daytime steps and `transition:jumuah`. Witr, sleep, Tahajjud and travel each move down one `seq`.
+- **Migration** `seed_istijabah_task_v1` (`applyIstijabahTask`):
+  - strips the tag from the stored Jumuʻah task (hydration only adds tags);
+  - inserts the task;
+  - moves the du'a row with its `id` and `done`;
+  - aligns the new task's steps;
+  - promotes completion on this board only.
+
+  Gate: `stages/implement-istijabah-hour-task-review.md`.
+- **Hadith cache:** adds `bukhari:935`, `abudawud:1048`, `tirmidhi:489` and `tirmidhi:3477`. Additive only, taken from the hadith-api dataset on GitHub (the jsdelivr CDN is blocked in cloud sessions).
+- **Docs:** `seed-tasks/CONTEXT.md` corrected. New seed tasks *are* appended by the boot backfill; tag removals are not.
+- **Open:** a node whose matchers find nothing falls back to its whole scope. Once the new task is completed, this node could show every Salah and Shahada task again. Reported only.
 
 ## [2026-10-15] fix | MILOS — last two contrast failures (navigator, pillar intro popup)
 

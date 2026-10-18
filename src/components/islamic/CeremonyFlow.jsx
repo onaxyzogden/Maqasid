@@ -130,8 +130,12 @@ export default function CeremonyFlow({ moduleId, type, onComplete }) {
   const readinessAllYes = hasInteractiveReadiness && allYes(readinessRows, readinessSelections);
   const readinessKey = hasInteractiveReadiness ? buildReadinessKey(readinessRows, readinessSelections) : '111111';
 
-  // ── Ayat lookup via pillar's readinessAyatKey ────────────────────────────────
-  const readinessAyatKey = pillar?.readinessAyatKey;
+  // ────── Ayat lookup: the module's own readinessAyatKey, else its pillar's ──────
+  // Most modules inherit the key from their Maqasid pillar. A module that is
+  // not registered under one — a Prophetic Path node authoring its own
+  // ceremony, say — resolves getPillarForModule() to null and would silently
+  // lose its pause ayah, so it may declare the registry itself.
+  const readinessAyatKey = data?.readinessAyatKey ?? pillar?.readinessAyatKey;
   const pauseAyah = (hasInteractiveReadiness && isIslamic && readinessKey !== '111111')
     ? lookupReadinessAyahByKey(readinessAyatKey, readinessKey)
     : null;

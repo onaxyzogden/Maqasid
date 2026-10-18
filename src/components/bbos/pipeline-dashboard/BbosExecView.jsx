@@ -1,9 +1,12 @@
 // BBOS Pipeline Dashboard - Execution View modal (tabs, factories, gate, retro).
-// Rendered via portal to document.body with body scroll-lock (mirrors
-// BbosTaskPanel).
-import { useEffect, useId, useRef, useState } from "react";
+// Rendered via portal to document.body; scroll-lock, Esc, focus handling and the
+// unsaved-typing guard come from useBpdDialog.
+// Buttons with no live model behind them yet render disabled with NOT_WIRED as
+// their tooltip — never a live-looking button that does nothing.
+import { useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useTaskStore } from "../../../store/task-store";
+import { useBpdDialog } from "./useBpdDialog";
 import { downloadStageBundleTemplate, validateStageBundleTemplate, importStageBundleTemplate } from "@services/bbos-template";
 import { getBbosTaskDefsByStage } from "@data/bbos/bbos-task-definitions";
 import { Dot, Ornament, Spirit } from "./primitives";
@@ -13,12 +16,9 @@ import {
   execTypeLabel, statusVars,
 } from "./palette";
 
-// These execution fields are not yet wired to a store: say so rather than imply they save.
-function DraftNote() {
-  return <div className="bpd-draft-note" role="note">Draft — not saved. Copy anything you need to keep.</div>;
-}
+const NOT_WIRED = "Not wired in this preview: nothing is saved yet";
 
-function AssetRow({ item, expanded, onToggle }) {
+function AssetRow({ item, expanded, onToggle, onFile }) {
   return (
     <div className="bpd-row" data-expanded={expanded ? "true" : "false"}>
       <div className="bpd-row__head" {...rowActivation(onToggle, { expanded })}>
@@ -38,14 +38,21 @@ function AssetRow({ item, expanded, onToggle }) {
           {item.content ? (
             <div className="bpd-row__content">{item.content}</div>
           ) : (
-            <>
-              <textarea className="bpd-textarea bpd-textarea--asset" aria-label={`Content for ${item.label}`} placeholder={`Paste or type content for ${item.label}...`} />
-              <DraftNote />
-            </>
+            <textarea className="bpd-textarea bpd-textarea--asset" aria-label={`Content for ${item.label}`} placeholder={`Paste or type content for ${item.label}...`} />
           )}
           <div className="bpd-row__actions">
-            {item.status !== "filed" && <button className="bpd-pillbtn bpd-pillbtn--file">✓ Mark Reviewed & File</button>}
-            <button className="bpd-pillbtn bpd-pillbtn--ghost">↓ Import JSON</button>
+            {item.status !== "filed" && (
+              <button
+                type="button"
+                className="bpd-pillbtn bpd-pillbtn--file"
+                disabled={!onFile}
+                title={onFile ? "Move this task to Done" : "No task for this item in the project yet"}
+                onClick={onFile}
+              >
+                ✓ Mark Reviewed & File
+              </button>
+            )}
+            <button type="button" className="bpd-pillbtn bpd-pillbtn--ghost" disabled title={NOT_WIRED}>↓ Import JSON</button>
           </div>
         </div>
       )}
@@ -69,17 +76,14 @@ const CALL_FIELDS = [
 function FieldGrid({ fields }) {
   const baseId = useId();
   return (
-    <>
-      <div className="bpd-fieldgrid">
-        {fields.map(([label, placeholder], i) => (
-          <div key={i}>
-            <label className="bpd-field__label" htmlFor={`${baseId}-${i}`}>{label}</label>
-            <input id={`${baseId}-${i}`} className="bpd-input" placeholder={placeholder} />
-          </div>
-        ))}
-      </div>
-      <DraftNote />
-    </>
+    <div className="bpd-fieldgrid">
+      {fields.map(([label, placeholder], i) => (
+        <div key={i}>
+          <label className="bpd-field__label" htmlFor={`${baseId}-${i}`}>{label}</label>
+          <input id={`${baseId}-${i}`} className="bpd-input" placeholder={placeholder} />
+        </div>
+      ))}
+    </div>
   );
 }
 
@@ -120,23 +124,21 @@ function TaskRow({ task, expanded, onToggle }) {
                 <div className="bpd-upload__sub">Photo, document, or signed confirmation</div>
               </div>
               <textarea className="bpd-textarea bpd-textarea--note" aria-label="Notes on this milestone" placeholder="Notes on this milestone..." />
-              <DraftNote />
             </div>
           )}
           {(task.type === "confirmation" || task.type === "filing") && (
             <div style={{ marginTop: 10 }}>
               <textarea className="bpd-textarea bpd-textarea--note" aria-label="Notes or reference" placeholder="Notes or reference..." />
-              <DraftNote />
             </div>
           )}
-          <button className="bpd-pillbtn bpd-pillbtn--complete">✓ Mark Complete</button>
+          <button type="button" className="bpd-pillbtn bpd-pillbtn--complete" disabled title={NOT_WIRED}>✓ Mark Complete</button>
         </div>
       )}
     </div>
   );
 }
 
-export default function BbosExecView({ stage, onClose, onSubmitGate, projectId }) {
+export default function BbosExecView({ stage, onClose, onSubmitGate, projectId, columns }) {
   const exec = stage.execution;
   const isRetro = exec.type === "retrospective_dashboard";
   const tabs = isRetro
@@ -159,12 +161,23 @@ export default function BbosExecView({ stage, onClose, onSubmitGate, projectId }
   const [importText, setImportText] = useState("");
   const [parseError, setParseError] = useState(null);
   const [parseSuccess, setParseSuccess] = useState(null);
+  // Set by any typing inside the dialog (the note/field inputs are not saved yet).
+  const [dirty, setDirty] = useState(false);
+  const { ref: dialogRef, requestClose, onKeyDown } = useBpdDialog({ onClose, dirty });
 
-  useEffect(() => {
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = prev; };
-  }, []);
+  const projectTasks = projectId ? (taskStore.tasksByProject[projectId] || []) : [];
+  const doneColumn = columns?.find((c) => c.name === "Done") || null;
+
+  // File an S-output / deliverable: move its task into the Done column. The row
+  // re-renders as Filed because the root reads this stage off the live VM.
+  const fileHandlerFor = (item) => {
+    const task = projectTasks.find((t) => t.bbosTaskType === item.taskType);
+    if (!task || !doneColumn) return null;
+    return () => {
+      const order = projectTasks.filter((t) => t.columnId === doneColumn.id).length;
+      taskStore.moveTask(projectId, task.id, doneColumn.id, order, columns);
+    };
+  };
 
   const cycleCheck = (id) =>
     setChecks((p) => ({ ...p, [id]: p[id] === true ? false : p[id] === false ? null : true }));
@@ -175,21 +188,23 @@ export default function BbosExecView({ stage, onClose, onSubmitGate, projectId }
     downloadStageBundleTemplate(stage.id, stageDefs, existingTasks);
   };
 
-  const handleParse = () => {
+  // Shared by paste-import and file upload. Returns true when something was applied.
+  // A valid pack that matches no task in this project is reported as an error, not
+  // a green "0 task(s) updated".
+  const applyBundle = (rawText, failPrefix) => {
     setParseError(null);
     setParseSuccess(null);
     try {
-      const json = JSON.parse(importText);
+      const json = JSON.parse(rawText);
       const validation = validateStageBundleTemplate(json, stage.id);
       if (!validation.valid) {
         setParseError(validation.errors.join('\n'));
-        return;
+        return false;
       }
       const items = importStageBundleTemplate(json);
-      const existingTasks = projectId ? (taskStore.tasksByProject[projectId] || []) : [];
       let count = 0;
       for (const { taskType, fieldData, gLabel } of items) {
-        const task = existingTasks.find((t) => t.bbosTaskType === taskType);
+        const task = projectTasks.find((t) => t.bbosTaskType === taskType);
         if (!task) continue;
         const nonEmpty = Object.fromEntries(
           Object.entries(fieldData).filter(([, v]) => v !== '')
@@ -202,11 +217,22 @@ export default function BbosExecView({ stage, onClose, onSubmitGate, projectId }
           count++;
         }
       }
+      if (count === 0) {
+        setParseError(`Nothing imported: no task in this project matched the ${stage.id} pack, or every field was empty.`);
+        return false;
+      }
       setParseSuccess(`Imported: ${count} task(s) updated.`);
+      return true;
+    } catch (err) {
+      setParseError(`${failPrefix}: ${err.message}`);
+      return false;
+    }
+  };
+
+  const handleParse = () => {
+    if (applyBundle(importText, 'Parse failed')) {
       setImportOpen(false);
       setImportText('');
-    } catch (err) {
-      setParseError('Parse failed: ' + err.message);
     }
   };
 
@@ -214,39 +240,8 @@ export default function BbosExecView({ stage, onClose, onSubmitGate, projectId }
     const file = e.target.files?.[0];
     if (!file) return;
     const reader = new FileReader();
-    reader.onload = (ev) => {
-      try {
-        const json = JSON.parse(ev.target.result);
-        const validation = validateStageBundleTemplate(json, stage.id);
-        if (!validation.valid) {
-          setParseError(validation.errors.join('\n'));
-          setParseSuccess(null);
-          return;
-        }
-        const items = importStageBundleTemplate(json);
-        const existingTasks = projectId ? (taskStore.tasksByProject[projectId] || []) : [];
-        let count = 0;
-        for (const { taskType, fieldData, gLabel } of items) {
-          const task = existingTasks.find((t) => t.bbosTaskType === taskType);
-          if (!task) continue;
-          const nonEmpty = Object.fromEntries(
-            Object.entries(fieldData).filter(([, v]) => v !== '')
-          );
-          if (Object.keys(nonEmpty).length > 0 || gLabel) {
-            taskStore.updateTask(projectId, task.id, {
-              bbosFieldData: { ...task.bbosFieldData, ...nonEmpty },
-              ...(gLabel ? { gLabel } : {}),
-            });
-            count++;
-          }
-        }
-        setParseSuccess(`Imported: ${count} task(s) updated.`);
-        setParseError(null);
-      } catch (err) {
-        setParseError('Upload failed: ' + err.message);
-        setParseSuccess(null);
-      }
-    };
+    reader.onload = (ev) => applyBundle(ev.target.result, 'Upload failed');
+    reader.onerror = () => setParseError('Upload failed: the file could not be read.');
     reader.readAsText(file);
     e.target.value = '';
   };
@@ -327,8 +322,8 @@ export default function BbosExecView({ stage, onClose, onSubmitGate, projectId }
               <div className="bpd-resto__label">{r.label}</div>
               <div className="bpd-resto__action">{r.action}</div>
               <div className="bpd-resto__actions">
-                <button className="bpd-resto__btn bpd-resto__btn--resolve">Mark Resolved</button>
-                <button className="bpd-resto__btn bpd-resto__btn--accept">Accept Risk</button>
+                <button type="button" className="bpd-resto__btn bpd-resto__btn--resolve" disabled title={NOT_WIRED}>Mark Resolved</button>
+                <button type="button" className="bpd-resto__btn bpd-resto__btn--accept" disabled title={NOT_WIRED}>Accept Risk</button>
               </div>
             </div>
           ))}
@@ -339,8 +334,10 @@ export default function BbosExecView({ stage, onClose, onSubmitGate, projectId }
               aria-label="Cycle Completion Statement"
               placeholder="State in your own words what this cycle taught you about your capacity for honest stewardship. This is not a performance summary. It is a reflection on what changed in you — not just what changed in the system."
             />
-            <DraftNote />
-            <button className="bpd-btn-gold bpd-btn-gold--cycle">⧁  Close Cycle — Begin Cycle 2</button>
+            <button type="button" className="bpd-btn-gold bpd-btn-gold--cycle" disabled title="Cycle restart is not wired in this preview">
+              ⧁  Close Cycle — Begin Cycle 2
+            </button>
+            <div className="bpd-notwired">Closing the cycle isn&rsquo;t wired yet, and this statement is not saved.</div>
           </div>
         </div>
       );
@@ -352,38 +349,48 @@ export default function BbosExecView({ stage, onClose, onSubmitGate, projectId }
         <div style={{ marginTop: 4 }}>
           <div className="bpd-section-label" style={{ marginBottom: 8 }}>Research Factory — S-Outputs</div>
           <div className="bpd-dl-row">
-            <button className="bpd-dl-btn" onClick={handleDownload} title={`Download ${stage.id} stage bundle`}>
+            <button type="button" className="bpd-dl-btn" onClick={handleDownload} title={`Download ${stage.id} stage bundle`}>
               ↓ Download <span className="bpd-dl-btn__stage">{stage.id}</span>
             </button>
-            <button className="bpd-dl-btn" onClick={() => uploadRef.current?.click()} title={`Upload ${stage.id} stage bundle`}>
+            <button type="button" className="bpd-dl-btn" onClick={() => uploadRef.current?.click()} title={`Upload ${stage.id} stage bundle`}>
               ↑ Upload <span className="bpd-dl-btn__stage">{stage.id}</span>
             </button>
             <input ref={uploadRef} type="file" accept=".json" style={{ display: 'none' }} onChange={handleUpload} />
-            {parseSuccess && <span className="bpd-parse-result bpd-parse-result--ok">{parseSuccess}</span>}
+            {parseSuccess && <span className="bpd-parse-result bpd-parse-result--ok" role="status">{parseSuccess}</span>}
           </div>
-          <div className="bpd-import-trigger" data-open={importOpen ? "true" : "false"}
-            {...rowActivation(() => { setImportOpen(!importOpen); setParseError(null); setParseSuccess(null); })}>
-            <div className="bpd-import-trigger__icon">↑</div>
-            <div>
-              <div className="bpd-import-trigger__title">Import Stage Pack (JSON)</div>
-              <div className="bpd-import-trigger__sub">Full S-output + Asset pack. One import event per stage.</div>
+          {/* Upload errors surface here; paste errors show inside the open panel below. */}
+          {parseError && !importOpen && (
+            <div className="bpd-parse-result bpd-parse-result--err" role="alert">
+              {parseError}
+              <button type="button" className="bpd-parse-result__retry" onClick={() => uploadRef.current?.click()}>
+                Choose another file
+              </button>
             </div>
-          </div>
+          )}
+          <button type="button" className="bpd-import-trigger" data-open={importOpen ? "true" : "false"} aria-expanded={importOpen}
+            onClick={() => { setImportOpen(!importOpen); setParseError(null); setParseSuccess(null); }}>
+            <span className="bpd-import-trigger__icon" aria-hidden="true">↑</span>
+            <span>
+              <span className="bpd-import-trigger__title">Import Stage Pack (JSON)</span>
+              <span className="bpd-import-trigger__sub">Full S-output + Asset pack. One import event per stage.</span>
+            </span>
+          </button>
           {importOpen && (
             <div className="bpd-import-panel">
               <div className="bpd-import-panel__label">Paste JSON Pack</div>
               <textarea
                 className="bpd-import-panel__textarea"
+                aria-label="Paste JSON Pack"
                 value={importText}
                 onChange={(e) => setImportText(e.target.value)}
                 placeholder={"{\n  \"stage\": \"STR\",\n  \"research\": [...],\n  \"assets\": [...]\n}"}
               />
-              <button className="bpd-import-panel__parse" onClick={handleParse}>Parse & Stage for Review</button>
-              {parseError && <div className="bpd-parse-result bpd-parse-result--err">{parseError}</div>}
+              <button type="button" className="bpd-import-panel__parse" onClick={handleParse}>Parse & Stage for Review</button>
+              {parseError && <div className="bpd-parse-result bpd-parse-result--err" role="alert">{parseError}</div>}
             </div>
           )}
           {exec.researchItems.map((r) => (
-            <AssetRow key={r.id} item={r} expanded={expAsset === r.id} onToggle={() => setExpAsset(expAsset === r.id ? null : r.id)} />
+            <AssetRow key={r.id} item={r} expanded={expAsset === r.id} onToggle={() => setExpAsset(expAsset === r.id ? null : r.id)} onFile={fileHandlerFor(r)} />
           ))}
         </div>
       </div>
@@ -392,7 +399,7 @@ export default function BbosExecView({ stage, onClose, onSubmitGate, projectId }
       <div className="bpd-col" style={{ gap: 10 }}>
         <div className="bpd-section-label" style={{ marginBottom: 4 }}>Asset Factory — Deliverables</div>
         {exec.assetItems.map((a) => (
-          <AssetRow key={a.id} item={a} expanded={expAsset === a.id} onToggle={() => setExpAsset(expAsset === a.id ? null : a.id)} />
+          <AssetRow key={a.id} item={a} expanded={expAsset === a.id} onToggle={() => setExpAsset(expAsset === a.id ? null : a.id)} onFile={fileHandlerFor(a)} />
         ))}
       </div>
     );
@@ -433,7 +440,7 @@ export default function BbosExecView({ stage, onClose, onSubmitGate, projectId }
           );
         })}
         {/* Gate decisions are recorded in the Stage Approval Brief. */}
-        <button className="bpd-btn-gold bpd-btn-gold--gate" onClick={onSubmitGate} disabled={!onSubmitGate}>
+        <button type="button" className="bpd-btn-gold bpd-btn-gold--gate" onClick={onSubmitGate} disabled={!onSubmitGate}>
           ⧁  Continue to Approval Brief
         </button>
       </div>
@@ -443,29 +450,43 @@ export default function BbosExecView({ stage, onClose, onSubmitGate, projectId }
 
   const overlay = (
     <div className="bpd-modal-overlay">
-      <div className="bpd-modal-scrim bpd-modal-scrim--exec" onClick={onClose}>
-        <div className="bpd-modal bpd-modal--exec" style={statusVars(stage.status)} onClick={(e) => e.stopPropagation()}>
+      <div className="bpd-modal-scrim bpd-modal-scrim--exec" onClick={requestClose}>
+        <div
+          ref={dialogRef}
+          className="bpd-modal bpd-modal--exec"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="bpd-exec-title"
+          tabIndex={-1}
+          style={statusVars(stage.status)}
+          onClick={(e) => e.stopPropagation()}
+          onKeyDown={onKeyDown}
+        >
           <div className="bpd-modal__head">
             <div className="bpd-modal__head-left">
-              <span style={{ color: "var(--bpd-gold)", lineHeight: 0 }}><Ornament size={28} opacity={0.5} /></span>
+              <span style={{ color: "var(--bpd-gold)", lineHeight: 0 }} aria-hidden="true"><Ornament size={28} opacity={0.5} /></span>
               <div>
                 <div className="bpd-modal__eyebrow">BBOS · Execution View · {stage.code}</div>
-                <div className="bpd-modal__title">{stage.n} — {stage.name}</div>
+                <div className="bpd-modal__title" id="bpd-exec-title">{stage.n} — {stage.name}</div>
               </div>
             </div>
             <div className="bpd-modal__head-right">
               <div className="bpd-modal__typechip">{execTypeLabel(exec.type)}</div>
-              <button type="button" className="bpd-modal__close" onClick={onClose} aria-label="Close">×</button>
+              <button type="button" className="bpd-modal__close" aria-label="Close Execution View" onClick={requestClose}>×</button>
             </div>
           </div>
           <div className="bpd-tabs">
             {tabs.map((t) => (
-              <button key={t.id} className="bpd-tab" data-active={tab === t.id ? "true" : "false"} onClick={() => setTab(t.id)}>
-                <span>{t.icon}</span>{t.label}
+              <button key={t.id} type="button" className="bpd-tab" data-active={tab === t.id ? "true" : "false"} aria-pressed={tab === t.id} onClick={() => setTab(t.id)}>
+                <span aria-hidden="true">{t.icon}</span>{t.label}
               </button>
             ))}
           </div>
-          <div className="bpd-exec__content">{renderContent()}</div>
+          {/* Any typing in the note/field inputs marks the dialog dirty, which arms the
+              discard prompt. The paste-import box is excluded: it is applied, not lost. */}
+          <div className="bpd-exec__content" onInput={(e) => { if (!e.target.closest(".bpd-import-panel")) setDirty(true); }}>
+            {renderContent()}
+          </div>
         </div>
       </div>
     </div>

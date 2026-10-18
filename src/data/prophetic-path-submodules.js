@@ -19,8 +19,11 @@
 //   - submodules:   pre-filter scope (same as the legacy array form)
 //   - matchers:     array of RegExp that a task TITLE must match against.
 //                   If at least one matcher hits, the task is included.
-//                   If matchers filter out every task, buildTasksForNode falls
-//                   back to the unfiltered submodule pool for that node.
+//                   Matchers are tested against the title and the tags, so a
+//                   `transition:*` regex claims tasks routed to this node. A
+//                   prayer node whose matchers hit nothing falls back to its
+//                   open scope pool; every other node shows only its own tasks
+//                   (see buildTasksForNode).
 //   - phaseMatchers:{ before: [RegExp], after: [RegExp] } — splits tasks into
 //                   Before/Main/After slots within a node.
 //   - moduleGroups: OPTIONAL [{ id, label, submodules: [...] }] — lets a node
@@ -254,6 +257,7 @@ export const TOD_SUBMODULES = {
       /\b(?:odd\s+rak[ʿ']?ah|seal\s+the\s+night|last\s+prayer\s+(?:of|at)\s+(?:the\s+)?night)\b/i,
       /\b(?:qunut|du[ʿ']?a\s+al-?qunut|qunoot)\b/i,
       /\btransition:witr\b/i,
+      /\btransition:post-witr\b/i,
     ],
     phaseMatchers: {
       before: [
@@ -272,8 +276,8 @@ export const TOD_SUBMODULES = {
       /\b(?:bedtime|sleep|pre-?sleep|before\s+sleep)\b/i,
       /\b(?:sunan\s+al-?nawm|right\s+side|wudu\s+before\s+sleep)\b/i,
       /\b(?:bismika\s+allahumma|allahumma\s+aslamtu\s+wajhi)\b/i,
-      /\b(?:ayat\s+al-?kursi|surah\s+al-?mulk|three\s+quls|al-?ikhlas|al-?falaq|an-?nas)\b/i,
       /\btransition:bedtime\b/i,
+      /\btransition:pre-sleep\b/i,
     ],
     phaseMatchers: {
       before: [
@@ -385,10 +389,11 @@ export const TOD_SUBMODULES = {
   jumuah: {
     submodules: ['faith-salah', 'community', 'collective', 'people'],
     matchers: [
-      /\b(?:jumu[a']?ah|friday\s+prayer|congregational\s+prayer)\b/i,
+      // The class covers U+02BB/ʿ/’ as well as ASCII: the seed titles spell
+      // Jumuʻah with U+02BB, which [a'] alone never matched.
+      /\b(?:jumu[aʻʿ’']?ah|friday\s+prayer|congregational\s+prayer)\b/i,
       /\b(?:ghusl|miswak|perfume|white\s+clothes|walk\s+to\s+(?:the\s+)?masjid)\b/i,
       /\b(?:surah\s+al-?kahf|kahf|al-?kahf)\b/i,
-      /\b(?:salawat|salat\s+ala\s+an-?nabi|invoke\s+blessings\s+on\s+(?:the\s+)?prophet)\b/i,
       /\b(?:khutbah|sermon)\b/i,
       /\btransition:jumuah\b/i,
     ],
@@ -407,7 +412,6 @@ export const TOD_SUBMODULES = {
     submodules: ['faith-salah', 'faith-siyam'],
     matchers: [
       /\biftar\b/i,
-      /\b(?:break.*fast|breaking.*fast)\b/i,
       /\b(?:dhahaba\s+al-?zama|allahumma\s+laka\s+sumtu|iftar\s+du[ʿ']?a)\b/i,
       /\btransition:maghrib-iftar\b/i,
     ],
@@ -423,6 +427,9 @@ export const TOD_SUBMODULES = {
       /\bqiyam\s+ramadan\b/i,
       /\b(?:stand.*night.*ramadan|night\s+prayer.*ramadan)\b/i,
       /\btransition:isha-taraweeh\b/i,
+      // Laylat al-Qadr is a date banner, not a task node; it is sought in the
+      // night prayer of the last ten nights, so this node carries its task.
+      /\btransition:laylat-al-qadr\b/i,
     ],
     phaseMatchers: {
       before: [/\bphase:before\b/i, /\b(?:prepare.*taraweeh|wudu.*taraweeh)\b/i],
@@ -430,7 +437,7 @@ export const TOD_SUBMODULES = {
     },
   },
   'traveler-departure': {
-    submodules: ['faith-salah', 'ummah-community', 'family-home'],
+    submodules: ['faith-salah', 'community', 'family-home'],
     matchers: [
       /\b(?:travel|safar|journey|depart|trip)\b/i,
       /\b(?:qasr|shorten.*prayer|jam[\u02bb']?|combin.*prayer)\b/i,
@@ -444,10 +451,9 @@ export const TOD_SUBMODULES = {
     },
   },
   'traveler-arrival': {
-    submodules: ['faith-salah', 'family-home', 'ummah-community'],
+    submodules: ['faith-salah', 'family-home', 'community'],
     matchers: [
-      /\b(?:arrival|return|home(?:coming)?|aibun|ta\u02beibun)\b/i,
-      /\b(?:enter.*home|return.*journey)\b/i,
+      /\b(?:return(?:ing)?\s+(?:home\s+)?from\s+(?:a\s+)?(?:travel|journey)|aibun|ta\u02beibun)\b/i,
       /\btransition:traveler-arrival\b/i,
     ],
     phaseMatchers: {
@@ -456,13 +462,25 @@ export const TOD_SUBMODULES = {
     },
   },
   'eid-prayer': {
-    submodules: ['faith-salah', 'ummah-community', 'family-home'],
+    // faith-siyam holds the two ʻĪd sunan tasks (2026-10-16: without it the
+    // node matched only "Jumuʻah is the eid of the week").
+    submodules: ['faith-salah', 'faith-siyam', 'community', 'family-home'],
     matchers: [
-      /\beid\b/i,
+      // A bare /\beid\b/ claimed "Jumuʻah is the eid of the week" — the Friday
+      // task, rendered on the ʿId node. The day has to be named, not the word.
+      //
+      // 'faith-siyam' is in the submodule list because the ʿId practice was
+      // already authored there ("Keep the Sunan of ʻĪd al-Fitr" / "... al-Adha",
+      // 7 grounded subtasks) — it was never missing, only out of scope.
+      // Those titles also forced the shape of this pattern: a leading \b cannot
+      // fire between the U+02BB mark and Ī (non-ASCII, so not a \w), and [ie]
+      // never covered Ī. Hence (?:^|\s) and the widened vowel class.
+      /(?:^|\s)(?:e|[ʿʻ'])?[iĪī]d\s+(?:al-?)?(?:fitr|adha|prayer|day|morning|salah)\b/i,
       /\b(?:salat\s+al-?[ʿ']?id|[ʿ']?id\s+prayer|musalla)\b/i,
       /\b(?:takbir|takbeer|takbirat)\b/i,
       /\b(?:zakat\s+al-?fitr|fitrana)\b/i,
-      /\b(?:udhiyyah|qurbani|sacrifice)\b/i,
+      // /sacrifice/ dropped with it: too general a word for this node.
+      /\b(?:udhiyyah|qurbani)\b/i,
       /\btransition:eid-prayer\b/i,
     ],
     phaseMatchers: {
@@ -1047,6 +1065,20 @@ function belongsToPrayerNode(row, nodeId) {
   return tag.slice('prayer:'.length) === nodeId;
 }
 
+// The six prayer nodes draw on generated prayer boards and deliberately take
+// tasks routed to their window (waking du'a → Fajr, evening adhkar → Maghrib),
+// so the own-tasks rule below does not apply to them.
+const PRAYER_NODE_IDS = new Set(['fajr', 'dhuhr', 'asr', 'maghrib', 'isha', 'tahajjud']);
+
+// True when a task carries routing tags and none of them is one this node's
+// matchers name, i.e. the task belongs to another node.
+function isRoutedElsewhere(row, matchers) {
+  const routing = (row.tags || []).filter((t) => t.startsWith('transition:'));
+  if (routing.length === 0) return false;
+  const own = matchers.filter((re) => re.source.includes('transition:'));
+  return !routing.some((tag) => own.some((re) => re.test(tag)));
+}
+
 // A task matches a phase if any of its tags or title matches the phase regexes.
 function taskMatchesPhase(task, phaseRegexes) {
   if (!phaseRegexes || phaseRegexes.length === 0) return false;
@@ -1089,12 +1121,14 @@ export function buildTasksForNode(nodeId, projects, tasksByProject, options = {}
   for (const project of matchingProjects) {
     const tasks = tasksByProject?.[project.id] || [];
     tasks.forEach((t, index) => {
-      // Completed tasks leave the pool — except, when the caller passes
+      // Completed tasks are `_finished` — except, when the caller passes
       // `keepCompletedSince` (the node popup: start of today), ones finished
       // since then, so a task completed mid-view stays as a ticked pill until
-      // tomorrow instead of vanishing under the operator.
-      if (t.completedAt && !(keepCompletedSince != null && Date.parse(t.completedAt) >= keepCompletedSince)) return;
+      // tomorrow instead of vanishing under the operator. Finished rows are
+      // shown only when they are all a node owns (see below).
       const row = projectTaskRow(t, project, submoduleNameById);
+      row._finished = !!t.completedAt
+        && !(keepCompletedSince != null && Date.parse(t.completedAt) >= keepCompletedSince);
       row._chainKey = typeof t.seedOrder === 'number'
         ? t.seedOrder
         : USER_TASK_ORDER_FLOOR + (typeof t.order === 'number' ? t.order : index);
@@ -1102,17 +1136,31 @@ export function buildTasksForNode(nodeId, projects, tasksByProject, options = {}
     });
   }
 
-  // Apply content-matchers; if the filter leaves zero rows, fall back to the
-  // unfiltered scope pool so the user still sees something for that window.
-  let rows = scopePool;
-  if (matchers) {
-    const matched = scopePool.filter((r) => rowMatches(r, matchers));
-    rows = matched.length > 0 ? matched : scopePool;
+  // Prayer nodes keep the original contract: open tasks only, and when the
+  // matchers hit nothing, the whole open scope pool.
+  //
+  // Every other node shows only its OWN tasks (2026-10-16):
+  // - a task routed to a different node (it carries `transition:` tags, none
+  //   of which this node's matchers name) is never borrowed;
+  // - when every task it owns is finished, it shows them, ticked, instead of
+  //   falling back to unrelated tasks from its scope;
+  // - when it owns nothing at all it shows nothing (a test pins that every
+  //   node owns something).
+  const openPool = scopePool.filter((r) => !r._finished);
+  let rows = openPool;
+  if (PRAYER_NODE_IDS.has(nodeId)) {
+    if (matchers) {
+      const matched = openPool.filter((r) => rowMatches(r, matchers));
+      rows = matched.length > 0 ? matched : openPool;
+    }
+  } else if (matchers) {
+    const own = scopePool.filter((r) => rowMatches(r, matchers) && !isRoutedElsewhere(r, matchers));
+    const open = own.filter((r) => !r._finished);
+    rows = open.length > 0 ? open : own;
   }
 
-  // Cross-prayer exclusion runs AFTER matching (and its fallback), so a node
-  // whose matchers hit nothing still falls back to its full scope pool before
-  // this narrows it — the exclusion trims the result, it never widens it.
+  // Cross-prayer exclusion runs AFTER matching, so it only ever trims the
+  // matched result — it never widens it.
   rows = rows.filter((r) => belongsToPrayerNode(r, nodeId));
 
   // Phase filter: before/after narrow the pool via phaseMatchers (title+tags);
