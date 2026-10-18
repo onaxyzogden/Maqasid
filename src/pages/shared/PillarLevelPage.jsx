@@ -43,8 +43,9 @@ export default function PillarLevelPage({
   syncRoute = true,
 }) {
   const navigate = useNavigate();
-  // Local submodule state — initialised from the wrapper page's prop, then
-  // updated in-place on tab click so the page never unmounts on submodule switch.
+  // Local submodule state, initialised from the wrapper page's prop. With
+  // syncRoute (default) a tab click navigates, so the routed wrapper remounts
+  // this page; embedded hosts (syncRoute=false) switch in place instead.
   const [pillarKey, setPillarKey] = useState(initialPillarKey);
   const [subsegTask, setSubsegTask] = useState(null);
 

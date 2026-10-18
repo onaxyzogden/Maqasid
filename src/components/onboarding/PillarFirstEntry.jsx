@@ -1,8 +1,8 @@
-import { useLocation } from 'react-router-dom';
 import { MAQASID_PILLARS } from '../../data/maqasid';
 import { useOnboardingStore } from '../../store/onboarding-store';
 import { ICON_REGISTRY } from '../../data/icon-registry';
 import Modal from '../shared/Modal';
+import { usePillarIntroPending } from '../../hooks/usePillarIntroPending';
 
 // ── Icon map ──
 const ICON_MAP = ICON_REGISTRY;
@@ -28,42 +28,6 @@ const ID_LABEL_OVERRIDES = {
   tech:     'Technology',
 };
 
-// ── Special-case route segments that map to non-obvious pillars ──
-const WEALTH_SEGMENTS = new Set(['work', 'money', 'people', 'office', 'tech']);
-const UMMAH_SEGMENTS  = new Set(['neighbors', 'community', 'collective']);
-const NULL_SEGMENTS   = new Set(['sources', 'settings']);
-const PILLAR_IDS      = new Set(['faith', 'health', 'intellect', 'family', 'wealth', 'environment', 'ummah']);
-
-/**
- * Derive the active pillar ID from a pathname like /app/faith-shahada.
- * Handles:
- *   - /app/faith-shahada       → faith
- *   - /app/pillar/faith        → faith
- *   - /app/env-resource        → environment
- *   - /app/neighbors           → ummah
- * Returns a pillar ID string or null.
- */
-function getPillarFromPath(pathname) {
-  const parts = pathname.replace('/app/', '').split('/');
-  const first = parts[0];
-  const second = parts[1] ?? '';
-
-  // Handle /app/pillar/faith, /app/pillar/health, etc.
-  if (first === 'pillar' && PILLAR_IDS.has(second)) return second;
-
-  // Handle env-* routes (env-resource, env-waste, etc. → environment)
-  if (first === 'env' || first.startsWith('env-')) return 'environment';
-
-  // Handle segment-based routes (faith-shahada, wealth-finance, etc.)
-  const segment = first.split('-')[0];
-
-  if (NULL_SEGMENTS.has(segment))   return null;
-  if (WEALTH_SEGMENTS.has(segment)) return 'wealth';
-  if (UMMAH_SEGMENTS.has(segment))  return 'ummah';
-  if (PILLAR_IDS.has(segment))      return segment;
-  return null;
-}
-
 /**
  * Convert a submodule ID to a human-readable label.
  * e.g. 'faith-shahada' → 'Shahada', 'health-physical' → 'Physical'
@@ -79,11 +43,8 @@ function submoduleLabel(id, pillarId) {
 
 // ── Guard component: checks visibility and renders modal ──
 export default function PillarFirstEntry() {
-  const { pathname } = useLocation();
-  const seenPillars = useOnboardingStore((s) => s.seenPillars);
-
-  const pillarId = getPillarFromPath(pathname);
-  if (!pillarId || seenPillars.includes(pillarId)) return null;
+  const pillarId = usePillarIntroPending();
+  if (!pillarId) return null;
 
   return <PillarFirstEntryModal pillarId={pillarId} />;
 }

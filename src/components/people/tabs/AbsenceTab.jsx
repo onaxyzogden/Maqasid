@@ -127,7 +127,7 @@ export default function AbsenceTab({ contactId }) {
               <FieldError id={endReq.errorId} show={endReq.show}>{endBeforeStart ? 'End date must be on or after start date' : 'Choose an end date'}</FieldError>
             </div>
           </div>
-          <button type="button" onClick={startReq.guard(endReq.guard(handleRequestTimeOff))} style={{
+          <button type="button" onClick={() => { startReq.touch(); endReq.touch(); startReq.guard(endReq.guard(handleRequestTimeOff))(); }} style={{
             padding: '8px 0', borderRadius: 8, background: 'var(--mod-people)', color: '#fff',
             border: 'none', fontWeight: 600, fontSize: 13, cursor: 'pointer',
           }}>Submit Request</button>

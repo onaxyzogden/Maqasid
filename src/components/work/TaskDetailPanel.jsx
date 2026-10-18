@@ -198,7 +198,6 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
   // section header instead of repeating it on each row (visual noise).
   const tierSet = new Set(allSubtasks.map(deriveSubtaskTier).filter(Boolean));
   const sharedTier = tierSet.size === 1 ? [...tierSet][0] : null;
-  const isLocked = totalCount > 0 && doneCount < totalCount;
   // A task with no subtasks has nothing to check off, so it can be marked Done.
   const isReady = doneCount === totalCount;
 
@@ -313,8 +312,8 @@ export default function TaskDetailPanel({ project, projectId, taskId, onClose, b
           Back
         </button>
         <button
-          className={`tdp-done-btn${isReady ? ' motif-shimmer-border' : ''}`}
-          data-state={isReady ? 'ready' : isLocked ? 'locked' : 'empty'}
+          className={`tdp-done-btn${isReady && totalCount > 0 ? ' motif-shimmer-border' : ''}`}
+          data-state={isReady ? 'ready' : 'locked'}
           aria-disabled={!isReady}
           onClick={() => {
             if (!isReady) return;

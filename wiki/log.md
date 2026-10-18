@@ -3,6 +3,19 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-18] fix | MILOS — UX audit P1s #4–#12: dialogs, dates, dead controls, a11y, required fields
+
+Continues the 2026-10-15 audit after #1–3 merged ([onaxyzogden/Maqasid#62](https://github.com/onaxyzogden/Maqasid/pull/62)). Branch `fix/ux-audit-p1`. **Amanah gate:** positive (no input lost to a stray click; dates match the user's own day; nothing pretends to work).
+- **#5 Dates:** `parseLocalDay` / `isOverdue` in `lib/format-date.js` replace `new Date(yyyy-MM-dd)` (UTC midnight) at ~14 call sites, with a Vitest.
+- **#4 Dialogs:** new shared `Modal.jsx` (focus trap, Escape, dirty-discard confirm). About 12 overlays moved to `Modal` or `SlideIn`. BbosTaskPanel gets a focus trap.
+- **#12 Entry overlays:** queued Niyyah → FirstLogin → PillarFirstEntry → Resume in `AppShell.jsx`.
+- **#6 Dead controls:** `.btn-soon` convention (MoneyDashboard, TeamChat, Calendar views, Request absence, ⋯ menus, contact Edit).
+- **#10 PillarLevelPage:** segment switches use `navigate()`, so the Sidebar, Back and reload agree. Each segment's CeremonyGuard now applies. An empty state replaces a stale board.
+- **#7/#8/#9:** labels, icon-button names, a sibling Sidebar expand toggle (keyboard), and `aria-current`.
+- **#11:** Budget, Expense and Absence use `useRequiredField` + `FieldError` (Absence also checks that end ≥ start). Done is allowed for tasks with no subtasks.
+
+Decision: [[2026-10-18-shared-modal-and-btn-soon]]. Lint (1 pre-existing warning), 440 tests and the build pass, with preview screenshots for each phase. **Deferred:** mount EditSidePanel, real Calendar views, persist BbosExecView fields, and the audit's "Also found" list.
+
 ## [2026-10-18] fix | BBOS numbering is 1-based; IDY closing du'a is Ṣaḥīḥ Muslim 770
 
 Branch `fix/bbos-printed-edition-checks`. Two operator requests. (1) Stage numbering starts at 1: patch sub-stages `00A`/`01B` become `01A`/`03B` in `bbos-pipeline.js`, the task labels, both CONTEXT.md files and [[bbos-pipeline]]. In the v2.0 Factory docs, DEL PROMPT 06.* becomes 07.* and OPT PROMPT 08.* becomes 09.*, with history rows marked "(now …)". (2) The only non-Qur'anic, non-prophetic du'a, IDY's closing "arinā l-ḥaqqa ḥaqqan", is replaced by Ṣaḥīḥ Muslim 770 (ʿĀʾishah; ʿAbd al-Bāqī 1/534; the Prophet's ﷺ night-prayer opening, "ihdinī limā ukhtulifa fīhi mina l-ḥaqqi bi-idhnik") in the app and in the IDY v2.0 doc. The stage test now rejects any non-prophetic du'a. Recorded as an amendment to [[2026-10-17-bbos-stage-grounding-reconciliation]]. `npm test` (435), `npm run lint` and `npm run build` pass.

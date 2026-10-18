@@ -32,6 +32,7 @@ import Toast from '../shared/Toast';
 import RouteSpinner from '../shared/RouteSpinner';
 import ChunkErrorBoundary from '../shared/ChunkErrorBoundary';
 import PillarFirstEntry from '../onboarding/PillarFirstEntry';
+import { usePillarIntroPending } from '../../hooks/usePillarIntroPending';
 import FirstLoginModal from '../shared/FirstLoginModal';
 import { useSyncObserver } from '../../hooks/useSyncObserver';
 import './AppShell.css';
@@ -72,6 +73,7 @@ export default function AppShell() {
   // Presence awareness state
   const completedOpening = useThresholdStore((s) => s.completedOpening);
   const resumeModuleId = useThresholdStore((s) => s.resumeModuleId);
+  const pillarIntroPending = usePillarIntroPending();
   const firstLoginConflict = useAuthStore((s) => s.firstLoginConflict);
   const isPrayerLocked = useThresholdStore((s) => s.isPrayerLocked);
   const currentPrayerName = useThresholdStore((s) => s.currentPrayerName);
@@ -448,7 +450,7 @@ export default function AppShell() {
       <ThresholdModal type="closing" />
       {/* Entry overlays mount one at a time, in order: Niyyah → first-login
           conflict → pillar intro → resume. Prayer overlays sit above all. */}
-      {resumeModuleId && !isPrayerLocked && !niyyahNeeded && !firstLoginConflict && (
+      {resumeModuleId && !isPrayerLocked && !niyyahNeeded && !firstLoginConflict && !pillarIntroPending && (
         <ResumeOverlay moduleId={resumeModuleId} onDismiss={dismissResume} />
       )}
       {isPrayerLocked && (

@@ -29,7 +29,8 @@ export function useFocusTrap(active, onClose) {
 
     const handleKeyDown = (e) => {
       if (e.key === 'Escape' && onClose) {
-        e.stopPropagation();
+        // Immediate: another trap's listener on document must not also close.
+        e.stopImmediatePropagation();
         onClose();
         return;
       }

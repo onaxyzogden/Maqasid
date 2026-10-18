@@ -224,7 +224,9 @@ textarea:read-only {
    (stays focusable so the "Coming soon" title is announced) and no handler.
    Add .btn-soon--tag where there is room for a visible "Soon" hint. */
 .btn-soon,
-.btn-soon:hover {
+.btn-soon:hover,
+.btn-soon[aria-disabled="true"],
+.btn-soon[aria-disabled="true"]:hover {
   opacity: 0.5;
   cursor: not-allowed;
   background: none;
