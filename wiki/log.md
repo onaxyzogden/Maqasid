@@ -3,6 +3,10 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-18] fix | BBOS numbering is 1-based; IDY closing du'a is Ṣaḥīḥ Muslim 770
+
+Branch `fix/bbos-printed-edition-checks`. Two operator requests. (1) Stage numbering starts at 1: patch sub-stages `00A`/`01B` become `01A`/`03B` in `bbos-pipeline.js`, the task labels, both CONTEXT.md files and [[bbos-pipeline]]. In the v2.0 Factory docs, DEL PROMPT 06.* becomes 07.* and OPT PROMPT 08.* becomes 09.*, with history rows marked "(now …)". (2) The only non-Qur'anic, non-prophetic du'a, IDY's closing "arinā l-ḥaqqa ḥaqqan", is replaced by Ṣaḥīḥ Muslim 770 (ʿĀʾishah; ʿAbd al-Bāqī 1/534; the Prophet's ﷺ night-prayer opening, "ihdinī limā ukhtulifa fīhi mina l-ḥaqqi bi-idhnik") in the app and in the IDY v2.0 doc. The stage test now rejects any non-prophetic du'a. Recorded as an amendment to [[2026-10-17-bbos-stage-grounding-reconciliation]]. `npm test` (435), `npm run lint` and `npm run build` pass.
+
 ## [2026-10-18] docs | BBOS Factory docs drafted at v2.0 to match the app
 
 This does the decision's "Docs" consequence. Nine new files, `BBOS_0N_<STAGE>_Annotated_v2_0.docx`, were written to the operator's *BBOS Factory Docs* folder by a python-docx script. The originals are untouched, and the docx files are not in the repo.

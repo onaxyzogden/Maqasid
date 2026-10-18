@@ -41,10 +41,19 @@ export const BBOS_STAGE_ISLAMIC = {
     },
     closingDua: {
       title: 'Closing Supplication',
-      arabic: 'اللَّهُمَّ أَرِنَا الْحَقَّ حَقًّا وَارْزُقْنَا اتِّبَاعَهُ، وَأَرِنَا الْبَاطِلَ بَاطِلًا وَارْزُقْنَا اجْتِنَابَهُ',
-      trans: 'Allāhumma arinā l-ḥaqqa ḥaqqan wa-rzuqnā ttibāʿah, wa arinā l-bāṭila bāṭilan wa-rzuqnā jtinābah',
-      meaning: 'O Allah, show us the truth as truth and grant us to follow it, and show us falsehood as falsehood and grant us to avoid it.',
-      source: 'Non-prophetic supplication — not a hadith',
+      arabic: 'اللَّهُمَّ رَبَّ جَبْرَائِيلَ وَمِيكَائِيلَ وَإِسْرَافِيلَ، فَاطِرَ السَّمَاوَاتِ وَالْأَرْضِ، عَالِمَ الْغَيْبِ وَالشَّهَادَةِ، أَنْتَ تَحْكُمُ بَيْنَ عِبَادِكَ فِيمَا كَانُوا فِيهِ يَخْتَلِفُونَ، اهْدِنِي لِمَا اخْتُلِفَ فِيهِ مِنَ الْحَقِّ بِإِذْنِكَ، إِنَّكَ تَهْدِي مَنْ تَشَاءُ إِلَى صِرَاطٍ مُسْتَقِيمٍ',
+      trans: 'Allāhumma rabba Jabrāʾīla wa Mīkāʾīla wa Isrāfīl, fāṭira s-samāwāti wa l-arḍ, ʿālima l-ghaybi wa sh-shahādah, anta taḥkumu bayna ʿibādika fīmā kānū fīhi yakhtalifūn, ihdinī limā ukhtulifa fīhi mina l-ḥaqqi bi-idhnik, innaka tahdī man tashāʾu ilā ṣirāṭin mustaqīm',
+      meaning: 'O Allah, Lord of Jibrīl, Mīkāʾīl and Isrāfīl, Originator of the heavens and the earth, Knower of the unseen and the witnessed: You judge between Your servants in that over which they differ. Guide me, by Your leave, to the truth in that over which there is difference — You guide whom You will to a straight path.',
+      source: 'Sahih Muslim 770',
+      sources: [
+        {
+          kind: 'hadith', ref: 'Sahih Muslim 770',
+          arabic: 'اللَّهُمَّ رَبَّ جَبْرَائِيلَ وَمِيكَائِيلَ وَإِسْرَافِيلَ فَاطِرَ السَّمَاوَاتِ وَالْأَرْضِ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ أَنْتَ تَحْكُمُ بَيْنَ عِبَادِكَ فِيمَا كَانُوا فِيهِ يَخْتَلِفُونَ اهْدِنِي لِمَا اخْتُلِفَ فِيهِ مِنَ الْحَقِّ بِإِذْنِكَ إِنَّكَ تَهْدِي مَنْ تَشَاءُ إِلَى صِرَاطٍ مُسْتَقِيمٍ',
+          translation: 'O Allah, Lord of Jibril, Mika\'il and Israfil, Originator of the heavens and the earth, Knower of the unseen and the witnessed, You judge between Your servants in that over which they differ. Guide me, by Your leave, to the truth in that over which there is difference; You guide whom You will to a straight path.',
+          relevance: 'direct', provenanceTier: 'Bayyinah', hadithGrade: 'Sahih',
+          rationale: "The Prophet's ﷺ opening du'a for the night prayer, narrated by ʿAʾishah (via Abu Salamah); also Abu Dawud 767, al-Tirmidhi 3420, al-Nasaʾi 1625, Ibn Majah 1357. Checked against the ʿAbd al-Baqi edition (Kitab Salat al-Musafirin, bab al-duʿaʾ fi salat al-layl, vol. 1 p. 534). It calls on Allah as Knower of the unseen and the witnessed (Ash-Shahid's domain) and asks for guidance to the truth where views differ — the foundation stage's need. Replaces the unsourced 'arina l-haqqa haqqan', which is not vetoed, only unattested as prophetic.",
+        },
+      ],
     },
     readiness: {
       frame: 'Al-Awwal asks: does this foundation begin with His name or my ambition?',
