@@ -1,8 +1,14 @@
 /* shared/ConfirmDialog.jsx — sits inside the default .ui-modal frame */
+
+/* Above ceremonies, BBOS dialogs and other overlays it can be asked from. */
+.confirm-dialog-overlay { z-index: 10001; }
+
 .confirm-dialog {
-  width: min(420px, 100%);
+  width: min(460px, 100%);
   padding: var(--space-6);
 }
+/* Three buttons need one row's worth more room. */
+.confirm-dialog:has(.confirm-dialog__extra) { width: min(560px, 100%); }
 
 .confirm-dialog__title {
   margin: 0 0 var(--space-2);

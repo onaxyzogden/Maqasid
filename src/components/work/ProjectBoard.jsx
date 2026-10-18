@@ -4,6 +4,8 @@ import { LayoutDashboard, Kanban, List, GanttChart, GripVertical, Download, Uplo
 import { useTaskStore } from '../../store/task-store';
 import { useAppStore } from '../../store/app-store';
 import { useProjectStore } from '../../store/project-store';
+import { useToastStore } from '../../store/toast-store';
+import { errorListMessage } from '../../lib/error-list';
 import BbosRolePicker from '../bbos/BbosRolePicker';
 import BbosGateMoveDialog from '../bbos/BbosGateMoveDialog';
 import { PROJECT_COLORS } from '../../data/modules';
@@ -241,7 +243,7 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
         const json = JSON.parse(ev.target.result);
         const validation = validateStageBundleTemplate(json, bbosFilter);
         if (!validation.valid) {
-          alert('Bundle validation failed:\n' + validation.errors.join('\n'));
+          useToastStore.getState().addToast({ type: 'error', duration: 10000, message: errorListMessage("This stage bundle can't be imported. Nothing was changed:", validation.errors) });
           return;
         }
         const items = importStageBundleTemplate(json);
@@ -261,9 +263,9 @@ export default function ProjectBoard({ projectId, project, hideBbos = false, hid
             count++;
           }
         }
-        alert(`Stage bundle imported: ${count} task(s) updated.`);
+        useToastStore.getState().addToast({ type: 'success', message: `Stage bundle imported: ${count} ${count === 1 ? 'task' : 'tasks'} updated.` });
       } catch (err) {
-        alert('Bundle import failed: ' + err.message);
+        useToastStore.getState().addToast({ type: 'error', duration: 8000, message: `Stage bundle import failed: ${err.message}` });
       }
     };
     reader.readAsText(file);

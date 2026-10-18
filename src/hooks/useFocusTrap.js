@@ -29,6 +29,10 @@ export function useFocusTrap(active, onClose) {
 
     const handleKeyDown = (e) => {
       if (e.key === 'Escape' && onClose) {
+        // A dialog stacked on top (e.g. ConfirmDialog over a SlideIn) holds
+        // focus: let its own trap take this Escape.
+        const owner = document.activeElement?.closest?.('[aria-modal="true"]');
+        if (owner && ref.current && !owner.contains(ref.current)) return;
         // Immediate: another trap's listener on document must not also close.
         e.stopImmediatePropagation();
         onClose();

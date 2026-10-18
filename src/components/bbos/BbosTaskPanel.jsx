@@ -15,6 +15,8 @@ import { downloadTaskTemplate, validateTaskTemplate, importTaskTemplate } from '
 import { useAppStore } from '../../store/app-store';
 import { usePeopleStore, getInitials } from '../../store/people-store';
 import { useProjectStore } from '../../store/project-store';
+import { useToastStore } from '../../store/toast-store';
+import { errorListMessage } from '../../lib/error-list';
 import { getTaskAccessLevel, getBbosRole } from '../../data/bbos/bbos-role-access';
 import { getAiConfig, hasAiConfig } from '@services/ai/ai-settings';
 import { streamCompletion, AiClientError } from '@services/ai/ai-client';
@@ -325,7 +327,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
         const json = JSON.parse(ev.target.result);
         const validation = validateTaskTemplate(json, def);
         if (!validation.valid) {
-          alert('Template validation failed:\n' + validation.errors.join('\n'));
+          useToastStore.getState().addToast({ type: 'error', duration: 10000, message: errorListMessage("This template can't be imported. Nothing was changed:", validation.errors) });
           return;
         }
         const { fieldData, gLabel } = importTaskTemplate(json, def);
@@ -335,9 +337,10 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
         setLocalFields((prev) => ({ ...prev, ...fieldData }));
         if (gLabel) handleGLabelChange(gLabel);
         advanceToInProgress();
-        alert(`Template imported: ${Object.keys(fieldData).length} field(s) populated.`);
+        const filled = Object.keys(fieldData).length;
+        useToastStore.getState().addToast({ type: 'success', message: `Template imported: ${filled} ${filled === 1 ? 'field' : 'fields'} filled in.` });
       } catch (err) {
-        alert('Template import failed: ' + err.message);
+        useToastStore.getState().addToast({ type: 'error', duration: 8000, message: `Template import failed: ${err.message}` });
       }
     };
     reader.readAsText(file);

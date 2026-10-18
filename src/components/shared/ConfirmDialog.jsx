@@ -28,6 +28,7 @@ function ConfirmBox({ req, answer }) {
       onClose={() => answer(id, false)}
       labelledBy={titleId}
       dirty={false}
+      overlayClassName="ui-modal-overlay confirm-dialog-overlay"
       className="ui-modal confirm-dialog"
     >
       <h2 id={titleId} className="confirm-dialog__title">{title}</h2>
