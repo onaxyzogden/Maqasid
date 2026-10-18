@@ -7,6 +7,9 @@ import { useAuthStore } from '../store/auth-store';
 import { useOnboardingStore } from '../store/onboarding-store';
 import { useFastingStore } from '../store/fasting-store';
 import { useTravelStore } from '../store/travel-store';
+import { useToastStore } from '../store/toast-store';
+import { useConfirm } from '../store/confirm-store';
+import { errorListMessage } from '../lib/error-list';
 import { usePrayerTimes } from '../hooks/usePrayerTimes';
 import { isTashreeq, isRamadan } from '../data/prophetic-path-submodules';
 import { exportAll, importAll, clearAll, validateImport, createBackup, restoreBackup, hasBackup } from '../services/storage';
@@ -15,6 +18,8 @@ import { cloudAccountsEnabled } from '../services/supabase';
 import { localDayKey } from '../lib/format-date';
 
 export default function Settings() {
+  const addToast = useToastStore((s) => s.addToast);
+  const confirm = useConfirm();
   const navigate = useNavigate();
   const {
     theme, setTheme, valuesLayer, setValuesLayer,
@@ -107,21 +112,27 @@ export default function Settings() {
       if (!file) return;
       const reader = new FileReader();
       reader.onload = (ev) => {
+        let data;
         try {
-          const data = JSON.parse(ev.target.result);
-          const validation = validateImport(data);
-          if (!validation.valid) {
-            alert('Import validation failed:\n' + validation.errors.join('\n'));
-            return;
-          }
-          if (!createBackup()) {
-            alert('Could not create backup before import. Aborting to protect your data.');
-            return;
-          }
+          data = JSON.parse(ev.target.result);
+        } catch {
+          addToast({ type: 'error', duration: 8000, message: `"${file.name}" isn't a MILOS export (it isn't valid JSON). Nothing was imported.` });
+          return;
+        }
+        const validation = validateImport(data);
+        if (!validation.valid) {
+          addToast({ type: 'error', duration: 10000, message: errorListMessage(`"${file.name}" can't be imported. Nothing was changed:`, validation.errors) });
+          return;
+        }
+        if (!createBackup()) {
+          addToast({ type: 'error', duration: 8000, message: "Import stopped: your current data couldn't be backed up first, so nothing was changed." });
+          return;
+        }
+        try {
           importAll(data);
           window.location.reload();
-        } catch {
-          alert('Invalid file format');
+        } catch (err) {
+          addToast({ type: 'error', duration: 10000, message: `Import failed: ${err.message}. Your previous data was backed up.`, action: { label: 'Restore backup', onClick: handleRestoreBackup } });
         }
       };
       reader.readAsText(file);
@@ -129,19 +140,30 @@ export default function Settings() {
     input.click();
   };
 
-  const handleRestoreBackup = () => {
+  const handleRestoreBackup = async () => {
     if (!hasBackup()) {
-      alert('No backup available.');
+      addToast({ type: 'info', message: 'No backup yet. One is made automatically before each import.' });
       return;
     }
-    if (confirm('Restore data from before the last import? This will overwrite current data.')) {
+    if (await confirm({
+      title: 'Restore your data from before the last import?',
+      body: 'Everything added or changed since that import is replaced.',
+      confirmLabel: 'Restore backup',
+      danger: true,
+    })) {
       restoreBackup();
       window.location.reload();
     }
   };
 
-  const handleClearData = () => {
-    if (confirm('This will delete ALL your data. Are you sure?')) {
+  const handleClearData = async () => {
+    if (await confirm({
+      title: 'Delete all your data?',
+      body: "Every project, task, journal entry and setting stored on this device is erased. This can't be undone.\nExport a backup first if you might want any of it back.",
+      confirmLabel: 'Delete all data',
+      danger: true,
+      extraAction: { label: 'Export a backup first', doneLabel: 'Backup downloaded', onClick: handleExport },
+    })) {
       clearAll();
       window.location.reload();
     }

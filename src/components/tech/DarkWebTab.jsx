@@ -1,11 +1,13 @@
 import { useState, useMemo } from 'react';
 import { Settings, Plus, X, Check, Trash2 } from 'lucide-react';
 import { useTechStore } from '../../store/tech-store';
+import { useConfirm } from '../../store/confirm-store';
 import { useUndoToast } from '@hooks/useUndoToast';
 import { localDayKey } from '../../lib/format-date';
 import SlideIn from '../shared/SlideIn';
 
 export default function DarkWebTab() {
+  const confirm = useConfirm();
   const darkWebEnabled = useTechStore((s) => s.darkWebEnabled);
   const toggleDarkWeb = useTechStore((s) => s.toggleDarkWeb);
   const darkWebEmails = useTechStore((s) => s.darkWebEmails);
@@ -111,7 +113,7 @@ export default function DarkWebTab() {
                         {b.status === 'open' && (
                           <button className="row-action-btn" onClick={() => clearBreach(b.id)} title="Clear" aria-label="Clear"><Check size={14} aria-hidden="true" /></button>
                         )}
-                        <button className="row-action-btn danger" onClick={() => { if (confirm(`Delete the ${b.source || ''} breach record? This can't be undone.`)) deleteBreach(b.id); }} aria-label={`Delete breach from ${b.source || b.email}`}><Trash2 size={14} aria-hidden="true" /></button>
+                        <button className="row-action-btn danger" onClick={async () => { if (await confirm({ title: (b.source || b.email) ? `Delete the breach record from ${b.source || b.email}?` : 'Delete this breach record?', body: "This can't be undone.", confirmLabel: 'Delete record', danger: true })) deleteBreach(b.id); }} aria-label={`Delete breach from ${b.source || b.email}`}><Trash2 size={14} aria-hidden="true" /></button>
                       </div>
                     </td>
                   </tr>

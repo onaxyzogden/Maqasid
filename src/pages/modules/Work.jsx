@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Plus, Folder, Archive, MoreHorizontal, Trash2, Workflow } from 'lucide-react';
 import { useState } from 'react';
 import { useProjectStore } from '@store/project-store';
+import { useConfirm } from '@store/confirm-store';
 import PillarHeader from '@components/shared/PillarHeader';
 import Modal from '@components/shared/Modal';
 import { getPillarSubmoduleIds, getSubmoduleDisplayLabel } from '@data/submodule-registry';
@@ -18,6 +19,7 @@ const PILLAR_OPTIONS = [
 ];
 
 export default function Work() {
+  const confirm = useConfirm();
   const navigate = useNavigate();
   const projects = useProjectStore((s) => s.projects);
   const createProject = useProjectStore((s) => s.createProject);
@@ -190,7 +192,7 @@ export default function Work() {
                       <Archive size={14} /> {p.archived ? 'Unarchive' : 'Archive'}
                     </button>
                     <button
-                      onClick={() => { if (confirm('Delete this project?')) deleteProject(p.id); }}
+                      onClick={async () => { if (await confirm({ title: `Delete project "${p.name}"?`, body: "Its board and tasks are deleted too. This can't be undone.", confirmLabel: 'Delete project', danger: true })) deleteProject(p.id); }}
                       style={{
                         display: 'flex', alignItems: 'center', gap: 'var(--space-2)',
                         width: '100%', padding: 'var(--space-2) var(--space-3)',

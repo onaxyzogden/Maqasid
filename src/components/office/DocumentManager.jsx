@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Plus, Pencil, Trash2, Search, X, Save, Download } from 'lucide-react';
 import { useOfficeStore } from '../../store/office-store';
+import { useConfirm } from '../../store/confirm-store';
 import './DocumentManager.css';
 import { rowActivation } from '../../lib/row-activation';
 
@@ -33,6 +34,7 @@ const FILE_TYPE_BADGES = {
 };
 
 export default function DocumentManager() {
+  const confirm = useConfirm();
   const documents = useOfficeStore((s) => s.documents);
   const addDocument = useOfficeStore((s) => s.addDocument);
   const updateDocument = useOfficeStore((s) => s.updateDocument);
@@ -159,7 +161,7 @@ export default function DocumentManager() {
                   <button className="doc-action-btn" onClick={(e) => { e.stopPropagation(); downloadDoc(doc); }} aria-label={`Download ${doc.name}`}>
                     <Download size={14} aria-hidden="true" /> Download
                   </button>
-                  <button className="doc-action-btn danger" onClick={(e) => { e.stopPropagation(); if (confirm(`Delete "${doc.name}"? This can't be undone.`)) deleteDocument(doc.id); }} title="Delete">
+                  <button className="doc-action-btn danger" onClick={async (e) => { e.stopPropagation(); if (await confirm({ title: `Delete "${doc.name}"?`, body: "This can't be undone.", confirmLabel: 'Delete document', danger: true })) deleteDocument(doc.id); }} title="Delete">
                     <Trash2 size={14} /> Delete
                   </button>
                 </div>

@@ -32,6 +32,7 @@ import Toast from '../shared/Toast';
 import RouteSpinner from '../shared/RouteSpinner';
 import ChunkErrorBoundary from '../shared/ChunkErrorBoundary';
 import PillarFirstEntry from '../onboarding/PillarFirstEntry';
+import ConfirmDialog from '../shared/ConfirmDialog';
 import { usePillarIntroPending } from '../../hooks/usePillarIntroPending';
 import FirstLoginModal from '../shared/FirstLoginModal';
 import { useSyncObserver } from '../../hooks/useSyncObserver';
@@ -479,6 +480,7 @@ export default function AppShell() {
       <DiscussionPanel />
       {!niyyahNeeded && !firstLoginConflict && <PillarFirstEntry />}
       {!niyyahNeeded && <FirstLoginModal />}
+      <ConfirmDialog />
       <Toast />
     </>
   );

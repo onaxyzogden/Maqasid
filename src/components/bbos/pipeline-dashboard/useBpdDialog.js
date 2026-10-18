@@ -5,6 +5,7 @@
 // guard: when the dialog holds unsaved typing (dirty), every close path — scrim,
 // ×, Esc — asks before throwing it away.
 import { useCallback, useEffect, useRef } from "react";
+import { requestConfirm } from "../../../store/confirm-store";
 
 const FOCUSABLE =
   'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -12,8 +13,14 @@ const FOCUSABLE =
 export function useBpdDialog({ onClose, dirty }) {
   const ref = useRef(null);
 
-  const requestClose = useCallback(() => {
-    if (dirty && !window.confirm("Discard what you've typed? It has not been saved.")) return;
+  const requestClose = useCallback(async () => {
+    if (dirty && !(await requestConfirm({
+      title: "Discard what you've typed?",
+      body: "It has not been saved.",
+      confirmLabel: "Discard",
+      cancelLabel: "Keep editing",
+      danger: true,
+    }))) return;
     onClose();
   }, [onClose, dirty]);
 

@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { useToastStore } from './toast-store';
 import { safeGetJSON, safeSet } from '../services/storage';
 import { genTaskId, genSubtaskId, genCheckId, genAttachmentId } from '../services/id';
 import { hydrateTasks, stripSeedFields, preloadBoardSeeds } from '../services/seed-hydrator';
@@ -222,12 +223,12 @@ export const useTaskStore = create((set, get) => ({
     const MAX_BYTES = 500 * 1024; // 500 KB — realistic for localStorage
     const MAX_ATTACHMENTS = 5;
     if (file.size > MAX_BYTES) {
-      alert(`File too large. Maximum size is 500 KB.`);
+      useToastStore.getState().addToast({ type: 'error', duration: 6000, message: `"${file.name}" is too large. Attachments can be up to 500 KB.` });
       return;
     }
     const task = (get().tasksByProject[projectId] || []).find((t) => t.id === taskId);
     if ((task?.attachments || []).length >= MAX_ATTACHMENTS) {
-      alert(`Maximum ${MAX_ATTACHMENTS} attachments per task.`);
+      useToastStore.getState().addToast({ type: 'error', duration: 6000, message: `A task can hold up to ${MAX_ATTACHMENTS} attachments. Remove one to add "${file.name}".` });
       return;
     }
     // Estimate localStorage usage — warn at 80% of ~5 MB quota
@@ -235,7 +236,7 @@ export const useTaskStore = create((set, get) => ({
       const used = new Blob(Object.values(localStorage)).size;
       const quota = 5 * 1024 * 1024;
       if (used + file.size * 1.4 > quota * 0.8) {
-        alert('Storage is nearly full. Remove old attachments or export data before adding more.');
+        useToastStore.getState().addToast({ type: 'error', duration: 8000, message: `Storage is nearly full, so "${file.name}" wasn't attached. Remove old attachments or export your data first.` });
         return;
       }
     } catch { /* estimation failed — proceed anyway */ }

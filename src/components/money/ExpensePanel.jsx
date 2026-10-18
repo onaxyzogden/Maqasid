@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { X, Plus, Pencil } from 'lucide-react';
 import { useMoneyStore } from '../../store/money-store';
+import { useConfirm } from '../../store/confirm-store';
 import { useToastStore } from '../../store/toast-store';
 import { CURRENCIES } from '@data/config/money-categories';
 import CategoryPanel from './CategoryPanel';
@@ -10,6 +11,7 @@ import FieldError from '../shared/FieldError';
 import { useRequiredField } from '../../hooks/useRequiredField';
 
 export default function ExpensePanel({ expense, onClose }) {
+  const confirm = useConfirm();
   const categories = useMoneyStore((s) => s.categories);
   const vendors = useMoneyStore((s) => s.vendors);
   const addExpense = useMoneyStore((s) => s.addExpense);
@@ -53,8 +55,9 @@ export default function ExpensePanel({ expense, onClose }) {
     onClose();
   };
 
-  const handleDelete = () => {
-    if (isEdit && confirm('Delete this expense?')) {
+  const handleDelete = async () => {
+    if (!isEdit) return;
+    if (await confirm({ title: expense.description ? `Delete expense "${expense.description}"?` : 'Delete this expense?', body: "This can't be undone.", confirmLabel: 'Delete expense', danger: true })) {
       deleteExpense(expense.id);
       addToast({ message: `"${expense.description}" removed`, type: 'info' });
       onClose();

@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Plus, Search, X, Pencil, Trash2, Target, TrendingUp, TrendingDown, AlertTriangle } from 'lucide-react';
 import { useMoneyStore, formatCurrency } from '../../store/money-store';
+import { useConfirm } from '../../store/confirm-store';
 import SlideIn from '../shared/SlideIn';
 import FieldError from '../shared/FieldError';
 import { useRequiredField } from '../../hooks/useRequiredField';
@@ -85,6 +86,7 @@ function BudgetPanel({ budget, usedCategoryIds, onClose }) {
 
 /* ─── Main tab ─── */
 export default function BudgetTab() {
+  const confirm = useConfirm();
   const budgets = useMoneyStore((s) => s.budgets);
   const categories = useMoneyStore((s) => s.categories);
   const expenses = useMoneyStore((s) => s.expenses);
@@ -210,7 +212,7 @@ export default function BudgetTab() {
                   <button className="row-action-btn" onClick={() => { setEditBudget(b); setShowPanel(true); }} title="Edit" aria-label={`Edit ${b.cat?.name || 'category'} budget`}>
                     <Pencil size={14} aria-hidden="true" />
                   </button>
-                  <button className="row-action-btn danger" onClick={() => { if (confirm('Delete this budget?')) deleteBudget(b.id); }} title="Delete" aria-label={`Delete ${b.cat?.name || 'category'} budget`}>
+                  <button className="row-action-btn danger" onClick={async () => { if (await confirm({ title: b.cat?.name ? `Delete the ${b.cat.name} budget?` : 'Delete this budget?', body: "Expenses in this category are kept. This can't be undone.", confirmLabel: 'Delete budget', danger: true })) deleteBudget(b.id); }} title="Delete" aria-label={`Delete ${b.cat?.name || 'category'} budget`}>
                     <Trash2 size={14} aria-hidden="true" />
                   </button>
                 </div>

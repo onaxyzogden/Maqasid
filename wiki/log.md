@@ -3,6 +3,21 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-18] fix | MILOS: native confirm()/alert() replaced by ConfirmDialog and toasts
+
+Branch `fix/ux-confirm-dialogs`, stacked on `fix/ux-audit-p1`. This was the first item on the audit's "Also found" list. **Amanah gate:** positive. Destructive prompts now name what is lost, and errors say what happened and that nothing changed.
+- **New:** `store/confirm-store.js` (`useConfirm`, `requestConfirm`, a queue), `shared/ConfirmDialog.jsx` (an alertdialog with focus on Cancel and z-index 10001), and `lib/error-list.js`, plus 7 Vitest tests.
+- **Row deletes** across Money, Tech, Office and Work name the item. The project delete says its board and tasks go with it.
+- **Settings:** Clear All Data offers "Export a backup first" in the dialog. Import errors name the file. A failed import offers Restore backup.
+- **Other prompts:** the ceremony skip, BBOS resume and BPD discard guard use `requestConfirm`. Bundle, template and attachment-limit alerts became toasts.
+- **`useFocusTrap`:** Escape now goes to the dialog that holds focus, which fixes stacked dialogs.
+
+A ux-reviewer pass raised one P1, the danger button failing AA contrast in dark mode, now fixed with a fixed #dc2626, plus several P2s that were also fixed. Decision amended: [[2026-10-18-shared-modal-and-btn-soon]]. Lint (1 pre-existing warning), 447 tests and the build pass, with preview screenshots. **Deferred:**
+- Undo instead of confirm for row deletes.
+- Error toasts that pause on hover, use `role="alert"` and don't close themselves.
+- Returning focus after a row delete.
+- `validateImport` accepts any non-empty object, and import merges rather than replaces. A file like `{"hello":1}` is "imported".
+
 ## [2026-10-18] fix | MILOS — UX audit P1s #4–#12: dialogs, dates, dead controls, a11y, required fields
 
 Continues the 2026-10-15 audit after #1–3 merged ([onaxyzogden/Maqasid#62](https://github.com/onaxyzogden/Maqasid/pull/62)). Branch `fix/ux-audit-p1`. **Amanah gate:** positive (no input lost to a stray click; dates match the user's own day; nothing pretends to work).
