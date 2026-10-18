@@ -3,6 +3,7 @@ import { Plus, Folder, Archive, MoreHorizontal, Trash2, Workflow } from 'lucide-
 import { useState } from 'react';
 import { useProjectStore } from '@store/project-store';
 import PillarHeader from '@components/shared/PillarHeader';
+import Modal from '@components/shared/Modal';
 import { getPillarSubmoduleIds, getSubmoduleDisplayLabel } from '@data/submodule-registry';
 
 const PILLAR_OPTIONS = [
@@ -151,6 +152,10 @@ export default function Work() {
               {/* Menu */}
               <div style={{ position: 'absolute', top: 12, right: 12 }}>
                 <button
+                  type="button"
+                  aria-label={`Options for ${p.name}`}
+                  aria-haspopup="menu"
+                  aria-expanded={menuOpen === p.id}
                   onClick={(e) => { e.stopPropagation(); setMenuOpen(menuOpen === p.id ? null : p.id); }}
                   style={{
                     width: 28, height: 28, borderRadius: 'var(--radius-xs)',
@@ -159,7 +164,7 @@ export default function Work() {
                     border: '1px solid transparent', cursor: 'pointer',
                   }}
                 >
-                  <MoreHorizontal size={16} />
+                  <MoreHorizontal size={16} aria-hidden="true" />
                 </button>
                 {menuOpen === p.id && (
                   <div
@@ -207,23 +212,20 @@ export default function Work() {
 
       {/* New Project Dialog */}
       {showNewDialog && (
-        <div
+        <Modal
+          onClose={() => setShowNewDialog(false)}
+          labelledBy="new-project-title"
+          overlayStyle={{ background: 'rgba(0,0,0,0.5)' }}
+          className=""
           style={{
-            position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000,
+            background: 'var(--surface)', border: '1px solid var(--border)',
+            borderRadius: 'var(--radius-lg)', padding: 'var(--space-6)',
+            width: 420, maxWidth: '90vw', outline: 'none',
           }}
-          onClick={() => setShowNewDialog(false)}
         >
-          <div
-            style={{
-              background: 'var(--surface)', border: '1px solid var(--border)',
-              borderRadius: 'var(--radius-lg)', padding: 'var(--space-6)',
-              width: 420, maxWidth: '90vw',
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h3 style={{ marginBottom: 'var(--space-4)' }}>New Project</h3>
+            <h3 id="new-project-title" style={{ marginBottom: 'var(--space-4)' }}>New Project</h3>
             <input
+              aria-label="Project name"
               value={newProjectName}
               onChange={(e) => setNewProjectName(e.target.value)}
               placeholder="Project name"
@@ -236,10 +238,11 @@ export default function Work() {
                 marginBottom: 'var(--space-4)',
               }}
             />
-            <p style={{ fontSize: '0.8rem', color: 'var(--text2)', marginBottom: 'var(--space-2)' }}>
+            <label htmlFor="new-project-pillar" style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text2)', marginBottom: 'var(--space-2)' }}>
               Pillar
-            </p>
+            </label>
             <select
+              id="new-project-pillar"
               value={newProjectPillar}
               onChange={(e) => { setNewProjectPillar(e.target.value); setNewProjectSubmodule(''); }}
               style={{
@@ -255,10 +258,11 @@ export default function Work() {
             </select>
             {submoduleOptions.length > 0 && (
               <>
-                <p style={{ fontSize: '0.8rem', color: 'var(--text2)', marginBottom: 'var(--space-2)' }}>
+                <label htmlFor="new-project-submodule" style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text2)', marginBottom: 'var(--space-2)' }}>
                   Submodule
-                </p>
+                </label>
                 <select
+                  id="new-project-submodule"
                   value={newProjectSubmodule}
                   onChange={(e) => setNewProjectSubmodule(e.target.value)}
                   style={{
@@ -275,11 +279,13 @@ export default function Work() {
                 </select>
               </>
             )}
-            <p style={{ fontSize: '0.8rem', color: 'var(--text2)', marginBottom: 'var(--space-2)' }}>
+            <p id="new-project-type" style={{ fontSize: '0.8rem', color: 'var(--text2)', marginBottom: 'var(--space-2)' }}>
               Project Type
             </p>
-            <div style={{ display: 'flex', gap: 'var(--space-2)', marginBottom: 'var(--space-5)' }}>
+            <div role="group" aria-labelledby="new-project-type" style={{ display: 'flex', gap: 'var(--space-2)', marginBottom: 'var(--space-5)' }}>
               <button
+                type="button"
+                aria-pressed={newProjectType === 'standard'}
                 onClick={() => setNewProjectType('standard')}
                 style={{
                   flex: 1, padding: 'var(--space-3)', borderRadius: 'var(--radius)',
@@ -297,6 +303,8 @@ export default function Work() {
                 </p>
               </button>
               <button
+                type="button"
+                aria-pressed={newProjectType === 'bbos'}
                 onClick={() => setNewProjectType('bbos')}
                 style={{
                   flex: 1, padding: 'var(--space-3)', borderRadius: 'var(--radius)',
@@ -318,8 +326,7 @@ export default function Work() {
               <button className="btn btn-ghost" onClick={() => setShowNewDialog(false)}>Cancel</button>
               <button className="btn btn-primary" onClick={handleCreateProject}>Create</button>
             </div>
-          </div>
-        </div>
+        </Modal>
       )}
     </div>
   );

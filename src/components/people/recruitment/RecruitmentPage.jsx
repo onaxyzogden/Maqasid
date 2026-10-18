@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useId, useState, useMemo } from 'react';
 import { Plus, ArrowDown, X, MoreHorizontal, Link2, ExternalLink, Copy, Check, ChevronLeft, Calendar, MapPin, Briefcase, Users as UsersIcon, Clock } from 'lucide-react';
 import { createPortal } from 'react-dom';
 import { useRecruitmentStore } from '@store/recruitment-store';
@@ -7,6 +7,10 @@ import { JOB_STAGES, FILTER_TABS, EMPLOYMENT_OPTIONS, SENIORITY_OPTIONS, LOCATIO
 import './RecruitmentPage.css';
 import { localDayKey } from '../../../lib/format-date';
 import { rowActivation } from '../../../lib/row-activation';
+import Modal from '../../shared/Modal';
+import SlideIn from '../../shared/SlideIn';
+import FieldError from '../../shared/FieldError';
+import { useRequiredField } from '../../../hooks/useRequiredField';
 
 function JobDetailPanel({ posting, onClose, store }) {
   const [copied, setCopied] = useState(false);
@@ -32,12 +36,18 @@ function JobDetailPanel({ posting, onClose, store }) {
   };
 
   return createPortal(
-    <div className="recruit-detail-overlay" onClick={onClose}>
-      <div className="recruit-detail-panel" onClick={(e) => e.stopPropagation()}>
+    <Modal
+      onClose={onClose}
+      label={posting.title || 'Job posting'}
+      dirty={false}
+      overlayClassName="recruit-detail-overlay"
+      className="recruit-detail-panel"
+      style={{ outline: 'none' }}
+    >
         {/* Header */}
         <div className="recruit-detail__header">
-          <button className="recruit-detail__back" onClick={onClose}>
-            <ChevronLeft size={18} />
+          <button type="button" className="recruit-detail__back" onClick={onClose} aria-label="Back">
+            <ChevronLeft size={18} aria-hidden="true" />
           </button>
           <div style={{ flex: 1 }}>
             <div className="recruit-detail__title">{posting.title}</div>
@@ -56,7 +66,7 @@ function JobDetailPanel({ posting, onClose, store }) {
               )}
             </div>
           </div>
-          <button className="recruit-detail__close" onClick={onClose}><X size={18} /></button>
+          <button type="button" className="recruit-detail__close" onClick={onClose} aria-label="Close"><X size={18} aria-hidden="true" /></button>
         </div>
 
         {/* Published link banner */}
@@ -128,8 +138,7 @@ function JobDetailPanel({ posting, onClose, store }) {
             Delete Posting
           </button>
         </div>
-      </div>
-    </div>,
+    </Modal>,
     document.body
   );
 }
@@ -153,6 +162,10 @@ function AddJobModal({ onClose }) {
   const selectStyle = { ...inputStyle, appearance: 'auto' };
   const labelStyle = { fontSize: 12, fontWeight: 500, color: 'var(--text2)', marginBottom: 4, display: 'block' };
 
+  const uid = useId();
+  const fid = (name) => `${uid}-${name}`;
+  const req = useRequiredField(!!canSubmit, fid('title'));
+
   function handleSubmit() {
     if (!canSubmit) return;
     store.add({
@@ -168,27 +181,20 @@ function AddJobModal({ onClose }) {
   }
 
   return createPortal(
-    <div style={{
-      position: 'fixed', inset: 0, zIndex: 1000,
-      background: 'var(--overlay)', display: 'flex', alignItems: 'center', justifyContent: 'flex-end',
-    }} onClick={onClose}>
-      <div
-        style={{
-          width: 480, height: '100%', background: 'var(--surface)',
-          boxShadow: 'var(--shadow-xl)', overflowY: 'auto',
-          display: 'flex', flexDirection: 'column',
-          animation: 'slideInRight 200ms var(--ease)',
-        }}
-        onClick={(e) => e.stopPropagation()}
-      >
+    <SlideIn
+      onClose={onClose}
+      labelledBy={fid('title-h')}
+      overlayStyle={{ zIndex: 1000, background: 'var(--overlay)' }}
+      style={{ width: 480, height: '100%', boxShadow: 'var(--shadow-xl)', animation: 'slideInRight 200ms var(--ease)' }}
+    >
         {/* Header */}
         <div style={{ padding: '20px 24px 0', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div>
-            <div style={{ fontWeight: 700, fontSize: 16, color: 'var(--text)' }}>Create new job posting</div>
+            <h2 id={fid('title-h')} style={{ margin: 0, fontWeight: 700, fontSize: 16, color: 'var(--text)' }}>Create new job posting</h2>
             <div style={{ fontSize: 12, color: 'var(--text3)', marginTop: 2 }}>Fill in the details below to create a new job posting</div>
           </div>
-          <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text2)', padding: 4 }}>
-            <X size={18} />
+          <button type="button" onClick={onClose} aria-label="Close" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text2)', padding: 4 }}>
+            <X size={18} aria-hidden="true" />
           </button>
         </div>
 
@@ -196,32 +202,33 @@ function AddJobModal({ onClose }) {
           {/* Row 1: Job Title + Open Positions */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 120px', gap: 10 }}>
             <div>
-              <label style={labelStyle}>Job Title *</label>
-              <input style={inputStyle} value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Job Title" autoFocus />
+              <label htmlFor={fid('title')} style={labelStyle}>Job Title *</label>
+              <input id={fid('title')} {...req.fieldProps} style={inputStyle} value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Job Title" autoFocus />
+              <FieldError id={req.errorId} show={req.show}>Enter a job title</FieldError>
             </div>
             <div>
-              <label style={labelStyle}>Open Positions</label>
-              <input style={inputStyle} type="number" min="1" value={openPositions} onChange={(e) => setOpenPositions(e.target.value)} />
+              <label htmlFor={fid('open')} style={labelStyle}>Open Positions</label>
+              <input id={fid('open')} style={inputStyle} type="number" min="1" value={openPositions} onChange={(e) => setOpenPositions(e.target.value)} />
             </div>
           </div>
 
           {/* Row 2: Employment Type, Seniority Level, Location Type */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 10 }}>
             <div>
-              <label style={labelStyle}>Employment Type *</label>
-              <select style={selectStyle} value={empType} onChange={(e) => setEmpType(e.target.value)}>
+              <label htmlFor={fid('emp')} style={labelStyle}>Employment Type *</label>
+              <select id={fid('emp')} style={selectStyle} value={empType} onChange={(e) => setEmpType(e.target.value)}>
                 {EMPLOYMENT_OPTIONS.map((o) => <option key={o.id} value={o.id}>{o.label}</option>)}
               </select>
             </div>
             <div>
-              <label style={labelStyle}>Seniority Level *</label>
-              <select style={selectStyle} value={seniority} onChange={(e) => setSeniority(e.target.value)}>
+              <label htmlFor={fid('sen')} style={labelStyle}>Seniority Level *</label>
+              <select id={fid('sen')} style={selectStyle} value={seniority} onChange={(e) => setSeniority(e.target.value)}>
                 {SENIORITY_OPTIONS.map((o) => <option key={o.id} value={o.id}>{o.label}</option>)}
               </select>
             </div>
             <div>
-              <label style={labelStyle}>Location Type *</label>
-              <select style={selectStyle} value={locationType} onChange={(e) => setLocationType(e.target.value)}>
+              <label htmlFor={fid('loc')} style={labelStyle}>Location Type *</label>
+              <select id={fid('loc')} style={selectStyle} value={locationType} onChange={(e) => setLocationType(e.target.value)}>
                 {LOCATION_TYPE_OPTIONS.map((o) => <option key={o.id} value={o.id}>{o.label}</option>)}
               </select>
             </div>
@@ -229,8 +236,9 @@ function AddJobModal({ onClose }) {
 
           {/* Job Description */}
           <div>
-            <div style={{ fontWeight: 600, fontSize: 14, color: 'var(--text)', marginBottom: 8 }}>Job Description</div>
+            <label htmlFor={fid('desc')} style={{ display: 'block', fontWeight: 600, fontSize: 14, color: 'var(--text)', marginBottom: 8 }}>Job Description</label>
             <textarea
+              id={fid('desc')}
               style={{ ...inputStyle, resize: 'vertical', minHeight: 160, lineHeight: 1.5 }}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
@@ -242,8 +250,8 @@ function AddJobModal({ onClose }) {
           <div>
             <div style={{ fontWeight: 600, fontSize: 14, color: 'var(--text)', marginBottom: 8 }}>Timeline</div>
             <div style={{ maxWidth: 200 }}>
-              <label style={labelStyle}>Application Deadline</label>
-              <input style={inputStyle} type="date" value={deadline} onChange={(e) => setDeadline(e.target.value)} />
+              <label htmlFor={fid('deadline')} style={labelStyle}>Application Deadline</label>
+              <input id={fid('deadline')} style={inputStyle} type="date" value={deadline} onChange={(e) => setDeadline(e.target.value)} />
             </div>
           </div>
         </div>
@@ -257,18 +265,15 @@ function AddJobModal({ onClose }) {
           }}>
             Cancel
           </button>
-          <button onClick={handleSubmit} disabled={!canSubmit} style={{
+          <button type="button" onClick={req.guard(handleSubmit)} style={{
             padding: '10px 24px', borderRadius: 8,
-            background: canSubmit ? 'var(--text)' : 'var(--bg4)',
-            color: canSubmit ? 'var(--bg)' : 'var(--text3)',
-            border: 'none', fontWeight: 600, fontSize: 13,
-            cursor: canSubmit ? 'pointer' : 'not-allowed',
+            background: 'var(--text)', color: 'var(--bg)',
+            border: 'none', fontWeight: 600, fontSize: 13, cursor: 'pointer',
           }}>
             Create job posting
           </button>
         </div>
-      </div>
-    </div>,
+    </SlideIn>,
     document.body
   );
 }

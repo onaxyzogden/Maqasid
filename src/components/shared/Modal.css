@@ -1,0 +1,65 @@
+/* Default centered dialog frame (shared/Modal.jsx). Dialogs that predate
+   Modal pass their own overlayClassName / className and keep their look. */
+.ui-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  background: var(--overlay);
+  animation: fadeIn var(--duration) var(--ease);
+}
+
+.ui-modal {
+  width: min(480px, 100%);
+  max-height: calc(100vh - 2 * var(--space-4));
+  overflow-y: auto;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  outline: none;
+}
+
+/* Discard-changes bar shown at the top of a dirty Modal / SlideIn on Escape or backdrop click */
+.slidein-discard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  padding: var(--space-3) var(--space-5);
+  background: var(--warning-bg);
+  border-bottom: 1px solid var(--warning-border);
+  color: var(--text);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.slidein-discard__actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.slidein-discard__keep,
+.slidein-discard__discard {
+  min-height: 36px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-sm);
+  font: inherit;
+  font-size: var(--text-sm);
+  cursor: pointer;
+}
+
+.slidein-discard__keep {
+  background: var(--primary-strong);
+  color: #fff;
+  border: none;
+}
+
+.slidein-discard__discard {
+  background: var(--surface);
+  color: var(--danger);
+  border: 1px solid var(--border);
+}

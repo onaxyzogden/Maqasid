@@ -5,6 +5,7 @@ import { useProjectStore } from '../../store/project-store';
 import { useTaskStore } from '../../store/task-store';
 import { useThresholdStore } from '../../store/threshold-store';
 import { useSettingsStore } from '../../store/settings-store';
+import { useAuthStore } from '../../store/auth-store';
 import { useMobile } from '../../hooks/useMobile';
 import { useKeyboard } from '../../hooks/useKeyboard';
 import { useInactivity } from '../../hooks/useInactivity';
@@ -71,6 +72,7 @@ export default function AppShell() {
   // Presence awareness state
   const completedOpening = useThresholdStore((s) => s.completedOpening);
   const resumeModuleId = useThresholdStore((s) => s.resumeModuleId);
+  const firstLoginConflict = useAuthStore((s) => s.firstLoginConflict);
   const isPrayerLocked = useThresholdStore((s) => s.isPrayerLocked);
   const currentPrayerName = useThresholdStore((s) => s.currentPrayerName);
   const prayerTimeMs = useThresholdStore((s) => s.prayerTimeMs);
@@ -444,7 +446,9 @@ export default function AppShell() {
       <SearchPalette />
       <ThresholdModal type="opening" />
       <ThresholdModal type="closing" />
-      {resumeModuleId && !isPrayerLocked && !niyyahNeeded && (
+      {/* Entry overlays mount one at a time, in order: Niyyah → first-login
+          conflict → pillar intro → resume. Prayer overlays sit above all. */}
+      {resumeModuleId && !isPrayerLocked && !niyyahNeeded && !firstLoginConflict && (
         <ResumeOverlay moduleId={resumeModuleId} onDismiss={dismissResume} />
       )}
       {isPrayerLocked && (
@@ -471,8 +475,8 @@ export default function AppShell() {
 
       <JournalPanel />
       <DiscussionPanel />
-      {!niyyahNeeded && <PillarFirstEntry />}
-      <FirstLoginModal />
+      {!niyyahNeeded && !firstLoginConflict && <PillarFirstEntry />}
+      {!niyyahNeeded && <FirstLoginModal />}
       <Toast />
     </>
   );

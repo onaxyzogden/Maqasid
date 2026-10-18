@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { MAQASID_PILLARS } from '../../data/maqasid';
 import { useOnboardingStore } from '../../store/onboarding-store';
 import { ICON_REGISTRY } from '../../data/icon-registry';
+import Modal from '../shared/Modal';
 
 // ── Icon map ──
 const ICON_MAP = ICON_REGISTRY;
@@ -88,19 +88,10 @@ export default function PillarFirstEntry() {
   return <PillarFirstEntryModal pillarId={pillarId} />;
 }
 
-// ── Modal component: handles interaction and Escape key ──
+// ── Modal component: Escape, backdrop and "Got it" all mark the pillar seen ──
 function PillarFirstEntryModal({ pillarId }) {
   const markPillarSeen = useOnboardingStore((s) => s.markPillarSeen);
   const pillar = MAQASID_PILLARS.find((p) => p.id === pillarId);
-
-  // Add Escape key handler
-  useEffect(() => {
-    const handleKey = (e) => {
-      if (e.key === 'Escape') markPillarSeen(pillarId);
-    };
-    window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
-  }, [pillarId, markPillarSeen]);
 
   if (!pillar) return null;
 
@@ -109,8 +100,12 @@ function PillarFirstEntryModal({ pillarId }) {
   const bullets     = pillar.subModuleIds.slice(0, 3).map((id) => submoduleLabel(id, pillarId));
 
   return (
-    <div
-      style={{
+    <Modal
+      onClose={() => markPillarSeen(pillarId)}
+      labelledBy="pfe-title"
+      dirty={false}
+      overlayClassName=""
+      overlayStyle={{
         position: 'fixed',
         inset: 0,
         background: 'rgba(0,0,0,0.4)',
@@ -119,19 +114,17 @@ function PillarFirstEntryModal({ pillarId }) {
         alignItems: 'center',
         justifyContent: 'center',
       }}
-      onClick={() => markPillarSeen(pillarId)}
+      className=""
+      style={{
+        background: 'var(--surface)',
+        borderRadius: 'var(--radius-xl)',
+        width: '100%',
+        maxWidth: '420px',
+        overflow: 'hidden',
+        boxShadow: 'var(--shadow-lg)',
+        outline: 'none',
+      }}
     >
-      <div
-        style={{
-          background: 'var(--surface)',
-          borderRadius: 'var(--radius-xl)',
-          width: '100%',
-          maxWidth: '420px',
-          overflow: 'hidden',
-          boxShadow: 'var(--shadow-lg)',
-        }}
-        onClick={(e) => e.stopPropagation()}
-      >
         {/* Header */}
         <div
           style={{
@@ -144,11 +137,11 @@ function PillarFirstEntryModal({ pillarId }) {
             gap: 'var(--space-3)',
           }}
         >
-          {Icon && <Icon size={28} color="#fff" />}
+          {Icon && <Icon size={28} color="#fff" aria-hidden="true" />}
           <div>
-            <div style={{ color: '#fff', fontWeight: 700, fontSize: '1.25rem' }}>
+            <h2 id="pfe-title" style={{ margin: 0, color: '#fff', fontWeight: 700, fontSize: '1.25rem' }}>
               {pillar.sidebarLabel}
-            </div>
+            </h2>
             <div style={{ color: '#fff', fontSize: '0.8rem' }}>
               {pillar.arabicRoot}
               <br />
@@ -181,7 +174,6 @@ function PillarFirstEntryModal({ pillarId }) {
             </button>
           </div>
         </div>
-      </div>
-    </div>
+    </Modal>
   );
 }

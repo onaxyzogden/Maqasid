@@ -6,6 +6,7 @@ import { useSettingsStore } from '../../store/settings-store';
 import { NIYYAH_FEELINGS, getFeelingLabel } from '../../data/niyyah-feelings';
 import { MAQASID_PILLARS, getPillarLabel } from '../../data/maqasid';
 import { useArabic } from '../../hooks/useArabic';
+import Modal from '../shared/Modal';
 import './EveningReflectModal.css';
 
 export default function EveningReflectModal({ onClose }) {
@@ -32,28 +33,32 @@ export default function EveningReflectModal({ onClose }) {
   };
 
   return createPortal(
-    <div className="erm-overlay" role="dialog" aria-modal="true" aria-labelledby="erm-title">
-      <div
-        className="erm-card"
-        style={primaryPillar ? { '--erm-accent': primaryPillar.accentColor } : undefined}
-      >
+    <Modal
+      onClose={onClose}
+      labelledBy="erm-title"
+      dirty={!!eveningFeeling || !!note.trim()}
+      overlayClassName="erm-overlay"
+      className="erm-card"
+      style={{ outline: 'none', ...(primaryPillar ? { '--erm-accent': primaryPillar.accentColor } : null) }}
+    >
         <button type="button" className="erm-close" onClick={onClose} aria-label="Close">
-          <X size={16} />
+          <X size={16} aria-hidden="true" />
         </button>
         <h2 id="erm-title" className="erm-title">Evening Reflection</h2>
-        <p className="erm-prompt">
+        <p id="erm-prompt" className="erm-prompt">
           You set out to focus on <strong>{pillarLabel}</strong> today
           {morningLabel && <> — feeling <strong>{morningLabel}</strong></>}.
           How does your heart feel now?
         </p>
 
-        <div className="erm-pills">
+        <div className="erm-pills" role="group" aria-labelledby="erm-prompt">
           {NIYYAH_FEELINGS.map((f) => {
             const active = eveningFeeling === f.id;
             return (
               <button
                 key={f.id}
                 type="button"
+                aria-pressed={active}
                 className={`erm-pill${active ? ' erm-pill--active' : ''}${f.valence === 'negative' ? ' erm-pill--neg' : ''}`}
                 onClick={() => setEveningFeeling(f.id)}
               >
@@ -87,8 +92,7 @@ export default function EveningReflectModal({ onClose }) {
             Save reflection
           </button>
         </div>
-      </div>
-    </div>,
+    </Modal>,
     document.body
   );
 }

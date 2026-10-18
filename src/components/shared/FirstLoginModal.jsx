@@ -4,6 +4,7 @@
 import { useState } from 'react';
 import { useAuthStore } from '../../store/auth-store';
 import { Cloud, HardDrive, RefreshCw } from 'lucide-react';
+import Modal from './Modal';
 
 export default function FirstLoginModal() {
   const firstLoginConflict = useAuthStore((s) => s.firstLoginConflict);
@@ -39,13 +40,22 @@ export default function FirstLoginModal() {
   };
 
   return (
-    <div style={overlayStyle}>
-      <div style={cardStyle}>
+    // A blocking choice: no Escape, no backdrop close — only the buttons end it.
+    <Modal
+      onClose={() => {}}
+      labelledBy="first-login-title"
+      dismissible={false}
+      dirty={false}
+      overlayClassName=""
+      overlayStyle={overlayStyle}
+      className=""
+      style={{ ...cardStyle, outline: 'none' }}
+    >
         {/* has_local_and_cloud — two datasets, need to choose */}
         {firstLoginConflict === 'has_local_and_cloud' && (
           <>
-            <div style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '1rem' }}>⚖️</div>
-            <h3 style={{ textAlign: 'center', marginBottom: '0.5rem', color: 'var(--text)' }}>Data conflict</h3>
+            <div aria-hidden="true" style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '1rem' }}>⚖️</div>
+            <h3 id="first-login-title" style={{ textAlign: 'center', marginBottom: '0.5rem', color: 'var(--text)' }}>Data conflict</h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', textAlign: 'center', marginBottom: '1.5rem', lineHeight: 1.6 }}>
               This device has local data <strong>and</strong> your account has saved cloud data.
               Which version should be used going forward?
@@ -68,8 +78,8 @@ export default function FirstLoginModal() {
         {/* has_local_no_cloud — offer backup */}
         {firstLoginConflict === 'has_local_no_cloud' && (
           <>
-            <div style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '1rem' }}>💾</div>
-            <h3 style={{ textAlign: 'center', marginBottom: '0.5rem', color: 'var(--text)' }}>Back up your data?</h3>
+            <div aria-hidden="true" style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '1rem' }}>💾</div>
+            <h3 id="first-login-title" style={{ textAlign: 'center', marginBottom: '0.5rem', color: 'var(--text)' }}>Back up your data?</h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', textAlign: 'center', marginBottom: '1.5rem', lineHeight: 1.6 }}>
               You have data on this device. Would you like to save it to your cloud account so it&apos;s accessible from other devices?
             </p>
@@ -86,7 +96,6 @@ export default function FirstLoginModal() {
         )}
 
         <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-      </div>
-    </div>
+    </Modal>
   );
 }

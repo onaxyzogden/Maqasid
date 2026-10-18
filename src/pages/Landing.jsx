@@ -15,6 +15,9 @@ import { genUserId } from '../services/id';
 import MaqasidComparisonWheel from '../components/faith/MaqasidComparisonWheel';
 import PropheticPathPreview from '../components/landing/PropheticPathPreview';
 import { useRevealSection, useScrolledPast } from '../components/landing/use-landing-scroll';
+import Modal from '../components/shared/Modal';
+import FieldError from '../components/shared/FieldError';
+import { useRequiredField } from '../hooks/useRequiredField';
 import '../styles/landing.css';
 
 // One source for both navs. The bar shows the first three; the mobile sheet
@@ -404,6 +407,8 @@ export default function Landing() {
     navigate('/app');
   };
 
+  const loginReq = useRequiredField(!!loginName.trim(), 'landing-login-name');
+
   const activeVariant = DAY_VARIANTS.find((v) => v.id === activeDay);
 
   return (
@@ -500,10 +505,15 @@ export default function Landing() {
 
       {/* Login Modal */}
       {showLogin && (
-        <div className="expense-form-overlay landing-login-overlay">
-          <div className="expense-form-modal landing-login-modal">
+        <Modal
+          onClose={() => setShowLogin(false)}
+          labelledBy="landing-login-title"
+          overlayClassName="expense-form-overlay landing-login-overlay"
+          className="expense-form-modal landing-login-modal"
+          style={{ outline: 'none' }}
+        >
             <div className="expense-form-header">
-              <h3>Continue locally</h3>
+              <h3 id="landing-login-title">Continue locally</h3>
               <button className="expense-form-close" onClick={() => setShowLogin(false)} aria-label="Close sign-in"><X size={18} aria-hidden="true" /></button>
             </div>
             <div className="expense-form-body">
@@ -511,15 +521,16 @@ export default function Landing() {
                 Your data stays on this device only. You can export a full backup any time from Settings.
               </p>
               <div className="expense-form-field">
-                <label>Name *</label>
-                <input value={loginName} onChange={(e) => setLoginName(e.target.value)}
-                  onKeyDown={(e) => { if (e.key === 'Enter') handleLogin(); }}
+                <label htmlFor="landing-login-name">Name *</label>
+                <input id="landing-login-name" {...loginReq.fieldProps} value={loginName} onChange={(e) => setLoginName(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === 'Enter') loginReq.guard(handleLogin)(); }}
                   placeholder="Your name" autoFocus />
+                <FieldError id={loginReq.errorId} show={loginReq.show}>Enter your name</FieldError>
               </div>
               <div className="expense-form-field">
-                <label>Email (optional)</label>
-                <input type="email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)}
-                  onKeyDown={(e) => { if (e.key === 'Enter') handleLogin(); }}
+                <label htmlFor="landing-login-email">Email (optional)</label>
+                <input id="landing-login-email" type="email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === 'Enter') loginReq.guard(handleLogin)(); }}
                   placeholder="you@example.com" />
               </div>
             </div>
@@ -531,12 +542,11 @@ export default function Landing() {
               ) : (
                 <button className="btn btn-ghost" onClick={() => setShowLogin(false)}>Cancel</button>
               )}
-              <button className="btn btn-primary" onClick={handleLogin} disabled={!loginName.trim()}>
-                Continue <ArrowRight size={14} />
+              <button className="btn btn-primary" onClick={loginReq.guard(handleLogin)}>
+                Continue <ArrowRight size={14} aria-hidden="true" />
               </button>
             </div>
-          </div>
-        </div>
+        </Modal>
       )}
 
       {/* Hero */}
