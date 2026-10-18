@@ -104,14 +104,14 @@ export function getBbosRejectionReason(reasonId) {
 
 export const BBOS_PATCH_STAGES = [
   {
-    id: '00A',
+    id: '01A',
     label: 'Input Integrity Gate',
     description: 'Grades operator proof on a P0-P3 scale before pipeline entry.',
     afterStage: 'IDY',
     layer: 'think',
   },
   {
-    id: '01B',
+    id: '03B',
     label: 'Mechanism Factory',
     description: 'Bridges the strategy-to-offer gap, ensuring STR outputs translate cleanly into OFR inputs.',
     afterStage: 'STR',

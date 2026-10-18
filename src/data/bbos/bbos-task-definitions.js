@@ -4231,12 +4231,12 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: [],
   },
 
-  // ── Patch Plan sub-stage 00A (Input Integrity Gate, after IDY) ────────────
+  // ── Patch Plan sub-stage 01A (Input Integrity Gate, after IDY) ────────────
   {
     id: "IDY-PATCH-V1",
     stage: "IDY",
     subLevel: "PATCH-V1",
-    label: "Input Integrity Gate (00A)",
+    label: "Input Integrity Gate (01A)",
     purpose: "Grade operator-supplied proof on a P0–P3 scale before the pipeline advances past Identity. P0 = no proof; P1 = self-attested; P2 = independent corroboration; P3 = audit-grade. Pipeline advancement past CRD requires P2 or higher on each Identity declaration.",
     fields: [
       {
@@ -4298,12 +4298,12 @@ export const BBOS_TASK_DEFINITIONS = [
     validationFlags: ["GATE_BLOCKED"],
   },
 
-  // ── Patch Plan sub-stage 01B (Mechanism Factory, after STR) ───────────────
+  // ── Patch Plan sub-stage 03B (Mechanism Factory, after STR) ───────────────
   {
     id: "STR-PATCH-V1",
     stage: "STR",
     subLevel: "PATCH-V1",
-    label: "Mechanism Factory (01B)",
+    label: "Mechanism Factory (03B)",
     purpose: "Bridge the strategy-to-offer gap. STR produces operational structure; OFR needs a priced, scoped offering. The Mechanism Factory translates STR outputs into the explicit mechanism by which value is exchanged — what the operator does, what the client receives, what the price covers. Without this bridge, OFR-S tasks have no source material.",
     fields: [
       {
