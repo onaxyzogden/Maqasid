@@ -3,6 +3,10 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-19] merge | PR #67: skills matched to the BBOS Factory docs; DEL draft v3.6
+
+PR #67 (`fix/bbos-printed-edition-checks`, "docs(skills): match the BBOS Factory docs; DEL draft is v3.6") merged to main as `2ea8d41`. It carries the 2026-10-18 skills fix below: `bbos-html-to-task` and `/subtask-content` updated, the DEL draft renamed `_v3_6.docx`, and the task-definitions header corrected to 115 tasks.
+
 ## [2026-10-19] session | Closing du'as for Structure and Deliver
 
 - **Choice:** two candidates per stage were stress-tested, and the operator approved S1 + D1.
