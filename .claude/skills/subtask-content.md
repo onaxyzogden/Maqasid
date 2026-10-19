@@ -47,6 +47,11 @@ From either, extract:
 | `family_` | `src/data/seed-tasks/family-seed-tasks.js` |
 | `wealth_` | `src/data/seed-tasks/wealth-seed-tasks.js` |
 | `environment_` | `src/data/seed-tasks/environment-seed-tasks.js` |
+| `ummah_` | `src/data/seed-tasks/ummah-seed-tasks.js` |
+| `weekly_` | `src/data/seed-tasks/weekly-seed-tasks.js` |
+| `prayer_` | Generated from `faith-seed-tasks.js` — edit the Faith source task, never `prayer-seed-tasks.js` |
+
+Read `src/data/seed-tasks/CONTEXT.md` before editing a seed file.
 
 ## Steps
 
@@ -106,7 +111,15 @@ itself. Remove or rephrase lines like:
 
 The content should read as standalone educational guidance, not as a chatbot response.
 
-### 5. Verify (if preview is running)
+### 5. Keep the grounding in `sources[]`
+
+Every Qur'an or hadith reference the content cites must also be in the subtask's structured
+`sources` array (`[{ kind, ref, translation, relevance, provenanceTier, rationale, ... }]`, see
+`docs/grounding-schema.md`). Legacy string sources are forbidden. Add any missing entry, verifying
+the ayah or hadith number rather than taking it from the markdown, then run `npm test` and
+`npm run lint` — `audit:inline-refs` fails when description prose cites a ref missing from `sources[]`.
+
+### 6. Verify (if preview is running)
 
 If a preview server is active:
 - Reload the page (the backfill migration runs on load)
