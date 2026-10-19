@@ -64,6 +64,15 @@ No Name repeats across the nine stages, and no opening text is used twice.
   - the docs close CRD with Āl ʿImrān 3:8 and OUT with Jāmiʿ al-Tirmidhī 3563 (ed. Shākir 5/560; al-Albānī ḥasan), but the app had no `closingDua` for either and fell back to the ongoing du'a. The operator chose to add both to the app rather than drop them from the docs: PR #68, with `sources[]` (3:8 checked against the Uthmani text).
 - **Accepted.** Every review highlight is cleared (IDY 29, CRD 11, STR 44, OFR 10, OUT 2, SLS 46, DEL 33, RET 11, OPT 27; the originals had none), and each newest version row is approved by Yousef Abdelsalam. The nine docs are the current Factory set: `BBOS_0N_<STAGE>_Annotated_v2_0.docx`, with DEL at `_v3_6`.
 - **Archived.** The nine older originals (IDENTITY v1.2, CREDIBILITY v1.4, STRUCTURE v1.3, OFFERING v1.3, REACH v1.3, CONVERT v1.3, DELIVER v3.5, RETAIN v1.2, RECKON v1.4) moved unchanged to `BBOS Factory Docs/_archive/`. Nothing was deleted.
-- **Register.** The BBOS Stage Grounding Register (artifact, version 4) now reads each stage's du'a text from the accepted docs and checks it against the app: zero mismatches once PR #68 is in. STR and DEL have no closing du'a in either.
+- **Register.** The BBOS Stage Grounding Register (artifact, version 4) now reads each stage's du'a text from the accepted docs and checks it against the app: zero mismatches once PR #68 is in. STR and DEL have no closing du'a in either (closed by the amendment below).
+
+## Amendment (2026-10-19): Structure and Deliver closings
+
+- **Gap.** STR and DEL had no closing in the docs or the app. Their v2.0/v3.6 drafts had removed unsourced closings (an "adapted" one in STR and a "combined" one in DEL), and the app fell back to the ongoing du'a. Two candidates per stage were stress-tested, and the operator chose S1 and D1.
+- **STR — Ghāfir 40:44 (excerpt), "Closing Reflection".** "Wa ufawwiḍu amrī ilā llāh, inna llāha baṣīrun bil-ʿibād": the words of the believer of Pharaoh's people. It is a declaration of tafwīḍ, not a supplication, so it is titled like SLS, RET and OPT, and the doc header reads "Closing Āyah". It names Al-Baṣīr and matches readiness row B2. The Arabic is from the Uthmani (Ḥafṣ) text; the English is Abdel Haleem's.
+- **DEL — Sunan Abī Dāwūd 1522, "Closing Supplication".** "Allāhumma aʿinnī ʿalā dhikrika wa shukrika wa ḥusni ʿibādatik", narrated by Muʿādh ibn Jabal. Ḥusn al-ʿibādah is iḥsān asked for, which fits Al-Muḥsin. It is checked against the printed edition (ed. Muḥyī al-Dīn ʿAbd al-Ḥamīd, vol. 2, p. 86, Kitāb al-Witr) and graded ṣaḥīḥ by al-Albānī and Shuʿayb al-Arnaʾūṭ. Al-Kahf 18:10 and Yūsuf 12:101 were the alternatives; neither is vetoed.
+- **App.** Both are `closingDua` entries with `sources[]`. A new stage test checks that each closing's Arabic is quoted from its first source, comparing consonantal skeletons so that Uthmani rasm and plain script compare equal.
+- **Docs.** STRUCTURE v2.0 → **v2.1** and DELIVER v3.6 → **v3.7**. The closing block is placed after the Closing Reflection, and each doc has a new version row approved by Yousef Abdelsalam on 2026-10-19. v2.0 and v3.6 moved unchanged to `_archive/`, which now holds eleven files.
+- **Register.** Artifact version 5: all nine stages close in both the doc and the app, with zero mismatches.
 
 Related: [[bbos-pipeline]].

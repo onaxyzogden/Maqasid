@@ -247,6 +247,22 @@ export const BBOS_STAGE_ISLAMIC = {
         },
       ],
     },
+    closingDua: {
+      title: 'Closing Reflection',
+      arabic: 'وَأُفَوِّضُ أَمْرِىٓ إِلَى ٱللَّهِ ۚ إِنَّ ٱللَّهَ بَصِيرٌۢ بِٱلْعِبَادِ',
+      trans: 'Wa ufawwiḍu amrī ilā llāh, inna llāha baṣīrun bil-ʿibād',
+      meaning: 'I commit my case to God: God is well aware of His servants.',
+      source: 'Surah Ghafir 40:44 (excerpt)',
+      sources: [
+        {
+          kind: 'quran', ref: 'Quran 40:44',
+          arabic: 'وَأُفَوِّضُ أَمْرِىٓ إِلَى ٱللَّهِ ۚ إِنَّ ٱللَّهَ بَصِيرٌۢ بِٱلْعِبَادِ',
+          translation: 'I commit my case to God: God is well aware of His servants.',
+          relevance: 'direct', provenanceTier: 'Bayyinah',
+          rationale: "An ayah of tafwid, not a supplication: the plan is handed to Allah, who is Basir over His servants. It closes the stage of Al-Basir on readiness row B2 (at peace that what I cannot see is seen by Him). Quoted from wa-ufawwidu; the ayah opens with \"You will remember what I am saying to you.\"",
+        },
+      ],
+    },
     readiness: {
       frame: 'Al-Basir asks: does the structure I am building rest on what I actually see, or on what I hope?',
       yesLabel: 'The structure rests on sight when',
@@ -658,6 +674,22 @@ export const BBOS_STAGE_ISLAMIC = {
           translation: 'Verily Allah has enjoined goodness (ihsan) to everything.',
           relevance: 'contextual', provenanceTier: 'Bayyinah', hadithGrade: 'Sahih',
           rationale: "Narrated by Shaddad ibn Aws: ihsan is prescribed in every act — the stage's anchor for delivering with excellence.",
+        },
+      ],
+    },
+    closingDua: {
+      title: 'Closing Supplication',
+      arabic: 'اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ',
+      trans: 'Allāhumma aʿinnī ʿalā dhikrika wa shukrika wa ḥusni ʿibādatik',
+      meaning: 'O Allah, help me to remember You, to thank You, and to worship You well.',
+      source: 'Sunan Abi Dawud 1522',
+      sources: [
+        {
+          kind: 'hadith', ref: 'Sunan Abi Dawud 1522',
+          arabic: 'اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ',
+          translation: 'O Allah, help me in remembering You, in giving You thanks, and worshipping You well.',
+          relevance: 'direct', provenanceTier: 'Bayyinah', hadithGrade: 'Sahih (al-Albani; Shuaib al-Arnaut)',
+          rationale: "The Prophet ﷺ took Muʿadh ibn Jabal by the hand, told him he loved him, and enjoined this du'a after every prayer (Kitab al-Witr). Husn al-ʿibadah is ihsan asked for rather than assumed — the close for delivered work, given in thanks and sustained by His help.",
         },
       ],
     },
