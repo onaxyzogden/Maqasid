@@ -143,6 +143,22 @@ export const BBOS_STAGE_ISLAMIC = {
         },
       ],
     },
+    closingDua: {
+      title: 'Closing Supplication',
+      arabic: 'رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً ۚ إِنَّكَ أَنتَ الْوَهَّابُ',
+      trans: 'Rabbanā lā tuzigh qulūbanā baʿda idh hadaytanā wa hab lanā min ladunka raḥmah, innaka anta l-wahhāb',
+      meaning: 'Our Lord, do not let our hearts deviate after You have guided us. Grant us from Yourself mercy. Indeed, You are the Bestower.',
+      source: 'Surah Aal-Imran 3:8',
+      sources: [
+        {
+          kind: 'quran', ref: 'Quran 3:8',
+          arabic: 'رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً ۚ إِنَّكَ أَنتَ ٱلْوَهَّابُ',
+          translation: 'Our Lord, do not let our hearts deviate after You have guided us. Grant us Your mercy: You are the Ever Giving.',
+          relevance: 'direct', provenanceTier: 'Bayyinah',
+          rationale: "The du'a of those firm in knowledge (3:7–8): having been guided to the truth, they ask that their hearts not swerve from it — the close for a stage that has just tied its credibility to what is true. Text checked against the Uthmani (Hafs) text; translation Abdel Haleem.",
+        },
+      ],
+    },
     readiness: {
       frame: 'Al-Haqq asks: is every claim I am making today verifiable and true?',
       yesLabel: 'My claims are verifiable and true when',
@@ -427,6 +443,22 @@ export const BBOS_STAGE_ISLAMIC = {
           translation: 'Excellent is the protector, and excellent is the helper.',
           relevance: 'direct', provenanceTier: 'Bayyinah',
           rationale: 'Closing clause of the ayah: whoever turns away, Allah remains the believer\'s Protector and Helper — the response is not the measure of the effort.',
+        },
+      ],
+    },
+    closingDua: {
+      title: 'Closing Supplication',
+      arabic: 'اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ، وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ',
+      trans: 'Allāhumma kfinī biḥalālika ʿan ḥarāmika, wa aghninī bifaḍlika ʿamman siwāk',
+      meaning: 'O Allah, suffice me with what is lawful, turning me away from what is unlawful, and make me independent of all others through Your bounty.',
+      source: 'Jami at-Tirmidhi 3563',
+      sources: [
+        {
+          kind: 'hadith', ref: 'Jami at-Tirmidhi 3563',
+          arabic: 'اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ',
+          translation: 'O Allah, suffice me with what You have made lawful so that I need not turn to what You have forbidden, and enrich me by Your favour so that I need not rely on anyone other than You.',
+          relevance: 'direct', provenanceTier: 'Bayyinah', hadithGrade: 'Hasan (al-Albani); hasan gharib (al-Tirmidhi)',
+          rationale: "Taught by the Prophet ﷺ through ʿAli to a mukatab slave burdened by debt (ed. Shakir 5/560, Abwab al-Daʿawat). It asks that lawful provision suffice and that the heart rest on Allah's bounty rather than on people — the close for outreach done in trust, without pressure or exposure.",
         },
       ],
     },
