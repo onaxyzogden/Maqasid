@@ -3,6 +3,20 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-18] fix | Skills brought in line with the BBOS Factory docs; DEL draft re-versioned v3.6
+
+The operator asked for the Factory docs to be compared with the BBOS skill and every comparable skill.
+- **`~/.claude/skills/bbos-html-to-task.md`** (user-level, not in the repo) was rewritten. It now has:
+  - the current stage codes, with a 01–09 table; it had FND/TRU/SAL/DLR;
+  - the full subLevel set (S0, A0–A8, V, AF, FP, IC, PATCH-V1);
+  - the real path `src/data/bbos/bbos-task-definitions.js`;
+  - `python`, not `python3`;
+  - Factory docs as a source.
+  - It also no longer writes per-task `governingAttributes`/`attrMeaning`, fields the app never had. Names and du'as stay per stage in `bbos-stage-islamic.js`. Demo HTML predates the reconciliation, so the skill reports any Name or du'a that differs instead of copying it.
+- **`/subtask-content`** gained the `ummah_` and `weekly_` seed files, and a note that `prayer_` boards are generated from Faith. It also gained a step requiring cited refs in structured `sources[]` (the `audit:inline-refs` rule).
+- **DEL draft:** the original was already v3.5, so `BBOS_07_DELIVER_Annotated_v2_0.docx` is renamed `_v3_6.docx` and its version row reads v3.6. The subheader's "Spiritual Annotation Layer v2.0" is the layer's own version and is unchanged. The decision and [[bbos-pipeline]] were updated to match.
+- The task-definitions header said 118 tasks; it now says 115, the actual count. `/gate`'s "Amanah Gate" (a dev review checklist) shares a name with the docs' stage gate, but the purposes differ, so it is left as is.
+
 ## [2026-10-18] fix | BBOS numbering is 1-based; IDY closing du'a is Ṣaḥīḥ Muslim 770
 
 Branch `fix/bbos-printed-edition-checks`. Two operator requests. (1) Stage numbering starts at 1: patch sub-stages `00A`/`01B` become `01A`/`03B` in `bbos-pipeline.js`, the task labels, both CONTEXT.md files and [[bbos-pipeline]]. In the v2.0 Factory docs, DEL PROMPT 06.* becomes 07.* and OPT PROMPT 08.* becomes 09.*, with history rows marked "(now …)". (2) The only non-Qur'anic, non-prophetic du'a, IDY's closing "arinā l-ḥaqqa ḥaqqan", is replaced by Ṣaḥīḥ Muslim 770 (ʿĀʾishah; ʿAbd al-Bāqī 1/534; the Prophet's ﷺ night-prayer opening, "ihdinī limā ukhtulifa fīhi mina l-ḥaqqi bi-idhnik") in the app and in the IDY v2.0 doc. The stage test now rejects any non-prophetic du'a. Recorded as an amendment to [[2026-10-17-bbos-stage-grounding-reconciliation]]. `npm test` (435), `npm run lint` and `npm run build` pass.

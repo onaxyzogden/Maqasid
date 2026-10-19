@@ -1,4 +1,4 @@
-// BBOS Task Definitions — master registry for all 118 BBOS task types
+// BBOS Task Definitions — master registry for all 115 BBOS task types
 // Each entry describes the Islamic framing, form fields, and feature flags
 // for one sub-level task within a BBOS pipeline stage.
 //
