@@ -3,6 +3,21 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-19] session | BBOS Factory docs accepted, originals archived, register rebuilt from the docs
+
+- **Review:** the nine drafts match the app on every Name, du'a and reference. Three defects were fixed:
+  - DEL's row text still said "renumbered to v2.0";
+  - every row still said "highlighted for review";
+  - the CRD and OUT closing du'as were in the docs but missing from the app.
+- **App:** PR #68 (`fix/bbos-crd-out-closing-dua`) adds `closingDua` to CRD (Āl ʿImrān 3:8, Uthmani text checked) and OUT (Jāmiʿ al-Tirmidhī 3563, ed. Shākir 5/560, al-Albānī ḥasan). 447 tests, lint and build green.
+- **Docs:**
+  - 213 yellow highlights cleared;
+  - newest rows approved by Yousef Abdelsalam, 2026-10-19;
+  - the nine originals moved to `BBOS Factory Docs/_archive/`;
+  - backups of all eighteen files kept in the session scratchpad.
+- **Register:** version 4 of the artifact reads the du'a text from the accepted docs and shows a doc-vs-app check for each stage: zero mismatches. It is not screenshot-verified, because the browser pane is not signed in to claude.ai; the content was checked from the generated file.
+- The decision has a 2026-10-19 amendment, and [[bbos-pipeline]] gained a History row.
+
 ## [2026-10-18] fix | Skills brought in line with the BBOS Factory docs; DEL draft re-versioned v3.6
 
 The operator asked for the Factory docs to be compared with the BBOS skill and every comparable skill.
