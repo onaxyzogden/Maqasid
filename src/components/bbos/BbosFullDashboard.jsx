@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { CheckCircle, XCircle, AlertTriangle, Star, ShieldOff, RotateCcw } from 'lucide-react';
 import { useTaskStore } from '../../store/task-store';
 import { useProjectStore } from '../../store/project-store';
+import { requestConfirm } from '../../store/confirm-store';
 import { getBbosTaskDefsByStage } from '../../data/bbos/bbos-task-definitions';
 import { getStage, BBOS_STAGES, BBOS_LAYERS, BBOS_REJECTION_REASONS, getBbosRejectionReason } from '../../data/bbos/bbos-pipeline';
 import { getTaskAccessLevel } from '../../data/bbos/bbos-role-access';
@@ -1609,10 +1610,12 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
     setAdvanceOpen(true);
   };
 
-  const handleResume = () => {
-    if (typeof window !== 'undefined' && !window.confirm(
-      'Resume this BBOS pipeline? The rejection record will be cleared and stages will unlock.'
-    )) return;
+  const handleResume = async () => {
+    if (!(await requestConfirm({
+      title: 'Resume this BBOS pipeline?',
+      body: 'The rejection record will be cleared and stages will unlock.',
+      confirmLabel: 'Resume pipeline',
+    }))) return;
     unrejectBbosPipeline(project.id);
   };
 

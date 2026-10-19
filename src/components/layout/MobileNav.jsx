@@ -23,8 +23,8 @@ export default function MobileNav() {
           ? location.pathname === item.to
           : location.pathname.startsWith(item.to);
         return (
-          <Link key={item.to} to={item.to} className={`mobile-nav-item ${active ? 'active' : ''}`}>
-            <Icon size={20} />
+          <Link key={item.to} to={item.to} className={`mobile-nav-item ${active ? 'active' : ''}`} aria-current={active ? 'page' : undefined}>
+            <Icon size={20} aria-hidden="true" />
             <span>{item.label}</span>
           </Link>
         );

@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import { useContactsStore } from '@store/contacts-store';
 import { useToastStore } from '@store/toast-store';
 import { EMPLOYMENT_TYPES } from '@data/config/contact-config';
 import { localDayKey } from '../../../lib/format-date';
+import SlideIn from '../../shared/SlideIn';
+import FieldError from '../../shared/FieldError';
+import { useRequiredField } from '../../../hooks/useRequiredField';
 
 export default function AddEmployeeModal({ onClose }) {
   const addContact  = useContactsStore((s) => s.addContact);
@@ -23,6 +26,10 @@ export default function AddEmployeeModal({ onClose }) {
   const [startDate, setStartDate]   = useState(localDayKey());
 
   const canSubmit = name.trim();
+
+  const uid = useId();
+  const fid = (name) => `${uid}-${name}`;
+  const req = useRequiredField(!!canSubmit, fid('name'));
 
   function handleSubmit() {
     if (!canSubmit) return;
@@ -52,53 +59,52 @@ export default function AddEmployeeModal({ onClose }) {
   const labelStyle = { fontSize: 12, fontWeight: 500, color: 'var(--text2)', marginBottom: 4, display: 'block' };
 
   return createPortal(
-    <div style={{
-      position: 'fixed', inset: 0, zIndex: 1000,
-      background: 'var(--overlay)', display: 'flex', alignItems: 'center', justifyContent: 'flex-end',
-      animation: leaving ? 'fadeOut 200ms var(--ease) forwards' : undefined,
-    }} onClick={triggerClose}>
-      <div
-        style={{
-          width: 420, height: '100%', background: 'var(--surface)',
-          boxShadow: 'var(--shadow-xl)', overflowY: 'auto',
-          display: 'flex', flexDirection: 'column',
-          animation: leaving ? 'slideOutRight 200ms var(--ease) forwards' : 'slideInRight 200ms var(--ease)',
-        }}
-        onClick={(e) => e.stopPropagation()}
-      >
+    <SlideIn
+      onClose={triggerClose}
+      labelledBy={fid('title')}
+      overlayStyle={{
+        zIndex: 1000, background: 'var(--overlay)',
+        animation: leaving ? 'fadeOut 200ms var(--ease) forwards' : undefined,
+      }}
+      style={{
+        boxShadow: 'var(--shadow-xl)',
+        animation: leaving ? 'slideOutRight 200ms var(--ease) forwards' : undefined,
+      }}
+    >
         {/* Header */}
         <div style={{ padding: '20px 20px 0', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div>
-            <div style={{ fontWeight: 700, fontSize: 15, color: 'var(--text)' }}>Add an Employee</div>
+            <h2 id={fid('title')} style={{ margin: 0, fontWeight: 700, fontSize: 15, color: 'var(--text)' }}>Add an Employee</h2>
             <div style={{ fontSize: 12, color: 'var(--text3)', marginTop: 2 }}>Add a new team member to your organization.</div>
           </div>
-          <button onClick={triggerClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text2)', padding: 4 }}>
-            <X size={18} />
+          <button type="button" onClick={triggerClose} aria-label="Close" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text2)', padding: 4 }}>
+            <X size={18} aria-hidden="true" />
           </button>
         </div>
 
         <div style={{ padding: '16px 20px', flex: 1, display: 'flex', flexDirection: 'column', gap: 14 }}>
           <div>
-            <label style={labelStyle}>Full name *</label>
-            <input style={inputStyle} value={name} onChange={(e) => setName(e.target.value)} placeholder="Full name" autoFocus />
+            <label htmlFor={fid('name')} style={labelStyle}>Full name *</label>
+            <input id={fid('name')} {...req.fieldProps} style={inputStyle} value={name} onChange={(e) => setName(e.target.value)} placeholder="Full name" autoFocus />
+            <FieldError id={req.errorId} show={req.show}>Enter the employee's name</FieldError>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
             <div>
-              <label style={labelStyle}>Email</label>
-              <input style={inputStyle} type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+              <label htmlFor={fid('email')} style={labelStyle}>Email</label>
+              <input id={fid('email')} style={inputStyle} type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
             </div>
             <div>
-              <label style={labelStyle}>Phone</label>
-              <input style={inputStyle} value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone" />
+              <label htmlFor={fid('phone')} style={labelStyle}>Phone</label>
+              <input id={fid('phone')} style={inputStyle} value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Phone" />
             </div>
           </div>
           <div>
-            <label style={labelStyle}>Job title / Role</label>
-            <input style={inputStyle} value={role} onChange={(e) => setRole(e.target.value)} placeholder="e.g. Software Engineer" />
+            <label htmlFor={fid('role')} style={labelStyle}>Job title / Role</label>
+            <input id={fid('role')} style={inputStyle} value={role} onChange={(e) => setRole(e.target.value)} placeholder="e.g. Software Engineer" />
           </div>
           <div>
-            <label style={labelStyle}>Department</label>
-            <select style={inputStyle} value={department} onChange={(e) => setDepartment(e.target.value)}>
+            <label htmlFor={fid('dept')} style={labelStyle}>Department</label>
+            <select id={fid('dept')} style={inputStyle} value={department} onChange={(e) => setDepartment(e.target.value)}>
               <option value="">Select department...</option>
               {departments.map((d) => (
                 <option key={d.id} value={d.id}>{d.name}</option>
@@ -106,10 +112,10 @@ export default function AddEmployeeModal({ onClose }) {
             </select>
           </div>
           <div>
-            <label style={labelStyle}>Employment type</label>
-            <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
+            <div id={fid('emptype')} style={labelStyle}>Employment type</div>
+            <div role="group" aria-labelledby={fid('emptype')} style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
               {EMPLOYMENT_TYPES.map((t) => (
-                <button key={t.id} onClick={() => setEmpType(t.id)} style={{
+                <button type="button" key={t.id} aria-pressed={empType === t.id} onClick={() => setEmpType(t.id)} style={{
                   padding: '5px 12px', borderRadius: 6, border: '1.5px solid',
                   borderColor: empType === t.id ? 'var(--mod-people)' : 'var(--border)',
                   background: empType === t.id ? 'rgba(139,92,246,0.1)' : 'transparent',
@@ -122,30 +128,28 @@ export default function AddEmployeeModal({ onClose }) {
             </div>
           </div>
           <div>
-            <label style={labelStyle}>Start date</label>
-            <input style={inputStyle} type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+            <label htmlFor={fid('start')} style={labelStyle}>Start date</label>
+            <input id={fid('start')} style={inputStyle} type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
           </div>
         </div>
 
         {/* Submit */}
         <div style={{ padding: '0 20px 20px' }}>
           <button
-            onClick={handleSubmit}
-            disabled={!canSubmit}
+            type="button"
+            onClick={req.guard(handleSubmit)}
             style={{
               width: '100%', padding: '11px 0', borderRadius: 10,
-              background: canSubmit ? 'var(--text)' : 'var(--bg4)',
-              color: canSubmit ? 'var(--bg)' : 'var(--text3)',
+              background: 'var(--text)', color: 'var(--bg)',
               border: 'none', fontWeight: 600, fontSize: 14,
-              cursor: canSubmit ? 'pointer' : 'not-allowed',
+              cursor: 'pointer',
               transition: 'background var(--duration) var(--ease)',
             }}
           >
             Add Employee
           </button>
         </div>
-      </div>
-    </div>,
+    </SlideIn>,
     document.body
   );
 }

@@ -57,3 +57,19 @@
     padding: var(--space-2);
   }
 }
+
+/* Shown when a level has no board after seeding (instead of the previous board) */
+.fpb-empty {
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  color: var(--text2);
+}
+.fpb-empty__title {
+  margin: 0 0 var(--space-2);
+  font-weight: 600;
+  color: var(--text);
+}
+.fpb-empty__body {
+  margin: 0;
+  font-size: 0.875rem;
+}

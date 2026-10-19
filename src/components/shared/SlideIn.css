@@ -1,41 +1,22 @@
-/* Discard-changes bar shown at the top of a dirty SlideIn on Escape / backdrop click */
-.slidein-discard {
+/* Right-hand panel frame. Same rules as money/ExpenseList.css, repeated here
+   so a SlideIn outside Money (People, Tech) is styled even when that chunk
+   has not loaded. Keep the two in step. */
+.money-slidein-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 100;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-3);
-  flex-wrap: wrap;
-  padding: var(--space-3) var(--space-5);
-  background: var(--warning-bg);
-  border-bottom: 1px solid var(--warning-border);
-  color: var(--text);
-  font-size: var(--text-sm);
-  font-weight: 600;
+  justify-content: flex-end;
 }
-
-.slidein-discard__actions {
-  display: flex;
-  gap: var(--space-2);
-}
-
-.slidein-discard__keep,
-.slidein-discard__discard {
-  min-height: 36px;
-  padding: 0 var(--space-3);
-  border-radius: var(--radius-sm);
-  font: inherit;
-  font-size: var(--text-sm);
-  cursor: pointer;
-}
-
-.slidein-discard__keep {
-  background: var(--primary-strong);
-  color: #fff;
-  border: none;
-}
-
-.slidein-discard__discard {
+.money-slidein {
+  width: 420px;
+  max-width: 100vw;
+  height: 100vh;
   background: var(--surface);
-  color: var(--danger);
-  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  animation: slideInRight var(--duration) var(--ease-out);
+  overflow-y: auto;
+  outline: none;
 }

@@ -6,6 +6,7 @@ import { BBOS_STAGES } from '../../data/bbos/bbos-pipeline';
 import BbosFullDashboard from '../bbos/BbosFullDashboard';
 import BbosPipelineDashboard from '../bbos/pipeline-dashboard/BbosPipelineDashboard';
 import PillarLevelDashboard from './PillarLevelDashboard';
+import { isOverdue } from '../../lib/format-date';
 import './DashboardView.css';
 
 export default function DashboardView({ project, bbosFilter, onSelectTask, selectedTaskId, onStageAdvance, onStageSelect }) {
@@ -33,7 +34,7 @@ export default function DashboardView({ project, bbosFilter, onSelectTask, selec
     const completed = tasks.filter((t) => t.completedAt).length;
     const now = new Date();
     const overdue = tasks.filter(
-      (t) => t.dueDate && new Date(t.dueDate) < now && !t.completedAt
+      (t) => isOverdue(t.dueDate, now) && !t.completedAt
     ).length;
     const noDueDate = tasks.filter((t) => !t.dueDate && !t.completedAt).length;
     const pct = total > 0 ? Math.round((completed / total) * 100) : 0;

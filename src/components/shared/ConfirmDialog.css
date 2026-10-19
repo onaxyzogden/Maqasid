@@ -1,0 +1,48 @@
+/* shared/ConfirmDialog.jsx — sits inside the default .ui-modal frame */
+
+/* Above ceremonies, BBOS dialogs and other overlays it can be asked from. */
+.confirm-dialog-overlay { z-index: 10001; }
+
+.confirm-dialog {
+  width: min(460px, 100%);
+  padding: var(--space-6);
+}
+/* Three buttons need one row's worth more room. */
+.confirm-dialog:has(.confirm-dialog__extra) { width: min(560px, 100%); }
+
+.confirm-dialog__title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.confirm-dialog__body {
+  margin: 0;
+  color: var(--text2);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+.confirm-dialog__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+}
+
+.confirm-dialog__actions .btn { min-height: 44px; }
+
+/* The extra action (e.g. "Export a backup first") sits apart, on the left. */
+.confirm-dialog__extra { margin-right: auto; }
+
+.confirm-dialog__danger {
+  /* Fixed, not var(--danger): dark mode's #f87171 gives white text 2.8:1. */
+  background: #dc2626;
+  color: #fff;
+  border: none;
+}
+.confirm-dialog__danger:hover { filter: brightness(0.92); }

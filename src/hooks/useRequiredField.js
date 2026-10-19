@@ -20,6 +20,8 @@ export function useRequiredField(valid, fieldId) {
       'aria-invalid': show || undefined,
       'aria-describedby': show ? errorId : undefined,
     },
+    // Reveal the error without submitting (for checking several fields at once).
+    touch: () => setTried(true),
     guard: (fn) => (...args) => {
       if (!valid) {
         setTried(true);

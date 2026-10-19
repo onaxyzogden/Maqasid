@@ -8,6 +8,7 @@ import ScopeGate from '../shared/ScopeGate';
 import EmptyState from '../shared/EmptyState';
 import './ListView.css';
 import { rowActivation } from '../../lib/row-activation';
+import { parseLocal } from '../../lib/format-date';
 
 export default function ListView({ project, onSelectTask, filters, bbosRole, bbosFilter }) {
   const tasksByProject = useTaskStore((s) => s.tasksByProject);
@@ -73,7 +74,7 @@ export default function ListView({ project, onSelectTask, filters, bbosRole, bbo
                     {task.dueDate ? (
                       <span style={{ fontSize: '0.8rem', color: 'var(--text2)', display: 'flex', alignItems: 'center', gap: 3 }}>
                         <Calendar size={14} />
-                        {new Date(task.dueDate).toLocaleDateString('en', { month: 'short', day: 'numeric' })}
+                        {parseLocal(task.dueDate).toLocaleDateString('en', { month: 'short', day: 'numeric' })}
                       </span>
                     ) : (
                       <span style={{ color: 'var(--text3)', fontSize: '0.8rem' }}>—</span>

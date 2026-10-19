@@ -1,11 +1,13 @@
 import { useState, useMemo } from 'react';
 import { Plus, Search, Trash2, X } from 'lucide-react';
 import { useOfficeStore } from '../../store/office-store';
+import { useConfirm } from '../../store/confirm-store';
 import { useAuthStore } from '../../store/auth-store';
 import { useToastStore } from '../../store/toast-store';
 import './Announcements.css';
 
 export default function Announcements() {
+  const confirm = useConfirm();
   const announcements = useOfficeStore((s) => s.announcements);
   const addAnnouncement = useOfficeStore((s) => s.addAnnouncement);
   const deleteAnnouncement = useOfficeStore((s) => s.deleteAnnouncement);
@@ -63,7 +65,7 @@ export default function Announcements() {
                   {ann.author} &middot; {new Date(ann.createdAt).toLocaleDateString('en', { month: 'short', day: 'numeric', year: 'numeric' })}
                 </div>
               </div>
-              <button className="row-action-btn danger" onClick={() => { if (confirm('Delete this announcement?')) { deleteAnnouncement(ann.id); addToast({ message: 'Announcement removed', type: 'info' }); } }} aria-label={`Delete announcement ${ann.title}`}>
+              <button className="row-action-btn danger" onClick={async () => { if (await confirm({ title: `Delete announcement "${ann.title}"?`, body: "This can't be undone.", confirmLabel: 'Delete announcement', danger: true })) { deleteAnnouncement(ann.id); addToast({ message: 'Announcement removed', type: 'info' }); } }} aria-label={`Delete announcement ${ann.title}`}>
                 <Trash2 size={14} aria-hidden="true" />
               </button>
             </div>

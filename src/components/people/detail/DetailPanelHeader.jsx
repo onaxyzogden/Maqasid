@@ -5,9 +5,6 @@ import AvatarInitials from '../shared/AvatarInitials';
 import TypeBadge from '../shared/TypeBadge';
 
 export default function DetailPanelHeader({ entry, displayName, onClose }) {
-  const openEditPanel  = useContactsStore((s) => s.openEditPanel);
-  const editPanelOpen  = useContactsStore((s) => s.editPanelOpen);
-  const closeEditPanel = useContactsStore((s) => s.closeEditPanel);
   const updateContact  = useContactsStore((s) => s.updateContact);
   const undoToast      = useUndoToast();
 
@@ -38,7 +35,8 @@ export default function DetailPanelHeader({ entry, displayName, onClose }) {
             <TrendingUp size={16} aria-hidden="true" />
           </button>
         )}
-        <button onClick={editPanelOpen ? closeEditPanel : openEditPanel} title="Edit" style={btnStyle} aria-label="Edit">
+        {/* EditSidePanel isn't mounted anywhere yet, so Edit has nothing to open. */}
+        <button type="button" className="btn-soon" aria-disabled="true" title="Edit: coming soon" style={btnStyle} aria-label="Edit (coming soon)">
           <Edit2 size={16} aria-hidden="true" />
         </button>
         <button onClick={onClose} style={btnStyle} aria-label="Close details">

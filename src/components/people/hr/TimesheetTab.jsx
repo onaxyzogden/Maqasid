@@ -99,20 +99,24 @@ export default function TimesheetTab({ employees, onSelectEmployee }) {
         {/* Week navigator */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginLeft: 'auto' }}>
           <button
+            type="button"
+            aria-label="Previous period"
             onClick={() => setWeekOffset((o) => o - 1)}
             style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text3)', display: 'flex' }}
           >
-            <ChevronLeft size={18} />
+            <ChevronLeft size={18} aria-hidden="true" />
           </button>
           <div style={{ textAlign: 'center', minWidth: 140 }}>
             <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)' }}>{periodLabel}</div>
             <div style={{ fontSize: 12, color: 'var(--text3)' }}>{periodSubLabel}</div>
           </div>
           <button
+            type="button"
+            aria-label="Next period"
             onClick={() => setWeekOffset((o) => o + 1)}
             style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text3)', display: 'flex' }}
           >
-            <ChevronRight size={18} />
+            <ChevronRight size={18} aria-hidden="true" />
           </button>
         </div>
       </div>

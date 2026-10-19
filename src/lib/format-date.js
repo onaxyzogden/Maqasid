@@ -13,7 +13,7 @@
 //   'iso'      → "2026-04-25"             ← machine-readable
 //   'time'     → "14:30"
 
-import { format, isValid } from 'date-fns';
+import { format, isBefore, isValid, startOfDay } from 'date-fns';
 
 const PATTERNS = {
   short:    'MMM d, yyyy',
@@ -39,6 +39,15 @@ export function parseLocal(input) {
     return new Date(y, m - 1, d);
   }
   return new Date(input);
+}
+
+// A due day is overdue once that local calendar day has ended — not from UTC
+// midnight, which west of UTC marks today's tasks overdue the evening before.
+export function isOverdue(dueDate, now = new Date()) {
+  if (!dueDate) return false;
+  const d = parseLocal(dueDate);
+  if (!isValid(d)) return false;
+  return isBefore(startOfDay(d), startOfDay(now));
 }
 
 export function formatDate(input, variant = 'short', fallback = '') {

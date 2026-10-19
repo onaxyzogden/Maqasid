@@ -10,6 +10,7 @@ import { getPillarForModule } from '../../data/maqasid';
 import { getBbosStageIslamic } from '@data/bbos/bbos-stage-islamic';
 import { getStageLayer } from '../../data/bbos/bbos-pipeline';
 import { useSettingsStore } from '../../store/settings-store';
+import { requestConfirm } from '../../store/confirm-store';
 import { useArabic } from '../../hooks/useArabic';
 import { useCitations } from '../../hooks/useCitations';
 import AttributeCard from './AttributeCard';
@@ -174,9 +175,14 @@ export default function CeremonyFlow({ moduleId, type, onComplete }) {
     onComplete?.();
   };
 
-  const handleSkip = () => {
+  const handleSkip = async () => {
     const label = isOpening ? 'Opening Ceremony' : 'Closing Ceremony';
-    if (window.confirm(`Skip the ${label}? It will be marked complete without going through the steps.`)) {
+    if (await requestConfirm({
+      title: `Skip the ${label}?`,
+      body: 'It will be marked complete without going through the steps.',
+      confirmLabel: `Skip ${isOpening ? 'opening' : 'closing'}`,
+      cancelLabel: 'Go through it',
+    })) {
       complete();
     }
   };
