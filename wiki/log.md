@@ -3,6 +3,15 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-19] session | Closing du'as for Structure and Deliver
+
+- **Choice:** two candidates per stage were stress-tested, and the operator approved S1 + D1.
+- **App:** `closingDua` for STR (Ghāfir 40:44 excerpt, "Closing Reflection") and DEL (Sunan Abī Dāwūd 1522, "Closing Supplication"), each with `sources[]`. A new test checks that each closing's Arabic is quoted from its first source. 448 tests, lint and build green.
+- **Verification:** the Arabic was copied from tool output (Quran MCP, Uthmani Ḥafṣ). Abū Dāwūd 1522 was checked in the printed edition (ʿAbd al-Ḥamīd 2/86) via turath.io.
+- **Docs:** STRUCTURE v2.1 and DELIVER v3.7, each with a closing block after the Closing Reflection and a new approved version row. v2.0 and v3.6 were moved to `_archive/`, with backups kept in the session scratchpad. They are checked structurally, not rendered: no renderer on this machine.
+- **Register:** version 5 shows all nine stages closing, with zero doc-vs-app mismatches.
+- The decision has a 2026-10-19 amendment, and [[bbos-pipeline]] gained a History row.
+
 ## [2026-10-19] session | BBOS Factory docs accepted, originals archived, register rebuilt from the docs
 
 - **Review:** the nine drafts match the app on every Name, du'a and reference. Three defects were fixed:

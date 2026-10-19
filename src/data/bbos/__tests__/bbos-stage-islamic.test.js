@@ -2,6 +2,7 @@
 //   - every Qur'an / hadith du'a carries schema-valid `sources[]` (docs/grounding-schema.md)
 //   - no Name repeats across the nine stages, and no opening text is used twice
 //   - readiness rows name only the stage's own attributes
+//   - each closing du'a's Arabic is quoted from its first source
 import { describe, it, expect } from 'vitest';
 import { BBOS_STAGE_ISLAMIC, getBbosStageIslamic } from '../bbos-stage-islamic';
 
@@ -9,6 +10,15 @@ const KINDS = ['quran', 'hadith'];
 const TIERS = ['Bayyinah', 'Qarina', 'Niyyah'];
 const RELEVANCE = ['direct', 'contextual', 'thematic'];
 const STAGES = Object.entries(BBOS_STAGE_ISLAMIC);
+// Consonantal skeleton of Arabic text, so Uthmani rasm (يايها، ءامنوا، اعملكم)
+// and plain script compare equal: drop harakat, Qur'anic marks, tatweel,
+// every alif and hamza form, punctuation and spaces; unify alif maqsura with ya.
+const skeleton = (s) => s
+  .replace(/[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED\u0640]/g, '')
+  .replace(/[\u0621-\u0623\u0625\u0627\u0671]/g, '')
+  .replace(/[\u0624]/g, '\u0648')
+  .replace(/[\u0626\u0649]/g, '\u064A')
+  .replace(/[\u060C\u061B\u061F\u06D4.,;:\s]/g, '');
 const fold = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[ʿʾ'’]/g, '').toLowerCase();
 
 function duasOf(data) {
@@ -39,6 +49,14 @@ describe('BBOS stage du\'as', () => {
   it('never use the same opening text twice', () => {
     const openings = STAGES.map(([, d]) => d.dua.arabic);
     expect(new Set(openings).size).toBe(openings.length);
+  });
+
+  it("quote each closing du'a from its first source", () => {
+    for (const [id, data] of STAGES) {
+      if (!data.closingDua) continue;
+      const { arabic, sources } = data.closingDua;
+      expect(skeleton(sources[0].arabic), `${id}.closingDua`).toContain(skeleton(arabic));
+    }
   });
 });
 
