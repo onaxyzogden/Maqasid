@@ -30,7 +30,7 @@ export default function BbosLateDisqualifierBanner({ gate, onHalt, canHalt = tru
           <ShieldOff size={14} aria-hidden="true" /> Halt &amp; route to rejection…
         </button>
       ) : (
-        <p className="bld__no-halt">Only the Owner of the Amanah Proof Audit can halt the pipeline.</p>
+        <p className="bld__no-halt">Only the Owner or Strategist role can halt the pipeline.</p>
       )}
     </div>
   );

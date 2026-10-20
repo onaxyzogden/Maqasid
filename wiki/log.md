@@ -3,6 +3,11 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-20] session | BBOS Halt note names Owner and Strategist
+
+- **Change:** the note shown to a role that may not halt (late-disqualifier banner, and the Brief's locked Halt option) now reads "Only the Owner or Strategist role can halt the pipeline." The old "Only the Owner of the Amanah Proof Audit…" read as the OW role only, though ST owns CRD-V1 too (ux-reviewer P2 from PR #75). Operator chose the wording. Copy only; rule unchanged.
+- **Verification:** 559 tests, lint and build green; screenshot-checked as CW (banner note, Brief Halt locked). Fixture restored; no halt recorded.
+
 ## [2026-10-20] session | BBOS Halt role rule and Reject modal on Modal
 
 - **Plan:** `.claude/plans/bbos-halt-role-and-reject-modal.md`, approved by the operator ("Owner + store check"). Stacked on PR B (#74).

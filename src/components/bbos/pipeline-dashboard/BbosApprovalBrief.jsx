@@ -111,10 +111,10 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
       c: "var(--bpd-complete)", cd: "var(--bpd-complete-dim)" },
     { key: "conditions", label: "Proceed with Conditions", sub: "Gaps must be resolved before next stage begins",
       c: "var(--bpd-gold)", cd: "var(--bpd-gold-dim)" },
-    // Only the Owner of the Amanah Proof Audit (or the "all" view) may halt;
+    // Only the Owner of the Amanah Proof Audit, CRD-V1 (OW, ST), or the "all" view may halt;
     // the store refuses anyone else (canHaltBbosPipeline).
     { key: "halt", label: "Halt / Route to Rejection",
-      sub: canHalt ? "Automatic disqualifier triggered" : "Only the Owner of the Amanah Proof Audit can halt the pipeline.",
+      sub: canHalt ? "Automatic disqualifier triggered" : "Only the Owner or Strategist role can halt the pipeline.",
       locked: !canHalt,
       c: "var(--bpd-red)", cd: "var(--bpd-red-dim)" },
   ];
