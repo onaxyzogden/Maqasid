@@ -42,7 +42,7 @@ const formatAt = (iso) => {
 const NAMED_STATUS = { clear: "Clear", conditions: "Conditions", incomplete: "Incomplete", blocked: "Blocked" };
 const roleName = (id) => getBbosRole(id).label.toLowerCase();
 
-export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onReject, onLogConditions, onResolveCondition, onClose, initialDecision = null, initialReasonId = null }) {
+export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onReject, onLogConditions, onResolveCondition, onClose, initialDecision = null, initialReasonId = null, canHalt = true }) {
   const identity = stage.brief?.identity || {};
   const gate = stage.brief?.gate || null;
   const readiness = stage.brief?.covenant?.readiness || null;
@@ -55,7 +55,7 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
     operator: identity.operator || "",
     client: identity.client || "",
     date: new Date().toLocaleDateString("en-CA"),
-    decision: initialDecision,
+    decision: initialDecision === "halt" && !canHalt ? null : initialDecision,
   }));
   const up = (k, v) => setFd((p) => ({ ...p, [k]: v }));
   // Held at the root so switching sections doesn't drop what was written; saved
@@ -111,7 +111,11 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
       c: "var(--bpd-complete)", cd: "var(--bpd-complete-dim)" },
     { key: "conditions", label: "Proceed with Conditions", sub: "Gaps must be resolved before next stage begins",
       c: "var(--bpd-gold)", cd: "var(--bpd-gold-dim)" },
-    { key: "halt", label: "Halt / Route to Rejection", sub: "Automatic disqualifier triggered",
+    // Only the Owner of the Amanah Proof Audit (or the "all" view) may halt;
+    // the store refuses anyone else (canHaltBbosPipeline).
+    { key: "halt", label: "Halt / Route to Rejection",
+      sub: canHalt ? "Automatic disqualifier triggered" : "Only the Owner of the Amanah Proof Audit can halt the pipeline.",
+      locked: !canHalt,
       c: "var(--bpd-red)", cd: "var(--bpd-red-dim)" },
   ];
 
@@ -403,7 +407,7 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
           {canAct && gateBlocked && (
             <div className="bpd-brief__blocked" role="status">
               {gate.label || "This gate"} is BLOCKED &mdash; advancing is locked until the
-              unmet signals in Findings are resolved. You can still record conditions, or halt and route to rejection.
+              unmet signals in Findings are resolved. You can still record conditions{canHalt ? ", or halt and route to rejection" : ""}.
             </div>
           )}
           <div className="bpd-col" style={{ gap: 14 }} role="radiogroup" aria-label="Routing decision">
@@ -491,7 +495,7 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
           {decision === "proceed" && canAct && namedHold && (
             <div className="bpd-brief__blocked" role="note">
               {named.holding
-                ? `${hasNext ? "Advance" : "Closing the cycle"} is held by the ${named.gates.filter((g) => g.status === "blocked" || g.status === "incomplete").map((g) => g.name).join(" and ")}. See Named gates above; there is no override. Halt is still available above.`
+                ? `${hasNext ? "Advance" : "Closing the cycle"} is held by the ${named.gates.filter((g) => g.status === "blocked" || g.status === "incomplete").map((g) => g.name).join(" and ")}. See Named gates above; there is no override.${canHalt ? " Halt is still available above." : ""}`
                 : named.unrecorded.length > 0
                   ? `Record the conditions for the ${named.unrecorded.map((g) => g.name).join(" and ")}, then resolve them, to enable ${hasNext ? "Advance" : "Close Cycle"}.`
                   : `Tick each acknowledgement under Named gates to enable ${hasNext ? "Advance" : "Close Cycle"}.`}

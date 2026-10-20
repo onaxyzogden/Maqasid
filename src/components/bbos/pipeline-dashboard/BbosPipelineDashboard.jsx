@@ -11,6 +11,7 @@ import { useProjectStore } from "../../../store/project-store";
 import { useUndoToast } from "../../../hooks/useUndoToast";
 import { BBOS_STAGES } from "../../../data/bbos/bbos-pipeline";
 import { lateDisqualifier } from "../../../data/bbos/bbos-named-gates";
+import { canHaltBbosPipeline } from "../../../data/bbos/bbos-role-access";
 import { buildPipelineViewModel } from "./adapter/bbos-dashboard-adapter";
 import BbosLateDisqualifierBanner from "../BbosLateDisqualifierBanner";
 import BbosPipelineRail from "./BbosPipelineRail";
@@ -41,6 +42,8 @@ export default function BbosPipelineDashboard({ project, bbosFilter, onStageSele
   // The acting role is the attribution; 'all' is the view-everything filter,
   // which names no one, so it records as unattributed.
   const reviewer = project.bbosRole && project.bbosRole !== "all" ? project.bbosRole : null;
+  // One Halt rule for both dashboards and the store: the Owner of CRD-V1, or the "all" view.
+  const canHalt = canHaltBbosPipeline(reviewer);
 
   // Run a gate move, then offer Undo only if it actually wrote its entry (a
   // move refused for open conditions writes nothing and gets no toast). Undo
@@ -100,7 +103,7 @@ export default function BbosPipelineDashboard({ project, bbosFilter, onStageSele
     <div className="bpd">
       <BbosPipelineRail vm={vm} selectedId={selectedId} onSelect={handleSelect} />
       <div className="bpd-main">
-        <BbosLateDisqualifierBanner gate={lateGate} onHalt={openLateHalt} />
+        <BbosLateDisqualifierBanner gate={lateGate} onHalt={openLateHalt} canHalt={canHalt} />
         {selected
           ? <BbosStageOverview stage={selected} onOpenBrief={setBriefStage} onOpenExec={setExecStage} />
           : <div className="bpd-main__empty">Select a stage to begin</div>}
@@ -120,6 +123,7 @@ export default function BbosPipelineDashboard({ project, bbosFilter, onStageSele
           briefSections={vm.meta.briefSections}
           initialDecision={briefHalt ? "halt" : null}
           initialReasonId={briefHalt ? "amanah_disqualifier" : null}
+          canHalt={canHalt}
           // Each move carries its record (basis, closing note) into bbosGateLog.
           onAdvance={(record) => {
             const idx = BBOS_STAGES.findIndex((s) => s.id === briefStage.id);

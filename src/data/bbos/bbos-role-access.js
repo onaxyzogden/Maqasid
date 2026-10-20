@@ -161,6 +161,16 @@ export function getTaskAccessLevel(roleId, bbosTaskType) {
 }
 
 /**
+ * Whether a role may halt (reject) a BBOS pipeline: the Owner of the Amanah
+ * Proof Audit (CRD-V1), or the "all" view, which names no role. Shared by both
+ * dashboards and the store. The role is declared, not signed in, so this
+ * enforces the declared role; it does not secure it.
+ */
+export function canHaltBbosPipeline(roleId) {
+  return getTaskAccessLevel(roleId, 'CRD-V1') === 'O';
+}
+
+/**
  * Get the set of stage IDs accessible to a given role.
  * A stage is accessible if any task in that stage has non-'-' access for the role.
  */

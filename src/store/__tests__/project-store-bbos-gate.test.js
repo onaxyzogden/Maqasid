@@ -81,9 +81,27 @@ describe('advanceBbosStage with a record', () => {
 
 describe('rejectBbosPipeline with a record', () => {
   it('rejects and logs a halt entry with its reason and basis', () => {
-    useProjectStore.getState().rejectBbosPipeline(PID, 'riba', 'operator', { basis: 'Financing is interest-bearing.', stageId: 'CRD' });
+    // 'OW' (was 'operator', not a role id): only a role that owns CRD-V1 may halt.
+    useProjectStore.getState().rejectBbosPipeline(PID, 'riba', 'OW', { basis: 'Financing is interest-bearing.', stageId: 'CRD' });
     expect(project().rejectedAt).toBeTruthy();
-    expect(project().bbosGateLog[0]).toMatchObject({ decision: 'halt', reasonId: 'riba', stageId: 'CRD', by: 'operator' });
+    expect(project().bbosGateLog[0]).toMatchObject({ decision: 'halt', reasonId: 'riba', stageId: 'CRD', by: 'OW' });
+  });
+
+  it('refuses a halt from a role that does not own the Amanah Proof Audit', () => {
+    useProjectStore.getState().rejectBbosPipeline(PID, 'riba', 'CW', { basis: 'Financing is interest-bearing.', stageId: 'CRD' });
+    expect(project().rejectedAt).toBeFalsy();
+    expect(project().bbosGateLog || []).toHaveLength(0);
+  });
+
+  it('refuses a halt whose record names a role that may not halt', () => {
+    useProjectStore.getState().rejectBbosPipeline(PID, 'riba', null, { basis: 'Financing is interest-bearing.', stageId: 'CRD', by: 'SE' });
+    expect(project().rejectedAt).toBeFalsy();
+  });
+
+  it('accepts a halt from the "all" view, which names no role', () => {
+    useProjectStore.getState().rejectBbosPipeline(PID, 'riba', null, { basis: 'Financing is interest-bearing.', stageId: 'CRD' });
+    expect(project().rejectedAt).toBeTruthy();
+    expect(project().rejectedBy).toBeNull();
   });
 });
 

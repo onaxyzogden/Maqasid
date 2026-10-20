@@ -32,8 +32,8 @@ superseded_by: null
 - A project after CRD with a ★ YES on file cannot Advance or Close Cycle; the store refuses as well as the UI.
 - Verified: 553 tests (new evaluator and store tests written first), lint and build green. Screenshot-checked in preview: the legacy banner and Reject modal (reason pre-selected, Confirm disabled until a basis is written, "Recorded at Structure"); the redesigned banner and Brief (Proceed locked, Halt and the Amanah reason pre-selected). Fixture restored; no halt was recorded.
 - **Follow-ups, not built here:**
-  - Halt role-gating differs: the legacy banner offers Halt only to the Owner of CRD-V1 (or the "all" role), the redesign to any role.
-  - The legacy Reject modal has no Escape handling or focus restore (the shared `Modal.jsx` would fix both).
+  - ~~Halt role-gating differs~~ **Closed 2026-10-20** (`.claude/plans/bbos-halt-role-and-reject-modal.md`): one rule, `canHaltBbosPipeline(role)` (Owner of CRD-V1, i.e. OW or ST, or the "all" view), on both dashboards; the store's `rejectBbosPipeline` is a no-op for any other declared role. The Brief locks Halt for a non-owner with a note.
+  - ~~The legacy Reject modal has no Escape handling or focus restore~~ **Closed 2026-10-20**: it renders through the shared `Modal.jsx` (still portalled to `document.body`), with Escape, focus trap, focus return, and "Discard unsaved changes?" once a basis is written. `Modal.jsx` also cancels its focus return on a StrictMode remount, so an autoFocus field keeps focus in dev.
   - The CRD rail still shows "✓ Amanah Gate", which is historically true but may read as current.
   - The legacy `BbosGateMoveDialog` with Confirm disabled by the late gate was not screenshotted (it needs every STR task Done); its lock comes from the same `gateMoveRefusal`, covered by tests.
 

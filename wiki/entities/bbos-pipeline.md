@@ -2,7 +2,7 @@
 title: "BBOS Pipeline"
 type: entity
 created: 2026-04-09
-updated: 2026-10-17
+updated: 2026-10-20
 tags: [bbos, pipeline, islamic-business, covenant, stages, barakah, truth-safe, two-factory]
 sources: 4
 ---
@@ -150,6 +150,7 @@ See [decision: bbos-cycle-close-record](../decisions/2026-10-17-bbos-cycle-close
 
 | Date | Event |
 |---|---|
+| 2026-10-20 | **One Halt role rule; Reject modal on `Modal`.** `canHaltBbosPipeline` (Owner of CRD-V1, or the "all" view) gates Halt in both dashboards, and the store refuses a halt from any other declared role. The legacy Reject modal moves onto the shared `Modal.jsx` (Escape, focus trap and return, discard-confirm). 559 tests, lint and build green; screenshot-verified. See the [decision](../decisions/2026-10-20-bbos-late-disqualifier.md) amendment. |
 | 2026-10-20 | **Late ★ disqualifier banner.** A ★ YES on CRD-FP02 after CRD shows a banner on every later stage in both dashboards and holds Advance and Close Cycle through `gateMoveRefusal` (store refuses too), with no override; Halt opens the existing confirm flow with the new `amanah_disqualifier` reason. 553 tests, lint and build green; screenshot-verified in both dashboards. See the [decision](../decisions/2026-10-20-bbos-late-disqualifier.md). |
 | 2026-10-19 | **Named gates hold the stage move.** `bbos-named-gates.js` evaluates the Factory docs' five gates from task fields: Amanah and Viability at CRD exit, Ihsan Baseline at OUT, Pre-Ship at DEL (ten new IC-OFR / IC-DEL pass/fail checks, each list naming its asset), Constraint at OPT Close Cycle. Blocked or incomplete refuses Advance in the store and both dashboards, with no override; conditions go into `bbosGateLog` with `gateId` / `resolverRole`, and only the Owner resolves an Amanah escalation. 501 tests, lint and build green; screenshot-verified in both dashboards. See the [decision](../decisions/2026-10-19-bbos-named-gates.md). |
 | 2026-10-19 | **STR and DEL closings.** STR closes with Ghāfir 40:44 (excerpt), a Closing Reflection of tafwīḍ naming Al-Baṣīr; DEL closes with Sunan Abī Dāwūd 1522 (ʿAbd al-Ḥamīd 2/86, ṣaḥīḥ), a Closing Supplication for ḥusn al-ʿibādah. Both are added to `bbos-stage-islamic.js` with `sources[]`, plus a test that each closing quotes its first source (448 tests, lint and build green). The docs move to STRUCTURE v2.1 and DELIVER v3.7; v2.0 and v3.6 are archived. The register shows all nine stages closing, with zero mismatches. See the [decision amendment](../decisions/2026-10-17-bbos-stage-grounding-reconciliation.md). |
