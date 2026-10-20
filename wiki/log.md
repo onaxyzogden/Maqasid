@@ -3,6 +3,16 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-20] session | BBOS Halt role rule and Reject modal on Modal
+
+- **Plan:** `.claude/plans/bbos-halt-role-and-reject-modal.md`, approved by the operator ("Owner + store check"). Stacked on PR B (#74).
+- **App:** `canHaltBbosPipeline(role)` in `bbos-role-access.js` (Owner of CRD-V1 — OW, ST — or no role). Both dashboards use it; the redesign's Brief locks Halt for a non-owner with "Only the Owner of the Amanah Proof Audit can halt the pipeline." The store's `rejectBbosPipeline` is a no-op for any other declared role (declared, not signed in). The legacy Reject modal renders through `shared/Modal.jsx`.
+- **Fix found in verification:** `Modal.jsx` returned focus to the opener on StrictMode's dev-only remount, so an autoFocus field lost focus to the first control; the return is now cancelled on remount.
+- **Verification:** tests first; 559 tests, lint and build green. Screenshot-checked: CW (note, Halt locked) and OW (Halt offered) in the redesign; the legacy modal opened, Escape empty (closes, focus returns), Escape with a basis (discard prompt). Fixture restored; no halt recorded.
+- **UX review:** no blockers. P2 not applied (approved wording kept): the note's "Owner" may read as the OW role only. P3 deferred: the discard prompt scrolls the basis out of view on a phone; `90vh` → `90dvh` on `.bfd__modal`.
+- Amended [[2026-10-20-bbos-late-disqualifier]] (two follow-ups closed); [[bbos-pipeline]] History row added.
+- **Deferred:** `BbosGateMoveDialog` is still a hand-rolled overlay; the unresume role rule is unchanged; the CRD rail's "✓ Amanah Gate"; the legacy Advance dialog's locked state is not screenshotted.
+
 ## [2026-10-20] session | BBOS late ★ disqualifier banner
 
 - **Plan:** `.claude/plans/bbos-late-disqualifier.md`, approved by the operator. PR B, stacked on PR A (#73, which lands #72 on main).

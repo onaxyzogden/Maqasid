@@ -8,6 +8,7 @@ import { PRAYER_BOARDS } from '@data/prayer-pillars';
 import { BBOS_TASK_DEFINITIONS } from '@data/bbos/bbos-task-definitions';
 import { appendGateEntry, openConditions, reverseGateDecision } from '@data/bbos/bbos-gate-log';
 import { gateMoveRefusal } from '@data/bbos/bbos-named-gates';
+import { canHaltBbosPipeline } from '@data/bbos/bbos-role-access';
 
 // Pillar seed files are loaded lazily via the seed-hydrator. Each
 // ensure*Projects awaits its pillar's preload; the strip-pass below also
@@ -664,7 +665,10 @@ export const useProjectStore = create((set, get) => ({
     return { projects };
   }),
 
+  // Refused (a no-op) when the acting role, record.by or else the reviewer,
+  // may not halt: only the Owner of CRD-V1 or the "all" view (no role) may.
   rejectBbosPipeline: (projectId, reasonId, reviewer = null, record = null) => set((s) => {
+    if (!canHaltBbosPipeline(record?.by ?? reviewer)) return {};
     const projects = s.projects.map((p) =>
       p.id === projectId && p.bbosEnabled
         ? appendGateEntry(

@@ -6,7 +6,8 @@ import { useProjectStore } from '../../store/project-store';
 import { requestConfirm } from '../../store/confirm-store';
 import { getBbosTaskDefsByStage } from '../../data/bbos/bbos-task-definitions';
 import { getStage, BBOS_STAGES, BBOS_LAYERS, BBOS_REJECTION_REASONS, getBbosRejectionReason } from '../../data/bbos/bbos-pipeline';
-import { getTaskAccessLevel } from '../../data/bbos/bbos-role-access';
+import { getTaskAccessLevel, canHaltBbosPipeline } from '../../data/bbos/bbos-role-access';
+import Modal from '../shared/Modal';
 import { scoreStage } from '../../data/bbos/bbos-stage-score';
 import BbosGateMoveDialog from './BbosGateMoveDialog';
 import BbosLateDisqualifierBanner from './BbosLateDisqualifierBanner';
@@ -1569,8 +1570,9 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
   const isRejected = !!project.rejectedAt;
   const rejectionReasonMeta = isRejected ? getBbosRejectionReason(project.rejectionReason) : null;
 
-  // Operator with audit-edit access on the proof task may reject.
-  const canReject = bbosRole === 'all' || getTaskAccessLevel(bbosRole, 'CRD-V1') === 'O';
+  // One Halt rule for both dashboards and the store: the Owner of the Amanah
+  // Proof Audit (CRD-V1), or the 'all' view.
+  const canReject = canHaltBbosPipeline(bbosRole);
   const showRejectButton = bbosFilter === 'CRD' && !isRejected && canReject;
 
   const [rejectModalOpen, setRejectModalOpen] = useState(false);
@@ -1724,61 +1726,67 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
       </div>
 
       {/* ── Reject modal ── (portalled: a transformed ancestor in ProjectBoard
-          would otherwise trap the fixed overlay inside the content column) */}
+          would otherwise trap the fixed overlay inside the content column).
+          Modal brings Escape, the focus trap and focus return; a written basis
+          makes Escape or a backdrop click ask before discarding it. */}
       {rejectModalOpen && createPortal(
-        <div className="bfd__modal-overlay" onClick={closeReject}>
-          <div className="bfd__modal" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label="Reject BBOS pipeline">
-            <div className="bfd__modal-head">
-              <ShieldOff size={18} />
-              <span>Reject BBOS pipeline</span>
-            </div>
-            <p className="bfd__modal-desc">
-              Mark this pipeline as rejected at the Amanah Proof Audit. Stage advancement will be locked. You can resume the pipeline later if circumstances change.
-            </p>
-            {rejectStageId && (
-              <p className="bfd__modal-desc">
-                Recorded at {getStage(rejectStageId)?.label || rejectStageId}, the pipeline's current stage.
-              </p>
-            )}
-            <div className="bfd__modal-options" role="radiogroup" aria-label="Rejection reason">
-              {BBOS_REJECTION_REASONS.map((r) => (
-                <label key={r.id} className={`bfd__modal-option${rejectReasonId === r.id ? ' bfd__modal-option--active' : ''}`}>
-                  <input
-                    type="radio"
-                    name="bfd-reject-reason"
-                    value={r.id}
-                    checked={rejectReasonId === r.id}
-                    onChange={() => setRejectReasonId(r.id)}
-                  />
-                  <span className="bfd__modal-option-label">{r.label}</span>
-                  <span className="bfd__modal-option-desc">{r.description}</span>
-                </label>
-              ))}
-            </div>
-            <label className="bfd__modal-field">
-              <span className="bfd__modal-field-label">Basis for the rejection (required)</span>
-              <textarea
-                className="bfd__modal-textarea"
-                rows={3}
-                autoFocus={!!rejectStageId}
-                value={rejectBasis}
-                onChange={(e) => setRejectBasis(e.target.value)}
-                placeholder="What evidence routes this pipeline to rejection..."
-              />
-            </label>
-            {!rejectBasis.trim() && (
-              <p className="bfd__modal-hint">Write the basis to enable Confirm rejection. It is added to the gate record.</p>
-            )}
-            <div className="bfd__modal-actions">
-              <button className="bfd__modal-cancel" type="button" onClick={closeReject}>
-                Cancel
-              </button>
-              <button className="bfd__modal-confirm" type="button" onClick={handleConfirmReject} disabled={!rejectReasonId || !rejectBasis.trim()}>
-                Confirm rejection
-              </button>
-            </div>
+        <Modal
+          onClose={closeReject}
+          labelledBy="bfd-reject-title"
+          dirty={!!rejectBasis.trim()}
+          overlayClassName="bfd__modal-overlay"
+          className="bfd__modal"
+        >
+          <div className="bfd__modal-head">
+            <ShieldOff size={18} />
+            <span id="bfd-reject-title">Reject BBOS pipeline</span>
           </div>
-        </div>,
+          <p className="bfd__modal-desc">
+            Mark this pipeline as rejected at the Amanah Proof Audit. Stage advancement will be locked. You can resume the pipeline later if circumstances change.
+          </p>
+          {rejectStageId && (
+            <p className="bfd__modal-desc">
+              Recorded at {getStage(rejectStageId)?.label || rejectStageId}, the pipeline's current stage.
+            </p>
+          )}
+          <div className="bfd__modal-options" role="radiogroup" aria-label="Rejection reason">
+            {BBOS_REJECTION_REASONS.map((r) => (
+              <label key={r.id} className={`bfd__modal-option${rejectReasonId === r.id ? ' bfd__modal-option--active' : ''}`}>
+                <input
+                  type="radio"
+                  name="bfd-reject-reason"
+                  value={r.id}
+                  checked={rejectReasonId === r.id}
+                  onChange={() => setRejectReasonId(r.id)}
+                />
+                <span className="bfd__modal-option-label">{r.label}</span>
+                <span className="bfd__modal-option-desc">{r.description}</span>
+              </label>
+            ))}
+          </div>
+          <label className="bfd__modal-field">
+            <span className="bfd__modal-field-label">Basis for the rejection (required)</span>
+            <textarea
+              className="bfd__modal-textarea"
+              rows={3}
+              autoFocus={!!rejectStageId}
+              value={rejectBasis}
+              onChange={(e) => setRejectBasis(e.target.value)}
+              placeholder="What evidence routes this pipeline to rejection..."
+            />
+          </label>
+          {!rejectBasis.trim() && (
+            <p className="bfd__modal-hint">Write the basis to enable Confirm rejection. It is added to the gate record.</p>
+          )}
+          <div className="bfd__modal-actions">
+            <button className="bfd__modal-cancel" type="button" onClick={closeReject}>
+              Cancel
+            </button>
+            <button className="bfd__modal-confirm" type="button" onClick={handleConfirmReject} disabled={!rejectReasonId || !rejectBasis.trim()}>
+              Confirm rejection
+            </button>
+          </div>
+        </Modal>,
         document.body,
       )}
 

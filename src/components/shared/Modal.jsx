@@ -53,9 +53,16 @@ export default function Modal({
 
   // Return focus to whatever opened the dialog. Captured at first render: by
   // the time effects run, an autoFocus field inside already holds focus.
+  // The return is deferred, and a remount cancels it: StrictMode's dev-only
+  // unmount/remount would otherwise pull focus off an autoFocus field and the
+  // trap would then land on the first control.
   const [opener] = useState(() => document.activeElement);
-  useEffect(() => () => {
-    if (opener?.isConnected) setTimeout(() => opener.focus(), 0);
+  const returnTimer = useRef(null);
+  useEffect(() => {
+    clearTimeout(returnTimer.current);
+    return () => {
+      if (opener?.isConnected) returnTimer.current = setTimeout(() => opener.focus(), 0);
+    };
   }, [opener]);
   const keepRef = useRef(null);
   useEffect(() => { if (confirming) keepRef.current?.focus(); }, [confirming]);
