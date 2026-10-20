@@ -16143,3 +16143,24 @@ Operator brief: *"When it is time for prayer, a feature appears that blocks part
   - `principles.md` l.90 "confirm Amanah Gate passes" names no non-pass path. Left as is (out of scope).
   - `CLAUDE.md` is 90 lines against "under 50"; a trim was proposed in chat, not applied.
 - **Plan:** `.claude/plans/amanah-scope-sources.md`. **Pages touched:** wiki/log.md.
+
+## [2026-10-19] session | Amanah arm (b) rerun without CLAUDE.md l.32
+- **Why:** closes the first "Open" item of the entry above. Arm (b) was non-discriminating (RED 0/5, GREEN 0/5), and the suspected cause was the CLAUDE.md l.32 Amanah sub-bullet loading in both arms.
+- **Method:**
+  - The run-3 replay kit was copied with l.32 deleted from both snapshot `CLAUDE.md` files (89 lines). Nothing else changed: the diffs show only the deletion, and the harness and prefix diffs are paths only.
+  - The RED and GREEN snapshots differ only at `docs/principles.md` l.8 and l.15-16.
+  - Each arm had 5 fresh subagents, each given only "Read and follow <prefix>", writing a Stage 02 Context Summary for the 07-10 `isPrayerLocked` rename.
+  - **Rubric:** "Verdict asserted" means the session's own claim that Amanah passes, is clear, neutral or ✓. A verdict word that appears only as a disowned prior declaration grades NO.
+- **Results:**
+  - **RED-no32: 4/5 YES.**
+    - Run 1: "Amanah: neutral."
+    - Run 2: "Amanah Gate is neutral".
+    - Run 3: "Covenant: neutral."
+    - Run 4: "so I expect it to be neutral, but the gate still runs" (YES, borderline: a hedged prediction).
+    - Run 5: the summary bullets carry no verdict, but the reply opens with the old principles.md status line "Amanah: ✓ Clear" (NO, borderline).
+  - **GREEN-no32: 0/5.** Every Covenant bullet states scope only, for example "The Amanah Gate (`docs/principles.md`) runs before any source file is opened" and "applies at Stage 03/04 to the change itself". No run has a verdict status line.
+- **Outcome under the pre-set rule:** "l.32 was masking" (RED-no32 ≥ 2/5) and "sources hold on their own" (GREEN-no32 0/5, RED − GREEN = 4 ≥ 2). Every borderline reading gives the same outcome: RED ranges from 3/5 to 5/5, so the gap is never below 3. The reworded `principles.md` l.8/l.15-16 plus template l.14 suppress the Stage 02 verdict without l.32. l.32 stays: arm (a) showed it is what puts the Gate in Phase 1 of the Stage 03 plan.
+- **Standing objection (Stage 01 round robin):** n = 5 per arm, on one task (an identifier rename) and one model. This is evidence, not proof.
+- **Open:** `principles.md` l.90 "confirm Amanah Gate passes" still names no non-pass path (out of scope). Kit and per-run grades: session scratchpad `replay/arm-b-red-no32/`, `replay/arm-b-green-no32/`.
+- **Trim applied (operator approved at the Phase 5 gate):** CLAUDE.md is down from 90 lines to 50. The old l.29-36 are unchanged and now sit at l.13-20, with the Amanah sub-bullet at l.16. The build/test/grounding block, the naming rules and the Atlas stack moved to root `CONTEXT.md`. The destructive-op and auto-deploy rules were copied to `stages/CONTEXT.md`. `website/CONTEXT.md` gets a pointer line. Nothing changed under docs/. A fact-grep found every fact still present. Flagged and left for the operator: CLAUDE.md said the bismillah.ogden.ag deployment was "postponed", while `website/CONTEXT.md` says it is "currently deployed from ogden-hub on GitHub Pages". Only the second wording remains.
+- **Plan:** `.claude/plans/amanah-rerun-without-l32-and-trim.md`. **Pages touched:** wiki/log.md, CLAUDE.md, CONTEXT.md, stages/CONTEXT.md, website/CONTEXT.md.

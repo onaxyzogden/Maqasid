@@ -7,24 +7,8 @@ React 19 SPA · Zustand 5 · React Router 7 · Vite 8 · dnd-kit · Lucide icons
 This project runs on Windows. Do not suggest Bash installers, Unix-specific commands, or assume POSIX paths. Use PowerShell or cmd equivalents. Watch for cp1252/UTF-8 encoding issues when reading/writing files.
 
 ## Code Conventions
-
-### String Escaping
-When writing JavaScript/JSON strings containing apostrophes (e.g., Qur'an, don't), always use double quotes or properly escape. Verify files compile after writing.
-
-## Build & Dev Commands
-```bash
-npm run dev                     # Start Vite dev server
-npm run build                   # Production build
-npm run lint                    # Grounding gate: ESLint + lint:grounding-strict + audit:inline-refs
-npm run lint:eslint             # ESLint only (flat config, eslint.config.js)
-npm run preview                 # Preview production build
-npm test                        # Vitest — schema/grounding conformance tests
-npm run lint:grounding          # Informational pillar-level grounding report
-npm run lint:grounding-strict   # Fails on legacy-string sources or schema errors
-npm run audit:inline-refs       # Fails when description prose cites a ref missing from sources[] (ratchet at 0)
-```
-
-Grounding tooling (added 2026-04-25): every seeded subtask must have `sources` as a structured array `[{ kind, ref, translation, relevance, provenanceTier, rationale, ... }]` (per [wiki/decisions/2026-04-18-milos-grounding-two-axis.md](wiki/decisions/2026-04-18-milos-grounding-two-axis.md)). All 8 pillars are migrated; legacy-string entries are forbidden going forward. The grounding test in [src/data/seed-tasks/__tests__/grounding.test.js](src/data/seed-tasks/__tests__/grounding.test.js) ratchets per-pillar legacy counts at 0; the inline-refs auditor in [scripts/audit-inline-refs.mjs](scripts/audit-inline-refs.mjs) ratchets at 0 (closed via [wiki/decisions/2026-04-25-milos-inline-refs-hadith-backfill.md](wiki/decisions/2026-04-25-milos-inline-refs-hadith-backfill.md)). Run `npm test` and `npm run lint` after any seed-task edit.
+- String escaping: when writing JavaScript/JSON strings containing apostrophes (e.g., Qur'an, don't), always use double quotes or properly escape. Verify files compile after writing.
+- Build, test and seed-task grounding rules: root `CONTEXT.md`. Run `npm test` and `npm run lint` after any seed-task edit.
 
 ## MANDATORY: Context-First Protocol
 STOP. Before you read, modify, or explore ANY source file, you MUST complete these steps in order:
@@ -43,11 +27,7 @@ Start at root `CONTEXT.md` and follow the chain. Each CONTEXT.md routes to its c
 - After any correction: update `tasks/lessons.md`
 - Full workflow principles: `docs/principles.md`
 - Can't find a file? Run `python scripts/pathfinder.py discover "Name"` — searches and patches routing
-
-## Workflow Rules
-
-### After Refactoring / File Moves
-Always run a full build (`npm run build` or equivalent) after moving files or reorganizing. Grep for ALL import references to moved files including CSS imports, relative paths at different nesting depths, and data file imports.
+- After refactoring or file moves: run a full build (`npm run build`) and grep for ALL import references to moved files, including CSS imports, relative paths at different nesting depths, and data file imports.
 
 ## Hemisphere Division
 | Side | Directories | Owner | AI Access |
@@ -58,33 +38,13 @@ Always run a full build (`npm run build` or equivalent) after moving files or re
 | Marketing | `website/` | Yousef | Read-only (static HTML, no build) |
 | OLOS | `atlas/` (submodule) | Both | Separate repo — read here, develop in atlas repo |
 | Wiki | `wiki/` | Claude Code | Full read/write (LLM-owned knowledge base) |
-## Naming Conventions — Status Tracking
-- Stage gate files: `[phase]-[slug]-[status].md` (e.g., `research-crm-revamp-review.md`)
-- Status values: `draft` | `review` | `approved` | `rejected`
-- Reference docs: kebab-case descriptive (`style-guide.md`, `voice-and-tone.md`)
-- Journal entries: `YYYY-MM-DD.md` in `notes/journal/`
-## CI/CD Safety Flags
+## Naming & Safety
+- Stage gate naming and workflow: `stages/CONTEXT.md`. Other naming conventions: root `CONTEXT.md`.
 - Destructive operations (store reset, data migration) require a `stages/` approval doc
 - Never auto-deploy without human review gate approval
 - `.obsidian/` and `notes/` are .gitignored — personal config, not shared
 
-## Verification
-
-### Preview Verification
-When verifying UI changes in preview, do not claim something is working without a screenshot confirming it. If the screenshot tool is unresponsive, say so rather than assuming success.
-
-## UI Development
-
-### HTML-to-React Conversions
-When converting HTML designs to React components, match the original HTML pixel-for-pixel. Do not 'improve' or reinterpret the design unless explicitly asked. Show a side-by-side comparison before moving on.
-
-## Website (ogden-hub)
-Static marketing site merged from ogden-hub repo. Lives in `website/`.
-Pure HTML — no build system, no Node.js dependencies.
-Domain: bismillah.ogden.ag (deployment postponed).
-
-## OLOS (git submodule)
-Geospatial land intelligence app. Linked as submodule at `atlas/`.
-Separate repo: `onaxyzogden/atlas`. Own monorepo (pnpm + Turborepo).
-Stack: React 18 + TypeScript + Vite + MapboxGL + Fastify + PostgreSQL/PostGIS.
-Domain: atlas.ogden.ag. Develop in the atlas repo directly — submodule is for reference.
+## Verification & UI
+- Preview: do not claim a UI change is working without a screenshot confirming it. If the screenshot tool is unresponsive, say so rather than assuming success.
+- HTML-to-React: match the original HTML pixel-for-pixel. Do not 'improve' or reinterpret the design unless explicitly asked. Show a side-by-side comparison before moving on.
+- Website (ogden-hub, `website/`) and OLOS (`atlas/` submodule) details: `website/CONTEXT.md` and root `CONTEXT.md`.

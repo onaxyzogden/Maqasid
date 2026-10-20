@@ -25,3 +25,6 @@ Each file represents a deliverable awaiting approval, revision, or rejection.
 ## Template
 Use `stages/_template-gate.md` as the skeleton for new review gates.
 Or run `/gate [phase] [slug]` in Claude Code to auto-generate.
+
+## Safety
+Destructive operations (store reset, data migration) require a `stages/` approval doc. Never auto-deploy without human review gate approval.
