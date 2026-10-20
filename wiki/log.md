@@ -3,6 +3,15 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-20] session | BBOS late ★ disqualifier banner
+
+- **Plan:** `.claude/plans/bbos-late-disqualifier.md`, approved by the operator. PR B, stacked on PR A (#73, which lands #72 on main).
+- **App:** `lateDisqualifier()` in `bbos-named-gates.js` adds a blocked `amanahLate` gate on every stage after CRD while CRD-FP02 holds a ★ YES; `evaluateStageGates` puts it first, so the store and both dashboards refuse Advance and Close Cycle with no override. New `BbosLateDisqualifierBanner` on both dashboards; Halt opens the Brief (redesign) or the Reject modal (legacy) with the new `amanah_disqualifier` reason chosen. Nothing in `bbosGateLog` is edited; Halt appends a `'halt'` entry.
+- **UX review:** `role="region"` rather than alert; quiet outline Halt button with 44px target and focus ring; legacy "stage ready" strip hidden while held; the legacy modal says the halt is recorded at the pipeline's current stage.
+- **Verification:** tests written first; 553 tests, lint and build green. Screenshot-checked: both banners, the Brief with Proceed locked and Halt + reason pre-selected, the legacy Reject modal with reason pre-selected. Fixture restored; no halt recorded.
+- Recorded in [[2026-10-20-bbos-late-disqualifier]], with an amendment to [[2026-10-19-bbos-named-gates]]. Entity page [[bbos-pipeline]] updated.
+- **Deferred:** align Halt role-gating between the dashboards; Escape and focus restore on the legacy Reject modal; the CRD rail's historical "✓ Amanah Gate"; a screenshot of the legacy Advance dialog locked by the late gate.
+
 ## [2026-10-20] session | BBOS IC per-asset checklists
 
 - **Plan:** `.claude/plans/bbos-ic-per-asset.md`, approved by the operator, stacked on PR #71 (named gates).

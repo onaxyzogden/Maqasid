@@ -1,0 +1,71 @@
+/* Late ★ disqualifier banner. Colours come from the host dashboard:
+   the redesigned shell sets them under .bpd, the legacy one falls back. */
+.bld {
+  --bld-red: #ef4444;
+  --bld-text: var(--text, inherit);
+  --bld-text2: var(--text2, inherit);
+  --bld-text3: var(--text3, inherit);
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  border-left: 4px solid var(--bld-red);
+  border-radius: 8px;
+  color: var(--bld-text);
+}
+.bpd .bld {
+  --bld-red: var(--bpd-red);
+  --bld-text: var(--bpd-text-primary, inherit);
+  --bld-text2: var(--bpd-text-secondary, inherit);
+  --bld-text3: var(--bpd-text-tertiary, inherit);
+  flex: none;
+  margin: 16px 28px 0;
+  font-family: var(--bpd-font-ui, inherit);
+}
+.bfd .bld { margin: 0 auto var(--space-5, 20px); max-width: 900px; }
+
+.bld__icon { flex-shrink: 0; color: var(--bld-red); margin-top: 2px; }
+.bld__body { flex: 1 1 320px; min-width: 0; }
+.bld__title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--bld-red);
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+}
+.bld__reason,
+.bld__hold { margin: 0 0 4px; font-size: 0.875rem; line-height: 1.45; color: var(--bld-text2); }
+.bld__hold { color: var(--bld-text); font-weight: 600; }
+.bld__cite {
+  margin: 4px 0 0;
+  font-size: 0.75rem;
+  color: var(--bld-text3);
+  font-family: var(--font-mono, monospace);
+  letter-spacing: 0.02em;
+}
+.bld__no-halt { margin: 0; font-size: 0.875rem; color: var(--bld-text2); align-self: center; }
+
+/* Quiet destructive: outlined, red label; the solid red lives in the dialog. */
+.bld__halt {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 8px 14px;
+  align-self: center;
+  background: transparent;
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  border-radius: 6px;
+  color: var(--bld-red);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.bld__halt:hover { background: rgba(239, 68, 68, 0.12); }
+.bld__halt:active { background: rgba(239, 68, 68, 0.2); }
+.bld__halt:focus-visible { outline: 2px solid var(--bld-red); outline-offset: 2px; }

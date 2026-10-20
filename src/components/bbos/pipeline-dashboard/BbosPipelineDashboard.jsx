@@ -10,7 +10,9 @@ import { useTaskStore } from "../../../store/task-store";
 import { useProjectStore } from "../../../store/project-store";
 import { useUndoToast } from "../../../hooks/useUndoToast";
 import { BBOS_STAGES } from "../../../data/bbos/bbos-pipeline";
+import { lateDisqualifier } from "../../../data/bbos/bbos-named-gates";
 import { buildPipelineViewModel } from "./adapter/bbos-dashboard-adapter";
+import BbosLateDisqualifierBanner from "../BbosLateDisqualifierBanner";
 import BbosPipelineRail from "./BbosPipelineRail";
 import BbosStageOverview from "./BbosStageOverview";
 import BbosExecView from "./BbosExecView";
@@ -76,7 +78,15 @@ export default function BbosPipelineDashboard({ project, bbosFilter, onStageSele
   const execStage = vm.stages.find((s) => s.id === execStageId) || null;
   const briefStage = vm.stages.find((s) => s.id === briefStageId) || null;
   const setExecStage = (s) => setExecStageId(s?.id ?? null);
-  const setBriefStage = (s) => setBriefStageId(s?.id ?? null);
+  // A Brief opened from the late-disqualifier banner starts on Halt with the
+  // Amanah reason; one opened from a stage view starts with no decision.
+  const [briefHalt, setBriefHalt] = useState(false);
+  const setBriefStage = (s) => { setBriefStageId(s?.id ?? null); setBriefHalt(false); };
+
+  // A ★ YES on the CRD Amanah rubric, on file after CRD: the store already
+  // holds every move (gateMoveRefusal); the banner says so and offers Halt.
+  const lateGate = project.rejectedAt ? null : lateDisqualifier(project.bbosStage || "IDY", tasks);
+  const openLateHalt = () => { setBriefStageId(project.bbosStage); setBriefHalt(true); setExecStageId(null); };
 
   const selectedId = onStageSelect ? (filterId || fallbackId) : localId;
   const handleSelect = (s) => {
@@ -90,6 +100,7 @@ export default function BbosPipelineDashboard({ project, bbosFilter, onStageSele
     <div className="bpd">
       <BbosPipelineRail vm={vm} selectedId={selectedId} onSelect={handleSelect} />
       <div className="bpd-main">
+        <BbosLateDisqualifierBanner gate={lateGate} onHalt={openLateHalt} />
         {selected
           ? <BbosStageOverview stage={selected} onOpenBrief={setBriefStage} onOpenExec={setExecStage} />
           : <div className="bpd-main__empty">Select a stage to begin</div>}
@@ -107,6 +118,8 @@ export default function BbosPipelineDashboard({ project, bbosFilter, onStageSele
         <BbosApprovalBrief
           stage={briefStage}
           briefSections={vm.meta.briefSections}
+          initialDecision={briefHalt ? "halt" : null}
+          initialReasonId={briefHalt ? "amanah_disqualifier" : null}
           // Each move carries its record (basis, closing note) into bbosGateLog.
           onAdvance={(record) => {
             const idx = BBOS_STAGES.findIndex((s) => s.id === briefStage.id);

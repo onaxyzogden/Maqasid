@@ -93,6 +93,11 @@ export const BBOS_REJECTION_REASONS = [
     label: 'Operator withdrawal',
     description: 'The operator has chosen to exit the pipeline by their own discernment.',
   },
+  {
+    id: 'amanah_disqualifier',
+    label: 'Amanah ★ disqualifier',
+    description: 'A ★ question on the CRD Amanah rubric (FP-02 Q3, Q5 or Q8) was answered YES: automatic disqualifier, reject immediately.',
+  },
 ];
 
 /** Get rejection reason by ID */

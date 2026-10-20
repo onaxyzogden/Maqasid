@@ -3,7 +3,8 @@
 // CRD, Ihsan Baseline (IC-OUT) at OUT, Pre-Ship (IC-OFR + IC-DEL) at DEL, and
 // Constraint (FP-01) at OPT. Thresholds are tested at their edges.
 import { describe, it, expect } from 'vitest';
-import { evaluateStageGates, gateMoveRefusal, GATE_RULES } from '../bbos-named-gates';
+import { evaluateStageGates, gateMoveRefusal, lateDisqualifier, GATE_RULES } from '../bbos-named-gates';
+import { BBOS_REJECTION_REASONS } from '../bbos-pipeline';
 import { BBOS_TASK_DEFINITIONS } from '../bbos-task-definitions';
 
 const task = (bbosTaskType, bbosFieldData) => ({ id: bbosTaskType, bbosTaskType, bbosFieldData });
@@ -316,5 +317,72 @@ describe('gateMoveRefusal (the store guard)', () => {
 
   it('lets an ungated stage move', () => {
     expect(gateMoveRefusal(proj('STR'), [], { basis: 'Go.' })).toBeNull();
+  });
+});
+
+// A ★ disqualifier answered YES once the project has left CRD: the doc says
+// "Reject immediately", so every later stage carries a blocked Amanah gate
+// read from CRD-FP02, and only a Halt answers it.
+describe('late ★ disqualifier (after CRD)', () => {
+  const ack = { basis: 'Go.', acknowledged: ['founderNotified'] };
+  const proj = (bbosStage, bbosGateLog = []) => ({ id: 'p', bbosStage, bbosCycle: 1, bbosGateLog });
+  const late = (rubric) => crd({ rubric });
+
+  it('adds a blocked Amanah gate to every stage after CRD, keeping the doc wording', () => {
+    for (const stageId of ['STR', 'OFR', 'OUT', 'SLS', 'DEL', 'RET', 'OPT']) {
+      const res = evaluateStageGates(stageId, late({ q5RegulatoryMisuse: 'yes' }));
+      const g = gate(res, 'amanahLate');
+      expect(g?.status, stageId).toBe('blocked');
+      expect(res.status, stageId).toBe('blocked');
+      expect(g.reasons.join(' ')).toMatch(/Q5/);
+      expect(g.reasons.join(' ')).toMatch(/automatic disqualifier/);
+      expect(g.reasons.join(' ')).toMatch(/Reject immediately/);
+      expect(g.cite).toBe(GATE_RULES.amanah.cite);
+    }
+  });
+
+  it('names every ★ answered YES', () => {
+    const g = lateDisqualifier('STR', late({ q3UnverifiableClaims: 'yes', q8FalseInformation: 'yes' }));
+    expect(g.questions).toEqual(['Q3', 'Q8']);
+    expect(g.reasons.join(' ')).toMatch(/Q3, Q8/);
+  });
+
+  it('is absent with no ★ YES, before CRD, and at CRD (where the Amanah gate already blocks)', () => {
+    expect(lateDisqualifier('STR', late({}))).toBeNull();
+    expect(lateDisqualifier('STR', [])).toBeNull();
+    expect(lateDisqualifier('IDY', late({ q5RegulatoryMisuse: 'yes' }))).toBeNull();
+    expect(lateDisqualifier('CRD', late({ q5RegulatoryMisuse: 'yes' }))).toBeNull();
+    const crdRes = evaluateStageGates('CRD', late({ q5RegulatoryMisuse: 'yes' }));
+    expect(crdRes.gates.map((g) => g.id)).toEqual(['amanah', 'viability']);
+    expect(evaluateStageGates('STR', late({}))).toEqual({ stageId: 'STR', status: 'none', gates: [] });
+  });
+
+  it('is not raised by a NO or an unanswered ★', () => {
+    expect(lateDisqualifier('OUT', late({ q5RegulatoryMisuse: 'no', q8FalseInformation: '' }))).toBeNull();
+  });
+
+  it('holds the move through gateMoveRefusal, with no way past it', () => {
+    const tasks = late({ q8FalseInformation: 'yes' });
+    expect(gateMoveRefusal(proj('STR'), tasks, ack)?.status).toBe('blocked');
+    const logged = [
+      { id: 'c1', decision: 'conditions', stageId: 'STR', cycle: 1, gateId: 'amanahLate' },
+      { id: 'r1', decision: 'resolved', stageId: 'STR', cycle: 1, resolvesId: 'c1' },
+    ];
+    expect(gateMoveRefusal(proj('STR', logged), tasks, { ...ack, acknowledged: ['founderNotified', 'amanahLate'] })?.status).toBe('blocked');
+  });
+
+  it('holds a cycle close at OPT even when the Constraint Gate is clear', () => {
+    const tasks = [...late({ q3UnverifiableClaims: 'yes' }), task('OPT-S5', { g72Check: 'no' })];
+    const res = gateMoveRefusal(proj('OPT'), tasks, ack);
+    expect(res?.status).toBe('blocked');
+    expect(gate(res, 'constraint').status).toBe('clear');
+  });
+});
+
+describe('the Amanah rejection reason', () => {
+  it('exists for a Halt on a ★ disqualifier, beside the existing reasons', () => {
+    const r = BBOS_REJECTION_REASONS.find((x) => x.id === 'amanah_disqualifier');
+    expect(r?.label).toMatch(/★/);
+    expect(BBOS_REJECTION_REASONS.map((x) => x.id)).toEqual(['riba', 'gharar', 'capability_gap', 'regulatory', 'withdrawal', 'amanah_disqualifier']);
   });
 });

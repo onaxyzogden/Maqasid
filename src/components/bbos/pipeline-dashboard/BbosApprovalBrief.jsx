@@ -9,7 +9,7 @@
 // Open conditions (this cycle, unresolved) are listed above the decision and
 // block Advance until each is marked resolved with its own written basis;
 // onResolveCondition adds a 'resolved' entry and moves nothing.
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Ornament, SPill } from "./primitives";
 import { itemVars, iLabel } from "./palette";
@@ -42,19 +42,20 @@ const formatAt = (iso) => {
 const NAMED_STATUS = { clear: "Clear", conditions: "Conditions", incomplete: "Incomplete", blocked: "Blocked" };
 const roleName = (id) => getBbosRole(id).label.toLowerCase();
 
-export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onReject, onLogConditions, onResolveCondition, onClose }) {
+export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onReject, onLogConditions, onResolveCondition, onClose, initialDecision = null, initialReasonId = null }) {
   const identity = stage.brief?.identity || {};
   const gate = stage.brief?.gate || null;
   const readiness = stage.brief?.covenant?.readiness || null;
   const readinessRows = readiness?.rows || [];
-  const [sec, setSec] = useState("covenant");
-  const [reasonId, setReasonId] = useState(null);
+  // Opened from the late-disqualifier banner: straight to the gate, Halt chosen.
+  const [sec, setSec] = useState(initialDecision ? "gate" : "covenant");
+  const [reasonId, setReasonId] = useState(initialReasonId);
   const [fd, setFd] = useState(() => ({
     project: identity.project || "",
     operator: identity.operator || "",
     client: identity.client || "",
     date: new Date().toLocaleDateString("en-CA"),
-    decision: null,
+    decision: initialDecision,
   }));
   const up = (k, v) => setFd((p) => ({ ...p, [k]: v }));
   // Held at the root so switching sections doesn't drop what was written; saved
@@ -72,6 +73,16 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
   const [acked, setAcked] = useState([]);
   const [condGate, setCondGate] = useState(null);
   const conditionsRef = useRef(null);
+  // Opened on Halt: the basis is the one step left, so bring it into view.
+  useEffect(() => {
+    if (initialDecision !== "halt") return;
+    const id = requestAnimationFrame(() => {
+      const el = document.getElementById("bpd-brief-basis");
+      el?.scrollIntoView({ block: "center" });
+      el?.focus();
+    });
+    return () => cancelAnimationFrame(id);
+  }, [initialDecision]);
   const [dirty, setDirty] = useState(false);
   const { ref: dialogRef, requestClose, onKeyDown } = useBpdDialog({ onClose, dirty });
 

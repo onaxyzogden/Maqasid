@@ -18,6 +18,7 @@
 // conditions entries carry `gateId`, and a proceed carries `acknowledged`.
 
 import { icList, icAssetRows, icRowResult } from './bbos-ic-assets';
+import { BBOS_STAGES } from './bbos-pipeline';
 
 const RANK = { none: 0, clear: 1, conditions: 2, incomplete: 3, blocked: 4 };
 
@@ -29,6 +30,8 @@ const fieldsOf = (tasks, type) => {
 const result = (id, status, reasons, extra = {}) => ({
   id, name: GATE_RULES[id].name, rule: GATE_RULES[id].rule, cite: GATE_RULES[id].cite, status, reasons, ...extra,
 });
+// 'q5RegulatoryMisuse' -> 'Q5'
+const qOf = (id) => `Q${id.match(/^q(\d+)/)[1]}`;
 const missingTask = (id, type) => result(id, 'incomplete', [`Task ${type} is missing from this project.`]);
 
 export const GATE_RULES = {
@@ -97,7 +100,6 @@ function amanah(tasks) {
   const R = GATE_RULES.amanah;
   const d = fieldsOf(tasks, 'CRD-FP02');
   if (!d) return missingTask('amanah', 'CRD-FP02');
-  const qOf = (id) => `Q${id.match(/^q(\d+)/)[1]}`;
   const hit = R.disqualifiers.filter((id) => d[id] === 'yes');
   if (hit.length) {
     return result('amanah', 'blocked', [
@@ -223,9 +225,45 @@ const EVALUATORS = {
   preship: (t) => checklists('preship', t),
 };
 
+const stageIndex = (id) => BBOS_STAGES.findIndex((s) => s.id === id);
+
+/**
+ * A ★ disqualifier on file once the project has left CRD. The Amanah Gate is
+ * judged when CRD is left, but its answers stay editable; a ★ answered YES
+ * later is still "Reject immediately". Every stage after CRD then carries
+ * this blocked gate, so gateMoveRefusal holds Advance and Close Cycle, and
+ * only a Halt answers it. Null before or at CRD (where the Amanah gate itself
+ * blocks), or with no ★ YES.
+ */
+export function lateDisqualifier(stageId, tasks) {
+  const at = stageIndex(stageId);
+  if (at < 0 || at <= stageIndex('CRD')) return null;
+  const d = fieldsOf(tasks, 'CRD-FP02');
+  if (!d) return null;
+  const questions = GATE_RULES.amanah.disqualifiers
+    .filter((id) => d[id] === 'yes')
+    .map(qOf);
+  if (!questions.length) return null;
+  return {
+    id: 'amanahLate',
+    name: 'Amanah Gate (on file from CRD)',
+    rule: GATE_RULES.amanah.rule,
+    cite: GATE_RULES.amanah.cite,
+    status: 'blocked',
+    questions,
+    reasons: [
+      `★ ${questions.join(', ')} answered YES on the CRD Amanah rubric: automatic disqualifier. Reject immediately. Halt and route to Rejection, and complete the Responsible Removal Log (Stage 02.1).`,
+    ],
+  };
+}
+
 /** Evaluate every named gate on a stage from its tasks. */
 export function evaluateStageGates(stageId, tasks) {
-  const gates = (STAGE_GATES[stageId] || []).map((id) => EVALUATORS[id](tasks || []));
+  const late = lateDisqualifier(stageId, tasks || []);
+  const gates = [
+    ...(late ? [late] : []),
+    ...(STAGE_GATES[stageId] || []).map((id) => EVALUATORS[id](tasks || [])),
+  ];
   const status = gates.reduce((s, g) => (RANK[g.status] > RANK[s] ? g.status : s), 'none');
   return { stageId, status, gates };
 }

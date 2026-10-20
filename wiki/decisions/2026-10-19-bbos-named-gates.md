@@ -39,6 +39,8 @@ The accepted Factory docs name five gates: Amanah (CRD FP-02 rubric), Viability 
 - **Viability does not match candidates.** V2 (Removed Niche Log) and V3 (Cleared Candidate Handoff) are free text, so the evaluator cannot tell whether the candidate named in V3 is one that failed a letter. "Judged per candidate" holds only as far as the operator's entries do.
 - **The Owner role is declared, not signed in.** An escalation's `'resolved'` entry is refused unless `record.by` is `OW`, but anyone can pick OW in the role picker. The rule records who claimed to decide; it does not secure the decision.
 
+- *Amendment 2026-10-20:* the first limit is closed by [[2026-10-20-bbos-late-disqualifier]].
+
 All three go to one follow-up: a late-disqualifier banner (a ★ YES on file after CRD shows on every later stage and holds Advance through `gateMoveRefusal`, offering Halt), and structured per-candidate and per-asset rows for Viability and the IC checklists.
 
 ## Consequences
