@@ -1,10 +1,13 @@
 // BBOS gate actions on the project store: recorded advances, halts and cycle
 // closes log to bbosGateLog, and a recorded advance is refused while the stage it leaves
-// has open conditions. The store persists through localStorage, so the node
+// has open conditions. Every advance from a stage with named gates (and every
+// cycle close) is also refused while those gates are blocked, incomplete,
+// unacknowledged, or carry unresolved conditions. The store persists through localStorage, so the node
 // test environment gets a minimal in-memory stub before the store loads.
 import { describe, it, expect, beforeAll, beforeEach } from 'vitest';
 
 let useProjectStore;
+let safeSet;
 
 beforeAll(async () => {
   const mem = new Map();
@@ -16,12 +19,37 @@ beforeAll(async () => {
   };
   globalThis.window = globalThis.window || { dispatchEvent: () => true, addEventListener: () => {} };
   ({ useProjectStore } = await import('../project-store'));
+  ({ safeSet } = await import('../../services/storage'));
 });
 
 const PID = 'proj_gate_test';
 const project = () => useProjectStore.getState().projects.find((p) => p.id === PID);
+const task = (bbosTaskType, bbosFieldData) => ({ id: bbosTaskType, bbosTaskType, bbosFieldData });
+const seedTasks = (tasks) => safeSet(`tasks_${PID}`, tasks);
+const CLEAN_RUBRIC = {
+  q1ProofVerifiable: 'yes', q2RegulatoryVerifiable: 'yes', q3UnverifiableClaims: 'no',
+  q4RunwaySufficient: 'yes', q5RegulatoryMisuse: 'no', q6GoalAlignment: 'yes',
+  q7EnergyAversion: 'no', q8FalseInformation: 'no', q9ScopeUnderstanding: 'yes',
+  q10CapacityRealistic: 'yes',
+};
+const crdTasks = (rubric = {}) => [
+  task('CRD-FP02', { ...CLEAN_RUBRIC, ...rubric }),
+  task('CRD-V1', { gateARegulatory: 'pass', gateBMarketFit: 'pass', gateCCompetenceProof: 'pass', gateDProvenDemand: 'pass', overallViability: 'viable' }),
+  task('CRD-V2', {}),
+  task('CRD-V3', { clearedCandidates: 'Halal food co-ops, Ontario' }),
+];
+const atOpt = (g72Check = 'no', a3 = null) => {
+  seedTasks([task('OPT-S5', { g72Check }), ...(a3 ? [task('OPT-A3', a3)] : [])]);
+  useProjectStore.setState({
+    projects: [{ id: PID, bbosEnabled: true, bbosStage: 'OPT', bbosCycle: 1, bbosGateLog: [] }],
+  });
+};
+const atCrd = () => useProjectStore.setState({
+  projects: [{ id: PID, bbosEnabled: true, bbosStage: 'CRD', bbosCycle: 1, bbosGateLog: [] }],
+});
 
 beforeEach(() => {
+  seedTasks([]);
   useProjectStore.setState({
     projects: [{ id: PID, bbosEnabled: true, bbosStage: 'IDY', bbosCycle: 1, bbosGateLog: [] }],
   });
@@ -60,10 +88,6 @@ describe('rejectBbosPipeline with a record', () => {
 });
 
 describe('startNewBbosCycle with a record', () => {
-  const atOpt = () => useProjectStore.setState({
-    projects: [{ id: PID, bbosEnabled: true, bbosStage: 'OPT', bbosCycle: 1, bbosGateLog: [] }],
-  });
-
   it('logs a cycle entry in the closing cycle, then starts the next from Identity', () => {
     atOpt();
     useProjectStore.getState().startNewBbosCycle(PID, { basis: 'Reckoning complete.', stageId: 'OPT', by: 'operator' });
@@ -85,5 +109,56 @@ describe('startNewBbosCycle with a record', () => {
     useProjectStore.getState().startNewBbosCycle(PID);
     expect(project()).toMatchObject({ bbosStage: 'IDY', bbosCycle: 2 });
     expect(project().bbosGateLog).toHaveLength(0);
+  });
+});
+
+describe('named gates on the store', () => {
+  it('refuse an advance from CRD on a ★ disqualifier, with no way past it', () => {
+    atCrd();
+    seedTasks(crdTasks({ q5RegulatoryMisuse: 'yes' }));
+    useProjectStore.getState().advanceBbosStage(PID, 'STR', { basis: 'Go.', stageId: 'CRD', acknowledged: ['founderNotified'] });
+    expect(project().bbosStage).toBe('CRD');
+    expect(project().bbosGateLog).toHaveLength(0);
+  });
+
+  it('refuse a clear CRD advance until the founder-notified acknowledgement is recorded', () => {
+    atCrd();
+    seedTasks(crdTasks());
+    useProjectStore.getState().advanceBbosStage(PID, 'STR', { basis: 'Go.', stageId: 'CRD' });
+    expect(project().bbosStage).toBe('CRD');
+    useProjectStore.getState().advanceBbosStage(PID, 'STR', { basis: 'Go.', stageId: 'CRD', acknowledged: ['founderNotified'] });
+    expect(project().bbosStage).toBe('STR');
+    expect(project().bbosGateLog[0]).toMatchObject({ decision: 'proceed', acknowledged: ['founderNotified'] });
+  });
+
+  it('refuse an advance from a gated stage when no record is passed', () => {
+    atCrd();
+    seedTasks(crdTasks());
+    useProjectStore.getState().advanceBbosStage(PID, 'STR');
+    expect(project().bbosStage).toBe('CRD');
+  });
+
+  it('hold an Amanah escalation until the Owner resolves it', () => {
+    atCrd();
+    seedTasks(crdTasks({ q1ProofVerifiable: 'no', q2RegulatoryVerifiable: 'no', q4RunwaySufficient: 'no' }));
+    useProjectStore.getState().logBbosGateDecision(PID, {
+      decision: 'conditions', stageId: 'CRD', basis: '3 flags.', conditions: 'Founder decision required.', gateId: 'amanah', resolverRole: 'OW',
+    });
+    const condId = project().bbosGateLog[0].id;
+    useProjectStore.getState().advanceBbosStage(PID, 'STR', { basis: 'Go.', stageId: 'CRD' });
+    expect(project().bbosStage).toBe('CRD');
+    useProjectStore.getState().logBbosGateDecision(PID, { decision: 'resolved', resolvesId: condId, basis: 'Strategist accepts.', by: 'ST' });
+    expect(project().bbosGateLog).toHaveLength(1);
+    useProjectStore.getState().logBbosGateDecision(PID, { decision: 'resolved', resolvesId: condId, basis: 'Owner accepts the flags in writing.', by: 'OW' });
+    useProjectStore.getState().advanceBbosStage(PID, 'STR', { basis: 'Go.', stageId: 'CRD' });
+    expect(project().bbosStage).toBe('STR');
+  });
+
+  it('refuse a cycle close on a TYPE A Constraint Gate, with or without a record', () => {
+    atOpt('yes', { depletionType: 'typeA' });
+    useProjectStore.getState().startNewBbosCycle(PID, { basis: 'Close.', stageId: 'OPT' });
+    expect(project()).toMatchObject({ bbosStage: 'OPT', bbosCycle: 1 });
+    useProjectStore.getState().startNewBbosCycle(PID);
+    expect(project()).toMatchObject({ bbosStage: 'OPT', bbosCycle: 1 });
   });
 });

@@ -17,6 +17,11 @@
 // Undo is a record too: a 'reversed' entry points at the move it undoes
 // (reversesId) and the pipeline is put back. Only the last entry in the log,
 // and only a move (proceed, halt, cycle), can be reversed.
+//
+// Named gates (bbos-named-gates.js): a conditions entry may name the gate it
+// answers (gateId) and the one role allowed to resolve it (resolverRole, e.g.
+// 'OW' for an Amanah escalation). A resolved entry from any other role is
+// refused. A move records the gate acknowledgements it was made on.
 import { genGateDecisionId } from '../../services/id';
 
 export const GATE_DECISIONS = ['proceed', 'conditions', 'halt', 'resolved', 'cycle', 'reversed'];
@@ -38,7 +43,8 @@ export const isReversed = (log, id) =>
  * @param {object} project — the project the decision belongs to
  * @param {{ stageId?: string, decision: 'proceed'|'conditions'|'halt'|'resolved'|'cycle', basis: string,
  *           conditions?: string, reasonId?: string, toStageId?: string,
- *           resolvesId?: string, closingNote?: string, by?: string|null }} record
+ *           resolvesId?: string, closingNote?: string, by?: string|null,
+ *           gateId?: string, resolverRole?: string, acknowledged?: string[] }} record
  */
 export function buildGateEntry(project, record) {
   if (!record || !GATE_DECISIONS.includes(record.decision)) return null;
@@ -56,6 +62,7 @@ export function buildGateEntry(project, record) {
     const log = project?.bbosGateLog || [];
     const target = log.find((e) => e.id === record.resolvesId);
     if (!target || target.decision !== 'conditions' || isResolved(log, target.id)) return null;
+    if (target.resolverRole && record.by !== target.resolverRole) return null;
     stageId = target.stageId;
     cycle = target.cycle;
     resolvesId = target.id;
@@ -84,6 +91,10 @@ export function buildGateEntry(project, record) {
       : record.decision === 'cycle' ? 'IDY' : null,
     resolvesId,
     reversesId,
+    gateId: record.decision === 'conditions' ? record.gateId || null : null,
+    resolverRole: record.decision === 'conditions' ? record.resolverRole || null : null,
+    acknowledged: record.decision === 'proceed' || record.decision === 'cycle'
+      ? (Array.isArray(record.acknowledged) ? [...record.acknowledged] : []) : null,
     closingNote: record.decision === 'resolved' || record.decision === 'reversed' ? null : text(record.closingNote),
     by: record.by || null,
   };
