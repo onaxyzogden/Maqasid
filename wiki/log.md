@@ -3,6 +3,13 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-20] session | BBOS IC card polish
+
+- **Plan:** `.claude/plans/bbos-ic-card-polish.md`, approved by the operator. It covers three of the four items deferred from PR #72; the late-disqualifier banner was split off into its own session.
+- **App:** each card's label reads "Asset N name". Passed cards open folded, showing the name and verdict chip in the head, with a 44px "Show checks" / "Hide checks" toggle (`aria-expanded`, `aria-controls`). NO-SHIP and unfinished cards never fold, and a card that passes while being answered stays open. The name input is 16px at 767px and below, so iOS doesn't zoom. New pure helpers `initialCollapsed` and `shiftAfterRemove` in `bbos-ic-assets.js`. After Remove, focus falls back to a folded card's toggle.
+- **Verification:** helper tests written first; full suite (547 tests), lint and build green. Screenshot-checked in preview: folded Passed cards beside an open NO-SHIP card, an opened card, and the 390px view with the name input at 16px. Focus after Add and Remove holds at 700ms. A focus loss seen during the session came from hot reload leaving stale effects behind; it does not occur on a fresh load, and `useFocusTrap` is unchanged. Fixture restored.
+- Recorded in [[2026-10-20-bbos-ic-per-asset]] (new "Card polish" section).
+
 ## [2026-10-20] session | BBOS IC per-asset checklists
 
 - **Plan:** `.claude/plans/bbos-ic-per-asset.md`, approved by the operator, stacked on PR #71 (named gates).
@@ -10,7 +17,7 @@ type: log
 - **Fix in passing:** the Exec View now keeps line breaks (`white-space: pre-wrap`).
 - **Verification:** tests written first; full suite (543 tests), lint and build green. A UX review found no P0/P1; its P2 fixes (error clearing, missing-answer hint, focus on add/remove, 44px targets) were applied. Screenshot-checked in preview: task panel cards, Brief blocked / cleared, legacy answer as asset 1, legacy Advance dialog locked. Fixture restored.
 - Recorded in [[2026-10-20-bbos-ic-per-asset]], with a pointer from [[2026-10-19-bbos-named-gates]]. Entity page [[bbos-pipeline]] updated.
-- **Deferred:** UX P3s: label each card "Asset N: name" or add a hint; make the name input 16px on mobile so iOS doesn't zoom; collapse passed cards. Also a banner when a disqualifier is raised after the gate has already been passed.
+- **Deferred:** UX P3s: label each card "Asset N: name" or add a hint; make the name input 16px on mobile so iOS doesn't zoom; collapse passed cards (all three done in the IC card polish entry above). Also a banner when a disqualifier is raised after the gate has already been passed (split off as its own session).
 
 ## [2026-10-19] session | BBOS named gates built into the app
 

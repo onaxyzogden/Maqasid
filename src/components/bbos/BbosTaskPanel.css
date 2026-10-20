@@ -460,6 +460,46 @@
   border-color: var(--danger-border);
 }
 
+.btp-ic-folded-name {
+  font-weight: 400;
+  color: var(--text2);
+}
+
+.btp-ic-toggle {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 44px;
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text2);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btp-ic-toggle:hover,
+.btp-ic-toggle:focus-visible {
+  color: var(--text);
+  border-color: var(--text3);
+}
+
+.btp-ic-toggle + .btp-ic-remove {
+  margin-left: 0;
+}
+
+.btp-ic-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btp-ic-body[hidden] {
+  display: none;
+}
+
 .btp-ic-remove {
   margin-left: auto;
   display: inline-flex;
@@ -1015,6 +1055,10 @@
   .btp-field-input {
     font-size: 15px;
     padding: 12px;
+  }
+  /* 16px stops iOS zooming in when the asset name gets focus. */
+  .btp-ic-name {
+    font-size: 16px;
   }
   .btp-notes-container {
     padding: 16px;

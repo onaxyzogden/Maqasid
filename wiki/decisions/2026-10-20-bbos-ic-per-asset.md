@@ -34,4 +34,13 @@ superseded_by: null
 - A stage with several assets now holds until every listed asset is answered, and is blocked by any one that fails 2+ checks.
 - Verified: tests written first and green, lint and build green. In preview: the task panel cards (NO-SHIP note, then "Passed · 1 fail" after an edit), the Brief blocked and cleared, a legacy flat answer read as asset 1 and blocking, and the legacy Advance dialog with Confirm locked. The preview fixture was restored afterwards.
 
+## Card polish (2026-10-20)
+
+Three of the four UX items deferred from PR #72, approved in `.claude/plans/bbos-ic-card-polish.md`:
+
+- **Label.** Each card reads "Asset N name". The label names the input, so it doesn't repeat the input's value.
+- **Passed cards fold.** When the panel opens, Passed cards are folded: the head shows the name and the verdict chip (with "· 1 fail" kept), and a 44px "Show checks" / "Hide checks" toggle opens it. NO-SHIP and unfinished cards never fold. Only the opening state folds, so a card that passes while it is being answered stays open. The fold state is held by card index; `shiftAfterRemove` keeps it right after a Remove.
+- **16px on phones.** `.btp-ic-name` is 16px at 767px and below, so iOS doesn't zoom in on focus. Other task-panel inputs are unchanged.
+- **Not done here.** The banner for a disqualifier raised after the gate was passed was split off into its own session.
+
 See [[bbos-pipeline]].

@@ -110,3 +110,13 @@ export function icAssetLine(a) {
     detail,
   };
 }
+
+/** The cards that open folded: assets that passed. NO-SHIP and unfinished ones never fold. */
+export function initialCollapsed(rows, code) {
+  return new Set((rows || []).flatMap((row, i) => (icRowResult(row, code).verdict === 'pass' ? [i] : [])));
+}
+
+/** Fold state after card `removed` is taken out: it goes, later cards move up one. */
+export function shiftAfterRemove(set, removed) {
+  return new Set([...set].filter((i) => i !== removed).map((i) => (i > removed ? i - 1 : i)));
+}

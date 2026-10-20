@@ -4,7 +4,7 @@
 // deleted.
 
 import { describe, it, expect } from 'vitest';
-import { IC_LISTS, icList, icAssetRows, icRowResult, formatIcAssets, emptyIcRow, icAssetsDone, fieldValueText, icAssetSummary, icAssetLine } from '../bbos-ic-assets';
+import { IC_LISTS, icList, icAssetRows, icRowResult, formatIcAssets, emptyIcRow, icAssetsDone, fieldValueText, icAssetSummary, icAssetLine, initialCollapsed, shiftAfterRemove } from '../bbos-ic-assets';
 
 const OUT = () => icList('IC-OUT');
 const row = (asset, checks) => ({ asset, checks });
@@ -154,5 +154,31 @@ describe('icAssetLine', () => {
     expect(icAssetLine({ list: 'IC-OFR', index: 1, asset: 'Offer doc', verdict: 'pass', fails: ['IC-OFR-2'], unanswered: [] }))
       .toEqual({ list: 'IC-OFR', name: 'Offer doc', label: 'Passed', tone: 'pass', detail: '1 fail: IC-OFR-2' });
     expect(icAssetLine({ list: 'IC-OFR', index: 1, asset: 'Offer doc', verdict: 'pass', fails: [], unanswered: [] }).detail).toBe('');
+  });
+});
+
+describe('initialCollapsed (which cards open folded)', () => {
+  const P = ['pass', 'pass', 'pass', 'pass', 'pass'];
+  it('folds only assets that passed', () => {
+    const rows = [
+      row('Landing page', P),
+      row('Email 1', ['fail', 'fail', 'pass', 'pass', 'pass']),
+      row('Email 2', ['pass', 'pass', '', 'pass', 'pass']),
+      row('', P),
+      row('Post', ['pass', 'fail', 'pass', 'pass', 'pass']),
+    ];
+    expect([...initialCollapsed(rows, 'IC-OUT')]).toEqual([0, 4]);
+  });
+  it('folds nothing on an empty list', () => {
+    expect(initialCollapsed([], 'IC-OUT').size).toBe(0);
+  });
+});
+
+describe('shiftAfterRemove (fold state after Remove)', () => {
+  it('drops the removed card and moves later cards up one', () => {
+    expect([...shiftAfterRemove(new Set([0, 2, 3]), 2)].sort()).toEqual([0, 2]);
+  });
+  it('leaves earlier cards where they are', () => {
+    expect([...shiftAfterRemove(new Set([0, 1]), 3)].sort()).toEqual([0, 1]);
   });
 });
