@@ -3,6 +3,17 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-20] session | BBOS gate-move dialog on the shared Modal
+
+- **Change:** `BbosGateMoveDialog` (legacy Advance / Complete Cycle, and ProjectBoard's New Cycle) moves from a hand-rolled overlay onto the shared `Modal`. It gains Escape, a focus trap and focus return. Typed text (basis, conditions, conditions basis, resolution basis) or a ticked acknowledgement makes Escape or a backdrop click ask "Discard unsaved changes?". Recorded conditions and resolutions are already in the gate log, so they don't count. Cancel still closes directly. The dialog keeps its own portal, its `bfd__modal*` classes and its copy. Gate rules and gate-log writes are unchanged. Closes the follow-up deferred in #75.
+- **Verification:** 559 tests, lint and build green. Preview on ProjectBoard's New Cycle path (fixture temporarily at OPT, then restored):
+  - Focus opens inside the dialog.
+  - Escape with nothing typed closes it and returns focus to New Cycle.
+  - Escape with a basis written shows the prompt; Escape again puts focus back in the textarea with the basis kept.
+  - The screenshot also shows the locked state (Constraint Gate Incomplete, "held… there is no override").
+  - Advance on the legacy dashboard was not reached: the fixture's IDY stage score is BLOCKED. It is the same component.
+  - No move confirmed; fixture restored (IDY, cycle 2, gate log 15).
+
 ## [2026-10-20] session | BBOS Reject modal phone layout
 
 - **Change:** on a phone the legacy Reject modal scrolls. Its "Discard unsaved changes?" prompt is now sticky at the top of the box, on an opaque backing, so it stays in view while the user is down at the basis (ux-reviewer P3 from PR #75). The box's max-height is `90dvh` (with a `90vh` fallback) so it clears the mobile browser toolbar. In the shared `Modal.jsx`, Keep editing (or a second Escape) returns focus to the field that held it when the prompt opened, so the user lands back in the basis.
