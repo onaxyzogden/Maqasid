@@ -83,8 +83,25 @@ describe("buildPipelineViewModel — contract", () => {
   });
 
   it("gate.status tracks the score verdict for the active stage", () => {
-    const crd = vm.stages.find((s) => s.id === "CRD");
-    // CRD-S3 strong (5) + CRD-V1 four passes (20) = 25/25 → QUALIFIED → passed.
+    // CRD-S3 strong (5) + CRD-V1 four passes (20) = 25/25 → QUALIFIED. With no
+    // FP-02 rubric the Amanah Gate is incomplete, so the strip reads pending.
+    expect(vm.stages.find((s) => s.id === "CRD").gate.status).toBe("pending");
+    // Once the named gates are clear, the score decides: passed.
+    const clean = {
+      q1ProofVerifiable: "yes", q2RegulatoryVerifiable: "yes", q3UnverifiableClaims: "no", q4RunwaySufficient: "yes",
+      q5RegulatoryMisuse: "no", q6GoalAlignment: "yes", q7EnergyAversion: "no", q8FalseInformation: "no",
+      q9ScopeUnderstanding: "yes", q10CapacityRealistic: "yes",
+    };
+    const cleared = buildPipelineViewModel({
+      project,
+      tasks: [
+        ...tasks.filter((t) => t.bbosTaskType !== "CRD-V1"),
+        { ...tasks[1], bbosFieldData: { ...tasks[1].bbosFieldData, overallViability: "viable" } },
+        { bbosTaskType: "CRD-FP02", columnId: DONE_COL, bbosFieldData: clean },
+        { bbosTaskType: "CRD-V3", columnId: DONE_COL, bbosFieldData: { clearedCandidates: "Halal food co-ops, Ontario" } },
+      ],
+    });
+    const crd = cleared.stages.find((s) => s.id === "CRD");
     expect(crd.gate.status).toBe("passed");
     expect(crd.gate.label).toBe("Amanah Gate");
   });
@@ -236,5 +253,45 @@ describe("buildPipelineViewModel — OPT live retrospective + brief", () => {
     const str = optVm.stages.find((s) => s.id === "STR");
     expect(str.brief.constraints.kind).toBe("signals");
     expect(Array.isArray(str.brief.constraints.unmet)).toBe(true);
+  });
+});
+
+describe("buildPipelineViewModel — named gates on the brief", () => {
+  const stage = (vm, id) => vm.stages.find((s) => s.id === id);
+  const withFp02 = (fd) => [...tasks, { bbosTaskType: "CRD-FP02", columnId: DONE_COL, bbosFieldData: fd }];
+
+  it("carries the stage's named-gate evaluation, held by a star disqualifier", () => {
+    const vm = buildPipelineViewModel({ project, tasks: withFp02({ q5RegulatoryMisuse: "yes" }) });
+    const named = stage(vm, "CRD").brief.gate.named;
+    expect(named.status).toBe("blocked");
+    expect(named.holding).toBe(true);
+    expect(named.gates.map((g) => g.id)).toEqual(["amanah", "viability"]);
+  });
+
+  it("lists acknowledgements a clear gate needs, and gates whose conditions are not yet recorded", () => {
+    const fp = {
+      q1ProofVerifiable: "no", q2RegulatoryVerifiable: "no", q3UnverifiableClaims: "no", q4RunwaySufficient: "no",
+      q5RegulatoryMisuse: "no", q6GoalAlignment: "yes", q7EnergyAversion: "no", q8FalseInformation: "no",
+      q9ScopeUnderstanding: "yes", q10CapacityRealistic: "yes",
+    };
+    const named = stage(buildPipelineViewModel({ project, tasks: withFp02(fp) }), "CRD").brief.gate.named;
+    expect(named.unrecorded.map((g) => g.id)).toContain("amanah");
+    const logged = { ...project, bbosGateLog: [{ id: "c1", decision: "conditions", stageId: "CRD", cycle: 2, gateId: "amanah", resolverRole: "OW" }] };
+    const after = stage(buildPipelineViewModel({ project: logged, tasks: withFp02(fp) }), "CRD").brief.gate.named;
+    expect(after.unrecorded.map((g) => g.id)).not.toContain("amanah");
+  });
+
+  it("never shows the stage strip as passed while a named gate holds the stage", () => {
+    // The score alone is QUALIFIED (see "gate.status tracks the score verdict").
+    const vm = buildPipelineViewModel({ project, tasks: withFp02({ q5RegulatoryMisuse: "yes" }) });
+    expect(stage(vm, "CRD").gate.status).toBe("pending");
+    expect(stage(vm, "CRD").brief.gate.status).toBe("pending");
+  });
+
+  it("is empty for a stage the Factory docs name no gate at", () => {
+    const named = stage(buildPipelineViewModel({ project, tasks }), "STR").brief.gate.named;
+    expect(named.gates).toEqual([]);
+    expect(named.holding).toBe(false);
+    expect(named.acknowledgements).toEqual([]);
   });
 });

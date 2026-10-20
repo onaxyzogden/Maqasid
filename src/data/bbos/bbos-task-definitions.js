@@ -2217,6 +2217,12 @@ export const BBOS_TASK_DEFINITIONS = [
     purpose: "Mandatory output gate for all outreach assets — emails, DMs, social posts. Five checks covering audience relevance, G-label compliance, CTA clarity, scarcity verification, and accessibility.",
     fields: [
       {
+        id: "icOutAsset",
+        type: "text",
+        label: "Asset Checked",
+        placeholder: "The email, DM sequence or post these five checks were run on...",
+      },
+      {
         id: "icOut1",
         type: "select",
         label: "IC-OUT-1: First sentence addresses documented audience concern",
@@ -2873,7 +2879,7 @@ export const BBOS_TASK_DEFINITIONS = [
         id: "deliveryMode",
         type: "select",
         label: "Delivery Mode",
-        options: ["BBOS-led","Done-with-you","Done-for-you"],
+        options: [{"value":"bbosLed","label":"BBOS-led"},{"value":"doneWithYou","label":"Done-with-you"},{"value":"doneForYou","label":"Done-for-you"}],
       },
       {
         id: "timelineExpectation",
@@ -3218,16 +3224,88 @@ export const BBOS_TASK_DEFINITIONS = [
         rows: 3,
       },
       {
+        id: "icOfrAsset",
+        type: "text",
+        label: "IC-OFR Asset Checked",
+        placeholder: "The offer document these checks were run on...",
+      },
+      {
+        id: "icOfr1",
+        type: "select",
+        label: "IC-OFR-1: Promise is a specific, deliverable-grounded G1/G2 outcome a client could use as an acceptance test",
+        options: [{"value":"pass","label":"PASS — a client could judge delivered or not delivered"},{"value":"fail","label":"FAIL"}],
+      },
+      {
+        id: "icOfr2",
+        type: "select",
+        label: "IC-OFR-2: Every Scope Map exclusion is explicit",
+        options: [{"value":"pass","label":"PASS — each exclusion names a deliverable, action or outcome"},{"value":"fail","label":"FAIL"}],
+      },
+      {
+        id: "icOfr3",
+        type: "select",
+        label: "IC-OFR-3: Guarantee has Trigger Condition, Scope, Remedy and Operator-Side Boundaries",
+        options: [{"value":"pass","label":"PASS — all four present and unambiguous; any missing = FAIL"},{"value":"fail","label":"FAIL"}],
+      },
+      {
+        id: "icOfr4",
+        type: "select",
+        label: "IC-OFR-4: Mechanism is specific to this operator",
+        options: [{"value":"pass","label":"PASS — references the operator’s own process, tools or methodology"},{"value":"fail","label":"FAIL"}],
+      },
+      {
+        id: "icOfr5",
+        type: "select",
+        label: "IC-OFR-5: Reviewed by someone other than the writer, from the document alone",
+        options: [{"value":"pass","label":"PASS — reviewer explained the offer back accurately, unprompted"},{"value":"fail","label":"FAIL"}],
+      },
+      {
         id: "icOfrChecks",
         type: "textarea",
-        label: "IC-OFR Checks (Offer Document)",
+        label: "IC-OFR Notes (Offer Document)",
         placeholder: "IC-OFR-1 through IC-OFR-5 pass conditions...",
         rows: 4,
       },
       {
+        id: "icDelAsset",
+        type: "text",
+        label: "IC-DEL Asset Checked",
+        placeholder: "The onboarding communication these checks were run on...",
+      },
+      {
+        id: "icDel1",
+        type: "select",
+        label: "IC-DEL-1: Onboarding defines success in the offer’s own language",
+        options: [{"value":"pass","label":"PASS — references the Promise and a DEL_S3 milestone consistently"},{"value":"fail","label":"FAIL"}],
+      },
+      {
+        id: "icDel2",
+        type: "select",
+        label: "IC-DEL-2: Intake captures client constraints and feeds them to delivery",
+        options: [{"value":"pass","label":"PASS — constraints flow into the Execution SOP; nothing collected unused"},{"value":"fail","label":"FAIL"}],
+      },
+      {
+        id: "icDel3",
+        type: "select",
+        label: "IC-DEL-3: No aspirational (G4) language readable as a commitment",
+        options: [{"value":"pass","label":"PASS — all G4 language is visibly distinct from G1/G2 commitments"},{"value":"fail","label":"FAIL"}],
+      },
+      {
+        id: "icDel4",
+        type: "select",
+        label: "IC-DEL-4: Every next step is actionable without a follow-up question",
+        options: [{"value":"pass","label":"PASS — each names what, when, and how or where"},{"value":"fail","label":"FAIL"}],
+      },
+      {
+        id: "icDel5",
+        type: "select",
+        label: "IC-DEL-5: Proof Capture consent is presented before any proof is collected",
+        options: [{"value":"pass","label":"PASS — consent appears before the first proof milestone"},{"value":"fail","label":"FAIL"}],
+      },
+      {
         id: "icDelChecks",
         type: "textarea",
-        label: "IC-DEL Checks (Onboarding Comms)",
+        label: "IC-DEL Notes (Onboarding Comms)",
         placeholder: "IC-DEL-1 through IC-DEL-5 pass conditions...",
         rows: 4,
       },
@@ -3891,7 +3969,7 @@ export const BBOS_TASK_DEFINITIONS = [
         id: "g72Check",
         type: "select",
         label: "G7.2 — Stewardship Score Below 7.0?",
-        options: ["No — score >= 7.0","Yes — FP-01 required"],
+        options: [{"value":"no","label":"No — score >= 7.0"},{"value":"yes","label":"Yes — FP-01 required"}],
       },
       {
         id: "fp01Assessment",
@@ -3993,7 +4071,7 @@ export const BBOS_TASK_DEFINITIONS = [
         id: "routingAction",
         type: "select",
         label: "Routing Action",
-        options: ["TVS >= 7.0 — No action required","TVS 6.0–6.9 — Team Monitoring","TVS < 6.0 — Team Governor","TV-3 < 7.0 — Integrity Flag"],
+        options: [{"value":"noAction","label":"TVS >= 7.0 — No action required"},{"value":"teamMonitoring","label":"TVS 6.0–6.9 — Team Monitoring"},{"value":"teamGovernor","label":"TVS < 6.0 — Team Governor"},{"value":"integrityFlag","label":"TV-3 < 7.0 — Integrity Flag"}],
       },
       {
         id: "tvsNotes",
@@ -4103,7 +4181,7 @@ export const BBOS_TASK_DEFINITIONS = [
         id: "bhiOverallReading",
         type: "select",
         label: "BHI Overall Reading",
-        options: ["ALIGNED","MONITORING","INVESTIGATE"],
+        options: [{"value":"aligned","label":"ALIGNED"},{"value":"monitoring","label":"MONITORING"},{"value":"investigate","label":"INVESTIGATE"}],
       },
       {
         id: "bhiNotes",
@@ -4128,7 +4206,7 @@ export const BBOS_TASK_DEFINITIONS = [
         id: "depletionType",
         type: "select",
         label: "Depletion Type",
-        options: ["TYPE A — Existential Depletion (NO commercial action)","TYPE B — Situational Fatigue","TYPE C — Strategic Pressure"],
+        options: [{"value":"typeA","label":"TYPE A — Existential Depletion (NO commercial action)"},{"value":"typeB","label":"TYPE B — Situational Fatigue"},{"value":"typeC","label":"TYPE C — Strategic Pressure"}],
       },
       {
         id: "depletionEvidence",
@@ -4159,7 +4237,7 @@ export const BBOS_TASK_DEFINITIONS = [
         id: "guardrailsConfirmation",
         type: "select",
         label: "Guardrails Active?",
-        options: ["Yes — all guardrails confirmed","No — cannot confirm"],
+        options: [{"value":"yes","label":"Yes — all guardrails confirmed"},{"value":"no","label":"No — cannot confirm"}],
       },
       {
         id: "operatorSignOff",
@@ -4203,7 +4281,7 @@ export const BBOS_TASK_DEFINITIONS = [
         id: "packCompleteness",
         type: "select",
         label: "Pack Completeness",
-        options: ["Complete — all 7 items present","NO-SHIP — missing items listed below"],
+        options: [{"value":"complete","label":"Complete — all 7 items present"},{"value":"noShip","label":"NO-SHIP — missing items listed below"}],
       },
       {
         id: "missingItems",

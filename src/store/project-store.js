@@ -7,6 +7,7 @@ import { WEEKLY_BOARDS } from '@data/seed-tasks/weekly-seed-tasks';
 import { PRAYER_BOARDS } from '@data/prayer-pillars';
 import { BBOS_TASK_DEFINITIONS } from '@data/bbos/bbos-task-definitions';
 import { appendGateEntry, openConditions, reverseGateDecision } from '@data/bbos/bbos-gate-log';
+import { gateMoveRefusal } from '@data/bbos/bbos-named-gates';
 
 // Pillar seed files are loaded lazily via the seed-hydrator. Each
 // ensure*Projects awaits its pillar's preload; the strip-pass below also
@@ -532,6 +533,12 @@ function migrateRemoveStaleBbosTasks(projects) {
   return projects;
 }
 
+// The named gates (bbos-named-gates.js) judge the stage the project is in
+// from its own task fields. A refusal holds with or without a record: there is
+// no override path.
+const namedGatesRefuse = (p, record) =>
+  !!gateMoveRefusal(p, safeGetJSON(`tasks_${p.id}`, []), record);
+
 export const useProjectStore = create((set, get) => ({
   projects: migrateLifeToHealth(migrateRemoveStaleBbosTasks(migrateDefaultViewToDashboard(migrateRemoveReviewColumn(migrateBbosProjects(safeGetJSON('projects', [])))))),
 
@@ -639,12 +646,14 @@ export const useProjectStore = create((set, get) => ({
 
   // `record` (optional) is the gate decision being acted on — appended to
   // bbosGateLog with its written basis (see data/bbos/bbos-gate-log.js).
-  // Callers that pass no record behave exactly as before. A recorded advance
-  // is refused while the stage it leaves has open conditions this cycle.
+  // A recorded advance is refused while the stage it leaves has open
+  // conditions this cycle; any advance is refused while that stage's named
+  // gates refuse the move.
   advanceBbosStage: (projectId, stageId, record = null) => set((s) => {
     const projects = s.projects.map((p) =>
       p.id === projectId && p.bbosEnabled && !p.rejectedAt &&
-      !(record && openConditions(p.bbosGateLog, record.stageId, p.bbosCycle || 1).length)
+      !(record && openConditions(p.bbosGateLog, record.stageId, p.bbosCycle || 1).length) &&
+      !namedGatesRefuse(p, record)
         ? appendGateEntry(
             { ...p, bbosStage: stageId, updatedAt: new Date().toISOString() },
             record && { ...record, decision: 'proceed', toStageId: stageId },
@@ -718,10 +727,12 @@ export const useProjectStore = create((set, get) => ({
   // With a record ({ basis, stageId, by }), the close is logged as a 'cycle'
   // entry in the cycle being closed, and refused while that stage still has
   // open conditions. Without one it only resets; every UI path now passes one.
+  // Either way it is refused while the Constraint Gate refuses the close.
   startNewBbosCycle: (projectId, record = null) => set((s) => {
     const projects = s.projects.map((p) => {
       if (p.id !== projectId || !p.bbosEnabled) return p;
       if (record && openConditions(p.bbosGateLog, record.stageId, p.bbosCycle || 1).length) return p;
+      if (namedGatesRefuse(p, record)) return p;
       const logged = record ? appendGateEntry(p, { ...record, decision: 'cycle' }) : p;
       return { ...logged, bbosStage: 'IDY', bbosCycle: (p.bbosCycle || 1) + 1, rejectedAt: null, rejectionReason: null, rejectedBy: null, updatedAt: new Date().toISOString() };
     });

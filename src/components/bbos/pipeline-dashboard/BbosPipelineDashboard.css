@@ -862,7 +862,31 @@
   background: var(--bpd-gold-dim); border: 1px solid color-mix(in srgb, var(--bpd-gold) 40%, transparent);
 }
 .bpd-brief__open-item { padding: 10px 12px; border-radius: 8px; background: var(--bpd-bg3); border-left: 3px solid var(--bpd-gold); }
-.bpd-brief__open-btn { margin-top: 10px; min-height: 36px; }
+.bpd-brief__open-btn { margin-top: 10px; min-height: 44px; }
+/* named gates (Factory docs): status spelled out in the pill, edge colour echoes it */
+.bpd-brief__named {
+  padding: 10px 12px; border-radius: 8px; background: var(--bpd-bg3);
+  border-left: 3px solid var(--bpd-text-tertiary); --c: var(--bpd-text-tertiary);
+}
+.bpd-brief__named[data-status="clear"] { --c: var(--bpd-complete); border-left-color: var(--c); }
+.bpd-brief__named[data-status="conditions"] { --c: var(--bpd-gold); border-left-color: var(--c); }
+.bpd-brief__named[data-status="incomplete"] { --c: var(--bpd-gold); border-left-color: var(--c); border-left-style: dashed; }
+.bpd-brief__named[data-status="blocked"] { --c: var(--bpd-red); border-left-color: var(--c); background: var(--bpd-red-dim); }
+.bpd-brief__named-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.bpd-brief__named-name { font-size: 14px; font-family: var(--bpd-font-ui); font-weight: 600; color: var(--bpd-text-primary); }
+.bpd-brief__named-status {
+  font-size: 12px; font-family: var(--bpd-font-ui); font-weight: 600; color: var(--c);
+  padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap;
+}
+.bpd-brief__named-reasons {
+  margin: 6px 0 0; padding-left: 18px; font-size: 14px; line-height: 1.5;
+  font-family: var(--bpd-font-ui); color: var(--bpd-text-primary);
+}
+.bpd-brief__named-ack {
+  display: flex; align-items: flex-start; gap: 8px; min-height: 44px; padding-top: 10px;
+  font-size: 14px; font-family: var(--bpd-font-ui); color: var(--bpd-text-primary); cursor: pointer;
+}
+.bpd-brief__named-ack input { width: 18px; height: 18px; margin: 1px 0 0; flex-shrink: 0; accent-color: var(--bpd-complete); }
 .bpd-brief__blocked {
   font-size: 12px; font-family: var(--bpd-font-ui); color: var(--bpd-gold); line-height: 1.6;
   padding: 8px 12px; border-radius: 7px; border: 1px dashed color-mix(in srgb, var(--bpd-gold) 50%, transparent);

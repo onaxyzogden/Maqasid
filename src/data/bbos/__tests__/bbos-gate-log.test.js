@@ -180,3 +180,27 @@ describe("reversal (Undo)", () => {
     expect(reverseGateDecision(project, "gd_nope", { basis })).toBe(project);
   });
 });
+
+describe("named-gate fields", () => {
+  it("keeps the gate and resolver role on a conditions entry", () => {
+    const e = buildGateEntry(project, {
+      stageId: "CRD", decision: "conditions", basis: "b", conditions: "Founder decision required.", gateId: "amanah", resolverRole: "OW",
+    });
+    expect(e).toMatchObject({ gateId: "amanah", resolverRole: "OW" });
+  });
+
+  it("keeps the acknowledgements on a proceed, and drops gate fields elsewhere", () => {
+    const e = buildGateEntry(project, { stageId: "CRD", decision: "proceed", basis: "b", toStageId: "STR", acknowledged: ["founderNotified"], gateId: "x" });
+    expect(e).toMatchObject({ acknowledged: ["founderNotified"], gateId: null, resolverRole: null });
+  });
+
+  it("lets only the named role resolve a role-bound condition", () => {
+    const p = appendGateEntry(project, {
+      stageId: "CRD", decision: "conditions", basis: "b", conditions: "Escalate.", gateId: "amanah", resolverRole: "OW",
+    });
+    const cond = p.bbosGateLog[0];
+    expect(buildGateEntry(p, { decision: "resolved", resolvesId: cond.id, basis: "ok", by: "ST" })).toBeNull();
+    expect(buildGateEntry(p, { decision: "resolved", resolvesId: cond.id, basis: "ok", by: null })).toBeNull();
+    expect(buildGateEntry(p, { decision: "resolved", resolvesId: cond.id, basis: "Owner accepts the flags.", by: "OW" })).toMatchObject({ by: "OW" });
+  });
+});
