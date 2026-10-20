@@ -55,6 +55,7 @@ import { getBbosTaskDefsByStage } from "../../../../data/bbos/bbos-task-definiti
 import { getBbosStageIslamic } from "../../../../data/bbos/bbos-stage-islamic";
 import { scoreStage } from "../../../../data/bbos/bbos-stage-score";
 import { gateEntriesForStage, openConditions } from "../../../../data/bbos/bbos-gate-log";
+import { evaluateStageGates } from "../../../../data/bbos/bbos-named-gates";
 
 // ── Static domain constants (no live source) ───────────────────────────────
 // Taglines and gate labels are not stored in BBOS_STAGES; they are fixed
@@ -207,10 +208,18 @@ function partitionItems(defs, taskMap, doneColumnId) {
   return { researchItems, assetItems };
 }
 
-/** Gate status: complete→passed, available→pending, active→verdict-derived. */
+/**
+ * Gate status: complete→passed, available→pending, active→verdict-derived,
+ * capped by the named gates: a blocked or incomplete gate reads pending and a
+ * gate in conditions reads in review, so the strip never says passed while a
+ * Factory-doc gate holds the stage.
+ */
 function gateStatusFor(stageId, status, taskMap) {
   if (status === "complete") return "passed";
   if (status === "available") return "pending";
+  const named = evaluateStageGates(stageId, Object.values(taskMap)).status;
+  if (named === "blocked" || named === "incomplete") return "pending";
+  if (named === "conditions") return "in_review";
   const scored = scoreStage(stageId, taskMap);
   if (!scored) return "pending";
   if (scored.verdict === "QUALIFIED") return "passed";
@@ -326,12 +335,35 @@ function buildOptExecution(taskMap, cycle) {
 // ── Approval Brief (live) ────────────────────────────────────────────────────
 
 /**
+ * The Factory-doc gates at this stage (bbos-named-gates.js), with what the
+ * brief needs to hold Proceed the way the store does: holding (a gate is
+ * blocked or incomplete; no override), unrecorded (gates in conditions with no
+ * conditions entry for them this cycle), and the acknowledgements clear gates
+ * require. actingRole is the declared role ('all' names no one), so the brief
+ * can show a role-bound condition as awaiting its resolver.
+ */
+function namedGatesFor(stageId, taskMap, gateLog, cycle, actingRole) {
+  const evaluation = evaluateStageGates(stageId, Object.values(taskMap));
+  const recorded = (gateId) => (gateLog || []).some(
+    (e) => e.decision === "conditions" && e.stageId === stageId && e.cycle === cycle && e.gateId === gateId,
+  );
+  return {
+    status: evaluation.status,
+    gates: evaluation.gates,
+    holding: evaluation.gates.some((g) => g.status === "blocked" || g.status === "incomplete"),
+    unrecorded: evaluation.gates.filter((g) => g.status === "conditions" && !recorded(g.id)),
+    acknowledgements: evaluation.gates.flatMap((g) => g.acknowledgements || []),
+    actingRole: actingRole || null,
+  };
+}
+
+/**
  * Assemble the live Approval-Brief view-model for a stage. Every section is
  * derived from live data: covenant readiness (islamic data), findings + gate
  * (scoreStage), constraints (OPT hold-list vs unmet gate signals), and assets
  * (the stage's research/asset items). closing is a read-only synthesis.
  */
-function buildBrief(stageId, status, taskMap, items, identity, nextStageN, gateLog, cycle) {
+function buildBrief(stageId, status, taskMap, items, identity, nextStageN, gateLog, cycle, actingRole = null) {
   const scored = scoreStage(stageId, taskMap);
   const readiness = getBbosStageIslamic(stageId)?.readiness || null;
   const findings = scored
@@ -361,6 +393,7 @@ function buildBrief(stageId, status, taskMap, items, identity, nextStageN, gateL
     log: gateEntriesForStage(gateLog, stageId),
     // Conditions recorded this cycle and not yet resolved; they block Advance.
     openConditions: openConditions(gateLog, stageId, cycle),
+    named: namedGatesFor(stageId, taskMap, gateLog, cycle, actingRole),
   };
 
   return {
@@ -438,7 +471,8 @@ export function buildPipelineViewModel(opts = {}) {
       dua: duaFor(s.id),
       gate: { label: STAGE_GATE_LABEL[s.id] || "", status: gateStatusFor(s.id, status, taskMap) },
       execution,
-      brief: buildBrief(s.id, status, taskMap, items, briefIdentity, nextStageN, project?.bbosGateLog, project?.bbosCycle || 1),
+      brief: buildBrief(s.id, status, taskMap, items, briefIdentity, nextStageN, project?.bbosGateLog, project?.bbosCycle || 1,
+        project?.bbosRole && project.bbosRole !== "all" ? project.bbosRole : null),
     };
   });
 

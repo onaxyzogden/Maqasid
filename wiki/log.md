@@ -3,6 +3,14 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-19] session | BBOS named gates built into the app
+
+- **Plan:** option A of `.claude/plans/bbos-named-gates.md`, with the round-robin corrections, approved by the operator.
+- **App:** `src/data/bbos/bbos-named-gates.js` evaluates Amanah (FP-02) and Viability (A–D) at CRD, Ihsan Baseline (IC-OUT) at OUT, Pre-Ship (IC-OFR + IC-DEL, ten new pass/fail checks) at DEL and Constraint (FP-01) at OPT Close Cycle. The store and both dashboards share `gateMoveRefusal`: blocked or incomplete refuses the move, with no override. Conditions are `bbosGateLog` entries with `gateId` / `resolverRole`; only the Owner resolves an Amanah escalation; a 0–2 flag proceed needs the "Founder notified" tick.
+- **UX review:** fixes applied (Proceed says what it waits on, Record these conditions scrolls to the field, owner-bound footer, 44px buttons).
+- **Verification:** 501 tests, lint and build green; screenshot-checked in the Brief and the legacy dialog (clear, blocked and owner-escalation cases). The preview fixture was restored afterwards.
+- **Deviations:** an empty V3 is incomplete; a single Q7 or Q10 flag escalates; the stage strip defers to the named gates. Recorded in [[2026-10-19-bbos-named-gates]], with an amendment to [[2026-10-17-bbos-stage-grounding-reconciliation]] and a [[bbos-pipeline]] History row.
+
 ## [2026-10-19] merge | PR #67: skills matched to the BBOS Factory docs; DEL draft v3.6
 
 PR #67 (`fix/bbos-printed-edition-checks`, "docs(skills): match the BBOS Factory docs; DEL draft is v3.6") merged to main as `2ea8d41`. It carries the 2026-10-18 skills fix below: `bbos-html-to-task` and `/subtask-content` updated, the DEL draft renamed `_v3_6.docx`, and the task-definitions header corrected to 115 tasks.
