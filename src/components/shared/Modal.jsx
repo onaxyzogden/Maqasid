@@ -36,11 +36,17 @@ export default function Modal({
   const [confirming, setConfirming] = useState(false);
   const isDirty = dirty ?? touched;
 
+  // The field the user was in when the discard prompt opened; Keep editing
+  // (or Escape again) puts them back there.
+  const resumeRef = useRef(null);
+
   const requestClose = useCallback(() => {
     if (!dismissible) return;
     if (confirming) { setConfirming(false); return; } // Escape again = keep editing
-    if (isDirty) setConfirming(true);
-    else onClose();
+    if (isDirty) {
+      resumeRef.current = document.activeElement;
+      setConfirming(true);
+    } else onClose();
   }, [dismissible, confirming, isDirty, onClose]);
 
   // useFocusTrap re-runs (and re-focuses) whenever its callback changes, so
@@ -65,7 +71,12 @@ export default function Modal({
     };
   }, [opener]);
   const keepRef = useRef(null);
-  useEffect(() => { if (confirming) keepRef.current?.focus(); }, [confirming]);
+  useEffect(() => {
+    if (confirming) { keepRef.current?.focus(); return; }
+    const resume = resumeRef.current;
+    resumeRef.current = null;
+    if (resume?.isConnected && trapRef.current?.contains(resume)) resume.focus();
+  }, [confirming, trapRef]);
 
   const markTouched = () => { if (!touched) setTouched(true); };
 

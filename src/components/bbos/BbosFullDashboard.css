@@ -1353,9 +1353,21 @@
   max-width: 520px;
   width: 100%;
   max-height: 90vh;
+  max-height: 90dvh;
   overflow-y: auto;
   padding: var(--space-5);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+/* Modal's "Discard unsaved changes?" bar stays in view while the box is
+   scrolled down to the basis (on a phone the reason cards push it below the
+   fold). It spans the box edge to edge and sits on the box's own background,
+   since --warning-bg is translucent. */
+.bfd__modal .slidein-discard {
+  position: sticky;
+  top: calc(-1 * var(--space-5));
+  z-index: 1;
+  margin: calc(-1 * var(--space-5)) calc(-1 * var(--space-5)) var(--space-4);
+  background: linear-gradient(var(--warning-bg), var(--warning-bg)), var(--bg, #1a1a1a);
 }
 .bfd__modal-head {
   display: flex;

@@ -3,6 +3,11 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-20] session | BBOS Reject modal phone layout
+
+- **Change:** on a phone the legacy Reject modal scrolls. Its "Discard unsaved changes?" prompt is now sticky at the top of the box, on an opaque backing, so it stays in view while the user is down at the basis (ux-reviewer P3 from PR #75). The box's max-height is `90dvh` (with a `90vh` fallback) so it clears the mobile browser toolbar. In the shared `Modal.jsx`, Keep editing (or a second Escape) returns focus to the field that held it when the prompt opened, so the user lands back in the basis.
+- **Verification:** 559 tests, lint and build green. At 375×812 as OW with Q5 = yes: the box is scrolled to the basis; Escape keeps the bar pinned at the top with the textarea still in view; focus moves to Keep editing; a click or a second Escape puts focus back in the textarea with the basis kept. Closed with Cancel. Fixture restored; no halt recorded (gate log still 8).
+
 ## [2026-10-20] session | BBOS Halt note names Owner and Strategist
 
 - **Change:** the note shown to a role that may not halt (late-disqualifier banner, and the Brief's locked Halt option) now reads "Only the Owner or Strategist role can halt the pipeline." The old "Only the Owner of the Amanah Proof Audit…" read as the OW role only, though ST owns CRD-V1 too (ux-reviewer P2 from PR #75). Operator chose the wording. Copy only; rule unchanged.
