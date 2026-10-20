@@ -29,6 +29,7 @@ Grounding tooling (added 2026-04-25): every seeded subtask must have `sources` a
 ## MANDATORY: Context-First Protocol
 STOP. Before you read, modify, or explore ANY source file, you MUST complete these steps in order:
 1. **Amanah Gate** — Confirm the task serves a halal purpose. If riba, gharar, or ethical concerns arise — STOP and flag. Full protocol: `docs/principles.md`
+   - In every Stage 03 plan, the Amanah Gate is a Phase 1 task with no verdict until it runs, and the plan says what stops on a non-pass verdict. A session-start or Stage 02 Amanah status is a declaration, not that verdict, and this holds for low-risk tasks too, such as identifier renames.
 2. **Identify domains** — Which workspaces does this task touch? (e.g., "readiness checks" → `src/components/islamic/` + `src/data/`)
 3. **Read CONTEXT.md files** — Use the routing hierarchy below to find and READ every relevant CONTEXT.md BEFORE opening any `.jsx`, `.js`, or `.css` file. The CONTEXT.md contains file inventories, architecture, store dependencies, and gotchas that eliminate exploratory scanning.
 4. **Only then** read specific source files for details the CONTEXT.md does not cover.
