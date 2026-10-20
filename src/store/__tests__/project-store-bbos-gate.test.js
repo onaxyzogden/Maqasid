@@ -162,3 +162,33 @@ describe('named gates on the store', () => {
     expect(project()).toMatchObject({ bbosStage: 'OPT', bbosCycle: 1 });
   });
 });
+
+describe('a late ★ disqualifier on the store', () => {
+  const at = (bbosStage) => useProjectStore.setState({
+    projects: [{ id: PID, bbosEnabled: true, bbosStage, bbosCycle: 1, bbosGateLog: [] }],
+  });
+
+  it('refuses an advance from a stage after CRD, with or without a record', () => {
+    at('STR');
+    seedTasks(crdTasks({ q5RegulatoryMisuse: 'yes' }));
+    useProjectStore.getState().advanceBbosStage(PID, 'OFR', { basis: 'Go.', stageId: 'STR', acknowledged: ['founderNotified'] });
+    useProjectStore.getState().advanceBbosStage(PID, 'OFR');
+    expect(project().bbosStage).toBe('STR');
+    expect(project().bbosGateLog).toHaveLength(0);
+  });
+
+  it('refuses a cycle close at OPT', () => {
+    at('OPT');
+    seedTasks([...crdTasks({ q8FalseInformation: 'yes' }), task('OPT-S5', { g72Check: 'no' })]);
+    useProjectStore.getState().startNewBbosCycle(PID, { basis: 'Close.', stageId: 'OPT' });
+    expect(project()).toMatchObject({ bbosStage: 'OPT', bbosCycle: 1 });
+  });
+
+  it('still lets the pipeline Halt, logging the Amanah reason', () => {
+    at('OUT');
+    seedTasks(crdTasks({ q3UnverifiableClaims: 'yes' }));
+    useProjectStore.getState().rejectBbosPipeline(PID, 'amanah_disqualifier', null, { basis: 'Q3 answered YES after CRD.', stageId: 'OUT' });
+    expect(project().rejectedAt).toBeTruthy();
+    expect(project().bbosGateLog[0]).toMatchObject({ decision: 'halt', reasonId: 'amanah_disqualifier', stageId: 'OUT' });
+  });
+});

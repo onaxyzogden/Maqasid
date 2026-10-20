@@ -9,6 +9,8 @@ import { getStage, BBOS_STAGES, BBOS_LAYERS, BBOS_REJECTION_REASONS, getBbosReje
 import { getTaskAccessLevel } from '../../data/bbos/bbos-role-access';
 import { scoreStage } from '../../data/bbos/bbos-stage-score';
 import BbosGateMoveDialog from './BbosGateMoveDialog';
+import BbosLateDisqualifierBanner from './BbosLateDisqualifierBanner';
+import { lateDisqualifier } from '../../data/bbos/bbos-named-gates';
 import ScopeGate from '../shared/ScopeGate';
 import DashboardTaskCard from '../shared/DashboardTaskCard';
 import GLabelBadge from '../shared/GLabelBadge';
@@ -1574,6 +1576,22 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
   const [rejectModalOpen, setRejectModalOpen] = useState(false);
   const [rejectReasonId, setRejectReasonId] = useState(BBOS_REJECTION_REASONS[0]?.id || '');
   const [rejectBasis, setRejectBasis] = useState('');
+  // The stage the halt entry is recorded against: the filtered stage for the
+  // CRD Reject button, the pipeline's own stage for the late banner's Halt.
+  const [rejectStageId, setRejectStageId] = useState(null);
+
+  // A ★ YES on the CRD Amanah rubric, on file after CRD. The store already
+  // holds every move (gateMoveRefusal); the banner says so on every stage
+  // filter and opens the Reject modal with the Amanah reason chosen.
+  const lateGate = isRejected ? null : lateDisqualifier(project.bbosStage || 'IDY', tasks);
+  // The late gate holds the current stage's Advance too, so the green
+  // "Stage complete" strip gives way to the held note.
+  const heldByLate = isCurrentStage && !!lateGate;
+  const openLateHalt = () => {
+    setRejectReasonId('amanah_disqualifier');
+    setRejectStageId(project.bbosStage);
+    setRejectModalOpen(true);
+  };
 
   // The acting role is the gate-log attribution; 'all' names no one.
   const gateBy = bbosRole !== 'all' ? bbosRole : null;
@@ -1581,6 +1599,7 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
   const closeReject = () => {
     setRejectModalOpen(false);
     setRejectBasis('');
+    setRejectStageId(null);
   };
 
   const handleConfirmReject = () => {
@@ -1589,7 +1608,7 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
     // neither the halt entry nor rejectedBy (as the new dashboard does).
     rejectBbosPipeline(project.id, rejectReasonId, gateBy, {
       basis: rejectBasis.trim(),
-      stageId: bbosFilter,
+      stageId: rejectStageId || bbosFilter,
     });
     closeReject();
   };
@@ -1650,6 +1669,9 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
         </div>
       )}
 
+      {/* ── Late ★ disqualifier banner ── */}
+      <BbosLateDisqualifierBanner gate={lateGate} onHalt={openLateHalt} canHalt={canReject} />
+
       {/* ── Header ── */}
       <div className="bfd__header">
 
@@ -1668,7 +1690,7 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
           </button>
         )}
 
-        {!isRejected && stagePct === 100 && onStageAdvance && !gateBlocked && (
+        {!isRejected && stagePct === 100 && onStageAdvance && !gateBlocked && !heldByLate && (
           <div className="bfd__stage-ready">
             <CheckCircle size={16} className="bfd__stage-ready-icon" />
             <span className="bfd__stage-ready-text">
@@ -1688,12 +1710,14 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
             )}
           </div>
         )}
-        {!isRejected && stagePct === 100 && onStageAdvance && gateBlocked && (
+        {!isRejected && stagePct === 100 && onStageAdvance && (gateBlocked || heldByLate) && (
           <div className="bfd__stage-ready bfd__stage-ready--blocked" role="status">
             <ShieldOff size={16} className="bfd__stage-ready-icon" aria-hidden="true" />
             <span className="bfd__stage-ready-text">
-              Tasks done, but the stage gate is BLOCKED — strengthen the weak signals in the
-              Stage Score below before advancing, or reject the pipeline.
+              {heldByLate
+                ? `Tasks done, but ${nextStage ? 'Advance' : 'Complete Cycle'} is held by the ${lateGate.name} above. There is no override.`
+                : <>Tasks done, but the stage gate is BLOCKED — strengthen the weak signals in the
+              Stage Score below before advancing, or reject the pipeline.</>}
             </span>
           </div>
         )}
@@ -1711,6 +1735,11 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
             <p className="bfd__modal-desc">
               Mark this pipeline as rejected at the Amanah Proof Audit. Stage advancement will be locked. You can resume the pipeline later if circumstances change.
             </p>
+            {rejectStageId && (
+              <p className="bfd__modal-desc">
+                Recorded at {getStage(rejectStageId)?.label || rejectStageId}, the pipeline's current stage.
+              </p>
+            )}
             <div className="bfd__modal-options" role="radiogroup" aria-label="Rejection reason">
               {BBOS_REJECTION_REASONS.map((r) => (
                 <label key={r.id} className={`bfd__modal-option${rejectReasonId === r.id ? ' bfd__modal-option--active' : ''}`}>
@@ -1731,6 +1760,7 @@ export default function BbosFullDashboard({ project, bbosFilter, onSelectTask, o
               <textarea
                 className="bfd__modal-textarea"
                 rows={3}
+                autoFocus={!!rejectStageId}
                 value={rejectBasis}
                 onChange={(e) => setRejectBasis(e.target.value)}
                 placeholder="What evidence routes this pipeline to rejection..."
