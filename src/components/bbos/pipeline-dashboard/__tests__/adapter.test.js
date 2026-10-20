@@ -288,6 +288,35 @@ describe("buildPipelineViewModel — named gates on the brief", () => {
     expect(stage(vm, "CRD").brief.gate.status).toBe("pending");
   });
 
+  it("holds the completed CRD gate while a star YES is on file, never showing it passed", () => {
+    const past = { ...project, bbosStage: "STR" };
+    const crd = stage(buildPipelineViewModel({ project: past, tasks: withFp02({ q5RegulatoryMisuse: "yes" }) }), "CRD");
+    expect(crd.status).toBe("complete");
+    expect(crd.gate.status).toBe("amanah_hold");
+    expect(crd.gate.label).toBe("Amanah Gate");
+    expect(crd.gate.note).toBe("★ Q5 answered YES. Reject immediately.");
+  });
+
+  it("shows the completed CRD gate passed, with no note, on a clean rubric", () => {
+    const past = { ...project, bbosStage: "STR" };
+    const crd = stage(buildPipelineViewModel({ project: past, tasks: withFp02({ q5RegulatoryMisuse: "no" }) }), "CRD");
+    expect(crd.gate.status).toBe("passed");
+    expect(crd.gate.note).toBeUndefined();
+  });
+
+  it("keeps the hold after a Halt, and says the pipeline is halted", () => {
+    const halted = { ...project, bbosStage: "STR", rejectedAt: "2026-10-20T00:00:00.000Z" };
+    const crd = stage(buildPipelineViewModel({ project: halted, tasks: withFp02({ q5RegulatoryMisuse: "yes" }) }), "CRD");
+    expect(crd.gate.status).toBe("amanah_hold");
+    expect(crd.gate.note).toBe("★ Q5 answered YES. Pipeline halted.");
+  });
+
+  it("leaves the CRD gate to its own evaluation while CRD is active", () => {
+    const crd = stage(buildPipelineViewModel({ project, tasks: withFp02({ q5RegulatoryMisuse: "yes" }) }), "CRD");
+    expect(crd.gate.status).toBe("pending");
+    expect(crd.gate.note).toBeUndefined();
+  });
+
   it("is empty for a stage the Factory docs name no gate at", () => {
     const named = stage(buildPipelineViewModel({ project, tasks }), "STR").brief.gate.named;
     expect(named.gates).toEqual([]);

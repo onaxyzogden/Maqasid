@@ -231,6 +231,7 @@
 }
 .bpd-stagenode__gate[data-gate="passed"] { color: var(--bpd-complete); }
 .bpd-stagenode__gate[data-gate="in_review"] { color: var(--bpd-gold); }
+.bpd-stagenode__gate[data-gate="amanah_hold"] { color: var(--bpd-red); }
 .bpd-stagenode__gate-icon { font-size: 12px; }
 
 /* ----- Arc (progress ring) ----- */
@@ -303,7 +304,7 @@
 /* stage gate strip */
 .bpd-gatestrip {
   border-radius: 10px; padding: 12px 16px; margin-bottom: 20px;
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
   background: var(--bpd-bg3); border: 1px solid var(--bpd-border);
 }
 .bpd-gatestrip[data-gate="passed"] {
@@ -313,6 +314,10 @@
 .bpd-gatestrip[data-gate="in_review"] {
   background: var(--bpd-gold-dim);
   border-color: color-mix(in srgb, var(--bpd-gold) 20%, transparent);
+}
+.bpd-gatestrip[data-gate="amanah_hold"] {
+  background: var(--bpd-red-dim);
+  border-color: color-mix(in srgb, var(--bpd-red) 35%, transparent);
 }
 .bpd-gatestrip__label {
   font-size: 12px; color: var(--bpd-text-tertiary); font-family: var(--bpd-font-ui);
@@ -325,6 +330,10 @@
 }
 .bpd-gatestrip__status[data-gate="passed"] { color: var(--bpd-complete); }
 .bpd-gatestrip__status[data-gate="in_review"] { color: var(--bpd-gold); }
+.bpd-gatestrip__status[data-gate="amanah_hold"] { color: var(--bpd-red); text-align: right; }
+.bpd-gatestrip__note {
+  margin-top: 3px; font-size: 12px; color: var(--bpd-text-secondary); font-family: var(--bpd-font-ui);
+}
 
 /* overview CTA buttons */
 .bpd-overview__actions { display: flex; flex-direction: column; gap: 8px; }

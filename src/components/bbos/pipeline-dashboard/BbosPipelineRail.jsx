@@ -1,13 +1,14 @@
 // BBOS Pipeline Dashboard - left rail (header + cycle progress + stage nodes).
 import { useEffect, useRef } from "react";
 import { Arc, Ornament } from "./primitives";
-import { gateNodeIcon, layerVars } from "./palette";
+import { gateNodeIcon, gateNodeTitle, layerVars } from "./palette";
 import { rowActivation } from '../../../lib/row-activation';
 
 // StageNode is a <button>, so its children are spans (phrasing content only);
 // the CSS gives them their block/flex layout.
 function StageNode({ stage, isSelected, onClick }) {
   const isLocked = stage.status === "locked";
+  const gateTitle = isLocked ? undefined : gateNodeTitle(stage.gate);
   return (
     <button
       type="button"
@@ -16,7 +17,7 @@ function StageNode({ stage, isSelected, onClick }) {
       data-locked={isLocked ? "true" : "false"}
       aria-current={isSelected ? "true" : undefined}
       aria-disabled={isLocked ? "true" : undefined}
-      aria-label={`Stage ${stage.n} ${stage.name}, ${isLocked ? "locked" : `${stage.progress}% complete`}`}
+      aria-label={`Stage ${stage.n} ${stage.name}, ${isLocked ? "locked" : `${stage.progress}% complete`}${gateTitle ? `, ${gateTitle}` : ""}`}
       style={layerVars(stage.layer)}
       {...rowActivation(() => !isLocked && onClick(stage))}
     >
@@ -32,7 +33,7 @@ function StageNode({ stage, isSelected, onClick }) {
         {stage.status === "active" && <span className="bpd-stagenode__pulse" />}
       </span>
       {stage.status !== "locked" && (
-        <span className="bpd-stagenode__gate" data-gate={stage.gate.status}>
+        <span className="bpd-stagenode__gate" data-gate={stage.gate.status} title={gateTitle}>
           <span className="bpd-stagenode__gate-icon">{gateNodeIcon(stage.gate.status)}</span>
           {stage.gate.label}
         </span>
