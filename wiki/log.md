@@ -3,6 +3,14 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-20] session | BBOS IC per-asset checklists
+
+- **Plan:** `.claude/plans/bbos-ic-per-asset.md`, approved by the operator, stacked on PR #71 (named gates).
+- **App:** new `icAssets` field type (`icOutAssets`, `icOfrAssets`, `icDelAssets`) with `src/data/bbos/bbos-ic-assets.js` and the `BbosIcAssetsField` editor. Each asset is judged on its own: 2+ fails is NO-SHIP and blocks the gate; any unfinished asset leaves it incomplete. The flat single-asset fields read as asset 1 and are never deleted. Both Named gates panels list each asset; the OUT score counts a check only when every asset passes it; AI prompt, parser and context handle the list.
+- **Fix in passing:** the Exec View now keeps line breaks (`white-space: pre-wrap`).
+- **Verification:** tests written first; full suite (543 tests), lint and build green. A UX review found no P0/P1; its P2 fixes (error clearing, missing-answer hint, focus on add/remove, 44px targets) were applied. Screenshot-checked in preview: task panel cards, Brief blocked / cleared, legacy answer as asset 1, legacy Advance dialog locked. Fixture restored.
+- Recorded in [[2026-10-20-bbos-ic-per-asset]], with a pointer from [[2026-10-19-bbos-named-gates]].
+
 ## [2026-10-19] session | BBOS named gates built into the app
 
 - **Plan:** option A of `.claude/plans/bbos-named-gates.md`, with the round-robin corrections, approved by the operator.

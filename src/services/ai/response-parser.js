@@ -1,5 +1,6 @@
 // Response Parser — extracts structured field data from AI text output
 // Expects AI to return a JSON object with keys matching taskDef.fields[].id
+import { icList, icAssetRows } from '../../data/bbos/bbos-ic-assets';
 
 /**
  * Parse AI response text into field data.
@@ -36,6 +37,13 @@ export function parseAiResponse(text, taskDef) {
       if (value && !validValues.includes(value)) {
         warnings.push(`Field "${fieldDef.label}": AI returned "${value}" which is not a valid option — kept for review.`);
       }
+    }
+
+    // An IC checklist is a list of { asset, checks }; anything else is not one.
+    if (fieldDef.type === 'icAssets') {
+      if (Array.isArray(value)) fieldData[key] = icAssetRows({ [key]: value }, icList(fieldDef.code));
+      else warnings.push(`Field "${fieldDef.label}": AI did not return a list of assets — skipped.`);
+      continue;
     }
 
     // Coerce numbers

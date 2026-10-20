@@ -5,6 +5,7 @@ import { useProjectStore } from '../../store/project-store';
 import { useTaskStore } from '../../store/task-store';
 import { openConditions } from '../../data/bbos/bbos-gate-log';
 import { evaluateStageGates, gateMoveRefusal } from '../../data/bbos/bbos-named-gates';
+import { icAssetLine } from '@data/bbos/bbos-ic-assets';
 import { getBbosRole } from '../../data/bbos/bbos-role-access';
 import './BbosFullDashboard.css';
 
@@ -118,6 +119,21 @@ export default function BbosGateMoveDialog({ project, fromStage, nextStage, onCo
                     <span className={`bfd__named-gate-status bfd__named-gate-status--${g.status}`}>{STATUS_LABEL[g.status]}</span>
                   </div>
                   <div className="bfd__open-cond-meta">{g.cite}</div>
+                  {g.assets?.length > 0 && (
+                    <ul className="bfd__named-assets" aria-label={`Assets checked for ${g.name}`}>
+                      {g.assets.map((a) => {
+                        const l = icAssetLine(a);
+                        return (
+                          <li key={`${a.list}-${a.index}`} className="bfd__named-asset">
+                            <span className="bfd__named-asset-list">{l.list}</span>
+                            <span className="bfd__named-asset-name">{l.name}</span>
+                            <span className={`bfd__named-asset-pill bfd__named-asset-pill--${l.tone}`}>{l.label}</span>
+                            {l.detail && <span className="bfd__named-asset-detail">{l.detail}</span>}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
                   {g.reasons.length > 0 && (
                     <ul className="bfd__named-gate-reasons">
                       {g.reasons.map((r) => <li key={r}>{r}</li>)}

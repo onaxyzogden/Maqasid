@@ -7,6 +7,7 @@ import {
   getBbosTaskDeps,
   getBbosTaskDefsByStage,
 } from '../../data/bbos/bbos-task-definitions';
+import { fieldValueText } from '../../data/bbos/bbos-ic-assets';
 
 const STAGE_ORDER = ['IDY', 'CRD', 'STR', 'OFR', 'OUT', 'SLS', 'DEL', 'RET', 'OPT'];
 
@@ -35,7 +36,11 @@ export function gatherUpstreamContext(projectId, taskDef, contextDepth) {
       // Filter out internal fields (prefixed with _)
       const fields = {};
       for (const [k, v] of Object.entries(task.bbosFieldData)) {
-        if (!k.startsWith('_') && v) fields[k] = v;
+        if (k.startsWith('_') || !v) continue;
+        // An IC checklist is a list of assets: send it as one line per asset.
+        const f = def.fields.find((x) => x.id === k);
+        const value = f?.type === 'icAssets' ? fieldValueText(f, v, task.bbosFieldData) : v;
+        if (value) fields[k] = value;
       }
 
       if (Object.keys(fields).length > 0) {

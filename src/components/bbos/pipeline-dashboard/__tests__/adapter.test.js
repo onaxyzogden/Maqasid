@@ -295,3 +295,35 @@ describe("buildPipelineViewModel — named gates on the brief", () => {
     expect(named.acknowledgements).toEqual([]);
   });
 });
+
+describe("buildPipelineViewModel — per-asset IC checklists", () => {
+  const P = ["pass", "pass", "pass", "pass", "pass"];
+  const outTasks = [
+    ...tasks,
+    {
+      bbosTaskType: "OUT-IC",
+      bbosFieldData: {
+        icOutAssets: [
+          { asset: "Cold email v2", checks: P },
+          { asset: "Launch post", checks: ["fail", "fail", "pass", "pass", "pass"] },
+        ],
+      },
+    },
+  ];
+  const out = buildPipelineViewModel({ project, tasks: outTasks }).stages.find((s) => s.id === "OUT");
+
+  it("shows each asset as readable text, never [object Object]", () => {
+    const items = [...out.brief.assets.researchItems, ...out.brief.assets.assetItems];
+    const ic = items.find((i) => i.taskType === "OUT-IC");
+    expect(ic.status).toBe("in_review");
+    expect(ic.content).toContain("Cold email v2: passed");
+    expect(ic.content).toContain("Launch post: NO-SHIP (failed IC-OUT-1, IC-OUT-2)");
+    expect(ic.content).not.toContain("[object Object]");
+  });
+
+  it("passes the per-asset results to the Named gates panel", () => {
+    const g = out.brief.gate.named.gates.find((x) => x.id === "baseline");
+    expect(g.status).toBe("blocked");
+    expect(g.assets.map((a) => [a.asset, a.verdict])).toEqual([["Cold email v2", "pass"], ["Launch post", "noship"]]);
+  });
+});

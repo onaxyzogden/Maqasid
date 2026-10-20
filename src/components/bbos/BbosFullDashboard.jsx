@@ -13,6 +13,7 @@ import ScopeGate from '../shared/ScopeGate';
 import DashboardTaskCard from '../shared/DashboardTaskCard';
 import GLabelBadge from '../shared/GLabelBadge';
 import './BbosFullDashboard.css';
+import { icList, icAssetRows, formatIcAssets, fieldValueText, icAssetSummary } from '@data/bbos/bbos-ic-assets';
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -34,10 +35,7 @@ function resolveSelectLabel(field, value) {
 
 function countFilledFields(def, fieldData) {
   if (!fieldData) return { filled: 0, total: def.fields.length };
-  const filled = def.fields.filter((f) => {
-    const v = fieldData[f.id];
-    return v !== undefined && v !== null && String(v).trim() !== '';
-  }).length;
+  const filled = def.fields.filter((f) => fieldValueText(f, fieldData[f.id], fieldData) !== '').length;
   return { filled, total: def.fields.length };
 }
 
@@ -576,15 +574,10 @@ const TASK_RENDERERS = {
     return <TimelineRenderer steps={steps} subItems={touches} exitNote={fieldData.exitCriteria} exitLabel="Exit Criteria" />;
   },
 
+  // One row per asset checked: the doc judges each asset on its own.
   'OUT-IC': ({ fieldData }) => {
-    const checks = [
-      { label: 'Audience Concern Mapping', value: fieldData.icOut1 },
-      { label: 'G-Label Compliance',       value: fieldData.icOut2 },
-      { label: 'Singular CTA',             value: fieldData.icOut3 },
-      { label: 'Scarcity Verified',        value: fieldData.icOut4 },
-      { label: 'Readability Check',        value: fieldData.icOut5 },
-    ];
-    return <GateChecksRenderer checks={checks} />;
+    const { overall, rows } = icAssetSummary(icAssetRows(fieldData, icList('IC-OUT')), 'IC-OUT');
+    return <GateChecksRenderer checks={rows} overallLabel={overall} />;
   },
 
   'SLS-A3': ({ fieldData }) => <SegmentListRenderer fieldData={fieldData} />,
@@ -1055,11 +1048,16 @@ const TASK_RENDERERS = {
 
   // Matrix2x2 — DEL-A4: QC Checklist
   'DEL-A4': ({ fieldData }) => {
+    // Each asset's verdict; the old free-text notes when no asset is listed.
+    const icText = (code, notes) => {
+      const t = formatIcAssets(icAssetRows(fieldData, icList(code)), code) || notes;
+      return t ? truncate(t, 130) : null;
+    };
     const quadrants = [
       { label: 'QC Checklist Items',     content: fieldData.qcItems ? truncate(fieldData.qcItems, 130) : null, accent: true },
       { label: 'Guarantee Alignment',    content: fieldData.guaranteeAlignment ? truncate(fieldData.guaranteeAlignment, 130) : null },
-      { label: 'IC-OFR Checks',          content: fieldData.icOfrChecks ? truncate(fieldData.icOfrChecks, 130) : null },
-      { label: 'IC-DEL Checks',          content: fieldData.icDelChecks ? truncate(fieldData.icDelChecks, 130) : null },
+      { label: 'IC-OFR Assets',          content: icText('IC-OFR', fieldData.icOfrChecks) },
+      { label: 'IC-DEL Assets',          content: icText('IC-DEL', fieldData.icDelChecks) },
     ];
     return <Matrix2x2Renderer quadrants={quadrants} />;
   },
@@ -1282,14 +1280,14 @@ function DefaultTaskRenderer({ def, fieldData }) {
   return (
     <div className="bfd__default-fields">
       {def.fields.map((field) => {
-        const raw = fieldData?.[field.id];
-        const isEmpty = !raw || String(raw).trim() === '';
+        const raw = field.type === 'icAssets' ? fieldValueText(field, null, fieldData) : fieldData?.[field.id];
+        const isEmpty = fieldValueText(field, raw, fieldData) === '';
         let displayValue;
         if (isEmpty) {
           displayValue = <span className="bfd__field-empty">—</span>;
         } else if (field.type === 'select') {
           displayValue = <span className="bfd__field-value">{resolveSelectLabel(field, raw)}</span>;
-        } else if (field.type === 'textarea') {
+        } else if (field.type === 'textarea' || field.type === 'icAssets') {
           displayValue = <p className="bfd__field-textarea">{raw}</p>;
         } else {
           displayValue = <span className="bfd__field-value">{raw}</span>;
@@ -1313,10 +1311,7 @@ function BbosTaskCard({ def, task, index, onSelectTask, span, doneColumnId, view
   const CustomRenderer = TASK_RENDERERS[def.id];
 
   const allEmpty = task
-    ? def.fields.every((f) => {
-        const v = fieldData[f.id];
-        return !v || String(v).trim() === '';
-      })
+    ? def.fields.every((f) => fieldValueText(f, fieldData[f.id], fieldData) === '')
     : true;
 
   const hasData = task && !allEmpty;

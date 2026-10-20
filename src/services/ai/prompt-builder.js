@@ -122,6 +122,8 @@ function buildOutputFormat(taskDef) {
       desc = `"${f.id}": ${vals}`;
     } else if (f.type === 'number') {
       desc = `"${f.id}": string (numeric value)`;
+    } else if (f.type === 'icAssets') {
+      desc = `"${f.id}": [{ "asset": string, "checks": [5 × "pass" | "fail"] }]`;
     }
     return `  ${desc}`;
   });
@@ -130,7 +132,7 @@ function buildOutputFormat(taskDef) {
 
 Your ENTIRE response must be a single valid JSON object. No text before it. No text after it. No markdown fences. No explanation.
 
-The JSON must have EXACTLY these keys (all values are strings):
+The JSON must have EXACTLY these keys (all values are strings, except a key shown as a list):
 
 {
 ${fieldDefs.join(',\n')}
@@ -138,7 +140,7 @@ ${fieldDefs.join(',\n')}
 
 RULES:
 - Output ONLY the JSON object — nothing else.
-- Every value must be a JSON string (use \\n for line breaks within values, not literal newlines).
+- Every value must be a JSON string, except a key shown as a list (use \\n for line breaks within values, not literal newlines).
 - For select fields, use one of the listed option values exactly.
 - Do not add keys beyond those listed above.
 - If you cannot populate a field, set its value to "" (empty string).
@@ -195,6 +197,10 @@ function buildFieldList(taskDef) {
     if (f.placeholder) desc += ` — "${f.placeholder}"`;
     if (f.type === 'select' && f.options) {
       desc += ` [Options: ${f.options.map((o) => o.value).join(', ')}]`;
+    }
+    if (f.type === 'icAssets') {
+      const checks = f.checks.map((c) => `  - ${c.label}`).join('\n');
+      desc += `. One entry per asset; its checks, in order, each "pass" or "fail":\n${checks}`;
     }
     return desc;
   });
