@@ -9,6 +9,13 @@
 // Thresholds: >=75 QUALIFIED, >=50 DEVELOPING, >=25 REVIEW NEEDED, else BLOCKED.
 
 import { getBbosTaskDef } from './bbos-task-definitions';
+import { icList, icAssetRows } from './bbos-ic-assets';
+
+// An IC-OUT check scores only when every asset listed passes it.
+const icOutCheck = (n) => (fd) => {
+  const rows = icAssetRows(fd, icList('IC-OUT'));
+  return rows.length && rows.every((r) => r.checks[n - 1] === 'pass') ? 5 : 0;
+};
 
 const MAX_PER_SIGNAL = 5;
 
@@ -97,20 +104,20 @@ export const STAGE_SCORE_SIGNALS = {
   ],
   OUT: [
     { label: 'Audience Concern Mapping', taskId: 'OUT-IC',
-      fieldIds: ['icOut1'],
-      score: (fd) => fd?.icOut1 === 'pass' ? 5 : 0 },
+      fieldIds: ['icOutAssets'],
+      score: icOutCheck(1) },
     { label: 'G-Label Compliance',       taskId: 'OUT-IC',
-      fieldIds: ['icOut2'],
-      score: (fd) => fd?.icOut2 === 'pass' ? 5 : 0 },
+      fieldIds: ['icOutAssets'],
+      score: icOutCheck(2) },
     { label: 'Singular CTA',             taskId: 'OUT-IC',
-      fieldIds: ['icOut3'],
-      score: (fd) => fd?.icOut3 === 'pass' ? 5 : 0 },
+      fieldIds: ['icOutAssets'],
+      score: icOutCheck(3) },
     { label: 'Scarcity Verified',        taskId: 'OUT-IC',
-      fieldIds: ['icOut4'],
-      score: (fd) => fd?.icOut4 === 'pass' ? 5 : 0 },
+      fieldIds: ['icOutAssets'],
+      score: icOutCheck(4) },
     { label: 'Readability Check',        taskId: 'OUT-IC',
-      fieldIds: ['icOut5'],
-      score: (fd) => fd?.icOut5 === 'pass' ? 5 : 0 },
+      fieldIds: ['icOutAssets'],
+      score: icOutCheck(5) },
   ],
   SLS: [
     { label: 'Qualification Depth',       taskId: 'SLS-S1',

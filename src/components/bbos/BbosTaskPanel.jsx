@@ -23,6 +23,8 @@ import { streamCompletion, AiClientError } from '@services/ai/ai-client';
 import { buildPrompt } from '@services/ai/prompt-builder';
 import { parseAiResponse } from '@services/ai/response-parser';
 import GLabelPicker from '../shared/GLabelPicker';
+import BbosIcAssetsField from './BbosIcAssetsField';
+import { icList, icAssetRows, icAssetsDone } from '@data/bbos/bbos-ic-assets';
 import ErrorBoundary from '../shared/ErrorBoundary';
 import './BbosTaskPanel.css';
 import { localDayKey } from '../../lib/format-date';
@@ -188,7 +190,11 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
     const next = { ...localFields, [fieldId]: value };
     setLocalFields(next);
     // Clear validation error for this field when user fills it
-    if (value && value.trim()) {
+    const field = def.fields.find((f) => f.id === fieldId);
+    const filledIn = field?.type === 'icAssets'
+      ? icAssetsDone(icAssetRows(next, icList(field.code)), field.code)
+      : typeof value === 'string' && value.trim();
+    if (filledIn) {
       setValidationErrors((prev) => prev.filter((id) => id !== fieldId));
     }
     clearTimeout(saveTimeout.current);
@@ -555,6 +561,24 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
         <div className="btp-fields">
           {def.fields.map((field) => (
             <ErrorBoundary key={field.id} name={field.label}>
+              {field.type === 'icAssets' ? (
+                <div
+                  className={`btp-field${validationErrors.includes(field.id) ? ' btp-field--error' : ''}`}
+                  role="group"
+                  aria-labelledby={`btp-field-${field.id}-title`}
+                >
+                  <span className="btp-field-label" id={`btp-field-${field.id}-title`}>
+                    {field.label}
+                    {validationErrors.includes(field.id) && <span className="btp-field-required"> *</span>}
+                  </span>
+                  <BbosIcAssetsField
+                    field={field}
+                    fieldData={localFields}
+                    onChange={(rows) => handleFieldChange(field.id, rows)}
+                    readOnly={isViewOnly}
+                  />
+                </div>
+              ) : (
               <div className={`btp-field${validationErrors.includes(field.id) ? ' btp-field--error' : ''}`}>
                 <label className="btp-field-label" htmlFor={`btp-field-${field.id}`}>
                   {field.label}
@@ -605,6 +629,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
                   />
                 )}
               </div>
+              )}
             </ErrorBoundary>
           ))}
         </div>
@@ -764,6 +789,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
             // Validate: all defined fields must have content
             const empty = (def.fields || [])
               .filter((f) => {
+                if (f.type === 'icAssets') return !icAssetsDone(icAssetRows(localFields, icList(f.code)), f.code);
                 const val = localFields[f.id];
                 return !val || (typeof val === 'string' && !val.trim());
               })

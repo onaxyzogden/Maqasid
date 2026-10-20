@@ -164,6 +164,71 @@ describe('Pre-Ship Gate (IC-OFR + IC-DEL)', () => {
   });
 });
 
+describe('IC checklists judge every asset on its own', () => {
+  const P = ['pass', 'pass', 'pass', 'pass', 'pass'];
+  const r = (asset, checks = P) => ({ asset, checks });
+  const out = (rows) => [task('OUT-IC', { icOutAssets: rows })];
+  const baseline = (rows) => gate(evaluateStageGates('OUT', out(rows)), 'baseline');
+
+  it('clears when every asset passes, naming each one', () => {
+    const g = baseline([r('Cold email v2'), r('LinkedIn DM', ['pass', 'fail', 'pass', 'pass', 'pass'])]);
+    expect(g.status).toBe('clear');
+    expect(g.reasons.join(' ')).toMatch(/passed for: Cold email v2/);
+    expect(g.reasons.join(' ')).toMatch(/passed for: LinkedIn DM \(1 fail: IC-OUT-2/);
+  });
+
+  it('is NO-SHIP when any one asset fails two checks, naming that asset', () => {
+    const g = baseline([r('Cold email v2'), r('Launch post', ['fail', 'pass', 'fail', 'pass', 'pass']), r('LinkedIn DM')]);
+    expect(g.status).toBe('blocked');
+    expect(g.reasons.join(' ')).toMatch(/IC-OUT NO-SHIP for: Launch post\. Failed IC-OUT-1, IC-OUT-3\. Revise and re-check before use\./);
+    expect(g.reasons.join(' ')).toMatch(/passed for: Cold email v2/);
+  });
+
+  it('is incomplete when any asset is unanswered, naming the asset and the checks', () => {
+    const g = baseline([r('Cold email v2'), r('LinkedIn DM', ['pass', '', 'pass', '', 'pass'])]);
+    expect(g.status).toBe('incomplete');
+    expect(g.reasons.join(' ')).toMatch(/IC-OUT asset 2 \(LinkedIn DM\): answer IC-OUT-2, IC-OUT-4\./);
+  });
+
+  it('is incomplete for an unnamed asset, and for an empty list', () => {
+    expect(baseline([r('Cold email v2'), r(' ')]).reasons.join(' ')).toMatch(/IC-OUT asset 2: name the asset checked\./);
+    const empty = baseline([]);
+    expect(empty.status).toBe('incomplete');
+    expect(empty.reasons).toEqual(['IC-OUT: add each asset checked and answer its five checks.']);
+  });
+
+  it('a NO-SHIP asset outranks an unanswered one', () => {
+    expect(baseline([r('A', ['fail', 'fail', 'pass', 'pass', 'pass']), r('B', ['', '', '', '', ''])]).status).toBe('blocked');
+  });
+
+  it('carries a per-asset result for the panels', () => {
+    const g = baseline([r('Cold email v2'), r('Launch post', ['fail', 'fail', 'pass', 'pass', 'pass']), r('DM', ['pass', '', 'pass', 'pass', 'pass'])]);
+    expect(g.assets).toEqual([
+      { list: 'IC-OUT', index: 1, asset: 'Cold email v2', verdict: 'pass', fails: [], unanswered: [] },
+      { list: 'IC-OUT', index: 2, asset: 'Launch post', verdict: 'noship', fails: ['IC-OUT-1', 'IC-OUT-2'], unanswered: [] },
+      { list: 'IC-OUT', index: 3, asset: 'DM', verdict: 'incomplete', fails: [], unanswered: ['IC-OUT-2'] },
+    ]);
+  });
+
+  it('an old single-asset answer reads as the first asset, with the same result as before', () => {
+    const legacy = [task('OUT-IC', { icOutAsset: 'Cold email v2', icOut1: 'pass', icOut2: 'pass', icOut3: 'fail', icOut4: 'fail', icOut5: 'pass' })];
+    const g = gate(evaluateStageGates('OUT', legacy), 'baseline');
+    expect(g.status).toBe('blocked');
+    expect(g.assets).toEqual([{ list: 'IC-OUT', index: 1, asset: 'Cold email v2', verdict: 'noship', fails: ['IC-OUT-3', 'IC-OUT-4'], unanswered: [] }]);
+  });
+
+  it('Pre-Ship judges the IC-OFR and IC-DEL lists separately, every asset on each', () => {
+    const del = (ofr, dl) => gate(evaluateStageGates('DEL', [task('DEL-A4', { icOfrAssets: ofr, icDelAssets: dl })]), 'preship');
+    // One fail on the offer doc and one on the welcome pack: neither asset fails two.
+    const oneEach = del([r('Offer doc v3', ['fail', 'pass', 'pass', 'pass', 'pass'])], [r('Welcome pack', ['fail', 'pass', 'pass', 'pass', 'pass']), r('Kickoff email')]);
+    expect(oneEach.status).toBe('clear');
+    expect(oneEach.assets.map((a) => `${a.list}:${a.asset}`)).toEqual(['IC-OFR:Offer doc v3', 'IC-DEL:Welcome pack', 'IC-DEL:Kickoff email']);
+    const second = del([r('Offer doc v3')], [r('Welcome pack'), r('Kickoff email', ['pass', 'fail', 'pass', 'pass', 'fail'])]);
+    expect(second.status).toBe('blocked');
+    expect(second.reasons.join(' ')).toMatch(/IC-DEL NO-SHIP for: Kickoff email/);
+  });
+});
+
 describe('Constraint Gate (FP-01)', () => {
   const opt = (s5, a3) => [task('OPT-S5', s5), task('OPT-A3', a3 || {})];
   const FULL = {

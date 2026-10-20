@@ -56,6 +56,7 @@ import { getBbosStageIslamic } from "../../../../data/bbos/bbos-stage-islamic";
 import { scoreStage } from "../../../../data/bbos/bbos-stage-score";
 import { gateEntriesForStage, openConditions } from "../../../../data/bbos/bbos-gate-log";
 import { evaluateStageGates } from "../../../../data/bbos/bbos-named-gates";
+import { fieldValueText } from "../../../../data/bbos/bbos-ic-assets";
 
 // ── Static domain constants (no live source) ───────────────────────────────
 // Taglines and gate labels are not stored in BBOS_STAGES; they are fixed
@@ -171,9 +172,8 @@ function duaFor(stageId) {
 function buildContent(def, fieldData) {
   const parts = (def.fields || [])
     .map((f) => {
-      const v = fieldData[f.id];
-      if (v == null || String(v).trim() === "") return null;
-      return `${f.label}: ${String(v).trim()}`;
+      const v = fieldValueText(f, fieldData[f.id], fieldData);
+      return v ? `${f.label}: ${v}` : null;
     })
     .filter(Boolean);
   return parts.length ? parts.join("\n\n") : null;
