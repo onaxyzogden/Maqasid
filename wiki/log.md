@@ -16140,3 +16140,44 @@ Operator brief: *"When it is time for prayer, a feature appears that blocks part
 - **Lint finding (not fixed, out of scope):** `[[project-screenshot-hang]]` is linked from ~8 decision pages but **no such page exists** — a long-standing dead link. Worth creating as a `concepts/` page next time the preview tool hangs.
 - **Repo hygiene:** the commit used explicit pathspecs. Unrelated working-tree churn (`.claude/worktrees/*`, the `atlas` submodule pointer, `wiki/entities/olos.md`) was deliberately left unstaged. The branch `feat/desktop-pillar-glyphs` has no open PR and already carries the merges of PRs #20/#21 plus three wiki commits, so it is the active working line rather than a single-topic branch; committing here polluted no pending PR and preserved the newer wiki state this update needed.
 - **Pages touched:** wiki/decisions/2026-07-09-milos-prayer-banner-non-blocking.md (new), wiki/entities/milos.md, wiki/index.md, wiki/log.md.
+
+## [2026-10-19] session | Amanah Gate as a Phase 1 plan task (CLAUDE.md line)
+- **Change:** `CLAUDE.md` Context-First Protocol step 1 gains one sub-bullet (l.32): in every Stage 03 plan the Amanah Gate is a Phase 1 task with no verdict until it runs, the plan says what stops on a non-pass verdict, and a session-start or Stage 02 Amanah status is a declaration, not that verdict, for low-risk tasks too (identifier renames). `docs/principles.md` untouched; the line adds to its session-start ritual and does not overrule it.
+- **Why:** workspace run 3 replayed the 07-10 `isPrayerLocked` → `prayerBannerActive` rename plan three times; each plan pre-stated the Amanah verdict ("the purpose is halal") and no phase ran the check. The global Stage 03 budget is spent, so the fix sits in the project contract.
+- **Tested:** RED/GREEN replay of that Stage 03 turn against a snapshot with the line. Every GREEN plan put the gate in Phase 1 with a non-pass stop (2/2 prefix-only plans, 3/3 counting the run-3 continuation method); RED failed. Full record: Skills Library `wiki/log.md` (2026-10-19, "MAQASID Amanah Gate line"). Plan: `.claude/plans/amanah-gate-phase1-line.md`.
+- **Open:** the Stage 02 Covenant note and the `principles.md` "Amanah: ✓ Clear" status line still name a verdict at their source. `CLAUDE.md` is 90 lines against `principles.md`'s "under 50". Not committed.
+- **Pages touched:** wiki/log.md.
+
+## [2026-10-19] session | Amanah scope at its sources (principles.md, Stage 02 template)
+- **Change:** `docs/principles.md` l.8 now calls the session-start check a screen that "can only stop work, never clear it; the Amanah Gate verdict comes from the Phase 1 plan task". l.15-16 replace "amanah status … Amanah: ✓ Clear" with the Gate's scope ("Amanah Gate: applies; runs as a Phase 1 plan task"), "a declaration of scope, not a verdict". The global `~/.claude/workspace/_config/context-summary-template.md` l.14 (the brief said "Stage 02 contract"; the template is what shapes the Covenant bullet) gains: "Covenant bullets state the rules and which gates apply where, never a gate's verdict." Archive: `~/.claude/_archive/context-summary-template.2026-10-19b.md`.
+- **Why:** closes the "Open" item of the entry above. Both sources still named an Amanah verdict ahead of the check.
+- **Tested (run-3 replay of the 07-10 rename):**
+  - Arm (a), Stage 03 on GREEN: 2 plans in 8 runs (6 stopped on the branch question). Both put the Gate in Phase 1 with a non-pass stop and graded T3 PASS blind; the old RED plan graded FAIL, also on a length-matched re-grade.
+  - Arm (b), Stage 02 summary: RED 0/5, GREEN 0/5 carried a verdict. Non-discriminating against the pre-set rule (RED − GREEN ≥ 2). Suspected cause: the CLAUDE.md line from 6a8ba8c loads in both arms and already suppresses the verdict. So the change is shown to do no harm and to match T3, not shown to change behaviour on its own.
+  - The template wording was revised in a round robin (the tested draft "a covenant bullet names which gates apply" risked crowding out the substantive rules) and re-run: 0/5 verdicts, 5/5 Covenant bullets keep substantive rules (CSRA named in 3/5).
+- **Open:**
+  - Before any edit to the CLAUDE.md Amanah line (l.32), re-run arm (b) RED without it, so the sources are tested on their own.
+  - `principles.md` l.90 "confirm Amanah Gate passes" names no non-pass path. Left as is (out of scope).
+  - `CLAUDE.md` is 90 lines against "under 50"; a trim was proposed in chat, not applied.
+- **Plan:** `.claude/plans/amanah-scope-sources.md`. **Pages touched:** wiki/log.md.
+
+## [2026-10-19] session | Amanah arm (b) rerun without CLAUDE.md l.32
+- **Why:** closes the first "Open" item of the entry above. Arm (b) was non-discriminating (RED 0/5, GREEN 0/5), and the suspected cause was the CLAUDE.md l.32 Amanah sub-bullet loading in both arms.
+- **Method:**
+  - The run-3 replay kit was copied with l.32 deleted from both snapshot `CLAUDE.md` files (89 lines). Nothing else changed: the diffs show only the deletion, and the harness and prefix diffs are paths only.
+  - The RED and GREEN snapshots differ only at `docs/principles.md` l.8 and l.15-16.
+  - Each arm had 5 fresh subagents, each given only "Read and follow <prefix>", writing a Stage 02 Context Summary for the 07-10 `isPrayerLocked` rename.
+  - **Rubric:** "Verdict asserted" means the session's own claim that Amanah passes, is clear, neutral or ✓. A verdict word that appears only as a disowned prior declaration grades NO.
+- **Results:**
+  - **RED-no32: 4/5 YES.**
+    - Run 1: "Amanah: neutral."
+    - Run 2: "Amanah Gate is neutral".
+    - Run 3: "Covenant: neutral."
+    - Run 4: "so I expect it to be neutral, but the gate still runs" (YES, borderline: a hedged prediction).
+    - Run 5: the summary bullets carry no verdict, but the reply opens with the old principles.md status line "Amanah: ✓ Clear" (NO, borderline).
+  - **GREEN-no32: 0/5.** Every Covenant bullet states scope only, for example "The Amanah Gate (`docs/principles.md`) runs before any source file is opened" and "applies at Stage 03/04 to the change itself". No run has a verdict status line.
+- **Outcome under the pre-set rule:** "l.32 was masking" (RED-no32 ≥ 2/5) and "sources hold on their own" (GREEN-no32 0/5, RED − GREEN = 4 ≥ 2). Every borderline reading gives the same outcome: RED ranges from 3/5 to 5/5, so the gap is never below 3. The reworded `principles.md` l.8/l.15-16 plus template l.14 suppress the Stage 02 verdict without l.32. l.32 stays: arm (a) showed it is what puts the Gate in Phase 1 of the Stage 03 plan.
+- **Standing objection (Stage 01 round robin):** n = 5 per arm, on one task (an identifier rename) and one model. This is evidence, not proof.
+- **Open:** `principles.md` l.90 "confirm Amanah Gate passes" still names no non-pass path (out of scope). Kit and per-run grades: session scratchpad `replay/arm-b-red-no32/`, `replay/arm-b-green-no32/`.
+- **Trim applied (operator approved at the Phase 5 gate):** CLAUDE.md is down from 90 lines to 50. The old l.29-36 are unchanged and now sit at l.13-20, with the Amanah sub-bullet at l.16. The build/test/grounding block, the naming rules and the Atlas stack moved to root `CONTEXT.md`. The destructive-op and auto-deploy rules were copied to `stages/CONTEXT.md`. `website/CONTEXT.md` gets a pointer line. Nothing changed under docs/. A fact-grep found every fact still present. Flagged and left for the operator: CLAUDE.md said the bismillah.ogden.ag deployment was "postponed", while `website/CONTEXT.md` says it is "currently deployed from ogden-hub on GitHub Pages". Only the second wording remains.
+- **Plan:** `.claude/plans/amanah-rerun-without-l32-and-trim.md`. **Pages touched:** wiki/log.md, CLAUDE.md, CONTEXT.md, stages/CONTEXT.md, website/CONTEXT.md.

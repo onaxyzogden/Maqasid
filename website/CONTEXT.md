@@ -1,6 +1,7 @@
 # website/ — Marketing Site (ogden-hub)
 
 Static marketing/landing site. Merged from [ogden-hub](https://github.com/onaxyzogden/ogden-hub) via git subtree.
+This file holds the website facts; the root `CLAUDE.md` points here (trimmed 2026-10-19).
 
 ## Structure
 
