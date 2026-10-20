@@ -37,6 +37,10 @@ const formatAt = (iso) => {
     : d.toLocaleString(undefined, { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
 };
 
+const NAMED_STATUS = { clear: "Clear", conditions: "Conditions", incomplete: "Incomplete", blocked: "Blocked" };
+const ROLE_NAMES = { OW: "owner" };
+const roleName = (id) => ROLE_NAMES[id] || id;
+
 export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onReject, onLogConditions, onResolveCondition, onClose }) {
   const identity = stage.brief?.identity || {};
   const gate = stage.brief?.gate || null;
@@ -62,6 +66,10 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
   const [resolvingId, setResolvingId] = useState(null);
   const [resolveBasis, setResolveBasis] = useState("");
   const [confirming, setConfirming] = useState(false);
+  // Named gates: the acknowledgements ticked for this proceed, and the gate
+  // whose conditions were pre-filled (its id and resolver go on the entry).
+  const [acked, setAcked] = useState([]);
+  const [condGate, setCondGate] = useState(null);
   const [dirty, setDirty] = useState(false);
   const { ref: dialogRef, requestClose, onKeyDown } = useBpdDialog({ onClose, dirty });
 
@@ -71,13 +79,18 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
   // A BLOCKED gate verdict locks "proceed" — the stage cannot advance past a
   // failed gate. Conditions (no stage change) and Halt stay available.
   const gateBlocked = gate?.verdict === "BLOCKED";
+  // A blocked or incomplete named gate locks "proceed" too, with no override.
+  const namedHolding = !!gate?.named?.holding;
+  const namedStatus = gate?.named?.status;
   const gateOpts = [
     { key: "proceed",
       label: hasNext ? `Proceed to Stage ${gate.nextStageN}` : "Close Cycle",
-      sub: gateBlocked
-        ? "Locked — gate verdict is BLOCKED. Resolve the unmet signals in Findings first."
-        : hasNext ? "Routing conditions met" : "Cycle closes; the pipeline returns to Identity",
-      locked: gateBlocked,
+      sub: namedHolding
+        ? "Locked — held by a named gate below. There is no override."
+        : gateBlocked
+          ? "Locked — gate verdict is BLOCKED. Resolve the unmet signals in Findings first."
+          : hasNext ? "Routing conditions met" : "Cycle closes; the pipeline returns to Identity",
+      locked: gateBlocked || namedHolding,
       c: "var(--bpd-complete)", cd: "var(--bpd-complete-dim)" },
     { key: "conditions", label: "Proceed with Conditions", sub: "Gaps must be resolved before next stage begins",
       c: "var(--bpd-gold)", cd: "var(--bpd-gold-dim)" },
@@ -170,9 +183,15 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
       // Block rule: Advance waits until every open condition is resolved.
       const openConds = gate?.openConditions || [];
       const advanceBlocked = decision === "proceed" && openConds.length > 0;
+      // Named gates hold Proceed the way the store does: a blocked or
+      // incomplete gate (no override), conditions not yet recorded for their
+      // gate, or an acknowledgement not ticked.
+      const named = gate?.named || { gates: [], holding: false, unrecorded: [], acknowledgements: [], actingRole: null };
+      const acksMissing = named.acknowledgements.filter((a) => !acked.includes(a.id));
+      const namedHold = named.holding || named.unrecorded.length > 0 || acksMissing.length > 0;
       const decisionReady =
         canAct &&
-        ((decision === "proceed" && !advanceBlocked && !gateBlocked) ||
+        ((decision === "proceed" && !advanceBlocked && !gateBlocked && !namedHold) ||
           (decision === "halt" && reasonId) ||
           (decision === "conditions" && conditions.trim().length > 0));
       const actionReady = decisionReady && hasBasis;
@@ -196,7 +215,7 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
             ? `Advance from Stage ${stage.n} — ${stage.name} to Stage ${gate?.nextStageN}? This moves the pipeline forward. ${undoNote}`
             : `Close this cycle at Stage ${stage.n} — ${stage.name} and return the pipeline to Identity for the next cycle? ${undoNote}`;
       const choose = (key) => { if (canAct && !gateOpts.find((o) => o.key === key)?.locked) { up("decision", key); setConfirming(false); setRecorded(null); } };
-      const record = { basis, closingNote, conditions };
+      const record = { basis, closingNote, conditions, acknowledged: acked };
       const fireAction = () => {
         if (!actionReady) return;
         if (decision === "proceed") onAdvance?.(record);
@@ -206,9 +225,13 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
       // the written fields, and keep the Brief open showing the new entry.
       const recordConditions = () => {
         if (!actionReady) return;
-        onLogConditions?.({ ...record, decision: "conditions" });
+        onLogConditions?.({
+          basis, closingNote, conditions, decision: "conditions",
+          gateId: condGate?.id || null, resolverRole: condGate?.resolverRole || null,
+        });
         setBasis("");
         setConditions("");
+        setCondGate(null);
         setClosingNote("");
         up("decision", null);
         setDirty(false);
@@ -217,6 +240,15 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
       // Resolving is its own add-only entry with its own basis. It moves no
       // stage, so it is allowed on any stage; the written basis and the
       // explicit Record button are the confirm.
+      const applyGateConditions = (g) => {
+        up("decision", "conditions");
+        setConditions(g.condition?.text || g.reasons.join(" "));
+        setCondGate({ id: g.id, name: g.name, resolverRole: g.condition?.resolverRole || null });
+        setConfirming(false);
+        setRecorded(null);
+        setDirty(true);
+      };
+      const toggleAck = (id) => { setAcked((a) => (a.includes(id) ? a.filter((x) => x !== id) : [...a, id])); setConfirming(false); };
       const startResolve = (id) => { setResolvingId(id); setResolveBasis(""); setRecorded(null); };
       const cancelResolve = () => { setResolvingId(null); setResolveBasis(""); };
       const recordResolution = () => {
@@ -233,13 +265,47 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
           {gate && (
             <div className="bpd-brief__gate-verdict" data-active={canAct ? "true" : "false"}>
               <span className="bpd-brief__gate-verdict-label">{gate.label}</span>
-              <span className="bpd-brief__gate-verdict-value">{gate.verdict || "—"}</span>
+              <span className="bpd-brief__gate-verdict-value">
+                {namedStatus && namedStatus !== "clear" && namedStatus !== "none"
+                  ? namedStatus.toUpperCase()
+                  : gate.verdict || "—"}
+              </span>
             </div>
           )}
           {!canAct && (
             <div className="bpd-empty">
               This stage is not active &mdash; the routing decision is read-only.
             </div>
+          )}
+          {named.gates.length > 0 && (
+            <section className="bpd-col" style={{ gap: 8 }} aria-labelledby="bpd-brief-named-label">
+              <div className="bpd-brief__field-label" id="bpd-brief-named-label">Named gates · Factory docs</div>
+              {named.gates.map((g) => (
+                <div key={g.id} className="bpd-brief__named" data-status={g.status}>
+                  <div className="bpd-brief__named-head">
+                    <span className="bpd-brief__named-name">{g.name}</span>
+                    <span className="bpd-brief__named-status">{NAMED_STATUS[g.status]}</span>
+                  </div>
+                  <div className="bpd-brief__log-meta">{g.cite}</div>
+                  {g.reasons.length > 0 && (
+                    <ul className="bpd-brief__named-reasons">
+                      {g.reasons.map((r) => <li key={r}>{r}</li>)}
+                    </ul>
+                  )}
+                  {canAct && named.unrecorded.some((u) => u.id === g.id) && (
+                    <button type="button" className="bpd-brief__confirm-btn bpd-brief__open-btn" onClick={() => applyGateConditions(g)}>
+                      Record these conditions
+                    </button>
+                  )}
+                  {canAct && g.status === "clear" && (g.acknowledgements || []).map((a) => (
+                    <label key={a.id} className="bpd-brief__named-ack">
+                      <input type="checkbox" checked={acked.includes(a.id)} onChange={() => toggleAck(a.id)} />
+                      <span>{a.label}</span>
+                    </label>
+                  ))}
+                </div>
+              ))}
+            </section>
           )}
           {openConds.length > 0 && (
             <section className="bpd-brief__open" aria-labelledby="bpd-brief-open-label">
@@ -253,7 +319,11 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
                     <div className="bpd-brief__log-meta" style={{ marginTop: 4 }}>
                       Recorded {formatAt(c.at)}{c.by ? ` · ${c.by}` : ""}
                     </div>
-                    {resolvingId === c.id ? (
+                    {c.resolverRole && c.resolverRole !== named.actingRole ? (
+                      <div className="bpd-brief__basis-hint" role="note">
+                        Awaiting the {roleName(c.resolverRole)}&rsquo;s decision. Only the {roleName(c.resolverRole)} can resolve this condition.
+                      </div>
+                    ) : resolvingId === c.id ? (
                       <div className="bpd-col" style={{ gap: 8, marginTop: 10 }}>
                         <label className="bpd-brief__field-label" htmlFor={`bpd-brief-resolve-${c.id}`} style={{ display: "block" }}>
                           Basis for resolving this condition (required)
@@ -365,6 +435,8 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
               />
               <div className="bpd-brief__basis-hint">
                 This is recorded in the stage&rsquo;s gate record. It does not change the pipeline stage.
+                {condGate && ` Recorded against the ${condGate.name}.`}
+                {condGate?.resolverRole && ` Only the ${roleName(condGate.resolverRole)} can mark it resolved.`}
               </div>
             </>
           )}
@@ -379,6 +451,15 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
             onChange={(e) => { setBasis(e.target.value); setConfirming(false); }}
             disabled={!canAct}
           />
+          {decision === "proceed" && canAct && namedHold && (
+            <div className="bpd-brief__blocked" role="note">
+              {named.holding
+                ? `${hasNext ? "Advance" : "Closing the cycle"} is held by the ${named.gates.filter((g) => g.status === "blocked" || g.status === "incomplete").map((g) => g.name).join(" and ")}. See Named gates above; there is no override.`
+                : named.unrecorded.length > 0
+                  ? `Record the conditions for the ${named.unrecorded.map((g) => g.name).join(" and ")}, then resolve them, to enable ${hasNext ? "Advance" : "Close Cycle"}.`
+                  : `Tick each acknowledgement under Named gates to enable ${hasNext ? "Advance" : "Close Cycle"}.`}
+            </div>
+          )}
           {advanceBlocked && canAct && (
             <div className="bpd-brief__blocked" role="note">
               {hasNext ? "Advance" : "Closing the cycle"} is blocked: {openConds.length} open condition{openConds.length === 1 ? "" : "s"} must be marked resolved first.

@@ -1510,6 +1510,60 @@
   background: color-mix(in srgb, var(--col-done) 85%, #000);
 }
 
+/* Named gates inside the Advance modal: the status is spelled out in the
+   pill, so the edge colour is never the only signal. */
+.bfd__named-gates {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: var(--space-4);
+}
+.bfd__named-gate {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 10px;
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.12));
+  border-left: 3px solid var(--col-todo);
+  border-radius: 6px;
+  background: var(--bg, #1a1a1a);
+}
+.bfd__named-gate--clear { border-left-color: var(--col-done); }
+.bfd__named-gate--conditions { border-left-color: #c9a84c; }
+.bfd__named-gate--incomplete { border-left-color: var(--col-progress); }
+.bfd__named-gate--blocked { border-left-color: var(--danger); background: var(--danger-bg); }
+.bfd__named-gate-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.bfd__named-gate-name { font-size: var(--text-sm); font-weight: 600; color: var(--text); }
+.bfd__named-gate-status {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+}
+.bfd__named-gate-status--clear { color: var(--col-done); }
+.bfd__named-gate-status--conditions { color: #c9a84c; }
+.bfd__named-gate-status--incomplete { color: var(--col-progress); }
+.bfd__named-gate-status--blocked { color: var(--danger); }
+.bfd__named-gate-reasons {
+  margin: 0;
+  padding-left: 18px;
+  font-size: var(--text-sm);
+  color: var(--text2);
+}
+.bfd__named-gate-ack {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-height: 44px;
+  padding-top: 10px;
+  font-size: var(--text-sm);
+  color: var(--text);
+  cursor: pointer;
+}
+.bfd__named-gate-ack input { width: 18px; height: 18px; margin: 1px 0 0; flex-shrink: 0; }
+
 /* Open conditions inside the Advance modal */
 .bfd__open-conds {
   display: flex;
