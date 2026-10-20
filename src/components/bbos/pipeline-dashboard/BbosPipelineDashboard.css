@@ -862,7 +862,7 @@
   background: var(--bpd-gold-dim); border: 1px solid color-mix(in srgb, var(--bpd-gold) 40%, transparent);
 }
 .bpd-brief__open-item { padding: 10px 12px; border-radius: 8px; background: var(--bpd-bg3); border-left: 3px solid var(--bpd-gold); }
-.bpd-brief__open-btn { margin-top: 10px; min-height: 36px; }
+.bpd-brief__open-btn { margin-top: 10px; min-height: 44px; }
 /* named gates (Factory docs): status spelled out in the pill, edge colour echoes it */
 .bpd-brief__named {
   padding: 10px 12px; border-radius: 8px; background: var(--bpd-bg3);

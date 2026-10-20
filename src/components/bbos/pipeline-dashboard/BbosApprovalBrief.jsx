@@ -9,12 +9,13 @@
 // Open conditions (this cycle, unresolved) are listed above the decision and
 // block Advance until each is marked resolved with its own written basis;
 // onResolveCondition adds a 'resolved' entry and moves nothing.
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Ornament, SPill } from "./primitives";
 import { itemVars, iLabel } from "./palette";
 import { useBpdDialog } from "./useBpdDialog";
 import { BBOS_REJECTION_REASONS } from "../../../data/bbos/bbos-pipeline";
+import { getBbosRole } from "../../../data/bbos/bbos-role-access";
 
 // Keyboard activation for the div-based radio/checkbox controls.
 const onActivate = (fn) => (e) => {
@@ -38,8 +39,7 @@ const formatAt = (iso) => {
 };
 
 const NAMED_STATUS = { clear: "Clear", conditions: "Conditions", incomplete: "Incomplete", blocked: "Blocked" };
-const ROLE_NAMES = { OW: "owner" };
-const roleName = (id) => ROLE_NAMES[id] || id;
+const roleName = (id) => getBbosRole(id).label.toLowerCase();
 
 export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onReject, onLogConditions, onResolveCondition, onClose }) {
   const identity = stage.brief?.identity || {};
@@ -70,6 +70,7 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
   // whose conditions were pre-filled (its id and resolver go on the entry).
   const [acked, setAcked] = useState([]);
   const [condGate, setCondGate] = useState(null);
+  const conditionsRef = useRef(null);
   const [dirty, setDirty] = useState(false);
   const { ref: dialogRef, requestClose, onKeyDown } = useBpdDialog({ onClose, dirty });
 
@@ -82,6 +83,8 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
   // A blocked or incomplete named gate locks "proceed" too, with no override.
   const namedHolding = !!gate?.named?.holding;
   const namedStatus = gate?.named?.status;
+  const namedWaiting = !namedHolding && !!gate?.named && (
+    gate.named.unrecorded.length > 0 || gate.named.acknowledgements.some((a) => !acked.includes(a.id)));
   const gateOpts = [
     { key: "proceed",
       label: hasNext ? `Proceed to Stage ${gate.nextStageN}` : "Close Cycle",
@@ -89,7 +92,9 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
         ? "Locked — held by a named gate below. There is no override."
         : gateBlocked
           ? "Locked — gate verdict is BLOCKED. Resolve the unmet signals in Findings first."
-          : hasNext ? "Routing conditions met" : "Cycle closes; the pipeline returns to Identity",
+          : namedWaiting
+            ? "Waiting on named gates: record their conditions or tick the acknowledgements below"
+            : hasNext ? "Routing conditions met" : "Cycle closes; the pipeline returns to Identity",
       locked: gateBlocked || namedHolding,
       c: "var(--bpd-complete)", cd: "var(--bpd-complete-dim)" },
     { key: "conditions", label: "Proceed with Conditions", sub: "Gaps must be resolved before next stage begins",
@@ -247,6 +252,10 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
         setConfirming(false);
         setRecorded(null);
         setDirty(true);
+        requestAnimationFrame(() => {
+          conditionsRef.current?.scrollIntoView({ block: "center" });
+          conditionsRef.current?.focus();
+        });
       };
       const toggleAck = (id) => { setAcked((a) => (a.includes(id) ? a.filter((x) => x !== id) : [...a, id])); setConfirming(false); };
       const startResolve = (id) => { setResolvingId(id); setResolveBasis(""); setRecorded(null); };
@@ -428,6 +437,7 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
               </label>
               <textarea
                 id="bpd-brief-conditions"
+                ref={conditionsRef}
                 className="bpd-brief__gate-textarea"
                 placeholder="List each gap and what closes it..."
                 value={conditions}
@@ -454,7 +464,7 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
           {decision === "proceed" && canAct && namedHold && (
             <div className="bpd-brief__blocked" role="note">
               {named.holding
-                ? `${hasNext ? "Advance" : "Closing the cycle"} is held by the ${named.gates.filter((g) => g.status === "blocked" || g.status === "incomplete").map((g) => g.name).join(" and ")}. See Named gates above; there is no override.`
+                ? `${hasNext ? "Advance" : "Closing the cycle"} is held by the ${named.gates.filter((g) => g.status === "blocked" || g.status === "incomplete").map((g) => g.name).join(" and ")}. See Named gates above; there is no override. Halt is still available above.`
                 : named.unrecorded.length > 0
                   ? `Record the conditions for the ${named.unrecorded.map((g) => g.name).join(" and ")}, then resolve them, to enable ${hasNext ? "Advance" : "Close Cycle"}.`
                   : `Tick each acknowledgement under Named gates to enable ${hasNext ? "Advance" : "Close Cycle"}.`}
@@ -462,7 +472,9 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
           )}
           {advanceBlocked && canAct && (
             <div className="bpd-brief__blocked" role="note">
-              {hasNext ? "Advance" : "Closing the cycle"} is blocked: {openConds.length} open condition{openConds.length === 1 ? "" : "s"} must be marked resolved first.
+              {openConds.every((c) => c.resolverRole && c.resolverRole !== named.actingRole)
+                ? `${hasNext ? "Advance" : "Closing the cycle"} is held until the ${roleName(openConds[0].resolverRole)} resolves ${openConds.length} condition${openConds.length === 1 ? "" : "s"}.`
+                : `${hasNext ? "Advance" : "Closing the cycle"} is blocked: ${openConds.length} open condition${openConds.length === 1 ? "" : "s"} must be marked resolved first.`}
             </div>
           )}
           {decisionReady && !hasBasis && (

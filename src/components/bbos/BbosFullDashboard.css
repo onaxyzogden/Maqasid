@@ -1593,4 +1593,4 @@
 }
 .bfd__open-cond-text { font-size: var(--text-sm); color: var(--text); }
 .bfd__open-cond-meta { font-size: var(--text-xs); color: var(--text3); }
-.bfd__open-cond-btn { align-self: flex-start; min-height: 36px; }
+.bfd__open-cond-btn { align-self: flex-start; min-height: 44px; }

@@ -5,6 +5,7 @@ import { useProjectStore } from '../../store/project-store';
 import { useTaskStore } from '../../store/task-store';
 import { openConditions } from '../../data/bbos/bbos-gate-log';
 import { evaluateStageGates, gateMoveRefusal } from '../../data/bbos/bbos-named-gates';
+import { getBbosRole } from '../../data/bbos/bbos-role-access';
 import './BbosFullDashboard.css';
 
 // The legacy gate-move dialog: Advance to the next stage, or, from the final
@@ -25,8 +26,7 @@ import './BbosFullDashboard.css';
 // otherwise trap the fixed overlay inside the content column.
 const NO_TASKS = [];
 const STATUS_LABEL = { clear: 'Clear', conditions: 'Conditions', incomplete: 'Incomplete', blocked: 'Blocked' };
-const ROLE_NAMES = { OW: 'owner' };
-const roleName = (id) => ROLE_NAMES[id] || id;
+const roleName = (id) => getBbosRole(id).label.toLowerCase();
 
 export default function BbosGateMoveDialog({ project, fromStage, nextStage, onConfirm, onClose }) {
   const logBbosGateDecision = useProjectStore((s) => s.logBbosGateDecision);
@@ -152,7 +152,7 @@ export default function BbosGateMoveDialog({ project, fromStage, nextStage, onCo
                             onClick={() => handleRecordConditions(g)}
                             disabled={!condText.trim() || !condBasis.trim()}
                           >
-                            Record Conditions
+                            Record conditions
                           </button>
                         </div>
                       </>
@@ -162,9 +162,12 @@ export default function BbosGateMoveDialog({ project, fromStage, nextStage, onCo
                         type="button"
                         onClick={() => { setRecordingGate(g.id); setCondText(g.condition?.text || ''); setCondBasis(''); }}
                       >
-                        Record conditions
+                        Record these conditions
                       </button>
                     )
+                  )}
+                  {g.status === 'conditions' && recorded.length > 0 && (
+                    <p className="bfd__modal-hint">Conditions recorded. See Open conditions below.</p>
                   )}
                   {g.status === 'clear' && (g.acknowledgements || []).map((a) => (
                     <label key={a.id} className="bfd__named-gate-ack">
@@ -249,11 +252,13 @@ export default function BbosGateMoveDialog({ project, fromStage, nextStage, onCo
         </label>
         {holding.length > 0 ? (
           <p className="bfd__modal-blocked" role="note">
-            {isCycle ? 'Closing the cycle' : 'Advance'} is held by the {holding.map((g) => g.name).join(' and ')}: {holding.flatMap((g) => g.reasons).join(' ')}
+            {isCycle ? 'Closing the cycle' : 'Advance'} is held by the {holding.map((g) => g.name).join(' and ')}. See Named gates above; there is no override.
           </p>
         ) : openConds.length > 0 ? (
           <p className="bfd__modal-blocked" role="note">
-            {isCycle ? 'Closing the cycle' : 'Advance'} is blocked: {openConds.length} open condition{openConds.length === 1 ? '' : 's'} must be marked resolved first.
+            {openConds.every((c) => c.resolverRole && c.resolverRole !== gateBy)
+              ? `${isCycle ? 'Closing the cycle' : 'Advance'} is held until the ${roleName(openConds[0].resolverRole)} resolves ${openConds.length} condition${openConds.length === 1 ? '' : 's'}.`
+              : `${isCycle ? 'Closing the cycle' : 'Advance'} is blocked: ${openConds.length} open condition${openConds.length === 1 ? '' : 's'} must be marked resolved first.`}
           </p>
         ) : gateRefusal ? (
           <p className="bfd__modal-hint">
