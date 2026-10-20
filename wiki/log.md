@@ -16130,3 +16130,16 @@ Operator brief: *"When it is time for prayer, a feature appears that blocks part
 - **Tested:** RED/GREEN replay of that Stage 03 turn against a snapshot with the line. Every GREEN plan put the gate in Phase 1 with a non-pass stop (2/2 prefix-only plans, 3/3 counting the run-3 continuation method); RED failed. Full record: Skills Library `wiki/log.md` (2026-10-19, "MAQASID Amanah Gate line"). Plan: `.claude/plans/amanah-gate-phase1-line.md`.
 - **Open:** the Stage 02 Covenant note and the `principles.md` "Amanah: ✓ Clear" status line still name a verdict at their source. `CLAUDE.md` is 90 lines against `principles.md`'s "under 50". Not committed.
 - **Pages touched:** wiki/log.md.
+
+## [2026-10-19] session | Amanah scope at its sources (principles.md, Stage 02 template)
+- **Change:** `docs/principles.md` l.8 now calls the session-start check a screen that "can only stop work, never clear it; the Amanah Gate verdict comes from the Phase 1 plan task". l.15-16 replace "amanah status … Amanah: ✓ Clear" with the Gate's scope ("Amanah Gate: applies; runs as a Phase 1 plan task"), "a declaration of scope, not a verdict". The global `~/.claude/workspace/_config/context-summary-template.md` l.14 (the brief said "Stage 02 contract"; the template is what shapes the Covenant bullet) gains: "Covenant bullets state the rules and which gates apply where, never a gate's verdict." Archive: `~/.claude/_archive/context-summary-template.2026-10-19b.md`.
+- **Why:** closes the "Open" item of the entry above. Both sources still named an Amanah verdict ahead of the check.
+- **Tested (run-3 replay of the 07-10 rename):**
+  - Arm (a), Stage 03 on GREEN: 2 plans in 8 runs (6 stopped on the branch question). Both put the Gate in Phase 1 with a non-pass stop and graded T3 PASS blind; the old RED plan graded FAIL, also on a length-matched re-grade.
+  - Arm (b), Stage 02 summary: RED 0/5, GREEN 0/5 carried a verdict. Non-discriminating against the pre-set rule (RED − GREEN ≥ 2). Suspected cause: the CLAUDE.md line from 6a8ba8c loads in both arms and already suppresses the verdict. So the change is shown to do no harm and to match T3, not shown to change behaviour on its own.
+  - The template wording was revised in a round robin (the tested draft "a covenant bullet names which gates apply" risked crowding out the substantive rules) and re-run: 0/5 verdicts, 5/5 Covenant bullets keep substantive rules (CSRA named in 3/5).
+- **Open:**
+  - Before any edit to the CLAUDE.md Amanah line (l.32), re-run arm (b) RED without it, so the sources are tested on their own.
+  - `principles.md` l.90 "confirm Amanah Gate passes" names no non-pass path. Left as is (out of scope).
+  - `CLAUDE.md` is 90 lines against "under 50"; a trim was proposed in chat, not applied.
+- **Plan:** `.claude/plans/amanah-scope-sources.md`. **Pages touched:** wiki/log.md.

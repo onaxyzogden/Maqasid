@@ -5,15 +5,15 @@
 
 ## Amanah Gate — Session Start
 
-Before any work begins, run this check silently:
+Before any work begins, run this screen silently. It can only stop work, never clear it; the Amanah Gate verdict comes from the Phase 1 plan task:
 
 1. **Confirm permissibility** of the task:
    - Does this work serve a halal purpose?
    - Does it involve riba, deception (gharar), or content that violates Islamic ethics?
    - If any concern exists: STOP, flag it explicitly, do not proceed until resolved
 
-2. State project context and amanah status in one line at session start. Example:
-   > *Active: MILOS | Amanah: ✓ Clear | Bismillah — proceeding.*
+2. State project context and the Amanah Gate's scope in one line at session start. This declares scope, not a verdict. Example:
+   > *Active: MILOS | Amanah Gate: applies; runs as a Phase 1 plan task | Bismillah — proceeding.*
 
 ---
 
