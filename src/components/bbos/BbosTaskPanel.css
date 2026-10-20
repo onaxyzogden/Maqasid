@@ -397,6 +397,183 @@
   border-radius: 8px;
 }
 
+/* ── IC asset checklists (one card per asset) ── */
+.btp-ic {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btp-ic-help {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text3);
+  line-height: 1.5;
+}
+
+.btp-ic-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-left-width: 4px;
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.btp-ic-card--pass { border-left-color: var(--success); }
+.btp-ic-card--noship { border-left-color: var(--danger); }
+.btp-ic-card--incomplete { border-left-color: var(--col-progress); }
+
+.btp-ic-card-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btp-ic-name-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.btp-ic-verdict {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--text3);
+}
+
+.btp-ic-verdict--pass {
+  background: var(--success-bg);
+  color: var(--success-text);
+  border-color: var(--success-border);
+}
+
+.btp-ic-verdict--noship {
+  background: var(--danger-bg);
+  color: var(--danger);
+  border-color: var(--danger-border);
+}
+
+.btp-ic-remove {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 44px;
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text3);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btp-ic-remove:hover,
+.btp-ic-remove:focus-visible {
+  color: var(--danger);
+  border-color: var(--danger-border);
+}
+
+.btp-ic-missing {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.5;
+}
+
+.btp-ic-note {
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--danger-bg);
+  color: var(--danger);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.btp-ic-check {
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.btp-ic-check-label {
+  padding: 0;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.btp-ic-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btp-ic-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.btp-ic-option:focus-within {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--btp-accent) 30%, transparent);
+}
+
+.btp-ic-option--pass.is-on {
+  background: var(--success-bg);
+  border-color: var(--success-border);
+  color: var(--success-text);
+}
+
+.btp-ic-option--fail.is-on {
+  background: var(--danger-bg);
+  border-color: var(--danger-border);
+  color: var(--danger);
+}
+
+.btp-ic-option:has(input:disabled) {
+  cursor: default;
+}
+
+.btp-ic-add {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btp-ic-add:hover,
+.btp-ic-add:focus-visible {
+  border-color: var(--btp-accent);
+}
+
 /* ── G-Label row ── */
 .btp-glabel-row {
   flex-direction: row;

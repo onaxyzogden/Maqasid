@@ -493,7 +493,7 @@
 .bpd-row__content {
   margin: 10px 0 12px; padding: 10px 12px; background: var(--bpd-bg4); border-radius: 7px;
   font-size: 12px; font-family: var(--bpd-font-ui); font-style: italic;
-  color: var(--bpd-text-secondary); line-height: 1.7;
+  color: var(--bpd-text-secondary); line-height: 1.7; white-space: pre-wrap;
 }
 .bpd-row__actions { display: flex; gap: 8px; margin-top: 8px; }
 
@@ -882,6 +882,21 @@
   margin: 6px 0 0; padding-left: 18px; font-size: 14px; line-height: 1.5;
   font-family: var(--bpd-font-ui); color: var(--bpd-text-primary);
 }
+/* one line per asset on an IC list: code, name, its own verdict, failed or unanswered checks */
+.bpd-brief__named-assets { margin: 6px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.bpd-brief__named-asset {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; padding: 6px 8px; border-radius: 6px;
+  background: var(--bpd-bg); font-size: 13px; font-family: var(--bpd-font-ui); --t: var(--bpd-gold);
+}
+.bpd-brief__named-asset[data-tone="pass"] { --t: var(--bpd-complete); }
+.bpd-brief__named-asset[data-tone="noship"] { --t: var(--bpd-red); }
+.bpd-brief__named-asset-list { font-size: 12px; font-weight: 600; color: var(--bpd-text-secondary); }
+.bpd-brief__named-asset-name { flex: 1 1 8rem; min-width: 0; color: var(--bpd-text-primary); overflow-wrap: anywhere; }
+.bpd-brief__named-asset-pill {
+  font-size: 12px; font-weight: 600; color: var(--t); padding: 1px 8px; border-radius: 999px;
+  border: 1px solid currentColor; white-space: nowrap;
+}
+.bpd-brief__named-asset-detail { flex-basis: 100%; font-size: 12px; color: var(--bpd-text-secondary); }
 .bpd-brief__named-ack {
   display: flex; align-items: flex-start; gap: 8px; min-height: 44px; padding-top: 10px;
   font-size: 14px; font-family: var(--bpd-font-ui); color: var(--bpd-text-primary); cursor: pointer;

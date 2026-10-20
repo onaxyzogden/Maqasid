@@ -24,15 +24,27 @@ describe('select options', () => {
 });
 
 describe('IC checklists', () => {
-  it('OUT-IC names the asset it certifies', () => {
-    expect(field('OUT-IC', 'icOutAsset')).toMatchObject({ type: 'text' });
+  const checksOk = (f, code) => {
+    expect(f).toMatchObject({ type: 'icAssets', code });
+    expect(f.checks).toHaveLength(5);
+    f.checks.forEach((c, i) => {
+      expect(c.label.startsWith(`${code}-${i + 1}:`)).toBe(true);
+      expect(c.options.map((o) => o.value)).toEqual(['pass', 'fail']);
+    });
+  };
+
+  it('OUT-IC lists every asset checked, each with its five checks', () => {
+    checksOk(field('OUT-IC', 'icOutAssets'), 'IC-OUT');
   });
 
-  it('DEL-A4 has five pass/fail IC-OFR and five IC-DEL checks, each with its asset', () => {
-    for (const p of ['icOfr', 'icDel']) {
-      expect(field('DEL-A4', `${p}Asset`)).toMatchObject({ type: 'text' });
-      for (const n of [1, 2, 3, 4, 5]) expect(values('DEL-A4', `${p}${n}`)).toEqual(['pass', 'fail']);
-    }
+  it('DEL-A4 lists every IC-OFR and IC-DEL asset, each with its five checks', () => {
+    checksOk(field('DEL-A4', 'icOfrAssets'), 'IC-OFR');
+    checksOk(field('DEL-A4', 'icDelAssets'), 'IC-DEL');
+  });
+
+  it('no longer renders the single-asset fields (their stored answers are read through)', () => {
+    for (const id of ['icOutAsset', 'icOut1', 'icOut5']) expect(field('OUT-IC', id)).toBeUndefined();
+    for (const id of ['icOfrAsset', 'icOfr1', 'icDelAsset', 'icDel5']) expect(field('DEL-A4', id)).toBeUndefined();
   });
 
   it('keeps the old free-text IC fields as notes', () => {

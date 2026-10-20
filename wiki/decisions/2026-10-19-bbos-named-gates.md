@@ -44,7 +44,7 @@ All three go to one follow-up: a late-disqualifier banner (a ★ YES on file aft
 ## Consequences
 
 - Projects mid-pipeline with unanswered gate fields now show `incomplete` and cannot Advance until they are answered. The reasons name the missing fields.
-- Checking every asset in its own IC list (rather than one named asset per list) is a follow-up, not built here.
+- Checking every asset in its own IC list (rather than one named asset per list) is a follow-up, not built here. Built 2026-10-20: [[2026-10-20-bbos-ic-per-asset]].
 - Verified: 501 tests, lint and build green. In preview, both dashboards were screenshot-checked: a clear CRD needs the founder-notified tick; Q5 = yes shows Amanah Blocked with Confirm disabled; a Q7 escalation records an owner-bound condition and holds Advance with "held until the owner resolves 1 condition".
 
 See [[bbos-pipeline]].

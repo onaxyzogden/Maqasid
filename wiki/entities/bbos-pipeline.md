@@ -110,6 +110,8 @@ See [decision: bbos-cycle-close-record](../decisions/2026-10-17-bbos-cycle-close
 
 **Undo as a recorded reversal (2026-10-17):** The Undo toasts are back on the redesigned dashboard's Advance, Halt and Close Cycle, rebuilt on top of the gate log. Undo puts the pipeline back and adds a `'reversed'` entry (`reversesId`) pointing at the undone decision. Only the last entry can be reversed, and only a proceed, halt or cycle. The undone entry stays in the Gate record, struck through with a "(reversed)" tag. The toast stays up 15s. The legacy dashboard has no Undo. Shipped to main in PR #57 (merge `efb629d`). See [[2026-10-17-bbos-gate-undo-reversal]].
 
+**IC checklists per asset (2026-10-20):** Ihsan Baseline (IC-OUT) and Pre-Ship (IC-OFR + IC-DEL) now hold a list of assets (`icOutAssets`, `icOfrAssets`, `icDelAssets`), each with a name and five pass/fail checks. Rules are in `src/data/bbos/bbos-ic-assets.js`. Any asset with 2+ fails is NO-SHIP and blocks the named gate; any unfinished asset leaves it incomplete. Old single-asset answers are read as asset 1 and never deleted. Both Named gates panels list each asset. PR #72, stacked on the named gates (PR #71). See [[2026-10-20-bbos-ic-per-asset]].
+
 ## Connections
 
 - [[milos]] — Host application; BBOS is a module at `src/components/bbos/`

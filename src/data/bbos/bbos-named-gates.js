@@ -17,6 +17,8 @@
 // The outcome is recorded in bbosGateLog alone (gate log wins, PR #56):
 // conditions entries carry `gateId`, and a proceed carries `acknowledged`.
 
+import { icList, icAssetRows, icRowResult } from './bbos-ic-assets';
+
 const RANK = { none: 0, clear: 1, conditions: 2, incomplete: 3, blocked: 4 };
 
 const text = (v) => (typeof v === 'string' ? v.trim() : v == null ? '' : String(v));
@@ -64,17 +66,14 @@ export const GATE_RULES = {
     stage: 'OUT',
     cite: 'OUT v2.0 · IC-OUT (DRIFT-02)',
     rule: 'Any asset failing 2 or more IC-OUT checks is NO-SHIP and must be revised.',
-    lists: [{ code: 'IC-OUT', task: 'OUT-IC', asset: 'icOutAsset', prefix: 'icOut' }],
+    lists: ['IC-OUT'],
   },
   preship: {
     name: 'Pre-Ship Gate',
     stage: 'DEL',
     cite: 'DEL v3.7 · IC-OFR + IC-DEL (DRIFT-02)',
     rule: 'Any asset failing 2 or more checks requires revision before use.',
-    lists: [
-      { code: 'IC-OFR', task: 'DEL-A4', asset: 'icOfrAsset', prefix: 'icOfr' },
-      { code: 'IC-DEL', task: 'DEL-A4', asset: 'icDelAsset', prefix: 'icDel' },
-    ],
+    lists: ['IC-OFR', 'IC-DEL'],
   },
   constraint: {
     name: 'Constraint Gate',
@@ -165,31 +164,36 @@ function viability(tasks) {
   return result('viability', 'clear', [`Gates A–D cleared. Handed off: ${cleared}.`]);
 }
 
+// Each list holds every asset checked; each asset is judged on its own five
+// checks (bbos-ic-assets.js). The gate takes the worst asset: one NO-SHIP
+// blocks it, one unfinished asset leaves it incomplete.
 function checklists(id, tasks) {
   const R = GATE_RULES[id];
   const reasons = [];
+  const assets = [];
   let status = 'clear';
   const worse = (s) => { if (RANK[s] > RANK[status]) status = s; };
-  for (const L of R.lists) {
+  for (const L of R.lists.map(icList)) {
     const d = fieldsOf(tasks, L.task);
     if (!d) { worse('incomplete'); reasons.push(`Task ${L.task} is missing from this project.`); continue; }
-    const asset = text(d[L.asset]);
-    const checks = [1, 2, 3, 4, 5].map((n) => ({ code: `${L.code}-${n}`, value: d[`${L.prefix}${n}`] }));
-    const unanswered = checks.filter((c) => !text(c.value));
-    if (!asset || unanswered.length) {
-      worse('incomplete');
-      reasons.push(`${L.code}: ${!asset ? 'name the asset checked' : ''}${!asset && unanswered.length ? '; ' : ''}${unanswered.length ? `answer ${unanswered.map((c) => c.code).join(', ')}` : ''}.`);
-      continue;
-    }
-    const fails = checks.filter((c) => c.value === 'fail');
-    if (fails.length >= 2) {
-      worse('blocked');
-      reasons.push(`${L.code} NO-SHIP for: ${asset}. Failed ${fails.map((c) => c.code).join(', ')}. Revise and re-check before use.`);
-    } else {
-      reasons.push(`${L.code} passed for: ${asset}${fails.length ? ` (1 fail: ${fails[0].code}; the rule is 2 or more)` : ''}.`);
-    }
+    const rows = icAssetRows(d, L);
+    if (!rows.length) { worse('incomplete'); reasons.push(`${L.code}: add each asset checked and answer its five checks.`); continue; }
+    rows.forEach((row, i) => {
+      const r = icRowResult(row, L.code);
+      assets.push({ list: L.code, index: i + 1, asset: r.asset, verdict: r.verdict, fails: r.fails, unanswered: r.unanswered });
+      if (r.verdict === 'noship') {
+        worse('blocked');
+        reasons.push(`${L.code} NO-SHIP for: ${r.asset || `asset ${i + 1}`}. Failed ${r.fails.join(', ')}. Revise and re-check before use.`);
+      } else if (r.verdict === 'incomplete') {
+        worse('incomplete');
+        const todo = [!r.named && 'name the asset checked', r.unanswered.length && `answer ${r.unanswered.join(', ')}`].filter(Boolean).join('; ');
+        reasons.push(`${L.code} asset ${i + 1}${r.named ? ` (${r.asset})` : ''}: ${todo}.`);
+      } else {
+        reasons.push(`${L.code} passed for: ${r.asset}${r.fails.length ? ` (1 fail: ${r.fails[0]}; the rule is 2 or more)` : ''}.`);
+      }
+    });
   }
-  return result(id, status, reasons);
+  return result(id, status, reasons, { assets });
 }
 
 function constraint(tasks) {
