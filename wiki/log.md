@@ -3,6 +3,11 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-20] session | BBOS CRD rail Amanah label
+
+- **Change:** on the redesigned dashboard, a completed CRD with a ★ YES on file in CRD-FP02 no longer reads "✓ Amanah Gate" / "✓ Passed". The adapter gives the CRD gate the status `amanah_hold` (from `lateDisqualifier`, read from the rubric, so it persists after a Halt). The rail node shows ✕ "Amanah Gate" in red, with the accessible name "Amanah Gate: disqualifier on file". The Overview strip shows "✕ Disqualifier on file" and the line "★ Q5 answered YES. Reject immediately." ("Pipeline halted." once rejected). It names the evidence, not a verdict; gate outcomes stay only in `bbosGateLog`. A clean rubric is unchanged. Closes the follow-up in [[2026-10-20-bbos-late-disqualifier]]. Plan approved after a 4-round round robin.
+- **Verification:** 565 tests (4 adapter tests and a palette test written first), lint 0 errors, build green. Preview with a fixture at STR and Q5 = yes: the rail and strip were screenshotted as above; with Q5 = no, ✓ Amanah Gate and ✓ Passed return. Fixture restored; no halt recorded.
+
 ## [2026-10-20] session | BBOS gate-move dialog on the shared Modal
 
 - **Change:** `BbosGateMoveDialog` (legacy Advance / Complete Cycle, and ProjectBoard's New Cycle) moves from a hand-rolled overlay onto the shared `Modal`. It gains Escape, a focus trap and focus return. Typed text (basis, conditions, conditions basis, resolution basis) or a ticked acknowledgement makes Escape or a backdrop click ask "Discard unsaved changes?". Recorded conditions and resolutions are already in the gate log, so they don't count. Cancel still closes directly. The dialog keeps its own portal, its `bfd__modal*` classes and its copy. Gate rules and gate-log writes are unchanged. Closes the follow-up deferred in #75.

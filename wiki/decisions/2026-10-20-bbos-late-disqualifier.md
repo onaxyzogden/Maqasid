@@ -34,7 +34,7 @@ superseded_by: null
 - **Follow-ups, not built here:**
   - ~~Halt role-gating differs~~ **Closed 2026-10-20** (`.claude/plans/bbos-halt-role-and-reject-modal.md`): one rule, `canHaltBbosPipeline(role)` (Owner of CRD-V1, i.e. OW or ST, or the "all" view), on both dashboards; the store's `rejectBbosPipeline` is a no-op for any other declared role. The Brief locks Halt for a non-owner with a note.
   - ~~The legacy Reject modal has no Escape handling or focus restore~~ **Closed 2026-10-20**: it renders through the shared `Modal.jsx` (still portalled to `document.body`), with Escape, focus trap, focus return, and "Discard unsaved changes?" once a basis is written. `Modal.jsx` also cancels its focus return on a StrictMode remount, so an autoFocus field keeps focus in dev.
-  - The CRD rail still shows "✓ Amanah Gate", which is historically true but may read as current.
+  - ~~The CRD rail still shows "✓ Amanah Gate", which is historically true but may read as current.~~ **Closed 2026-10-20** (`.claude/plans/bbos-crd-rail-amanah-label.md`): on the redesigned dashboard a completed CRD with a ★ YES on file reads `amanah_hold`. The rail node shows ✕ "Amanah Gate" (named "Amanah Gate: disqualifier on file"), and the Overview strip shows "✕ Disqualifier on file" with "★ Qn answered YES. Reject immediately." (or "Pipeline halted."). It is read from the rubric, not `rejectedAt`, and claims no recorded verdict.
   - The legacy `BbosGateMoveDialog` with Confirm disabled by the late gate was not screenshotted (it needs every STR task Done); its lock comes from the same `gateMoveRefusal`, covered by tests.
 
 See [[bbos-pipeline]].
