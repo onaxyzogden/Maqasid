@@ -25,10 +25,10 @@ Reusable UI components used across multiple modules: search, labels, tables, too
 | PillarHeader.css | Pillar header layout, accent color cascading | Module page headers |
 | ViewToggle.jsx | Two-button toggle (Overview/Framework); role="tablist" with aria-selected | Pages with dual views |
 | ViewToggle.css | Toggle button styles, active/inactive states | Pages with dual views |
-| SyncStatusChip.jsx | **DORMANT.** Cloud sync status pill in the sidebar footer. Returns `null` unless `authStatus === 'authenticated'` | Sidebar (renders nothing) |
 | Modal.jsx / Modal.css | Centred dialog (sibling of SlideIn): focus trap, Escape, backdrop, dirty-discard, focus return. Props `onClose, label/labelledBy, describedBy, role ('dialog' or 'alertdialog'), dirty, active, dismissible, overlayClassName, className` | ~12 dialogs; ConfirmDialog |
 | ConfirmDialog.jsx / .css | The app's only confirm prompt. Renders the head of `store/confirm-store.js`'s queue as an `alertdialog`. Focus starts on Cancel; Escape and backdrop answer false. Danger button is a fixed #dc2626 (AA in dark mode). Overlay z-index 10001, above ceremonies and BPD dialogs | Mounted once in AppShell |
 | FirstSignInSheet.jsx | The first sign-in on a device that already holds its own records: Add this device's records / Start this account empty / Look through first / Sign out instead. Renders **before App** (no stores, router or `requestConfirm`); `main.jsx` hands it `counts`, `onChoose` (`sync-first.js` `chooseFirst`), `onSignOut` and `onDone` (a reload). Nothing is sent until a choice is made | main.jsx (when `prepareSync` returns `undecided`) |
+| SnapshotSheet.jsx | Offered once per account when the old snapshot sync left a copy in the cloud: Bring it in (records the device lacks are added and queued; the device's own copy is kept) / Leave it. Renders **before App**, like FirstSignInSheet; `main.jsx` hands it `savedAt`, `onBring` (`services/sync-snapshot.js` `importSnapshot`), `onLeave` and `onDone`. The old copy is never changed or removed | main.jsx (when `readSnapshot` finds a copy not yet answered) |
 | SignOutChoice.jsx | Sign out, keeping or removing this device's data. When an account started empty here, also offers "Put this device's earlier records back" (`sync-first.js` `putShelfBack`), then starts the page over | Settings, AccountPage |
 
 ## Store Dependencies
@@ -39,7 +39,7 @@ Reusable UI components used across multiple modules: search, labels, tables, too
 - **office-store** (SearchPalette): `events[]` for event search
 - **settings-store** (PillarHeader): `valuesLayer`
 - **data/modules.js** (SearchPalette): `MODULES` for module search
-- **auth-store** (SignOutChoice): `signOut({ removeData })`. SyncStatusChip is not mounted (the old snapshot sync). With accounts off (`cloudAccountsEnabled` false, `services/supabase.js`) `authStatus` stays `'guest'` and FirstSignInSheet never shows
+- **auth-store** (SignOutChoice): `signOut({ removeData })`. With accounts off (`cloudAccountsEnabled` false, `services/supabase.js`) `authStatus` stays `'guest'` and FirstSignInSheet never shows
 
 ## Key Patterns
 - **Portal components**: IslamicTerm, SearchPalette use React portal to escape `overflow:hidden`

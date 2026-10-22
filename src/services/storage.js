@@ -205,7 +205,7 @@ if (typeof window !== 'undefined') {
 }
 
 // Keys that are NEVER included in the cloud sync snapshot.
-// Imported by sync-service.js — edit here to add/remove keys from sync.
+// Read by sync-keys.js and auth-store.js — edit here to add/remove keys from sync.
 export const SYNC_EXCLUDED_KEYS = [
   // Device-local AI credentials — never upload
   'ai_api_key',

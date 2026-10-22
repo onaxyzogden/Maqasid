@@ -12,6 +12,7 @@ import { createServer } from './services/sync-server';
 import { prepareSync, startSync } from './services/sync-boot';
 import { cloudOwner, setOwnerSource } from './services/sync-owner';
 import { chooseFirst } from './services/sync-first';
+import { importSnapshot, leaveSnapshot, noSnapshot, readSnapshot, snapshotState } from './services/sync-snapshot';
 import { shelfStore, within } from './services/offline-store';
 import { listKeys, onStoredChange, safeGet } from './services/storage';
 
@@ -34,6 +35,22 @@ async function savedOwner() {
   if (!cloudAccountsEnabled) return null;
   const got = await within(supabase.auth.getSession().catch(() => null), 2000);
   return got?.data?.session?.user?.id ?? null;
+}
+
+/**
+ * The account's copy from the old snapshot sync, when it has one and this device
+ * has not answered for it yet; null otherwise. With no signal it is skipped
+ * quietly and offered on a later visit.
+ */
+async function snapshotOffer({ owner, meta }) {
+  if (await snapshotState(meta, owner)) return null;
+  const got = await within(readSnapshot(supabase, owner).then((snapshot) => ({ snapshot }), () => null), 2000);
+  if (!got) return null;
+  if (!got.snapshot) {
+    await noSnapshot(meta, owner);
+    return null;
+  }
+  return got.snapshot;
 }
 
 // The stores read localStorage when they are first imported, so the account's
@@ -69,6 +86,25 @@ async function savedOwner() {
             restart();
           }}
           onDone={restart}
+        />
+      </React.StrictMode>
+    );
+    return;
+  }
+
+  // An account the old snapshot sync saved a copy of: offered once, before App,
+  // and the page starts over once it is answered.
+  const snapshot = ready ? await snapshotOffer(ready).catch(() => null) : null;
+  if (snapshot) {
+    const { default: SnapshotSheet } = await import('./components/shared/SnapshotSheet');
+    const { owner, meta, book, outbox } = ready;
+    ReactDOM.createRoot(document.getElementById('root')).render(
+      <React.StrictMode>
+        <SnapshotSheet
+          savedAt={snapshot.updatedAt}
+          onBring={() => importSnapshot({ owner, server, meta, book, outbox, snapshot: snapshot.data })}
+          onLeave={() => leaveSnapshot(meta, owner)}
+          onDone={() => window.location.reload()}
         />
       </React.StrictMode>
     );
