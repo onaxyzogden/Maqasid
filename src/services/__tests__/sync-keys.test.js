@@ -26,6 +26,7 @@ const PASS_THROUGH = new Set([
   'services/storage.js key',          // the storage helpers themselves
   'store/app-store.js key',           // local safeGetJSON wrapper; callers use literals
   'store/auth-store.js key',          // listKeys('') sweep on "Remove it from this device"
+  'main.jsx key',                     // record sync reads back each key it was told was written
   'store/contacts-store.js key',      // p(key, val) wrapper; callers use literals
   'store/threshold-store.js key',     // local reader; callers use literals
   'pages/shared/PillarLevelPage.jsx storageKey', // prop: the *_STORAGE_KEY constants below

@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import App from './App';
 import './styles/tokens.css';
 import './styles/global.css';
 import '@ogden/ui-components/style.css';
 import './styles/level-navigator-responsive.css'; // mobile stacked-rows override - must load AFTER the package CSS
 import { runMigrations } from './services/migration';
+import { supabase, cloudAccountsEnabled } from './services/supabase';
+import { renewedUser } from './services/cloud-auth';
+import { createServer } from './services/sync-server';
+import { prepareSync, startSync } from './services/sync-boot';
+import { cloudOwner, setOwnerSource } from './services/sync-owner';
+import { within } from './services/offline-store';
+import { listKeys, onStoredChange, safeGet } from './services/storage';
 
 // Init theme from storage
 const savedTheme = localStorage.getItem('bbiz_theme') || 'light';
@@ -22,10 +28,64 @@ if (typeof navigator !== 'undefined' && /Claude\//.test(navigator.userAgent)) {
 // Run data migrations synchronously before React mounts
 runMigrations();
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
-);
+/** The account this device last signed in to, read from the device; null for a guest or when it takes too long. */
+async function savedOwner() {
+  if (!cloudAccountsEnabled) return null;
+  const got = await within(supabase.auth.getSession().catch(() => null), 2000);
+  return got?.data?.session?.user?.id ?? null;
+}
+
+// The stores read localStorage when they are first imported, so the account's
+// changes are pulled before App (and the stores with it) is imported. A guest
+// skips all of this: no IndexedDB, no outbox, no network.
+(async () => {
+  const server = cloudAccountsEnabled ? createServer(supabase) : null;
+  let ready = null;
+  try {
+    const owner = await savedOwner();
+    ready = await prepareSync({
+      owner,
+      server,
+      onLate: () => window.dispatchEvent(new Event('mios:pull-late')),
+    });
+  } catch (e) {
+    console.warn('[bbiz] record sync did not start:', e);
+  }
+
+  const [{ default: App }, { useAuthStore }, { invoiceNumbers }] = await Promise.all([
+    import('./App'),
+    import('./store/auth-store'),
+    import('./store/money-store'),
+  ]);
+
+  // While sign-in is still being read, or can't be renewed with no signal, the
+  // device keeps working in the account it opened in, so offline changes wait
+  // for that account rather than being treated as a guest's.
+  if (ready) {
+    setOwnerSource(() => {
+      const { authStatus, supabaseSession } = useAuthStore.getState();
+      if (authStatus === 'loading' || authStatus === 'offline') return ready.owner;
+      return supabaseSession?.user?.id ?? null;
+    });
+  }
+
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    <React.StrictMode>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </React.StrictMode>
+  );
+
+  if (!ready) return;
+  startSync({
+    ready,
+    owner: cloudOwner,
+    renew: () => renewedUser(supabase),
+    server,
+    invoices: invoiceNumbers,
+    keys: listKeys(''),
+    read: (key) => safeGet(key, undefined),
+    watch: onStoredChange,
+  });
+})();
