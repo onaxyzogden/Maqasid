@@ -29,7 +29,7 @@ function readList(storage, collection) {
 }
 
 /** Puts the rows of one collection into localStorage; returns those applied. */
-function apply(storage, collection, rows) {
+export function apply(storage, collection, rows) {
   const single = rows.filter((r) => r.record_id === SINGLE);
   for (const row of single) {
     if (row.deleted) storage.removeItem(PREFIX + collection);

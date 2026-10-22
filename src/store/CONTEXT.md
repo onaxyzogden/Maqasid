@@ -34,7 +34,7 @@
 | Gates | **`ProtectedRoute` gates all of `/app` on this** | nothing routable — UI visibility only |
 | Read by | ~15 components (greetings, assignee initials, message authorship) | 4 cloud-only components |
 
-The cloud half is **dormant** as of 2026-07-27 — `CLOUD_ACCOUNTS_ENABLED = false` in `services/supabase.js` makes `initAuth()` settle permanently at `authStatus: 'guest'`, which is what silences `SyncStatusChip`, `FirstLoginModal`, `useSyncObserver` and Settings' Account & Sync panel. The code stays on disk; see `wiki/decisions/2026-07-27-milos-disable-online-accounts.md`. **Editing the local-profile actions (`login`/`updateUser`/`logout`) would log every user out of `/app`.**
+The cloud half is **dormant** as of 2026-07-27 — `CLOUD_ACCOUNTS_ENABLED = false` in `services/supabase.js` makes `initAuth()` settle permanently at `authStatus: 'guest'`, which is what silences `SyncStatusChip`, `useSyncObserver` and Settings' Account & Sync panel. The first sign-in on a device with its own records is asked in `components/shared/FirstSignInSheet.jsx`, before the stores load. The code stays on disk; see `wiki/decisions/2026-07-27-milos-disable-online-accounts.md`. **Editing the local-profile actions (`login`/`updateUser`/`logout`) would log every user out of `/app`.**
 
 **Create pattern:**
 ```js

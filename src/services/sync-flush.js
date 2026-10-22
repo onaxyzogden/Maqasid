@@ -19,7 +19,7 @@ import { SyncError } from './sync-server';
 const RECONCILE = new Set(['exists', 'stale', 'missing']);
 
 /** JSON with object keys sorted, so two values compare equal however jsonb ordered them. */
-function canonical(value) {
+export function canonical(value) {
   if (Array.isArray(value)) return `[${value.map(canonical).join(',')}]`;
   if (value && typeof value === 'object') {
     return `{${Object.keys(value).sort()

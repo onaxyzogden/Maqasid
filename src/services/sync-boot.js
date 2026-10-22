@@ -10,11 +10,15 @@ import { createVersionBook } from './sync-versions';
 import { pullBeforeStart } from './sync-pull';
 import { createSyncDiff } from './sync-diff';
 import { flush, keepSending } from './sync-flush';
+import { deviceCounts, joinState, markPulled } from './sync-first';
 
 /** The store, or one in memory when this device won't keep one (private mode, blocked site data). */
 const opened = (name, factory) => idbStore(name, { factory }).catch(() => memoryStore());
 
-/** Resolves null for a guest; otherwise `{ owner, book, outbox, meta, pulled }`. */
+/**
+ * Resolves null for a guest; otherwise `{ owner, book, outbox, meta, pulled }`,
+ * plus `undecided: true` and `counts` while the first-sign-in choice is open.
+ */
 export async function prepareSync({
   owner, server, factory = typeof indexedDB === 'undefined' ? null : indexedDB,
   storage = localStorage, ms = 4000, onLate,
@@ -25,6 +29,13 @@ export async function prepareSync({
   await book.load(owner);
   const outbox = createOutbox(opened('outbox', factory));
   const meta = await metaReady;
+  // The first sign-in on a device holding records of its own waits for the
+  // operator's choice (sync-first.js) before anything is pulled.
+  if (!(await joinState(meta, owner))) {
+    const counts = deviceCounts(storage);
+    if (counts.total > 0) return { owner, book, outbox, meta, pulled: false, undecided: true, counts };
+    await markPulled(meta, owner);
+  }
   const pulled = await pullBeforeStart({ owner, server, meta, book, outbox, storage, ms, onLate });
   return { owner, book, outbox, meta, pulled };
 }

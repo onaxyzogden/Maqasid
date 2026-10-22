@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { IDBFactory } from 'fake-indexeddb';
-import { StoreUnavailableError, idbStore, memoryStore, within } from '../offline-store';
+import { StoreUnavailableError, idbStore, memoryStore, shelfStore, within } from '../offline-store';
 
 const kinds = [
   ['memory', async () => memoryStore()],
@@ -59,6 +59,21 @@ describe('idbStore', () => {
 
   it('says so when there is no IndexedDB at all', async () => {
     await expect(idbStore('outbox', { factory: null })).rejects.toBeInstanceOf(StoreUnavailableError);
+  });
+});
+
+describe('shelfStore', () => {
+  it('keeps the shelf in a database of its own, apart from the sync', async () => {
+    const factory = new IDBFactory();
+    await (await shelfStore({ factory })).put('shelf:1', { at: '1', keys: {} });
+    expect(await (await idbStore('meta', { factory })).get('shelf:1')).toBeUndefined();
+    expect(await (await shelfStore({ factory })).get('shelf:1')).toEqual({ at: '1', keys: {} });
+    const names = (await factory.databases()).map((d) => d.name).sort();
+    expect(names).toEqual(['mios-offline', 'mios-shelf']);
+  });
+
+  it('says so when there is no IndexedDB at all', async () => {
+    await expect(shelfStore({ factory: null })).rejects.toBeInstanceOf(StoreUnavailableError);
   });
 });
 

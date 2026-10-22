@@ -1,6 +1,8 @@
 // A small key-value store for what the record sync keeps on the device: the
 // changes waiting to be sent ("outbox") and its own bookkeeping ("meta", such as
 // the pull cursor). IndexedDB in the browser, a Map in tests and as a fallback.
+// The shelf ("Start this account empty" keeps a device's earlier records there)
+// is a database of its own, so nothing the sync does to its stores can reach it.
 // Ported from Capacity Routine's src/lib/offline/store.ts.
 
 /** IndexedDB is missing, refused (private mode, blocked site data) or failed to open. */
@@ -19,9 +21,8 @@ export function within(p, ms) {
   return Promise.race([p, late]).finally(() => clearTimeout(timer));
 }
 
-const DB_NAME = 'mios-offline';
-const DB_VERSION = 1;
-const STORES = ['outbox', 'meta'];
+const SYNC_DB = { name: 'mios-offline', version: 1, stores: ['outbox', 'meta'] };
+const SHELF_DB = { name: 'mios-shelf', version: 1, stores: ['shelf'] };
 
 /** get, put, delete, all (every entry in key order) and clear, over a Map. */
 export function memoryStore() {
@@ -42,11 +43,11 @@ function request(req) {
   });
 }
 
-function openDb(factory) {
+function openDb(factory, { name: dbName, version, stores }) {
   return new Promise((resolve, reject) => {
-    const req = factory.open(DB_NAME, DB_VERSION);
+    const req = factory.open(dbName, version);
     req.onupgradeneeded = () => {
-      for (const name of STORES) if (!req.result.objectStoreNames.contains(name)) req.result.createObjectStore(name);
+      for (const name of stores) if (!req.result.objectStoreNames.contains(name)) req.result.createObjectStore(name);
     };
     req.onsuccess = () => resolve(req.result);
     req.onerror = () => reject(req.error);
@@ -55,11 +56,20 @@ function openDb(factory) {
 }
 
 /** The same interface as memoryStore, kept in IndexedDB. Opens only when called. */
-export async function idbStore(name, { factory = typeof indexedDB === 'undefined' ? null : indexedDB } = {}) {
+export function idbStore(name, { factory = typeof indexedDB === 'undefined' ? null : indexedDB } = {}) {
+  return openStore(SYNC_DB, name, factory);
+}
+
+/** The shelf, in its own database. */
+export function shelfStore({ factory = typeof indexedDB === 'undefined' ? null : indexedDB } = {}) {
+  return openStore(SHELF_DB, 'shelf', factory);
+}
+
+async function openStore(spec, name, factory) {
   if (!factory) throw new StoreUnavailableError();
   let db;
   try {
-    db = await openDb(factory);
+    db = await openDb(factory, spec);
   } catch (e) {
     throw new StoreUnavailableError(e);
   }

@@ -11,7 +11,8 @@ import { renewedUser } from './services/cloud-auth';
 import { createServer } from './services/sync-server';
 import { prepareSync, startSync } from './services/sync-boot';
 import { cloudOwner, setOwnerSource } from './services/sync-owner';
-import { within } from './services/offline-store';
+import { chooseFirst } from './services/sync-first';
+import { shelfStore, within } from './services/offline-store';
 import { listKeys, onStoredChange, safeGet } from './services/storage';
 
 // Init theme from storage
@@ -52,6 +53,28 @@ async function savedOwner() {
     console.warn('[bbiz] record sync did not start:', e);
   }
 
+  // The first sign-in on a device holding records of its own: the sheet asks
+  // before App (and the stores) load, and the page starts over once it is answered.
+  if (ready?.undecided) {
+    const { default: FirstSignInSheet } = await import('./components/shared/FirstSignInSheet');
+    const restart = () => window.location.reload();
+    ReactDOM.createRoot(document.getElementById('root')).render(
+      <React.StrictMode>
+        <FirstSignInSheet
+          counts={ready.counts}
+          onChoose={(choice) => chooseFirst({ choice, ready, server, openShelf: () => shelfStore() })}
+          onSignOut={async () => {
+            const { error } = await supabase.auth.signOut();
+            if (error) throw error;
+            restart();
+          }}
+          onDone={restart}
+        />
+      </React.StrictMode>
+    );
+    return;
+  }
+
   const [{ default: App }, { useAuthStore }, { invoiceNumbers }] = await Promise.all([
     import('./App'),
     import('./store/auth-store'),
@@ -76,6 +99,14 @@ async function savedOwner() {
       </BrowserRouter>
     </React.StrictMode>
   );
+
+  // Signing in during a visit that opened signed out starts the page over, so
+  // the record sync (and the first-sign-in sheet) run for the new account.
+  if (!ready && cloudAccountsEnabled) {
+    useAuthStore.subscribe((now, before) => {
+      if (before.authStatus === 'signed-out' && now.authStatus === 'signed-in') window.location.reload();
+    });
+  }
 
   if (!ready) return;
   startSync({

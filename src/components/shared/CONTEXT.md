@@ -28,7 +28,8 @@ Reusable UI components used across multiple modules: search, labels, tables, too
 | SyncStatusChip.jsx | **DORMANT.** Cloud sync status pill in the sidebar footer. Returns `null` unless `authStatus === 'authenticated'` | Sidebar (renders nothing) |
 | Modal.jsx / Modal.css | Centred dialog (sibling of SlideIn): focus trap, Escape, backdrop, dirty-discard, focus return. Props `onClose, label/labelledBy, describedBy, role ('dialog' or 'alertdialog'), dirty, active, dismissible, overlayClassName, className` | ~12 dialogs; ConfirmDialog |
 | ConfirmDialog.jsx / .css | The app's only confirm prompt. Renders the head of `store/confirm-store.js`'s queue as an `alertdialog`. Focus starts on Cancel; Escape and backdrop answer false. Danger button is a fixed #dc2626 (AA in dark mode). Overlay z-index 10001, above ceremonies and BPD dialogs | Mounted once in AppShell |
-| FirstLoginModal.jsx | **DORMANT.** Resolves the first-login local-vs-cloud data conflict (keep local / use cloud / keep local without pushing) | AppShell (never triggered) |
+| FirstSignInSheet.jsx | The first sign-in on a device that already holds its own records: Add this device's records / Start this account empty / Look through first / Sign out instead. Renders **before App** (no stores, router or `requestConfirm`); `main.jsx` hands it `counts`, `onChoose` (`sync-first.js` `chooseFirst`), `onSignOut` and `onDone` (a reload). Nothing is sent until a choice is made | main.jsx (when `prepareSync` returns `undecided`) |
+| SignOutChoice.jsx | Sign out, keeping or removing this device's data. When an account started empty here, also offers "Put this device's earlier records back" (`sync-first.js` `putShelfBack`), then starts the page over | Settings, AccountPage |
 
 ## Store Dependencies
 - **app-store** (SearchPalette): `searchOpen`, `setSearchOpen`
@@ -38,7 +39,7 @@ Reusable UI components used across multiple modules: search, labels, tables, too
 - **office-store** (SearchPalette): `events[]` for event search
 - **settings-store** (PillarHeader): `valuesLayer`
 - **data/modules.js** (SearchPalette): `MODULES` for module search
-- **auth-store** (SyncStatusChip, FirstLoginModal): `authStatus`, `syncStatus`, `firstLoginConflict` — all dormant; `authStatus` is frozen at `'guest'` while `CLOUD_ACCOUNTS_ENABLED = false` (`services/supabase.js`), so both components render nothing. See `wiki/decisions/2026-07-27-milos-disable-online-accounts.md`
+- **auth-store** (SignOutChoice): `signOut({ removeData })`. SyncStatusChip is not mounted (the old snapshot sync). With accounts off (`cloudAccountsEnabled` false, `services/supabase.js`) `authStatus` stays `'guest'` and FirstSignInSheet never shows
 
 ## Key Patterns
 - **Portal components**: IslamicTerm, SearchPalette use React portal to escape `overflow:hidden`

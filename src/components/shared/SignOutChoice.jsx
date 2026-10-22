@@ -1,18 +1,56 @@
 // Sign out of the account, with the choice of what happens to this device's data.
 // Keeping it is the default and the first button; removing it asks again.
 // The local profile and device-only settings stay either way (auth-store signOut).
-import { useState } from 'react';
+// When this account started empty on this device (sync-first.js), the records
+// set aside then can come back in place of the account's.
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LogOut } from 'lucide-react';
 import { useAuthStore } from '../../store/auth-store';
 import { requestConfirm } from '../../store/confirm-store';
+import { shelfStore } from '../../services/offline-store';
+import { latestShelf, putShelfBack } from '../../services/sync-first';
 
 export default function SignOutChoice() {
   const navigate = useNavigate();
   const signOut = useAuthStore((s) => s.signOut);
   const [open, setOpen] = useState(false);
-  const [busy, setBusy] = useState(null); // null | 'keep' | 'remove'
+  const [busy, setBusy] = useState(null); // null | 'keep' | 'remove' | 'back'
   const [error, setError] = useState(null);
+  const [shelved, setShelved] = useState(null); // the latest shelf, or null
+
+  useEffect(() => {
+    if (!open) return undefined;
+    let live = true;
+    shelfStore().then(latestShelf).then((s) => { if (live) setShelved(s); }).catch(() => undefined);
+    return () => { live = false; };
+  }, [open]);
+
+  const putBack = async () => {
+    if (busy) return;
+    if (!(await requestConfirm({
+      title: 'Put this device’s earlier records back?',
+      body: 'You are signed out, and the records set aside when this account started empty take the place of the account’s on this device. The account keeps its own records.',
+      confirmLabel: 'Sign out and put them back',
+    }))) return;
+    setError(null);
+    setBusy('back');
+    const { error: err } = await signOut({ removeData: false });
+    if (err) {
+      setBusy(null);
+      setError("We couldn't sign you out. Check your connection, then try again. Nothing on this device changed.");
+      return;
+    }
+    try {
+      await putShelfBack({ shelf: await shelfStore() });
+    } catch (e) {
+      setBusy(null);
+      setError(`You are signed out, but the earlier records did not come back: ${e?.message ?? 'try again'} The copy on this device is kept.`);
+      return;
+    }
+    // A fresh start, so the stores read the records put back rather than the account's.
+    window.location.assign('/auth');
+  };
 
   const run = async (removeData) => {
     if (busy) return;
@@ -53,6 +91,11 @@ export default function SignOutChoice() {
         <button className="btn btn-ghost" onClick={() => run(true)} disabled={!!busy} style={{ color: 'var(--error, #e53935)' }}>
           {busy === 'remove' ? 'Removing…' : 'Sign out and remove it'}
         </button>
+        {shelved && (
+          <button className="btn btn-ghost" onClick={putBack} disabled={!!busy}>
+            {busy === 'back' ? 'Putting back…' : 'Put this device’s earlier records back'}
+          </button>
+        )}
         <button className="btn btn-ghost" onClick={() => { setOpen(false); setError(null); }} disabled={!!busy}>
           Cancel
         </button>

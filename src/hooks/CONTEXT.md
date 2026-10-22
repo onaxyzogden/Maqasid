@@ -26,7 +26,7 @@ Custom React hooks (5) and utility services (3) shared across the app.
 | sync-service.js | **DORMANT.** Full-snapshot last-write-wins cloud sync: bucket `mios-snapshots`, table `user_snapshots`, `SCHEMA_VERSION 5.0`. Both `pushSnapshot`/`pullSnapshot` bail on `!cloudAccountsEnabled` |
 
 ## Dormant: cloud sync
-Online accounts are off (`CLOUD_ACCOUNTS_ENABLED = false`) because the backend isn't ready. `initAuth()` therefore settles permanently at `authStatus: 'guest'`, which is the single chokepoint that silences `useSyncObserver`, `SyncStatusChip`, `FirstLoginModal` and Settings' Account & Sync panel — none of them needed editing. Guard new cloud code with `cloudAccountsEnabled`, never `isSupabaseConfigured`. Full design + restore path: `wiki/decisions/2026-07-27-milos-disable-online-accounts.md`.
+Online accounts are off (`CLOUD_ACCOUNTS_ENABLED = false`) because the backend isn't ready. `initAuth()` therefore settles permanently at `authStatus: 'guest'`, which is the single chokepoint that silences `useSyncObserver`, `SyncStatusChip` and Settings' Account & Sync panel. The record sync that replaces the snapshot sync (`sync-boot.js`, `sync-first.js`, first-sign-in sheet in `components/shared/FirstSignInSheet.jsx`) does nothing for a guest. Guard new cloud code with `cloudAccountsEnabled`, never `isSupabaseConfigured`. Full design + restore path: `wiki/decisions/2026-07-27-milos-disable-online-accounts.md`.
 
 **A pull always requires a full page reload** — stores hydrate from `localStorage` at module-load time, so `applyPull()` does `createBackup()` → `clearAll()` → `importAll()` → `window.location.reload()`. `importAll()` alone is *additive*; only the `clearAll()` first makes it a true replace.
 
