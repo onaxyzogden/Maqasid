@@ -90,9 +90,11 @@
 ### Phase 1 — Setup, Amanah Gate, approval doc (using-git-worktrees, `docs/principles.md`)
 - [x] Task 1.1 — Run the Amanah Gate per `docs/principles.md` on this plan: where user data goes, what the published privacy copy promises, account and email collection, financial records (invoice numbering), and any riba/gharar or other ethical surface. Record the verdict in the plan. On any non-pass verdict, stop: no worktree, no code, and the concern goes to the operator.
 - [x] Task 1.2 — Write the `stages/` approval doc for the data migration (MIOS `CLAUDE.md`: destructive operations and data migration need one), naming what moves to the server, what never does, and how it can be undone. Halt until the operator approves it.
-- [ ] Task 1.3 — Create the worktree branch `mios-cloud-replatform` from `main`; confirm the main checkout's uncommitted files are unchanged. Halt on mismatch.
-- [ ] Task 1.4 — Baseline: `npm test`, `npm run lint`, `npm run build`; record counts. Add `fake-indexeddb` (pinned, dev only).
+- [x] Task 1.3 — Create the worktree branch `mios-cloud-replatform` from `main`; confirm the main checkout's uncommitted files are unchanged. Halt on mismatch.
+- [x] Task 1.4 — Baseline: `npm test`, `npm run lint`, `npm run build`; record counts. Add `fake-indexeddb` (pinned, dev only).
 **Gate:** Amanah Gate passed, approval doc approved, baseline green on the new branch.
+
+**Tasks 1.3–1.4 result (2026-10-22):** worktree `.worktrees/mios-cloud-replatform`, branch `mios-cloud-replatform` from `origin/main` (fc26c22). Local `main` was 2 unpushed docs commits ahead and 2 behind (PR #79), so the branch starts from what the PR will target. Main checkout's status and diff hash unchanged. Baseline: 41 test files, 565 tests passed; lint exit 0 (0 errors, 1 pre-existing warning); build green, main chunk `index-YgdgxF45.js` 340.48 kB (same hash as the live site). `fake-indexeddb@6.0.1` added, dev only, exact.
 
 **Task 1.1 result (2026-10-22): Amanah Gate — pass, held to the conditions already in the plan.**
 - *Purpose:* the user's own records follow them to their own devices; nobody's data is gathered, sold or shown to another account (RLS). Halal.
