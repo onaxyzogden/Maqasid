@@ -73,4 +73,24 @@ export const useAuthStore = create((set, get) => ({
     set({ supabaseSession: null, authStatus: 'signed-out' });
     return { error: null };
   },
+
+  /** Emails a sign-in code. The same email carries a link back to this app. */
+  sendCode: async (email, client = supabase, origin = window.location.origin) => {
+    try {
+      const { error } = await client.auth.signInWithOtp({ email: email.trim(), options: { emailRedirectTo: origin } });
+      return { error: error ?? null };
+    } catch (error) {
+      return { error };
+    }
+  },
+
+  /** Checks the code from the email. A success arrives as a SIGNED_IN event (see startAuth). */
+  verifyCode: async (email, code, client = supabase) => {
+    try {
+      const { error } = await client.auth.verifyOtp({ email: email.trim(), token: code.replace(/\s/g, ''), type: 'email' });
+      return { error: error ?? null };
+    } catch (error) {
+      return { error };
+    }
+  },
 }));

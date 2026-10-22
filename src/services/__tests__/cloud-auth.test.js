@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { switchOn, buildSwitches } from '../../../build-switches.js';
-import { noSignal, startAuth, renewedUser } from '../cloud-auth';
+import { noSignal, startAuth, renewedUser, signInMessage, codeMessage, CODE } from '../cloud-auth';
 
 const session = (id) => ({ user: { id, email: `${id}@example.com` } });
 const offlineError = () => Object.assign(new Error('Failed to fetch'), { name: 'AuthRetryableFetchError' });
@@ -118,5 +118,29 @@ describe('renewedUser', () => {
     expect(await renewedUser(fakeClient({ refresh: async () => ({ data: { session: null }, error: offlineError() }) }))).toBe(null);
     expect(await renewedUser(fakeClient({ refresh: async () => { throw offlineError(); } }))).toBe(null);
     expect(await renewedUser(null)).toBe(null);
+  });
+});
+
+describe('sign-in messages', () => {
+  const err = (message, status) => ({ message, status });
+
+  it('name a rate limit, closed sign-ups, or fall back to a next step', () => {
+    expect(signInMessage(err('Email rate limit exceeded', 429))).toMatch(/Too many sign-in emails/);
+    expect(signInMessage(err('Signups not allowed for otp', 422))).toMatch(/New sign-ups are turned off/);
+    expect(signInMessage(err('Failed to fetch'))).toMatch(/couldn't send the email.*try again/);
+  });
+
+  it('say why a code failed', () => {
+    expect(codeMessage(err('Too many requests', 429))).toMatch(/Too many tries/);
+    expect(codeMessage(err('Token has expired or is invalid', 403))).toMatch(/newest one/);
+    expect(codeMessage(err('Failed to fetch'))).toMatch(/connection/);
+  });
+
+  it('accept codes of 6 to 10 digits only', () => {
+    expect(CODE.test('123456')).toBe(true);
+    expect(CODE.test('1234567890')).toBe(true);
+    expect(CODE.test('12345')).toBe(false);
+    expect(CODE.test('12345678901')).toBe(false);
+    expect(CODE.test('12a456')).toBe(false);
   });
 });

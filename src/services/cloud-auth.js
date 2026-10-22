@@ -28,6 +28,31 @@ export function startAuth(client, onState) {
   return () => data.subscription.unsubscribe();
 }
 
+/** A sign-in code from the email: digits only. Supabase sends 6 by default; projects can set up to 10. */
+export const CODE = /^\d{6,10}$/;
+
+const tooMany = (error) => error?.status === 429 || /rate limit/i.test(error?.message ?? '');
+
+/** What to tell the person when the sign-in email could not be sent. */
+export function signInMessage(error) {
+  if (tooMany(error)) {
+    return 'Too many sign-in emails were sent recently. Use the newest code already in your inbox, or try again in an hour.';
+  }
+  if (/signups? not allowed/i.test(error?.message ?? '')) {
+    return 'New sign-ups are turned off for this app. Use the email you first signed in with.';
+  }
+  return "We couldn't send the email. Check the address and your connection, then try again.";
+}
+
+/** What to tell the person when a code was not accepted. */
+export function codeMessage(error) {
+  if (tooMany(error)) return 'Too many tries. Wait a few minutes, then type the code from the newest email.';
+  if (error?.status === 403 || /expired|invalid|not found/i.test(error?.message ?? '')) {
+    return "That code didn't work. It may be mistyped, or from an older email. Use the code in the newest one.";
+  }
+  return "We couldn't check the code. Check your connection, then try again.";
+}
+
 /** Asks for a fresh session token and says whose it is. Null when it can't be renewed: signed out elsewhere, or offline. */
 export async function renewedUser(client) {
   if (!client) return null;

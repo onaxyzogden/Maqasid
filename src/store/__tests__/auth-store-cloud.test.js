@@ -70,3 +70,35 @@ describe('signOut', () => {
     expect(useAuthStore.getState().authStatus).toBe('signed-in');
   });
 });
+
+describe('sendCode', () => {
+  it('emails a code that also links back to this app', async () => {
+    const client = { auth: { signInWithOtp: vi.fn(async () => ({ error: null })) } };
+    const result = await useAuthStore.getState().sendCode(' me@example.com ', client, 'https://mios.test');
+    expect(client.auth.signInWithOtp).toHaveBeenCalledWith({
+      email: 'me@example.com',
+      options: { emailRedirectTo: 'https://mios.test' },
+    });
+    expect(result).toEqual({ error: null });
+  });
+
+  it('returns the error when the email could not be sent', async () => {
+    const error = { status: 429, message: 'rate limit' };
+    const client = { auth: { signInWithOtp: vi.fn(async () => ({ error })) } };
+    expect(await useAuthStore.getState().sendCode('me@example.com', client, 'x')).toEqual({ error });
+  });
+});
+
+describe('verifyCode', () => {
+  it('checks the code with spaces removed', async () => {
+    const client = { auth: { verifyOtp: vi.fn(async () => ({ error: null })) } };
+    await useAuthStore.getState().verifyCode('me@example.com', ' 123 456 ', client);
+    expect(client.auth.verifyOtp).toHaveBeenCalledWith({ email: 'me@example.com', token: '123456', type: 'email' });
+  });
+
+  it('turns a thrown network failure into an error', async () => {
+    const client = { auth: { verifyOtp: vi.fn(async () => { throw new Error('Failed to fetch'); }) } };
+    const { error } = await useAuthStore.getState().verifyCode('me@example.com', '123456', client);
+    expect(error.message).toBe('Failed to fetch');
+  });
+});

@@ -15,6 +15,7 @@ import { isTashreeq, isRamadan } from '../data/prophetic-path-submodules';
 import { exportAll, importAll, clearAll, validateImport, createBackup, restoreBackup, hasBackup } from '../services/storage';
 import { AI_PROVIDERS } from '../services/ai/ai-settings';
 import { cloudAccountsEnabled } from '../services/supabase';
+import SignOutChoice from '../components/shared/SignOutChoice';
 import { localDayKey } from '../lib/format-date';
 
 export default function Settings() {
@@ -640,7 +641,6 @@ function AccountSyncSection() {
   const navigate = useNavigate();
   const authStatus = useAuthStore((s) => s.authStatus);
   const supabaseSession = useAuthStore((s) => s.supabaseSession);
-  const signOut = useAuthStore((s) => s.signOut);
   // cloudAccountsEnabled is imported at the top of the file
 
   if (!cloudAccountsEnabled) return null;
@@ -649,7 +649,7 @@ function AccountSyncSection() {
 
   return (
     <section>
-      <h3 style={{ marginBottom: 'var(--space-4)' }}>Account &amp; Sync</h3>
+      <h3 style={{ marginBottom: 'var(--space-4)' }}>Account</h3>
       <div style={{
         background: 'var(--surface)', border: '1px solid var(--border)',
         borderRadius: 'var(--radius-lg)', padding: 'var(--space-5)',
@@ -658,27 +658,23 @@ function AccountSyncSection() {
         {authStatus === 'signed-in' || authStatus === 'offline' ? (
           <>
             <div style={{ fontSize: '0.88rem', color: 'var(--text2)' }}>
-              Signed in as <strong>{email}</strong>
+              {email ? <>Signed in as <strong>{email}</strong></> : 'Signed in on this device'}
+              {authStatus === 'offline' && ' · offline: your changes are kept on this device'}
             </div>
             <div style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap' }}>
               <button className="btn btn-secondary" onClick={() => navigate('/app/account')} style={{ justifyContent: 'center' }}>
                 Account settings
               </button>
-              <button className="btn btn-ghost" onClick={async () => { await signOut(); navigate('/'); }} style={{ justifyContent: 'center', color: 'var(--text2)' }}>
-                Sign out
-              </button>
+              <SignOutChoice />
             </div>
           </>
         ) : (
           <>
             <div style={{ fontSize: '0.88rem', color: 'var(--text2)', lineHeight: 1.5 }}>
-              Create a free account to sync your data across devices and keep your progress safe in the cloud.
+              Sign in with your email to use your account. We email you a code; no password needed. Your data on this device stays as it is.
             </div>
             <div style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap' }}>
-              <button className="btn btn-primary" onClick={() => navigate('/auth?mode=signup')} style={{ justifyContent: 'center' }}>
-                Create account
-              </button>
-              <button className="btn btn-ghost" onClick={() => navigate('/auth')} style={{ justifyContent: 'center', color: 'var(--text2)' }}>
+              <button className="btn btn-primary" onClick={() => navigate('/auth')} style={{ justifyContent: 'center' }}>
                 Sign in
               </button>
             </div>

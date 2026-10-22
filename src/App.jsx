@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthStore } from '@store/auth-store';
+import { CLOUD_ACCOUNTS_ENABLED } from '@services/supabase';
 import Landing from '@pages/Landing';
 import RouteSpinner from '@components/shared/RouteSpinner';
 import ChunkErrorBoundary from '@components/shared/ChunkErrorBoundary';
@@ -113,10 +114,12 @@ const UmmahDashboard = lazy(() => import('@pages/ummah/UmmahDashboard'));
 const MoontraceDashboard = lazy(() => import('@pages/moontrance/MoontraceDashboard'));
 
 const Settings = lazy(() => import('@pages/Settings'));
-// AccountPage / AuthPage are intentionally NOT imported — online accounts are
-// disabled (see CLOUD_ACCOUNTS_ENABLED in @services/supabase). The files remain
-// on disk; restoring the feature means re-adding these two lazy imports and the
-// two routes below.
+// Sign-in and the account page load only in a build with accounts on
+// (CLOUD_ACCOUNTS_ENABLED, a build-time constant). A build with them off still
+// emits the two chunks, but nothing loads them and neither holds the Supabase
+// client. With them off, the two paths redirect below.
+const AuthPage = CLOUD_ACCOUNTS_ENABLED ? lazy(() => import('@pages/AuthPage')) : null;
+const AccountPage = CLOUD_ACCOUNTS_ENABLED ? lazy(() => import('@pages/AccountPage')) : null;
 const ModulePlaceholder = lazy(() => import('@pages/ModulePlaceholder'));
 const NotFound = lazy(() => import('./components/shared/NotFound'));
 const PropheticPathPage = lazy(() => import('@pages/PropheticPathPage'));
@@ -184,9 +187,9 @@ export default function App() {
     <Suspense fallback={<RouteSpinner />}>
     <Routes>
       <Route path="/" element={<Landing />} />
-      {/* Online accounts disabled — keep the path alive so old links/bookmarks
-          land somewhere useful instead of the catch-all not-found page. */}
-      <Route path="/auth" element={<Navigate to="/get-started" replace />} />
+      {/* With accounts off, old links/bookmarks land on onboarding instead of
+          the catch-all not-found page. */}
+      <Route path="/auth" element={CLOUD_ACCOUNTS_ENABLED ? <AuthPage /> : <Navigate to="/get-started" replace />} />
       <Route path="/get-started" element={<Onboarding />} />
       <Route path="/present/ogden" element={<OgdenPresentationPage />} />
       <Route
@@ -283,8 +286,8 @@ export default function App() {
         <Route path="pillar/moontrance" element={<MoontraceDashboard />} />
         <Route path="pillar/:pillarId" element={<CeremonyGuardDynamic paramKey="pillarId"><PillarDashboard /></CeremonyGuardDynamic>} />
         <Route path="settings" element={<Settings />} />
-        {/* Online accounts disabled — send stale links to Settings. */}
-        <Route path="account" element={<Navigate to="/app/settings" replace />} />
+        {/* With accounts off, stale links go to Settings. */}
+        <Route path="account" element={CLOUD_ACCOUNTS_ENABLED ? <AccountPage /> : <Navigate to="/app/settings" replace />} />
         <Route path="prophetic-path" element={<PropheticPathPage />} />
         <Route path="prophetic-path-test" element={<Navigate to="/app/prophetic-path" replace />} />
         <Route path="orientation" element={<OrientationPage />} />
