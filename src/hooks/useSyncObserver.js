@@ -1,3 +1,5 @@
+// Not mounted: the old whole-device snapshot sync, retired by the cloud re-platform
+// (.claude/plans/mios-cloud-replatform.md). Removed in Phase 5.
 // Watches key Zustand stores for state changes and triggers a debounced
 // cloud push whenever data mutates.  Mount once in AppShell.jsx.
 

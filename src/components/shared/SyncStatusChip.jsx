@@ -1,3 +1,5 @@
+// Not mounted: the old whole-device snapshot sync, retired by the cloud re-platform
+// (.claude/plans/mios-cloud-replatform.md). Removed in Phase 5.
 // Displays the current cloud sync status in the Sidebar footer.
 // Visible only when authStatus === 'authenticated'.
 

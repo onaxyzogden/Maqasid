@@ -1,10 +1,13 @@
 import { defineConfig } from 'vitest/config';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { buildSwitches } from './build-switches.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
+  // Both switches off in tests, whatever .env.local says; tests inject a client instead.
+  define: buildSwitches({}),
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),

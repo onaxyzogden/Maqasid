@@ -1,3 +1,5 @@
+// Not mounted: the old whole-device snapshot sync, retired by the cloud re-platform
+// (.claude/plans/mios-cloud-replatform.md). Removed in Phase 5.
 // Shown once after a user first signs in when there is a data conflict between
 // the local device and the cloud.  Three variants based on firstLoginConflict.
 

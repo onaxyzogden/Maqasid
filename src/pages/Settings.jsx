@@ -640,7 +640,6 @@ function AccountSyncSection() {
   const navigate = useNavigate();
   const authStatus = useAuthStore((s) => s.authStatus);
   const supabaseSession = useAuthStore((s) => s.supabaseSession);
-  const lastSyncedAt = useAuthStore((s) => s.lastSyncedAt);
   const signOut = useAuthStore((s) => s.signOut);
   // cloudAccountsEnabled is imported at the top of the file
 
@@ -656,16 +655,11 @@ function AccountSyncSection() {
         borderRadius: 'var(--radius-lg)', padding: 'var(--space-5)',
         display: 'flex', flexDirection: 'column', gap: 'var(--space-3)',
       }}>
-        {authStatus === 'authenticated' ? (
+        {authStatus === 'signed-in' || authStatus === 'offline' ? (
           <>
             <div style={{ fontSize: '0.88rem', color: 'var(--text2)' }}>
               Signed in as <strong>{email}</strong>
             </div>
-            {lastSyncedAt && (
-              <div style={{ fontSize: '0.82rem', color: 'var(--text3)' }}>
-                Last synced: {new Date(lastSyncedAt).toLocaleString()}
-              </div>
-            )}
             <div style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap' }}>
               <button className="btn btn-secondary" onClick={() => navigate('/app/account')} style={{ justifyContent: 'center' }}>
                 Account settings

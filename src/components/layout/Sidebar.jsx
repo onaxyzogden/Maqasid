@@ -4,7 +4,6 @@ import {
   LayoutDashboard, Settings, Plus, ChevronLeft, ChevronRight,
   ChevronDown, Bell, Moon, Search, SquareChevronRight, UserCircle, Compass,
 } from 'lucide-react';
-import SyncStatusChip from '../shared/SyncStatusChip';
 import { useAuthStore } from '../../store/auth-store';
 import { useAppStore } from '../../store/app-store';
 import { useSettingsStore } from '../../store/settings-store';
@@ -293,7 +292,7 @@ export default function Sidebar() {
           <Bell size={18} />
           {!collapsed && <span>Notifications</span>}
         </button>
-        {authStatus === 'authenticated' && (
+        {(authStatus === 'signed-in' || authStatus === 'offline') && (
           <Link
             to="/app/account"
             className={`sidebar-item ${location.pathname === '/app/account' ? 'active' : ''}`}
@@ -311,7 +310,6 @@ export default function Sidebar() {
           <Settings size={18} />
           {!collapsed && <span>Settings</span>}
         </Link>
-        <SyncStatusChip collapsed={collapsed} />
       </div>
 
       {notifOpen && <NotificationsPanel onClose={() => setNotifOpen(false)} />}

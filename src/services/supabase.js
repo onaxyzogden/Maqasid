@@ -7,17 +7,16 @@
 import { createClient } from '@supabase/supabase-js';
 
 // ─── MASTER SWITCH ───────────────────────────────────────────────────────────
-// Online accounts (signup / login / cross-device sync) are DISABLED because the
-// backend is not ready. This is a hardcoded switch, deliberately not an env var,
-// so a stray .env file or a re-added CI secret cannot silently re-expose signup.
+// Online accounts are a build switch: a Vite `define` constant set from
+// VITE_CLOUD_ACCOUNTS=1 in the build environment (build-switches.js). Off when
+// unset, and the deploy workflow never sets it, so the live site stays
+// guest-only. A constant, not an import.meta.env read, so a build with the
+// switch off carries no supabase-js at all (tasks/lessons.md #16).
 //
-// To restore the feature:
-//   1. Flip this to true
-//   2. Re-add the AuthPage/AccountPage lazy imports + routes in src/App.jsx
-//   3. Re-add the VITE_SUPABASE_* env block to .github/workflows/deploy.yml
-//
-// See wiki/decisions/2026-07-27-milos-disable-online-accounts.md
-export const CLOUD_ACCOUNTS_ENABLED = false;
+// Accounts were switched off on 2026-07-27
+// (wiki/decisions/2026-07-27-milos-disable-online-accounts.md) and come back
+// with the record sync of the cloud re-platform. SETUP.md lists the steps.
+export const CLOUD_ACCOUNTS_ENABLED = __CLOUD_ACCOUNTS__;
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
@@ -38,7 +37,7 @@ export const supabase = cloudAccountsEnabled
       auth: {
         persistSession: true,        // session survives tab close
         autoRefreshToken: true,      // keeps token fresh silently
-        detectSessionInUrl: true,    // handles magic-link callback URL hash
+        detectSessionInUrl: true,    // handles the link in the sign-in email
       },
     })
   : null;

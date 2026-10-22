@@ -1,14 +1,18 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import process from 'node:process'
+import { buildSwitches } from './build-switches.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react()],
+  // __CLOUD_ACCOUNTS__ and __OFFLINE_SHELL__: off unless VITE_CLOUD_ACCOUNTS=1 /
+  // VITE_OFFLINE_SHELL=1 (build-switches.js). Read from .env files or the shell.
+  define: buildSwitches({ ...loadEnv(mode, process.cwd(), 'VITE_'), ...process.env }),
   base: '/',
   server: {
     // Honor the PORT env var so preview harnesses / multi-instance dev can
@@ -55,4 +59,4 @@ export default defineConfig({
       },
     },
   },
-})
+}))
