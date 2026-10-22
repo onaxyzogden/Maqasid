@@ -1,0 +1,4 @@
+# Only a local name for the Supabase CLI, not the project's reference.
+# MIOS has no functions yet. The live project's auth settings (email code,
+# sign-ups off) are set by hand in the dashboard: SETUP.md, steps 2 and 3.
+project_id = "mios"

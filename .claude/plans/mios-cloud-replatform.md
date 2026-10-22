@@ -115,9 +115,12 @@
 - Including the "Start empty" shelf in export and backup (standing objection from the approval-doc round robin: export while signed in leaves shelved records out).
 
 ### Phase 2 — Backend schema (test-driven-development)
-- [ ] Task 2.1 — `supabase/config.toml` and `supabase/migrations/0001_mios_records.sql`: table, keys, RLS for each operation, version trigger with stale-base refusal, `updated_at` index, per-user invoice number sequence given on first send, grants to `authenticated` only.
-- [ ] Task 2.2 — `supabase/checks/` SQL that proves RLS (another user's rows invisible and unwritable), the stale-version refusal and unique invoice numbers, in Capacity Routine's checks style.
-- [ ] Task 2.3 — `SETUP.md` steps for the operator: apply the migration, email-code auth, sign-ups off, rotate the anon key, local `.env` for the phone check.
+- [x] Task 2.1 — `supabase/config.toml` and `supabase/migrations/0001_mios_records.sql`: table, keys, RLS for each operation, version trigger with stale-base refusal, `updated_at` index, per-user invoice number sequence given on first send, grants to `authenticated` only.
+  - Result: `mios_give_invoice_number(record_id, p_after)` returns the same number on a retry; `p_after` lets Phase 5 start after the device's highest `INV-` number. `updated_at` is transaction-start time, so the Phase 4 pull asks from a little before its cursor. A delete policy exists as planned though the app soft-deletes.
+- [x] Task 2.2 — `supabase/checks/` SQL that proves RLS (another user's rows invisible and unwritable), the stale-version refusal and unique invoice numbers, in Capacity Routine's checks style.
+  - Result: `rls_check.sql` plus `checks/local/` (auth stand-in and `run.sh`) pass on a throwaway Postgres 17: "RLS check passed", 22 of 22 parallel asks answered, 21 distinct numbers. Mutations: stale refusal removed, anon access kept, select policy opened, `p_after` ignored — all caught. Counter lock removed — not caught, because the `on conflict` insert already waits on the open transaction; the lock is kept with a comment saying so.
+- [x] Task 2.3 — `SETUP.md` steps for the operator: apply the migration, email-code auth, sign-ups off, rotate the anon key, local `.env` for the phone check.
+  - Result: `SETUP.md` steps 0–6 (push `main` first, account then sign-ups off, code template, URLs, SQL, publishable key replacing the legacy keys, phone check) and `.env.example`. Suite 565/565, lint 0, build green.
 **Gate:** SQL reviewed against the schema assumption; checks written; nothing applied to the live project by me.
 
 ### Phase 3 — Sign-in (test-driven-development, form-ux)
