@@ -3,6 +3,12 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-22] session | Cloud re-platform, Session A: Phases 1–2
+
+- **Change:** on branch `mios-cloud-replatform` (worktree, not pushed). Phase 1 closed with the four fixes from its round robin. Phase 2 adds `supabase/`: one `mios_records` table (soft deletes, a version check that refuses a stale save, row rules per operation for the signed-in owner only) and invoice numbers given by the server on first send (`mios_give_invoice_number`, the same number on a retry). Also `supabase/checks/rls_check.sql` in Capacity Routine's style, a local runner (`checks/local/`), `SETUP.md` for the operator and `.env.example`. Nothing is applied to the live project. Applying the SQL, the auth settings, the key replacement and pushing local `main` are the operator's steps in `SETUP.md`.
+- **Verification:** on a throwaway Postgres 17: "RLS check passed"; 22 of 22 parallel number asks answered with 21 distinct numbers. Four of five mutations caught; the counter-lock mutation is not, because the `on conflict` insert already waits (comment in the migration). 565 tests, lint 0, build green.
+- **Next:** Phase 3 (sign-in with an emailed code, build switches).
+
 ## [2026-10-20] session | BBOS CRD rail Amanah label
 
 - **Change:** on the redesigned dashboard, a completed CRD with a ★ YES on file in CRD-FP02 no longer reads "✓ Amanah Gate" / "✓ Passed". The adapter gives the CRD gate the status `amanah_hold` (from `lateDisqualifier`, read from the rubric, so it persists after a Halt). The rail node shows ✕ "Amanah Gate" in red, with the accessible name "Amanah Gate: disqualifier on file". The Overview strip shows "✕ Disqualifier on file" and the line "★ Q5 answered YES. Reject immediately." ("Pipeline halted." once rejected). It names the evidence, not a verdict; gate outcomes stay only in `bbosGateLog`. A clean rubric is unchanged. Closes the follow-up in [[2026-10-20-bbos-late-disqualifier]]. Plan approved after a 4-round round robin.
