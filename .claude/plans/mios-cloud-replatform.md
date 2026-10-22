@@ -124,13 +124,17 @@
 **Gate:** SQL reviewed against the schema assumption; checks written; nothing applied to the live project by me.
 
 ### Phase 3 — Sign-in (test-driven-development, form-ux)
-- [ ] Task 3.1 — Tests, then the `VITE_CLOUD_ACCOUNTS` build switch; port the auth states (incl. `offline`) into the cloud half of `auth-store.js`; `renewedUser`.
-- [ ] Task 3.2 — Port the emailed-code sign-in into `AuthPage.jsx` with Capacity Routine's plain-language errors; remove password and magic link.
-- [ ] Task 3.3 — Sign-out with the keep/remove choice (feedback-and-affordance).
+- [x] Task 3.1 — Tests, then the `VITE_CLOUD_ACCOUNTS` build switch; port the auth states (incl. `offline`) into the cloud half of `auth-store.js`; `renewedUser`.
+- [x] Task 3.2 — Port the emailed-code sign-in into `AuthPage.jsx` with Capacity Routine's plain-language errors; remove password and magic link.
+- [x] Task 3.3 — Sign-out with the keep/remove choice (feedback-and-affordance).
 **Gate:** auth tests green; a test proves sign-out leaves `bbiz_*` keys by default; a test proves the switch is off when unset; local profile lines unchanged.
 
+**Phase 3 result (2026-10-22, commits cf861fd, a76d46c; gate approved):** suite 589/589 in 43 files, lint 0, both builds green. Switch off: main chunk 338,778 B, 0 files with GoTrueClient; switch on (placeholder env): 539,670 B, 1 file. `user`, `login`, `updateUser`, `logout` byte-identical to `main`. AccountPage lost the broken password reset, the old Sync section and the client-side `admin.deleteUser` button. Code form keyed so its field takes focus (React reused the email form's DOM). Screenshots taken of every state, offline simulated by store state (no live project). The switch-off build still emits unreferenced `AuthPage`/`AccountPage` chunks (Rollup keeps dynamic imports in dead branches); Phase 6's precache must leave them out.
+- Deferred: two buttons named "Sign out" in Settings (account and local profile); Delete account needs a server-side path.
+
 ### Phase 4 — Record sync layer (test-driven-development; subagent-driven-development where modules are independent)
-- [ ] Task 4.1 — Inventory every persisted key: synced or excluded, array-with-id or `_single`, counter or not; classify the three direct `localStorage` writers. A test fails on any unclassified `bbiz_` key.
+- [x] Task 4.1 — Inventory every persisted key: synced or excluded, array-with-id or `_single`, counter or not; classify the three direct `localStorage` writers. A test fails on any unclassified `bbiz_` key.
+  - Result: `src/services/sync-keys.js` (`classifyKey`, `isCounterKey`, `recordsOf`), decided in `wiki/decisions/2026-10-22-record-sync-keys.md`. `inv_counter` is the only counter. HydrateWidget and migration's `write()` now go through `safeSet`; the direct writes left (migration flags, `prayer_during_mode`) are device-only. Device-only keys live in `sync-keys.js`, not `SYNC_EXCLUDED_KEYS`, so the old snapshot sync is unchanged until Phase 5. 16 tests; suite 605 green, lint 0 errors.
 - [ ] Task 4.2 — IndexedDB store + memory store (port), outbox with account binding, coalescing by `(collection, record_id)`, base version kept from the first change.
 - [ ] Task 4.3 — In-memory index and 500 ms batched diff → outbox, only when signed in; guests untouched (test asserts no `indexedDB.open`); timing test on the largest key.
 - [ ] Task 4.4 — Flush (on `online`, start, visible), shared queue, clash detection and the lost-reply match; pull since last cursor in `main.jsx` before stores load, with timeout; offline invoices numbered on send.

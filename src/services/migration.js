@@ -1,7 +1,7 @@
 // Migration service — runs synchronously before React mounts
 // Schema version: 5.0 — unified contacts model
 
-import { listKeys } from './storage';
+import { listKeys, safeSet } from './storage';
 import { repairBoardTasks, taskHasState, subtaskHasState } from './mojibake';
 import { genSubtaskId, genTaskId } from './id';
 import { reconcileBoardCompletion } from './task-completion';
@@ -311,16 +311,11 @@ function read(key) {
   try { return JSON.parse(localStorage.getItem(PREFIX + key)); }
   catch (e) { console.warn('[bbiz:migration] read failed:', key, e); return null; }
 }
+// Data keys go through storage.js so the record sync sees what a migration
+// changes. Stringified here, so the stored bytes match what this always wrote.
+// The one-time flags below stay direct writes: they are device-only.
 function write(key, val) {
-  try { localStorage.setItem(PREFIX + key, JSON.stringify(val)); }
-  catch (e) {
-    console.warn('[bbiz:migration] write failed:', key, e);
-    if (typeof window !== 'undefined') {
-      window.dispatchEvent(new CustomEvent('bbiz:storage-error', {
-        detail: { key, error: e, source: 'migration' },
-      }));
-    }
-  }
+  safeSet(key, JSON.stringify(val));
 }
 
 const AVATAR_COLORS = [
