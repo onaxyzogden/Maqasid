@@ -94,7 +94,12 @@
 - [x] Task 1.4 — Baseline: `npm test`, `npm run lint`, `npm run build`; record counts. Add `fake-indexeddb` (pinned, dev only).
 **Gate:** Amanah Gate passed, approval doc approved, baseline green on the new branch.
 
-**Tasks 1.3–1.4 result (2026-10-22):** worktree `.worktrees/mios-cloud-replatform`, branch `mios-cloud-replatform` from `origin/main` (fc26c22). Local `main` was 2 unpushed docs commits ahead and 2 behind (PR #79), so the branch starts from what the PR will target. Main checkout's status and diff hash unchanged. Baseline: 41 test files, 565 tests passed; lint exit 0 (0 errors, 1 pre-existing warning); build green, main chunk `index-YgdgxF45.js` 340.48 kB (same hash as the live site). `fake-indexeddb@6.0.1` added, dev only, exact.
+**Tasks 1.3–1.4 result (2026-10-22, after a four-round round robin):**
+- Worktree `.claude/worktrees/mios-cloud-replatform` (the repo's convention; ESLint ignores `.claude/**`, and the main checkout's `eslint .` lints 579 files, none from a worktree). Branch `mios-cloud-replatform` from `origin/main` (fc26c22). Main checkout's status and diff hash unchanged.
+- Base: local `main` is 2 unpushed docs commits ahead (e79cc6c, 6e3d718) and 2 behind (PR #79). The branch starts from what the PR will target. The Amanah Gate (Task 1.1) ran under 6e3d718's `CLAUDE.md` line 15 wording ("The gate itself runs as the Phase 1 plan task"); the branch's `CLAUDE.md` keeps the older wording until the operator pushes local `main`. **Operator step:** push local `main`. **Session B opens** by merging `origin/main` into the branch.
+- Baseline: 41 test files, 565 tests passed; lint exit 0 (0 errors, 1 pre-existing warning); build green, main chunk `index-YgdgxF45.js` 340.48 kB (same hash as the live site).
+- `fake-indexeddb@6.2.5`, dev only, exact: Capacity Routine's pin (`package.json:35`). Rule for the port: any library the offline code depends on uses Capacity Routine's pin unless a test shows a reason not to.
+- One plan: this branch copy. The main checkout's untracked copies of this plan and the approval doc are pointers here.
 
 **Task 1.1 result (2026-10-22): Amanah Gate — pass, held to the conditions already in the plan.**
 - *Purpose:* the user's own records follow them to their own devices; nobody's data is gathered, sold or shown to another account (RLS). Halal.
