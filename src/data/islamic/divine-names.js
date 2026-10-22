@@ -326,7 +326,7 @@ export const DIVINE_NAMES = {
     name: 'Al-Laṭīf', name_ar: 'اللطيف', title: 'The Subtly Kind', inNinetyNine: true,
     gloss: 'His care works through details too fine to notice, arriving at exactly the moment it was needed.',
     source: {
-      kind: 'quran', ref: 'Quran 6:103', arabic: 'لَا تُدْرِكُهُ الْأَبْصَارُ وَهُوَ يُدْرِكُ الْأَبْصَارَ وَهُوَ اللَّطِيفُ الْخَبِيرُ',
+      kind: 'quran', ref: 'Quran 6:103', arabic: 'لَّا تُدْرِكُهُ الْأَبْصَارُ وَهُوَ يُدْرِكُ الْأَبْصَارَ وَهُوَ اللَّطِيفُ الْخَبِيرُ',
       translation: 'Vision perceives Him not, but He perceives all vision; and He is the Subtle, the All-Aware.',
       relevance: 'direct', provenanceTier: 'Bayyinah',
       rationale: 'The Name appears as a direct predicate of Allah.',
@@ -1042,8 +1042,8 @@ export const DIVINE_NAMES = {
     name: 'Ash-Shāfī', name_ar: 'الشافي', title: 'The Healer', inNinetyNine: false,
     gloss: 'Healing comes from Him — medicine and rest are means He put in place, never the cure itself.',
     source: {
-      kind: 'hadith', ref: 'Sahih al-Bukhari 5675', arabic: 'اللَّهُمَّ رَبَّ النَّاسِ أَذْهِبِ الْبَاسَ اشْفِ أَنْتَ الشَّافِي',
-      translation: 'O Allah, Lord of mankind, remove the harm and heal — You are the Healer.',
+      kind: 'hadith', ref: 'Sahih al-Bukhari 5675', arabic: 'أَذْهِبِ الْبَاسَ رَبَّ النَّاسِ، اشْفِ وَأَنْتَ الشَّافِي',
+      translation: 'Take away the disease, O the Lord of the people! Cure him as You are the One Who cures.',
       relevance: 'direct', provenanceTier: 'Bayyinah',
       rationale: 'The Prophet ﷺ addresses Allah with this Name directly when visiting the sick.',
     },

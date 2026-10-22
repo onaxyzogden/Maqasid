@@ -2397,9 +2397,8 @@ export const MODULE_ATTRS = {
     dua: {
       title: 'Before Life Domain Engagement',
       resumeTitle: 'Before Resuming Life Stewardship',
-      arabic: 'اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ وَأَعُوذُ بِكَ مِنَ الْعَجْزِ وَالْكَسَلِ',
-      trans: "Allāhumma innī aʿūdhu bika min al-hammi wal-ḥazani wa aʿūdhu bika min al-ʿajzi wal-kasali",
-      meaning: 'O Allah, I seek refuge in You from anxiety and grief, and I seek refuge in You from incapacity and laziness.',
+      arabic: 'اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَالْعَجْزِ وَالْكَسَلِ',
+      meaning: 'O Allah! I seek refuge with You from worry and grief, from incapacity and laziness',
       source: 'Sahih al-Bukhari 6369',
     },
     closingDua: {
