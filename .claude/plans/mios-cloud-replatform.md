@@ -144,10 +144,14 @@
 **Gate:** all sync tests green incl. guest-untouched, account-bound, no-silent-overwrite, delete propagation, and two offline devices producing unique invoice numbers.
 
 ### Phase 5 — First sign-in, the old snapshot, phone check
-- [ ] Task 5.1 — Tests, then the first-sign-in sheet (Add / Start empty / Look through first), merge by item, and the "Start empty" shelf with its read-back hash check and "Put this device's earlier records back" on sign-out; replace `FirstLoginModal`'s logic.
-- [ ] Task 5.2 — One-time import offer from the `mios-snapshots` blob as record writes through the sync layer (no `clearAll`/`importAll`/`applyPull`); snapshot push/pull in `sync-service.js` retired (code removed from the call path; bucket and table untouched).
-- [ ] Task 5.3 — Phone check (accounts switch on, shell switch off) if the operator steps are done; otherwise record that Session A closes tested by unit tests and SQL checks only.
-- [ ] Task 5.4 — Stage 05 close for Session A: commits on the branch, debrief, `wiki/log.md` entry.
+- [x] Task 5.1 — Tests, then the first-sign-in sheet (Add / Start empty / Look through first), merge by item, and the "Start empty" shelf with its read-back hash check and "Put this device's earlier records back" on sign-out; replace `FirstLoginModal`'s logic.
+  - Result: `7a207bf`. `FirstSignInSheet` (renders before App) replaces `FirstLoginModal`: Add this device's records (merged by id through `sync-first.js`; a differing account copy waits as a clash, both kept), Start this account empty (records set on a shelf in IndexedDB, checked by read-back, never sent or read by the sync, put back from Sign out), Look through first, Sign out instead.
+- [x] Task 5.2 — One-time import offer from the `mios-snapshots` blob as record writes through the sync layer (no `clearAll`/`importAll`/`applyPull`); snapshot push/pull in `sync-service.js` retired (code removed from the call path; bucket and table untouched).
+  - Result: `aba1be0`. `sync-snapshot.js` reads the old copy (read only) and `SnapshotSheet` offers it once per account (Bring it in / Leave it). Bring it in joins by id: the device's own copy is kept, a record the account lacks is queued, one held the same is noted, one held differently waits as a clash; a clashing invoice number waits for a new one. Nothing calls `clearAll`/`importAll`/`applyPull`. `sync-service.js`, `useSyncObserver.js` and `SyncStatusChip.jsx` removed. Suite 720 green, lint 0 errors (1 pre-existing warning), build OK.
+- [x] Task 5.3 — Phone check (accounts switch on, shell switch off) if the operator steps are done; otherwise record that Session A closes tested by unit tests and SQL checks only.
+  - Result: no phone check. The worktree has no `.env` and the operator steps in `SETUP.md` are not done, so Session A closes tested by unit tests, the local SQL checks and a browser render of `SnapshotSheet` (offer and result views, mounted alone with mock props).
+- [x] Task 5.4 — Stage 05 close for Session A: commits on the branch, debrief, `wiki/log.md` entry.
+  - Result: `wiki/log.md` entry for Phases 3–5; a later-note on the 2026-07-27 accounts decision. Not pushed.
 **Gate:** each first-sign-in case tested, including both-sides-have-data never overwriting without a choice; phone check passed or its absence stated.
 
 ### Session B
