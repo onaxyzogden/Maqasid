@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { landingCopy } from '../landing-copy';
+import { landingCopy, loginModalCopy } from '../landing-copy';
 
 describe('landingCopy', () => {
   describe('accounts off', () => {
@@ -47,5 +47,48 @@ describe('landingCopy', () => {
   it('both versions point to the JSON export', () => {
     expect(landingCopy(false).faqWhere).toMatch(/JSON from Settings/);
     expect(landingCopy(true).faqWhere).toMatch(/JSON from Settings/);
+  });
+});
+
+describe('loginModalCopy', () => {
+  it('accounts off: keeps the local-only popup as it is', () => {
+    expect(loginModalCopy(false)).toEqual({
+      title: 'Continue locally',
+      note: 'Your data stays on this device only. You can export a full backup any time from Settings.',
+      nameLabel: 'Name *',
+      emailLabel: 'Email (optional)',
+      showEmail: true,
+      footer: 'cancel',
+    });
+  });
+
+  describe('accounts on', () => {
+    const copy = loginModalCopy(true);
+
+    it('says it continues on this device', () => {
+      expect(copy.title).toBe('Continue on this device');
+    });
+
+    it('says records stay until you sign in, and that you choose whether they join', () => {
+      expect(copy.note).toMatch(/stay on this device until you sign in/);
+      expect(copy.note).toMatch(/you choose whether they join your account/);
+      expect(copy.note).toMatch(/backup any time from Settings/);
+    });
+
+    it('never promises the data stays on the device only', () => {
+      expect(copy.note).not.toMatch(/device only/);
+    });
+
+    // A device-only email field next to an emailed-code sign-in reads as a sign-in.
+    it('drops the email field and offers sign-in instead of Cancel', () => {
+      expect(copy.showEmail).toBe(false);
+      expect(copy.footer).toBe('signin');
+    });
+
+    it('never offers to create an account', () => {
+      for (const value of Object.values(copy)) {
+        expect(String(value)).not.toMatch(/Create account/);
+      }
+    });
   });
 });

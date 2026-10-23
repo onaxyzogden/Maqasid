@@ -14,3 +14,25 @@ export function landingCopy(accountsEnabled) {
     closing: 'Set up in under a minute. No account, and nothing leaves your device — export the whole thing as JSON whenever you want.',
   };
 }
+
+// The landing popup that starts MIOS without onboarding. With accounts on,
+// signing in later asks whether this device's records join the account.
+export function loginModalCopy(accountsEnabled) {
+  if (accountsEnabled) {
+    return {
+      title: 'Continue on this device',
+      note: 'Your records stay on this device until you sign in. If you sign in later, you choose whether they join your account. You can export a full backup any time from Settings.',
+      nameLabel: 'Name *',
+      showEmail: false,
+      footer: 'signin',
+    };
+  }
+  return {
+    title: 'Continue locally',
+    note: 'Your data stays on this device only. You can export a full backup any time from Settings.',
+    nameLabel: 'Name *',
+    emailLabel: 'Email (optional)',
+    showEmail: true,
+    footer: 'cancel',
+  };
+}

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { cloudAccountsEnabled } from '../services/supabase';
-import { landingCopy } from './landing-copy';
+import { landingCopy, loginModalCopy } from './landing-copy';
 import {
   ChevronDown, ArrowRight, Star, LogIn, X, Moon, BookOpen, Shield, Sparkles,
   Menu, Compass, Sunrise, HelpCircle,
@@ -33,6 +33,7 @@ const NAV_LINKS = [
 ];
 
 const COPY = landingCopy(cloudAccountsEnabled);
+const LOGIN_COPY = loginModalCopy(cloudAccountsEnabled);
 
 // `a` may be a string or an array of paragraphs (see the FAQ renderer below).
 const FAQS = [
@@ -516,31 +517,31 @@ export default function Landing() {
           style={{ outline: 'none' }}
         >
             <div className="expense-form-header">
-              <h3 id="landing-login-title">Continue locally</h3>
-              <button className="expense-form-close" onClick={() => setShowLogin(false)} aria-label="Close sign-in"><X size={18} aria-hidden="true" /></button>
+              <h3 id="landing-login-title">{LOGIN_COPY.title}</h3>
+              <button className="expense-form-close" onClick={() => setShowLogin(false)} aria-label="Close"><X size={18} aria-hidden="true" /></button>
             </div>
             <div className="expense-form-body">
-              <p className="landing-login-note">
-                Your data stays on this device only. You can export a full backup any time from Settings.
-              </p>
+              <p className="landing-login-note">{LOGIN_COPY.note}</p>
               <div className="expense-form-field">
-                <label htmlFor="landing-login-name">Name *</label>
+                <label htmlFor="landing-login-name">{LOGIN_COPY.nameLabel}</label>
                 <input id="landing-login-name" {...loginReq.fieldProps} value={loginName} onChange={(e) => setLoginName(e.target.value)}
                   onKeyDown={(e) => { if (e.key === 'Enter') loginReq.guard(handleLogin)(); }}
                   placeholder="Your name" autoFocus />
                 <FieldError id={loginReq.errorId} show={loginReq.show}>Enter your name</FieldError>
               </div>
-              <div className="expense-form-field">
-                <label htmlFor="landing-login-email">Email (optional)</label>
-                <input id="landing-login-email" type="email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)}
-                  onKeyDown={(e) => { if (e.key === 'Enter') loginReq.guard(handleLogin)(); }}
-                  placeholder="you@example.com" />
-              </div>
+              {LOGIN_COPY.showEmail && (
+                <div className="expense-form-field">
+                  <label htmlFor="landing-login-email">{LOGIN_COPY.emailLabel}</label>
+                  <input id="landing-login-email" type="email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)}
+                    onKeyDown={(e) => { if (e.key === 'Enter') loginReq.guard(handleLogin)(); }}
+                    placeholder="you@example.com" />
+                </div>
+              )}
             </div>
             <div className="expense-form-footer">
-              {cloudAccountsEnabled ? (
-                <Link to="/auth?mode=signup" className="btn btn-ghost" onClick={() => setShowLogin(false)}>
-                  Create account
+              {LOGIN_COPY.footer === 'signin' ? (
+                <Link to="/auth" className="btn btn-ghost" onClick={() => setShowLogin(false)}>
+                  Sign in
                 </Link>
               ) : (
                 <button className="btn btn-ghost" onClick={() => setShowLogin(false)}>Cancel</button>
