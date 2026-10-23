@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-10-22] session | Cloud re-platform, Session A: Phases 3–5
+
+- **Change:** on branch `mios-cloud-replatform` (worktree, not pushed), accounts still switched off. Phase 3: sign-in with an emailed code, an account page, and a sign-out that keeps the device's data (`a76d46c`). Phase 4: each stored key is the account's or the device's; changes wait on the device per record, per account (IndexedDB outbox); flush, pull, and offline invoices numbered on send. Phase 5: the first sign-in on a device with records asks before anything is sent (`FirstSignInSheet`, `7a207bf`), and an account the old snapshot sync saved is offered its copy once (`SnapshotSheet`, `aba1be0`). The old snapshot sync, `FirstLoginModal`, `SyncStatusChip` and `useSyncObserver` are removed; the bucket and table are only read.
+- **Verification:** 720 tests, lint 0 errors (1 pre-existing warning), build OK. `SnapshotSheet` rendered in the browser with mock props. No phone check: no `.env`, operator steps in `SETUP.md` not done.
+- **Next:** the operator steps (apply SQL, auth settings, keys, `.env`), then the phone check and Session B.
+
+## [2026-10-22] session | Cloud re-platform, Session A: Phases 1–2
+
+- **Change:** on branch `mios-cloud-replatform` (worktree, not pushed). Phase 1 closed with the four fixes from its round robin. Phase 2 adds `supabase/`: one `mios_records` table (soft deletes, a version check that refuses a stale save, row rules per operation for the signed-in owner only) and invoice numbers given by the server on first send (`mios_give_invoice_number`, the same number on a retry). Also `supabase/checks/rls_check.sql` in Capacity Routine's style, a local runner (`checks/local/`), `SETUP.md` for the operator and `.env.example`. Nothing is applied to the live project. Applying the SQL, the auth settings, the key replacement and pushing local `main` are the operator's steps in `SETUP.md`.
+- **Verification:** on a throwaway Postgres 17: "RLS check passed"; 22 of 22 parallel number asks answered with 21 distinct numbers. Four of five mutations caught; the counter-lock mutation is not, because the `on conflict` insert already waits (comment in the migration). 565 tests, lint 0, build green.
+- **Next:** Phase 3 (sign-in with an emailed code, build switches).
+
 ## [2026-10-20] session | BBOS CRD rail Amanah label
 
 - **Change:** on the redesigned dashboard, a completed CRD with a ★ YES on file in CRD-FP02 no longer reads "✓ Amanah Gate" / "✓ Passed". The adapter gives the CRD gate the status `amanah_hold` (from `lateDisqualifier`, read from the rubric, so it persists after a Halt). The rail node shows ✕ "Amanah Gate" in red, with the accessible name "Amanah Gate: disqualifier on file". The Overview strip shows "✕ Disqualifier on file" and the line "★ Q5 answered YES. Reject immediately." ("Pipeline halted." once rejected). It names the evidence, not a verdict; gate outcomes stay only in `bbosGateLog`. A clean rubric is unchanged. Closes the follow-up in [[2026-10-20-bbos-late-disqualifier]]. Plan approved after a 4-round round robin.

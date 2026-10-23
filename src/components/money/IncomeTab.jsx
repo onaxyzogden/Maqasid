@@ -367,7 +367,7 @@ export default function IncomeTab() {
                 <tbody>
                   {filteredInvoices.map((inv) => (
                     <tr key={inv.id} className="expense-row" {...rowActivation(() => { setEditInvoice(inv); setShowInvoicePanel(true); }, { role: null })}>
-                      <td style={{ fontFamily: 'var(--font-mono)', fontWeight: 500 }}>{inv.number}</td>
+                      <td style={{ fontFamily: 'var(--font-mono)', fontWeight: 500 }}>{inv.numberPending ? <span style={{ fontFamily: 'var(--font-body)', fontWeight: 400, fontSize: 'var(--text-2xs)', color: 'var(--text3)' }}>Number given when sent</span> : inv.number}</td>
                       <td>{inv.clientName || '—'}</td>
                       <td>{parseLocal(inv.date).toLocaleDateString('en', { month: 'short', day: 'numeric' })}</td>
                       <td>{inv.dueDate ? parseLocal(inv.dueDate).toLocaleDateString('en', { month: 'short', day: 'numeric' }) : '—'}</td>

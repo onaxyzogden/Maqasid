@@ -13,7 +13,6 @@ Custom React hooks (5) and utility services (3) shared across the app.
 | useModuleProgress.js | Aggregates task completion by moduleId; returns `{ total, completed, pct }` |
 | useDashboard.js | Utility module (not a hook): `getGreeting()` returns time-of-day string, `getMotivation()` returns day-indexed phrase, `BCG_RANGES` array defines chart range options |
 | usePrayerTimes.js | Fetches from Aladhan API (method 2); reverse geocodes via Nominatim; calculates active prayer window (5min before to 10min after); polls every 30s; caches to localStorage |
-| useSyncObserver.js | **DORMANT.** Watches store mutations and fires `triggerDebouncedPush()` (30s debounce). Early-returns unless `authStatus === 'authenticated'`, which can no longer happen — see below |
 
 ## Services
 
@@ -23,12 +22,12 @@ Custom React hooks (5) and utility services (3) shared across the app.
 | storage.js | localStorage wrapper with `'bbiz_'` prefix: `safeSet`, `safeGet`, `safeGetJSON`, `safeRemove`, `listKeys(prefix)`, `exportAll()`, `importAll()`, `clearAll()`. All ops wrapped in try/catch |
 | migration.js | Runs before React mounts (sync). Schema v5.0 — unified contacts model. Migrates old people_employees → ContactRecord + HRRecord. Stamps schema version for rollback safety |
 | supabase.js | **Master switch lives here.** `CLOUD_ACCOUNTS_ENABLED` (hardcoded `false`), `isSupabaseConfigured` (creds present only), `cloudAccountsEnabled` (the one to branch on). Exports `supabase` — `null` while disabled, so no client is ever constructed |
-| sync-service.js | **DORMANT.** Full-snapshot last-write-wins cloud sync: bucket `mios-snapshots`, table `user_snapshots`, `SCHEMA_VERSION 5.0`. Both `pushSnapshot`/`pullSnapshot` bail on `!cloudAccountsEnabled` |
+| sync-snapshot.js | The one-time bring-in of the old snapshot sync's copy (bucket `mios-snapshots`, table `user_snapshots`), read and never changed. `readSnapshot`, `importSnapshot` (records join by id; the device's own copy is kept; clashes keep both), `leaveSnapshot`; the answer is kept per account as `snapshot:<owner>`. Offered by `components/shared/SnapshotSheet.jsx` |
 
 ## Dormant: cloud sync
-Online accounts are off (`CLOUD_ACCOUNTS_ENABLED = false`) because the backend isn't ready. `initAuth()` therefore settles permanently at `authStatus: 'guest'`, which is the single chokepoint that silences `useSyncObserver`, `SyncStatusChip`, `FirstLoginModal` and Settings' Account & Sync panel — none of them needed editing. Guard new cloud code with `cloudAccountsEnabled`, never `isSupabaseConfigured`. Full design + restore path: `wiki/decisions/2026-07-27-milos-disable-online-accounts.md`.
+Online accounts are off (`CLOUD_ACCOUNTS_ENABLED = false`) because the backend isn't ready. `initAuth()` therefore settles permanently at `authStatus: 'guest'`, which is the single chokepoint that silences Settings' Account & Sync panel. The record sync that replaces the snapshot sync (`sync-boot.js`, `sync-first.js`, first-sign-in sheet in `components/shared/FirstSignInSheet.jsx`, the old-copy offer in `sync-snapshot.js`) does nothing for a guest. Guard new cloud code with `cloudAccountsEnabled`, never `isSupabaseConfigured`. Full design + restore path: `wiki/decisions/2026-07-27-milos-disable-online-accounts.md`.
 
-**A pull always requires a full page reload** — stores hydrate from `localStorage` at module-load time, so `applyPull()` does `createBackup()` → `clearAll()` → `importAll()` → `window.location.reload()`. `importAll()` alone is *additive*; only the `clearAll()` first makes it a true replace.
+**The old snapshot pull is retired.** It replaced the whole device (`clearAll()` then `importAll()`). The old copy is now brought in once, record by record, by `sync-snapshot.js` `importSnapshot`: nothing on the device is cleared or written over. Stores still hydrate from `localStorage` at module load, so SnapshotSheet reloads the page when it is done.
 
 ## Key Dependencies
 - **usePrayerTimes**: Aladhan API (external), Nominatim API (external), localStorage cache

@@ -5,7 +5,6 @@ import { useProjectStore } from '../../store/project-store';
 import { useTaskStore } from '../../store/task-store';
 import { useThresholdStore } from '../../store/threshold-store';
 import { useSettingsStore } from '../../store/settings-store';
-import { useAuthStore } from '../../store/auth-store';
 import { useMobile } from '../../hooks/useMobile';
 import { useKeyboard } from '../../hooks/useKeyboard';
 import { useInactivity } from '../../hooks/useInactivity';
@@ -34,8 +33,6 @@ import ChunkErrorBoundary from '../shared/ChunkErrorBoundary';
 import PillarFirstEntry from '../onboarding/PillarFirstEntry';
 import ConfirmDialog from '../shared/ConfirmDialog';
 import { usePillarIntroPending } from '../../hooks/usePillarIntroPending';
-import FirstLoginModal from '../shared/FirstLoginModal';
-import { useSyncObserver } from '../../hooks/useSyncObserver';
 import './AppShell.css';
 import { localDayKey } from '../../lib/format-date';
 
@@ -51,8 +48,6 @@ const MODULE_IDS = new Set(MODULES.map((m) => m.id));
 const PREFIX_ROUTES = Object.entries(MODULE_ROUTES);
 
 export default function AppShell() {
-  useSyncObserver();
-
   const sidebarOpen = useAppStore((s) => s.sidebarOpen);
   const setSearchOpen = useAppStore((s) => s.setSearchOpen);
   const islamicPanelOpen = useAppStore((s) => s.islamicPanelOpen);
@@ -75,7 +70,6 @@ export default function AppShell() {
   const completedOpening = useThresholdStore((s) => s.completedOpening);
   const resumeModuleId = useThresholdStore((s) => s.resumeModuleId);
   const pillarIntroPending = usePillarIntroPending();
-  const firstLoginConflict = useAuthStore((s) => s.firstLoginConflict);
   const isPrayerLocked = useThresholdStore((s) => s.isPrayerLocked);
   const currentPrayerName = useThresholdStore((s) => s.currentPrayerName);
   const prayerTimeMs = useThresholdStore((s) => s.prayerTimeMs);
@@ -449,9 +443,9 @@ export default function AppShell() {
       <SearchPalette />
       <ThresholdModal type="opening" />
       <ThresholdModal type="closing" />
-      {/* Entry overlays mount one at a time, in order: Niyyah → first-login
-          conflict → pillar intro → resume. Prayer overlays sit above all. */}
-      {resumeModuleId && !isPrayerLocked && !niyyahNeeded && !firstLoginConflict && !pillarIntroPending && (
+      {/* Entry overlays mount one at a time, in order: Niyyah → pillar intro →
+          resume. Prayer overlays sit above all. */}
+      {resumeModuleId && !isPrayerLocked && !niyyahNeeded && !pillarIntroPending && (
         <ResumeOverlay moduleId={resumeModuleId} onDismiss={dismissResume} />
       )}
       {isPrayerLocked && (
@@ -478,8 +472,7 @@ export default function AppShell() {
 
       <JournalPanel />
       <DiscussionPanel />
-      {!niyyahNeeded && !firstLoginConflict && <PillarFirstEntry />}
-      {!niyyahNeeded && <FirstLoginModal />}
+      {!niyyahNeeded && <PillarFirstEntry />}
       <ConfirmDialog />
       <Toast />
     </>

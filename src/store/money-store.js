@@ -3,6 +3,7 @@ import { safeGetJSON, safeSet } from '../services/storage';
 import { genExpenseId, genInvoiceId, genCategoryId, genBudgetId, genLineItemId, genVendorId, genAccountId, genIncomeId, genAssetId } from '../services/id';
 import { PRESET_CATEGORIES } from '@data/config/money-categories';
 import { localDayKey } from '../lib/format-date';
+import { cloudOwner } from '../services/sync-owner';
 
 // Persistence helpers
 function persistExpenses(expenses) { safeSet('expenses', expenses); }
@@ -111,10 +112,14 @@ export const useMoneyStore = create((set, get) => ({
 
   // ── Invoices ──
   addInvoice: (data) => {
-    const counter = get().invoiceCounter + 1;
+    // Signed in, the account numbers the invoice when it is sent, so two devices
+    // never give the same number; until then it has none.
+    const pending = Boolean(cloudOwner());
+    const counter = get().invoiceCounter + (pending ? 0 : 1);
     const invoice = {
       id: genInvoiceId(),
-      number: 'INV-' + String(counter).padStart(3, '0'),
+      number: pending ? '' : 'INV-' + String(counter).padStart(3, '0'),
+      ...(pending ? { numberPending: true } : {}),
       clientName: data.clientName || '',
       clientEmail: data.clientEmail || '',
       date: data.date || localDayKey(),
@@ -402,3 +407,22 @@ export const useMoneyStore = create((set, get) => ({
     return { income: totalIncome, expenses: totalExpenses, profit: totalIncome - totalExpenses };
   },
 }));
+
+/** For the record sync (sync-flush.js): what it needs to number an invoice the account has not numbered yet. */
+export const invoiceNumbers = {
+  /** The highest INV number on this device, so the account's numbers carry on from it. */
+  after: () => useMoneyStore.getState().invoices.reduce((max, inv) => {
+    const n = Number(/^INV-(\d+)$/.exec(inv.number ?? '')?.[1] ?? 0);
+    return n > max ? n : max;
+  }, 0),
+  /** Puts the number the account gave an invoice on it. */
+  numbered: (id, number) => useMoneyStore.setState((s) => {
+    const invoices = s.invoices.map((inv) => {
+      if (inv.id !== id) return inv;
+      const { numberPending: _, ...rest } = inv;
+      return { ...rest, number };
+    });
+    persistInvoices(invoices);
+    return { invoices };
+  }),
+};

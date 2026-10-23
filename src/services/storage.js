@@ -26,12 +26,31 @@ function probeQuotaIfLarge(key, byteSize) {
   }).catch(() => { /* best-effort probe */ });
 }
 
+// The record sync's ear on writes (sync-diff.js). It is told the key and the
+// value after the write has landed; it never changes what is stored, and a
+// listener that throws never fails the write.
+let storedChangeListener = null;
+function tellListener(key, value) {
+  if (!storedChangeListener) return;
+  try { storedChangeListener(key, value); }
+  catch (e) { console.warn('[bbiz] change listener failed:', key, e); }
+}
+
+/** Calls `listener(key, value)` after each safeSet, and `(key, undefined)` after each safeRemove. Returns the stop function. */
+export function onStoredChange(listener) {
+  storedChangeListener = listener;
+  return () => {
+    if (storedChangeListener === listener) storedChangeListener = null;
+  };
+}
+
 /** Returns true on success, false on failure (e.g. quota exceeded). */
 export function safeSet(key, value) {
   try {
     const v = typeof value === 'string' ? value : JSON.stringify(value);
     probeQuotaIfLarge(key, v.length);
     localStorage.setItem(PREFIX + key, v);
+    tellListener(key, value);
     return true;
   } catch (e) {
     console.warn('[bbiz] storage write failed:', key, e);
@@ -63,8 +82,10 @@ export function safeGetJSON(key, fallback = null) {
 }
 
 export function safeRemove(key) {
-  try { localStorage.removeItem(PREFIX + key); }
-  catch (e) { console.warn('[bbiz] storage remove failed:', key, e); }
+  try {
+    localStorage.removeItem(PREFIX + key);
+    tellListener(key, undefined);
+  } catch (e) { console.warn('[bbiz] storage remove failed:', key, e); }
 }
 
 export function listKeys(prefix = '') {
@@ -184,7 +205,7 @@ if (typeof window !== 'undefined') {
 }
 
 // Keys that are NEVER included in the cloud sync snapshot.
-// Imported by sync-service.js — edit here to add/remove keys from sync.
+// Read by sync-keys.js and auth-store.js — edit here to add/remove keys from sync.
 export const SYNC_EXCLUDED_KEYS = [
   // Device-local AI credentials — never upload
   'ai_api_key',

@@ -26,10 +26,14 @@ export async function ssrLoad(rootRelPath, repoRoot) {
     // environment (~10-60s per module, tripping the module runner's fixed 60s
     // transport timeout -- worse with a dev server running). The same config
     // VALUES passed inline are fast (<150ms/module), so import the app config
-    // directly and reuse its alias map; everything else the generator needs is
-    // Vite's defaults.
+    // directly and reuse its alias map and build switches (the config is a
+    // function of the mode, so call it); everything else the generator needs
+    // is Vite's defaults.
     const { createServer } = await import('vite');
-    const appConfig = (await import(pathToFileURL(resolve(repoRoot, 'vite.config.js')).href)).default;
+    const configExport = (await import(pathToFileURL(resolve(repoRoot, 'vite.config.js')).href)).default;
+    const appConfig = typeof configExport === 'function'
+      ? configExport({ mode: 'production', command: 'build' })
+      : configExport;
     _viteServer = await createServer({
       configFile: false,
       root: repoRoot,
@@ -37,6 +41,7 @@ export async function ssrLoad(rootRelPath, repoRoot) {
       logLevel: 'silent',
       server: { middlewareMode: true, hmr: false, watch: null },
       resolve: { alias: appConfig.resolve.alias },
+      define: appConfig.define,
       optimizeDeps: { noDiscovery: true },
     });
   }

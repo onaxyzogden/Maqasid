@@ -1,23 +1,17 @@
 import { useState, useCallback } from 'react';
 import { Droplets } from 'lucide-react';
 import { localDayKey } from '../../../lib/format-date';
+import { safeGet, safeSet } from '../../../services/storage';
 
-const KEY = 'bbiz_hydrate_today';
-
-function todayKey() {
-  return `${KEY}_${localDayKey()}`;
-}
-
+// Stored as bbiz_hydrate_today_<day>, the same bytes as before; going through
+// storage.js lets the record sync see each glass.
 export default function HydrateWidget() {
-  const [count, setCount] = useState(() => {
-    try { return Number(localStorage.getItem(todayKey())) || 0; }
-    catch { return 0; }
-  });
+  const [count, setCount] = useState(() => Number(safeGet(`hydrate_today_${localDayKey()}`)) || 0);
 
   const log = useCallback(() => {
     setCount((c) => {
       const next = c + 1;
-      try { localStorage.setItem(todayKey(), String(next)); } catch { /* ignore */ }
+      safeSet(`hydrate_today_${localDayKey()}`, next);
       return next;
     });
   }, []);

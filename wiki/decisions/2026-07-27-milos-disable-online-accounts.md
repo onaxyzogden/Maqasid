@@ -195,3 +195,5 @@ Nothing else needs restoring — the four self-disabling components come back on
 - [[milos]] — the product entity
 - [[2026-06-19-atlas-offline-demo-deploy]] — the OLOS precedent: no sign-in link when login isn't ready
 - [[amanah-gate]] — the honesty screen this change answers to
+
+**Later (2026-10-22):** on branch `mios-cloud-replatform` the dormant snapshot sync named here is retired: `sync-service.js`, `FirstLoginModal.jsx`, `SyncStatusChip.jsx` and `useSyncObserver.js` are removed, replaced by record-by-record sync and a one-time offer of the old copy (see `.claude/plans/mios-cloud-replatform.md`). `mios-snapshots` and `user_snapshots` stay, read only. Accounts stay switched off until the operator turns them on.
