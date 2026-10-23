@@ -131,6 +131,10 @@ describe('sync key inventory', () => {
     }
   });
 
+  it('syncs the display name, so chat authors match across devices', () => {
+    expect(classifyKey('display_name')).toBe('synced');
+  });
+
   it('treats the invoice counter as a device-local counter', () => {
     expect(isCounterKey('inv_counter')).toBe(true);
     expect(classifyKey('inv_counter')).toBe('device');

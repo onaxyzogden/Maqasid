@@ -3,6 +3,7 @@ import { MessageCircle, X, Send } from 'lucide-react';
 import { safeGetJSON, safeSet } from '../../services/storage';
 import { useAppStore } from '../../store/app-store';
 import { useAuthStore } from '../../store/auth-store';
+import { authorLabel, authorStamp } from '../../services/author';
 import './DiscussionPanel.css';
 
 const STORAGE_KEY = 'global_discussion_messages';
@@ -24,6 +25,9 @@ export default function DiscussionPanel() {
   const discussionOpen = useAppStore((s) => s.discussionOpen);
   const setDiscussionOpen = useAppStore((s) => s.setDiscussionOpen);
   const user = useAuthStore((s) => s.user);
+  const supabaseSession = useAuthStore((s) => s.supabaseSession);
+  const displayName = useAuthStore((s) => s.displayName);
+  const accountId = supabaseSession?.user?.id;
 
   const [isPanelClosing, setIsPanelClosing] = useState(false);
   const [messages, setMessages] = useState(() => safeGetJSON(STORAGE_KEY, []));
@@ -42,7 +46,7 @@ export default function DiscussionPanel() {
     const msg = {
       id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
       text: draft.trim(),
-      author: user?.name || 'You',
+      ...authorStamp({ user, session: supabaseSession, displayName }),
       createdAt: new Date().toISOString(),
     };
     const updated = [...messages, msg];
@@ -81,10 +85,10 @@ export default function DiscussionPanel() {
           ) : (
             messages.map((msg) => (
               <div key={msg.id} className="discussion-panel__message">
-                <div className="discussion-panel__avatar">{getInitials(msg.author)}</div>
+                <div className="discussion-panel__avatar">{getInitials(authorLabel(msg, { accountId, displayName }))}</div>
                 <div className="discussion-panel__msg-content">
                   <div className="discussion-panel__msg-meta">
-                    <span className="discussion-panel__msg-author">{msg.author}</span>
+                    <span className="discussion-panel__msg-author">{authorLabel(msg, { accountId, displayName })}</span>
                     <span className="discussion-panel__msg-time">{formatTime(msg.createdAt)}</span>
                   </div>
                   <p className="discussion-panel__msg-text">{msg.text}</p>

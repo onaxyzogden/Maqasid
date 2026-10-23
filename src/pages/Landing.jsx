@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { cloudAccountsEnabled } from '../services/supabase';
+import { landingCopy } from './landing-copy';
 import {
   ChevronDown, ArrowRight, Star, LogIn, X, Moon, BookOpen, Shield, Sparkles,
   Menu, Compass, Sunrise, HelpCircle,
@@ -31,6 +32,8 @@ const NAV_LINKS = [
   { href: '#faq', label: 'FAQ', Icon: HelpCircle },
 ];
 
+const COPY = landingCopy(cloudAccountsEnabled);
+
 // `a` may be a string or an array of paragraphs (see the FAQ renderer below).
 const FAQS = [
   {
@@ -56,7 +59,7 @@ const FAQS = [
   {
     q: 'Where does my data live?',
     a: [
-      "On your device. MIOS keeps everything in your browser\u2019s local storage, runs with no account at all, and can export the whole dataset as JSON from Settings at any time. Online accounts and cross-device sync are switched off while that backend is unfinished, so nothing you write is uploaded anywhere.",
+      COPY.faqWhere,
       "Two things reach the network, and only when you use them. Prayer times: the Aladhan API receives your coordinates to return today\u2019s timings and the Hijri date, OpenStreetMap\u2019s Nominatim receives them to name your city, and if your browser refuses location MIOS falls back to an IP lookup at ipapi.co. Qur\u2019an reader: the sources panel embeds the reader from quran.com.",
       "There are no analytics, trackers, or advertising scripts anywhere in MIOS.",
     ],
@@ -581,7 +584,7 @@ export default function Landing() {
             {[...Array(2)].map((_, dup) => (
               <div key={dup} className="hero-marquee-group">
                 <span className="hero-marquee-item">Grounded in the Maqasid al-Shari'ah</span>
-                <span className="hero-marquee-item">Local-first · nothing leaves your device</span>
+                <span className="hero-marquee-item">{COPY.marquee}</span>
                 <span className="hero-marquee-item">Zero tracking · zero ads</span>
                 <span className="hero-marquee-item">Every task carries its evidence</span>
                 <span className="hero-marquee-item">Free — no paywalls, no tiers</span>
@@ -734,7 +737,7 @@ export default function Landing() {
             <p className="section-label">How It Works</p>
             <h2 className="section-title">Three steps, then it does the choosing.</h2>
           </div>
-          <p className="section-subtitle">Set up in under a minute. No account, and nothing leaves your device — export the whole thing as JSON whenever you want.</p>
+          <p className="section-subtitle">{COPY.closing}</p>
         </div>
 
         <div className="how-steps">
