@@ -85,7 +85,13 @@ export const execTypeLabel = (t) =>
 
 export const gateStatusLabel = (s) =>
   s === "passed" ? "✓ Passed" : s === "in_review" ? "◐ In Review"
+    : s === "amanah_hold" ? "✕ Disqualifier on file"
     : s === "pending" ? "○ Pending" : "— Locked";
 
 export const gateNodeIcon = (s) =>
-  s === "passed" ? "✓" : s === "in_review" ? "◐" : "○";
+  s === "passed" ? "✓" : s === "in_review" ? "◐" : s === "amanah_hold" ? "✕" : "○";
+
+// The rail node shows only an icon and the label, so a held gate also names
+// what the cross means.
+export const gateNodeTitle = (gate) =>
+  gate.status === "amanah_hold" ? `${gate.label}: disqualifier on file` : undefined;

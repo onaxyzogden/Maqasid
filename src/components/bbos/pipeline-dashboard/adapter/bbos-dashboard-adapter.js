@@ -24,7 +24,7 @@
 //   id, order, code, n, name, tagline, layer, status, progress,
 //   attributes: string[],
 //   dua: { arabic, translit, meaning },
-//   gate: { label, status },
+//   gate: { label, status, note? },  status adds "amanah_hold" (CRD, ★ YES on file)
 //   execution: ExecVM,
 //   brief: { identity: { project, operator, client } }
 // }
@@ -55,7 +55,7 @@ import { getBbosTaskDefsByStage } from "../../../../data/bbos/bbos-task-definiti
 import { getBbosStageIslamic } from "../../../../data/bbos/bbos-stage-islamic";
 import { scoreStage } from "../../../../data/bbos/bbos-stage-score";
 import { gateEntriesForStage, openConditions } from "../../../../data/bbos/bbos-gate-log";
-import { evaluateStageGates } from "../../../../data/bbos/bbos-named-gates";
+import { evaluateStageGates, lateDisqualifier } from "../../../../data/bbos/bbos-named-gates";
 import { fieldValueText } from "../../../../data/bbos/bbos-ic-assets";
 
 // ── Static domain constants (no live source) ───────────────────────────────
@@ -225,6 +225,25 @@ function gateStatusFor(stageId, status, taskMap) {
   if (scored.verdict === "QUALIFIED") return "passed";
   if (scored.verdict === "BLOCKED") return "pending";
   return "in_review"; // DEVELOPING / REVIEW NEEDED
+}
+
+/**
+ * The stage strip's gate. A completed CRD with a ★ YES on file in CRD-FP02
+ * reads "amanah_hold", never passed: the rubric says "Reject immediately"
+ * whatever was decided when CRD was left. It names the evidence, not a
+ * verdict (outcomes live only in bbosGateLog), and it is read from the
+ * rubric, so it still shows after a Halt; only the note's ending changes.
+ */
+function gateFor(stageId, status, taskMap, project, tasks) {
+  const gate = { label: STAGE_GATE_LABEL[stageId] || "", status: gateStatusFor(stageId, status, taskMap) };
+  if (stageId !== "CRD" || status !== "complete") return gate;
+  const late = lateDisqualifier(project?.bbosStage || "IDY", tasks || []);
+  if (!late) return gate;
+  return {
+    ...gate,
+    status: "amanah_hold",
+    note: `★ ${late.questions.join(", ")} answered YES. ${project?.rejectedAt ? "Pipeline halted." : "Reject immediately."}`,
+  };
 }
 
 /** Live ExecVM for the mappable stages (IDY→RET). Items are pre-partitioned. */
@@ -469,7 +488,7 @@ export function buildPipelineViewModel(opts = {}) {
       progress,
       attributes: attributesFor(s.id, s),
       dua: duaFor(s.id),
-      gate: { label: STAGE_GATE_LABEL[s.id] || "", status: gateStatusFor(s.id, status, taskMap) },
+      gate: gateFor(s.id, status, taskMap, project, tasks),
       execution,
       brief: buildBrief(s.id, status, taskMap, items, briefIdentity, nextStageN, project?.bbosGateLog, project?.bbosCycle || 1,
         project?.bbosRole && project.bbosRole !== "all" ? project.bbosRole : null),

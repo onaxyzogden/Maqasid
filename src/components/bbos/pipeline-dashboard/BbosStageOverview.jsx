@@ -46,6 +46,7 @@ export default function BbosStageOverview({ stage, onOpenBrief, onOpenExec }) {
         <div>
           <div className="bpd-gatestrip__label">Stage Gate</div>
           <div className="bpd-gatestrip__name">{stage.gate.label}</div>
+          {stage.gate.note && <div className="bpd-gatestrip__note">{stage.gate.note}</div>}
         </div>
         <div className="bpd-gatestrip__status" data-gate={stage.gate.status}>
           {gateStatusLabel(stage.gate.status)}
