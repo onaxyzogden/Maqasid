@@ -4,6 +4,7 @@ import { useOfficeStore } from '../../store/office-store';
 import { useConfirm } from '../../store/confirm-store';
 import { useAuthStore } from '../../store/auth-store';
 import { useToastStore } from '../../store/toast-store';
+import { authorLabel, authorStamp } from '../../services/author';
 import './Announcements.css';
 
 export default function Announcements() {
@@ -12,6 +13,9 @@ export default function Announcements() {
   const addAnnouncement = useOfficeStore((s) => s.addAnnouncement);
   const deleteAnnouncement = useOfficeStore((s) => s.deleteAnnouncement);
   const user = useAuthStore((s) => s.user);
+  const supabaseSession = useAuthStore((s) => s.supabaseSession);
+  const displayName = useAuthStore((s) => s.displayName);
+  const accountId = supabaseSession?.user?.id;
   const addToast = useToastStore((s) => s.addToast);
 
   const [search, setSearch] = useState('');
@@ -30,7 +34,7 @@ export default function Announcements() {
 
   const handleCreate = () => {
     if (!newTitle.trim()) return;
-    addAnnouncement({ title: newTitle, body: newBody, author: user?.name || 'You' });
+    addAnnouncement({ title: newTitle, body: newBody, ...authorStamp({ user, session: supabaseSession, displayName }) });
     addToast({ message: 'Announcement published', type: 'success', variant: 'chip' });
     setShowForm(false); setNewTitle(''); setNewBody('');
   };
@@ -62,7 +66,7 @@ export default function Announcements() {
                 <h4 className="ann-card-title">{ann.title}</h4>
                 {ann.body && <p className="ann-card-body">{ann.body}</p>}
                 <div className="ann-card-meta">
-                  {ann.author} &middot; {new Date(ann.createdAt).toLocaleDateString('en', { month: 'short', day: 'numeric', year: 'numeric' })}
+                  {authorLabel(ann, { accountId, displayName })} &middot; {new Date(ann.createdAt).toLocaleDateString('en', { month: 'short', day: 'numeric', year: 'numeric' })}
                 </div>
               </div>
               <button className="row-action-btn danger" onClick={async () => { if (await confirm({ title: `Delete announcement "${ann.title}"?`, body: "This can't be undone.", confirmLabel: 'Delete announcement', danger: true })) { deleteAnnouncement(ann.id); addToast({ message: 'Announcement removed', type: 'info' }); } }} aria-label={`Delete announcement ${ann.title}`}>

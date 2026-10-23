@@ -12,6 +12,7 @@ import { ICON_REGISTRY } from '../data/icon-registry';
 import '../styles/landing.css';
 import { useRequiredField } from '../hooks/useRequiredField';
 import FieldError from '../components/shared/FieldError';
+import { syncStepCopy, profileNameStart } from './onboarding-sync-copy';
 
 const PILLAR_ICON_MAP = ICON_REGISTRY;
 
@@ -27,13 +28,17 @@ const SYNC_STEP = 2;
 export default function Onboarding() {
   const navigate = useNavigate();
   const login = useAuthStore((s) => s.login);
+  const authStatus = useAuthStore((s) => s.authStatus);
+  const email = useAuthStore((s) => s.supabaseSession?.user?.email);
+  const sync = syncStepCopy({ authStatus, email });
   const { recordFirstLogin } = useOnboardingStore();
   const skipNiyyah = useThresholdStore((s) => s.skipNiyyah);
 
   // A profile left behind by Sign Out — reuse it rather than creating a new user.
   const [prevUser] = useState(() => safeGetJSON('user_prev', null));
   const [step, setStep] = useState(0);
-  const [name, setName] = useState(prevUser?.name || '');
+  const displayName = useAuthStore((s) => s.displayName);
+  const [name, setName] = useState(() => profileNameStart({ prevUser, displayName }));
   const req = useRequiredField(name.trim().length > 0, 'onboarding-your-name');
 
   const finish = (skipToSync = false) => {
@@ -51,7 +56,7 @@ export default function Onboarding() {
     // isn't blocked by a second ceremony on first dashboard visit.
     skipNiyyah();
     if (skipToSync && cloudAccountsEnabled) {
-      navigate(`/auth?mode=signup&prefill_name=${encodeURIComponent(trimmedName)}`);
+      navigate('/auth');
     } else {
       navigate('/app');
     }
@@ -188,29 +193,33 @@ export default function Onboarding() {
           {cloudAccountsEnabled && step === SYNC_STEP && (
             <div className="fade-in" style={{ textAlign: 'center' }}>
               <div style={{ fontSize: '2.5rem', marginBottom: 'var(--space-3)' }}>☁️</div>
-              <h2 style={{ marginBottom: 'var(--space-2)' }}>Continue anywhere</h2>
+              <h2 style={{ marginBottom: 'var(--space-2)' }}>{sync.heading}</h2>
               <p style={{ color: 'var(--text2)', marginBottom: 'var(--space-6)', lineHeight: 1.6 }}>
-                Create a free account to sync your data across all your devices. Your tasks, intentions, and progress will follow you everywhere.
+                {sync.body}
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
                 <button
                   className="btn btn-primary btn-lg"
                   style={{ width: '100%', justifyContent: 'center' }}
-                  onClick={() => finish(true)}
+                  onClick={() => finish(!sync.signedIn)}
                 >
-                  Create a free account <ArrowRight size={16} />
+                  {sync.primary} <ArrowRight size={16} />
                 </button>
-                <button
-                  className="btn btn-ghost"
-                  style={{ width: '100%', justifyContent: 'center' }}
-                  onClick={() => finish(false)}
-                >
-                  Skip for now — continue as guest
-                </button>
+                {sync.secondary && (
+                  <button
+                    className="btn btn-ghost"
+                    style={{ width: '100%', justifyContent: 'center' }}
+                    onClick={() => finish(false)}
+                  >
+                    {sync.secondary}
+                  </button>
+                )}
               </div>
-              <p style={{ color: 'var(--text3)', fontSize: '0.78rem', marginTop: 'var(--space-4)' }}>
-                You can always create an account later from Settings.
-              </p>
+              {sync.footnote && (
+                <p style={{ color: 'var(--text3)', fontSize: '0.78rem', marginTop: 'var(--space-4)' }}>
+                  {sync.footnote}
+                </p>
+              )}
             </div>
           )}
 

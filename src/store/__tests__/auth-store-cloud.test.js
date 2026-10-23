@@ -14,7 +14,7 @@ function memoryStorage() {
 }
 
 globalThis.localStorage = memoryStorage();
-const { useAuthStore } = await import('../auth-store');
+const { useAuthStore, nameToSync } = await import('../auth-store');
 
 const signedInClient = (signOutResult = { error: null }) => ({
   auth: { signOut: vi.fn(async () => signOutResult) },
@@ -42,6 +42,43 @@ describe('initAuth', () => {
     useAuthStore.setState({ authStatus: 'loading' });
     await useAuthStore.getState().initAuth(null);
     expect(useAuthStore.getState().authStatus).toBe('guest');
+  });
+});
+
+describe('display name', () => {
+  it('nameToSync trims, and gives null for no name', () => {
+    expect(nameToSync({ name: '  Yousef ' })).toBe('Yousef');
+    expect(nameToSync({ name: '   ' })).toBe(null);
+    expect(nameToSync({})).toBe(null);
+    expect(nameToSync(null)).toBe(null);
+  });
+
+  it('login stores the name as the synced display name', () => {
+    useAuthStore.getState().login({ id: 'p1', name: ' Yousef A ' });
+    expect(localStorage.getItem('bbiz_display_name')).toBe('Yousef A');
+    expect(useAuthStore.getState().displayName).toBe('Yousef A');
+  });
+
+  it('login with a blank name leaves the display name alone', () => {
+    localStorage.setItem('bbiz_display_name', 'Kept');
+    useAuthStore.setState({ displayName: 'Kept' });
+    useAuthStore.getState().login({ id: 'p1', name: '' });
+    expect(localStorage.getItem('bbiz_display_name')).toBe('Kept');
+    expect(useAuthStore.getState().displayName).toBe('Kept');
+  });
+
+  it('updateUser with a new name updates the display name', () => {
+    useAuthStore.getState().updateUser({ name: 'New name' });
+    expect(localStorage.getItem('bbiz_display_name')).toBe('New name');
+    expect(useAuthStore.getState().displayName).toBe('New name');
+  });
+
+  it('updateUser without a name leaves the display name alone', () => {
+    localStorage.setItem('bbiz_display_name', 'Kept');
+    useAuthStore.setState({ displayName: 'Kept' });
+    useAuthStore.getState().updateUser({ modules: ['x'] });
+    expect(localStorage.getItem('bbiz_display_name')).toBe('Kept');
+    expect(useAuthStore.getState().displayName).toBe('Kept');
   });
 });
 

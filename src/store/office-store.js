@@ -53,9 +53,10 @@ export const useOfficeStore = create((set) => ({
   }),
 
   // ── Messages ──
-  addMessage: ({ channelId, text, author }) => {
+  // authorId: the account the message was written under (null signed out); see services/author.js
+  addMessage: ({ channelId, text, author, authorId }) => {
     const MAX_PER_CHANNEL = 500;
-    const msg = { id: genMessageId(), channelId, text: text || '', author: author || 'You', createdAt: new Date().toISOString() };
+    const msg = { id: genMessageId(), channelId, text: text || '', author: author || 'You', authorId: authorId ?? null, createdAt: new Date().toISOString() };
     set((s) => {
       let messages = [...s.messages, msg];
       // Prune oldest messages if channel exceeds cap
@@ -116,19 +117,19 @@ export const useOfficeStore = create((set) => ({
   }),
 
   // ── Q&A (Forum) ──
-  addQuestion: ({ title, body, author }) => {
+  addQuestion: ({ title, body, author, authorId }) => {
     const qa = {
-      id: genQAId(), title: title || '', body: body || '', author: author || 'You',
+      id: genQAId(), title: title || '', body: body || '', author: author || 'You', authorId: authorId ?? null,
       answers: [], resolved: false,
       createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
     };
     set((s) => { const qaItems = [...s.qaItems, qa]; persistQA(qaItems); return { qaItems }; });
     return qa;
   },
-  addAnswer: (qaId, { text, author }) => set((s) => {
+  addAnswer: (qaId, { text, author, authorId }) => set((s) => {
     const qaItems = s.qaItems.map((q) => {
       if (q.id !== qaId) return q;
-      return { ...q, answers: [...q.answers, { id: genAnswerId(), text, author: author || 'You', createdAt: new Date().toISOString() }], updatedAt: new Date().toISOString() };
+      return { ...q, answers: [...q.answers, { id: genAnswerId(), text, author: author || 'You', authorId: authorId ?? null, createdAt: new Date().toISOString() }], updatedAt: new Date().toISOString() };
     });
     persistQA(qaItems); return { qaItems };
   }),
@@ -142,10 +143,10 @@ export const useOfficeStore = create((set) => ({
   }),
 
   // ── Announcements ──
-  addAnnouncement: ({ title, body, author }) => {
+  addAnnouncement: ({ title, body, author, authorId }) => {
     const ann = {
       id: genAnnouncementId(), title: title || '', body: body || '',
-      author: author || 'You',
+      author: author || 'You', authorId: authorId ?? null,
       createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
     };
     set((s) => { const announcements = [...s.announcements, ann]; persistAnnouncements(announcements); return { announcements }; });

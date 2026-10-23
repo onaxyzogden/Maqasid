@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { safeGetJSON, safeSet, safeRemove, listKeys, SYNC_EXCLUDED_KEYS } from '../services/storage';
+import { safeGet, safeGetJSON, safeSet, safeRemove, listKeys, SYNC_EXCLUDED_KEYS } from '../services/storage';
 import { supabase } from '../services/supabase';
 import { startAuth } from '../services/cloud-auth';
 
@@ -11,12 +11,21 @@ import { startAuth } from '../services/cloud-auth';
  *  profile, and everything that never goes to the account (SYNC_EXCLUDED_KEYS). */
 const KEPT_ON_REMOVE = new Set(['user', 'user_prev', ...SYNC_EXCLUDED_KEYS]);
 
+/** The profile name, trimmed, for bbiz_display_name: the one piece of the
+ *  profile that syncs, so your messages carry the same name on every device.
+ *  Null when there is no name, so a blank never overwrites the synced one. */
+export function nameToSync(userData) {
+  const name = typeof userData?.name === 'string' ? userData.name.trim() : '';
+  return name || null;
+}
+
 // ─── Store ───────────────────────────────────────────────────────────────────
 
 export const useAuthStore = create((set, get) => ({
   // ── Existing local profile (shape preserved for backward compat) ──────────
   user: safeGetJSON('user', null),
-
+  /** The account's synced name (bbiz_display_name), or null before one is set. */
+  displayName: safeGet('display_name'),
 
   // ── Account state ─────────────────────────────────────────────────────────
   supabaseSession: null,
@@ -27,13 +36,17 @@ export const useAuthStore = create((set, get) => ({
   // ── Existing profile actions (unchanged API) ──────────────────────────────
   login: (userData) => {
     safeSet('user', userData);
-    set({ user: userData });
+    const displayName = nameToSync(userData);
+    if (displayName) safeSet('display_name', displayName);
+    set(displayName ? { user: userData, displayName } : { user: userData });
   },
 
   updateUser: (updates) => set((s) => {
     const user = { ...s.user, ...updates };
     safeSet('user', user);
-    return { user };
+    const displayName = nameToSync(updates);
+    if (displayName) safeSet('display_name', displayName);
+    return displayName ? { user, displayName } : { user };
   }),
 
   logout: () => {

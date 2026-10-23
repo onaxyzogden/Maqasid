@@ -2,6 +2,7 @@ import { useState, useMemo, useRef, useEffect } from 'react';
 import { Plus, Send, Hash, Trash2, MessageSquare, Users, Bold, Italic, Underline, Strikethrough, Link, Mic, Video, Smile, Paperclip, Lock, ListTodo, StickyNote, Search } from 'lucide-react';
 import { useOfficeStore } from '../../store/office-store';
 import { useAuthStore } from '../../store/auth-store';
+import { authorLabel, authorStamp } from '../../services/author';
 import './TeamChat.css';
 
 export default function TeamChat() {
@@ -10,6 +11,9 @@ export default function TeamChat() {
   const addChannel = useOfficeStore((s) => s.addChannel);
   const addMessage = useOfficeStore((s) => s.addMessage);
   const user = useAuthStore((s) => s.user);
+  const supabaseSession = useAuthStore((s) => s.supabaseSession);
+  const displayName = useAuthStore((s) => s.displayName);
+  const accountId = supabaseSession?.user?.id;
 
   const [activeChannel, setActiveChannel] = useState(channels[0]?.id || '');
   const [newMsg, setNewMsg] = useState('');
@@ -25,7 +29,7 @@ export default function TeamChat() {
 
   const handleSend = () => {
     if (!newMsg.trim()) return;
-    addMessage({ channelId: activeChannel, text: newMsg.trim(), author: user?.name || 'You' });
+    addMessage({ channelId: activeChannel, text: newMsg.trim(), ...authorStamp({ user, session: supabaseSession, displayName }) });
     setNewMsg('');
   };
 
@@ -114,12 +118,13 @@ export default function TeamChat() {
           )}
           {channelMessages.map((msg) => {
             const date = new Date(msg.createdAt);
+            const author = authorLabel(msg, { accountId, displayName });
             return (
               <div key={msg.id} className="chat-message">
-                <div className="chat-msg-avatar">{msg.author?.[0]?.toUpperCase() || '?'}</div>
+                <div className="chat-msg-avatar">{author?.[0]?.toUpperCase() || '?'}</div>
                 <div className="chat-msg-content">
                   <div className="chat-msg-header">
-                    <span className="chat-msg-author">{msg.author}</span>
+                    <span className="chat-msg-author">{author}</span>
                     <span className="chat-msg-time">{date.toLocaleString('en', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true })}</span>
                   </div>
                   <p className="chat-msg-text">{msg.text}</p>

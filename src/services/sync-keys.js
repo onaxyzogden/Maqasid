@@ -21,7 +21,7 @@ const SYNCED_EXACT = new Set([
   'projects', 'fasting_user_override', 'travel_state',
   'global_discussion_messages', 'global_journal_reflection',
   // Preferences that describe the person rather than the screen
-  'values_layer', 'attr_lang', 'show_diacritics', 'tooltips_enabled',
+  'values_layer', 'attr_lang', 'show_diacritics', 'tooltips_enabled', 'display_name',
   'disable_l1_threshold_gate', 'disable_l23_threshold_gate',
 ]);
 

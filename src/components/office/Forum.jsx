@@ -3,6 +3,7 @@ import { Plus, CheckCircle2, MessageCircle, X, Send, Trash2, Search } from 'luci
 import { useOfficeStore } from '../../store/office-store';
 import { useConfirm } from '../../store/confirm-store';
 import { useAuthStore } from '../../store/auth-store';
+import { authorLabel, authorStamp } from '../../services/author';
 import './Forum.css';
 import { rowActivation } from '../../lib/row-activation';
 
@@ -14,6 +15,10 @@ export default function Forum() {
   const toggleResolved = useOfficeStore((s) => s.toggleResolved);
   const deleteQuestion = useOfficeStore((s) => s.deleteQuestion);
   const user = useAuthStore((s) => s.user);
+  const supabaseSession = useAuthStore((s) => s.supabaseSession);
+  const displayName = useAuthStore((s) => s.displayName);
+  const accountId = supabaseSession?.user?.id;
+  const byline = (x) => authorLabel(x, { accountId, displayName });
 
   const [search, setSearch] = useState('');
   const [showForm, setShowForm] = useState(false);
@@ -33,13 +38,13 @@ export default function Forum() {
 
   const handleAsk = () => {
     if (!newTitle.trim()) return;
-    addQuestion({ title: newTitle, body: newBody, author: user?.name || 'You' });
+    addQuestion({ title: newTitle, body: newBody, ...authorStamp({ user, session: supabaseSession, displayName }) });
     setShowForm(false); setNewTitle(''); setNewBody('');
   };
 
   const handleAnswer = () => {
     if (!newAnswer.trim() || !selectedQA) return;
-    addAnswer(selectedQA.id, { text: newAnswer, author: user?.name || 'You' });
+    addAnswer(selectedQA.id, { text: newAnswer, ...authorStamp({ user, session: supabaseSession, displayName }) });
     setNewAnswer('');
     const updated = useOfficeStore.getState().qaItems.find((q) => q.id === selectedQA.id);
     if (updated) setSelectedQA(updated);
@@ -55,7 +60,7 @@ export default function Forum() {
           <div style={{ flex: 1 }}>
             <h3 className="forum-detail-title">{qa.title}</h3>
             <div className="forum-detail-meta">
-              Started by {qa.author} &middot; {new Date(qa.createdAt).toLocaleDateString()} &middot;
+              Started by {byline(qa)} &middot; {new Date(qa.createdAt).toLocaleDateString()} &middot;
               <span className={qa.resolved ? 'forum-resolved' : 'forum-open'}>{qa.resolved ? ' Resolved' : ' Open'}</span>
             </div>
           </div>
@@ -72,9 +77,9 @@ export default function Forum() {
           <h4>{qa.answers.length} Repl{qa.answers.length !== 1 ? 'ies' : 'y'}</h4>
           {qa.answers.map((ans) => (
             <div key={ans.id} className="forum-answer">
-              <div className="forum-answer-avatar">{ans.author?.[0]?.toUpperCase() || '?'}</div>
+              <div className="forum-answer-avatar">{byline(ans)?.[0]?.toUpperCase() || '?'}</div>
               <div className="forum-answer-content">
-                <div className="forum-answer-meta"><strong>{ans.author}</strong> &middot; {new Date(ans.createdAt).toLocaleDateString()}</div>
+                <div className="forum-answer-meta"><strong>{byline(ans)}</strong> &middot; {new Date(ans.createdAt).toLocaleDateString()}</div>
                 <p>{ans.text}</p>
               </div>
             </div>
@@ -120,7 +125,7 @@ export default function Forum() {
               <div className="forum-card-content">
                 <h4 className="forum-card-title">{qa.title}</h4>
                 <div className="forum-card-meta">
-                  {qa.author} &middot; {new Date(qa.createdAt).toLocaleDateString()} &middot;
+                  {byline(qa)} &middot; {new Date(qa.createdAt).toLocaleDateString()} &middot;
                   <MessageCircle size={14} /> {qa.answers.length} repl{qa.answers.length !== 1 ? 'ies' : 'y'}
                 </div>
               </div>
