@@ -77,7 +77,7 @@ When any session discovers a path, pattern, or architectural relationship throug
    - New data shape or field → add to Key Data Shapes
    - New routing path → add to routing table
    - New naming pattern → add to Naming Conventions
-3. **Right-size the update**: Push discoveries to the most specific CONTEXT.md (Layer 2/2.5), not the root CLAUDE.md. Keep CLAUDE.md under 50 lines.
+3. **Right-size the update**: Push discoveries to the most specific CONTEXT.md (Layer 2/2.5), not the root CLAUDE.md. Keep CLAUDE.md to at most 50 lines.
 4. **Flag for review**: At session end, note any CONTEXT.md updates in the Session Debrief under "NotebookLM Update Needed".
 
 This converts high-token exploratory searches into low-token direct jumps for all future sessions.

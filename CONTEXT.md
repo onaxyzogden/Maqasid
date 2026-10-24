@@ -28,7 +28,7 @@
 ```bash
 npm run dev                     # Start Vite dev server
 npm run build                   # Production build
-npm run lint                    # Grounding gate: ESLint + lint:grounding-strict + audit:inline-refs
+npm run lint                    # Grounding gate, six steps: ESLint + lint:grounding-strict + audit:inline-refs + lint:divine-names + generate:pillar-glyphs:check + generate:landing-demo:check
 npm run lint:eslint             # ESLint only (flat config, eslint.config.js)
 npm run preview                 # Preview production build
 npm test                        # Vitest — schema/grounding conformance tests

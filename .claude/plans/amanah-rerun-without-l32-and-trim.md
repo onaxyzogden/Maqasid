@@ -43,7 +43,7 @@
   - **Move to `stages/CONTEXT.md`:** l.62-63 (gate-file naming and status values) is already there word for word; add only "Destructive operations (store reset, data migration) require a `stages/` approval doc." CLAUDE.md keeps that safety rule plus the pointer "Stage gate naming and workflow: `stages/CONTEXT.md`".
   - **`website/CONTEXT.md`:** l.81-84 (static HTML, no build, `bismillah.ogden.ag`, deployment postponed) is already there. It gets one added line only: "Merged from the ogden-hub repo; the root CLAUDE.md no longer repeats this section." The root `CONTEXT.md` workspace map already routes `website/`.
   - Nothing goes to `docs/` (Human hemisphere).
-- [ ] References to "CLAUDE.md l.32" in the log and plans are historical. After the trim, the line sits at l.21. The new log entry says so; old entries are not rewritten.
+- [ ] References to "CLAUDE.md l.32" in the log and plans are historical. After the trim, the line sits at l.16 (corrected 2026-10-20; first written as l.21). The new log entry says so; old entries are not rewritten.
 - [ ] Other options considered: (A) RED-no32 only, which leaves "do the sources hold on their own" untested. Declined at Stage 03. (C) Trim before the rerun. Rejected: the hand-over says to rerun before l.32 is touched, and the order also keeps the snapshot clean.
 
 ### Must Not
@@ -89,7 +89,7 @@
 
 ### Phase 5 — CLAUDE.md trim (separate decision)
 - [ ] Task 5.1 — Show the trimmed `CLAUDE.md` and the three CONTEXT.md additions in chat, then run the gate (AskUserQuestion Approve / Round robin / Deny).
-- [ ] Task 5.2 — On Approve: apply all four edits (LF) and run the Must Not checks (l.29-36 verbatim, fact-grep, no `docs/` change, `wc -l CLAUDE.md` ≤ 50). Add one line to the Phase 4 log entry: trim applied (the Amanah line is now l.21) or declined.
+- [ ] Task 5.2 — On Approve: apply all four edits (LF) and run the Must Not checks (l.29-36 verbatim, fact-grep, no `docs/` change, `wc -l CLAUDE.md` ≤ 50). Add one line to the Phase 4 log entry: trim applied (the Amanah line is now l.16; corrected 2026-10-20, first written as l.21) or declined.
 **Gate:** Trim applied with every check passing, or declined with nothing changed.
 
 ### Phase 6 — Commit
