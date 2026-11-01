@@ -3,6 +3,18 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-11-01] session | Tahajjud step-less tasks visible
+
+- **Problem:** On the Tahajjud node's Before tab, tapping a task pill could show only "Nothing left in this task today", with no task title and no pills to move on. Pills 2 and 3 are tasks seeded with no subtasks, so `SequentialStepFlow` passed `subtask == null`, and `SubtaskStepDetail` returned the complete card early.
+- **Change:** `src/components/shared/SubtaskStepDetail.jsx` now shows the complete card only when `task == null`. A task with no subtasks keeps its crumb, the task stepper and the priority tag, and shows "This task has no separate steps." The Now, Why/How and Source sections moved into a local `SubtaskBody`. The `shared/CONTEXT.md` row is updated. Both `onRevert` hosts already ignore a null subtask, so the hosts are unchanged. This also applies to the Orientation sheet, which looks the same.
+- **Verification:**
+  - New `src/components/shared/__tests__/subtask-step-detail.test.jsx` (4 tests), seen failing first.
+  - 704 tests pass. 5 files under `src/services/__tests__/` fail to load because `fake-indexeddb` is not installed; they fail the same way without this change.
+  - Lint and build are clean.
+  - Phone-width preview screenshots: Tahajjud pills 2 and 3 now show their tasks, and the Orientation Faith card is unchanged.
+- **Plan:** `.claude/plans/node-done-steps-visible.md`. Branch `fix/node-step-less-tasks`, cut from `main`.
+- **Open:** tasks with no subtasks show as done as soon as the task before them is done (existing behaviour). `fake-indexeddb` is missing from the installed devDependencies.
+
 ## [2026-10-22] session | Cloud re-platform, Session A: Phases 3–5
 
 - **Change:** on branch `mios-cloud-replatform` (worktree, not pushed), accounts still switched off. Phase 3: sign-in with an emailed code, an account page, and a sign-out that keeps the device's data (`a76d46c`). Phase 4: each stored key is the account's or the device's; changes wait on the device per record, per account (IndexedDB outbox); flush, pull, and offline invoices numbered on send. Phase 5: the first sign-in on a device with records asks before anything is sent (`FirstSignInSheet`, `7a207bf`), and an account the old snapshot sync saved is offered its copy once (`SnapshotSheet`, `aba1be0`). The old snapshot sync, `FirstLoginModal`, `SyncStatusChip` and `useSyncObserver` are removed; the bucket and table are only read.

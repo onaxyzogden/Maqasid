@@ -115,8 +115,9 @@ function DetailSection({ label, children }) {
 // flex gap spaces the sections; class names keep the historical os-sheet__ /
 // orient-evidence__ prefixes (see shared/CONTEXT.md).
 //
-// `subtask == null` means the task has no eligible step left today (all done,
-// snoozed, or set aside) — rendered as a calm complete state, not an error.
+// `subtask == null` with a task means the task has no subtasks of its own: it
+// keeps its header and stepper and stands as its own step. Only `task == null`
+// (nothing eligible left today) gets the calm complete state.
 export default function SubtaskStepDetail({
   crumbParts = [],
   task,
@@ -125,7 +126,7 @@ export default function SubtaskStepDetail({
   taskStepper = null,
   subtaskStepper = null,
 }) {
-  if (!subtask) {
+  if (!task) {
     return (
       <div className="os-sheet__clear">
         <Check size={22} className="os-sheet__clear-icon" aria-hidden="true" />
@@ -137,8 +138,9 @@ export default function SubtaskStepDetail({
 
   const priority = task?.priority;
   const showPriority = KNOWN_PRIORITIES.has(priority);
-  const amanahTier = deriveSubtaskTier(subtask);
-  const grounded = isSubtaskGrounded(subtask);
+  // Tier and grounding are read off the subtask; a step-less task has neither.
+  const amanahTier = subtask ? deriveSubtaskTier(subtask) : null;
+  const grounded = subtask ? isSubtaskGrounded(subtask) : false;
   // The task title folds into the crumb line as its last part, rather than
   // getting its own heading — one name in the header instead of two.
   const crumb = [...crumbParts.filter(Boolean), task?.title].filter(Boolean);
@@ -155,7 +157,7 @@ export default function SubtaskStepDetail({
               </Fragment>
             ))}
           </p>
-          {taskStats && (
+          {taskStats?.total > 0 && (
             <span className="os-sheet__task-prog">{taskStats.done}/{taskStats.total}</span>
           )}
         </div>
@@ -168,13 +170,32 @@ export default function SubtaskStepDetail({
           <span className={`os-sheet__pri os-sheet__pri--${priority}`}>{priority}</span>
         )}
         {amanahTier && <AmanahTierBadge tier={amanahTier} size="md" />}
-        <span className={`os-sheet__grounded${grounded ? '' : ' os-sheet__grounded--no'}`}>
-          {grounded ? 'Grounded' : 'Ungrounded'}
-        </span>
+        {subtask && (
+          <span className={`os-sheet__grounded${grounded ? '' : ' os-sheet__grounded--no'}`}>
+            {grounded ? 'Grounded' : 'Ungrounded'}
+          </span>
+        )}
       </div>
 
       {subtaskStepper}
 
+      {/* A task seeded without subtasks (a one-line reminder) is its own step:
+          header above, and a note in place of the Now box and accordions. */}
+      {!subtask ? (
+        <p className="os-sheet__guide-text os-sheet__guide--empty">
+          This task has no separate steps.
+        </p>
+      ) : (
+        <SubtaskBody subtask={subtask} />
+      )}
+    </>
+  );
+}
+
+// The subtask-only sections: Now box, Why/How and Source.
+function SubtaskBody({ subtask }) {
+  return (
+    <>
       <div className="os-sheet__now">
         <span className="os-sheet__now-label">Now</span>
         <p className="os-sheet__now-text">{subtask.title}</p>
