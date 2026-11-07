@@ -1013,7 +1013,7 @@
   .btp-field-textarea,
   .btp-field-select,
   .btp-field-input {
-    font-size: 15px;
+    font-size: 16px;
     padding: 12px;
   }
   .btp-notes-container {
@@ -1266,3 +1266,48 @@
   border-color: var(--accent);
 }
 .rda-btn--primary:hover { filter: brightness(1.08); }
+
+/* CRD-V1 Viability candidates (shares the IC card styles) */
+.btp-ic-card--conditional { border-left-color: var(--warning); }
+
+.btp-ic-verdict--conditional {
+  background: var(--warning-bg);
+  color: var(--warning-text);
+  border-color: var(--warning-border, var(--warning));
+}
+
+.btp-ic-option--conditional.is-on {
+  background: var(--warning-bg);
+  border-color: var(--warning-border, var(--warning));
+  color: var(--warning-text);
+}
+
+.btp-vc-locked {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.btp-vc-kept {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 16px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+}
+
+.btp-vc-kept-title {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text3);
+}
+
+.btp-vc-kept-body {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+  white-space: pre-wrap;
+}

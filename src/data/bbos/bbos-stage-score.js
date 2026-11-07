@@ -10,11 +10,21 @@
 
 import { getBbosTaskDef } from './bbos-task-definitions';
 import { icList, icAssetRows } from './bbos-ic-assets';
+import { viabilityCandidateRows, candidateResult } from './bbos-viability-candidates';
 
 // An IC-OUT check scores only when every asset listed passes it.
 const icOutCheck = (n) => (fd) => {
   const rows = icAssetRows(fd, icList('IC-OUT'));
   return rows.length && rows.every((r) => r.checks[n - 1] === 'pass') ? 5 : 0;
+};
+
+// A Viability letter is scored over the candidates still standing (a failed
+// letter removes a candidate from the score): 5 when every one passes it,
+// 3 when every one passes or is conditional on it, else 0.
+const viabilityLetter = (n) => (fd) => {
+  const standing = viabilityCandidateRows(fd).filter((r) => candidateResult(r).verdict !== 'removed');
+  if (!standing.length || standing.some((r) => !['pass', 'conditional'].includes(r.gates[n]))) return 0;
+  return standing.every((r) => r.gates[n] === 'pass') ? 5 : 3;
 };
 
 const MAX_PER_SIGNAL = 5;
@@ -56,17 +66,17 @@ export const STAGE_SCORE_SIGNALS = {
       fieldIds: ['overallProofStrength'],
       score: (fd) => ({ strong: 5, moderate: 3, weak: 1, insufficient: 0 }[fd?.overallProofStrength] ?? 0) },
     { label: 'Gate A — Regulatory',       taskId: 'CRD-V1',
-      fieldIds: ['gateARegulatory'],
-      score: (fd) => ({ pass: 5, conditional: 3, fail: 0 }[fd?.gateARegulatory] ?? 0) },
+      fieldIds: ['viabilityCandidates'],
+      score: viabilityLetter(0) },
     { label: 'Gate B — Market Fit',       taskId: 'CRD-V1',
-      fieldIds: ['gateBMarketFit'],
-      score: (fd) => ({ pass: 5, conditional: 3, fail: 0 }[fd?.gateBMarketFit] ?? 0) },
+      fieldIds: ['viabilityCandidates'],
+      score: viabilityLetter(1) },
     { label: 'Gate C — Competence Proof', taskId: 'CRD-V1',
-      fieldIds: ['gateCCompetenceProof'],
-      score: (fd) => ({ pass: 5, conditional: 3, fail: 0 }[fd?.gateCCompetenceProof] ?? 0) },
+      fieldIds: ['viabilityCandidates'],
+      score: viabilityLetter(2) },
     { label: 'Gate D — Proven Demand',    taskId: 'CRD-V1',
-      fieldIds: ['gateDProvenDemand'],
-      score: (fd) => ({ pass: 5, conditional: 3, fail: 0 }[fd?.gateDProvenDemand] ?? 0) },
+      fieldIds: ['viabilityCandidates'],
+      score: viabilityLetter(3) },
   ],
   STR: [
     { label: 'Integrity Verdict',     taskId: 'STR-V1',

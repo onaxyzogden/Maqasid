@@ -17,6 +17,15 @@ import DashboardTaskCard from '../shared/DashboardTaskCard';
 import GLabelBadge from '../shared/GLabelBadge';
 import './BbosFullDashboard.css';
 import { icList, icAssetRows, formatIcAssets, fieldValueText, icAssetSummary } from '@data/bbos/bbos-ic-assets';
+import {
+  VIABILITY_FIELD, VIABILITY_LETTERS, KEPT_TEXT_FIELD, viabilityCandidateRows, candidateResult,
+  candidateFieldText, listStoredAsText, viabilityOverall,
+} from '@data/bbos/bbos-viability-candidates';
+
+// Any field as plain text: the IC lists and the Viability candidate list read through their own helpers.
+function dashFieldText(field, value, fieldData) {
+  return field?.type === VIABILITY_FIELD ? candidateFieldText(field, value, fieldData) : fieldValueText(field, value, fieldData);
+}
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -38,7 +47,7 @@ function resolveSelectLabel(field, value) {
 
 function countFilledFields(def, fieldData) {
   if (!fieldData) return { filled: 0, total: def.fields.length };
-  const filled = def.fields.filter((f) => fieldValueText(f, fieldData[f.id], fieldData) !== '').length;
+  const filled = def.fields.filter((f) => dashFieldText(f, fieldData[f.id], fieldData) !== '').length;
   return { filled, total: def.fields.length };
 }
 
@@ -240,6 +249,73 @@ function GateChecksRenderer({ checks, overallValue, overallLabel }) {
           <span className="bfd__gate-overall-label">Overall</span>
           <span className="bfd__gate-overall-value">{overallLabel || overallValue.toUpperCase()}</span>
         </div>
+      )}
+    </div>
+  );
+}
+
+// ViabilityCandidatesRenderer — CRD-V1: one row per candidate, its Gates A–D and the
+// verdict read from them (never stored), then the overall determination as stored.
+const CANDIDATE_VERDICT = {
+  cleared: { label: 'CLEARED', tone: 'pass' },
+  removed: { label: 'REMOVED', tone: 'fail' },
+  conditional: { label: 'CONDITIONAL', tone: 'conditional' },
+  unfinished: { label: 'UNFINISHED', tone: 'pending' },
+};
+const LETTER_BADGE = { pass: 'PASS', fail: 'FAIL', conditional: 'COND' };
+
+function ViabilityCandidatesRenderer({ fieldData }) {
+  const rows = viabilityCandidateRows(fieldData);
+  const kept = [fieldData[KEPT_TEXT_FIELD], listStoredAsText(fieldData) ? fieldData[VIABILITY_FIELD] : null]
+    .filter((t) => typeof t === 'string' && t.trim());
+  const labels = { viable: 'VIABLE', conditionallyViable: 'CONDITIONAL', removed: 'REMOVED' };
+  const results = rows.map(candidateResult);
+  const cleared = results.filter((r) => r.verdict === 'cleared').length;
+  const derived = viabilityOverall(rows);
+  const stored = fieldData.overallViability;
+  const differs = !!derived && !!stored && derived !== stored;
+  return (
+    <div className="bfd__gate-checks">
+      <div className="bfd__gate-summary">
+        <span className="bfd__gate-verdict">Candidates</span>
+        <span className="bfd__gate-count">{rows.length ? `${cleared}/${rows.length} cleared` : 'None recorded'}</span>
+      </div>
+      {results.map((r, i) => {
+        const v = CANDIDATE_VERDICT[r.verdict] || CANDIDATE_VERDICT.unfinished;
+        return (
+          <div key={i} className={`bfd__gate-check bfd__gate-check--${v.tone} bfd__vc-row`}>
+            <span className="bfd__gate-check-label">{r.name || `Candidate ${i + 1} (unnamed)`}</span>
+            <span className="bfd__vc-letters">
+              {VIABILITY_LETTERS.map((l, n) => {
+                const g = rows[i].gates[n];
+                return (
+                  <span
+                    key={l.letter}
+                    className={`bfd__gate-check-badge bfd__gate-check-badge--${LETTER_BADGE[g] ? g : 'pending'}`}
+                    title={`${l.name}: ${LETTER_BADGE[g] || 'unanswered'}`}
+                  >
+                    {l.letter} {LETTER_BADGE[g] || '—'}
+                  </span>
+                );
+              })}
+            </span>
+            <span className={`bfd__gate-check-badge bfd__gate-check-badge--${v.tone}`}>{v.label}</span>
+          </div>
+        );
+      })}
+      {kept.length > 0 && (
+        <p className="bfd__field-textarea bfd__vc-kept">{'Earlier text, kept as written:\n'}{kept.join('\n\n')}</p>
+      )}
+      {fieldData.overallViability && (
+        <div className="bfd__gate-overall">
+          <span className="bfd__gate-overall-label">Overall</span>
+          <span className="bfd__gate-overall-value">{labels[fieldData.overallViability] || String(fieldData.overallViability).toUpperCase()}</span>
+        </div>
+      )}
+      {differs && (
+        <p className="bfd__vc-differs" role="note">
+          Candidates give {labels[derived]}; correct the stored determination.
+        </p>
       )}
     </div>
   );
@@ -521,22 +597,7 @@ const TASK_RENDERERS = {
 
   'CRD-AF5': ({ fieldData }) => <ProofAuditRenderer fieldData={fieldData} />,
 
-  'CRD-V1': ({ fieldData }) => {
-    const checks = [
-      { label: 'Gate A — Regulatory Clearance',   value: fieldData.gateARegulatory },
-      { label: 'Gate B — Addressable Market Fit',  value: fieldData.gateBMarketFit },
-      { label: 'Gate C — Competence Proof',        value: fieldData.gateCCompetenceProof },
-      { label: 'Gate D — Proven Demand',           value: fieldData.gateDProvenDemand },
-    ];
-    const viabilityLabels = { viable: 'VIABLE', conditionallyViable: 'CONDITIONAL', removed: 'REMOVED' };
-    return (
-      <GateChecksRenderer
-        checks={checks}
-        overallValue={fieldData.overallViability}
-        overallLabel={viabilityLabels[fieldData.overallViability]}
-      />
-    );
-  },
+  'CRD-V1': ({ fieldData }) => <ViabilityCandidatesRenderer fieldData={fieldData} />,
 
   'STR-AF2': ({ fieldData }) => <TransformationArcRenderer fieldData={fieldData} />,
 
@@ -1283,14 +1344,15 @@ function DefaultTaskRenderer({ def, fieldData }) {
   return (
     <div className="bfd__default-fields">
       {def.fields.map((field) => {
-        const raw = field.type === 'icAssets' ? fieldValueText(field, null, fieldData) : fieldData?.[field.id];
-        const isEmpty = fieldValueText(field, raw, fieldData) === '';
+        const listed = field.type === 'icAssets' || field.type === VIABILITY_FIELD;
+        const raw = listed ? dashFieldText(field, null, fieldData) : fieldData?.[field.id];
+        const isEmpty = dashFieldText(field, raw, fieldData) === '';
         let displayValue;
         if (isEmpty) {
           displayValue = <span className="bfd__field-empty">—</span>;
         } else if (field.type === 'select') {
           displayValue = <span className="bfd__field-value">{resolveSelectLabel(field, raw)}</span>;
-        } else if (field.type === 'textarea' || field.type === 'icAssets') {
+        } else if (field.type === 'textarea' || listed) {
           displayValue = <p className="bfd__field-textarea">{raw}</p>;
         } else {
           displayValue = <span className="bfd__field-value">{raw}</span>;
@@ -1314,7 +1376,7 @@ function BbosTaskCard({ def, task, index, onSelectTask, span, doneColumnId, view
   const CustomRenderer = TASK_RENDERERS[def.id];
 
   const allEmpty = task
-    ? def.fields.every((f) => fieldValueText(f, fieldData[f.id], fieldData) === '')
+    ? def.fields.every((f) => dashFieldText(f, fieldData[f.id], fieldData) === '')
     : true;
 
   const hasData = task && !allEmpty;

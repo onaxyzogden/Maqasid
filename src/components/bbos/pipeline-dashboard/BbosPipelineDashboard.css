@@ -902,6 +902,8 @@
 }
 .bpd-brief__named-asset[data-tone="pass"] { --t: var(--bpd-complete); }
 .bpd-brief__named-asset[data-tone="noship"] { --t: var(--bpd-red); }
+.bpd-brief__named-asset[data-tone="conditions"] { --t: var(--bpd-gold); }
+.bpd-brief__named-asset[data-tone="incomplete"] { --t: var(--bpd-text-secondary); }
 .bpd-brief__named-asset-list { font-size: 12px; font-weight: 600; color: var(--bpd-text-secondary); }
 .bpd-brief__named-asset-name { flex: 1 1 8rem; min-width: 0; color: var(--bpd-text-primary); overflow-wrap: anywhere; }
 .bpd-brief__named-asset-pill {

@@ -6,6 +6,7 @@ import { useTaskStore } from '../../store/task-store';
 import { openConditions } from '../../data/bbos/bbos-gate-log';
 import { evaluateStageGates, gateMoveRefusal } from '../../data/bbos/bbos-named-gates';
 import { icAssetLine } from '@data/bbos/bbos-ic-assets';
+import { viabilityCandidateLine } from '@data/bbos/bbos-viability-candidates';
 import { getBbosRole } from '../../data/bbos/bbos-role-access';
 import Modal from '../shared/Modal';
 import './BbosFullDashboard.css';
@@ -130,6 +131,20 @@ export default function BbosGateMoveDialog({ project, fromStage, nextStage, onCo
                       return (
                         <li key={`${a.list}-${a.index}`} className="bfd__named-asset">
                           <span className="bfd__named-asset-list">{l.list}</span>
+                          <span className="bfd__named-asset-name">{l.name}</span>
+                          <span className={`bfd__named-asset-pill bfd__named-asset-pill--${l.tone}`}>{l.label}</span>
+                          {l.detail && <span className="bfd__named-asset-detail">{l.detail}</span>}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                )}
+                {g.candidates?.length > 0 && (
+                  <ul className="bfd__named-assets" aria-label={`Candidates checked for ${g.name}`}>
+                    {g.candidates.map((c) => {
+                      const l = viabilityCandidateLine(c);
+                      return (
+                        <li key={c.index} className="bfd__named-asset">
                           <span className="bfd__named-asset-name">{l.name}</span>
                           <span className={`bfd__named-asset-pill bfd__named-asset-pill--${l.tone}`}>{l.label}</span>
                           {l.detail && <span className="bfd__named-asset-detail">{l.detail}</span>}

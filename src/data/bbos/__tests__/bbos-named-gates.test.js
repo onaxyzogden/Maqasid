@@ -6,6 +6,7 @@ import { describe, it, expect } from 'vitest';
 import { evaluateStageGates, gateMoveRefusal, lateDisqualifier, GATE_RULES } from '../bbos-named-gates';
 import { BBOS_REJECTION_REASONS } from '../bbos-pipeline';
 import { BBOS_TASK_DEFINITIONS } from '../bbos-task-definitions';
+import { VIABILITY_LETTERS } from '../bbos-viability-candidates';
 
 const task = (bbosTaskType, bbosFieldData) => ({ id: bbosTaskType, bbosTaskType, bbosFieldData });
 const gate = (res, id) => res.gates.find((g) => g.id === id);
@@ -18,8 +19,10 @@ const CLEAN_RUBRIC = {
   q7EnergyAversion: 'no', q8FalseInformation: 'no', q9ScopeUnderstanding: 'yes',
   q10CapacityRealistic: 'yes',
 };
+const P = ['pass', 'pass', 'pass', 'pass'];
+const cand = (name, gates = P, note = '') => ({ name, gates, note });
 const VIABLE = {
-  'CRD-V1': { gateARegulatory: 'pass', gateBMarketFit: 'pass', gateCCompetenceProof: 'pass', gateDProvenDemand: 'pass', overallViability: 'viable' },
+  'CRD-V1': { viabilityCandidates: [cand('Halal food co-ops, Ontario')], overallViability: 'viable' },
   'CRD-V2': {},
   'CRD-V3': { clearedCandidates: 'Halal food co-ops, Ontario' },
 };
@@ -86,36 +89,187 @@ describe('Amanah Gate (FP-02 rubric)', () => {
 });
 
 describe('Viability Gate (Gates A–D)', () => {
-  it('clears when all four gates pass and a candidate is handed off', () => {
-    expect(gate(evaluateStageGates('CRD', crd()), 'viability').status).toBe('clear');
+  const v1 = (candidates, overallViability = 'viable') => ({ v1: { viabilityCandidates: candidates, overallViability } });
+
+  it('keeps the four letters in the rule, in the doc order', () => {
+    expect(GATE_RULES.viability.letters).toBe(VIABILITY_LETTERS);
   });
 
-  it('clears when a failed candidate is recorded in the Removed Niche Log', () => {
-    const g = gate(evaluateStageGates('CRD', crd({ v1: { gateBMarketFit: 'fail' }, v2: { removedNiches: 'Crypto tutoring: Gate B fail' } })), 'viability');
+  it('clears when every candidate is named and passes all four gates, naming the handoff', () => {
+    const g = gate(evaluateStageGates('CRD', crd()), 'viability');
     expect(g.status).toBe('clear');
+    expect(g.reasons.join(' ')).toMatch(/Handed off: Halal food co-ops, Ontario/);
+    expect(g.candidates).toEqual([{ index: 1, name: 'Halal food co-ops, Ontario', verdict: 'cleared', failed: [], conditional: [], unanswered: [] }]);
   });
 
-  it('is incomplete when a gate failed but no removal is recorded', () => {
-    const g = gate(evaluateStageGates('CRD', crd({ v1: { gateBMarketFit: 'fail' } })), 'viability');
+  it('removes a candidate that failed a letter and still clears on the one that passed', () => {
+    const g = gate(evaluateStageGates('CRD', crd({ ...v1([cand('Halal food co-ops, Ontario'), cand('Crypto tutoring', ['pass', 'fail', 'pass', 'pass'])]), v2: { removedNiches: 'Crypto tutoring — failed Gate B' } })), 'viability');
+    expect(g.status).toBe('clear');
+    expect(g.reasons.join(' ')).toMatch(/Removed: Crypto tutoring/);
+    expect(g.candidates.map((c) => c.verdict)).toEqual(['cleared', 'removed']);
+  });
+
+  it('never clears a candidate that failed a letter, whatever the row says', () => {
+    const row = { ...cand('Crypto tutoring', ['pass', 'fail', 'pass', 'pass']), verdict: 'cleared' };
+    const g = gate(evaluateStageGates('CRD', crd(v1([cand('Halal food co-ops, Ontario'), row]))), 'viability');
+    expect(g.candidates[1]).toMatchObject({ verdict: 'removed', failed: ['B'] });
+  });
+
+  it('blocks when every candidate failed a letter, whatever the overall determination says', () => {
+    const rows = [cand('Crypto tutoring', ['pass', 'fail', 'pass', 'pass']), cand('Forex signals', ['fail', 'pass', 'pass', 'pass'])];
+    const g = gate(evaluateStageGates('CRD', crd(v1(rows, 'removed'))), 'viability');
+    expect(g.status).toBe('blocked');
+    expect(g.reasons.join(' ')).toMatch(/no candidate clears the Viability Gates/);
+    expect(gate(evaluateStageGates('CRD', crd(v1(rows, 'viable'))), 'viability').status).toBe('blocked');
+  });
+
+  it('is incomplete with no candidate recorded', () => {
+    const g = gate(evaluateStageGates('CRD', crd(v1([], ''))), 'viability');
     expect(g.status).toBe('incomplete');
-    expect(g.reasons.join(' ')).toMatch(/Removed Niche Log/);
+    expect(g.reasons.join(' ')).toMatch(/add each candidate/i);
   });
 
-  it('is incomplete when no cleared candidate is handed off', () => {
-    const g = gate(evaluateStageGates('CRD', crd({ v3: {} })), 'viability');
+  it('is incomplete while a candidate is unnamed or a letter is unanswered, naming each', () => {
+    const g = gate(evaluateStageGates('CRD', crd(v1([cand(''), cand('Zakat software', ['pass', 'pass', 'pass', ''])]))), 'viability');
     expect(g.status).toBe('incomplete');
-    expect(g.reasons.join(' ')).toMatch(/Cleared Candidate Handoff/);
+    const text = g.reasons.join(' ');
+    expect(text).toMatch(/Candidate 1: name the candidate/);
+    expect(text).toMatch(/Zakat software: answer Gate D/);
   });
 
-  it('blocks when the overall determination is Removed', () => {
-    expect(gate(evaluateStageGates('CRD', crd({ v1: { overallViability: 'removed' } })), 'viability').status).toBe('blocked');
+  it('is incomplete while the overall determination is blank or disagrees with the candidates', () => {
+    const blank = gate(evaluateStageGates('CRD', crd(v1([cand('Halal food co-ops, Ontario')], ''))), 'viability');
+    expect(blank.status).toBe('incomplete');
+    expect(blank.reasons.join(' ')).toMatch(/Overall Viability Determination/);
+    const off = gate(evaluateStageGates('CRD', crd(v1([cand('Halal food co-ops, Ontario')], 'conditionallyViable'))), 'viability');
+    expect(off.status).toBe('incomplete');
+    expect(off.reasons.join(' ')).toMatch(/Conditionally Viable.*Viable/);
   });
 
-  it('raises a condition on a conditional gate', () => {
-    const g = gate(evaluateStageGates('CRD', crd({ v1: { gateCCompetenceProof: 'conditional', overallViability: 'conditionallyViable' } })), 'viability');
+  it('raises a condition on a surviving candidate with a conditional letter, naming both', () => {
+    const g = gate(evaluateStageGates('CRD', crd(v1([cand('Zakat software', ['pass', 'pass', 'conditional', 'pass'])], 'conditionallyViable'))), 'viability');
     expect(g.status).toBe('conditions');
     expect(g.condition.resolverRole).toBeNull();
+    expect(g.condition.text).toMatch(/Zakat software/);
     expect(g.condition.text).toMatch(/Gate C/);
+  });
+
+  it('holds while the Cleared Candidate Handoff (V3) does not list a cleared candidate, whatever its case or spacing', () => {
+    const missing = gate(evaluateStageGates('CRD', crd({ v3: {} })), 'viability');
+    expect(missing.status).toBe('incomplete');
+    expect(missing.reasons.join(' ')).toMatch(/Cleared Candidate Handoff does not list Halal food co-ops, Ontario on its own line\./);
+    const spaced = gate(evaluateStageGates('CRD', crd({ v3: { clearedCandidates: '1. halal  food co-ops, ONTARIO' } })), 'viability');
+    expect(spaced.status).toBe('clear');
+  });
+
+  it('holds while V3 names a candidate that failed a letter', () => {
+    const rows = [cand('Halal food co-ops, Ontario'), cand('Crypto tutoring', ['pass', 'fail', 'pass', 'pass'])];
+    const g = gate(evaluateStageGates('CRD', crd({ ...v1(rows), v2: { removedNiches: 'Crypto tutoring' }, v3: { clearedCandidates: 'Halal food co-ops, Ontario; Crypto tutoring' } })), 'viability');
+    expect(g.status).toBe('incomplete');
+    expect(g.reasons.join(' ')).toMatch(/Cleared Candidate Handoff names Crypto tutoring, which failed Gate B\. Remove it from the handoff, or rename one of them if they are different candidates\./);
+    expect(g.candidates[1].verdict).toBe('removed');
+  });
+
+  it('holds while the Removed Niche Log (V2) does not record a removed candidate', () => {
+    const rows = [cand('Halal food co-ops, Ontario'), cand('Crypto tutoring', ['pass', 'fail', 'pass', 'pass'])];
+    const g = gate(evaluateStageGates('CRD', crd({ ...v1(rows), v2: {} })), 'viability');
+    expect(g.status).toBe('incomplete');
+    expect(g.reasons.join(' ')).toMatch(/Removed Niche Log does not record Crypto tutoring \(failed Gate B\)\. Record the removal on its own line\./);
+    const noTask = gate(evaluateStageGates('CRD', crd({ ...v1(rows) }).filter((t) => t.id !== 'CRD-V2')), 'viability');
+    expect(noTask.status).toBe('incomplete');
+  });
+
+  it('holds while a removed candidate is unnamed, so the removal can be logged', () => {
+    const g = gate(evaluateStageGates('CRD', crd(v1([cand('Halal food co-ops, Ontario'), cand('', ['pass', 'fail', 'pass', 'pass'])]))), 'viability');
+    expect(g.status).toBe('incomplete');
+    expect(g.reasons.join(' ')).toMatch(/Candidate 2 failed Gate B but is unnamed\. Name it so the removal can be logged\./);
+    const all = gate(evaluateStageGates('CRD', crd(v1([cand('', ['fail', 'pass', 'pass', 'pass'])], 'removed'))), 'viability');
+    expect(all.status).toBe('blocked');
+    expect(all.reasons.join(' ')).toMatch(/Candidate 1 \(unnamed\)/);
+  });
+
+  it('holds while a stored empty list hides an old single answer, and lets an edited row stand in for it', () => {
+    const legacy = { gateARegulatory: 'pass', gateBMarketFit: 'pass', gateCCompetenceProof: 'conditional', gateDProvenDemand: 'pass' };
+    const hidden = gate(evaluateStageGates('CRD', crd({ v1: { ...legacy, viabilityCandidates: [] } })), 'viability');
+    expect(hidden.status).toBe('incomplete');
+    expect(hidden.reasons.join(' ')).toMatch(/earlier single answer \(A pass, B pass, C conditional, D pass\) is hidden by an empty candidate list\. Add a candidate\./);
+    const carried = gate(evaluateStageGates('CRD', crd({ v1: { ...legacy, viabilityCandidates: [cand('Halal food co-ops, Ontario'), cand('Zakat software', ['pass', 'pass', 'conditional', 'pass'])], overallViability: 'conditionallyViable' } })), 'viability');
+    expect(carried.status).toBe('conditions');
+    const edited = gate(evaluateStageGates('CRD', crd({ v1: { ...legacy, viabilityCandidates: [cand('Halal food co-ops, Ontario')] } })), 'viability');
+    expect(edited.status).toBe('clear');
+  });
+
+  it('does not take a removed name recorded only inside a longer entry of the Removed Niche Log', () => {
+    const rows = [cand('Halal weddings'), cand('Catering', ['pass', 'fail', 'pass', 'pass'])];
+    const inside = gate(evaluateStageGates('CRD', crd({ ...v1(rows), v2: { removedNiches: 'Wedding Catering — failed Gate B' }, v3: { clearedCandidates: 'Halal weddings' } })), 'viability');
+    expect(inside.status).toBe('incomplete');
+    expect(inside.reasons.join(' ')).toMatch(/Removed Niche Log does not record Catering/);
+    const own = gate(evaluateStageGates('CRD', crd({ ...v1(rows), v2: { removedNiches: '- Catering — failed Gate B' }, v3: { clearedCandidates: 'Halal weddings' } })), 'viability');
+    expect(own.status).toBe('clear');
+  });
+
+  it('holds while V3 names a removed candidate anywhere in its text, even inside a comma list, a label or a longer name', () => {
+    const rows = [cand('Halal food co-ops, Ontario'), cand('Crypto tutoring', ['pass', 'fail', 'pass', 'pass'])];
+    for (const v3 of ['Halal food co-ops, Ontario, Crypto tutoring', 'Halal food co-ops, Ontario\nCleared: crypto tutoring', 'Halal food co-ops, Ontario\nCandidate 2 — Crypto tutoring']) {
+      const g = gate(evaluateStageGates('CRD', crd({ ...v1(rows), v2: { removedNiches: 'Crypto tutoring' }, v3: { clearedCandidates: v3 } })), 'viability');
+      expect(g.status).toBe('incomplete');
+      expect(g.reasons.join(' ')).toMatch(/Cleared Candidate Handoff names Crypto tutoring, which failed Gate B\. Remove it from the handoff, or rename one of them if they are different candidates\./);
+    }
+    const longer = gate(evaluateStageGates('CRD', crd({ ...v1([cand('Wedding Catering'), cand('Catering', ['pass', 'fail', 'pass', 'pass'])]), v2: { removedNiches: 'Catering' }, v3: { clearedCandidates: 'Wedding Catering' } })), 'viability');
+    expect(longer.status).toBe('incomplete');
+    expect(longer.reasons.join(' ')).toMatch(/Handoff names Catering/);
+  });
+
+  it('holds while an AI draft of CRD-V1 is awaiting review, and reads the rows once it is accepted, rejected or failed', () => {
+    const pending = gate(evaluateStageGates('CRD', crd({ v1: { ...v1([cand('Halal food co-ops, Ontario')]).v1, _aiDraftStatus: 'pending' } })), 'viability');
+    expect(pending.status).toBe('incomplete');
+    expect(pending.reasons).toEqual(['An AI draft of the candidates is awaiting review. Accept or reject it before the gate is read.']);
+    for (const status of ['accepted', 'rejected', 'error', 'none']) {
+      expect(gate(evaluateStageGates('CRD', crd({ v1: { ...v1([cand('Halal food co-ops, Ontario')]).v1, _aiDraftStatus: status } })), 'viability').status).toBe('clear');
+    }
+  });
+
+  it('holds while the candidate list is stored as text, and does not read the earlier single answer instead', () => {
+    const legacyPass = Object.fromEntries(VIABILITY_LETTERS.map((l) => [l.id, 'pass']));
+    const g = gate(evaluateStageGates('CRD', crd({ v1: { ...legacyPass, viabilityCandidates: 'Crypto tutoring: failed Gate B' } })), 'viability');
+    expect(g.status).toBe('incomplete');
+    expect(g.reasons).toEqual(['The candidate list is stored as text, not as candidates. Enter each candidate again with its name and Gates A–D; the text is kept as it is.']);
+    expect(gate(evaluateStageGates('CRD', crd({ v1: { viabilityCandidates: '  ' } })), 'viability').reasons[0]).toMatch(/^No candidate is recorded/);
+  });
+
+  it('holds while an AI draft of CRD-V2 or CRD-V3 is awaiting review, and reads them once reviewed', () => {
+    const v2 = gate(evaluateStageGates('CRD', crd({ v2: { removedNiches: '', _aiDraftStatus: 'pending' } })), 'viability');
+    expect(v2.status).toBe('incomplete');
+    expect(v2.reasons).toEqual(['An AI draft of the Removed Niche Log is awaiting review. Accept or reject it before the gate is read.']);
+    const v3 = gate(evaluateStageGates('CRD', crd({ v3: { clearedCandidates: 'Halal food co-ops, Ontario', _aiDraftStatus: 'pending' } })), 'viability');
+    expect(v3.status).toBe('incomplete');
+    expect(v3.reasons).toEqual(['An AI draft of the Cleared Candidate Handoff is awaiting review. Accept or reject it before the gate is read.']);
+    const reviewed = gate(evaluateStageGates('CRD', crd({ v2: { _aiDraftStatus: 'rejected' }, v3: { clearedCandidates: 'Halal food co-ops, Ontario', _aiDraftStatus: 'accepted' } })), 'viability');
+    expect(reviewed.status).toBe('clear');
+  });
+
+  it('holds while the Removed Niche Log names a candidate that cleared Gates A–D', () => {
+    const g = gate(evaluateStageGates('CRD', crd({ v2: { removedNiches: 'Removed: Halal food co-ops, Ontario (too small)' } })), 'viability');
+    expect(g.status).toBe('incomplete');
+    expect(g.reasons).toEqual(['Removed Niche Log names Halal food co-ops, Ontario, which cleared Gates A–D. Remove it from the log, or rename one of them if they are different candidates.']);
+    expect(gate(evaluateStageGates('CRD', crd({ v2: { removedNiches: 'Crypto tutoring — failed Gate B' } })), 'viability').status).toBe('clear');
+  });
+
+  it('reads a Removed Niche Log or Cleared Candidate Handoff stored as a non-string as its text', () => {
+    const tasks = crd({ ...v1([cand('Zakat software', ['pass', 'pass', 'conditional', 'pass']), cand('Catering', ['pass', 'fail', 'pass', 'pass'])], 'conditionallyViable'), v2: { removedNiches: ['Catering — failed Gate B'] }, v3: { clearedCandidates: ['Catering'] } });
+    const g = gate(evaluateStageGates('CRD', tasks), 'viability');
+    expect(g.status).toBe('incomplete');
+    expect(g.reasons.join(' ')).toMatch(/Handoff names Catering/);
+    expect(g.reasons.join(' ')).not.toMatch(/does not record Catering/);
+  });
+
+  it('reads an old single answer as an unnamed first candidate, and never as cleared', () => {
+    const legacy = { gateARegulatory: 'pass', gateBMarketFit: 'pass', gateCCompetenceProof: 'pass', gateDProvenDemand: 'pass', overallViability: 'viable' };
+    const g = gate(evaluateStageGates('CRD', [...crd().slice(0, 1), task('CRD-V1', legacy), ...crd().slice(2)]), 'viability');
+    expect(g.status).toBe('incomplete');
+    expect(g.reasons.join(' ')).toMatch(/Candidate 1: name the candidate/);
+    const failed = gate(evaluateStageGates('CRD', [...crd().slice(0, 1), task('CRD-V1', { ...legacy, gateBMarketFit: 'fail', overallViability: 'removed' }), ...crd().slice(2)]), 'viability');
+    expect(failed.status).toBe('blocked');
   });
 });
 
@@ -297,7 +451,7 @@ describe('gateMoveRefusal (the store guard)', () => {
   });
 
   it('refuses a conditions gate until a conditions entry for that gate is logged and resolved', () => {
-    const tasks = crd({ v1: { gateDProvenDemand: 'conditional' } });
+    const tasks = crd({ v1: { viabilityCandidates: [cand('Halal food co-ops, Ontario', ['pass', 'pass', 'pass', 'conditional'])], overallViability: 'conditionallyViable' } });
     expect(gateMoveRefusal(proj('CRD'), tasks, ack)?.status).toBe('conditions');
     const logged = [
       { id: 'c1', decision: 'conditions', stageId: 'CRD', cycle: 1, gateId: 'viability' },
@@ -307,7 +461,7 @@ describe('gateMoveRefusal (the store guard)', () => {
   });
 
   it('does not count a conditions entry from an earlier cycle', () => {
-    const tasks = crd({ v1: { gateDProvenDemand: 'conditional' } });
+    const tasks = crd({ v1: { viabilityCandidates: [cand('Halal food co-ops, Ontario', ['pass', 'pass', 'pass', 'conditional'])], overallViability: 'conditionallyViable' } });
     const old = [
       { id: 'c1', decision: 'conditions', stageId: 'CRD', cycle: 0, gateId: 'viability' },
       { id: 'r1', decision: 'resolved', stageId: 'CRD', cycle: 0, resolvesId: 'c1' },

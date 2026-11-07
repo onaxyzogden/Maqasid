@@ -52,3 +52,24 @@ describe('IC checklists', () => {
     expect(field('DEL-A4', 'icDelChecks')).toMatchObject({ type: 'textarea' });
   });
 });
+
+describe('Viability candidates (CRD-V1)', () => {
+  it('lists every candidate, each with its name and Gates A–D', () => {
+    const f = field('CRD-V1', 'viabilityCandidates');
+    expect(f).toMatchObject({ type: 'viabilityCandidates', candidateLabel: 'Candidate' });
+    expect(f.gates).toHaveLength(4);
+    f.gates.forEach((g, i) => {
+      expect(g.label.startsWith(`Gate ${'ABCD'[i]} — `)).toBe(true);
+      expect(g.options.map((o) => o.value)).toEqual(['pass', 'fail', 'conditional']);
+    });
+  });
+
+  it('no longer renders the single-candidate letter fields (their stored answers are read through)', () => {
+    for (const id of ['gateARegulatory', 'gateBMarketFit', 'gateCCompetenceProof', 'gateDProvenDemand']) expect(field('CRD-V1', id)).toBeUndefined();
+  });
+
+  it('keeps the notes and the overall determination', () => {
+    expect(field('CRD-V1', 'gateNotes')).toMatchObject({ type: 'textarea' });
+    expect(values('CRD-V1', 'overallViability')).toEqual(['viable', 'conditionallyViable', 'removed']);
+  });
+});

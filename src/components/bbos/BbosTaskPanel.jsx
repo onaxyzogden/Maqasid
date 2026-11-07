@@ -21,10 +21,12 @@ import { getTaskAccessLevel, getBbosRole } from '../../data/bbos/bbos-role-acces
 import { getAiConfig, hasAiConfig } from '@services/ai/ai-settings';
 import { streamCompletion, AiClientError } from '@services/ai/ai-client';
 import { buildPrompt } from '@services/ai/prompt-builder';
-import { parseAiResponse } from '@services/ai/response-parser';
+import { parseAiResponse, draftBefore, rejectedValues } from '@services/ai/response-parser';
 import GLabelPicker from '../shared/GLabelPicker';
 import BbosIcAssetsField from './BbosIcAssetsField';
 import { icList, icAssetRows, icAssetsDone } from '@data/bbos/bbos-ic-assets';
+import BbosViabilityCandidatesField from './BbosViabilityCandidatesField';
+import { viabilityCandidateRows, viabilityCandidatesDone, candidateWrite, KEPT_TEXT_FIELD } from '@data/bbos/bbos-viability-candidates';
 import ErrorBoundary from '../shared/ErrorBoundary';
 import './BbosTaskPanel.css';
 import { localDayKey } from '../../lib/format-date';
@@ -186,14 +188,16 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
     }
   };
 
-  const handleFieldChange = (fieldId, value) => {
-    const next = { ...localFields, [fieldId]: value };
+  const handleFieldChange = (fieldId, value, extra = {}) => {
+    const next = { ...localFields, ...extra, [fieldId]: value };
     setLocalFields(next);
     // Clear validation error for this field when user fills it
     const field = def.fields.find((f) => f.id === fieldId);
     const filledIn = field?.type === 'icAssets'
       ? icAssetsDone(icAssetRows(next, icList(field.code)), field.code)
-      : typeof value === 'string' && value.trim();
+      : field?.type === 'viabilityCandidates'
+        ? viabilityCandidatesDone(viabilityCandidateRows(next))
+        : typeof value === 'string' && value.trim();
     if (filledIn) {
       setValidationErrors((prev) => prev.filter((id) => id !== fieldId));
     }
@@ -251,7 +255,12 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
       }
 
       // Parse response into field data
-      const { fieldData, warnings } = parseAiResponse(fullText, def);
+      // Read the stored data now, not the render that was clicked: edits saved during the stream count.
+      const stored = useTaskStore.getState().getTask(projectId, taskId)?.bbosFieldData;
+      const { fieldData, warnings } = parseAiResponse(fullText, def, stored);
+
+      // Keep what the draft replaces, so rejecting it puts the operator's values back.
+      updateBbosFieldData(projectId, taskId, '_aiDraftBefore', draftBefore(def, stored));
 
       // Populate fields (same pattern as template import)
       for (const [fieldId, value] of Object.entries(fieldData)) {
@@ -291,15 +300,12 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
   };
 
   const handleRejectDraft = () => {
-    // Clear AI-generated field values
-    for (const field of def.fields) {
-      updateBbosFieldData(projectId, taskId, field.id, '');
+    // Put back each field's value from before the draft ('' where it had none)
+    const values = rejectedValues(def, useTaskStore.getState().getTask(projectId, taskId)?.bbosFieldData);
+    for (const [fieldId, value] of Object.entries(values)) {
+      updateBbosFieldData(projectId, taskId, fieldId, value);
     }
-    setLocalFields((prev) => {
-      const cleared = { ...prev };
-      for (const field of def.fields) cleared[field.id] = '';
-      return cleared;
-    });
+    setLocalFields((prev) => ({ ...prev, ...values }));
     updateBbosFieldData(projectId, taskId, '_aiDraftStatus', 'rejected');
     setDraftWarnings([]);
   };
@@ -578,6 +584,36 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
                     readOnly={isViewOnly}
                   />
                 </div>
+              ) : field.type === 'viabilityCandidates' ? (
+                <div
+                  className={`btp-field${validationErrors.includes(field.id) ? ' btp-field--error' : ''}`}
+                  role="group"
+                  aria-labelledby={`btp-field-${field.id}-title`}
+                  aria-describedby={validationErrors.includes(field.id) ? `btp-field-${field.id}-err` : undefined}
+                >
+                  <span className="btp-field-label" id={`btp-field-${field.id}-title`}>
+                    {field.label}
+                    {validationErrors.includes(field.id) && <span className="btp-field-required"> *</span>}
+                  </span>
+                  {validationErrors.includes(field.id) && (
+                    <p className="btp-ic-missing" id={`btp-field-${field.id}-err`} role="alert">
+                      Each candidate needs a name and an answer for Gates A–D.
+                    </p>
+                  )}
+                  <BbosViabilityCandidatesField
+                    field={field}
+                    fieldData={localFields}
+                    onChange={(rows) => {
+                      // A list stored as text moves to its own key on the first edit, saved at once, so no text is lost.
+                      const kept = candidateWrite(localFields, rows)[KEPT_TEXT_FIELD];
+                      if (kept) updateBbosFieldData(projectId, taskId, KEPT_TEXT_FIELD, kept);
+                      handleFieldChange(field.id, rows, kept ? { [KEPT_TEXT_FIELD]: kept } : {});
+                    }}
+                    readOnly={isViewOnly}
+                    lockedReason={aiDraftStatus === 'pending' || aiDraftStatus === 'generating'
+                      ? 'Accept or reject the AI draft to edit candidates.' : ''}
+                  />
+                </div>
               ) : (
               <div className={`btp-field${validationErrors.includes(field.id) ? ' btp-field--error' : ''}`}>
                 <label className="btp-field-label" htmlFor={`btp-field-${field.id}`}>
@@ -790,6 +826,7 @@ function BbosTaskPanelInner({ project, projectId, taskId, onClose, bbosRole, acc
             const empty = (def.fields || [])
               .filter((f) => {
                 if (f.type === 'icAssets') return !icAssetsDone(icAssetRows(localFields, icList(f.code)), f.code);
+                if (f.type === 'viabilityCandidates') return !viabilityCandidatesDone(viabilityCandidateRows(localFields));
                 const val = localFields[f.id];
                 return !val || (typeof val === 'string' && !val.trim());
               })

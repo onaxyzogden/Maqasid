@@ -424,28 +424,19 @@ export const BBOS_TASK_DEFINITIONS = [
     purpose: "Each niche candidate evaluated against the four foundational gates: Regulatory Clearance (A), Addressable Market Fit (B), Certification/Competence Proof (C), and Proven Demand (D). Integrity first, opportunity second.",
     fields: [
       {
-        id: "gateARegulatory",
-        type: "select",
-        label: "Gate A — Regulatory Clearance",
-        options: [{"value":"pass","label":"Pass"},{"value":"fail","label":"Fail"},{"value":"conditional","label":"Conditional — achievable with action"}],
-      },
-      {
-        id: "gateBMarketFit",
-        type: "select",
-        label: "Gate B — Addressable Market Fit",
-        options: [{"value":"pass","label":"Pass"},{"value":"fail","label":"Fail"},{"value":"conditional","label":"Conditional — achievable with action"}],
-      },
-      {
-        id: "gateCCompetenceProof",
-        type: "select",
-        label: "Gate C — Certification / Competence Proof",
-        options: [{"value":"pass","label":"Pass"},{"value":"fail","label":"Fail"},{"value":"conditional","label":"Conditional — achievable with action"}],
-      },
-      {
-        id: "gateDProvenDemand",
-        type: "select",
-        label: "Gate D — Proven Demand",
-        options: [{"value":"pass","label":"Pass"},{"value":"fail","label":"Fail"},{"value":"conditional","label":"Conditional — achievable with action"}],
+        id: "viabilityCandidates",
+        type: "viabilityCandidates",
+        label: "Candidates (Gates A–D)",
+        help: "Every niche candidate, each with its own four gates. A candidate that fails any gate is removed; only cleared candidates are handed off.",
+        candidateLabel: "Candidate",
+        placeholder: "The niche candidate these four gates were run on...",
+        // The gates in the doc's order; stored answers are read through from gateARegulatory..gateDProvenDemand as candidate 1 (bbos-viability-candidates.js).
+        gates: [
+          { label: "Gate A — Regulatory Clearance", options: [{"value":"pass","label":"Pass"},{"value":"fail","label":"Fail"},{"value":"conditional","label":"Conditional — achievable with action"}] },
+          { label: "Gate B — Addressable Market Fit", options: [{"value":"pass","label":"Pass"},{"value":"fail","label":"Fail"},{"value":"conditional","label":"Conditional — achievable with action"}] },
+          { label: "Gate C — Certification / Competence Proof", options: [{"value":"pass","label":"Pass"},{"value":"fail","label":"Fail"},{"value":"conditional","label":"Conditional — achievable with action"}] },
+          { label: "Gate D — Proven Demand", options: [{"value":"pass","label":"Pass"},{"value":"fail","label":"Fail"},{"value":"conditional","label":"Conditional — achievable with action"}] },
+        ],
       },
       {
         id: "gateNotes",

@@ -18,6 +18,7 @@
 // conditions entries carry `gateId`, and a proceed carries `acknowledged`.
 
 import { icList, icAssetRows, icRowResult } from './bbos-ic-assets';
+import { VIABILITY_LETTERS, viabilityCandidateRows, candidateResult, viabilityOverall, nameInText, nameMentioned, legacyLetters, legacyCarried, listStoredAsText } from './bbos-viability-candidates';
 import { BBOS_STAGES } from './bbos-pipeline';
 
 const RANK = { none: 0, clear: 1, conditions: 2, incomplete: 3, blocked: 4 };
@@ -57,12 +58,7 @@ export const GATE_RULES = {
     stage: 'CRD',
     cite: 'CRD v2.0 · Viability Gates A–D',
     rule: 'Every candidate must clear Gates A–D before any scoring. A candidate that fails is removed to the Removed Niche Log; only cleared candidates are handed off.',
-    letters: [
-      { id: 'gateARegulatory', name: 'Gate A — Regulatory Clearance' },
-      { id: 'gateBMarketFit', name: 'Gate B — Addressable Market Fit' },
-      { id: 'gateCCompetenceProof', name: 'Gate C — Certification / Competence Proof' },
-      { id: 'gateDProvenDemand', name: 'Gate D — Proven Demand' },
-    ],
+    letters: VIABILITY_LETTERS,
   },
   baseline: {
     name: 'Ihsan Baseline Gate',
@@ -134,36 +130,80 @@ function amanah(tasks) {
   });
 }
 
+// Every candidate on CRD-V1 is judged on its own Gates A–D
+// (bbos-viability-candidates.js). A failed letter removes that candidate and
+// nothing on the row can clear it; the gate blocks only when no candidate is
+// left, and clears on the candidates that passed, naming the removed ones.
+// The free-text neighbours are read against the rows, not trusted: the
+// Removed Niche Log (V2) must record every removed candidate, and the Cleared
+// Candidate Handoff (V3) must list every cleared one and none that failed.
+const OVERALL_LABEL = { viable: 'Viable', conditionallyViable: 'Conditionally Viable', removed: 'Removed' };
+const gates = (letters) => letters.map((l) => `Gate ${l}`).join(', ');
+const label = (r) => r.name || `Candidate ${r.index} (unnamed)`;
+const names = (rs) => rs.map(label).join(', ');
+
 function viability(tasks) {
-  const R = GATE_RULES.viability;
   const v1 = fieldsOf(tasks, 'CRD-V1');
   if (!v1) return missingTask('viability', 'CRD-V1');
-  const removed = text(fieldsOf(tasks, 'CRD-V2')?.removedNiches);
-  const cleared = text(fieldsOf(tasks, 'CRD-V3')?.clearedCandidates);
-  if (v1.overallViability === 'removed') {
-    return result('viability', 'blocked', ['Overall determination is Removed: no candidate clears the Viability Gates. Halt, and record the removal.']);
+  const rows = viabilityCandidateRows(v1);
+  const results = rows.map((row, i) => ({ index: i + 1, ...candidateResult(row) }));
+  const candidates = results.map(({ index, name, verdict, failed, conditional, unanswered }) => ({ index, name, verdict, failed, conditional, unanswered }));
+  const extra = { candidates };
+  const v2 = fieldsOf(tasks, 'CRD-V2');
+  const v3 = fieldsOf(tasks, 'CRD-V3');
+  // An AI draft is stored as soon as it is parsed; the gate reads nothing the operator has not reviewed.
+  const pending = [[v1, 'the candidates'], [v2, 'the Removed Niche Log'], [v3, 'the Cleared Candidate Handoff']]
+    .filter(([d]) => text(d?._aiDraftStatus) === 'pending')
+    .map(([, what]) => `An AI draft of ${what} is awaiting review. Accept or reject it before the gate is read.`);
+  if (pending.length) return result('viability', 'incomplete', pending, extra);
+  if (listStoredAsText(v1)) {
+    return result('viability', 'incomplete', ['The candidate list is stored as text, not as candidates. Enter each candidate again with its name and Gates A–D; the text is kept as it is.'], { candidates: [] });
   }
-  const unanswered = R.letters.filter((l) => !text(v1[l.id]));
-  if (unanswered.length || !text(v1.overallViability)) {
-    const names = [...unanswered.map((l) => l.name), ...(text(v1.overallViability) ? [] : ['Overall Viability Determination'])];
-    return result('viability', 'incomplete', [`Unanswered: ${names.join('; ')}.`]);
+  if (!rows.length) {
+    const reasons = ['No candidate is recorded. Add each candidate and answer its Gates A–D.'];
+    if (!legacyCarried(v1)) {
+      const old = legacyLetters(v1).map((g, i) => `${VIABILITY_LETTERS[i].letter} ${g || 'unanswered'}`).join(', ');
+      reasons.push(`The earlier single answer (${old}) is hidden by an empty candidate list. Add a candidate.`);
+    }
+    return result('viability', 'incomplete', reasons, extra);
   }
-  const failed = R.letters.filter((l) => v1[l.id] === 'fail');
-  const reasons = [];
-  if (failed.length && !removed) {
-    reasons.push(`${failed.map((l) => l.name).join('; ')} failed. Record the removed candidate in the Removed Niche Log (V2).`);
+  const removed = results.filter((r) => r.verdict === 'removed');
+  if (removed.length === results.length) {
+    return result('viability', 'blocked', [`Every candidate failed a gate (${names(removed)}): no candidate clears the Viability Gates. Halt, and record the removal.`], extra);
   }
-  if (!cleared) reasons.push('The Cleared Candidate Handoff (V3) is empty. Name the candidate(s) that cleared all four gates, or Halt if none did.');
-  if (reasons.length) return result('viability', 'incomplete', reasons);
+  const reasons = results.filter((r) => r.verdict === 'unfinished').map((r) => {
+    const todo = [!r.named && 'name the candidate', r.unanswered.length && `answer ${gates(r.unanswered)}`].filter(Boolean).join('; ');
+    return `${r.name || `Candidate ${r.index}`}: ${todo}.`;
+  });
+  const v2Text = text(v2?.removedNiches);
+  const v3Text = text(v3?.clearedCandidates);
+  results.filter((r) => r.verdict === 'removed').forEach((r) => {
+    if (!r.named) reasons.push(`Candidate ${r.index} failed ${gates(r.failed)} but is unnamed. Name it so the removal can be logged.`);
+    else if (!nameInText(r.name, v2Text)) reasons.push(`Removed Niche Log does not record ${r.name} (failed ${gates(r.failed)}). Record the removal on its own line.`);
+    if (r.named && nameMentioned(r.name, v3Text)) reasons.push(`Cleared Candidate Handoff names ${r.name}, which failed ${gates(r.failed)}. Remove it from the handoff, or rename one of them if they are different candidates.`);
+  });
+  results.filter((r) => r.verdict === 'cleared').forEach((r) => {
+    if (nameMentioned(r.name, v2Text)) reasons.push(`Removed Niche Log names ${r.name}, which cleared Gates A–D. Remove it from the log, or rename one of them if they are different candidates.`);
+    if (!nameInText(r.name, v3Text)) reasons.push(`Cleared Candidate Handoff does not list ${r.name} on its own line.`);
+  });
+  const stored = text(v1.overallViability);
+  const derived = viabilityOverall(rows);
+  if (!stored) reasons.push('Unanswered: Overall Viability Determination.');
+  else if (derived && stored !== derived) {
+    reasons.push(`Overall Viability Determination is ${OVERALL_LABEL[stored] || stored}; the candidates give ${OVERALL_LABEL[derived]}. Correct one or the other.`);
+  }
+  if (reasons.length) return result('viability', 'incomplete', reasons, extra);
 
-  const conditional = R.letters.filter((l) => v1[l.id] === 'conditional');
-  if (conditional.length || v1.overallViability === 'conditionallyViable') {
-    const names = conditional.map((l) => l.name).join('; ') || 'Overall determination';
-    return result('viability', 'conditions', [`${names}: conditional, achievable with action.`], {
-      condition: { text: `Viability Gate: ${names} conditional. Complete the required action before the candidate is scored.`, resolverRole: null },
+  const conditional = results.filter((r) => r.verdict === 'conditional');
+  if (conditional.length) {
+    const what = conditional.map((r) => `${r.name} (${gates(r.conditional)})`).join('; ');
+    return result('viability', 'conditions', [`Conditional, achievable with action: ${what}.`], {
+      ...extra,
+      condition: { text: `Viability Gate: ${what} conditional. Complete the required action before the candidate is scored.`, resolverRole: null },
     });
   }
-  return result('viability', 'clear', [`Gates A–D cleared. Handed off: ${cleared}.`]);
+  const cleared = results.filter((r) => r.verdict === 'cleared');
+  return result('viability', 'clear', [`Gates A–D cleared. Handed off: ${names(cleared)}.${removed.length ? ` Removed: ${names(removed)}.` : ''}`], extra);
 }
 
 // Each list holds every asset checked; each asset is judged on its own five

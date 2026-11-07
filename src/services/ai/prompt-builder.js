@@ -124,6 +124,8 @@ function buildOutputFormat(taskDef) {
       desc = `"${f.id}": string (numeric value)`;
     } else if (f.type === 'icAssets') {
       desc = `"${f.id}": [{ "asset": string, "checks": [5 × "pass" | "fail"] }]`;
+    } else if (f.type === 'viabilityCandidates') {
+      desc = `"${f.id}": [{ "name": string, "gates": [4 × "pass" | "fail" | "conditional"], "note": string }]`;
     }
     return `  ${desc}`;
   });
@@ -201,6 +203,10 @@ function buildFieldList(taskDef) {
     if (f.type === 'icAssets') {
       const checks = f.checks.map((c) => `  - ${c.label}`).join('\n');
       desc += `. One entry per asset; its checks, in order, each "pass" or "fail":\n${checks}`;
+    }
+    if (f.type === 'viabilityCandidates') {
+      const gates = f.gates.map((g) => `  - ${g.label}`).join('\n');
+      desc += `. One entry per niche candidate; its gates, in order, each "pass", "fail" or "conditional":\n${gates}`;
     }
     return desc;
   });

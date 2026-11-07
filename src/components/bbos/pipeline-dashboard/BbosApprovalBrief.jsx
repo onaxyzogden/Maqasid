@@ -17,6 +17,7 @@ import { useBpdDialog } from "./useBpdDialog";
 import { BBOS_REJECTION_REASONS } from "../../../data/bbos/bbos-pipeline";
 import { getBbosRole } from "../../../data/bbos/bbos-role-access";
 import { icAssetLine } from "../../../data/bbos/bbos-ic-assets";
+import { viabilityCandidateLine } from "../../../data/bbos/bbos-viability-candidates";
 
 // Keyboard activation for the div-based radio/checkbox controls.
 const onActivate = (fn) => (e) => {
@@ -319,6 +320,20 @@ export default function BbosApprovalBrief({ stage, briefSections, onAdvance, onR
                         return (
                           <li key={`${a.list}-${a.index}`} className="bpd-brief__named-asset" data-tone={l.tone}>
                             <span className="bpd-brief__named-asset-list">{l.list}</span>
+                            <span className="bpd-brief__named-asset-name">{l.name}</span>
+                            <span className="bpd-brief__named-asset-pill">{l.label}</span>
+                            {l.detail && <span className="bpd-brief__named-asset-detail">{l.detail}</span>}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
+                  {g.candidates?.length > 0 && (
+                    <ul className="bpd-brief__named-assets" aria-label={`Candidates checked for ${g.name}`}>
+                      {g.candidates.map((c) => {
+                        const l = viabilityCandidateLine(c);
+                        return (
+                          <li key={c.index} className="bpd-brief__named-asset" data-tone={l.tone}>
                             <span className="bpd-brief__named-asset-name">{l.name}</span>
                             <span className="bpd-brief__named-asset-pill">{l.label}</span>
                             {l.detail && <span className="bpd-brief__named-asset-detail">{l.detail}</span>}
