@@ -51,7 +51,7 @@ On the day the midnight fallback gives way to a real Maghrib key (prayer times a
 - MOD `src/components/layout/AppShell.jsx` (mounts the hook)
 - MOD `src/components/islamic/PropheticPath.jsx` (trigger effect and imports removed)
 - MOD `src/hooks/CONTEXT.md`, `src/store/CONTEXT.md`, `src/components/islamic/CONTEXT.md`
-- Plan: `.claude/plans/prayer-node-nightly-reset.md`. Branch `claude/prayer-node-nightly-reset-49ddf5` (worktree, not pushed).
+- Plan: `.claude/plans/prayer-node-nightly-reset.md`. Branch `claude/prayer-node-nightly-reset-49ddf5`, merged into `main` as onaxyzogden/Maqasid#84 (`4366c17`, 2026-11-07).
 
 ## Left as found
 
