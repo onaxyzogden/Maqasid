@@ -1,14 +1,15 @@
 # Zustand Stores — CONTEXT.md
 
 ## Purpose
-13 Zustand stores managing all application state with manual localStorage persistence.
+14 Zustand stores managing all application state with manual localStorage persistence.
 
 ## File Inventory
 | Store | Key State | Persistence Keys |
 |-------|-----------|-----------------|
 | app-store.js | `sidebarOpen`, `islamicPanelOpen`, `activeModule`, `expandedPillars`, `filters` | Mixed (safeGet/safeSet) |
 | auth-store.js | `user: { name, ... } | null` (local profile) **+** `authStatus`/`supabaseSession`/`syncStatus` (cloud — dormant) | `user` (**not** `auth_user`) |
-| task-store.js | `tasksByProject: { [projectId]: Task[] }` | `tasks_${projectId}` |
+| task-store.js | `tasksByProject: { [projectId]: Task[] }`. `resetDailyCadenceTasks()` (the Maghrib reset, fired from `hooks/useIslamicDayRollover.js`) clears subtask `done`, `notApplicable` and every `snoozedUntilDayKey`, and reverts any daily task in Done **or** carrying `completedAt` to the first non-Done column. It walks the in-memory boards **and every persisted `tasks_*` daily board not yet loaded** (`listKeys`), writing those back to storage without loading them, because boards load lazily and the dashboard has none in memory at rollover. Daily = `/^prayer_/`, `/^faith_salah_/`, `/^faith_siyam_/`, `cadence: 'daily'` or tag `daily-cadence`. Tests: `__tests__/task-store-daily-reset.test.js` | `tasks_${projectId}` |
+| islamic-day-store.js | `lastKey` (the `YYYY-MM-DD` of the Maghrib that began the current Islamic day). Pure `currentIslamicDayKey(now, maghribMs)` returns `null` when Maghrib is unknown, so the caller supplies a fallback. `rolloverIfMaghribCrossed({ maghribMs, now, hooks })` is idempotent on `lastKey`; `DAILY_CEREMONY_MODULES` lists the ceremony ids cleared at rollover. Tests: `__tests__/islamic-day-store.test.js` | `islamic_day_key` (stored as `bbiz_bbiz_islamic_day_key` — the call site already passes the prefix) |
 | project-store.js | `projects: Project[]` | `projects` |
 | money-store.js | `expenses`, `invoices`, `categories`, `budgets`, `vendors`, `accounts`, `incomes`, `assets` | 8 keys + `invoiceCounter` |
 | people-store.js | `employees`, `attendance`, `leaveRequests`, `timeEntries`, `departments` | 5 keys |

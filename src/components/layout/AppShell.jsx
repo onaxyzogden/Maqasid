@@ -9,6 +9,7 @@ import { useMobile } from '../../hooks/useMobile';
 import { useKeyboard } from '../../hooks/useKeyboard';
 import { useInactivity } from '../../hooks/useInactivity';
 import { usePrayerTimes } from '../../hooks/usePrayerTimes';
+import { useIslamicDayRollover } from '../../hooks/useIslamicDayRollover';
 import { PRESENCE_CONFIG } from '@data/islamic/islamic-data';
 import { MODULES } from '../../data/modules';
 import { MAQASID_PILLARS } from '../../data/maqasid';
@@ -201,7 +202,10 @@ export default function AppShell() {
   });
 
   // Prayer time detection
-  const { activePrayer, nextPrayer } = usePrayerTimes();
+  const { activePrayer, nextPrayer, timings } = usePrayerTimes();
+
+  // Maghrib daily-reset for every /app route (prayer boards, ceremonies).
+  useIslamicDayRollover(timings);
 
   // Prayer lock — triggers 5 min before prayer
   const dismissedPrayerRef = useRef(null);
