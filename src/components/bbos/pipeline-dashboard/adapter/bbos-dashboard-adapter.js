@@ -57,6 +57,7 @@ import { scoreStage } from "../../../../data/bbos/bbos-stage-score";
 import { gateEntriesForStage, openConditions } from "../../../../data/bbos/bbos-gate-log";
 import { evaluateStageGates, lateDisqualifier } from "../../../../data/bbos/bbos-named-gates";
 import { fieldValueText } from "../../../../data/bbos/bbos-ic-assets";
+import { VIABILITY_FIELD, candidateFieldText } from "../../../../data/bbos/bbos-viability-candidates";
 
 // ── Static domain constants (no live source) ───────────────────────────────
 // Taglines and gate labels are not stored in BBOS_STAGES; they are fixed
@@ -172,7 +173,7 @@ function duaFor(stageId) {
 function buildContent(def, fieldData) {
   const parts = (def.fields || [])
     .map((f) => {
-      const v = fieldValueText(f, fieldData[f.id], fieldData);
+      const v = (f.type === VIABILITY_FIELD ? candidateFieldText : fieldValueText)(f, fieldData[f.id], fieldData);
       return v ? `${f.label}: ${v}` : null;
     })
     .filter(Boolean);

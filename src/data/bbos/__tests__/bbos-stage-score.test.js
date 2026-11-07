@@ -25,3 +25,33 @@ describe('OUT score from the IC-OUT assets', () => {
     expect(outScore({}).pct).toBe(0);
   });
 });
+
+// CRD's Gate A–D signals are scored over the candidates still standing: a
+// removed candidate (any failed letter) drops out of the score altogether.
+const G = ['pass', 'pass', 'pass', 'pass'];
+const cand = (name, gates = G) => ({ name, gates, note: '' });
+const crdLetters = (fd) => scoreStage('CRD', { 'CRD-V1': { bbosFieldData: fd } }).signals.slice(1).map((x) => x.pts);
+
+describe('CRD score from the Viability candidates', () => {
+  it('scores every letter when every candidate standing passes it', () => {
+    expect(crdLetters({ viabilityCandidates: [cand('A'), cand('B')] })).toEqual([5, 5, 5, 5]);
+  });
+
+  it('leaves a removed candidate out, and scores nothing when none is standing', () => {
+    expect(crdLetters({ viabilityCandidates: [cand('A'), cand('B', ['pass', 'fail', 'pass', 'pass'])] })).toEqual([5, 5, 5, 5]);
+    expect(crdLetters({ viabilityCandidates: [cand('B', ['pass', 'fail', 'pass', 'pass'])] })).toEqual([0, 0, 0, 0]);
+  });
+
+  it('scores a letter 3 when a candidate standing is conditional on it, and 0 when one has not answered it', () => {
+    expect(crdLetters({ viabilityCandidates: [cand('A'), cand('B', ['pass', 'pass', 'conditional', 'pass'])] })).toEqual([5, 5, 3, 5]);
+    expect(crdLetters({ viabilityCandidates: [cand('A'), cand('B', ['pass', 'pass', 'pass', ''])] })).toEqual([5, 5, 5, 0]);
+  });
+
+  it('still scores an old single-candidate answer', () => {
+    expect(crdLetters({ gateARegulatory: 'pass', gateBMarketFit: 'pass', gateCCompetenceProof: 'conditional', gateDProvenDemand: 'pass' })).toEqual([5, 5, 3, 5]);
+  });
+
+  it('scores nothing with no candidates', () => {
+    expect(crdLetters({})).toEqual([0, 0, 0, 0]);
+  });
+});

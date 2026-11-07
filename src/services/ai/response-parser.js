@@ -1,14 +1,37 @@
 // Response Parser — extracts structured field data from AI text output
 // Expects AI to return a JSON object with keys matching taskDef.fields[].id
 import { icList, icAssetRows } from '../../data/bbos/bbos-ic-assets';
+import { viabilityCandidateRows, keepRemovedCandidates, listStoredAsText } from '../../data/bbos/bbos-viability-candidates';
+
+/**
+ * The value of each task field before an AI draft is written over it, so that
+ * rejecting the draft puts it back. Keys the task no longer defines are left out
+ * (a reject never writes them).
+ */
+export function draftBefore(taskDef, fieldData) {
+  const d = fieldData || {};
+  return Object.fromEntries(taskDef.fields.filter((f) => d[f.id] !== undefined).map((f) => [f.id, d[f.id]]));
+}
+
+/**
+ * What rejecting a draft writes: each task field's value before the draft, or
+ * '' where it had none. A draft made before the earlier values were kept
+ * empties every field, as rejects always did.
+ */
+export function rejectedValues(taskDef, fieldData) {
+  const before = fieldData?._aiDraftBefore;
+  const kept = before && typeof before === 'object' && !Array.isArray(before) ? before : {};
+  return Object.fromEntries(taskDef.fields.map((f) => [f.id, Object.prototype.hasOwnProperty.call(kept, f.id) ? kept[f.id] : '']));
+}
 
 /**
  * Parse AI response text into field data.
  * @param {string} text - raw AI response (may contain markdown fences)
  * @param {object} taskDef - BBOS task definition with fields array
+ * @param {object} [existing] - the task's stored field data; a Viability draft never drops a candidate that failed a letter
  * @returns {{ fieldData: object, warnings: string[] }}
  */
-export function parseAiResponse(text, taskDef) {
+export function parseAiResponse(text, taskDef, existing = {}) {
   const warnings = [];
   const validFieldIds = new Set(taskDef.fields.map((f) => f.id));
 
@@ -43,6 +66,29 @@ export function parseAiResponse(text, taskDef) {
     if (fieldDef.type === 'icAssets') {
       if (Array.isArray(value)) fieldData[key] = icAssetRows({ [key]: value }, icList(fieldDef.code));
       else warnings.push(`Field "${fieldDef.label}": AI did not return a list of assets — skipped.`);
+      continue;
+    }
+
+    // A Viability list is a list of { name, gates, note }; a verdict is never stored,
+    // and a candidate that failed a letter is never dropped by a draft.
+    if (fieldDef.type === 'viabilityCandidates') {
+      if (listStoredAsText(existing)) {
+        warnings.push(`Field "${fieldDef.label}": the list on file is stored as text, so the AI list is not written over it. Enter the candidates again by hand.`);
+        continue;
+      }
+      if (Array.isArray(value) && value.length) {
+        const { rows, kept, held } = keepRemovedCandidates(existing, viabilityCandidateRows({ [key]: value }));
+        fieldData[key] = rows;
+        held.forEach((h) => {
+          const which = h.failed.map((l) => `Gate ${l}`).join(', ');
+          warnings.push(`Field "${fieldDef.label}": ${h.name}: ${which} ${h.failed.length > 1 ? 'stay' : 'stays'} failed — a draft cannot clear a failed letter.`);
+        });
+        kept.forEach((k, i) => {
+          const who = k.name || `Candidate ${rows.length - kept.length + i + 1} (unnamed)`;
+          warnings.push(`Field "${fieldDef.label}": ${who} (failed ${k.failed.map((l) => `Gate ${l}`).join(', ')}) kept from the earlier list — the AI draft left it out.`);
+        });
+      } else if (Array.isArray(value)) warnings.push(`Field "${fieldDef.label}": AI returned no candidates — the existing list is kept.`);
+      else warnings.push(`Field "${fieldDef.label}": AI did not return a list of candidates — skipped.`);
       continue;
     }
 

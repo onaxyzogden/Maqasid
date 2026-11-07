@@ -3,6 +3,14 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-11-07] session | BBOS Viability per candidate (named gates Limit 2)
+
+- **Problem:** the second Known limit of [[2026-10-19-bbos-named-gates]]: CRD-V1 held one set of Gates A–D and V2/V3 were free text, so the gate could not tell whether a handed-off candidate had failed a letter.
+- **Change:** new `src/data/bbos/bbos-viability-candidates.js` and `BbosViabilityCandidatesField.jsx`. CRD-V1 holds one row per candidate, with its verdict derived on every read. The Viability gate blocks when every candidate is removed, requires V2/V3 to name each removed and cleared candidate, and holds while a draft is pending. Old letters read as candidate 1 and old text is kept. The legacy card and both Named gates panels show each candidate. AI drafts keep removed rows. No Factory doc, gate-log entry or IC file was touched.
+- **Verification:** tests written first; 834 tests, lint and build green. Preview screenshots: the editor, the legacy card, the Brief clear and blocked, and the legacy dialog. The fixture was restored with no gate-log entry.
+- **Plan:** `.claude/plans/bbos-viability-candidates.md` (round-robin ledger beside it). Decision [[2026-11-07-bbos-viability-candidates]]. Branch `claude/bbos-named-gates-limits-b1a7c1`.
+- **Open:** Limit 3 (the Owner role is declared, not signed in). The Stage Decision header can say "Amanah gate blocked" while the Amanah card is clear (pre-existing label).
+
 ## [2026-11-01] session | Tahajjud step-less tasks visible
 
 - **Problem:** On the Tahajjud node's Before tab, tapping a task pill could show only "Nothing left in this task today", with no task title and no pills to move on. Pills 2 and 3 are tasks seeded with no subtasks, so `SequentialStepFlow` passed `subtask == null`, and `SubtaskStepDetail` returned the complete card early.

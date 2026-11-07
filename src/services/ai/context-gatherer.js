@@ -8,6 +8,7 @@ import {
   getBbosTaskDefsByStage,
 } from '../../data/bbos/bbos-task-definitions';
 import { fieldValueText } from '../../data/bbos/bbos-ic-assets';
+import { candidateFieldText } from '../../data/bbos/bbos-viability-candidates';
 
 const STAGE_ORDER = ['IDY', 'CRD', 'STR', 'OFR', 'OUT', 'SLS', 'DEL', 'RET', 'OPT'];
 
@@ -37,9 +38,10 @@ export function gatherUpstreamContext(projectId, taskDef, contextDepth) {
       const fields = {};
       for (const [k, v] of Object.entries(task.bbosFieldData)) {
         if (k.startsWith('_') || !v) continue;
-        // An IC checklist is a list of assets: send it as one line per asset.
+        // An IC checklist or a Viability list is an array: send it as one line per entry.
         const f = def.fields.find((x) => x.id === k);
-        const value = f?.type === 'icAssets' ? fieldValueText(f, v, task.bbosFieldData) : v;
+        const value = f?.type === 'icAssets' ? fieldValueText(f, v, task.bbosFieldData)
+          : f?.type === 'viabilityCandidates' ? candidateFieldText(f, v, task.bbosFieldData) : v;
         if (value) fields[k] = value;
       }
 

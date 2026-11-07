@@ -34,7 +34,7 @@ const CLEAN_RUBRIC = {
 };
 const crdTasks = (rubric = {}) => [
   task('CRD-FP02', { ...CLEAN_RUBRIC, ...rubric }),
-  task('CRD-V1', { gateARegulatory: 'pass', gateBMarketFit: 'pass', gateCCompetenceProof: 'pass', gateDProvenDemand: 'pass', overallViability: 'viable' }),
+  task('CRD-V1', { viabilityCandidates: [{ name: 'Halal food co-ops, Ontario', gates: ['pass', 'pass', 'pass', 'pass'], note: '' }], overallViability: 'viable' }),
   task('CRD-V2', {}),
   task('CRD-V3', { clearedCandidates: 'Halal food co-ops, Ontario' }),
 ];
@@ -134,6 +134,15 @@ describe('named gates on the store', () => {
   it('refuse an advance from CRD on a ★ disqualifier, with no way past it', () => {
     atCrd();
     seedTasks(crdTasks({ q5RegulatoryMisuse: 'yes' }));
+    useProjectStore.getState().advanceBbosStage(PID, 'STR', { basis: 'Go.', stageId: 'CRD', acknowledged: ['founderNotified'] });
+    expect(project().bbosStage).toBe('CRD');
+    expect(project().bbosGateLog).toHaveLength(0);
+  });
+
+  it('refuse a CRD advance when every candidate failed a letter, whatever the determination and handoff say', () => {
+    atCrd();
+    const failed = [{ name: 'Crypto tutoring', gates: ['pass', 'fail', 'pass', 'pass'], note: '' }];
+    seedTasks(crdTasks().map((t) => (t.bbosTaskType === 'CRD-V1' ? task('CRD-V1', { viabilityCandidates: failed, overallViability: 'viable' }) : t)));
     useProjectStore.getState().advanceBbosStage(PID, 'STR', { basis: 'Go.', stageId: 'CRD', acknowledged: ['founderNotified'] });
     expect(project().bbosStage).toBe('CRD');
     expect(project().bbosGateLog).toHaveLength(0);

@@ -2,7 +2,7 @@
 title: "BBOS Pipeline"
 type: entity
 created: 2026-04-09
-updated: 2026-10-20
+updated: 2026-11-07
 tags: [bbos, pipeline, islamic-business, covenant, stages, barakah, truth-safe, two-factory]
 sources: 4
 ---
@@ -150,6 +150,7 @@ See [decision: bbos-cycle-close-record](../decisions/2026-10-17-bbos-cycle-close
 
 | Date | Event |
 |---|---|
+| 2026-11-07 | **Viability judged per candidate.** CRD-V1 holds a list of candidates (`viabilityCandidates`), each with a name and its own Gates A–D; the verdict (Cleared / Removed / Conditional / Unfinished) is derived on every read and never stored, so a candidate that failed a letter cannot show as cleared. Every candidate removed blocks, whatever overall is stored; V2 and V3 must name the removed and cleared candidates, one per line. Old flat letters read as candidate 1 and are never deleted. Both Named gates panels list each candidate. See [[2026-11-07-bbos-viability-candidates]]. |
 | 2026-10-20 | **One Halt role rule; Reject modal on `Modal`.** `canHaltBbosPipeline` (Owner of CRD-V1, or the "all" view) gates Halt in both dashboards, and the store refuses a halt from any other declared role. The legacy Reject modal moves onto the shared `Modal.jsx` (Escape, focus trap and return, discard-confirm). 559 tests, lint and build green; screenshot-verified. See the [decision](../decisions/2026-10-20-bbos-late-disqualifier.md) amendment. |
 | 2026-10-20 | **Late ★ disqualifier banner.** A ★ YES on CRD-FP02 after CRD shows a banner on every later stage in both dashboards and holds Advance and Close Cycle through `gateMoveRefusal` (store refuses too), with no override; Halt opens the existing confirm flow with the new `amanah_disqualifier` reason. 553 tests, lint and build green; screenshot-verified in both dashboards. See the [decision](../decisions/2026-10-20-bbos-late-disqualifier.md). |
 | 2026-10-19 | **Named gates hold the stage move.** `bbos-named-gates.js` evaluates the Factory docs' five gates from task fields: Amanah and Viability at CRD exit, Ihsan Baseline at OUT, Pre-Ship at DEL (ten new IC-OFR / IC-DEL pass/fail checks, each list naming its asset), Constraint at OPT Close Cycle. Blocked or incomplete refuses Advance in the store and both dashboards, with no override; conditions go into `bbosGateLog` with `gateId` / `resolverRole`, and only the Owner resolves an Amanah escalation. 501 tests, lint and build green; screenshot-verified in both dashboards. See the [decision](../decisions/2026-10-19-bbos-named-gates.md). |

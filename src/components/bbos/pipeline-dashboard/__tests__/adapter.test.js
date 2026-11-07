@@ -28,10 +28,7 @@ const tasks = [
     columnId: DONE_COL,
     gLabel: "G1",
     bbosFieldData: {
-      gateARegulatory: "pass",
-      gateBMarketFit: "pass",
-      gateCCompetenceProof: "pass",
-      gateDProvenDemand: "pass",
+      viabilityCandidates: [{ name: "Halal food co-ops, Ontario", gates: ["pass", "pass", "pass", "pass"], note: "" }],
     },
   },
   // An OFR asset task with field data but not done → status in_review.
@@ -83,7 +80,7 @@ describe("buildPipelineViewModel — contract", () => {
   });
 
   it("gate.status tracks the score verdict for the active stage", () => {
-    // CRD-S3 strong (5) + CRD-V1 four passes (20) = 25/25 → QUALIFIED. With no
+    // CRD-S3 strong (5) + CRD-V1 one candidate passing all four (20) = 25/25 → QUALIFIED. With no
     // FP-02 rubric the Amanah Gate is incomplete, so the strip reads pending.
     expect(vm.stages.find((s) => s.id === "CRD").gate.status).toBe("pending");
     // Once the named gates are clear, the score decides: passed.
@@ -322,6 +319,42 @@ describe("buildPipelineViewModel — named gates on the brief", () => {
     expect(named.gates).toEqual([]);
     expect(named.holding).toBe(false);
     expect(named.acknowledgements).toEqual([]);
+  });
+});
+
+describe("buildPipelineViewModel — Viability candidates", () => {
+  const crd = buildPipelineViewModel({
+    project,
+    tasks: [
+      ...tasks.filter((t) => t.bbosTaskType !== "CRD-V1"),
+      {
+        bbosTaskType: "CRD-V1",
+        columnId: DONE_COL,
+        bbosFieldData: {
+          viabilityCandidates: [
+            { name: "Halal food co-ops, Ontario", gates: ["pass", "pass", "pass", "pass"], note: "" },
+            { name: "Crypto tutoring", gates: ["pass", "fail", "pass", "pass"], note: "" },
+          ],
+          overallViability: "viable",
+        },
+      },
+    ],
+  }).stages.find((s) => s.id === "CRD");
+
+  it("shows each candidate as readable text, never [object Object]", () => {
+    const items = [...crd.brief.assets.researchItems, ...crd.brief.assets.assetItems];
+    const v1 = items.find((i) => i.taskType === "CRD-V1");
+    expect(v1.content).toContain("Halal food co-ops, Ontario: cleared Gates A–D");
+    expect(v1.content).toContain("Crypto tutoring: removed (failed Gate B)");
+    expect(v1.content).not.toContain("[object Object]");
+  });
+
+  it("passes the per-candidate results to the Named gates panel", () => {
+    const g = crd.brief.gate.named.gates.find((x) => x.id === "viability");
+    expect(g.candidates.map((c) => [c.name, c.verdict])).toEqual([
+      ["Halal food co-ops, Ontario", "cleared"],
+      ["Crypto tutoring", "removed"],
+    ]);
   });
 });
 
