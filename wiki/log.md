@@ -3,6 +3,17 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-11-07] session | Prayer-node nightly reset hardened
+
+- **Problem:** prayer-node task sets in the Prophetic Path did not reliably reset each night. The 2026-04-29 Maghrib reset left four gaps: "Doesn't apply" steps, snoozes and `completedAt` outside Done survived; the trigger ran only on the Prophetic Path page; with no prayer times the key was `null` and nothing fired; and (found in verification) boards load lazily, so from the dashboard the reset walked no prayer board at all.
+- **Change:** `resetDailyCadenceTasks` clears `done`, `notApplicable` and every `snoozedUntilDayKey`, reverts Done or `completedAt` tasks, and also resets every persisted daily board not in memory. New `src/hooks/useIslamicDayRollover.js` mounted once in `AppShell.jsx` (local-midnight fallback when Maghrib is unknown); the `PropheticPath.jsx` trigger is removed. One clock, one trigger site. Decision: [[2026-11-07-milos-prayer-reset-hardened]].
+- **Verification:**
+  - 18 new tests across three files, each seen red first. 706 tests pass; the 5 `src/services/__tests__/` files fail to load as before (`fake-indexeddb` missing).
+  - Lint 0 errors (1 pre-existing warning), build clean.
+  - Preview: Fajr → Before at 2/3, stale key forced from the dashboard, board reopened at 0/3 with Step A current. Key advanced with prayer times unavailable.
+- **Plan:** `.claude/plans/prayer-node-nightly-reset.md`. Branch `claude/prayer-node-nightly-reset-49ddf5` (worktree, not pushed).
+- **Open:** one possible extra reset on the day a midnight fallback key gives way to a real Maghrib key (accepted). Double-prefixed `bbiz_bbiz_islamic_day_key` and four copies of the `timeToMs` parser left as found.
+
 ## [2026-11-01] session | Tahajjud step-less tasks visible
 
 - **Problem:** On the Tahajjud node's Before tab, tapping a task pill could show only "Nothing left in this task today", with no task title and no pills to move on. Pills 2 and 3 are tasks seeded with no subtasks, so `SequentialStepFlow` passed `subtask == null`, and `SubtaskStepDetail` returned the complete card early.

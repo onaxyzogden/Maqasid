@@ -1,7 +1,7 @@
 # Hooks & Services — CONTEXT.md
 
 ## Purpose
-Custom React hooks (5) and utility services (3) shared across the app.
+Custom React hooks (6) and utility services (3) shared across the app.
 
 ## Hooks
 
@@ -13,6 +13,7 @@ Custom React hooks (5) and utility services (3) shared across the app.
 | useModuleProgress.js | Aggregates task completion by moduleId; returns `{ total, completed, pct }` |
 | useDashboard.js | Utility module (not a hook): `getGreeting()` returns time-of-day string, `getMotivation()` returns day-indexed phrase, `BCG_RANGES` array defines chart range options |
 | usePrayerTimes.js | Fetches from Aladhan API (method 2); reverse geocodes via Nominatim; calculates active prayer window (5min before to 10min after); polls every 30s; caches to localStorage |
+| useIslamicDayRollover.js | **The one trigger site for the Maghrib daily reset.** Mounted once in `AppShell.jsx` with `timings` from `usePrayerTimes`, so the reset fires on every `/app` route, not only the Prophetic Path page. On mount and every 60s calls `useIslamicDayStore.rolloverIfMaghribCrossed` with two hooks: `resetDailyCadenceTasks` (task-store) and `resetDailyCeremonies(DAILY_CEREMONY_MODULES)` (threshold-store). Exports pure `islamicDayPivotMs(timings, now)`: today's Maghrib, or **local midnight when timings are absent or unparseable**, so a day never passes without a reset (one extra reset is possible on the day the fallback gives way to a real Maghrib). Tests in `__tests__/useIslamicDayRollover.test.js` |
 
 ## Services
 

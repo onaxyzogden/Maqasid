@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { useToastStore } from './toast-store';
-import { safeGetJSON, safeSet } from '../services/storage';
+import { safeGetJSON, safeSet, listKeys } from '../services/storage';
 import { genTaskId, genSubtaskId, genCheckId, genAttachmentId } from '../services/id';
 import { hydrateTasks, stripSeedFields, preloadBoardSeeds } from '../services/seed-hydrator';
 import { resolveSubmoduleFromProject } from '../data/maqasid-resolve';
@@ -528,29 +528,52 @@ export const useTaskStore = create((set, get) => ({
 
     const projects = useProjectStore.getState().projects;
     const next = { ...s.tasksByProject };
-    for (const [projectId, tasks] of Object.entries(s.tasksByProject)) {
+    // Boards load lazily, so at rollover most prayer boards are not in memory.
+    // Walk every persisted daily board too and reset it in storage, so the
+    // board is already clean when it is first opened on the new day.
+    const boards = Object.entries(s.tasksByProject);
+    for (const key of listKeys('tasks_')) {
+      const projectId = key.slice('tasks_'.length);
+      if (!isDailyProject(projectId) || projectId in s.tasksByProject) continue;
+      boards.push([projectId, safeGetJSON(`tasks_${projectId}`, [])]);
+    }
+    for (const [projectId, tasks] of boards) {
+      const loaded = projectId in s.tasksByProject;
       const project = projects.find((p) => p.id === projectId);
       const columns = project?.columns || [];
       const doneCol = columns.find((c) => c.name === 'Done' || c.id?.endsWith('_done'));
-      const todoCol = columns.find((c) => c !== doneCol) || null;
+      // Without a project record (a board persisted before its project), fall
+      // back to the board's conventional first column (project-store naming).
+      const todoColId = columns.find((c) => c !== doneCol)?.id ?? `col_${projectId}_to_do`;
       let touched = false;
+      // A new Islamic day starts every step clean: ticked, "Doesn't apply" and
+      // "Not now" (snoozed) alike. A task finished yesterday — in Done, or
+      // carrying completedAt — goes back to the first column.
+      const isStale = (st) => st.done || st.notApplicable || st.snoozedUntilDayKey;
+      const clearStep = (st) => {
+        if (!isStale(st)) return st;
+        const { snoozedUntilDayKey: _snooze, ...rest } = st;
+        return { ...rest, done: false, notApplicable: false };
+      };
       const updated = tasks.map((t) => {
         if (!isDailyTask(t, projectId)) return t;
-        const subtasks = (t.subtasks || []).map((st) => (st.done ? { ...st, done: false } : st));
+        const subtasks = (t.subtasks || []).map(clearStep);
         const subtasksChanged = subtasks.some((st, i) => st !== t.subtasks[i]);
-        const inDone = doneCol && t.columnId === doneCol.id;
-        if (!subtasksChanged && !inDone) return t;
+        const finished = (doneCol && t.columnId === doneCol.id) || !!t.completedAt;
+        const snoozed = !!t.snoozedUntilDayKey;
+        if (!subtasksChanged && !finished && !snoozed) return t;
         touched = true;
+        const { snoozedUntilDayKey: _taskSnooze, ...rest } = t;
         return {
-          ...t,
+          ...rest,
           subtasks,
-          ...(inDone && todoCol ? { columnId: todoCol.id, completedAt: null, order: 0 } : {}),
+          ...(finished ? { columnId: todoColId, completedAt: null, order: 0 } : {}),
           updatedAt: new Date().toISOString(),
         };
       });
       if (touched) {
         persistTasks(projectId, updated);
-        next[projectId] = updated;
+        if (loaded) next[projectId] = updated;
       }
     }
     return { tasksByProject: next };

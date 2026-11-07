@@ -28,7 +28,6 @@ import { useTaskStore } from '@store/task-store';
 import { useThresholdStore } from '@store/threshold-store';
 import { useFastingStore } from '@store/fasting-store';
 import { useTravelStore } from '@store/travel-store';
-import { useIslamicDayStore, DAILY_CEREMONY_MODULES } from '@store/islamic-day-store';
 import { usePrayerTimes } from '@hooks/usePrayerTimes';
 import { MODULES } from '@data/modules';
 import { MAQASID_PILLARS } from '@data/maqasid';
@@ -722,31 +721,6 @@ export default function PropheticPath({ variant }) {
     const id = setInterval(() => setEventTick((t) => t + 1), 60_000);
     return () => clearInterval(id);
   }, [travelStartedAt, travelEndedAt]);
-
-  // Maghrib daily-reset: when the Islamic day flips (Maghrib crosses), clear
-  // daily-cadence task state + ceremony completion so the new day begins
-  // fresh. Idempotent — the store no-ops if the key has not changed.
-  const rolloverIfMaghribCrossed = useIslamicDayStore((s) => s.rolloverIfMaghribCrossed);
-  useEffect(() => {
-    if (!timings?.Maghrib) return undefined;
-    const compute = () => {
-      const today = new Date();
-      const day = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-      const maghribMs = timeToMs(timings.Maghrib, day);
-      if (maghribMs == null) return;
-      rolloverIfMaghribCrossed({
-        maghribMs,
-        now: Date.now(),
-        hooks: [
-          () => useTaskStore.getState().resetDailyCadenceTasks(),
-          () => useThresholdStore.getState().resetDailyCeremonies(DAILY_CEREMONY_MODULES),
-        ],
-      });
-    };
-    compute();
-    const id = setInterval(compute, 60_000);
-    return () => clearInterval(id);
-  }, [timings?.Maghrib, rolloverIfMaghribCrossed]);
 
   const eventNodes = useMemo(() => {
     void eventTick;
