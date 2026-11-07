@@ -11,7 +11,7 @@ type: log
   - 18 new tests across three files, each seen red first. 706 tests pass; the 5 `src/services/__tests__/` files fail to load as before (`fake-indexeddb` missing).
   - Lint 0 errors (1 pre-existing warning), build clean.
   - Preview: Fajr → Before at 2/3, stale key forced from the dashboard, board reopened at 0/3 with Step A current. Key advanced with prayer times unavailable.
-- **Plan:** `.claude/plans/prayer-node-nightly-reset.md`. Branch `claude/prayer-node-nightly-reset-49ddf5` (worktree, not pushed).
+- **Plan:** `.claude/plans/prayer-node-nightly-reset.md`. Branch `claude/prayer-node-nightly-reset-49ddf5`, merged into `main` as onaxyzogden/Maqasid#84 (`4366c17`, 2026-11-07).
 - **Open:** one possible extra reset on the day a midnight fallback key gives way to a real Maghrib key (accepted). Double-prefixed `bbiz_bbiz_islamic_day_key` and four copies of the `timeToMs` parser left as found.
 
 ## [2026-11-01] session | Tahajjud step-less tasks visible
