@@ -68,6 +68,7 @@ The Shahada is split into two testimonies. Focus on the flow and the emphasis on
 *Wa ash-hadu anna Muhammadan Rasoolullah*
 
 * **Wa**: (Wa) — And
+* **Ash-hadu**: (Ash-ha-du) — I bear witness
 * **Anna**: (An-na) — That
 * **Muhammadan**: (Mu-ham-ma-dan) — Muhammad
 * **Rasoolullah**: (Ra-soo-lul-lah) — is the Messenger of Allah
