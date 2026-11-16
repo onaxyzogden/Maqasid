@@ -3,6 +3,22 @@ title: "Wiki Log"
 type: log
 ---
 
+## [2026-11-16] fix | MILOS — prayer banner no longer reappears after it is dismissed
+
+Operator: *"The prayer pop up keeps reappearing and obstructing user from being able to access the parts it appears on top of."* **Cause:** `handlePrayerDismiss` in `AppShell.jsx` was a `useCallback` with deps `[setPrayerLock]`, so it captured `currentPrayerName` from the first render (`null`). Each dismiss recorded `null` as the dismissed prayer and unlocked. The lock effect, which re-runs on `isPrayerLocked`, then re-locked at once, for the whole 15-minute window (5 min before to 10 min after). The ref was also lost on reload.
+
+- The dismiss handler now reads the name from `useThresholdStore.getState()` at dismiss time.
+- The dismissal is stored as `<local day>:<prayer>` in sessionStorage (`bbiz_prayer_dismissed`), so a reload in the same window keeps it dismissed; the next prayer and the next day still show.
+- **Verified in Chromium (390×844):** the clock was frozen 4 minutes before a seeded Dhuhr.
+
+  | | before | after |
+  |---|---|---|
+  | dismissed, 1.5 s later | back | gone |
+  | 1 min later | back | gone |
+  | after a reload | back | gone |
+
+  Asr's banner still appeared in its own window. `npm test` 852/852, lint and build green.
+
 ## [2026-11-07] session | BBOS Viability per candidate (named gates Limit 2)
 
 - **Problem:** the second Known limit of [[2026-10-19-bbos-named-gates]]: CRD-V1 held one set of Gates A–D and V2/V3 were free text, so the gate could not tell whether a handed-off candidate had failed a letter.

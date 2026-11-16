@@ -48,6 +48,18 @@ const MODULE_IDS = new Set(MODULES.map((m) => m.id));
 // project sub-paths like /app/work/:projectId/tasks — match by prefix.
 const PREFIX_ROUTES = Object.entries(MODULE_ROUTES);
 
+// Which prayer banner was dismissed, as "<local day>:<prayer>". Kept in
+// sessionStorage so a reload inside the same prayer window does not bring the
+// banner back; a new day or a different prayer no longer matches.
+const PRAYER_DISMISS_KEY = 'bbiz_prayer_dismissed';
+const prayerDismissKey = (name) => `${localDayKey()}:${name}`;
+function readDismissedPrayer() {
+  try { return sessionStorage.getItem(PRAYER_DISMISS_KEY); } catch { return null; }
+}
+function writeDismissedPrayer(value) {
+  try { sessionStorage.setItem(PRAYER_DISMISS_KEY, value); } catch { /* storage unavailable */ }
+}
+
 export default function AppShell() {
   const sidebarOpen = useAppStore((s) => s.sidebarOpen);
   const setSearchOpen = useAppStore((s) => s.setSearchOpen);
@@ -207,16 +219,15 @@ export default function AppShell() {
   // Maghrib daily-reset for every /app route (prayer boards, ceremonies).
   useIslamicDayRollover(timings);
 
-  // Prayer lock — triggers 5 min before prayer
-  const dismissedPrayerRef = useRef(null);
+  // Prayer lock — triggers 5 min before prayer. A dismissal holds for that
+  // prayer on that day, including across reloads (sessionStorage), so the
+  // banner never comes back within the same 15-minute window.
+  const dismissedPrayerRef = useRef(readDismissedPrayer());
 
   useEffect(() => {
-    if (activePrayer && !isPrayerLocked && valuesLayer === 'islamic' && dismissedPrayerRef.current !== activePrayer.name) {
+    const key = activePrayer ? prayerDismissKey(activePrayer.name) : null;
+    if (activePrayer && !isPrayerLocked && valuesLayer === 'islamic' && dismissedPrayerRef.current !== key) {
       setPrayerLock(true, activePrayer.name, activePrayer.msRemaining, activePrayer.prayerTimeMs);
-    }
-    // Reset dismissed ref when we move to a different prayer
-    if (!activePrayer) {
-      dismissedPrayerRef.current = null;
     }
     // reason: react only to prayer name change; setPrayerLock is stable
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -246,10 +257,15 @@ export default function AppShell() {
     // Non-blocking banner: dismissing means "keep working", so there's no resume
     // gate — the user never actually stepped away. Genuine away-time is still
     // handled by the inactivity resume elsewhere.
-    dismissedPrayerRef.current = currentPrayerName;
+    // Read the name from the store at dismiss time: a value captured by this
+    // memoised callback is the first render's (null), which re-locked the
+    // banner immediately after every dismiss (2026-11-16).
+    const name = useThresholdStore.getState().currentPrayerName;
+    if (name) {
+      dismissedPrayerRef.current = prayerDismissKey(name);
+      writeDismissedPrayer(dismissedPrayerRef.current);
+    }
     setPrayerLock(false, null, null);
-    // reason: currentPrayerName is read into a ref, intentionally not a dep
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setPrayerLock]);
 
   // Daily Niyyah Act gate
